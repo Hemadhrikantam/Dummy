@@ -4,6 +4,7 @@ class AppColors {
   static const Color primaryColor = Color(0xff0b0699);
   static const Color borderColor = Color(0xff0b0698);
   static const Color primaryColorLight = Color(0xffe1e1ef);
+  static const Color stepperColor = Color(0xFFA7581A);
   static const Color backGround = Color(0xffe1e1f0);
   static const Color backGround1 = Color(0xfffafafa);
   static const Color backGroundBlue = Color(0xffdbdaed);
@@ -15,50 +16,37 @@ class AppColors {
   static const Color lighterBlue = Color(0xff9AC2EA);
   static const Color blue = Color(0xff237AD2);
   static const LinearGradient activeButtonColor = LinearGradient(
-    colors: [
-      Color(0xffFF6344),
-      Color(0xffFFFFFF),
-      Color(0xff178A0C),
-    ],
+    colors: [Color(0xffFF6344), Color(0xffFFFFFF), Color(0xff178A0C)],
   );
   static const LinearGradient scaffoldBackgroundColor = LinearGradient(
-    colors: [
-      Color(0xffFF6344),
-      Color(0xff7E8A40),
-      Color(0xff00B13C),
-    ],
+    colors: [Color(0xffFF6344), Color(0xff7E8A40), Color(0xff00B13C)],
   );
   static LinearGradient transparentGradientColor = const LinearGradient(
     colors: [Color.fromARGB(255, 255, 255, 255)],
   );
+static const Color buttonBackground = Color(0xFFFFBA61);
+static const Color buttonTextColor = Color(0xFF6F3201);
 
-  static const LinearGradient splashScreenBackgroundColor = LinearGradient(
-    begin: Alignment.topLeft,
-    end: Alignment.bottomRight,
-    colors: [
-      Color(0xffF27022),
-      Color(0xffFFFFFF),
-      Color(0xffFFFFFF),
-      Color(0xff10823D),
-    ],
-  );
+  static const LinearGradient screenBackgroundColor = LinearGradient(
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+  colors: [
+    Color(0xFFFFEACF), // Light Peach
+    Color(0xFFFFD49E), // Soft Orange
+    Color(0xFFFFDDB0), // Light Coral
+    Color(0xFFF9E7CF), // Pale Cream
+  ],
+  stops: [0.0794, 0.2146, 0.7396, 0.9276],
+);
+
   static const LinearGradient bluePinkGradient = LinearGradient(
-    colors: [
-      Color(0xff0B0698),
-      Color(0xffFF1D74),
-    ],
+    colors: [Color(0xff0B0698), Color(0xffFF1D74)],
   );
   static const LinearGradient blueGradient = LinearGradient(
-    colors: [
-      Color(0xff066597),
-      Color(0xff051A8B),
-    ],
+    colors: [Color(0xff066597), Color(0xff051A8B)],
   );
   static const LinearGradient inActiveButtonColor = LinearGradient(
-    colors: [
-      Color(0xffbdbdbd),
-      Color(0xffbdbdbd),
-    ],
+    colors: [Color(0xffbdbdbd), Color(0xffbdbdbd)],
   );
 
   static const Color greenText = Color(0xff00b03b);

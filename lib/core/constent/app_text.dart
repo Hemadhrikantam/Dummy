@@ -16,23 +16,33 @@ class AppText {
   static String serverDown = 'Server Down';
   static String somethingWentWrong = 'Something Went Wrong';
 
-
   static String comingSoon = 'Coming Soon...';
   static String search = 'Search...';
+
+  //button text
+    static String continueBtn = 'Continue';
+
+
+  static String meetYourPet = 'Meet Your Pet!';
+  static String petsName = "Pet's Name";
 }
 
-
 class ErrorResponse {
-  static ErrorMessage socketException =
-      ErrorMessage(message: AppText.checkYourInternertConnection);
-  static ErrorMessage somthingWentWrong =
-      ErrorMessage(message: AppText.checkYourInternertConnection);
-  static ErrorMessage timeOutException =
-      ErrorMessage(message: AppText.tryAgainLater);
-  static ErrorMessage formatException =
-      ErrorMessage(message: AppText.badRequest);
+  static ErrorMessage socketException = ErrorMessage(
+    message: AppText.checkYourInternertConnection,
+  );
+  static ErrorMessage somthingWentWrong = ErrorMessage(
+    message: AppText.checkYourInternertConnection,
+  );
+  static ErrorMessage timeOutException = ErrorMessage(
+    message: AppText.tryAgainLater,
+  );
+  static ErrorMessage formatException = ErrorMessage(
+    message: AppText.badRequest,
+  );
   static ErrorMessage dioError = ErrorMessage(message: AppText.invalidRequest);
   static ErrorMessage sessionOut = ErrorMessage(message: AppText.sessionOut);
-  static ErrorMessage otherException =
-      ErrorMessage(message: AppText.somethingWentWrong);
+  static ErrorMessage otherException = ErrorMessage(
+    message: AppText.somethingWentWrong,
+  );
 }

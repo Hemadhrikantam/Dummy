@@ -1,15 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/styles.dart';
-import 'package:flutter/material.dart';
-
 
 class AppButton extends StatelessWidget {
   final void Function()? onPressed;
   final Widget name;
-  final Color? buttonColor;
   final bool? enable;
-  final Color? textColor;
-  final Color? borderColor;
   final double? fontSize;
   final FontWeight? fontWight;
   final double? width;
@@ -20,10 +16,7 @@ class AppButton extends StatelessWidget {
     super.key,
     this.onPressed,
     required this.name,
-    this.buttonColor,
     this.enable,
-    this.textColor,
-    this.borderColor,
     this.fontSize,
     this.fontWight,
     this.width,
@@ -33,55 +26,35 @@ class AppButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-        style: ButtonStyle(
-          shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: Styles.borderRadiusCircular20,
-              side: BorderSide(color: borderColor ?? Colors.transparent),
-            ),
+    return Container(
+      width: width,
+      height: 44,
+      decoration: BoxDecoration(
+        color: AppColors.buttonBackground,
+        borderRadius: Styles.borderRadiusCircular40,
+        border: Border.all(color: const Color(0x42A7581A), width: 1),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0xFFA75A1D),
+            offset: Offset(0, 4),
+            blurRadius: 0,
+            spreadRadius: 0,
           ),
-          backgroundColor:
-              WidgetStateProperty.all(buttonColor ?? AppColors.primaryColor),
-          elevation: WidgetStateProperty.all(enable ?? false ? 0 : 0),
+        ],
+      ),
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: Styles.borderRadiusCircular40,
+          ),
+          padding:
+              padding ??
+              const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
         ),
         onPressed: onPressed,
-        child: name);
-  }
-}
-
-class CustomTextButtonWithoutBorder extends StatelessWidget {
-  const CustomTextButtonWithoutBorder({
-    super.key,
-    required this.name,
-    this.radius = 5,
-    this.onPressed,
-    this.padding,
-    this.backgroundColor,
-    this.splashColor,
-    this.borderColor,
-    this.textColor,
-  });
-  final String name;
-  final double radius;
-  final Color? backgroundColor;
-  final Color? textColor;
-  final Color? borderColor;
-  final Color? splashColor;
-  final void Function()? onPressed;
-  final EdgeInsetsGeometry? padding;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: onPressed,
-      child: Text(
-        name,
-        style: TextStyle(
-          color: textColor ?? AppColors.primaryColor,
-          fontWeight: FontWeight.w500,
-          fontSize: 14,
-        ),
+        child: name,
       ),
     );
   }

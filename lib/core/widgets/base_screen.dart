@@ -13,28 +13,34 @@ import '../constent/app_colors.dart';
 import 'buttons/app_icon_button.dart';
 import 'custom_search_bar.dart';
 
+
 class MaterialBaseScreen extends StatelessWidget {
   const MaterialBaseScreen({required this.child, super.key});
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).unfocus();
-      },
-      child: Material(
-        color: AppColors.backGround1,
-        child: SafeArea(
-          child: Padding(
-            padding: Styles.edgeInsetsAll20,
-            child: child,
+    return Material(
+      child: GestureDetector(
+        onTap: () {
+          FocusScope.of(context).unfocus();
+        },
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: AppColors.screenBackgroundColor, 
+          ),
+          child: SafeArea(
+            child: Padding(
+              padding: Styles.edgeInsetsAll20,
+              child: child,
+            ),
           ),
         ),
       ),
     );
   }
 }
+
 
 class ScaffoldBaseScreen extends StatelessWidget {
   const ScaffoldBaseScreen({

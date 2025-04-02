@@ -97,7 +97,8 @@ class AppTextFormField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final needBorder = preffix != null ||
+    final needBorder =
+        preffix != null ||
         prefixIcon != null ||
         suffix != null ||
         sufixIcon != null;
@@ -116,19 +117,22 @@ class AppTextFormField extends StatelessWidget {
             prefixIconColor: prefixIconColor ?? AppColors.primaryColor,
             prefixIcon:
                 prefixIcon != null ? AppIcon(icon: prefixIcon!) : preffix,
-            suffixIcon: sufixIcon != null
-                ? GestureDetector(
-                    onTap: onTap, child: AppIcon(icon: sufixIcon!))
-                : suffix,
+            suffixIcon:
+                sufixIcon != null
+                    ? GestureDetector(
+                      onTap: onTap,
+                      child: AppIcon(icon: sufixIcon!),
+                    )
+                    : suffix,
             constraints: constraints ?? const BoxConstraints(maxHeight: 48),
             fillColor: fillColor ?? AppColors.white,
             filled: true,
             alignLabelWithHint: true,
             contentPadding: EdgeInsets.zero,
-            border: border ?? Styles.outlineInputBorderRadius10,
-            enabledBorder: border ?? Styles.outlineInputBorderRadius10,
-            focusedBorder: border ?? Styles.outlineInputBorderRadius10,
-            errorBorder: border ?? Styles.outlineInputBorderRadius10,
+            border: border ?? Styles.outlineInputBorderRadius50,
+            enabledBorder: border ?? Styles.outlineInputBorderRadius50,
+            focusedBorder: border ?? Styles.outlineInputBorderRadius50,
+            errorBorder: border ?? Styles.outlineInputBorderRadius50,
           ),
           textAlign: TextAlign.start,
           textAlignVertical: TextAlignVertical.center,
@@ -160,27 +164,44 @@ class AppTextFormField extends StatelessWidget {
               ),
               hintStyle: TextStyle(
                 fontStyle: FontStyle.normal,
-                color: AppColors.grey500,
+                color: AppColors.grey600,
                 fontWeight: FontWeight.w400,
                 fontSize: 14,
               ),
               contentPadding: EdgeInsets.only(
                 bottom: needBorder ? 12 : 0,
                 top: 10,
-                left: 10,
+                left: 20,
               ),
-              border: needBorder
-                  ? InputBorder.none
-                  : Styles.outlineInputBorderRadius10,
-              enabledBorder: needBorder
-                  ? InputBorder.none
-                  : Styles.outlineInputBorderRadius10,
-              focusedBorder: needBorder
-                  ? InputBorder.none
-                  : Styles.outlineInputBorderRadius10,
-              errorBorder: needBorder
-                  ? InputBorder.none
-                  : Styles.outlineInputBorderRadius10,
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(40),
+                borderSide: const BorderSide(color: AppColors.grey600),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(40),
+                borderSide: const BorderSide(color: AppColors.grey600),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(40),
+                borderSide: const BorderSide(color: AppColors.primaryColor),
+              ),
+              errorBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(40),
+                borderSide: const BorderSide(color: AppColors.textRed),
+              ),
+
+              // border: needBorder
+              //     ? InputBorder.none
+              //     : Styles.outlineInputBorderRadius50,
+              // enabledBorder: needBorder
+              //     ? InputBorder.none
+              //     : Styles.outlineInputBorderRadius50,
+              // focusedBorder: needBorder
+              //     ? InputBorder.none
+              //     : Styles.outlineInputBorderRadius50,
+              // errorBorder: needBorder
+              //     ? InputBorder.none
+              //     : Styles.outlineInputBorderRadius50,
             ),
             inputFormatters: inputFormatters,
             onFieldSubmitted: onFieldSubmitted,
@@ -201,9 +222,7 @@ class AppTextFormField extends StatelessWidget {
           Center(
             child: Text(
               '$errorText',
-              style: const TextStyle(
-                color: AppColors.textRed,
-              ),
+              style: const TextStyle(color: AppColors.textRed),
             ),
           ),
         if (!bottomGap!) Styles.gap15,
