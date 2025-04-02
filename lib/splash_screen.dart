@@ -23,16 +23,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return const LogoBaseScreen(
-        child: Center(
-      child: Column(
-        children: [
-          AppAssestsImage(
-            path: '',
-            boxFit: BoxFit.contain,
-          ),
-        ],
+      child: Center(
+        child: Column(
+          children: [AppAssestsImage(path: '', boxFit: BoxFit.contain)],
+        ),
       ),
-    ));
+    );
   }
 }
 
@@ -44,12 +40,7 @@ class LogoBaseScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: AppColors.white,
-      child: Stack(
-        alignment: Alignment.bottomCenter,
-        children: [
-          child,
-        ],
-      ),
+      child: Stack(alignment: Alignment.bottomCenter, children: [child]),
     );
   }
 }
