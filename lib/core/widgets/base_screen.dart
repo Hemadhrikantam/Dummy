@@ -15,9 +15,9 @@ import 'custom_search_bar.dart';
 
 
 class MaterialBaseScreen extends StatelessWidget {
-  const MaterialBaseScreen({required this.child, super.key});
+  const MaterialBaseScreen({required this.child, super.key, this.gradient});
   final Widget child;
-
+final Gradient? gradient;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -26,8 +26,8 @@ class MaterialBaseScreen extends StatelessWidget {
           FocusScope.of(context).unfocus();
         },
         child: Container(
-          decoration: const BoxDecoration(
-            gradient: AppColors.screenBackgroundColor, 
+          decoration:  BoxDecoration(
+            gradient:gradient?? AppColors.screenBackgroundColor, 
           ),
           child: SafeArea(
             child: Padding(

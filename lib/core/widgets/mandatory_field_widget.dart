@@ -1,3 +1,4 @@
+import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:flutter/material.dart';
 import '../constent/app_colors.dart';
 
@@ -12,7 +13,7 @@ class MandatoryFieldWidget extends StatelessWidget {
     return Text.rich(
       TextSpan(
         children: [
-          TextSpan(text: labelText),
+          TextSpan(text: labelText, style: context.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700)),
           if (required)
             const TextSpan(
               text: ' *',

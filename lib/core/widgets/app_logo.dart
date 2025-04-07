@@ -1,3 +1,4 @@
+import 'package:dummy/core/constent/image_resources.dart';
 import 'package:flutter/material.dart';
 
 import 'app_assets_image.dart';
@@ -10,7 +11,19 @@ class AppLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: size,
-      child: const AppAssestsImage(path: ''),
+      child:  AppAssestsImage(path: ImageResources.splashScreen),
+    );
+  }
+}
+class DummyLogo extends StatelessWidget {
+  const DummyLogo({super.key, this.size = 35});
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: size,
+      child:  AppAssestsImage(path: ImageResources.dummy),
     );
   }
 }

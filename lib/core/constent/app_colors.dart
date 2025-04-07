@@ -24,20 +24,33 @@ class AppColors {
   static LinearGradient transparentGradientColor = const LinearGradient(
     colors: [Color.fromARGB(255, 255, 255, 255)],
   );
-static const Color buttonBackground = Color(0xFFFFBA61);
-static const Color buttonTextColor = Color(0xFF6F3201);
+  static const Color buttonBackground = Color(0xFFFFBA61);
+  static const Color buttonTextColor = Color(0xFF6F3201);
+static const Color infoCardBackgroundColor = Color.fromARGB(98, 255, 186, 97);
 
   static const LinearGradient screenBackgroundColor = LinearGradient(
-  begin: Alignment.topLeft,
-  end: Alignment.bottomRight,
-  colors: [
-    Color(0xFFFFEACF), // Light Peach
-    Color(0xFFFFD49E), // Soft Orange
-    Color(0xFFFFDDB0), // Light Coral
-    Color(0xFFF9E7CF), // Pale Cream
-  ],
-  stops: [0.0794, 0.2146, 0.7396, 0.9276],
-);
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFFFFEACF),
+      Color(0xFFFFD49E),
+      Color(0xFFFFDDB0),
+      Color(0xFFF9E7CF),
+    ],
+    stops: [0.0794, 0.2146, 0.7396, 0.9276],
+  );
+
+  static const LinearGradient startPetscreenBackgroundColor = LinearGradient(
+    begin: Alignment.topRight,
+    end: Alignment.bottomRight,
+    colors: [
+      Color(0xFFFFEACF),
+      Color(0xFFFFD49E),
+      Color.fromARGB(255, 153, 150, 150),
+      Color.fromARGB(255, 22, 18, 18),
+    ],
+    stops: [0.0794, 0.2146, 0.7396, 0.9276],
+  );
 
   static const LinearGradient bluePinkGradient = LinearGradient(
     colors: [Color(0xff0B0698), Color(0xffFF1D74)],

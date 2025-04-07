@@ -1,5 +1,5 @@
 import 'package:dummy/core/constent/styles.dart';
-import 'package:dummy/core/widgets/back_button.dart';
+import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/core/widgets/lenear_progress_widget.dart';
 import 'package:flutter/material.dart';
 

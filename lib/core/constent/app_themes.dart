@@ -19,13 +19,15 @@ class AppThemes {
         overlayColor: WidgetStateProperty.all(AppColors.transparent),
         padding: WidgetStateProperty.all(Styles.edgeInsetsOnlyW25),
         backgroundColor: WidgetStateProperty.all(AppColors.primaryColor),
-        textStyle:
-            WidgetStateProperty.all(const TextStyle(color: AppColors.white)),
+        textStyle: WidgetStateProperty.all(
+          const TextStyle(color: AppColors.white),
+        ),
         shape: WidgetStateProperty.all(
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         ),
         side: WidgetStateProperty.all(
-            const BorderSide(color: AppColors.primaryColor)),
+          const BorderSide(color: AppColors.primaryColor),
+        ),
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -58,42 +60,54 @@ class AppThemes {
       ),
     ),
     textTheme: const TextTheme(
-      titleSmall: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+      titleSmall: TextStyle(
+        fontSize: 14,
+        fontWeight: FontWeight.w700,
+        fontFamily: 'SFProDisplay',
+      ),
       titleMedium: TextStyle(
         fontSize: 18.5,
         fontWeight: FontWeight.bold,
-        color: AppColors.primaryColor,
+        color: AppColors.buttonTextColor,
+        fontFamily: 'SFProDisplay',
       ),
       titleLarge: TextStyle(
         fontSize: 20,
-        fontWeight: FontWeight.w500,
-        color: AppColors.black,
+        fontWeight: FontWeight.w700,
+        color: AppColors.buttonTextColor,
+        fontFamily: 'SFProDisplay',
       ),
       labelMedium: TextStyle(
-        color: AppColors.black,
+        color: AppColors.buttonTextColor,
         fontWeight: FontWeight.w500,
         fontSize: 14,
+        fontFamily: 'SFProDisplay',
       ),
       labelLarge: TextStyle(
-        color: AppColors.white,
+        color: AppColors.buttonTextColor,
         fontWeight: FontWeight.w700,
         fontSize: 14,
+        fontFamily: 'SFProDisplay',
       ),
       labelSmall: TextStyle(
-        color: AppColors.primaryColor,
+        color: AppColors.buttonTextColor,
         fontSize: 12,
         fontWeight: FontWeight.w600,
+        fontFamily: 'SFProDisplay',
       ),
       headlineSmall: TextStyle(
+        color: AppColors.buttonTextColor,
         fontSize: 16,
         fontWeight: FontWeight.w400,
+        fontFamily: 'SFProDisplay',
       ),
 
       //
       bodyLarge: TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.w600,
-        color: AppColors.primaryColor,
+        color: AppColors.buttonTextColor,
+        fontFamily: 'SFProDisplay',
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -103,9 +117,7 @@ class AppThemes {
     ),
     listTileTheme: ListTileThemeData(
       tileColor: AppColors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(5),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
     ),
   );
 
@@ -123,13 +135,15 @@ class AppThemes {
         overlayColor: WidgetStateProperty.all(AppColors.transparent),
         padding: WidgetStateProperty.all(Styles.edgeInsetsOnlyW25),
         backgroundColor: WidgetStateProperty.all(AppColors.primaryColor),
-        textStyle:
-            WidgetStateProperty.all(const TextStyle(color: AppColors.white)),
+        textStyle: WidgetStateProperty.all(
+          const TextStyle(color: AppColors.white),
+        ),
         shape: WidgetStateProperty.all(
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         ),
         side: WidgetStateProperty.all(
-            const BorderSide(color: AppColors.primaryColor)),
+          const BorderSide(color: AppColors.primaryColor),
+        ),
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
@@ -200,9 +214,7 @@ class AppThemes {
     ),
     listTileTheme: ListTileThemeData(
       tileColor: AppColors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(5),
-      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
     ),
   );
 }

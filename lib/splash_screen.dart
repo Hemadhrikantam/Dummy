@@ -1,7 +1,7 @@
 import 'package:dummy/core/constent/app_colors.dart';
+import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
-import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart'
-    show MeetYourPetScreen;
+import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey.dart';
 import 'package:flutter/material.dart';
 
 import 'core/widgets/app_assets_image.dart';
@@ -18,18 +18,22 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      context.pushNamedAndRemoveUntil(MeetYourPetScreen.routeName);
+      context.pushNamedAndRemoveUntil(StartYourPetsJourney.routeName);
       // context.read<AuthBloc>().add(const AuthEvent.checkUser());
-      // context.read<AuthBloc>().add(const AuthEvent.storeInitialization());
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return const LogoBaseScreen(
+    return LogoBaseScreen(
       child: Center(
         child: Column(
-          children: [AppAssestsImage(path: '', boxFit: BoxFit.contain)],
+          children: [
+            AppAssestsImage(
+              path: ImageResources.splashScreen,
+              boxFit: BoxFit.fill,
+            ),
+          ],
         ),
       ),
     );

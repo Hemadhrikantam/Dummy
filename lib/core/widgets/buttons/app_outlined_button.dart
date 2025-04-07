@@ -2,7 +2,6 @@ import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:flutter/material.dart';
 
-
 class AppOutlinedButton extends StatelessWidget {
   const AppOutlinedButton({
     required this.name,
@@ -13,8 +12,8 @@ class AppOutlinedButton extends StatelessWidget {
     this.textColor,
     this.borderColor,
   });
-  final IconData? icon;
-  final String name;
+  final Widget? icon;
+  final Widget name;
   final double? width;
   final void Function()? onPressed;
   final Color? textColor;
@@ -23,14 +22,13 @@ class AppOutlinedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 38,
+      height: 44,
       width: width,
       child: OutlinedButton(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
-          side: BorderSide(
-            color: borderColor ?? AppColors.grey600,
-          ),
+          backgroundColor: AppColors.whiteShade,
+          side: BorderSide(color: borderColor ?? AppColors.grey600),
           shape: RoundedRectangleBorder(
             borderRadius: Styles.borderRadiusCircular25,
           ),
@@ -38,14 +36,9 @@ class AppOutlinedButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              icon,
-              size: 15,
-            ),
-            Styles.sizedBoxW04,
-            Text(
-              name,
-            ),
+            if (icon != null) icon??Styles.sizedBox,
+            if (icon != null) Styles.sizedBoxW04,
+           name,
           ],
         ),
       ),

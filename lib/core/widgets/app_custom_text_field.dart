@@ -18,7 +18,7 @@ class AppTextFormField extends StatelessWidget {
     this.fontSize,
     this.prefixIcon,
     this.sufixIcon,
-    this.isMandatory = true,
+    this.isMandatory = false,
     this.prefixIconColor,
     this.obscureText = false,
     this.contentPadding,
@@ -152,7 +152,7 @@ class AppTextFormField extends StatelessWidget {
               color: AppColors.black,
             ),
             decoration: InputDecoration(
-              hintText: hintText,
+              hintText: hintText ??'Enter',
               labelText: lableText,
               // errorText: errorText,
               enabled: enable,
