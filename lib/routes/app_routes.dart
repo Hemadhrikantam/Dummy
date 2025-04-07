@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import '../features/signup/presentation/pages/meet_your_pet_screen.dart';
 import '../features/signup/presentation/pages/notification_permission_page.dart';
 import '../features/signup/presentation/pages/premium/premium_page1.dart';
+import '../features/signup/presentation/pages/premium/remainder_page.dart';
+import '../features/signup/presentation/pages/premium/start_30_days_free_page1.dart';
 import '../features/signup/presentation/pages/upload_pet_photo_page.dart';
 import '../features/signup/presentation/pages/welcome_to_dummy_page.dart';
 
@@ -29,5 +31,7 @@ class AppRoutes {
     WelcomeToDummyPage.routeName: (_) => const WelcomeToDummyPage(),
     //premium
     PremiumPage1.routeName: (_) => const PremiumPage1(),
+    RemainderPage.routeName: (_) => const RemainderPage(),
+    Start30DaysFreePage1.routeName: (_) => const Start30DaysFreePage1(),
   };
 }

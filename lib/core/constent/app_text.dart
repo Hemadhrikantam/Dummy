@@ -28,6 +28,8 @@ class AppText {
   static String alreadyHaveAccount = 'Already have an account? Log in here.';
   static String startUsingDummy = 'Start Using Dummy';
   static String tryFor = 'Try for \$0.00';
+  static String continueForFree = 'Continue For Free';
+  static String start3Day1FreeTrail = 'Start 3 Day Free Trail';
 
   //signup
   static String meetYourPet = 'Meet Your Pet!';
@@ -84,6 +86,15 @@ class AppText {
   static String text5 = 'Ability to 3 Family Members & 3 Pets.';
   static String planInfo = 'Only \$4.99/month (billed annually at \$49.99)';
   static String rating = '4.8 Star Ratings';
+  static String weWillSendRemainder = "We'll send you a reminder before your free trail ends";
+  static String start30DayFreeTrail = "Start your 30 day FREE trail to continue";
+  static String monthly = 'Monthly';
+  static String monthlyPrice = "\$4.99";
+  static String yearly = "Yearly";
+  static String yearlyPrice = "\$49.99";
+  static String start3DayFreeTrail = 'Free 3 Days Trial';
+  static String start301DayFreeTrail = 'Free 30 Days Trial';
+  static String save20Percent = 'Save 20%';
 }
 
 class ErrorResponse {
