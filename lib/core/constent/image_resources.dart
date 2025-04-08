@@ -14,4 +14,5 @@ class ImageResources {
   static const String googleIcon = '$__icons/google_icon.png';
   static const String badgeIcon = '$__icons/premium_badge.png';
   static const String dog = '$images/dog.png';
+  static const String trackImg = '$images/track.png';
 }

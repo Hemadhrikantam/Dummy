@@ -36,6 +36,7 @@ class MonthlyYearlySelectionCard extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Container(
+            width: double.infinity,
             decoration:
                 isSelected
                     ? BoxDecoration(

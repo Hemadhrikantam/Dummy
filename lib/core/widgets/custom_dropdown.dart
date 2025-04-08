@@ -70,6 +70,9 @@ class CustomDropdownSearch extends StatelessWidget {
         if (title != '') Styles.gap6,
         DropdownSearch<DropItem>(
           asyncItems: onFind,
+          dropdownButtonProps: DropdownButtonProps(
+            icon: Icon(Icons.keyboard_arrow_down_outlined),
+          ),
           dropdownDecoratorProps: DropDownDecoratorProps(
             dropdownSearchDecoration: InputDecoration(
               contentPadding: Styles.edgeInsetsAll12,
@@ -120,7 +123,6 @@ class CustomDropdownSearch extends StatelessWidget {
           items: items,
           validator: validator,
           onChanged: onChanged,
-
           popupProps: PopupProps.modalBottomSheet(
             showSearchBox: true,
             isFilterOnline: true,

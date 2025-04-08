@@ -86,8 +86,10 @@ class AppText {
   static String text5 = 'Ability to 3 Family Members & 3 Pets.';
   static String planInfo = 'Only \$4.99/month (billed annually at \$49.99)';
   static String rating = '4.8 Star Ratings';
-  static String weWillSendRemainder = "We'll send you a reminder before your free trail ends";
-  static String start30DayFreeTrail = "Start your 30 day FREE trail to continue";
+  static String weWillSendRemainder =
+      "We'll send you a reminder before your free trail ends";
+  static String start30DayFreeTrail =
+      "Start your 30 day FREE trail to continue";
   static String monthly = 'Monthly';
   static String monthlyPrice = "\$4.99";
   static String yearly = "Yearly";
@@ -95,6 +97,22 @@ class AppText {
   static String start3DayFreeTrail = 'Free 3 Days Trial';
   static String start301DayFreeTrail = 'Free 30 Days Trial';
   static String save20Percent = 'Save 20%';
+  static String today = 'Today';
+  static String getInstantAccess =
+      'Get instant access and see how it can change your life.';
+  static String in15Days = 'In 15 days';
+  static String wellRemaindYou =
+      'We’ll remind you with an email or notification that your trial is ending.';
+  static String in30Days = 'In 30 days';
+  static String youWillBeCharged =
+      'You’ll be charged on June 14, cancel anytime before.';
+  static String dummyPremium = ' Dummy Premium!';
+  static String get = ' Get';
+  static String fiftyPercent = ' 50% OFF';
+  static String availableFor1hr = 'Available for 1 hour';
+  static String then = 'Then \$59.99';
+  static String withDummyPremium =
+      'With Dummy Premium, you get advanced health insights, unlimited tracking, and exclusive content for your cat or dog.';
 }
 
 class ErrorResponse {

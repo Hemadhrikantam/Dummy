@@ -6,31 +6,30 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/close_button_widget.dart';
+import 'package:dummy/features/signup/presentation/pages/premium/dummy_timer_page.dart';
 import 'package:dummy/features/signup/presentation/widgets/monthly_yearly_selection_card.dart';
 import 'package:dummy/features/signup/presentation/widgets/plan_info_widget.dart';
-import 'package:dummy/features/signup/presentation/widgets/premium_info_card.dart';
 import 'package:dummy/features/signup/presentation/widgets/rating_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'start_30_days_free_page2.dart';
+import '../../widgets/tracking_widget.dart';
 
-
-class Start30DaysFreePage1 extends StatefulWidget {
-  const Start30DaysFreePage1({super.key});
-  static const routeName = '/Start30DaysFreePage1';
+class Start30DaysFreePage2 extends StatefulWidget {
+  const Start30DaysFreePage2({super.key});
+  static const routeName = '/Start30DaysFreePage2';
 
   static Route<T> route<T>() {
     return MaterialPageRoute<T>(
-      builder: (context) => const Start30DaysFreePage1(),
+      builder: (context) => const Start30DaysFreePage2(),
       settings: const RouteSettings(name: routeName),
     );
   }
 
   @override
-  State<Start30DaysFreePage1> createState() => _Start30DaysFreePage1State();
+  State<Start30DaysFreePage2> createState() => _Start30DaysFreePage2State();
 }
 
-class _Start30DaysFreePage1State extends State<Start30DaysFreePage1> {
+class _Start30DaysFreePage2State extends State<Start30DaysFreePage2> {
   int selectedIndex = 0;
 
   @override
@@ -51,9 +50,8 @@ class _Start30DaysFreePage1State extends State<Start30DaysFreePage1> {
             ),
             textAlign: TextAlign.center,
           ),
-         
           Styles.gap20,
-          PremiumInfoCardWidget(),
+          TrackingWidget(),
           Styles.gap20,
           Padding(
             padding: Styles.edgeInsetsAll08,
@@ -97,7 +95,7 @@ class _Start30DaysFreePage1State extends State<Start30DaysFreePage1> {
               ),
             ),
             onPressed: () {
-             context.pushNamed(Start30DaysFreePage2.routeName);
+              context.pushNamed(DummyTimerPage.routeName);
             },
           ),
           Styles.gap15,

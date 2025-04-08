@@ -4,12 +4,12 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:flutter/material.dart';
 
 class PlanInfoWidget extends StatelessWidget {
-  const PlanInfoWidget({super.key});
-
+  const PlanInfoWidget({super.key, this.title});
+final String? title;
   @override
   Widget build(BuildContext context) {
     return Text(
-      AppText.planInfo,
+     title?? AppText.planInfo,
       style: context.textTheme.titleSmall?.copyWith(
         color: AppColors.buttonTextColor,
         fontWeight: FontWeight.w500,
