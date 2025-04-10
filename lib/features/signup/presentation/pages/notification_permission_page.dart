@@ -53,7 +53,29 @@ class NotificationPermissionPage extends StatelessWidget {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            onPressed: () {
+
+            onPressed: () async {
+              await showDialog(
+                context: context,
+                builder:
+                    (ctx) => AlertDialog(
+                      title: Text(AppText.allowNotificationTitle),
+                      content: Text(AppText.allowNotificationContent),
+                      actions: [
+                        TextButton(
+                          onPressed: () => Navigator.pop(ctx),
+                          child: Text(AppText.cancel),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(ctx);
+                            context.pushNamed(JoinDummy1Page.routeName);
+                          },
+                          child: Text(AppText.allow),
+                        ),
+                      ],
+                    ),
+              );
               context.pushNamed(JoinDummy1Page.routeName);
             },
           ),

@@ -82,7 +82,7 @@ class StartYourPetsJourney extends StatelessWidget {
         children: [
           AppAssestsImage(
             path: ImageResources.splashScreen,
-            boxFit: BoxFit.fill,
+            boxFit: BoxFit.cover,
           ),
         ],
       ),

@@ -1,3 +1,4 @@
+import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
@@ -33,13 +34,13 @@ class JoinDummy2Page extends StatelessWidget {
             AppText.joinDummyToday,
             style: context.textTheme.headlineLarge?.copyWith(
               fontWeight: FontWeight.w900,
-              fontSize: 28,
+              fontSize: 24,
             ),
           ),
-          Styles.gap15,
+          Styles.gap10,
           Text(
             AppText.letsCreateYopurAccount,
-            style: context.textTheme.titleSmall?.copyWith(fontSize: 13),
+            style: context.textTheme.bodyMedium?.copyWith(fontSize: 14),
           ),
           Styles.gap20,
           __YourName(),
@@ -64,6 +65,7 @@ class JoinDummy2Page extends StatelessWidget {
               AppText.alreadyHaveAccount,
               style: context.textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.w700,
+                //color: AppColors.white,
               ),
             ),
             onPressed: () {},

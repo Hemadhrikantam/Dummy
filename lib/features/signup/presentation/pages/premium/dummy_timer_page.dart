@@ -8,7 +8,7 @@ import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/close_button_widget.dart';
 import 'package:dummy/features/signup/presentation/widgets/plan_info_widget.dart';
-import 'package:dummy/features/signup/presentation/widgets/rating_widget.dart';
+//import 'package:dummy/features/signup/presentation/widgets/rating_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/timer_widget.dart';
@@ -109,7 +109,7 @@ class _DummyTimerPageState extends State<DummyTimerPage> {
           PlanInfoWidget(title: AppText.then),
           Styles.gap50,
           Styles.gap10,
-          const RatingWidget(),
+          //const RatingWidget(),
         ],
       ),
     );

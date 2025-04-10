@@ -88,7 +88,9 @@ class _Start30DaysFreePage2State extends State<Start30DaysFreePage2> {
           Styles.gap10,
           AppButton(
             name: Text(
-              AppText.start3Day1FreeTrail,
+              selectedIndex == 0
+                  ? AppText.start3DayFreeTrail
+                  : AppText.start301DayFreeTrail,
               style: context.textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.w700,
                 color: AppColors.buttonTextColor,
@@ -101,7 +103,7 @@ class _Start30DaysFreePage2State extends State<Start30DaysFreePage2> {
           Styles.gap15,
           PlanInfoWidget(),
           Styles.gap20,
-          RatingWidget(),
+          //RatingWidget(),
         ],
       ),
     );

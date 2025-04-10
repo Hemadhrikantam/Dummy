@@ -37,12 +37,19 @@ class AppAssestsImage extends StatelessWidget {
         // width: width,
         cacheHeight: cacheHeight,
         cacheWidth: cacheWidth,
-        errorBuilder:
-            (BuildContext context, Object exception, StackTrace? stackTrace) {
+        errorBuilder: (
+          BuildContext context,
+          Object exception,
+          StackTrace? stackTrace,
+        ) {
           return const SizedBox.shrink();
         },
-        frameBuilder: (BuildContext context, Widget child, int? frame,
-            bool wasSynchronouslyLoaded) {
+        frameBuilder: (
+          BuildContext context,
+          Widget child,
+          int? frame,
+          bool wasSynchronouslyLoaded,
+        ) {
           if (wasSynchronouslyLoaded) {
             return child;
           }
@@ -113,12 +120,19 @@ class AppFileImage extends StatelessWidget {
       width: width,
       cacheHeight: cacheHeight,
       cacheWidth: cacheWidth,
-      errorBuilder:
-          (BuildContext context, Object exception, StackTrace? stackTrace) {
+      errorBuilder: (
+        BuildContext context,
+        Object exception,
+        StackTrace? stackTrace,
+      ) {
         return Styles.sizedBox;
       },
-      frameBuilder: (BuildContext context, Widget child, int? frame,
-          bool wasSynchronouslyLoaded) {
+      frameBuilder: (
+        BuildContext context,
+        Widget child,
+        int? frame,
+        bool wasSynchronouslyLoaded,
+      ) {
         if (wasSynchronouslyLoaded) {
           return child;
         }
@@ -158,9 +172,7 @@ class AppNetworkImage extends StatelessWidget {
       memCacheWidth: cachedHeight,
       progressIndicatorBuilder: (_, value, DownloadProgress progress) {
         return const Center(
-          child: CircularProgressIndicator(
-            color: AppColors.primaryColor,
-          ),
+          child: CircularProgressIndicator(color: AppColors.primaryColor),
         );
       },
       errorWidget: (_, value, data) {

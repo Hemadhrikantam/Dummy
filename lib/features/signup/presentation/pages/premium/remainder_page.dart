@@ -60,7 +60,7 @@ class RemainderPage extends StatelessWidget {
           PlanInfoWidget(),
           Styles.gap100,
           Styles.gap100,
-          RatingWidget(),
+          //RatingWidget(),
         ],
       ),
     );

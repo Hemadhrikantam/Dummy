@@ -43,6 +43,8 @@ class PetInfoPage extends StatelessWidget {
           CustomDropdownSearch(items: [], title: AppText.age),
           Styles.gap20,
           CustomDropdownSearch(items: [], title: AppText.breed),
+          Styles.gap20,
+          CustomDropdownSearch(items: [], title: AppText.personalitytags),
           Styles.gap30,
           AppButton(
             name: Text(
@@ -56,7 +58,7 @@ class PetInfoPage extends StatelessWidget {
             },
           ),
           Styles.gap30,
-          InfoCard(title: AppText.dummyLovedHisPhoto),
+          //InfoCard(title: AppText.dummyLovedHisPhoto),
         ],
       ),
     );

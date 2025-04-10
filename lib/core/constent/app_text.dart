@@ -19,10 +19,17 @@ class AppText {
   static String comingSoon = 'Coming Soon...';
   static String search = 'Search...';
 
+  //Notification
+  static String allowNotificationTitle = "Allow Notifications";
+  static String allowNotificationContent =
+      "Do you want Dummy to send you reminders?";
+  static String cancel = "Cancel";
+  static String petPhotoUploadedContent = 'Looking good! Let’s move forward.';
+
   //button text
   static String continueBtn = 'Continue';
   static String allow = 'Allow';
-  static String maybeLater = 'MaybeLater';
+  static String maybeLater = 'Maybe Later';
   static String continueWithEmail = 'Continue With Email';
   static String continueWithGoogle = 'Continue With Google';
   static String alreadyHaveAccount = 'Already have an account? Log in here.';
@@ -54,6 +61,7 @@ class AppText {
       'The more we know about your pet, the better we can help!';
   static String age = 'Age';
   static String breed = 'Breed';
+  static String personalitytags = 'Personality Tags';
   static String dummyLovedHisPhoto =
       'Dummy loved his photo in his profile—add one for your pet!';
   static String stayOnTop = 'Stay on Top of Your Pet’s Care!';
@@ -89,7 +97,7 @@ class AppText {
   static String weWillSendRemainder =
       "We'll send you a reminder before your free trail ends";
   static String start30DayFreeTrail =
-      "Start your 30 day FREE trail to continue";
+      "Start your 30 day FREE trial to continue";
   static String monthly = 'Monthly';
   static String monthlyPrice = "\$4.99";
   static String yearly = "Yearly";

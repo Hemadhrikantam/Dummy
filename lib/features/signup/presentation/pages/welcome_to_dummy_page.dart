@@ -76,7 +76,9 @@ class _WelcomeToDummyPageState extends State<WelcomeToDummyPage> {
               ),
             ),
             onPressed: () {
-              AppAlert.showToast(message: '🎉 Wait pannunga adhuve next page pogum...😎');
+              AppAlert.showToast(
+                message: '🎉 Wait pannunga adhuve next page pogum...😎',
+              );
             },
           ),
           // Styles.gap15,

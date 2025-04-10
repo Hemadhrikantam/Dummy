@@ -14,7 +14,6 @@ import 'package:flutter/material.dart';
 
 import 'start_30_days_free_page2.dart';
 
-
 class Start30DaysFreePage1 extends StatefulWidget {
   const Start30DaysFreePage1({super.key});
   static const routeName = '/Start30DaysFreePage1';
@@ -51,7 +50,7 @@ class _Start30DaysFreePage1State extends State<Start30DaysFreePage1> {
             ),
             textAlign: TextAlign.center,
           ),
-         
+
           Styles.gap20,
           PremiumInfoCardWidget(),
           Styles.gap20,
@@ -97,13 +96,13 @@ class _Start30DaysFreePage1State extends State<Start30DaysFreePage1> {
               ),
             ),
             onPressed: () {
-             context.pushNamed(Start30DaysFreePage2.routeName);
+              context.pushNamed(Start30DaysFreePage2.routeName);
             },
           ),
           Styles.gap15,
           PlanInfoWidget(),
           Styles.gap20,
-          RatingWidget(),
+          //RatingWidget(),
         ],
       ),
     );
