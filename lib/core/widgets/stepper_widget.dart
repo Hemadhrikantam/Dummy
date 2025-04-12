@@ -1,7 +1,7 @@
 import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/widgets/buttons/back_button.dart';
 //import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/core/widgets/lenear_progress_widget.dart';
-import 'package:dummy/features/signup/presentation/widgets/custom_back_button_widget.dart';
 import 'package:flutter/material.dart';
 
 class StepperWidget extends StatelessWidget {
@@ -11,7 +11,7 @@ class StepperWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CustomBackButton(),
+        BackButtonWidget(),
         Styles.gap10,
         LenearProgressWidget(currentScreenIndex: currentScreenIndex),
       ],

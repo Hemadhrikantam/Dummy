@@ -1,3 +1,4 @@
+import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy1_page.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy2_page.dart'
     show JoinDummy2Page;
@@ -37,5 +38,9 @@ class AppRoutes {
     Start30DaysFreePage1.routeName: (_) => const Start30DaysFreePage1(),
     Start30DaysFreePage2.routeName: (_) => const Start30DaysFreePage2(),
     DummyTimerPage.routeName: (_) => const DummyTimerPage(),
+
+    //dashboard
+        DashboardPage.routeName: (_) => const DashboardPage(),
+
   };
 }

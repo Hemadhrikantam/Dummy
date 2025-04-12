@@ -18,6 +18,10 @@ class AppText {
 
   static String comingSoon = 'Coming Soon...';
   static String search = 'Search...';
+  static String home = 'Home';
+  static String health = 'Health';
+  static String dailyCare = 'Daily Care';
+  static String addoption = 'Addoption';
 
   //Notification
   static String allowNotificationTitle = "Allow Notifications";

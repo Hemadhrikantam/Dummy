@@ -26,7 +26,7 @@ class _UploadPetPhotoPageState extends State<UploadPetPhotoPage> {
 
   @override
   Widget build(BuildContext context) {
-    final isImageUploaded = selectedImage != null;
+    // final isImageUploaded = selectedImage != null;
 
     return MaterialBaseScreen(
       child: Column(
@@ -91,12 +91,9 @@ class _UploadPetPhotoPageState extends State<UploadPetPhotoPage> {
                 fontWeight: FontWeight.w700,
               ),
             ),
-            onPressed:
-                isImageUploaded
-                    ? () {
-                      context.pushNamed(PetInfoPage.routeName);
-                    }
-                    : null, // disables button if false
+            onPressed: () {
+              context.pushNamed(PetInfoPage.routeName);
+            },
           ),
           Styles.gap15,
           AppOutlinedButton(

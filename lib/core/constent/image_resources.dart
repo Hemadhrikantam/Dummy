@@ -15,4 +15,6 @@ class ImageResources {
   static const String badgeIcon = '$__icons/premium_badge.png';
   static const String dog = '$images/dog.png';
   static const String trackImg = '$images/track.png';
+  static const String backImg = '$images/back.png';
+  static const String ai = '$__icons/ai.png';
 }

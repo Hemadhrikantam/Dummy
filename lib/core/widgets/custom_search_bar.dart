@@ -28,7 +28,6 @@ class SearchButton extends StatelessWidget {
         Iconsax.search_normal,
         color: AppColors.primaryColor,
       ),
-      bottomGap: true,
       onChanged: onChanged,
       suffix: suffix,
     );
