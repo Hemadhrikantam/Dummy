@@ -1,4 +1,3 @@
-
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
@@ -13,11 +12,10 @@ import '../constent/app_colors.dart';
 import 'buttons/app_icon_button.dart';
 import 'custom_search_bar.dart';
 
-
 class MaterialBaseScreen extends StatelessWidget {
   const MaterialBaseScreen({required this.child, super.key, this.gradient});
   final Widget child;
-final Gradient? gradient;
+  final Gradient? gradient;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -26,21 +24,17 @@ final Gradient? gradient;
           FocusScope.of(context).unfocus();
         },
         child: Container(
-          decoration:  BoxDecoration(
-            gradient:gradient?? AppColors.screenBackgroundColor, 
+          decoration: BoxDecoration(
+            gradient: gradient ?? AppColors.screenBackgroundColor,
           ),
           child: SafeArea(
-            child: Padding(
-              padding: Styles.edgeInsetsAll20,
-              child: child,
-            ),
+            child: Padding(padding: Styles.edgeInsetsAll20, child: child),
           ),
         ),
       ),
     );
   }
 }
-
 
 class ScaffoldBaseScreen extends StatelessWidget {
   const ScaffoldBaseScreen({
@@ -72,22 +66,23 @@ class ScaffoldBaseScreen extends StatelessWidget {
                 Text(
                   title,
                   style: const TextStyle(
-                      fontSize: 18, fontWeight: FontWeight.w600),
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
                 Text(
                   subTitle ?? '',
                   style: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.w400),
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
               ],
             ),
           ),
           toolbarHeight: 50,
         ),
-        body: Padding(
-          padding: Styles.edgeInsetsAll20,
-          child: child,
-        ),
+        body: Padding(padding: Styles.edgeInsetsAll20, child: child),
       ),
     );
   }
@@ -119,10 +114,7 @@ class ScaffoldBaseScreenWithTabBar extends StatelessWidget {
           ),
           bottom: bottom,
         ),
-        body: Padding(
-          padding: Styles.edgeInsetsAll20,
-          child: child,
-        ),
+        body: Padding(padding: Styles.edgeInsetsAll20, child: child),
       ),
     );
   }
@@ -178,37 +170,36 @@ class MaterialTitleBaseScreen extends StatelessWidget {
                 automaticallyImplyLeading: false,
                 leadingWidth: double.infinity,
                 flexibleSpace: Container(
-                    // decoration: const BoxDecoration(
-                    //   gradient: AppColors.scaffoldBackgroundColor,
-                    // ),
-                    ),
+                  // decoration: const BoxDecoration(
+                  //   gradient: AppColors.scaffoldBackgroundColor,
+                  // ),
+                ),
                 floating: true,
                 pinned: true,
                 snap: true,
                 toolbarHeight: 70,
                 expandedHeight: expandedHeight,
-                leading: onlyTitle
-                    ? CustomAppBarTitle(
-                        suffixIcon: sufficIcon,
-                        title: title,
-                        showBackIcon: showBackIcon,
-                        filterOnTap: filterOnTap,
-                      )
-                    : CustomAppBar(
-                        title: title,
-                        subTitle: subtTtle,
-                        showBackIcon: showBackIcon,
-                        onBack: onBack,
-                      ),
-                bottom: bottom ??
+                leading:
+                    onlyTitle
+                        ? CustomAppBarTitle(
+                          suffixIcon: sufficIcon,
+                          title: title,
+                          showBackIcon: showBackIcon,
+                          filterOnTap: filterOnTap,
+                        )
+                        : CustomAppBar(
+                          title: title,
+                          subTitle: subtTtle,
+                          showBackIcon: showBackIcon,
+                          onBack: onBack,
+                        ),
+                bottom:
+                    bottom ??
                     PreferredSize(
-                      preferredSize: Size(
-                        context.width,
-                        context.height * .08,
-                      ),
+                      preferredSize: Size(context.width, context.height * .08),
                       child: Padding(
-                        padding: Styles.edgeInsetsOnlyW20 +
-                            Styles.edgeInsetsAll10,
+                        padding:
+                            Styles.edgeInsetsOnlyW20 + Styles.edgeInsetsAll10,
                         child: SearchButton(
                           hintText: AppText.search,
                           onChanged: onChanged,
@@ -277,51 +268,49 @@ class ScaffoldTitleBaseScreen extends StatelessWidget {
         floatingActionButtonLocation: floatingActionButtonLocation,
         appBar: AppBar(
           iconTheme: const IconThemeData(color: AppColors.white, size: 35),
-          bottom: bottom ??
+          bottom:
+              bottom ??
               PreferredSize(
-                preferredSize: Size(
-                  context.width,
-                  context.height * .08,
-                ),
-                child: (hideSearch ?? false)
-                    ? Styles.sizedBox
-                    : Padding(
-                        padding: Styles.edgeInsetsOnlyW20 +
-                            Styles.edgeInsetsOnlyW20,
-                        child: InkWell(
-                          onTap: () {
-                            AppAlert.showToast(message: AppText.comingSoon);
-                          },
-                          child: SearchButton(
-                            hintText: AppText.search,
-                            onChanged: onChanged,
+                preferredSize: Size(context.width, context.height * .08),
+                child:
+                    (hideSearch ?? false)
+                        ? Styles.sizedBox
+                        : Padding(
+                          padding:
+                              Styles.edgeInsetsOnlyW20 +
+                              Styles.edgeInsetsOnlyW20,
+                          child: InkWell(
+                            onTap: () {
+                              AppAlert.showToast(message: AppText.comingSoon);
+                            },
+                            child: SearchButton(
+                              hintText: AppText.search,
+                              onChanged: onChanged,
+                            ),
                           ),
                         ),
-                      ),
               ),
           automaticallyImplyLeading: false,
           leadingWidth: double.infinity,
           toolbarHeight: 70,
-          leading: onlyTitle
-              ? CustomAppBarTitle(
-                  title: title,
-                  suffixIcon: suffixIcon,
-                  showBackIcon: showBackIcon,
-                  filterOnTap: filterOnTap,
-                )
-              : CustomAppBar(
-                  title: title,
-                  subTitle: subTitle,
-                  showBackIcon: showBackIcon,
-                  onBack: onBack,
-                  showImage: showImage,
-                ),
+          leading:
+              onlyTitle
+                  ? CustomAppBarTitle(
+                    title: title,
+                    suffixIcon: suffixIcon,
+                    showBackIcon: showBackIcon,
+                    filterOnTap: filterOnTap,
+                  )
+                  : CustomAppBar(
+                    title: title,
+                    subTitle: subTitle,
+                    showBackIcon: showBackIcon,
+                    onBack: onBack,
+                    showImage: showImage,
+                  ),
         ),
         // bottomNavigationBar: bottom,
-        body: Padding(
-          padding: padding ?? Styles.edgeInsetsAll15,
-          child: child,
-        ),
+        body: Padding(padding: padding ?? Styles.edgeInsetsAll15, child: child),
       ),
     );
   }
@@ -365,10 +354,7 @@ class CustomAppBar extends StatelessWidget {
               },
               child: const CircleAvatar(
                 radius: 24,
-                child: Icon(
-                  Iconsax.user,
-                  color: AppColors.white,
-                ),
+                child: Icon(Iconsax.user, color: AppColors.white),
               ),
             ),
           Styles.gap10,
@@ -384,18 +370,20 @@ class CustomAppBar extends StatelessWidget {
                       Text(
                         title,
                         style: const TextStyle(
-                            fontSize: 14,
-                            color: AppColors.grey600,
-                            fontWeight: FontWeight.w500),
+                          fontSize: 14,
+                          color: AppColors.grey600,
+                          fontWeight: FontWeight.w500,
+                        ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
                       Text(
                         subTitle,
                         style: const TextStyle(
-                            fontSize: 14,
-                            color: AppColors.black,
-                            fontWeight: FontWeight.w500),
+                          fontSize: 14,
+                          color: AppColors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -421,12 +409,13 @@ class CustomAppBar extends StatelessWidget {
 }
 
 class CustomAppBarTitle extends StatelessWidget {
-  const CustomAppBarTitle(
-      {required this.title,
-      super.key,
-      this.showBackIcon = true,
-      this.suffixIcon,
-      this.filterOnTap});
+  const CustomAppBarTitle({
+    required this.title,
+    super.key,
+    this.showBackIcon = true,
+    this.suffixIcon,
+    this.filterOnTap,
+  });
   final bool showBackIcon;
   final String title;
   final bool? suffixIcon;
@@ -451,9 +440,7 @@ class CustomAppBarTitle extends StatelessWidget {
           Expanded(
             child: Text(
               title,
-              style: const TextStyle(
-                fontSize: 20,
-              ),
+              style: const TextStyle(fontSize: 20),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),

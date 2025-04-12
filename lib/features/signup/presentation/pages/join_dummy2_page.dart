@@ -1,14 +1,14 @@
-import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
-import 'package:dummy/core/widgets/buttons/back_button.dart';
+//import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/features/signup/presentation/pages/welcome_to_dummy_page.dart';
+import 'package:dummy/features/signup/presentation/widgets/custom_back_button_widget.dart';
 import 'package:flutter/material.dart';
 part '../widgets/join_dummy_fields.dart';
 
@@ -28,7 +28,7 @@ class JoinDummy2Page extends StatelessWidget {
     return MaterialBaseScreen(
       child: ListView(
         children: [
-          Row(children: [BackButtonWidget()]),
+          Row(children: [CustomBackButton()]),
           Styles.gap20,
           Text(
             AppText.joinDummyToday,

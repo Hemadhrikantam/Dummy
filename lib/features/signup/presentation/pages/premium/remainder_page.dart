@@ -8,7 +8,6 @@ import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/close_button_widget.dart';
 import 'package:dummy/features/signup/presentation/widgets/plan_info_widget.dart';
-import 'package:dummy/features/signup/presentation/widgets/rating_widget.dart';
 import 'package:flutter/material.dart';
 
 import 'start_30_days_free_page1.dart';

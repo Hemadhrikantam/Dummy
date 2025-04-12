@@ -59,7 +59,7 @@ class AppText {
   static String tellUsYourPetType = 'Tell Us About Your [Pet Type]!';
   static String theMoreAboutPet =
       'The more we know about your pet, the better we can help!';
-  static String age = 'Age';
+  static String age = 'Date Of Birth';
   static String breed = 'Breed';
   static String personalitytags = 'Personality Tags';
   static String dummyLovedHisPhoto =

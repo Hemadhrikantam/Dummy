@@ -107,6 +107,9 @@ class _UploadPetPhotoPageState extends State<UploadPetPhotoPage> {
                 color: AppColors.buttonTextColor,
               ),
             ),
+            onPressed: () {
+              context.pushNamed(PetInfoPage.routeName);
+            },
           ),
         ],
       ),

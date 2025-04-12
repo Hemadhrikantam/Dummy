@@ -4,7 +4,7 @@ import 'package:formz/formz.dart';
 
 class DropdownValue extends FormzInput<DropItem?, String> {
   const DropdownValue.pure() : super.pure(null);
-  const DropdownValue.dirty(DropItem value) : super.dirty(value);
+  const DropdownValue.dirty(DropItem super.value) : super.dirty();
 
   @override
   String? validator(DropItem? value) {

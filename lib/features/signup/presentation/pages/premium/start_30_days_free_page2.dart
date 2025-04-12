@@ -9,7 +9,6 @@ import 'package:dummy/core/widgets/buttons/close_button_widget.dart';
 import 'package:dummy/features/signup/presentation/pages/premium/dummy_timer_page.dart';
 import 'package:dummy/features/signup/presentation/widgets/monthly_yearly_selection_card.dart';
 import 'package:dummy/features/signup/presentation/widgets/plan_info_widget.dart';
-import 'package:dummy/features/signup/presentation/widgets/rating_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/tracking_widget.dart';
