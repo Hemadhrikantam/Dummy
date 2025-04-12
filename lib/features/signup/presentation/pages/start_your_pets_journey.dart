@@ -8,7 +8,6 @@ import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
-import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey2.dart';
 import 'package:flutter/material.dart';
 
 class StartYourPetsJourney extends StatelessWidget {
