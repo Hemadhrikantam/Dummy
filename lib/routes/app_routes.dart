@@ -1,6 +1,7 @@
 import 'package:dummy/features/signup/presentation/pages/join_dummy1_page.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy2_page.dart'
     show JoinDummy2Page;
+import 'package:dummy/features/signup/presentation/pages/overview_screen.dart';
 import 'package:dummy/features/signup/presentation/pages/pet_info_page.dart'
     show PetInfoPage;
 import 'package:dummy/features/signup/presentation/pages/pet_selection_page.dart';
@@ -37,5 +38,6 @@ class AppRoutes {
     Start30DaysFreePage1.routeName: (_) => const Start30DaysFreePage1(),
     Start30DaysFreePage2.routeName: (_) => const Start30DaysFreePage2(),
     DummyTimerPage.routeName: (_) => const DummyTimerPage(),
+    OverviewScreen.routeName:(_) => const OverviewScreen(),
   };
 }

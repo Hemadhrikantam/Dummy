@@ -1,6 +1,7 @@
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/custom_dropdown.dart';
+import 'package:dummy/features/signup/presentation/pages/overview_screen.dart';
 import 'package:dummy/features/signup/presentation/widgets/custom_date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dummy/core/constent/app_text.dart';
@@ -43,13 +44,7 @@ class PetInfoPage extends StatelessWidget {
           Text(AppText.theMoreAboutPet, style: context.textTheme.titleSmall),
           Styles.gap30,
           CustomDropdownSearch(items: [], title: AppText.age),
-          AppTextFormField(
-            headerText: AppText.age,
-            onTap: () {
-              CustomDatePicker();
-            },
-            sufixIcon: Iconsax.calendar,
-          ),
+
           Styles.gap20,
           CustomDropdownSearch(items: [], title: AppText.breed),
           Styles.gap20,
@@ -63,7 +58,7 @@ class PetInfoPage extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              context.pushNamed(NotificationPermissionPage.routeName);
+              context.pushNamed(OverviewScreen.routeName);
             },
           ),
           Styles.gap30,
