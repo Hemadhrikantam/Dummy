@@ -31,7 +31,7 @@ class _DashboardPage extends State<DashboardPage> {
     DailycarePage(),
     AddoptionPage(),
   ];
-  int selectedIndex = 1;
+  int selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
@@ -42,11 +42,11 @@ class _DashboardPage extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return PopScope(
-      canPop: selectedIndex == 1,
+      canPop: selectedIndex == 0,
       onPopInvoked: (didPop) {
         if (!didPop && selectedIndex != 0) {
           setState(() {
-            selectedIndex = 1;
+            selectedIndex = 0;
           });
         }
       },

@@ -17,4 +17,14 @@ class ImageResources {
   static const String trackImg = '$images/track.png';
   static const String backImg = '$images/back.png';
   static const String ai = '$__icons/ai.png';
+
+  //dashboard
+  static const String unselectedHome = '$__icons/unselected_home.png';
+  static const String home = '$__icons/home.png';
+  static const String unselectedHeart = '$__icons/unselected_heart.png';
+  static const String heart = '$__icons/heart.png';
+  static const String unselectedHealth = '$__icons/unselected_health.png';
+  static const String health = '$__icons/health.png';
+  static const String unselectedAddoption = '$__icons/unselected_addoption.png';
+  static const String addoption = '$__icons/addoption.png';
 }
