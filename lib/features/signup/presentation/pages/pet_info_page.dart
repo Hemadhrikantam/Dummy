@@ -1,8 +1,8 @@
 import 'package:dummy/core/extention/app_navigation.dart';
-import 'package:dummy/core/widgets/app_custom_text_field.dart';
+//import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/custom_dropdown.dart';
 import 'package:dummy/features/signup/presentation/pages/overview_screen.dart';
-import 'package:dummy/features/signup/presentation/widgets/custom_date_picker_widget.dart';
+//import 'package:dummy/features/signup/presentation/widgets/custom_date_picker_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
@@ -10,9 +10,9 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/stepper_widget.dart';
-import 'package:iconsax/iconsax.dart';
+//import 'package:iconsax/iconsax.dart';
 
-import 'notification_permission_page.dart';
+//import 'notification_permission_page.dart';
 
 class PetInfoPage extends StatelessWidget {
   const PetInfoPage({super.key});
