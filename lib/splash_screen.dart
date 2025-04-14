@@ -31,7 +31,7 @@ class _SplashScreenState extends State<SplashScreen> {
           children: [
             AppAssestsImage(
               path: ImageResources.splashScreen,
-              boxFit: BoxFit.contain,
+              boxFit: BoxFit.fill,
             ),
           ],
         ),

@@ -1,90 +1,39 @@
+
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'app_icon.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import 'mandatory_field_widget.dart';
 
 class AppTextFormField extends StatelessWidget {
-  const AppTextFormField({
-    super.key,
-    this.readOnly = false,
-    this.hintText,
-    this.headerText,
-    this.lableText,
-    this.icon,
-    this.borderRadius = 10,
-    this.heigth = 49,
-    this.fontSize,
-    this.prefixIcon,
-    this.sufixIcon,
-    this.isMandatory = false,
-    this.prefixIconColor,
-    this.obscureText = false,
-    this.contentPadding,
-    this.textAlign = TextAlign.start,
-    this.enable = true,
-    this.errorText,
-    this.suffix,
-    this.preffix,
-    this.preffixText,
-    this.initialValue,
-    this.controller,
-    this.maxLines = 1,
-    this.prefixSvgIconPath,
-    this.constraints,
-    this.sufixSvgIconPath,
-    this.maxLength,
-    this.inputFormatters,
-    this.textInputAction = TextInputAction.next,
-    this.onEditingComplete,
-    this.onFieldSubmitted,
-    this.keyboardType,
-    this.focusNode,
-    this.onChanged,
-    this.onSaved,
-    this.validator,
-    this.fillColor,
-    this.onSufixClick,
-    this.border,
-    this.onTap,
-    this.bottomGap = false,
-  });
   final String? hintText;
-  final String? lableText;
   final String? headerText;
   final IconData? icon;
   final Widget? suffix;
   final Widget? preffix;
   final String? preffixText;
   final String? errorText;
-  final String? prefixSvgIconPath;
-  final String? sufixSvgIconPath;
-  final IconData? prefixIcon;
-  final IconData? sufixIcon;
-  final Color? prefixIconColor;
-  final bool? readOnly;
-
   final double? fontSize;
 
   final double heigth;
-  final TextAlign? textAlign;
+  final TextAlign textAlign;
   final bool obscureText;
   final String? initialValue;
   final int? maxLength;
   final int maxLines;
-  final EdgeInsets? contentPadding;
+  final bool contentPedding;
   final bool enable;
+  final IconData? suffixIcon;
+  final bool? readOnly;
   final bool isMandatory;
-  final BoxConstraints? constraints;
-  final bool? bottomGap;
-
   final List<TextInputFormatter>? inputFormatters;
   final TextEditingController? controller;
   final double borderRadius;
-  final void Function(String value)? onChanged;
-  final void Function(String? value)? onSaved;
-  final void Function(String? value)? onFieldSubmitted;
+  final void Function(String)? onChanged;
+  final Function(String?)? onSaved;
+  final void Function(String?)? onFieldSubmitted;
   final void Function()? onEditingComplete;
   final void Function()? onTap;
   final String? Function(String?)? validator;
@@ -92,16 +41,53 @@ class AppTextFormField extends StatelessWidget {
   final TextInputType? keyboardType;
   final FocusNode? focusNode;
   final InputBorder? border;
-  final Color? fillColor;
-  final VoidCallback? onSufixClick;
+  final InputBorder? focusedBorder;
+  final bool? headerExtra;
+
+  const AppTextFormField({
+    super.key,
+    this.hintText,
+    this.headerText,
+    this.icon,
+    this.suffix,
+    this.preffix,
+    this.preffixText,
+    this.errorText,
+    this.fontSize,
+    this.heigth = 49,
+    this.textAlign = TextAlign.start,
+    this.obscureText = false,
+    this.initialValue,
+    this.maxLength,
+    this.maxLines = 1,
+    this.contentPedding = true,
+    this.enable = true,
+    this.suffixIcon,
+    this.readOnly,
+    this.inputFormatters,
+    this.controller,
+    this.borderRadius = 10,
+    this.onChanged,
+    this.onSaved,
+    this.onFieldSubmitted,
+    this.onEditingComplete,
+    this.onTap,
+    this.validator,
+    this.textInputAction,
+    this.keyboardType,
+    this.focusNode,
+    this.border,
+    this.focusedBorder,
+    this.headerExtra = false,
+    this.isMandatory = false,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final needBorder =
-        preffix != null ||
-        prefixIcon != null ||
-        suffix != null ||
-        sufixIcon != null;
+    double? boxHeight =
+        maxLines > 1
+            ? null
+            : (errorText != null || maxLength != null ? heigth + 25 : heigth);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -111,56 +97,43 @@ class AppTextFormField extends StatelessWidget {
             required: isMandatory,
           ),
         if (headerText != null) Styles.gap8,
-        InputDecorator(
-          expands: true,
-          decoration: InputDecoration(
-            prefixIconColor: prefixIconColor ?? AppColors.primaryColor,
-            prefixIcon:
-                prefixIcon != null ? AppIcon(icon: prefixIcon!) : preffix,
-            suffixIcon:
-                sufixIcon != null
-                    ? GestureDetector(
-                      onTap: onTap,
-                      child: AppIcon(icon: sufixIcon!),
-                    )
-                    : suffix,
-            constraints: constraints ?? const BoxConstraints(maxHeight: 48),
-            fillColor: fillColor ?? AppColors.white,
-            filled: true,
-            alignLabelWithHint: true,
-            contentPadding: EdgeInsets.zero,
-            border: border ?? Styles.outlineInputBorderRadius50,
-            enabledBorder: border ?? Styles.outlineInputBorderRadius50,
-            focusedBorder: border ?? Styles.outlineInputBorderRadius50,
-            errorBorder: border ?? Styles.outlineInputBorderRadius50,
-          ),
-          textAlign: TextAlign.start,
-          textAlignVertical: TextAlignVertical.center,
+        SizedBox(
+          height: boxHeight,
           child: TextFormField(
-            textAlign: textAlign ?? TextAlign.start,
-            onTap: onTap,
-            readOnly: readOnly ?? false,
             onTapOutside: (event) {
               FocusManager.instance.primaryFocus?.unfocus();
             },
+            readOnly: readOnly ?? false,
+            cursorColor: AppColors.primaryColor,
             maxLength: maxLength,
-            textAlignVertical: TextAlignVertical.center,
-            style: const TextStyle(
+            style: TextStyle(
               fontStyle: FontStyle.normal,
               fontWeight: FontWeight.w600,
               fontSize: 14,
               color: AppColors.black,
             ),
+            textAlign: textAlign,
             decoration: InputDecoration(
-              hintText: hintText ??'Enter',
-              labelText: lableText,
-              // errorText: errorText,
+              suffixIconColor: AppColors.primaryColor,
+              focusColor: AppColors.primaryColor,
+              prefixStyle: GoogleFonts.inter(color: AppColors.black),
+              prefixIcon: preffix,
+              floatingLabelAlignment: FloatingLabelAlignment.start,
+              fillColor: AppColors.white,
+              filled: true,
+              suffix: suffix,
+              prefixText: preffixText,
+              hintText: hintText ?? 'Enter',
+              errorText: errorText,
               enabled: enable,
               alignLabelWithHint: true,
-              labelStyle: const TextStyle(
-                fontStyle: FontStyle.normal,
-                fontWeight: FontWeight.w500,
-                fontSize: 14,
+              suffixIcon: Padding(
+                padding:Styles.edgeInsetsOnlyW15,
+                child: Icon(suffixIcon, color: AppColors.black,),
+              ),
+              suffixIconConstraints: const BoxConstraints(
+                minHeight: 24,
+                minWidth: 24,
               ),
               hintStyle: TextStyle(
                 fontStyle: FontStyle.normal,
@@ -168,44 +141,31 @@ class AppTextFormField extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 fontSize: 14,
               ),
-              contentPadding: EdgeInsets.only(
-                bottom: needBorder ? 12 : 0,
-                top: 10,
-                left: 20,
+              contentPadding: const EdgeInsets.symmetric(
+                vertical: 8,
+                horizontal: 20,
               ),
               border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(40),
+                borderRadius: Styles.borderRadiusCircular40,
                 borderSide: const BorderSide(color: AppColors.grey600),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(40),
+                borderRadius: Styles.borderRadiusCircular40,
                 borderSide: const BorderSide(color: AppColors.grey600),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(40),
+                borderRadius: Styles.borderRadiusCircular40,
                 borderSide: const BorderSide(color: AppColors.primaryColor),
               ),
               errorBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(40),
+                borderRadius: Styles.borderRadiusCircular40,
                 borderSide: const BorderSide(color: AppColors.textRed),
               ),
-
-              // border: needBorder
-              //     ? InputBorder.none
-              //     : Styles.outlineInputBorderRadius50,
-              // enabledBorder: needBorder
-              //     ? InputBorder.none
-              //     : Styles.outlineInputBorderRadius50,
-              // focusedBorder: needBorder
-              //     ? InputBorder.none
-              //     : Styles.outlineInputBorderRadius50,
-              // errorBorder: needBorder
-              //     ? InputBorder.none
-              //     : Styles.outlineInputBorderRadius50,
             ),
             inputFormatters: inputFormatters,
             onFieldSubmitted: onFieldSubmitted,
             onEditingComplete: onEditingComplete,
+            onTap: onTap,
             maxLines: maxLines,
             initialValue: initialValue,
             controller: controller,
@@ -218,14 +178,6 @@ class AppTextFormField extends StatelessWidget {
             validator: validator,
           ),
         ),
-        if (errorText != null)
-          Center(
-            child: Text(
-              '$errorText',
-              style: const TextStyle(color: AppColors.textRed),
-            ),
-          ),
-        if (!bottomGap!) Styles.gap15,
       ],
     );
   }
