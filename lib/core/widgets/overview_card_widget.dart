@@ -1,3 +1,8 @@
+import 'package:dummy/core/constent/app_colors.dart';
+import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/widgets/app_assets_image.dart';
+import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 
 class OverviewCard extends StatelessWidget {
@@ -18,26 +23,36 @@ class OverviewCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Card(
-        elevation: 2,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-        margin: const EdgeInsets.symmetric(vertical: 6),
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Row(
-            children: [
-              Image.asset(iconPath, height: 40),
-              const SizedBox(width: 12),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(title, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500)),
-                  const SizedBox(height: 4),
-                  Text(subtitle, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                ],
-              ),
-            ],
-          ),
+      child: CustomCard(
+        padding: Styles.edgeInsetsAll10,
+        borderRadius: Styles.borderRadiusCircular08,
+        child: Row(
+          children: [
+            AppAssestsImage(path: iconPath, height: 40, width: 37),
+            Styles.gap10,
+            Styles.gap2,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: context.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12,
+                    color: AppColors.grey500
+                  ),
+                ),
+                Styles.gap4,
+                Text(
+                  subtitle,
+                  style: context.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

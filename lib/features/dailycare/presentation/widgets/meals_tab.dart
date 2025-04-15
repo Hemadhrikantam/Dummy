@@ -1,25 +1,33 @@
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/widgets/buttons/overview_button.dart';
-import 'package:dummy/core/widgets/day_selector_widget.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/day_selector_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class GroomingTab extends StatefulWidget {
-  const GroomingTab({super.key});
+class MealsTab extends StatefulWidget {
+  const MealsTab({super.key});
 
   @override
-  State<GroomingTab> createState() => _GroomingTabState();
+  State<MealsTab> createState() => _MealsTabState();
 }
 
 DateTime? _selectedDay;
 
-class _GroomingTabState extends State<GroomingTab> {
-  final List<WalkItem> _walkItems = List.generate(
+class _MealsTabState extends State<MealsTab> {
+  final List<MealItem> _mealItems = List.generate(
     5,
-    (index) => WalkItem(
-      name: 'Bath',
+    (index) => MealItem(
+      name: 'Chicken & Rice',
+      imageUrls: ['assets/icons/dog_food.png', 'assets/icons/dog_food.png'],
       date: DateTime(2025, 3, 26).add(Duration(days: index)),
-      timeOfDay: ['tenth', 'Bath', 'Bath', 'Bath', 'Bath'][index],
+      timeOfDay:
+          [
+            'Breakfast',
+            'Breakfast',
+            'Breakfast',
+            'Breakfast',
+            'Breakfast',
+          ][index],
     ),
   );
 
@@ -49,9 +57,9 @@ class _GroomingTabState extends State<GroomingTab> {
           if (_selectedDay == null) Styles.gap10,
           Expanded(
             child: ListView.builder(
-              itemCount: _walkItems.length,
+              itemCount: _mealItems.length,
               itemBuilder: (context, index) {
-                final walkItem = _walkItems[index];
+                final mealItem = _mealItems[index];
                 return Card(
                   margin: const EdgeInsets.symmetric(
                     vertical: 8.0,
@@ -65,7 +73,7 @@ class _GroomingTabState extends State<GroomingTab> {
                           width: 40.0,
                           height: 40.0,
                           child: Image.asset(
-                            'assets/icons/grooming.png',
+                            'assets/icons/meals.png',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -75,32 +83,39 @@ class _GroomingTabState extends State<GroomingTab> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const Text(
-                                'Grooming',
+                                'Meals',
                                 style: TextStyle(
                                   fontSize: 12.0,
                                   color: Colors.grey,
                                 ),
                               ),
                               Text(
-                                walkItem.name,
+                                mealItem.name,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16.0,
                                 ),
                               ),
-                              // **REMOVE THIS WIDGET:**
-                              // Row(
-                              //   children:
-                              //       walkItem.imageUrls.map((url) => Padding(
-                              //             padding: const EdgeInsets.only(right: 4.0),
-                              //             child: SizedBox(
-                              //               width: 24.0,
-                              //               height: 24.0,
-                              //               child: Image.asset(url, fit: BoxFit.cover),
-                              //             ),
-                              //           ))
-                              //           .toList(),
-                              // ),
+                              Row(
+                                children:
+                                    mealItem.imageUrls
+                                        .map(
+                                          (url) => Padding(
+                                            padding: const EdgeInsets.only(
+                                              right: 4.0,
+                                            ),
+                                            child: SizedBox(
+                                              width: 24.0,
+                                              height: 24.0,
+                                              child: Image.asset(
+                                                url,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                        )
+                                        .toList(),
+                              ),
                             ],
                           ),
                         ),
@@ -109,19 +124,19 @@ class _GroomingTabState extends State<GroomingTab> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                              DateFormat('MM/dd/yyyy').format(walkItem.date),
+                              DateFormat('MM/dd/yyyy').format(mealItem.date),
                               style: const TextStyle(
                                 fontSize: 12.0,
                                 color: Colors.grey,
                               ),
                             ),
-                            // Text(
-                            //   walkItem.timeOfDay,
-                            //   style: const TextStyle(
-                            //     fontWeight: FontWeight.normal,
-                            //     fontSize: 14.0,
-                            //   ),
-                            // ),
+                            Text(
+                              mealItem.timeOfDay,
+                              style: const TextStyle(
+                                fontWeight: FontWeight.normal,
+                                fontSize: 14.0,
+                              ),
+                            ),
                           ],
                         ),
                       ],
@@ -137,10 +152,16 @@ class _GroomingTabState extends State<GroomingTab> {
   }
 }
 
-class WalkItem {
+class MealItem {
   final String name;
+  final List<String> imageUrls;
   final DateTime date;
   final String timeOfDay;
 
-  WalkItem({required this.name, required this.date, required this.timeOfDay});
+  MealItem({
+    required this.name,
+    required this.imageUrls,
+    required this.date,
+    required this.timeOfDay,
+  });
 }

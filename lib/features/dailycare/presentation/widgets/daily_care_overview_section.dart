@@ -1,7 +1,8 @@
-import 'package:dummy/core/widgets/deworming_tab.dart';
-import 'package:dummy/core/widgets/expenses_tab.dart';
-import 'package:dummy/core/widgets/grooming_tab.dart';
-import 'package:dummy/core/widgets/overview_header_widget.dart';
+import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/deworming_tab.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/expenses_tab.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/grooming_tab.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/overview_header_widget.dart';
 import 'package:dummy/core/widgets/walks_tab.dart';
 import 'package:flutter/material.dart';
 import 'overview_tab.dart';
@@ -36,7 +37,7 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
           selectedTab: selectedTab,
           onTabSelected: (tab) => setState(() => selectedTab = tab),
         ),
-        const SizedBox(height: 16),
+        Styles.gap15,
         if (selectedTab == 'Overview')
           const Expanded(child: OverviewTab())
         else if (selectedTab == 'Meals')
@@ -49,7 +50,6 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
           const Expanded(child: DewormingTab())
         else if (selectedTab == 'Expenses')
           const Expanded(child: ExpensesTab()),
-        // You will add more 'else if' conditions here for other tabs
       ],
     );
   }

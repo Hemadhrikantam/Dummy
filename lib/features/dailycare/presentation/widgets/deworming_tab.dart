@@ -1,25 +1,32 @@
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/widgets/buttons/overview_button.dart';
-import 'package:dummy/core/widgets/day_selector_widget.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/day_selector_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class ExpensesTab extends StatefulWidget {
-  const ExpensesTab({super.key});
+class DewormingTab extends StatefulWidget {
+  const DewormingTab({super.key});
 
   @override
-  State<ExpensesTab> createState() => _ExpensesTabState();
+  State<DewormingTab> createState() => _DewormingTabState();
 }
 
 DateTime? _selectedDay;
 
-class _ExpensesTabState extends State<ExpensesTab> {
+class _DewormingTabState extends State<DewormingTab> {
   final List<WalkItem> _walkItems = List.generate(
     5,
     (index) => WalkItem(
-      name: '\$20',
+      name: '03/26/2025',
       date: DateTime(2025, 3, 26).add(Duration(days: index)),
-      timeOfDay: ['Food', 'Food', 'Food', 'Food', 'Food'][index],
+      timeOfDay:
+          [
+            'Product name',
+            'Product name',
+            'Product name',
+            'Product name',
+            'Product name',
+          ][index],
     ),
   );
 
@@ -65,7 +72,7 @@ class _ExpensesTabState extends State<ExpensesTab> {
                           width: 40.0,
                           height: 40.0,
                           child: Image.asset(
-                            'assets/icons/expenses.png',
+                            'assets/icons/deworming.png',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -75,7 +82,7 @@ class _ExpensesTabState extends State<ExpensesTab> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const Text(
-                                'Amount',
+                                'Date',
                                 style: TextStyle(
                                   fontSize: 12.0,
                                   color: Colors.grey,

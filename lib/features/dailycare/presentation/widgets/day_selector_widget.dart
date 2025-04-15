@@ -1,3 +1,5 @@
+import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 
 import 'package:intl/intl.dart';
@@ -42,13 +44,8 @@ class _DaySelectorState extends State<DaySelector> {
     fontSize: 114,
   );
 
-  final double _itemWidth = 60.0;
+  final double _itemWidth = 80.0;
 
-  final double _itemHeight = 60.0;
-
-  final BorderRadius _borderRadius = const BorderRadius.all(
-    Radius.circular(15.0),
-  );
 
   //final EdgeInsetsGeometry _itemPadding = const EdgeInsets.all(8.0);
 
@@ -58,48 +55,37 @@ class _DaySelectorState extends State<DaySelector> {
     final textColor =
         isSelected ? _selectedTextStyle.color : _unselectedTextStyle.color;
 
-    return Container(
+    return SizedBox(
       width: _itemWidth,
-
-      height: _itemHeight,
-
-      //padding: _itemPadding,
-      decoration: BoxDecoration(
-        color: backgroundColor,
-
-        borderRadius: _borderRadius,
-
-        border: Border.all(
-          color: isSelected ? _selectedColor : Colors.grey.shade300,
-
-          width: 1.0,
-        ),
-      ),
-
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-
-        children: [
-          Text(
-            DateFormat('E').format(day).substring(0, 3),
-
-            style: TextStyle(color: textColor, fontSize: 10),
-          ),
-
-          const SizedBox(height: 4),
-
-          Text(
-            '${day.day}',
-
-            style: TextStyle(
-              color: textColor,
-
-              fontWeight: FontWeight.bold,
-
-              fontSize: 18,
+      child: CustomCard(
+        backgroundColor: backgroundColor,
+        padding: Styles.edgeInsetsAll15,
+        borderRadius: Styles.borderRadiusCircular08,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+        
+          children: [
+            Text(
+              DateFormat('E').format(day).substring(0, 3),
+        
+              style: TextStyle(color: textColor, fontSize: 10),
             ),
-          ),
-        ],
+        
+            Styles.gap4,
+        
+            Text(
+              '${day.day}',
+        
+              style: TextStyle(
+                color: textColor,
+        
+                fontWeight: FontWeight.bold,
+        
+                fontSize: 18,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

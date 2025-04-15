@@ -64,7 +64,7 @@ class _DashboardPage extends State<DashboardPage> {
           child: FloatingActionButton(
             backgroundColor: AppColors.stepperColor,
             elevation: 0,
-            onPressed: (){},
+            onPressed: () {},
             shape: RoundedRectangleBorder(
               side: const BorderSide(width: 3, color: AppColors.white),
               borderRadius: Styles.borderRadiusCircular50,

@@ -1,3 +1,5 @@
+import 'package:dummy/core/constent/image_resources.dart';
+import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:flutter/material.dart';
 
 class CustomHeaderWidget extends StatelessWidget {
@@ -5,27 +7,12 @@ class CustomHeaderWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MediaQuery.removePadding(
-      context: context,
-      removeTop: true, // removes default status bar padding
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 3),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset('assets/images/dummy.png', height: 45),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(30),
-              child: Image.asset(
-                'assets/images/dog.png',
-                height: 45,
-                width: 45,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ],
-        ),
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Image.asset(ImageResources.dashboardLogo, height: 45),
+        AppAssestsImage(path: ImageResources.dog, height: 45, width: 45),
+      ],
     );
   }
 }

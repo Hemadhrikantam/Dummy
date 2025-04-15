@@ -1,6 +1,6 @@
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/widgets/buttons/overview_button.dart';
-import 'package:dummy/core/widgets/day_selector_widget.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/day_selector_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 

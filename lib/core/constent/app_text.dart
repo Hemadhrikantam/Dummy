@@ -20,8 +20,9 @@ class AppText {
   static String search = 'Search...';
   static String home = 'Home';
   static String health = 'Health';
-  static String dailyCare = 'Daily Care';
+  static String dailyCare = 'Care';
   static String addoption = 'Addoption';
+  static String add = 'Add';
 
   //Notification
   static String allowNotificationTitle = "Allow Notifications";
@@ -125,6 +126,11 @@ class AppText {
   static String then = 'Then \$59.99';
   static String withDummyPremium =
       'With Dummy Premium, you get advanced health insights, unlimited tracking, and exclusive content for your cat or dog.';
+
+  //dashboard
+  //daily care
+  // .... put daily care related const text
+
 }
 
 class ErrorResponse {

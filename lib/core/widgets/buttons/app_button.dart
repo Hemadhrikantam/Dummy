@@ -9,6 +9,7 @@ class AppButton extends StatelessWidget {
   final double? fontSize;
   final FontWeight? fontWight;
   final double? width;
+  final double? height;
   final BorderRadiusGeometry? borderRadius;
   final EdgeInsetsGeometry? padding;
 
@@ -20,6 +21,7 @@ class AppButton extends StatelessWidget {
     this.fontSize,
     this.fontWight,
     this.width,
+    this.height,
     this.borderRadius = BorderRadius.zero,
     this.padding,
   });
@@ -28,7 +30,7 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      height: 44,
+      height:height?? 44,
       decoration: BoxDecoration(
         color: AppColors.buttonBackground,
         borderRadius: Styles.borderRadiusCircular40,

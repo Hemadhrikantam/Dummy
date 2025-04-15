@@ -1,33 +1,25 @@
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/widgets/buttons/overview_button.dart';
-import 'package:dummy/core/widgets/day_selector_widget.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/day_selector_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class MealsTab extends StatefulWidget {
-  const MealsTab({super.key});
+class ExpensesTab extends StatefulWidget {
+  const ExpensesTab({super.key});
 
   @override
-  State<MealsTab> createState() => _MealsTabState();
+  State<ExpensesTab> createState() => _ExpensesTabState();
 }
 
 DateTime? _selectedDay;
 
-class _MealsTabState extends State<MealsTab> {
-  final List<MealItem> _mealItems = List.generate(
+class _ExpensesTabState extends State<ExpensesTab> {
+  final List<WalkItem> _walkItems = List.generate(
     5,
-    (index) => MealItem(
-      name: 'Chicken & Rice',
-      imageUrls: ['assets/icons/dog_food.png', 'assets/icons/dog_food.png'],
+    (index) => WalkItem(
+      name: '\$20',
       date: DateTime(2025, 3, 26).add(Duration(days: index)),
-      timeOfDay:
-          [
-            'Breakfast',
-            'Breakfast',
-            'Breakfast',
-            'Breakfast',
-            'Breakfast',
-          ][index],
+      timeOfDay: ['Food', 'Food', 'Food', 'Food', 'Food'][index],
     ),
   );
 
@@ -57,9 +49,9 @@ class _MealsTabState extends State<MealsTab> {
           if (_selectedDay == null) Styles.gap10,
           Expanded(
             child: ListView.builder(
-              itemCount: _mealItems.length,
+              itemCount: _walkItems.length,
               itemBuilder: (context, index) {
-                final mealItem = _mealItems[index];
+                final walkItem = _walkItems[index];
                 return Card(
                   margin: const EdgeInsets.symmetric(
                     vertical: 8.0,
@@ -73,7 +65,7 @@ class _MealsTabState extends State<MealsTab> {
                           width: 40.0,
                           height: 40.0,
                           child: Image.asset(
-                            'assets/icons/meals.png',
+                            'assets/icons/expenses.png',
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -83,39 +75,32 @@ class _MealsTabState extends State<MealsTab> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               const Text(
-                                'Meals',
+                                'Amount',
                                 style: TextStyle(
                                   fontSize: 12.0,
                                   color: Colors.grey,
                                 ),
                               ),
                               Text(
-                                mealItem.name,
+                                walkItem.name,
                                 style: const TextStyle(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 16.0,
                                 ),
                               ),
-                              Row(
-                                children:
-                                    mealItem.imageUrls
-                                        .map(
-                                          (url) => Padding(
-                                            padding: const EdgeInsets.only(
-                                              right: 4.0,
-                                            ),
-                                            child: SizedBox(
-                                              width: 24.0,
-                                              height: 24.0,
-                                              child: Image.asset(
-                                                url,
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                          ),
-                                        )
-                                        .toList(),
-                              ),
+                              // **REMOVE THIS WIDGET:**
+                              // Row(
+                              //   children:
+                              //       walkItem.imageUrls.map((url) => Padding(
+                              //             padding: const EdgeInsets.only(right: 4.0),
+                              //             child: SizedBox(
+                              //               width: 24.0,
+                              //               height: 24.0,
+                              //               child: Image.asset(url, fit: BoxFit.cover),
+                              //             ),
+                              //           ))
+                              //           .toList(),
+                              // ),
                             ],
                           ),
                         ),
@@ -124,14 +109,14 @@ class _MealsTabState extends State<MealsTab> {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
                             Text(
-                              DateFormat('MM/dd/yyyy').format(mealItem.date),
+                              DateFormat('MM/dd/yyyy').format(walkItem.date),
                               style: const TextStyle(
                                 fontSize: 12.0,
                                 color: Colors.grey,
                               ),
                             ),
                             Text(
-                              mealItem.timeOfDay,
+                              walkItem.timeOfDay,
                               style: const TextStyle(
                                 fontWeight: FontWeight.normal,
                                 fontSize: 14.0,
@@ -152,16 +137,10 @@ class _MealsTabState extends State<MealsTab> {
   }
 }
 
-class MealItem {
+class WalkItem {
   final String name;
-  final List<String> imageUrls;
   final DateTime date;
   final String timeOfDay;
 
-  MealItem({
-    required this.name,
-    required this.imageUrls,
-    required this.date,
-    required this.timeOfDay,
-  });
+  WalkItem({required this.name, required this.date, required this.timeOfDay});
 }

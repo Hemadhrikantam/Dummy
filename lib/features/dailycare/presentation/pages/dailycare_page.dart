@@ -1,5 +1,6 @@
 // dailycare_page.dart
-import 'package:dummy/core/widgets/daily_care_overview_section.dart';
+import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/daily_care_overview_section.dart';
 import 'package:dummy/core/widgets/custom_header_widget.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/widgets/base_screen.dart';
@@ -18,10 +19,10 @@ class _DailycarePage extends State<DailycarePage> {
       child: Column(
         children: [
           CustomHeaderWidget(),
+          Styles.gap30,
           Expanded(
-            // Allow OverviewSection to take remaining vertical space
             child:
-                DailyCareOverviewSection(), // Ensure OverviewSection handles its scrolling internally if needed
+                DailyCareOverviewSection(), 
           ),
         ],
       ),
