@@ -1,5 +1,6 @@
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
+import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
@@ -40,9 +41,9 @@ class OverviewTab extends StatelessWidget {
             itemCount: 6,
             itemBuilder: (context, i) {
               return OverviewCard(
-                iconPath: 'assets/icons/meals.png',
-                title: 'Meals',
-                subtitle: '5 logged today', // Update as needed
+                iconPath: ImageResources.mealsicon,
+                title: AppText.meals,
+                subtitle: AppText.fiveloggedtoday,
                 onTap: () {},
               );
             },

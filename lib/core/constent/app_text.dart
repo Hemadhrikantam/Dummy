@@ -130,6 +130,27 @@ class AppText {
   //dashboard
   //daily care
   // .... put daily care related const text
+  static String overview = 'Overview';
+  static String meals = 'Meals';
+  static String fiveloggedtoday = '5 logged today';
+  static String chickenandrice = 'Chicken & Rice';
+  static String breakfast = 'Breakfast';
+  static String walks = 'Walks';
+  static String thirtyminsatpark = '30 mins at the park';
+  static String duration = 'Duration';
+  static String park = 'Park';
+  static String grooming = 'Grooming';
+  static String bath = 'Bath';
+  static String time = 'Time'; 
+  static String tenth = '10:00 AM';
+  static String deworming = 'Deworming';
+  static String productName = 'Product name';
+  static String dateGiven = 'Date Given';
+  static const String expenses = 'Expenses';
+  static const String amount = 'Amount';
+  static const String food = 'Food';
+  static const String category = 'Category';
+  
 
 }
 

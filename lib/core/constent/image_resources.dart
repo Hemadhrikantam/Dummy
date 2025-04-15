@@ -28,4 +28,13 @@ class ImageResources {
   static const String unselectedAddoption = '$__icons/unselected_addoption.png';
   static const String addoption = '$__icons/addoption.png';
   static const String dashboardLogo = '$__icons/dashboard_logo.png';
+
+  //daily care
+  static const String mealsicon = '$__icons/meals.png';
+  static const String mealsdagicon = '$__icons/dog_food.png';
+  static const String walksicon = 'assets/icons/walks.png';
+  static const String groomingicon = 'assets/icons/grooming.png';
+  static const String dewormingicon = 'assets/icons/deworming.png';
+   static const String expensesicon = 'assets/icons/expenses.png';
+
 }
