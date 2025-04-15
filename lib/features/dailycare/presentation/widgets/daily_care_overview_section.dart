@@ -37,7 +37,7 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
           selectedTab: selectedTab,
           onTabSelected: (tab) => setState(() => selectedTab = tab),
         ),
-        Styles.gap15,
+        Styles.gap10,
         if (selectedTab == 'Overview')
           const Expanded(child: OverviewTab())
         else if (selectedTab == 'Meals')

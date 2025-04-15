@@ -31,7 +31,7 @@ class OverviewTab extends StatelessWidget {
             ),
           ],
         ),
-        Styles.gap10,
+        Styles.gap15,
         CustomCard(
           child: AppCustomListViewBuilder(
             physics: NeverScrollableScrollPhysics(),
