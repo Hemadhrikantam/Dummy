@@ -10,8 +10,10 @@ class Styles {
   static const Size textButtonSize = Size(double.infinity, 40);
 
   static const textFormConstrain = BoxConstraints(minHeight: 40, maxHeight: 40);
-  static const textContentPadding =
-      EdgeInsets.symmetric(vertical: 6, horizontal: 8);
+  static const textContentPadding = EdgeInsets.symmetric(
+    vertical: 6,
+    horizontal: 8,
+  );
 
   static const gap0 = Gap(0);
 
@@ -22,6 +24,8 @@ class Styles {
   static const gap10 = Gap(10);
   static const gap15 = Gap(15);
   static const gap20 = Gap(20);
+  static const gap25 = Gap(25);
+
   static const gap30 = Gap(30);
   static const gap50 = Gap(50);
   static const gap80 = Gap(80);
@@ -66,12 +70,10 @@ class Styles {
   static const voterDividerGrey = Divider(color: AppColors.grey, height: 20);
   static const dividerHeight0 = Divider(color: AppColors.grey, height: 0);
   static const dividerTH2 = Divider(thickness: 2);
-  static const teamsDividerGrey = Divider(
-    color: AppColors.grey,
-    height: 5,
+  static const teamsDividerGrey = Divider(color: AppColors.grey, height: 5);
+  static const sliverdividerTH2 = SliverToBoxAdapter(
+    child: Divider(thickness: 2),
   );
-  static const sliverdividerTH2 =
-      SliverToBoxAdapter(child: Divider(thickness: 2));
 
   static SizedBox sizeBoxH({required double height}) {
     return SizedBox(height: height);
@@ -86,17 +88,27 @@ class Styles {
   static const edgeInsetsZero = EdgeInsets.zero;
   static const edgeInsetsAll02 = EdgeInsets.all(02);
   static const edgeInsetsOnlyBottom12 = EdgeInsets.only(bottom: 12);
-  static const edgeInsetsCard =
-      EdgeInsets.symmetric(horizontal: 20, vertical: 14);
-  static const edgeInsetsActivities =
-      EdgeInsets.symmetric(horizontal: 10, vertical: 4);
-  static const edgeInsetsProfile =
-      EdgeInsets.symmetric(horizontal: 10, vertical: 15);
-  static const edgeInsetsAppBar =
-      EdgeInsets.symmetric(vertical: 10, horizontal: 8);
+  static const edgeInsetsCard = EdgeInsets.symmetric(
+    horizontal: 20,
+    vertical: 14,
+  );
+  static const edgeInsetsActivities = EdgeInsets.symmetric(
+    horizontal: 10,
+    vertical: 4,
+  );
+  static const edgeInsetsProfile = EdgeInsets.symmetric(
+    horizontal: 10,
+    vertical: 15,
+  );
+  static const edgeInsetsAppBar = EdgeInsets.symmetric(
+    vertical: 10,
+    horizontal: 8,
+  );
   static const chip = EdgeInsets.symmetric(horizontal: 10, vertical: 3);
-  static const dashBoardCard =
-      EdgeInsets.symmetric(horizontal: 10, vertical: 2);
+  static const dashBoardCard = EdgeInsets.symmetric(
+    horizontal: 10,
+    vertical: 2,
+  );
   static const edgeInsetsAll04 = EdgeInsets.all(04);
   static const edgeInsetsAll06 = EdgeInsets.all(06);
   static const edgeInsetsAll08 = EdgeInsets.all(08);
@@ -158,14 +170,17 @@ class Styles {
 
   //
   static const visualCardBorderRadius = BorderRadius.only(
-      topLeft: Radius.circular(20), topRight: Radius.circular(20));
+    topLeft: Radius.circular(20),
+    topRight: Radius.circular(20),
+  );
 
   static const bottomDialog = RoundedRectangleBorder(
     borderRadius: BorderRadius.vertical(top: radiusCircular20),
   );
   // Decoration Underline input border
-  static const underlineInputBorder =
-      UnderlineInputBorder(borderSide: BorderSide(color: AppColors.white));
+  static const underlineInputBorder = UnderlineInputBorder(
+    borderSide: BorderSide(color: AppColors.white),
+  );
 
   static final inputBorderWithBorderRadius05 = OutlineInputBorder(
     borderSide: BorderSide(color: Colors.grey.shade400, width: 2),

@@ -132,6 +132,7 @@ class AppText {
   // .... put daily care related const text
   static String overview = 'Overview';
   static String meals = 'Meals';
+  static String meal = 'Meal';
   static String fiveloggedtoday = '5 logged today';
   static String chickenandrice = 'Chicken & Rice';
   static String breakfast = 'Breakfast';
@@ -141,17 +142,31 @@ class AppText {
   static String park = 'Park';
   static String grooming = 'Grooming';
   static String bath = 'Bath';
-  static String time = 'Time'; 
+  static String time = 'Time';
   static String tenth = '10:00 AM';
   static String deworming = 'Deworming';
   static String productName = 'Product name';
   static String date = 'Date';
-  static const String expenses = 'Expenses';
-  static const String amount = 'Amount';
-  static const String food = 'Food';
-  static const String category = 'Category';
-  
-
+  static String expenses = 'Expenses';
+  static String amount = 'Amount';
+  static String food = 'Food';
+  static String category = 'Category';
+  static String emptyDailyCareTitle =
+      "We don't have Luna's daily care data yet.";
+  static String emptyDailyCareSubtitleMeals =
+      "Start logging her meals to see a summary!";
+  static String timeOfMeal = 'Time of Meal';
+  static String birthday = 'Birthday';
+  static String mealType = 'Meal Type';
+  static String notes = 'Notes';
+  static String media = 'Media';
+  static const String tapHereToAddMedia = 'Tap Here To Add Media';
+  static String location = 'Location';
+  static const String save = 'Save';
+  static const String type = 'Type';
+  static const String frequency = 'Frequency';
+  static const String duedate = 'Due Date';
+  static const String reminder = 'Reminder';
 }
 
 class ErrorResponse {

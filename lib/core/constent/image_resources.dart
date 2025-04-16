@@ -36,5 +36,7 @@ class ImageResources {
   static const String groomingicon = 'assets/icons/grooming.png';
   static const String dewormingicon = 'assets/icons/deworming.png';
    static const String expensesicon = 'assets/icons/expenses.png';
+   static const String overviewaddpicture = 'assets/icons/T-shirt.png.png';
+   
 
 }

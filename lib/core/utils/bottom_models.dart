@@ -1,7 +1,8 @@
 import 'dart:io';
-import 'dart:ui';
 
 import 'package:dummy/core/constent/app_colors.dart';
+import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/add_meal_form.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -30,15 +31,15 @@ class BottomModels {
     );
   }
 
-  // static Future<T?> datePickerBottomSheet<T>(BuildContext context) {
-  //   return showModalBottomSheet<T>(
-  //     isScrollControlled: true,
-  //     backgroundColor: backgroundColor,
-  //     context: context,
-  //     shape: Styles.bottomDialog,
-  //     builder: (BuildContext context) {
-  //       return CustomDatePickerWidget();
-  //     },
-  //   );
-  // }
+  static Future<T?> addMealsBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddMealForm();
+      },
+    );
+  }
 }
