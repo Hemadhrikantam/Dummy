@@ -3,7 +3,7 @@ import 'package:dummy/features/dailycare/presentation/widgets/deworming_tab.dart
 import 'package:dummy/features/dailycare/presentation/widgets/expenses_tab.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/grooming_tab.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/overview_header_widget.dart';
-import 'package:dummy/core/widgets/walks_tab.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/walks_tab.dart';
 import 'package:flutter/material.dart';
 import 'overview_tab.dart';
 import 'meals_tab.dart';

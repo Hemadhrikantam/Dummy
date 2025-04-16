@@ -3,10 +3,12 @@ import 'dart:async';
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/close_button_widget.dart';
+import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/signup/presentation/widgets/plan_info_widget.dart';
 //import 'package:dummy/features/signup/presentation/widgets/rating_widget.dart';
 import 'package:flutter/material.dart';
@@ -103,13 +105,14 @@ class _DummyTimerPageState extends State<DummyTimerPage> {
                 color: AppColors.buttonTextColor,
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamedAndRemoveUntil(DashboardPage.routeName);
+            },
           ),
           Styles.gap15,
           PlanInfoWidget(title: AppText.then),
           Styles.gap50,
           Styles.gap10,
-          //const RatingWidget(),
         ],
       ),
     );

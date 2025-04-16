@@ -9,24 +9,26 @@ import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/day_selector_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-class DewormingTab extends StatefulWidget {
-  const DewormingTab({super.key});
+class WalksTab extends StatefulWidget {
+  const WalksTab({super.key});
 
   @override
-  State<DewormingTab> createState() => _DewormingTabState();
+  State<WalksTab> createState() => _WalksTabState();
 }
 
 DateTime? _selectedDay;
 
-class _DewormingTabState extends State<DewormingTab> {
-  List<DewormingItem> get _dewormingItems {
+class _WalksTabState extends State<WalksTab> {
+  List<WalkItem> get _walkItems {
     final selectedDate = _selectedDay ?? DateTime.now();
     return List.generate(
       5,
-      (index) => DewormingItem(
-        dateGiven: selectedDate.add(Duration(days: index)),
-        productName: AppText.productName,
+      (index) => WalkItem(
+        name: AppText.thirtyminsatpark,
+        date: selectedDate.add(Duration(days: index)),
+        timeOfDay: AppText.park,
       ),
     );
   }
@@ -69,13 +71,13 @@ class _DewormingTabState extends State<DewormingTab> {
         Styles.gap15,
         CustomCard(
           child: AppCustomListViewBuilder(
-            itemCount: _dewormingItems.length,
+            itemCount: _walkItems.length,
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,
             isExpand: false,
             separatorBuilder: (context, i) => Styles.gap10,
             itemBuilder: (context, index) {
-              final dewrooming = _dewormingItems[index];
+              final walkItem = _walkItems[index];
               return CustomCard(
                 borderRadius: Styles.borderRadiusCircular08,
                 child: Row(
@@ -91,14 +93,14 @@ class _DewormingTabState extends State<DewormingTab> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            AppText.date,
+                            AppText.duration,
                             style: context.textTheme.labelSmall?.copyWith(
                               fontSize: 12,
                               color: AppColors.grey500,
                             ),
                           ),
                           Text(
-                            '03/26/2025',
+                            walkItem.name,
                             style: context.textTheme.labelSmall?.copyWith(
                               fontSize: 16,
                               fontWeight: FontWeight.w700,
@@ -112,7 +114,7 @@ class _DewormingTabState extends State<DewormingTab> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Next 03/26/2025',
+                          DateFormat('MM/dd/yyyy').format(walkItem.date),
                           style: context.textTheme.titleSmall?.copyWith(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
@@ -120,7 +122,7 @@ class _DewormingTabState extends State<DewormingTab> {
                         ),
                         Styles.gap4,
                         Text(
-                          dewrooming.productName,
+                          walkItem.timeOfDay,
                           style: context.textTheme.titleSmall?.copyWith(
                             fontSize: 12,
                             fontWeight: FontWeight.w600,
@@ -135,15 +137,15 @@ class _DewormingTabState extends State<DewormingTab> {
             },
           ),
         ),
-        
       ],
     );
   }
 }
 
-class DewormingItem {
-  final DateTime dateGiven;
-  final String productName;
+class WalkItem {
+  final String name;
+  final DateTime date;
+  final String timeOfDay;
 
-  DewormingItem({required this.dateGiven, required this.productName});
+  WalkItem({required this.name, required this.date, required this.timeOfDay});
 }

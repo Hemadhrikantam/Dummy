@@ -6,7 +6,6 @@ import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
-//import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/features/signup/presentation/pages/premium/premium_page1.dart';
@@ -82,15 +81,6 @@ class _WelcomeToDummyPageState extends State<WelcomeToDummyPage> {
               );
             },
           ),
-          // Styles.gap15,
-          // AppOutlinedButton(
-          //   name: Text(
-          //     AppText.skip,
-          //     style: context.textTheme.titleSmall?.copyWith(
-          //       fontWeight: FontWeight.w700,
-          //     ),
-          //   ),
-          // ),
         ],
       ),
     );

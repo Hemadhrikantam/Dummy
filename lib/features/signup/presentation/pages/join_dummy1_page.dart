@@ -26,8 +26,7 @@ class JoinDummy1Page extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialBaseScreen(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      child: ListView(
         children: [
           Row(children: [BackButtonWidget()]),
           Styles.gap20,

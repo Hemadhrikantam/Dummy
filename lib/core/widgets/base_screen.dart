@@ -28,7 +28,7 @@ class MaterialBaseScreen extends StatelessWidget {
             gradient: gradient ?? AppColors.screenBackgroundColor,
           ),
           child: SafeArea(
-            child: Padding(padding: Styles.edgeInsetsAll20, child: child),
+            child: Padding(padding: Styles.edgeInsetsAll12, child: child),
           ),
         ),
       ),

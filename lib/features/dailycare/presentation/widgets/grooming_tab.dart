@@ -4,7 +4,9 @@ import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
+import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
+import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/day_selector_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -39,8 +41,7 @@ class _GroomingTabState extends State<GroomingTab> {
       (index) => now.add(Duration(days: index)),
     );
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return ListView(
       children: [
         DaySelector(
           days: nextFiveDays,
@@ -51,92 +52,72 @@ class _GroomingTabState extends State<GroomingTab> {
             });
           },
         ),
-        Styles.gap10,
+        Styles.gap15,
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(right: 16.0),
-              child: AppButton(
-                name: Text(
-                  AppText.add,
-                  style: context.textTheme.titleSmall?.copyWith(
-                    color: AppColors.buttonTextColor,
-                    fontWeight: FontWeight.w700,
-                  ),
+            AppButton(
+              name: Text(
+                AppText.add,
+                style: context.textTheme.titleSmall?.copyWith(
+                  color: AppColors.buttonTextColor,
+                  fontWeight: FontWeight.w700,
                 ),
-                width: 90,
               ),
+              width: 90,
             ),
           ],
         ),
-        Styles.gap10,
-        Expanded(
-          child: ListView.builder(
+        Styles.gap15,
+        CustomCard(
+          child: AppCustomListViewBuilder(
             itemCount: _groomingItems.length,
+            physics: NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            isExpand: false,
+            separatorBuilder: (context, i) => Styles.gap10,
             itemBuilder: (context, index) {
-              final groomingItem = _groomingItems[index];
-              return Card(
-                margin: const EdgeInsets.symmetric(
-                  vertical: 8.0,
-                  horizontal: 16.0,
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        width: 40.0,
-                        height: 40.0,
-                        child: AppAssestsImage(
-                          path: ImageResources.groomingicon,
-                          boxFit: BoxFit.cover,
-                        ),
-                      ),
-                      const SizedBox(width: 12.0),
-                      Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              AppText.grooming,
-                              style: TextStyle(
-                                fontSize: 12.0,
-                                color: Colors.grey,
-                              ),
-                            ),
-                            Text(
-                              groomingItem.name,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16.0,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      const SizedBox(width: 16.0),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
+              final walkItem = _groomingItems[index];
+              return CustomCard(
+                borderRadius: Styles.borderRadiusCircular08,
+                child: Row(
+                  children: [
+                    AppAssestsImage(
+                      path: ImageResources.walksicon,
+                      width: 40,
+                      height: 40,
+                    ),
+                    Styles.gap10,
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            DateFormat('MM/dd/yyyy').format(groomingItem.date),
-                            style: const TextStyle(
-                              fontSize: 12.0,
-                              color: Colors.grey,
+                            AppText.duration,
+                            style: context.textTheme.labelSmall?.copyWith(
+                              fontSize: 12,
+                              color: AppColors.grey500,
                             ),
                           ),
                           Text(
-                            groomingItem.time,
-                            style: const TextStyle(
-                              fontWeight: FontWeight.normal,
-                              fontSize: 14.0,
+                            walkItem.name,
+                            style: context.textTheme.labelSmall?.copyWith(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w700,
                             ),
                           ),
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                    Styles.gap15,
+                    Text(
+                      DateFormat('MM/dd/yyyy').format(walkItem.date),
+                      style: context.textTheme.titleSmall?.copyWith(
+                        fontSize: 12,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
                 ),
               );
             },

@@ -23,65 +23,44 @@ class DaySelector extends StatefulWidget {
 class _DaySelectorState extends State<DaySelector> {
   late DateTime _selectedDate;
 
-  // Using colors from AppColors
   final Color _selectedColor = AppColors.buttonBackground;
   final Color _unselectedColor = Colors.grey.shade100;
-  final TextStyle _selectedTextStyle = const TextStyle(
-    color: AppColors.buttonTextColor,
-    fontWeight: FontWeight.bold,
-    fontSize: 14,
-  );
-  final TextStyle _unselectedTextStyle = const TextStyle(
-    color: Colors.black87,
-    fontWeight: FontWeight.normal,
-    fontSize: 14,
-  );
 
   final double _itemWidth = 63.0;
-  final double _itemHeight = 62.0;
+  // final double _itemHeight = 65.0;
   final double _borderRadius = 8.0;
-  final double _borderWidth = 1.0;
-  final EdgeInsets _itemPadding = const EdgeInsets.all(8.0);
+  final EdgeInsets _itemPadding = Styles.edgeInsetsAll10;
   final double _itemGap = 9.0;
 
   Widget _defaultDayBuilder(DateTime day, bool isSelected) {
     final backgroundColor = isSelected ? _selectedColor : _unselectedColor;
-    final textColor =
-        isSelected ? _selectedTextStyle.color : _unselectedTextStyle.color;
-    final fontWeight =
-        isSelected
-            ? _selectedTextStyle.fontWeight
-            : _unselectedTextStyle.fontWeight;
-    final fontSize =
-        isSelected
-            ? _selectedTextStyle.fontSize
-            : _unselectedTextStyle.fontSize;
 
     return SizedBox(
       width: _itemWidth,
-      height: _itemHeight,
       child: CustomCard(
         backgroundColor: backgroundColor,
         padding: _itemPadding,
         borderRadius: BorderRadius.circular(_borderRadius),
-        border: Border.all(
-          // color: AppColors.borderColor,
-          width: _borderWidth,
-        ),
+        border: Border.all(color: AppColors.grey350),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               DateFormat('E').format(day).substring(0, 3),
-              style: TextStyle(color: textColor, fontSize: 12),
+              style: TextStyle(
+                color:
+                    isSelected ? AppColors.buttonTextColor : AppColors.grey500,
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+              ),
             ),
             Styles.gap4,
             Text(
               '${day.day}',
               style: TextStyle(
-                color: textColor,
-                fontWeight: fontWeight,
-                fontSize: fontSize,
+                color: isSelected ? AppColors.buttonTextColor : AppColors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 16,
               ),
             ),
           ],

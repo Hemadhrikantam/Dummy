@@ -27,6 +27,7 @@ class JoinDummy2Page extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialBaseScreen(
       child: ListView(
+        padding: Styles.edgeInsetsAll08,
         children: [
           Row(children: [BackButtonWidget()]),
           Styles.gap20,
@@ -44,10 +45,13 @@ class JoinDummy2Page extends StatelessWidget {
           ),
           Styles.gap20,
           __YourName(),
+          Styles.gap15,
           __EmailAddress(),
+          Styles.gap15,
           __Password(),
+          Styles.gap15,
           __ConfirmPassword(),
-          Styles.gap30,
+          Styles.gap50,
           AppButton(
             name: Text(
               AppText.startYourPetsJourney,

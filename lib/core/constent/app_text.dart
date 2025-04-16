@@ -21,7 +21,7 @@ class AppText {
   static String home = 'Home';
   static String health = 'Health';
   static String dailyCare = 'Care';
-  static String addoption = 'Addoption';
+  static String addoption = 'Addopt';
   static String add = 'Add';
 
   //Notification
@@ -145,7 +145,7 @@ class AppText {
   static String tenth = '10:00 AM';
   static String deworming = 'Deworming';
   static String productName = 'Product name';
-  static String dateGiven = 'Date Given';
+  static String date = 'Date';
   static const String expenses = 'Expenses';
   static const String amount = 'Amount';
   static const String food = 'Food';

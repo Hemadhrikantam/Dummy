@@ -6,7 +6,7 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
-import 'package:dummy/core/widgets/overview_card_widget.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/overview_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class OverviewTab extends StatelessWidget {

@@ -31,7 +31,7 @@ class CustomCard extends StatelessWidget {
       onTap: onTap,
       child: DecoratedBox(
         decoration: BoxDecoration(
-          borderRadius: borderRadius ?? Styles.borderRadiusCircular12,
+          borderRadius: borderRadius ?? Styles.borderRadiusCircular10,
           gradient: backgroundGradientColor,
           color: backgroundColor ?? AppColors.white,
           boxShadow: boxShadow,
@@ -39,7 +39,7 @@ class CustomCard extends StatelessWidget {
               Border.all(color: borderColor ?? AppColors.grey350, width: .5),
         ),
         child: Padding(
-          padding: padding ?? Styles.edgeInsetsAll10,
+          padding: padding ?? Styles.edgeInsetsAll12,
           child: child,
         ),
       ),
