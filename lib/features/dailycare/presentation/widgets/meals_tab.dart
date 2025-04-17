@@ -7,7 +7,7 @@ import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
-import 'package:dummy/features/dailycare/presentation/widgets/add_meal_form.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/add/add_meal_form.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/day_selector_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';

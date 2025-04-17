@@ -55,6 +55,7 @@ dependencies:
   google_fonts: ^6.2.1
   dropdown_search: ^5.0.6
   flutter_rounded_date_picker: ^3.0.4
+  dotted_border: ^2.1.0
 
 
 dev_dependencies:

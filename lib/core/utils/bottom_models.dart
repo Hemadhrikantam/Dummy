@@ -2,10 +2,14 @@ import 'dart:io';
 
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/styles.dart';
-import 'package:dummy/features/dailycare/presentation/widgets/add_meal_form.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/add/add_expenses_form.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/add/add_meal_form.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../features/dailycare/presentation/widgets/add/add_deworming_form.dart';
+import '../../features/dailycare/presentation/widgets/add/add_grooming_form.dart';
+import '../../features/dailycare/presentation/widgets/add/add_walk_form.dart';
 import '../widgets/image_picker_container.dart';
 
 class BottomModels {
@@ -39,6 +43,64 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return AddMealForm();
+      },
+    );
+  }
+
+  static Future<T?> addWalksBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddWalkForm();
+      },
+    );
+  }
+
+  static Future<T?> addGroomingBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddGroomingForm();
+      },
+    );
+  }
+  static Future<T?> addDeWroomingBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddDewormingForm();
+      },
+    );
+  }
+  static Future<T?> addExpansesBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddExpensesForm();
+      },
+    );
+  }
+
+  static Future<T?> overViewBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return Text('data');
       },
     );
   }

@@ -3,27 +3,15 @@ import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
-import 'package:dummy/features/dailycare/presentation/widgets/overview_add_button.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/overview_card_widget.dart';
 import 'package:flutter/material.dart';
 
 class OverviewTab extends StatelessWidget {
-  void _showAddBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: false,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
-      ),
-
-      builder: (BuildContext context) {
-        return const OverviewAddButton();
-      },
-    );
-  }
+  
 
   const OverviewTab({super.key});
 
@@ -44,7 +32,7 @@ class OverviewTab extends StatelessWidget {
               ),
               width: 90,
               onPressed: () {
-                _showAddBottomSheet(context);
+               BottomModels.overViewBottomSheet(context);
               }, 
             ),
           ],

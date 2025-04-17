@@ -14,7 +14,11 @@ class Styles {
     vertical: 6,
     horizontal: 8,
   );
-
+  static const buttonStyle = TextStyle(
+    color: AppColors.buttonTextColor,
+    fontWeight: FontWeight.w700,
+    fontSize: 14
+  );
   static const gap0 = Gap(0);
 
   static const gap2 = Gap(2);
