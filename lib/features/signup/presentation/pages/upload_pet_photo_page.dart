@@ -79,7 +79,7 @@ class _UploadPetPhotoPageState extends State<UploadPetPhotoPage> {
           Styles.gap20,
           if (selectedImage != null)
             Text(
-              AppText.petPhotoUploadedContent, // <- Add this key in AppText
+              AppText.petPhotoUploadedContent, 
               style: context.textTheme.titleSmall,
               textAlign: TextAlign.center,
             ),

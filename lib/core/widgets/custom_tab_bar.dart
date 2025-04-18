@@ -41,7 +41,7 @@ class CustomTabBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-      padding: padding ?? Styles.edgeInsetsAll08,
+      padding: padding ?? Styles.edgeInsetsAll02,
       backgroundColor:
           backgroundColor ?? AppColors.buttonBackground.withOpacity(.16),
       borderRadius: Styles.borderRadiusCircular50,
@@ -55,19 +55,19 @@ class CustomTabBar extends StatelessWidget {
         tabAlignment: tabAlignment,
         dividerHeight: 0,
         indicator: BoxDecoration(
-          color: indicatorColor ?? AppColors.lighterGreen,
+          color: indicatorColor ?? AppColors.stepperColor,
           borderRadius: Styles.borderRadiusCircular50,
           border: Border.all(
             color: indicatorBorderColor ?? AppColors.transparent,
           ),
         ),
-        labelColor: labelColor ?? AppColors.darkGreen,
+        labelColor: labelColor ?? AppColors.white,
         indicatorSize: TabBarIndicatorSize.tab,
         labelPadding: labelPadding,
         labelStyle: TextStyle(fontWeight: FontWeight.w700),
         unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
         padding: Styles.edgeInsetsOnlyH00,
-        indicatorPadding: Styles.edgeInsetsOnlyH00,
+        indicatorPadding: Styles.edgeInsetsAll02,
         unselectedLabelColor: unselectedLabelColor ?? AppColors.black,
         tabs:
             tabs
@@ -77,7 +77,7 @@ class CustomTabBar extends StatelessWidget {
                       child: Text(
                         item.text,
                         style: TextStyle(
-                          fontSize: labelFontSize ?? 16,
+                          fontSize: labelFontSize ?? 14,
                           letterSpacing: -0.5,
                         ),
                       ),

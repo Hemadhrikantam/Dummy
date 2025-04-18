@@ -3,7 +3,6 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constent/app_colors.dart';
-import '../../../../core/widgets/app_custom_check_box.dart';
 import '../../../../core/widgets/custom_card.dart';
 import '../../../../core/widgets/custom_switch.dart';
 

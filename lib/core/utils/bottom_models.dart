@@ -10,6 +10,8 @@ import 'package:image_picker/image_picker.dart';
 import '../../features/dailycare/presentation/widgets/add/add_deworming_form.dart';
 import '../../features/dailycare/presentation/widgets/add/add_grooming_form.dart';
 import '../../features/dailycare/presentation/widgets/add/add_walk_form.dart';
+import '../../features/profile/presentation/widgets/pet_dairy/add_pet_documents.dart';
+import '../../features/profile/presentation/widgets/pet_dairy/add_pet_media.dart';
 import '../widgets/image_picker_container.dart';
 
 class BottomModels {
@@ -70,6 +72,7 @@ class BottomModels {
       },
     );
   }
+
   static Future<T?> addDeWroomingBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -81,6 +84,7 @@ class BottomModels {
       },
     );
   }
+
   static Future<T?> addExpansesBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -101,6 +105,30 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return Text('data');
+      },
+    );
+  }
+
+  //pet dairy
+  static Future<T?> addPetDocumentsBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddPetDocuments();
+      },
+    );
+  }
+  static Future<T?> addPetMediaBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddPetMedia();
       },
     );
   }

@@ -1,7 +1,6 @@
 class ImageResources {
   static const String __assets = 'assets';
   static const String images = '$__assets/images';
-  // static const String logo = '$__assets/image_1.png';
   static const String __icons = '$__assets/icons';
   static const String image = '$__assets/image_1.png';
 
@@ -27,7 +26,7 @@ class ImageResources {
   static const String health = '$__icons/health.png';
   static const String unselectedAddoption = '$__icons/addoption_unselected.png';
   static const String addoption = '$__icons/addoption.png';
-  static const String dashboardLogo = '$__icons/dashboard_logo.png';
+  static const String dashboardLogo = '$images/dashboard_logo.png';
 
   //daily care
   static const String mealsicon = '$__icons/meals.png';
@@ -35,8 +34,18 @@ class ImageResources {
   static const String walksicon = 'assets/icons/walks.png';
   static const String groomingicon = 'assets/icons/grooming.png';
   static const String dewormingicon = 'assets/icons/deworming.png';
-   static const String expensesicon = 'assets/icons/expenses.png';
-   static const String overviewaddpicture = 'assets/icons/T-shirt.png.png';
-   
+  static const String expensesicon = 'assets/icons/expenses.png';
+  static const String overviewaddpicture = 'assets/icons/T-shirt.png.png';
+
+  //profile
+    static const String profileDog = '$images/profile_dog.png';
+    static const String petProfile = '$images/pet_profile.png';
+    static const String familyMembers = '$images/manage_family.png.png';
+    static const String accountDetails = '$images/account_details.png';
+    static const String premiumSubscription = '$images/premium.png';
+    static const String support = '$images/support.png';
+    static const String arrowFarward = '$images/arrow_farward.png';
+    static const String delete = '$__icons/delete.png';
+    static const String mediaImg = '$images/media.png';
 
 }

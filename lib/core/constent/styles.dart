@@ -119,6 +119,7 @@ class Styles {
   static const edgeInsetsAll10 = EdgeInsets.all(10);
   static const edgeInsetsAll12 = EdgeInsets.all(12);
   static const edgeInsetsAll15 = EdgeInsets.all(15);
+  static const edgeInsetsAll16 = EdgeInsets.all(16);
   static const edgeInsetsAll18 = EdgeInsets.all(18);
   static const edgeInsetsAll20 = EdgeInsets.all(20);
   static const edgeInsetsAll25 = EdgeInsets.all(25);
