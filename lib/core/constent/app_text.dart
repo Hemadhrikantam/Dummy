@@ -167,6 +167,12 @@ class AppText {
   static const String frequency = 'Frequency';
   static const String duedate = 'Due Date';
   static const String reminder = 'Reminder';
+
+  //Health
+  static const String insights = 'Insights';
+  static const String vaccinations = 'Vaccinations';
+  static const String medications = 'Medications';
+  static const String filter = 'Filter';
 }
 
 class ErrorResponse {

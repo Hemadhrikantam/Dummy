@@ -35,8 +35,9 @@ class CustomCard extends StatelessWidget {
           gradient: backgroundGradientColor,
           color: backgroundColor ?? AppColors.white,
           boxShadow: boxShadow,
-          border: border ??
-              Border.all(color: borderColor ?? AppColors.grey350, width: .5),
+          border:
+              border ??
+              Border.all(color: borderColor ?? AppColors.grey400, width: 1),
         ),
         child: Padding(
           padding: padding ?? Styles.edgeInsetsAll12,

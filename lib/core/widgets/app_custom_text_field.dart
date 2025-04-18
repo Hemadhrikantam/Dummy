@@ -1,4 +1,3 @@
-
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:flutter/material.dart';
@@ -128,8 +127,8 @@ class AppTextFormField extends StatelessWidget {
               enabled: enable,
               alignLabelWithHint: true,
               suffixIcon: Padding(
-                padding:Styles.edgeInsetsOnlyW15,
-                child: Icon(suffixIcon, color: AppColors.black,),
+                padding: Styles.edgeInsetsOnlyW15,
+                child: Icon(suffixIcon, color: AppColors.black),
               ),
               suffixIconConstraints: const BoxConstraints(
                 minHeight: 24,
@@ -147,11 +146,11 @@ class AppTextFormField extends StatelessWidget {
               ),
               border: OutlineInputBorder(
                 borderRadius: Styles.borderRadiusCircular40,
-                borderSide: const BorderSide(color: AppColors.grey600),
+                borderSide: const BorderSide(color: AppColors.grey400),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: Styles.borderRadiusCircular40,
-                borderSide: const BorderSide(color: AppColors.grey600),
+                borderSide: const BorderSide(color: AppColors.grey400),
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: Styles.borderRadiusCircular40,

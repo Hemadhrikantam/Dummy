@@ -26,7 +26,7 @@ class AppColors {
   );
   static const Color buttonBackground = Color(0xFFFFBA61);
   static const Color buttonTextColor = Color(0xFF6F3201);
-static const Color infoCardBackgroundColor = Color.fromARGB(98, 255, 186, 97);
+  static const Color infoCardBackgroundColor = Color.fromARGB(98, 255, 186, 97);
 
   static const LinearGradient screenBackgroundColor = LinearGradient(
     begin: Alignment.topLeft,
@@ -94,7 +94,7 @@ static const Color infoCardBackgroundColor = Color.fromARGB(98, 255, 186, 97);
 
   static const grey700 = Color(0xff616161);
   static const grey350 = Color(0xffd6d6d6);
-  static const grey400 = Color(0xffbdbdbd);
+  static const grey400 = Color(0xffB3ABBC);
   static final grey500 = Colors.grey[500];
   static const grey600 = Color(0xff757575);
   static final grey200 = Colors.grey[200];
