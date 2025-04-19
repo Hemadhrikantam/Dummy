@@ -14,6 +14,8 @@ import '../../features/health/presentation/widgets/medications/medication_delete
 import '../../features/health/presentation/widgets/medications/medication_delete_success_bottom_sheet_content.dart';
 import '../../features/health/presentation/widgets/medications/medication_taking_bottom_sheet_content.dart';
 import '../../features/health/presentation/widgets/medications/medication_taking_success_bottom_sheet_content.dart';
+import '../../features/profile/presentation/widgets/pet_dairy/add_pet_documents.dart';
+import '../../features/profile/presentation/widgets/pet_dairy/add_pet_media.dart';
 import '../widgets/image_picker_container.dart';
 
 class BottomModels {
@@ -111,6 +113,7 @@ class BottomModels {
     );
   }
 
+  //medications
   static Future<T?> medicationDeleteBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -139,8 +142,6 @@ class BottomModels {
 
   static Future<T?> medicationTakingBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
-      isScrollControlled: true,
-      backgroundColor: backgroundColor,
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
@@ -159,6 +160,31 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return MedicationTakingSuccessBottomSheetContent();
+      },
+    );
+  }
+
+  //pet dairy
+  static Future<T?> addPetDocumentsBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddPetDocuments();
+      },
+    );
+  }
+
+  static Future<T?> addPetMediaBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddPetMedia();
       },
     );
   }

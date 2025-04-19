@@ -167,11 +167,12 @@ class AppText {
   static const String frequency = 'Frequency';
   static const String duedate = 'Due Date';
   static const String reminder = 'Reminder';
+  static const String logout = 'Logout';
 
   //Health
-  static const String insights = 'Insights';
-  static const String vaccinations = 'Vaccinations';
-  static const String medications = 'Medications';
+  static const String insights = 'Insight';
+  static const String vaccinations = 'Vaccines';
+  static const String medications = 'Medication';
   static const String filter = 'Filter';
   static const String remainder = 'Remainder';
   static const String startDate = 'Start Date';
@@ -203,6 +204,25 @@ class AppText {
   static const String deletedSuccessfully = 'Deleted Successfully';
   static const String tablet = 'Tablet';
   static const String close = 'Close';
+
+  //profile
+  static const String petProfile = 'Pet Profile';
+  static const String accountDetails = 'Account Details';
+  static const String manageFamily = 'Manage Family Members';
+  static const String premiumSubscription = 'Premium Subscription';
+  static const String vetNearMe = 'Vet Near Me';
+  static const String support = 'Support';
+
+  //pet dairy
+    static const String petDairy = 'Pet Dairy';
+    static const String timeline = 'Timeline';
+    static const String documents = 'Documents';
+    static const String addDoc = 'Add Documents';
+    static const String addMedia = 'Add Media';
+      static String tellUsLuna = 'Tell us about Luna’s moment!';
+      static String events = 'Events';
+
+
 }
 
 class ErrorResponse {

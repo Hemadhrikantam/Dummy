@@ -22,7 +22,7 @@ GestureDetector(
     radius: Styles.radiusCircular08,
     dashPattern: [6, 3], 
     child: Container(
-      padding: Styles.edgeInsetsAll20,
+      padding: Styles.edgeInsetsAll25,
       width: double.infinity,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

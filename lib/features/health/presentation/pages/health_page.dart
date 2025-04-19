@@ -39,7 +39,6 @@ class _HealthPage extends State<HealthPage> with TickerProviderStateMixin {
           Styles.gap30,
           CustomTabBar(
             tabController: _tabController,
-            indicatorColor: AppColors.stepperColor,
             labelColor: AppColors.white,
             tabs: [
               TabModel(text: AppText.insights),

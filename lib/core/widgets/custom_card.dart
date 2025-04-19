@@ -14,6 +14,7 @@ class CustomCard extends StatelessWidget {
     this.border,
     this.backgroundGradientColor,
     this.boxShadow,
+    this.elevation,
   });
   final Widget child;
   final EdgeInsets? padding;
@@ -24,6 +25,7 @@ class CustomCard extends StatelessWidget {
   final Border? border;
   final LinearGradient? backgroundGradientColor;
   final List<BoxShadow>? boxShadow;
+  final double? elevation;
 
   @override
   Widget build(BuildContext context) {
