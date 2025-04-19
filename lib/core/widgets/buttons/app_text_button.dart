@@ -12,16 +12,17 @@ class AppTextButton extends StatelessWidget {
   final void Function()? onPressed;
   final EdgeInsetsGeometry? padding;
 
-  const AppTextButton(
-      {super.key,
-      required this.name,
-      this.radius = 50,
-      this.onPressed,
-      this.padding,
-      this.backgroundColor,
-      this.splashColor,
-      this.borderColor,
-      this.textColor});
+  const AppTextButton({
+    super.key,
+    required this.name,
+    this.radius = 50,
+    this.onPressed,
+    this.padding,
+    this.backgroundColor,
+    this.splashColor,
+    this.borderColor,
+    this.textColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,16 +32,21 @@ class AppTextButton extends StatelessWidget {
         padding: WidgetStateProperty.all(padding ?? const EdgeInsets.all(11)),
         backgroundColor: WidgetStateProperty.all(backgroundColor),
         shape: WidgetStateProperty.all(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(radius)),
+          RoundedRectangleBorder(
+            side: BorderSide(color: borderColor ?? AppColors.transparent),
+            borderRadius: BorderRadius.circular(radius),
+          ),
         ),
       ),
       onPressed: onPressed,
-      child: Text(name,
-          style: TextStyle(
-            color: textColor ?? AppColors.white,
-            fontWeight: FontWeight.w500,
-            fontSize: 14,
-          )),
+      child: Text(
+        name,
+        style: TextStyle(
+          color: textColor ?? AppColors.white,
+          fontWeight: FontWeight.w700,
+          fontSize: 14,
+        ),
+      ),
     );
   }
 }

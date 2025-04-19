@@ -173,6 +173,36 @@ class AppText {
   static const String vaccinations = 'Vaccinations';
   static const String medications = 'Medications';
   static const String filter = 'Filter';
+  static const String remainder = 'Remainder';
+  static const String startDate = 'Start Date';
+  static const String endDate = 'End Date';
+  static const String addMedications = 'Add Medications';
+  static const String enter = 'Enter';
+  static const String tabletName = 'Tablet Name';
+  static const String company = 'Company';
+  static const String dosage = 'Dosage';
+  static const String morning = 'Morning';
+  static const String afternoon = 'Afternoon';
+  static const String night = 'Night';
+  static const String tablets = 'Tablets';
+  static const String select = 'Select';
+  static const String totalDosage = 'Total Dosage';
+  static const String medicationAddedFor = 'Medication added for ';
+  static const String youreDoingGreat = "You're doing great!";
+  static const String usersKeepTheirPetsMedOnTrack =
+      '85% of users keep their pet’s meds on track!';
+  static const String addVaccination = 'Add Vaccination';
+  static const String viewMore = 'View More';
+  static const String details = 'Details';
+  static const String markAsGiven = 'Mark As Given';
+  static const String edit = 'Edit';
+  static const String delete = 'Delete';
+  static const String undo = 'Undo';
+  static const String areYouSureToDelete = 'Are you sure to delete';
+  static const String medicationQuestionMark = 'Medication?';
+  static const String deletedSuccessfully = 'Deleted Successfully';
+  static const String tablet = 'Tablet';
+  static const String close = 'Close';
 }
 
 class ErrorResponse {

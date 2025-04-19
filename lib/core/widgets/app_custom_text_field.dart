@@ -42,6 +42,7 @@ class AppTextFormField extends StatelessWidget {
   final InputBorder? border;
   final InputBorder? focusedBorder;
   final bool? headerExtra;
+  final BoxConstraints? constraints;
 
   const AppTextFormField({
     super.key,
@@ -78,7 +79,7 @@ class AppTextFormField extends StatelessWidget {
     this.border,
     this.focusedBorder,
     this.headerExtra = false,
-    this.isMandatory = false,
+    this.isMandatory = false, this.constraints,
   });
 
   @override

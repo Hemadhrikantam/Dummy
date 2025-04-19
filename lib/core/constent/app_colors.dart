@@ -100,6 +100,7 @@ class AppColors {
   static final grey200 = Colors.grey[200];
 
   static const white = Color(0xffffffff);
+  static const red = Color(0xffD30000);
   static const black = Color(0xff000000);
   static const whiteShade = Color(0xfff7f5ff);
   static const iconBlack = Color(0xff5E5F60);

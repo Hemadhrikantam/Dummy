@@ -10,6 +10,10 @@ import 'package:image_picker/image_picker.dart';
 import '../../features/dailycare/presentation/widgets/add/add_deworming_form.dart';
 import '../../features/dailycare/presentation/widgets/add/add_grooming_form.dart';
 import '../../features/dailycare/presentation/widgets/add/add_walk_form.dart';
+import '../../features/health/presentation/widgets/medications/medication_delete_bottom_sheet_content.dart';
+import '../../features/health/presentation/widgets/medications/medication_delete_success_bottom_sheet_content.dart';
+import '../../features/health/presentation/widgets/medications/medication_taking_bottom_sheet_content.dart';
+import '../../features/health/presentation/widgets/medications/medication_taking_success_bottom_sheet_content.dart';
 import '../widgets/image_picker_container.dart';
 
 class BottomModels {
@@ -70,6 +74,7 @@ class BottomModels {
       },
     );
   }
+
   static Future<T?> addDeWroomingBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -81,6 +86,7 @@ class BottomModels {
       },
     );
   }
+
   static Future<T?> addExpansesBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -101,6 +107,58 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return Text('data');
+      },
+    );
+  }
+
+  static Future<T?> medicationDeleteBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return MedicationDeleteBottomSheetContent();
+      },
+    );
+  }
+
+  static Future<T?> medicationDeleteSuccessBottomSheet<T>(
+    BuildContext context,
+  ) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return MedicationDeleteSuccessBottomSheetContent();
+      },
+    );
+  }
+
+  static Future<T?> medicationTakingBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return MedicationTakingBottomSheetContent();
+      },
+    );
+  }
+
+  static Future<T?> medicationTakingSuccessBottomSheet<T>(
+    BuildContext context,
+  ) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return MedicationTakingSuccessBottomSheetContent();
       },
     );
   }

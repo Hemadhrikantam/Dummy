@@ -1,3 +1,4 @@
+import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -13,6 +14,7 @@ class FilterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
+      borderColor: AppColors.grey400,
       borderRadius: Styles.borderRadiusCircular50,
       child: Row(
         children: [

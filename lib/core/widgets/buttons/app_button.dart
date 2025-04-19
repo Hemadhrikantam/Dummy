@@ -12,6 +12,7 @@ class AppButton extends StatelessWidget {
   final double? height;
   final BorderRadiusGeometry? borderRadius;
   final EdgeInsetsGeometry? padding;
+  final Color? backgroundColor;
 
   const AppButton({
     super.key,
@@ -24,30 +25,31 @@ class AppButton extends StatelessWidget {
     this.height,
     this.borderRadius = BorderRadius.zero,
     this.padding,
+    this.backgroundColor,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: width,
-      height:height?? 44,
+      height: height ?? 44,
       decoration: BoxDecoration(
-        color: AppColors.buttonBackground,
+        color: backgroundColor ?? AppColors.buttonBackground,
         borderRadius: Styles.borderRadiusCircular40,
-        border: Border.all(color: const Color(0x42A7581A), width: 1),
-        boxShadow: const [
-          BoxShadow(
-            color: Color(0xFFA75A1D),
-            offset: Offset(0, 4),
-            blurRadius: 0,
-            spreadRadius: 0,
-          ),
-        ],
+        // border: Border.all(color: const Color(0x42A7581A), width: 1),
+        // boxShadow: const [
+        //   BoxShadow(
+        //     color: Color(0xFFA75A1D),
+        //     offset: Offset(0, 4),
+        //     blurRadius: 0,
+        //     spreadRadius: 0,
+        //   ),
+        // ],
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           elevation: 0,
-          backgroundColor: Colors.transparent,
+          backgroundColor: backgroundColor ?? AppColors.buttonBackground,
           shape: RoundedRectangleBorder(
             borderRadius: Styles.borderRadiusCircular40,
           ),

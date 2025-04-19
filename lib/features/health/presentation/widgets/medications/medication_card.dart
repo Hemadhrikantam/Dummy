@@ -1,11 +1,13 @@
+import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/features/health/presentation/pages/medication_details_page.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/constent/app_colors.dart';
-import '../../../../core/widgets/app_custom_check_box.dart';
-import '../../../../core/widgets/custom_card.dart';
-import '../../../../core/widgets/custom_switch.dart';
+import '../../../../../core/constent/app_colors.dart';
+import '../../../../../core/widgets/custom_card.dart';
+import '../../../../../core/widgets/custom_switch.dart';
 
 class MedicationsCard extends StatefulWidget {
   const MedicationsCard({super.key});
@@ -19,6 +21,10 @@ class _MedicationsCardState extends State<MedicationsCard> {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
+      onTap: () {
+        context.push(MedicationDetailsPage.route());
+      },
+      borderColor: AppColors.transparent,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.baseline,
         textBaseline: TextBaseline.alphabetic,
@@ -47,7 +53,7 @@ class _MedicationsCardState extends State<MedicationsCard> {
               Row(
                 children: [
                   Text(
-                    'Reminder',
+                    AppText.remainder,
                     style: context.textTheme.labelLarge?.copyWith(
                       color: AppColors.grey500,
                     ),
@@ -60,6 +66,46 @@ class _MedicationsCardState extends State<MedicationsCard> {
                         isChecked = !isChecked;
                       });
                     },
+                  ),
+                ],
+              ),
+            ],
+          ),
+          Styles.gap20,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    AppText.startDate,
+                    style: context.textTheme.labelLarge?.copyWith(
+                      color: AppColors.grey500,
+                    ),
+                  ),
+                  Text(
+                    '12/01/2025',
+                    style: context.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    AppText.endDate,
+                    style: context.textTheme.labelLarge?.copyWith(
+                      color: AppColors.grey500,
+                    ),
+                  ),
+                  Text(
+                    '12/01/2025',
+                    style: context.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),

@@ -25,11 +25,8 @@ class CustomCheckBox extends StatelessWidget {
           CheckboxDesign(isChecked: isChecked),
           const SizedBox(width: 10),
           Container(
-            constraints: maxWidth != null
-                ? BoxConstraints(
-                    maxWidth: maxWidth!,
-                  )
-                : null,
+            constraints:
+                maxWidth != null ? BoxConstraints(maxWidth: maxWidth!) : null,
             child: Text(
               label,
               style: context.textTheme.bodyMedium,
@@ -50,16 +47,19 @@ class CheckboxDesign extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        border: Border.all(color: AppColors.grey400),
+        border: Border.all(color: AppColors.transparent),
         borderRadius: BorderRadius.circular(8),
-        color: isChecked ? AppColors.greenText : AppColors.white,
+        color:
+            isChecked
+                ? AppColors.stepperColor
+                : AppColors.stepperColor.withOpacity(.61),
       ),
       child: Padding(
         padding: const EdgeInsets.all(2),
         child: Icon(
           Icons.check,
           size: 20,
-          color: isChecked ? Colors.white : Colors.transparent,
+          color: isChecked ? AppColors.white : AppColors.transparent,
         ),
       ),
     );

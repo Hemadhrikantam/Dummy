@@ -7,7 +7,7 @@ import '../../../../core/constent/styles.dart';
 import '../../../../core/models/tab_model.dart';
 import '../../../../core/widgets/custom_header_widget.dart';
 import '../../../../core/widgets/custom_tab_bar.dart';
-import '../widgets/medications_tab.dart';
+import '../widgets/medications/medications_tab.dart';
 
 class HealthPage extends StatefulWidget {
   const HealthPage({super.key});

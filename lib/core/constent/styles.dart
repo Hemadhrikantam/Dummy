@@ -17,7 +17,7 @@ class Styles {
   static const buttonStyle = TextStyle(
     color: AppColors.buttonTextColor,
     fontWeight: FontWeight.w700,
-    fontSize: 14
+    fontSize: 14,
   );
   static const gap0 = Gap(0);
 
@@ -126,7 +126,9 @@ class Styles {
   static const edgeInsetsAll35 = EdgeInsets.all(35);
   static const edgeInsetsOnlyR10 = EdgeInsets.only(right: 10);
   static const edgeInsetsOnlyT20 = EdgeInsets.only(top: 20);
+  static const edgeInsetsOnlyT90 = EdgeInsets.only(top: 90);
   static const edgeInsetsOnlyT10 = EdgeInsets.only(top: 10);
+  static const edgeInsetsOnlyL10 = EdgeInsets.only(left: 10);
   static const edgeInsetsOnlyB85 = EdgeInsets.only(bottom: 85);
 
   // Padding Vertical
@@ -152,6 +154,7 @@ class Styles {
   static const textFormIcon = EdgeInsets.only(top: 15, left: 15, right: 10);
 
   // Border Radius
+  static final borderRadiusCircular00 = BorderRadius.circular(00);
   static final borderRadiusCircular02 = BorderRadius.circular(02);
   static final borderRadiusCircular04 = BorderRadius.circular(04);
   static final borderRadiusCircular05 = BorderRadius.circular(05);

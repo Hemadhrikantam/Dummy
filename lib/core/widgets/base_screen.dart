@@ -1,6 +1,7 @@
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
+import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
@@ -9,6 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../constent/app_colors.dart';
+import '../constent/image_resources.dart';
+import 'app_assets_image.dart';
 import 'buttons/app_icon_button.dart';
 import 'custom_search_bar.dart';
 
@@ -235,6 +238,7 @@ class ScaffoldTitleBaseScreen extends StatelessWidget {
     this.floatingActionButton,
     this.floatingActionButtonLocation,
     this.hideSearch,
+    this.gradient,
   });
   final Widget child;
   final String title;
@@ -243,7 +247,7 @@ class ScaffoldTitleBaseScreen extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   // final Widget? bottom;
   final bool? hideSearch;
-  final PreferredSizeWidget? bottom;
+  final Widget? bottom;
   final bool onlyTitle;
   final double? expandedHeight;
   final void Function()? onBack;
@@ -254,6 +258,7 @@ class ScaffoldTitleBaseScreen extends StatelessWidget {
   final bool? suffixIcon;
   final Widget? floatingActionButton;
   final FloatingActionButtonLocation? floatingActionButtonLocation;
+  final Gradient? gradient;
 
   @override
   Widget build(BuildContext context) {
@@ -262,37 +267,20 @@ class ScaffoldTitleBaseScreen extends StatelessWidget {
         FocusScope.of(context).unfocus();
       },
       child: Scaffold(
-        backgroundColor: AppColors.backGround1,
+        backgroundColor: AppColors.transparent,
         resizeToAvoidBottomInset: true,
+        extendBodyBehindAppBar: true,
         floatingActionButton: floatingActionButton,
         floatingActionButtonLocation: floatingActionButtonLocation,
+        // bottomNavigationBar: bottom,
+        bottomSheet: bottom,
         appBar: AppBar(
           iconTheme: const IconThemeData(color: AppColors.white, size: 35),
-          bottom:
-              bottom ??
-              PreferredSize(
-                preferredSize: Size(context.width, context.height * .08),
-                child:
-                    (hideSearch ?? false)
-                        ? Styles.sizedBox
-                        : Padding(
-                          padding:
-                              Styles.edgeInsetsOnlyW20 +
-                              Styles.edgeInsetsOnlyW20,
-                          child: InkWell(
-                            onTap: () {
-                              AppAlert.showToast(message: AppText.comingSoon);
-                            },
-                            child: SearchButton(
-                              hintText: AppText.search,
-                              onChanged: onChanged,
-                            ),
-                          ),
-                        ),
-              ),
+          // bottom: bottom,
+          backgroundColor: Colors.transparent,
           automaticallyImplyLeading: false,
           leadingWidth: double.infinity,
-          toolbarHeight: 70,
+          // toolbarHeight: 70,
           leading:
               onlyTitle
                   ? CustomAppBarTitle(
@@ -310,7 +298,16 @@ class ScaffoldTitleBaseScreen extends StatelessWidget {
                   ),
         ),
         // bottomNavigationBar: bottom,
-        body: Padding(padding: padding ?? Styles.edgeInsetsAll15, child: child),
+        body: Container(
+          decoration: BoxDecoration(
+            gradient: gradient ?? AppColors.screenBackgroundColor,
+          ),
+          child: Padding(
+            padding:
+                padding ?? Styles.edgeInsetsAll10 + Styles.edgeInsetsOnlyT90,
+            child: child,
+          ),
+        ),
       ),
     );
   }
@@ -339,13 +336,19 @@ class CustomAppBar extends StatelessWidget {
         children: [
           Styles.gap10,
           if (showBackIcon && !(showImage ?? false))
-            AppIconButton(
-              backgroundColor: AppColors.transparent,
-              icon: Iconsax.arrow_left,
-              size: 25,
-              iconColor: AppColors.black,
-              borderColor: AppColors.transparent,
-              onPressed: onBack ?? () => context.pop(),
+            CustomCard(
+              padding: Styles.edgeInsetsAll02,
+              borderRadius: Styles.borderRadiusCircular50,
+              backgroundColor: AppColors.stepperColor,
+              child: AppIconButton(
+                padding: Styles.edgeInsetsOnlyH00,
+                backgroundColor: AppColors.transparent,
+                icon: Icons.keyboard_arrow_left_sharp,
+                size: 25,
+                iconColor: AppColors.white,
+                borderColor: AppColors.transparent,
+                onPressed: () => context.pop(),
+              ),
             ),
           if (showImage ?? false)
             GestureDetector(
@@ -428,38 +431,32 @@ class CustomAppBarTitle extends StatelessWidget {
       child: Row(
         children: [
           if (showBackIcon)
-            AppIconButton(
-              backgroundColor: AppColors.transparent,
-              icon: Iconsax.arrow_left,
-              size: 25,
-              iconColor: AppColors.black,
-              borderColor: AppColors.transparent,
-              onPressed: () => context.pop(),
+            CustomCard(
+              padding: Styles.edgeInsetsAll02,
+              borderRadius: Styles.borderRadiusCircular50,
+              backgroundColor: AppColors.stepperColor,
+              child: AppIconButton(
+                padding: Styles.edgeInsetsOnlyH00,
+                backgroundColor: AppColors.transparent,
+                icon: Icons.keyboard_arrow_left_sharp,
+                size: 25,
+                iconColor: AppColors.white,
+                borderColor: AppColors.transparent,
+                onPressed: () => context.pop(),
+              ),
             ),
           Styles.gap10,
           Expanded(
             child: Text(
               title,
-              style: const TextStyle(fontSize: 20),
+              style: context.textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.w600,
+              ),
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
           ),
-          if (suffixIcon ?? false)
-            CustomCard(
-              backgroundColor: AppColors.grey200,
-              borderColor: AppColors.transparent,
-              padding: Styles.edgeInsetsAll04,
-              borderRadius: Styles.borderRadiusCircular08,
-              child: AppIcon(
-                onTap: () {
-                  AppAlert.showToast(message: AppText.comingSoon);
-                },
-                color: AppColors.grey700,
-                icon: Iconsax.filter,
-                size: 20,
-              ),
-            ),
+          AppAssestsImage(path: ImageResources.dog, height: 45, width: 45),
         ],
       ),
     );

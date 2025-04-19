@@ -35,8 +35,13 @@ class ImageResources {
   static const String walksicon = 'assets/icons/walks.png';
   static const String groomingicon = 'assets/icons/grooming.png';
   static const String dewormingicon = 'assets/icons/deworming.png';
-   static const String expensesicon = 'assets/icons/expenses.png';
-   static const String overviewaddpicture = 'assets/icons/T-shirt.png.png';
-   
+  static const String expensesicon = 'assets/icons/expenses.png';
+  static const String overviewaddpicture = 'assets/icons/T-shirt.png.png';
 
+  //Health
+  static const String heartIcon = '$__icons/heart_icon.png';
+  static const String medsIcon = '$__icons/meds_icon.png';
+  static const String nailsIcon = '$__icons/nails_icon.png';
+  static const String pawIcon = '$__icons/paw_icon.png';
+  static const String syringeIcon = '$__icons/syringe_icon.png';
 }
