@@ -129,7 +129,7 @@ class __RemainderState extends State<__Remainder> {
     return Row(
       children: [
         Text(
-          AppText.remainder,
+          AppText.reminder,
           style: context.textTheme.labelLarge?.copyWith(
             color: AppColors.grey500,
           ),
@@ -213,6 +213,7 @@ class __Notes extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppTextFormField(
       hintText: AppText.enter,
+      borderRadius: Styles.borderRadiusCircular25,
       onChanged: (value) {},
       maxLines: 7,
       heigth: 140,

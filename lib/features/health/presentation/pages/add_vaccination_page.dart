@@ -7,16 +7,16 @@ import '../../../../core/constent/app_text.dart';
 import '../../../../core/widgets/base_screen.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
 import '../../../../core/widgets/custom_bottom_sheet.dart';
-import '../widgets/medication/add_medication_fields.dart';
-import 'medication_success_page.dart';
+import '../widgets/vaccines/add_vaccination_fields.dart';
+import 'vaccination_success_page.dart';
 
-class AddMedicationPage extends StatelessWidget {
-  const AddMedicationPage({super.key});
-  static const routeName = '/AddMedicationPage';
+class AddVaccinationPage extends StatelessWidget {
+  const AddVaccinationPage({super.key});
+  static const routeName = '/AddVaccinationPage';
 
   static Route<T> route<T>() {
     return MaterialPageRoute<T>(
-      builder: (context) => const AddMedicationPage(),
+      builder: (context) => const AddVaccinationPage(),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -24,13 +24,13 @@ class AddMedicationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScaffoldTitleBaseScreen(
-      title: AppText.addMedications,
+      title: AppText.addVaccination,
       subTitle: '',
       onlyTitle: true,
       bottom: CustomBottomSheet(
         child: AppButton(
           onPressed: () {
-            context.push(MedicationSuccessPage.route());
+            context.push(VaccinationSuccessPage.route());
           },
           name: Text(
             AppText.addVaccination,
@@ -42,7 +42,7 @@ class AddMedicationPage extends StatelessWidget {
           ),
         ),
       ),
-      child: const AddMedicationForm(),
+      child: const AddVaccinationForm(),
     );
   }
 }

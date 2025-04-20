@@ -29,7 +29,7 @@ class CustomCheckBox extends StatelessWidget {
                 maxWidth != null ? BoxConstraints(maxWidth: maxWidth!) : null,
             child: Text(
               label,
-              style: context.textTheme.bodyMedium,
+              style: context.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
               softWrap: true,
             ),
           ),

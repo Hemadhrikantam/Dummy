@@ -1,10 +1,10 @@
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
-import 'package:dummy/features/health/presentation/widgets/medications/medication_card.dart';
+import 'package:dummy/features/health/presentation/widgets/medication/date_card.dart';
 import 'package:flutter/material.dart';
 
-class MedicationList extends StatelessWidget {
-  const MedicationList({super.key});
+class DateList extends StatelessWidget {
+  const DateList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +15,7 @@ class MedicationList extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       separatorBuilder: (context, i) => Styles.gap10,
       itemBuilder: (BuildContext context, int i) {
-        return MedicationsCard();
+        return DateCard();
       },
     );
   }

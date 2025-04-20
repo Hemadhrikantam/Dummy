@@ -10,10 +10,12 @@ import 'package:image_picker/image_picker.dart';
 import '../../features/dailycare/presentation/widgets/add/add_deworming_form.dart';
 import '../../features/dailycare/presentation/widgets/add/add_grooming_form.dart';
 import '../../features/dailycare/presentation/widgets/add/add_walk_form.dart';
-import '../../features/health/presentation/widgets/medications/medication_delete_bottom_sheet_content.dart';
-import '../../features/health/presentation/widgets/medications/medication_delete_success_bottom_sheet_content.dart';
-import '../../features/health/presentation/widgets/medications/medication_taking_bottom_sheet_content.dart';
-import '../../features/health/presentation/widgets/medications/medication_taking_success_bottom_sheet_content.dart';
+import '../../features/health/presentation/widgets/medication/medication_delete_bottom_sheet_content.dart';
+import '../../features/health/presentation/widgets/medication/medication_delete_success_bottom_sheet_content.dart';
+import '../../features/health/presentation/widgets/medication/medication_taking_bottom_sheet_content.dart';
+import '../../features/health/presentation/widgets/medication/medication_taking_success_bottom_sheet_content.dart';
+import '../../features/health/presentation/widgets/vaccines/vaccination_marked_success_bottom_sheet_content.dart';
+import '../../features/health/presentation/widgets/vaccines/vaccination_marking_bottom_sheet_content.dart';
 import '../../features/profile/presentation/widgets/pet_dairy/add_pet_documents.dart';
 import '../../features/profile/presentation/widgets/pet_dairy/add_pet_media.dart';
 import '../widgets/image_picker_container.dart';
@@ -160,6 +162,32 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return MedicationTakingSuccessBottomSheetContent();
+      },
+    );
+  }
+
+  static Future<T?> vaccinationMarkingBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return VaccinationMarkingBottomSheetContent();
+      },
+    );
+  }
+
+  static Future<T?> vaccinationMarkedSuccessBottomSheet<T>(
+    BuildContext context,
+  ) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return VaccinationMarkedSuccessBottomSheetContent();
       },
     );
   }

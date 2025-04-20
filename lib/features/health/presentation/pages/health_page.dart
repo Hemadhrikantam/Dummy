@@ -7,7 +7,9 @@ import '../../../../core/constent/styles.dart';
 import '../../../../core/models/tab_model.dart';
 import '../../../../core/widgets/custom_header_widget.dart';
 import '../../../../core/widgets/custom_tab_bar.dart';
-import '../widgets/medications/medications_tab.dart';
+import '../widgets/insight/insight_tab.dart';
+import '../widgets/medication/medications_tab.dart';
+import '../widgets/vaccines/vaccines_tab.dart';
 
 class HealthPage extends StatefulWidget {
   const HealthPage({super.key});
@@ -49,7 +51,7 @@ class _HealthPage extends State<HealthPage> with TickerProviderStateMixin {
           Expanded(
             child: TabBarView(
               controller: _tabController,
-              children: [MedicationsTab(), MedicationsTab(), MedicationsTab()],
+              children: [InsightTab(), VaccinesTab(), MedicationsTab()],
             ),
           ),
         ],

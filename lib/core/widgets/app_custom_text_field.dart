@@ -29,7 +29,7 @@ class AppTextFormField extends StatelessWidget {
   final bool isMandatory;
   final List<TextInputFormatter>? inputFormatters;
   final TextEditingController? controller;
-  final double borderRadius;
+  final BorderRadius? borderRadius;
   final void Function(String)? onChanged;
   final Function(String?)? onSaved;
   final void Function(String?)? onFieldSubmitted;
@@ -66,7 +66,7 @@ class AppTextFormField extends StatelessWidget {
     this.readOnly,
     this.inputFormatters,
     this.controller,
-    this.borderRadius = 10,
+    this.borderRadius,
     this.onChanged,
     this.onSaved,
     this.onFieldSubmitted,
@@ -79,7 +79,8 @@ class AppTextFormField extends StatelessWidget {
     this.border,
     this.focusedBorder,
     this.headerExtra = false,
-    this.isMandatory = false, this.constraints,
+    this.isMandatory = false,
+    this.constraints,
   });
 
   @override
@@ -146,19 +147,19 @@ class AppTextFormField extends StatelessWidget {
                 horizontal: 20,
               ),
               border: OutlineInputBorder(
-                borderRadius: Styles.borderRadiusCircular40,
+                borderRadius: borderRadius ?? Styles.borderRadiusCircular40,
                 borderSide: const BorderSide(color: AppColors.grey400),
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: Styles.borderRadiusCircular40,
+                borderRadius: borderRadius ?? Styles.borderRadiusCircular40,
                 borderSide: const BorderSide(color: AppColors.grey400),
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: Styles.borderRadiusCircular40,
+                borderRadius: borderRadius ?? Styles.borderRadiusCircular40,
                 borderSide: const BorderSide(color: AppColors.buttonTextColor),
               ),
               errorBorder: OutlineInputBorder(
-                borderRadius: Styles.borderRadiusCircular40,
+                borderRadius: borderRadius ?? Styles.borderRadiusCircular40,
                 borderSide: const BorderSide(color: AppColors.textRed),
               ),
             ),

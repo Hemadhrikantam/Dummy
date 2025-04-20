@@ -3,22 +3,22 @@ import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/custom_bottom_sheet.dart';
-import 'package:dummy/features/health/presentation/widgets/medication/date_list.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constent/app_colors.dart';
 import '../../../../core/widgets/base_screen.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
 import '../../../../core/widgets/buttons/app_text_button.dart';
-import '../widgets/medication/medication_details_card.dart';
+import '../widgets/vaccines/date_list.dart';
+import '../widgets/vaccines/vaccination_details_card.dart';
 
-class MedicationDetailsPage extends StatelessWidget {
-  const MedicationDetailsPage({super.key});
-  static const routeName = '/MedicationDetailsPage';
+class VaccinationDetailsPage extends StatelessWidget {
+  const VaccinationDetailsPage({super.key});
+  static const routeName = '/VaccinationDetailsPage';
 
   static Route<T> route<T>() {
     return MaterialPageRoute<T>(
-      builder: (context) => const MedicationDetailsPage(),
+      builder: (context) => const VaccinationDetailsPage(),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -64,10 +64,10 @@ class MedicationDetailsPage extends StatelessWidget {
       child: ListView(
         padding: Styles.edgeInsetsOnlyH00,
         children: [
-          MedicationDetailsCard(),
+          VaccinationDetailsCard(),
           Styles.gap10,
           Text(
-            AppText.medications,
+            AppText.vaccinations,
             style: context.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
               fontSize: 22,

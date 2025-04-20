@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/base_screen.dart';
-import '../widgets/medication/medication_success.dart';
+import '../widgets/vaccines/vaccination_success.dart';
 
-class MedicationSuccessPage extends StatelessWidget {
-  const MedicationSuccessPage({super.key});
-  static const routeName = '/MedicationSuccessPage';
+class VaccinationSuccessPage extends StatelessWidget {
+  const VaccinationSuccessPage({super.key});
+  static const routeName = '/VaccinationSuccessPage';
 
   static Route<T> route<T>() {
     return MaterialPageRoute<T>(
-      builder: (context) => const MedicationSuccessPage(),
+      builder: (context) => const VaccinationSuccessPage(),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -21,7 +21,7 @@ class MedicationSuccessPage extends StatelessWidget {
       subTitle: '',
       showBackIcon: false,
       onlyTitle: true,
-      child: const MedicationSuccessContent(),
+      child: const VaccinationSuccessContent(),
     );
   }
 }

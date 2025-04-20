@@ -53,7 +53,7 @@ class _MedicationsCardState extends State<MedicationsCard> {
               Row(
                 children: [
                   Text(
-                    AppText.remainder,
+                    AppText.reminder,
                     style: context.textTheme.labelLarge?.copyWith(
                       color: AppColors.grey500,
                     ),

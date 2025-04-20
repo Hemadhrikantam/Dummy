@@ -169,12 +169,11 @@ class AppText {
   static const String reminder = 'Reminder';
   static const String logout = 'Logout';
 
-  //Health
+  //Medication
   static const String insights = 'Insight';
   static const String vaccinations = 'Vaccines';
   static const String medications = 'Medication';
   static const String filter = 'Filter';
-  static const String remainder = 'Remainder';
   static const String startDate = 'Start Date';
   static const String endDate = 'End Date';
   static const String addMedications = 'Add Medications';
@@ -205,6 +204,20 @@ class AppText {
   static const String tablet = 'Tablet';
   static const String close = 'Close';
 
+  //vaccines
+  static const String dateAdministered = 'Date Administered';
+  static const String vaccinationName = 'Vaccination Name';
+  static const String greatJobKeeping = 'Great job keeping ';
+  static const String healthy = 'healthy! ';
+  static const String dummyWouldBeProudOfYouForKeeping =
+      'dummy would be proud of you for keeping ';
+  static const String nextDueDate = 'Next Due Date : ';
+  static const String autoSuggestedBasedOnAnnualFrequency =
+      'Auto suggested based on annual frequency';
+  static const String applyThisInterval =
+      'Apply this interval to future Due Dates?';
+  static const String nextDueDateSetTo = 'Next Due Date set to';
+
   //profile
   static const String petProfile = 'Pet Profile';
   static const String accountDetails = 'Account Details';
@@ -214,15 +227,13 @@ class AppText {
   static const String support = 'Support';
 
   //pet dairy
-    static const String petDairy = 'Pet Dairy';
-    static const String timeline = 'Timeline';
-    static const String documents = 'Documents';
-    static const String addDoc = 'Add Documents';
-    static const String addMedia = 'Add Media';
-      static String tellUsLuna = 'Tell us about Luna’s moment!';
-      static String events = 'Events';
-
-
+  static const String petDairy = 'Pet Dairy';
+  static const String timeline = 'Timeline';
+  static const String documents = 'Documents';
+  static const String addDoc = 'Add Documents';
+  static const String addMedia = 'Add Media';
+  static String tellUsLuna = 'Tell us about Luna’s moment!';
+  static String events = 'Events';
 }
 
 class ErrorResponse {
