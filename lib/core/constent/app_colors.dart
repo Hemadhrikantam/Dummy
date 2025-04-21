@@ -40,6 +40,13 @@ class AppColors {
     stops: [0.0794, 0.2146, 0.7396, 0.9276],
   );
 
+  static const LinearGradient blackAndWhite = LinearGradient(
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+    colors: [AppColors.transparent, AppColors.black],
+    stops: [0.0794, 0.7276],
+  );
+
   static const LinearGradient startPetscreenBackgroundColor = LinearGradient(
     begin: Alignment.topRight,
     end: Alignment.bottomRight,
@@ -50,6 +57,18 @@ class AppColors {
       Color.fromARGB(255, 22, 18, 18),
     ],
     stops: [0.0794, 0.2146, 0.7396, 0.9276],
+  );
+
+  static RadialGradient insightHeaderCardBackgroundColor = RadialGradient(
+    focal: AlignmentGeometry.lerp(
+      AlignmentDirectional.centerStart,
+      AlignmentDirectional.centerEnd,
+      100,
+    ),
+    colors: [
+      AppColors.buttonBackground,
+      AppColors.buttonBackground.withOpacity(.28),
+    ],
   );
 
   static const LinearGradient bluePinkGradient = LinearGradient(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../constent/app_colors.dart';
 
@@ -13,17 +14,18 @@ class AppTextIconButton extends StatelessWidget {
   final void Function()? onPressed;
   final EdgeInsetsGeometry? padding;
 
-  const AppTextIconButton(
-      {super.key,
-      required this.name,
-      required this.icon,
-      this.onPressed,
-      this.padding,
-      this.backgroundColor,
-      this.splashColor,
-      this.borderColor,
-      this.radius,
-      this.textColor});
+  const AppTextIconButton({
+    super.key,
+    required this.name,
+    required this.icon,
+    this.onPressed,
+    this.padding,
+    this.backgroundColor,
+    this.splashColor,
+    this.borderColor,
+    this.radius,
+    this.textColor,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -34,20 +36,18 @@ class AppTextIconButton extends StatelessWidget {
         backgroundColor: WidgetStateProperty.all(backgroundColor),
         shape: WidgetStateProperty.all(
           RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(radius ?? 4)),
+            borderRadius: BorderRadius.circular(radius ?? 4),
+          ),
         ),
         side: WidgetStateProperty.all(
-            BorderSide(color: borderColor ?? AppColors.primaryColor)),
+          BorderSide(color: borderColor ?? AppColors.primaryColor),
+        ),
       ),
       onPressed: onPressed,
-      icon: Icon(
-        icon,
-        size: 20,
-        color: textColor ?? AppColors.primaryColor,
-      ),
+      icon: Icon(icon, size: 20, color: textColor ?? AppColors.primaryColor),
       label: Text(
         name,
-        style: TextStyle(
+        style: GoogleFonts.instrumentSans(
           color: textColor ?? AppColors.primaryColor,
           fontWeight: FontWeight.w500,
           fontSize: 14,

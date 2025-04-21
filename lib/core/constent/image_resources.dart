@@ -38,15 +38,15 @@ class ImageResources {
   static const String overviewaddpicture = 'assets/icons/T-shirt.png.png';
 
   //profile
-    static const String profileDog = '$images/profile_dog.png';
-    static const String petProfile = '$images/pet_profile.png';
-    static const String familyMembers = '$images/manage_family.png.png';
-    static const String accountDetails = '$images/account_details.png';
-    static const String premiumSubscription = '$images/premium.png';
-    static const String support = '$images/support.png';
-    static const String arrowFarward = '$images/arrow_farward.png';
-    static const String delete = '$__icons/delete.png';
-    static const String mediaImg = '$images/media.png';
+  static const String profileDog = '$images/profile_dog.png';
+  static const String petProfile = '$images/pet_profile.png';
+  static const String familyMembers = '$images/manage_family.png.png';
+  static const String accountDetails = '$images/account_details.png';
+  static const String premiumSubscription = '$images/premium.png';
+  static const String support = '$images/support.png';
+  static const String arrowFarward = '$images/arrow_farward.png';
+  static const String delete = '$__icons/delete.png';
+  static const String mediaImg = '$images/media.png';
 
   //Health
   static const String heartIcon = '$__icons/heart_icon.png';
@@ -54,4 +54,5 @@ class ImageResources {
   static const String nailsIcon = '$__icons/nails_icon.png';
   static const String pawIcon = '$__icons/paw_icon.png';
   static const String syringeIcon = '$__icons/syringe_icon.png';
+  static const String dogImage = '$images/dog_image.png';
 }

@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -28,13 +29,13 @@ class AppUtil {
       builder: (context, child) {
         return Theme(
           data: Theme.of(context).copyWith(
-            textTheme: const TextTheme(
-              bodyLarge: TextStyle(
+            textTheme: TextTheme(
+              bodyLarge: GoogleFonts.instrumentSans(
                 fontSize: 14,
                 color: AppColors.black,
                 fontWeight: FontWeight.w700,
               ),
-              titleMedium: TextStyle(
+              titleMedium: GoogleFonts.instrumentSans(
                 fontSize: 14,
                 color: AppColors.black,
                 fontWeight: FontWeight.w700,

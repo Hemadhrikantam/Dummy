@@ -12,6 +12,7 @@ import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart'
 import 'package:dummy/features/signup/presentation/widgets/plan_info_widget.dart';
 //import 'package:dummy/features/signup/presentation/widgets/rating_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../widgets/timer_widget.dart';
 
@@ -136,7 +137,10 @@ class __OfferText extends StatelessWidget {
           TextSpan(text: AppText.get),
           TextSpan(
             text: AppText.fiftyPercent,
-            style: TextStyle(color: AppColors.stepperColor, fontSize: 35),
+            style: GoogleFonts.instrumentSans(
+              color: AppColors.stepperColor,
+              fontSize: 35,
+            ),
           ),
           TextSpan(text: AppText.dummyPremium),
         ],

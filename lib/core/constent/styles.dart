@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 
@@ -14,7 +15,7 @@ class Styles {
     vertical: 6,
     horizontal: 8,
   );
-  static const buttonStyle = TextStyle(
+  static final buttonStyle = GoogleFonts.instrumentSans(
     color: AppColors.buttonTextColor,
     fontWeight: FontWeight.w700,
     fontSize: 14,

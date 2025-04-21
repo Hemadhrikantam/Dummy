@@ -1,6 +1,7 @@
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../constent/app_colors.dart';
 import '../constent/styles.dart';
@@ -85,7 +86,7 @@ class AppCustomText extends StatelessWidget {
             if (title != null)
               TextSpan(
                 text: title,
-                style: TextStyle(
+                style: GoogleFonts.instrumentSans(
                   fontSize: titleFont ?? 10,
                   color: textColor ?? AppColors.black,
                   fontWeight: FontWeight.w700,
@@ -93,7 +94,7 @@ class AppCustomText extends StatelessWidget {
               ),
             TextSpan(
               text: subTitle,
-              style: TextStyle(
+              style: GoogleFonts.instrumentSans(
                 fontSize: subTitleFont ?? 10,
                 color: textColor ?? AppColors.black,
               ),

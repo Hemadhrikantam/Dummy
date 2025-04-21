@@ -10,6 +10,7 @@ import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StartYourPetsJourney2 extends StatelessWidget {
   const StartYourPetsJourney2({super.key});
@@ -60,7 +61,7 @@ class StartYourPetsJourney2 extends StatelessWidget {
                 ),
                 Text(
                   AppText.welcomeToDummy2,
-                  style: const TextStyle(
+                  style: GoogleFonts.instrumentSans(
                     fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Colors.white,

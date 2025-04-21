@@ -1,5 +1,6 @@
 import 'package:dummy/core/constent/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 
@@ -59,55 +60,47 @@ class AppThemes {
         borderRadius: Styles.borderRadiusCircular10,
       ),
     ),
-    textTheme: const TextTheme(
-      titleSmall: TextStyle(
+    textTheme: TextTheme(
+      titleSmall: GoogleFonts.instrumentSans(
         fontSize: 14,
         fontWeight: FontWeight.w700,
-        fontFamily: 'SFProDisplay',
       ),
-      titleMedium: TextStyle(
+      titleMedium: GoogleFonts.instrumentSans(
         fontSize: 18.5,
         fontWeight: FontWeight.bold,
         color: AppColors.buttonTextColor,
-        fontFamily: 'SFProDisplay',
       ),
-      titleLarge: TextStyle(
+      titleLarge: GoogleFonts.instrumentSans(
         fontSize: 20,
         fontWeight: FontWeight.w700,
         color: AppColors.buttonTextColor,
-        fontFamily: 'SFProDisplay',
       ),
-      labelMedium: TextStyle(
+      labelMedium: GoogleFonts.instrumentSans(
         color: AppColors.buttonTextColor,
         fontWeight: FontWeight.w500,
         fontSize: 14,
-        fontFamily: 'SFProDisplay',
       ),
-      labelLarge: TextStyle(
+      labelLarge: GoogleFonts.instrumentSans(
         color: AppColors.buttonTextColor,
         fontWeight: FontWeight.w700,
         fontSize: 14,
-        fontFamily: 'SFProDisplay',
       ),
-      labelSmall: TextStyle(
+      labelSmall: GoogleFonts.instrumentSans(
         color: AppColors.buttonTextColor,
         fontSize: 12,
         fontWeight: FontWeight.w600,
-        fontFamily: 'SFProDisplay',
       ),
-      headlineSmall: TextStyle(
+      headlineSmall: GoogleFonts.instrumentSans(
         color: AppColors.buttonTextColor,
         fontSize: 16,
         fontWeight: FontWeight.w400,
-        fontFamily: 'SFProDisplay',
       ),
 
       //
-      bodyLarge: TextStyle(
+      bodyLarge: GoogleFonts.instrumentSans(
         fontSize: 30,
         fontWeight: FontWeight.w600,
         color: AppColors.buttonTextColor,
-        fontFamily: 'SFProDisplay',
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
@@ -136,7 +129,7 @@ class AppThemes {
         padding: WidgetStateProperty.all(Styles.edgeInsetsOnlyW25),
         backgroundColor: WidgetStateProperty.all(AppColors.primaryColor),
         textStyle: WidgetStateProperty.all(
-          const TextStyle(color: AppColors.white),
+          GoogleFonts.instrumentSans(color: AppColors.white),
         ),
         shape: WidgetStateProperty.all(
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
@@ -174,34 +167,37 @@ class AppThemes {
         borderRadius: Styles.borderRadiusCircular05,
       ),
     ),
-    textTheme: const TextTheme(
-      titleSmall: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
-      titleMedium: TextStyle(
+    textTheme: TextTheme(
+      titleSmall: GoogleFonts.instrumentSans(
+        fontSize: 14,
+        fontWeight: FontWeight.w600,
+      ),
+      titleMedium: GoogleFonts.instrumentSans(
         fontSize: 18.5,
         fontWeight: FontWeight.bold,
         color: AppColors.black,
       ),
-      titleLarge: TextStyle(
+      titleLarge: GoogleFonts.instrumentSans(
         fontSize: 20,
         fontWeight: FontWeight.w500,
         color: AppColors.black,
       ),
-      labelSmall: TextStyle(
+      labelSmall: GoogleFonts.instrumentSans(
         color: AppColors.black,
         fontSize: 12,
         fontWeight: FontWeight.w600,
       ),
-      labelLarge: TextStyle(
+      labelLarge: GoogleFonts.instrumentSans(
         color: AppColors.white,
         fontWeight: FontWeight.w700,
         fontSize: 14,
       ),
-      labelMedium: TextStyle(
+      labelMedium: GoogleFonts.instrumentSans(
         color: AppColors.white,
         fontSize: 14,
         fontWeight: FontWeight.w500,
       ),
-      bodyLarge: TextStyle(
+      bodyLarge: GoogleFonts.instrumentSans(
         fontSize: 30,
         fontWeight: FontWeight.w600,
         color: AppColors.black,
@@ -221,21 +217,21 @@ class AppThemes {
 
 class AppTypography {
   // Large Title or Header
-  static const TextStyle headerStyle = TextStyle(
+  static TextStyle headerStyle = GoogleFonts.instrumentSans(
     fontSize: 22.0,
     fontWeight: FontWeight.bold,
     color: AppColors.primaryColor,
   );
 
   // Subheader or Section Titles
-  static const TextStyle subheaderStyle = TextStyle(
+  static TextStyle subheaderStyle = GoogleFonts.instrumentSans(
     fontSize: 18.0,
     fontWeight: FontWeight.bold,
     color: AppColors.primaryColor,
   );
 
   // Regular Text
-  static const TextStyle bodyTextStyle = TextStyle(
+  static TextStyle bodyTextStyle = GoogleFonts.instrumentSans(
     fontSize: 16.0,
     color: AppColors.primaryColor,
   );

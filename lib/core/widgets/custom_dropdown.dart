@@ -6,6 +6,7 @@ import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/mandatory_field_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../models/drop_item.dart';
 
@@ -80,7 +81,7 @@ class CustomDropdownSearch extends StatelessWidget {
               hintText: label ?? 'Select',
               fillColor: AppColors.white,
               filled: true,
-              hintStyle: TextStyle(
+              hintStyle: GoogleFonts.instrumentSans(
                 fontSize: fontSize ?? 14,
                 fontWeight: hintTextFontWeight ?? FontWeight.w400,
                 color: hintTextColor ?? AppColors.grey700,
@@ -127,8 +128,8 @@ class CustomDropdownSearch extends StatelessWidget {
             showSearchBox: true,
             isFilterOnline: true,
             showSelectedItems: true,
-            searchFieldProps: const TextFieldProps(
-              style: TextStyle(fontSize: 14),
+            searchFieldProps: TextFieldProps(
+              style: GoogleFonts.instrumentSans(fontSize: 14),
             ),
             modalBottomSheetProps: const ModalBottomSheetProps(
               shape: RoundedRectangleBorder(

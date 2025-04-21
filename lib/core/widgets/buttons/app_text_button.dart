@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../constent/app_colors.dart';
 
@@ -41,7 +42,7 @@ class AppTextButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         name,
-        style: TextStyle(
+        style: GoogleFonts.instrumentSans(
           color: textColor ?? AppColors.white,
           fontWeight: FontWeight.w700,
           fontSize: 14,

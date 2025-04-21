@@ -1,5 +1,6 @@
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../constent/app_colors.dart';
 import '../constent/styles.dart';
@@ -64,8 +65,10 @@ class CustomTabBar extends StatelessWidget {
         labelColor: labelColor ?? AppColors.white,
         indicatorSize: TabBarIndicatorSize.tab,
         labelPadding: labelPadding,
-        labelStyle: TextStyle(fontWeight: FontWeight.w700),
-        unselectedLabelStyle: TextStyle(fontWeight: FontWeight.w400),
+        labelStyle: GoogleFonts.instrumentSans(fontWeight: FontWeight.w700),
+        unselectedLabelStyle: GoogleFonts.instrumentSans(
+          fontWeight: FontWeight.w400,
+        ),
         padding: Styles.edgeInsetsOnlyH00,
         indicatorPadding: Styles.edgeInsetsAll02,
         unselectedLabelColor: unselectedLabelColor ?? AppColors.black,
@@ -76,7 +79,7 @@ class CustomTabBar extends StatelessWidget {
                     child: Center(
                       child: Text(
                         item.text,
-                        style: TextStyle(
+                        style: GoogleFonts.instrumentSans(
                           fontSize: labelFontSize ?? 14,
                           letterSpacing: -0.5,
                         ),

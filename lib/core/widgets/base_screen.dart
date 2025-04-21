@@ -7,6 +7,7 @@ import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../constent/app_colors.dart';
@@ -68,14 +69,14 @@ class ScaffoldBaseScreen extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
+                  style: GoogleFonts.instrumentSans(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
                   subTitle ?? '',
-                  style: const TextStyle(
+                  style: GoogleFonts.instrumentSans(
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
                   ),
@@ -113,7 +114,10 @@ class ScaffoldBaseScreenWithTabBar extends StatelessWidget {
           automaticallyImplyLeading: false,
           title: Text(
             title,
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            style: GoogleFonts.instrumentSans(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
           ),
           bottom: bottom,
         ),
@@ -372,7 +376,7 @@ class CustomAppBar extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: const TextStyle(
+                        style: GoogleFonts.instrumentSans(
                           fontSize: 14,
                           color: AppColors.grey600,
                           fontWeight: FontWeight.w500,
@@ -382,7 +386,7 @@ class CustomAppBar extends StatelessWidget {
                       ),
                       Text(
                         subTitle,
-                        style: const TextStyle(
+                        style: GoogleFonts.instrumentSans(
                           fontSize: 14,
                           color: AppColors.black,
                           fontWeight: FontWeight.w500,

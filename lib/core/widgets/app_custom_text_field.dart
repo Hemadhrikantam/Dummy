@@ -107,7 +107,7 @@ class AppTextFormField extends StatelessWidget {
             readOnly: readOnly ?? false,
             cursorColor: AppColors.primaryColor,
             maxLength: maxLength,
-            style: TextStyle(
+            style: GoogleFonts.instrumentSans(
               fontStyle: FontStyle.normal,
               fontWeight: FontWeight.w600,
               fontSize: 14,
@@ -136,7 +136,7 @@ class AppTextFormField extends StatelessWidget {
                 minHeight: 24,
                 minWidth: 24,
               ),
-              hintStyle: TextStyle(
+              hintStyle: GoogleFonts.instrumentSans(
                 fontStyle: FontStyle.normal,
                 color: AppColors.grey600,
                 fontWeight: FontWeight.w400,

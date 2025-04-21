@@ -3,6 +3,7 @@ import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class MonthlyYearlySelectionCard extends StatelessWidget {
   const MonthlyYearlySelectionCard({
@@ -54,7 +55,7 @@ class MonthlyYearlySelectionCard extends StatelessWidget {
                       borderRadius: borderRadius,
                       border: Border.all(color: AppColors.stepperColor),
                     ),
-            padding:Styles.edgeInsetsAll20,
+            padding: Styles.edgeInsetsAll20,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -75,8 +76,7 @@ class MonthlyYearlySelectionCard extends StatelessWidget {
                     color: isSelected ? Colors.white : textColor,
                   ),
                 ),
-                if (badgeText == null)
-                Styles.gap30,
+                if (badgeText == null) Styles.gap30,
                 if (badgeText != null)
                   Container(
                     padding: const EdgeInsets.symmetric(
@@ -89,13 +89,13 @@ class MonthlyYearlySelectionCard extends StatelessWidget {
                     ),
                     child: Text(
                       badgeText!,
-                      style: const TextStyle(
+                      style: GoogleFonts.instrumentSans(
                         fontSize: 12,
                         color: AppColors.stepperColor,
                       ),
                     ),
                   ),
-                  if (badgeText != null) Styles.gap4,
+                if (badgeText != null) Styles.gap4,
                 Text(
                   trialText,
                   style: context.textTheme.bodySmall?.copyWith(
@@ -112,11 +112,7 @@ class MonthlyYearlySelectionCard extends StatelessWidget {
               right: -6,
               child: CustomCard(
                 padding: Styles.edgeInsetsAll02,
-                child: const Icon(
-                  Icons.check,
-                  size: 16,
-                  color: Colors.orange,
-                ),
+                child: const Icon(Icons.check, size: 16, color: Colors.orange),
               ),
             ),
         ],

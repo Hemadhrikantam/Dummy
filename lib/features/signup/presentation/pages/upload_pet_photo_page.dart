@@ -8,6 +8,7 @@ import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/stepper_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
@@ -68,7 +69,7 @@ class _UploadPetPhotoPageState extends State<UploadPetPhotoPage> {
                   selectedImage == null
                       ? Text(
                         AppText.upload,
-                        style: TextStyle(
+                        style: GoogleFonts.instrumentSans(
                           color: AppColors.buttonTextColor,
                           fontWeight: FontWeight.w700,
                         ),
@@ -79,7 +80,7 @@ class _UploadPetPhotoPageState extends State<UploadPetPhotoPage> {
           Styles.gap20,
           if (selectedImage != null)
             Text(
-              AppText.petPhotoUploadedContent, 
+              AppText.petPhotoUploadedContent,
               style: context.textTheme.titleSmall,
               textAlign: TextAlign.center,
             ),

@@ -23,7 +23,7 @@ class CustomCard extends StatelessWidget {
   final BorderRadiusGeometry? borderRadius;
   final void Function()? onTap;
   final Border? border;
-  final LinearGradient? backgroundGradientColor;
+  final Gradient? backgroundGradientColor;
   final List<BoxShadow>? boxShadow;
   final double? elevation;
 
