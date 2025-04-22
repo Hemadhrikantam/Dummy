@@ -2,7 +2,6 @@ import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/constent/app_colors.dart';
 import '../../../../core/constent/styles.dart';
 import '../../../../core/models/tab_model.dart';
 import '../../../../core/widgets/custom_header_widget.dart';
@@ -41,7 +40,6 @@ class _HealthPage extends State<HealthPage> with TickerProviderStateMixin {
           Styles.gap30,
           CustomTabBar(
             tabController: _tabController,
-            labelColor: AppColors.white,
             tabs: [
               TabModel(text: AppText.insights),
               TabModel(text: AppText.vaccinations),

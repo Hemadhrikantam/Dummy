@@ -47,18 +47,24 @@ class _PetDairyPageState extends State<PetDairyPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CustomCard(
-        borderColor: AppColors.white,
-        child: AppButton(
-          name: Text(AppText.add, style: Styles.buttonStyle),
-          onPressed: () {
-            if (_tabController.index == 1) {
-              BottomModels.addPetMediaBottomSheet(context);
-            } else {
-              BottomModels.addPetDocumentsBottomSheet(context);
-            }
-          },
-        ),
+      bottomSheet: Row(
+        children: [
+          Expanded(
+            child: CustomCard(
+              borderColor: AppColors.white,
+              child: AppButton(
+                name: Text(AppText.add, style: Styles.buttonStyle),
+                onPressed: () {
+                  if (_tabController.index == 1) {
+                    BottomModels.addPetMediaBottomSheet(context);
+                  } else {
+                    BottomModels.addPetDocumentsBottomSheet(context);
+                  }
+                },
+              ),
+            ),
+          ),
+        ],
       ),
       body: Container(
         padding: Styles.edgeInsetsAll10,

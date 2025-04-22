@@ -39,7 +39,7 @@ class CustomCard extends StatelessWidget {
           boxShadow: boxShadow,
           border:
               border ??
-              Border.all(color: borderColor ?? AppColors.transparent, width: 1),
+              Border.all(color: borderColor ?? AppColors.grey350, width: 1),
         ),
         child: Padding(
           padding: padding ?? Styles.edgeInsetsAll12,

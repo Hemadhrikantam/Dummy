@@ -22,6 +22,7 @@ class InsightTab extends StatelessWidget {
     return Padding(
       padding: Styles.edgeInsetsOnlyT20,
       child: CustomCard(
+        borderColor: AppColors.white,
         child: ListView(
           children: [
             HealthStatusCard(),

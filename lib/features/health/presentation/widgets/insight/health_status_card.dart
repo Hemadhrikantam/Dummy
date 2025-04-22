@@ -24,6 +24,7 @@ class HealthStatusCard extends StatelessWidget {
               Styles.gap20,
               Expanded(
                 child: CustomCard(
+                  borderColor: AppColors.white,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -73,6 +74,7 @@ class HealthStatusCard extends StatelessWidget {
           Styles.gap10,
           CustomCard(
             padding: Styles.edgeInsetsAll10,
+            borderColor: AppColors.white,
             child: Row(
               children: [
                 AppAssestsImage(

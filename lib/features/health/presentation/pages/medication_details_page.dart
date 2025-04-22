@@ -36,7 +36,6 @@ class MedicationDetailsPage extends StatelessWidget {
               child: AppTextButton(
                 onPressed: () {
                   BottomModels.medicationDeleteBottomSheet(context);
-                  // BottomModels.medicationTakingBottomSheet(context);
                 },
                 backgroundColor: AppColors.white,
                 name: AppText.delete,
