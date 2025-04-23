@@ -64,7 +64,7 @@ class AppText {
   static String tellUsYourPetType = 'Tell Us About Your [Pet Type]!';
   static String theMoreAboutPet =
       'The more we know about your pet, the better we can help!';
-  static String age = 'Date Of Birth';
+  static String dateOfBirth = 'Date Of Birth';
   static String breed = 'Breed';
   static String personalitytags = 'Personality Tags';
   static String dummyLovedHisPhoto =
@@ -234,6 +234,17 @@ class AppText {
   static const String addMedia = 'Add Media';
   static String tellUsLuna = 'Tell us about Luna’s moment!';
   static String events = 'Events';
+
+  //adoption
+  static String addAdoptionQuery = 'Add Adoption Query';
+  static String name = 'Name';
+  static String address = 'Address';
+  static String phone = 'Phone';
+  static String email = 'Email';
+  static String petType = 'Pet Type';
+  static String description = 'Description';
+  static String age = 'Age';
+  static const String markAsAdopted = 'Mark As Adopted';
 }
 
 class ErrorResponse {

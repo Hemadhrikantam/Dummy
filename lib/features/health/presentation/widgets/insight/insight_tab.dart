@@ -28,6 +28,7 @@ class InsightTab extends StatelessWidget {
             HealthStatusCard(),
             Styles.gap20,
             CustomCard(
+              borderColor: AppColors.buttonBackground,
               child: Row(
                 children: [
                   AppAssestsImage(
@@ -132,9 +133,11 @@ class InsightTab extends StatelessWidget {
                       top: 6,
                       left: 6,
                       child: CustomCard(
+                        backgroundColor: AppColors.buttonBackground,
                         padding:
                             Styles.edgeInsetsAll02 + Styles.edgeInsetsOnlyW20,
                         borderRadius: Styles.borderRadiusCircular40,
+                        borderColor: AppColors.transparent,
                         child: Text(
                           'Happy',
                           style: context.textTheme.bodySmall?.copyWith(

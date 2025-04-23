@@ -7,6 +7,8 @@ import 'package:dummy/features/dailycare/presentation/widgets/add/add_meal_form.
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
+import '../../features/addoption/presentation/widgets/add_adoption_form.dart';
+import '../../features/addoption/presentation/widgets/adoption_delete_bottom_sheet_content.dart';
 import '../../features/dailycare/presentation/widgets/add/add_deworming_form.dart';
 import '../../features/dailycare/presentation/widgets/add/add_grooming_form.dart';
 import '../../features/dailycare/presentation/widgets/add/add_walk_form.dart';
@@ -213,6 +215,31 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return AddPetMedia();
+      },
+    );
+  }
+
+  //adoption
+  static Future<T?> addAdoptionBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddAdoptionForm();
+      },
+    );
+  }
+
+  static Future<T?> adoptionDeleteBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AdoptionDeleteBottomSheetContent();
       },
     );
   }

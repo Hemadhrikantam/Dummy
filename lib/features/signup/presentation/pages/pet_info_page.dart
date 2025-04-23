@@ -30,9 +30,9 @@ class PetInfoPage extends StatefulWidget {
 }
 
 class _PetInfoPageState extends State<PetInfoPage> {
-    DateTime? selectedDate;
+  DateTime? selectedDate;
 
-   void _pickDate() {
+  void _pickDate() {
     CupertinoRoundedDatePicker.show(
       context,
       fontFamily: "Mali",
@@ -48,9 +48,9 @@ class _PetInfoPageState extends State<PetInfoPage> {
       },
     );
   }
+
   @override
   Widget build(BuildContext context) {
-    
     return MaterialBaseScreen(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -68,7 +68,7 @@ class _PetInfoPageState extends State<PetInfoPage> {
           Text(AppText.theMoreAboutPet, style: context.textTheme.titleSmall),
           Styles.gap30,
           AppTextFormField(
-            headerText: AppText.age,
+            headerText: AppText.dateOfBirth,
             onTap: _pickDate,
             readOnly: true,
             suffixIcon: Iconsax.calendar,

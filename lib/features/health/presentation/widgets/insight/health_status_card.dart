@@ -15,7 +15,7 @@ class HealthStatusCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomCard(
       backgroundColor: AppColors.buttonBackground,
-      borderColor: AppColors.buttonBackground,
+      borderColor: AppColors.darkOrange.withOpacity(.28),
       child: Column(
         children: [
           Row(
@@ -24,7 +24,7 @@ class HealthStatusCard extends StatelessWidget {
               Styles.gap20,
               Expanded(
                 child: CustomCard(
-                  borderColor: AppColors.white,
+                  borderColor: AppColors.black.withOpacity(.1),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -74,7 +74,7 @@ class HealthStatusCard extends StatelessWidget {
           Styles.gap10,
           CustomCard(
             padding: Styles.edgeInsetsAll10,
-            borderColor: AppColors.white,
+            borderColor: AppColors.black.withOpacity(.1),
             child: Row(
               children: [
                 AppAssestsImage(
