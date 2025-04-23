@@ -31,6 +31,7 @@ class AppButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: padding,
       width: width,
       height: height ?? 44,
       decoration: BoxDecoration(

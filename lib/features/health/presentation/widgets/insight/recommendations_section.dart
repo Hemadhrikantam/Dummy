@@ -83,6 +83,7 @@ class RecommendationsCard extends StatelessWidget {
             child: CustomCard(
               padding: Styles.edgeInsetsAll06 + Styles.edgeInsetsOnlyW10,
               backgroundColor: AppColors.buttonBackground,
+              borderColor: AppColors.transparent,
               borderRadius: BorderRadius.only(
                 topRight: Styles.radiusCircular08,
                 bottomLeft: Styles.radiusCircular08,

@@ -89,7 +89,7 @@ class AppCustomText extends StatelessWidget {
                 style: GoogleFonts.instrumentSans(
                   fontSize: titleFont ?? 10,
                   color: textColor ?? AppColors.black,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             TextSpan(
