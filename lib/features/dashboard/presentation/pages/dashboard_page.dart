@@ -62,7 +62,6 @@ class _DashboardPage extends State<DashboardPage> {
           height: 64,
           width: 64,
           child: FloatingActionButton(
-            backgroundColor: AppColors.stepperColor,
             elevation: 0,
             onPressed: () {},
             shape: RoundedRectangleBorder(
@@ -70,9 +69,7 @@ class _DashboardPage extends State<DashboardPage> {
               borderRadius: Styles.borderRadiusCircular50,
             ),
             child: AppAssestsImage(
-              path: ImageResources.ai,
-              height: 24,
-              width: 24,
+              path: ImageResources.ai2,
             ),
           ),
         ),

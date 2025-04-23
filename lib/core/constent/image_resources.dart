@@ -15,7 +15,7 @@ class ImageResources {
   static const String dog = '$images/dog.png';
   static const String trackImg = '$images/track.png';
   static const String backImg = '$images/back.png';
-  static const String ai = '$__icons/ai.png';
+  static const String ai2 = '$images/ai2.png';
 
   //dashboard
   static const String unselectedHome = '$__icons/unselected_home.png';
@@ -55,4 +55,17 @@ class ImageResources {
   static const String pawIcon = '$__icons/paw_icon.png';
   static const String syringeIcon = '$__icons/syringe_icon.png';
   static const String dogImage = '$images/dog_image.png';
+
+  //home
+  static const String breed = '$__icons/breed.png';
+  static const String age = '$__icons/age.png';
+  static const String gender = '$__icons/gender.png';
+  static const String petType = '$__icons/pet_type.png';
+  static const String weight = '$__icons/weight.png';
+  static const String logMeals = '$images/log_meals.png';
+  static const String logWalks = '$images/log_walks.png';
+  static const String logVaccin = '$images/log_vaccin.png';
+  static const String checkMood = '$images/check_mood.png';
+  static const String addMemories = '$images/add_memories.png';
+  static const String symptoms = '$images/symptoms.png';
 }

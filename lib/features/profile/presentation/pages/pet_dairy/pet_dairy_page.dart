@@ -12,7 +12,7 @@ import 'package:dummy/features/profile/presentation/widgets/pet_dairy/time_line_
 import 'package:flutter/material.dart';
 
 import '../../widgets/pet_dairy/pet_dairy_header.dart';
-import 'pet_image_widget.dart';
+import '../../widgets/pet_image_widget.dart';
 
 class PetDairyPage extends StatefulWidget {
   const PetDairyPage({super.key});

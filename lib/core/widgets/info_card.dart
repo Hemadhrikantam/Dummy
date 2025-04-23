@@ -5,13 +5,19 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class InfoCard extends StatelessWidget {
-  const InfoCard({super.key, required this.title, this.image});
+  const InfoCard({
+    super.key,
+    required this.title,
+    this.image,
+    this.backgroundColor,
+  });
   final String title;
   final String? image;
+  final Color? backgroundColor;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-      backgroundColor: AppColors.infoCardBackgroundColor,
+      backgroundColor: backgroundColor ?? AppColors.infoCardBackgroundColor,
       borderRadius: Styles.borderRadiusCircular10,
       child: Text(
         title,

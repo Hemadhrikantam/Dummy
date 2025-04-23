@@ -234,6 +234,22 @@ class AppText {
   static const String addMedia = 'Add Media';
   static String tellUsLuna = 'Tell us about Luna’s moment!';
   static String events = 'Events';
+
+  //home
+    static String weight = 'Weight';
+    static String petType = 'Pet Type';
+    static String gender = 'Gender';
+    static String quickActions = 'Quick Actions';
+    static String logWalks = 'Log Walks';
+    static String logMeals = 'Log Meals';
+    static String logVaccin = 'Log Vaccin';
+    static String checkMood = 'Check Mood';
+    static String symptoms = 'Symptoms';
+    static String addMemories = 'Add Memories';
+    static String wagAi = 'Wag AI';
+    static String tipOfTheDay = 'Tip of the Day';
+    static String nearYou = 'Near You';
+
 }
 
 class ErrorResponse {
