@@ -85,11 +85,27 @@ class HealthStatusCard extends StatelessWidget {
                 ),
                 Styles.gap10,
                 Expanded(
-                  child: Text(
-                    'Great job logging her meals and walks! She missed her last deworming dose (Due: 03/01/2025)',
-                    style: context.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 12,
+                  child: RichText(
+                    textAlign: TextAlign.start,
+                    text: TextSpan(
+                      text:
+                          "Great job logging her meals and walks! She missed her last deworming dose",
+                      style: context.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.w500,
+                        fontSize: 14,
+                        fontStyle: FontStyle.italic,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "(Due: 03/01/2025). ",
+                          style: context.textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: AppColors.stepperColor,
+                            fontStyle: FontStyle.italic,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ),

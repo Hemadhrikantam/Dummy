@@ -2,16 +2,19 @@ import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
+import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_text_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/core/widgets/static_widget.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
+import 'package:dummy/features/profile/presentation/pages/support/support_page.dart';
 import 'package:dummy/features/profile/presentation/widgets/profile_header.dart';
 import 'package:dummy/features/profile/presentation/widgets/profile_options/pet_list_Widget.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/profile_options/profile_options_widget.dart';
+import 'account_details/account_details_page.dart';
 
 class ProfileOptionsPage extends StatelessWidget {
   const ProfileOptionsPage({super.key});
@@ -51,11 +54,17 @@ class ProfileOptionsPage extends StatelessWidget {
                               context.pushNamed(PetDairyPage.routeName);
                             } else if (item[i].title ==
                                 AppText.accountDetails) {
+                              context.push(AccountDetailsPage.route());
                             } else if (item[i].title == AppText.manageFamily) {
+                              BottomModels.manageFamilyMembersBottomSheet(
+                                context,
+                              );
                             } else if (item[i].title ==
                                 AppText.premiumSubscription) {
                             } else if (item[i].title == AppText.vetNearMe) {
-                            } else if (item[i].title == AppText.support) {}
+                            } else if (item[i].title == AppText.support) {
+                              context.push(SupportPage.route());
+                            }
                           },
                         ),
                       );

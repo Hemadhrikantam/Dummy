@@ -234,7 +234,7 @@ class ScaffoldTitleBaseScreen extends StatelessWidget {
     this.onlyTitle = false,
     this.expandedHeight,
     this.onBack,
-    this.showImage,
+    this.showImage = true,
     this.filterOnTap,
     this.onChanged,
     this.backgroundColor,
@@ -292,6 +292,7 @@ class ScaffoldTitleBaseScreen extends StatelessWidget {
                     suffixIcon: suffixIcon,
                     showBackIcon: showBackIcon,
                     filterOnTap: filterOnTap,
+                    showImage: showImage,
                   )
                   : CustomAppBar(
                     title: title,
@@ -324,7 +325,7 @@ class CustomAppBar extends StatelessWidget {
     super.key,
     this.showBackIcon = true,
     this.onBack,
-    this.showImage,
+    this.showImage = true,
   });
   final String title;
   final String subTitle;
@@ -422,10 +423,12 @@ class CustomAppBarTitle extends StatelessWidget {
     this.showBackIcon = true,
     this.suffixIcon,
     this.filterOnTap,
+    this.showImage = true,
   });
   final bool showBackIcon;
   final String title;
   final bool? suffixIcon;
+  final bool? showImage;
   final void Function()? filterOnTap;
 
   @override
@@ -460,7 +463,8 @@ class CustomAppBarTitle extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
-          AppAssestsImage(path: ImageResources.dog, height: 45, width: 45),
+          if (showImage == true)
+            AppAssestsImage(path: ImageResources.dog, height: 45, width: 45),
         ],
       ),
     );

@@ -31,7 +31,7 @@ class _DashboardPage extends State<DashboardPage> {
     DailycarePage(),
     AddoptionPage(),
   ];
-  int selectedIndex = 2;
+  int selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {

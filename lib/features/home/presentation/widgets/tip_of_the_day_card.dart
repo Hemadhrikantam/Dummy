@@ -5,7 +5,6 @@ import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
-import 'package:dummy/core/widgets/info_card.dart';
 import 'package:flutter/material.dart';
 
 class TipOfTheDayCard extends StatelessWidget {
@@ -43,9 +42,29 @@ class TipOfTheDayCard extends StatelessWidget {
             ],
           ),
           Styles.gap20,
-          InfoCard(
-            backgroundColor: AppColors.transparent,
-            title: '“Luna’s due for a deworming in 3 days.” (Due: 03/01/2025).',
+          CustomCard(
+            child: RichText(
+              textAlign: TextAlign.start,
+              text: TextSpan(
+                text: "“Luna's due for a deworming in 3 days.”",
+                style: context.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                  fontStyle: FontStyle.italic,
+                ),
+                children: [
+                  TextSpan(
+                    text: "(Due: 03/01/2025). ",
+                    style: context.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: AppColors.stepperColor,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),

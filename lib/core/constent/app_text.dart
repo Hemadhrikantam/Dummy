@@ -225,6 +225,11 @@ class AppText {
   static const String premiumSubscription = 'Premium Subscription';
   static const String vetNearMe = 'Vet Near Me';
   static const String support = 'Support';
+  static const String addPet = 'Add Pet';
+  static String username = 'Username';
+  static String phoneNumber = 'Phone Number';
+  static String forgetPassword = 'Forget Password';
+  static String members = 'Members';
 
   //pet dairy
   static const String petDairy = 'Pet Dairy';

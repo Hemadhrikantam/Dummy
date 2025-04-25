@@ -25,6 +25,8 @@ class _AdoptionDetailsCardState extends State<AdoptionDetailsCard> {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
+      borderColor: AppColors.transparent,
+      backgroundColor: AppColors.background,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

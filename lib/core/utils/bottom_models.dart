@@ -18,6 +18,8 @@ import '../../features/health/presentation/widgets/medication/medication_taking_
 import '../../features/health/presentation/widgets/medication/medication_taking_success_bottom_sheet_content.dart';
 import '../../features/health/presentation/widgets/vaccines/vaccination_marked_success_bottom_sheet_content.dart';
 import '../../features/health/presentation/widgets/vaccines/vaccination_marking_bottom_sheet_content.dart';
+import '../../features/profile/presentation/widgets/manage_family_members/family_member_role_bottom_sheet_content.dart';
+import '../../features/profile/presentation/widgets/manage_family_members/manage_family_members_bottom_sheet_content.dart';
 import '../../features/profile/presentation/widgets/pet_dairy/add_pet_documents.dart';
 import '../../features/profile/presentation/widgets/pet_dairy/add_pet_media.dart';
 import '../widgets/image_picker_container.dart';
@@ -240,6 +242,30 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return AdoptionDeleteBottomSheetContent();
+      },
+    );
+  }
+
+  static Future<T?> manageFamilyMembersBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return ManageFamilyMembersBottomSheetContent();
+      },
+    );
+  }
+
+  static Future<T?> familyMemberRoleBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return FamilyMemberRoleBottomSheetContent();
       },
     );
   }

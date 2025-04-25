@@ -67,6 +67,7 @@ class _AddoptionPage extends State<AddoptionPage> {
           OverviewHeader(
             tabs: tabs,
             selectedTab: selectedTab,
+            isExpanded: true,
             onTabSelected: (tab) => setState(() => selectedTab = tab),
           ),
           Styles.gap20,

@@ -1,3 +1,4 @@
+import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
@@ -11,6 +12,8 @@ class AdoptiontabbarView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
+      borderColor: AppColors.transparent,
+      backgroundColor: AppColors.background,
       child: AppCustomListViewBuilder(
         itemCount: 10,
         isExpand: false,

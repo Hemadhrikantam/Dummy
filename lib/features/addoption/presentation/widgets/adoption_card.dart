@@ -63,6 +63,8 @@ class AdoptionCard extends StatelessWidget {
               textColor: AppColors.greenText,
               subTitle: '',
               title: 'Available',
+              padding: Styles.edgeInsetsAll06 + Styles.edgeInsetsOnlyW10,
+              
             ),
           ),
         ],
