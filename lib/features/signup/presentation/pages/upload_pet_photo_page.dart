@@ -3,6 +3,7 @@ import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
@@ -67,12 +68,22 @@ class _UploadPetPhotoPageState extends State<UploadPetPhotoPage> {
                       : null,
               child:
                   selectedImage == null
-                      ? Text(
-                        AppText.upload,
-                        style: GoogleFonts.instrumentSans(
-                          color: AppColors.buttonTextColor,
-                          fontWeight: FontWeight.w700,
-                        ),
+                      ? Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          AppIcon(
+                            icon: Icons.photo_camera_rounded,
+                            color: AppColors.buttonTextColor,
+                            size: 35,
+                          ),
+                          Text(
+                            AppText.upload,
+                            style: GoogleFonts.instrumentSans(
+                              color: AppColors.buttonTextColor,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          ),
+                        ],
                       )
                       : null,
             ),
@@ -88,8 +99,10 @@ class _UploadPetPhotoPageState extends State<UploadPetPhotoPage> {
           AppButton(
             name: Text(
               AppText.continueBtn,
-              style: context.textTheme.titleSmall?.copyWith(
-                fontWeight: FontWeight.w700,
+              style: context.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w900,
+                fontSize: 14,
+                color: AppColors.buttonTextColor,
               ),
             ),
             onPressed: () {

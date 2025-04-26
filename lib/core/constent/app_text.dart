@@ -45,6 +45,7 @@ class AppText {
 
   //signup
   static String meetYourPet = 'Meet Your Pet!';
+  static String introduceYourPet = 'Introduce Your Pet!';
   static String petsName = "Pet's Name";
   static String startYourPetsJourney = "Start Your Pet’s Journey";
   static String welcomeToDummy =
@@ -168,6 +169,18 @@ class AppText {
   static const String duedate = 'Due Date';
   static const String reminder = 'Reminder';
   static const String logout = 'Logout';
+  static const String dummyStayedParasite =
+      'Dummy stayed parasite-free with regular deworming—protect';
+  static const String addDewormingTo = 'Add deworming to';
+  static const String dummyLovedHisMeals = 'Dummy loved his meals—keep ';
+  static const String logAMemoryOf = 'Log a memory of ';
+  static const String dummyLovedHisPark = 'Dummy loved his park walks—take ';
+  static const String dummyAlwaysLookedHisBest =
+      'Dummy always looked his best after grooming—keep ';
+  static const String dummysCareWasWorth =
+      'Dummy’s care was worth every penny—track ';
+  static const String logAMemoryOfThisPurchase =
+      'Log a memory of this purchase!';
 
   //Medication
   static const String insights = 'Insight';

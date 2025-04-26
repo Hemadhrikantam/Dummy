@@ -21,8 +21,11 @@ class PetTypeSelectionCard extends StatelessWidget {
     return Expanded(
       child: CustomCard(
         padding: Styles.edgeInsetsAll35,
-        borderColor: borderColor ?? AppColors.grey350,
-        border: Border.all(width: 1.5, color: borderColor ?? AppColors.grey350),
+        borderColor: borderColor ?? AppColors.black.withOpacity(.1),
+        border: Border.all(
+          width: 1,
+          color: borderColor ?? AppColors.black.withOpacity(.1),
+        ),
         onTap: onTap,
         child: Center(
           child: Text(

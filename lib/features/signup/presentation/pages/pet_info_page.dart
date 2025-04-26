@@ -12,6 +12,7 @@ import 'package:dummy/core/widgets/stepper_widget.dart';
 import 'package:flutter_rounded_date_picker/flutter_rounded_date_picker.dart';
 import 'package:iconsax/iconsax.dart';
 
+import '../../../profile/presentation/widgets/add_pet/add_pet_form.dart';
 import 'notification_permission_page.dart';
 
 class PetInfoPage extends StatefulWidget {
@@ -31,7 +32,7 @@ class PetInfoPage extends StatefulWidget {
 
 class _PetInfoPageState extends State<PetInfoPage> {
   DateTime? selectedDate;
-
+  final TextEditingController _dobController = TextEditingController();
   void _pickDate() {
     CupertinoRoundedDatePicker.show(
       context,
@@ -43,10 +44,22 @@ class _PetInfoPageState extends State<PetInfoPage> {
       onDateTimeChanged: (newDateTime) {
         setState(() {
           selectedDate = newDateTime;
-          context.pop();
+          _dobController.text = _formatDate(newDateTime);
         });
       },
     );
+  }
+
+  String _formatDate(DateTime date) {
+    return "${date.day.toString().padLeft(2, '0')}/"
+        "${date.month.toString().padLeft(2, '0')}/"
+        "${date.year}";
+  }
+
+  @override
+  void dispose() {
+    _dobController.dispose();
+    super.dispose();
   }
 
   @override
@@ -68,6 +81,7 @@ class _PetInfoPageState extends State<PetInfoPage> {
           Text(AppText.theMoreAboutPet, style: context.textTheme.titleSmall),
           Styles.gap30,
           AppTextFormField(
+            controller: _dobController,
             headerText: AppText.dateOfBirth,
             onTap: _pickDate,
             readOnly: true,
@@ -77,6 +91,15 @@ class _PetInfoPageState extends State<PetInfoPage> {
           CustomDropdownSearch(items: [], title: AppText.breed),
           Styles.gap20,
           CustomDropdownSearch(items: [], title: AppText.personalitytags),
+          Row(
+            children: [
+              PersonalityTagCard(),
+              Styles.gap10,
+              PersonalityTagCard(),
+              Styles.gap10,
+              PersonalityTagCard(),
+            ],
+          ),
           Styles.gap30,
           AppButton(
             name: Text(

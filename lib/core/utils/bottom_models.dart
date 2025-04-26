@@ -12,6 +12,11 @@ import '../../features/addoption/presentation/widgets/adoption_delete_bottom_she
 import '../../features/dailycare/presentation/widgets/add/add_deworming_form.dart';
 import '../../features/dailycare/presentation/widgets/add/add_grooming_form.dart';
 import '../../features/dailycare/presentation/widgets/add/add_walk_form.dart';
+import '../../features/dailycare/presentation/widgets/add_deworming_success_bottom_sheet_content.dart';
+import '../../features/dailycare/presentation/widgets/add_expenses_success_bottom_sheet_content.dart';
+import '../../features/dailycare/presentation/widgets/add_grooming_success_bottom_sheet_content.dart';
+import '../../features/dailycare/presentation/widgets/add_meal_success_bottom_sheet_content.dart';
+import '../../features/dailycare/presentation/widgets/add_walk_success_bottom_sheet_content.dart';
 import '../../features/health/presentation/widgets/medication/medication_delete_bottom_sheet_content.dart';
 import '../../features/health/presentation/widgets/medication/medication_delete_success_bottom_sheet_content.dart';
 import '../../features/health/presentation/widgets/medication/medication_taking_bottom_sheet_content.dart';
@@ -46,6 +51,8 @@ class BottomModels {
           ),
     );
   }
+
+  //daily care
 
   static Future<T?> addMealsBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
@@ -115,6 +122,66 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return Text('data');
+      },
+    );
+  }
+
+  static Future<T?> addMealSuccessBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddMealSuccessBottomSheetContent();
+      },
+    );
+  }
+
+  static Future<T?> addWalkSuccessBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddWalkSuccessBottomSheetContent();
+      },
+    );
+  }
+
+  static Future<T?> addGroomingSuccessBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddGroomingSuccessBottomSheetContent();
+      },
+    );
+  }
+
+  static Future<T?> addExpensesSuccessBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddExpensesSuccessBottomSheetContent();
+      },
+    );
+  }
+
+  static Future<T?> addDewormingSuccessBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AddDewormingSuccessBottomSheetContent();
       },
     );
   }

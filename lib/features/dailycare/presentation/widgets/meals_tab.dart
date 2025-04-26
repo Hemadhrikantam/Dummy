@@ -3,11 +3,11 @@ import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
-import 'package:dummy/features/dailycare/presentation/widgets/add/add_meal_form.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/day_selector_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -22,32 +22,31 @@ class MealsTab extends StatefulWidget {
 DateTime? _selectedDay;
 
 class _MealsTabState extends State<MealsTab> {
-  
-  void _showAddMealBottomSheet(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      isScrollControlled: true,
-      backgroundColor: AppColors.backGround1,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
-      ),
-      builder: (BuildContext builderContext) {
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const Divider(
-              thickness: 2.0,
-              indent: 80.0,
-              endIndent: 80.0,
-              color: Colors.grey,
-            ),
-            const SizedBox(height: 8.0),
-            const AddMealForm(),
-          ],
-        );
-      },
-    );
-  }
+  // void _showAddMealBottomSheet(BuildContext context) {
+  //   showModalBottomSheet(
+  //     context: context,
+  //     isScrollControlled: true,
+  //     backgroundColor: AppColors.backGround1,
+  //     shape: const RoundedRectangleBorder(
+  //       borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
+  //     ),
+  //     builder: (BuildContext builderContext) {
+  //       return Column(
+  //         mainAxisSize: MainAxisSize.min,
+  //         children: [
+  //           const Divider(
+  //             thickness: 2.0,
+  //             indent: 80.0,
+  //             endIndent: 80.0,
+  //             color: Colors.grey,
+  //           ),
+  //           const SizedBox(height: 8.0),
+  //           const AddMealForm(),
+  //         ],
+  //       );
+  //     },
+  //   );
+  // }
 
   List<MealItem> get _mealItems {
     final selectedDate = _selectedDay ?? DateTime.now();
@@ -57,7 +56,7 @@ class _MealsTabState extends State<MealsTab> {
         name: AppText.chickenandrice,
         imageUrls: [ImageResources.mealsdagicon, ImageResources.mealsdagicon],
         date: selectedDate.add(Duration(days: index)),
-        timeOfDay: AppText.breakfast, 
+        timeOfDay: AppText.breakfast,
       ),
     );
   }
@@ -95,7 +94,8 @@ class _MealsTabState extends State<MealsTab> {
               ),
               width: 90,
               onPressed: () {
-                _showAddMealBottomSheet(context);
+                BottomModels.addMealsBottomSheet(context);
+                // _showAddMealBottomSheet(context);
               },
             ),
           ],

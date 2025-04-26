@@ -17,6 +17,7 @@ class InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
+      borderColor: AppColors.transparent,
       backgroundColor: backgroundColor ?? AppColors.infoCardBackgroundColor,
       borderRadius: Styles.borderRadiusCircular10,
       child: Text(

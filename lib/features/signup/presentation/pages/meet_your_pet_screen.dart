@@ -29,7 +29,7 @@ class MeetYourPetScreen extends StatelessWidget {
           StepperWidget(currentScreenIndex: 0),
           Styles.gap20,
           Text(
-            AppText.meetYourPet,
+            AppText.introduceYourPet,
             style: context.textTheme.headlineLarge?.copyWith(
               fontWeight: FontWeight.w900,
               fontSize: 28,

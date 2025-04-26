@@ -13,6 +13,7 @@ class AppButton extends StatelessWidget {
   final BorderRadiusGeometry? borderRadius;
   final EdgeInsetsGeometry? padding;
   final Color? backgroundColor;
+  final Color? borderColor;
 
   const AppButton({
     super.key,
@@ -26,6 +27,7 @@ class AppButton extends StatelessWidget {
     this.borderRadius = BorderRadius.zero,
     this.padding,
     this.backgroundColor,
+    this.borderColor,
   });
 
   @override
@@ -53,6 +55,7 @@ class AppButton extends StatelessWidget {
           backgroundColor: backgroundColor ?? AppColors.buttonBackground,
           shape: RoundedRectangleBorder(
             borderRadius: Styles.borderRadiusCircular40,
+            side: BorderSide(color: borderColor ?? AppColors.transparent),
           ),
           padding:
               padding ??
