@@ -1,6 +1,7 @@
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/nav_bar.dart';
 import 'package:dummy/features/addoption/presentation/pages/addoption_page.dart';
@@ -8,6 +9,8 @@ import 'package:dummy/features/dailycare/presentation/pages/dailycare_page.dart'
 import 'package:dummy/features/health/presentation/pages/health_page.dart';
 import 'package:dummy/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
+
+import '../../../wag/presentation/pages/wag_page.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -63,14 +66,14 @@ class _DashboardPage extends State<DashboardPage> {
           width: 64,
           child: FloatingActionButton(
             elevation: 0,
-            onPressed: () {},
+            onPressed: () {
+              context.push(WagPage.route());
+            },
             shape: RoundedRectangleBorder(
               side: const BorderSide(width: 3, color: AppColors.white),
               borderRadius: Styles.borderRadiusCircular50,
             ),
-            child: AppAssestsImage(
-              path: ImageResources.ai2,
-            ),
+            child: AppAssestsImage(path: ImageResources.ai2),
           ),
         ),
         body: IndexedStack(index: selectedIndex, children: _screens),

@@ -68,4 +68,8 @@ class ImageResources {
   static const String checkMood = '$images/check_mood.png';
   static const String addMemories = '$images/add_memories.png';
   static const String symptoms = '$images/symptoms.png';
+
+  //wag
+  static const String wagLogo = '$images/wag_logo.png';
+  static const String sendIcon = '$__icons/send_icon.png';
 }

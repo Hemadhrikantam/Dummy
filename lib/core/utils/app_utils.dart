@@ -77,6 +77,20 @@ class AppUtil {
     }
   }
 
+  static String formatDateTime(DateTime dateTime) {
+    return DateFormat('MM/dd/yyyy hh:mm a').format(dateTime);
+  }
+
+  // Format from String (if your date is a String)
+  static String formatDateTimeFromString(String dateString) {
+    try {
+      final dateTime = DateTime.parse(dateString);
+      return DateFormat('MM/dd/yyyy hh:mm a').format(dateTime);
+    } catch (e) {
+      return '';
+    }
+  }
+
   static launchDialPad(String number) {
     try {
       if (Platform.isAndroid) {
