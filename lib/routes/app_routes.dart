@@ -1,3 +1,6 @@
+import 'package:dummy/features/auth/presentation/pages/auth_page.dart';
+import 'package:dummy/features/auth/presentation/pages/continue_with_phone.dart';
+import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy1_page.dart';
@@ -40,7 +43,6 @@ class AppRoutes {
     Start30DaysFreePage1.routeName: (_) => const Start30DaysFreePage1(),
     Start30DaysFreePage2.routeName: (_) => const Start30DaysFreePage2(),
     DummyTimerPage.routeName: (_) => const DummyTimerPage(),
-    
 
     //dashboard
     DashboardPage.routeName: (_) => const DashboardPage(),
@@ -48,5 +50,9 @@ class AppRoutes {
     //profile
     ProfileOptionsPage.routeName: (_) => const ProfileOptionsPage(),
     PetDairyPage.routeName: (_) => const PetDairyPage(),
+    //
+    AuthPage.routeName: (_) => const AuthPage(),
+    ContinueWithPhone.routeName: (_) => const ContinueWithPhone(),
+    OtpVerification.routeName: (_) => const OtpVerification(),
   };
 }

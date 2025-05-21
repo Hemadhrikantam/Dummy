@@ -54,12 +54,12 @@ class AppThemes {
       surfaceTint: AppColors.white,
       surface: AppColors.lightBaseColor,
     ),
-    cardTheme: CardTheme(
-      color: AppColors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: Styles.borderRadiusCircular10,
-      ),
-    ),
+    // cardTheme: CardTheme(
+    //   color: AppColors.white,
+    //   shape: RoundedRectangleBorder(
+    //     borderRadius: Styles.borderRadiusCircular10,
+    //   ),
+    // ),
     textTheme: TextTheme(
       titleSmall: GoogleFonts.instrumentSans(
         fontSize: 14,
@@ -161,12 +161,12 @@ class AppThemes {
       surfaceTint: AppColors.white,
       surface: AppColors.lightBaseColor,
     ),
-    cardTheme: CardTheme(
-      color: AppColors.white,
-      shape: RoundedRectangleBorder(
-        borderRadius: Styles.borderRadiusCircular05,
-      ),
-    ),
+    // cardTheme: CardTheme(
+    //   color: AppColors.white,
+    //   shape: RoundedRectangleBorder(
+    //     borderRadius: Styles.borderRadiusCircular05,
+    //   ),
+    // ),
     textTheme: TextTheme(
       titleSmall: GoogleFonts.instrumentSans(
         fontSize: 14,

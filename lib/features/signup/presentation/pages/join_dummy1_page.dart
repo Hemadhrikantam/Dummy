@@ -9,6 +9,7 @@ import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
+import 'package:dummy/features/auth/presentation/pages/continue_with_phone.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy2_page.dart';
 import 'package:flutter/material.dart';
 
@@ -52,6 +53,18 @@ class JoinDummy1Page extends StatelessWidget {
             ),
             onPressed: () {
               context.pushNamed(JoinDummy2Page.routeName);
+            },
+          ),
+          Styles.gap15,
+          AppButton(
+            name: Text(
+              AppText.continueWithPhone,
+              style: context.textTheme.titleSmall?.copyWith(
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            onPressed: () {
+              context.pushNamed(ContinueWithPhone.routeName);
             },
           ),
           Styles.gap15,

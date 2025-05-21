@@ -29,6 +29,7 @@ class AppText {
   static String allowNotificationContent =
       "Do you want Dummy to send you reminders?";
   static String cancel = "Cancel";
+  static String enterPhoneNumber = "Enter Phone Number";
   static String petPhotoUploadedContent = 'Looking good! Let’s move forward.';
 
   //button text
@@ -36,6 +37,7 @@ class AppText {
   static String allow = 'Allow';
   static String maybeLater = 'Maybe Later';
   static String continueWithEmail = 'Continue With Email';
+  static String continueWithPhone = 'Continue With Phone';
   static String continueWithGoogle = 'Continue With Google';
   static String alreadyHaveAccount = 'Already have an account? Log in here.';
   static String startUsingDummy = 'Start Using Dummy';
@@ -46,6 +48,7 @@ class AppText {
   //signup
   static String meetYourPet = 'Meet Your Pet!';
   static String introduceYourPet = 'Introduce Your Pet!';
+  static String introduceYourself = 'Introduce Yourself';
   static String petsName = "Pet's Name";
   static String startYourPetsJourney = "Start Your Pet’s Journey";
   static String welcomeToDummy =
@@ -76,6 +79,10 @@ class AppText {
   static String ownerLovedRemainder =
       'Dummy’s owner loved reminders—stay on track with notifications!';
   static String joinDummyToday = 'Join Dummy Today!';
+  static String enterVerificationCode = 'Enter Verification Code';
+  static String enter4DigitVerificationCode =
+      'Enter 4 digit sent to your mobile number.';
+  static String resend = 'Resend';
   static String letsCreateYopurAccount =
       'Let’s create your account to start caring for your pet!';
   static String yourName = 'Your Name';

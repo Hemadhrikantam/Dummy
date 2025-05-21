@@ -8,6 +8,7 @@ import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
+import 'package:dummy/features/auth/presentation/pages/auth_page.dart';
 import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -77,7 +78,8 @@ class StartYourPetsJourney2 extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    context.pushNamed(MeetYourPetScreen.routeName);
+                    context.pushNamed(AuthPage.routeName);
+                    // context.pushNamed(MeetYourPetScreen.routeName);
                   },
                 ),
               ],
