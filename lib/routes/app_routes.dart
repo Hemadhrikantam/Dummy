@@ -1,5 +1,7 @@
 import 'package:dummy/features/auth/presentation/pages/auth_page.dart';
 import 'package:dummy/features/auth/presentation/pages/continue_with_phone.dart';
+import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
+import 'package:dummy/features/auth/presentation/pages/ngo_welcome_page.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
@@ -54,5 +56,8 @@ class AppRoutes {
     AuthPage.routeName: (_) => const AuthPage(),
     ContinueWithPhone.routeName: (_) => const ContinueWithPhone(),
     OtpVerification.routeName: (_) => const OtpVerification(),
+    NgoRegistrationPage.routeName: (_) => const NgoRegistrationPage(),
+    NgoRegistrationPage2.routeName: (_) => const NgoRegistrationPage2(),
+    NgoWelcomePage.routeName: (_) => const NgoWelcomePage(),
   };
 }

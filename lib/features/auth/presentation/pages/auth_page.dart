@@ -1,15 +1,17 @@
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/enum/yourself.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
+import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/auth/presentation/widgets/options.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy1_page.dart';
-import 'package:dummy/features/signup/presentation/pages/pet_selection_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthPage extends StatefulWidget {
   const AuthPage({super.key});
@@ -47,12 +49,35 @@ class _AuthPage extends State<AuthPage> {
             ),
           ),
           Styles.gap10,
-          Options(
-            labels: [
-              "Pet Parent?",
-              "Looking to adopt only?",
-              "NGO or Shelter?",
-            ],
+          BlocSelector<AuthBloc, AuthState, Yourself>(
+            selector: (state) {
+              return state.yourself;
+            },
+            builder: (context, state) {
+              return Options(
+                labels: [
+                  "Pet Parent?",
+                  "Looking to adopt only?",
+                  "NGO or Shelter?",
+                ],
+                selected: "Pet Parent?",
+                onSelected: (value) {
+                  if (value == "Pet Parent?") {
+                    context.read<AuthBloc>().add(
+                      const AuthEvent.yourself(Yourself.petParent),
+                    );
+                  } else if (value == "Looking to adopt only?") {
+                    context.read<AuthBloc>().add(
+                      const AuthEvent.yourself(Yourself.lookingAdoption),
+                    );
+                  } else if (value == "NGO or Shelter?") {
+                    context.read<AuthBloc>().add(
+                      const AuthEvent.yourself(Yourself.ngo),
+                    );
+                  }
+                },
+              );
+            },
           ),
 
           Styles.gap10,

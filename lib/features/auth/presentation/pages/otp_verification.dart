@@ -1,15 +1,21 @@
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/enum/yourself.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
-import 'package:dummy/core/widgets/phone_text_field.dart';
+import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
+import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
+import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
+import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
 import 'package:dummy/features/signup/presentation/pages/welcome_to_dummy_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OtpVerification extends StatefulWidget {
   const OtpVerification({super.key});
@@ -62,15 +68,26 @@ class _OtpVerification extends State<OtpVerification> {
           _OTPInput(),
           Styles.gap30,
 
-          AppButton(
-            name: Text(
-              AppText.continueBtn,
-              style: context.textTheme.titleSmall?.copyWith(
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            onPressed: () {
-              // context.pushNamed(WelcomeToDummyPage.routeName);
+          BlocBuilder<AuthBloc, AuthState>(
+            builder: (context, state) {
+              return AppButton(
+                name: Text(
+                  AppText.continueBtn,
+                  style: context.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                onPressed: () async {
+                  await BottomModels.otpSuccessBottomSheet(context);
+                  if (state.yourself == Yourself.petParent) {
+                    context.pushNamed(MeetYourPetScreen.routeName);
+                  } else if (state.yourself == Yourself.lookingAdoption) {
+                    context.pushNamedAndRemoveUntil(DashboardPage.routeName);
+                  } else if (state.yourself == Yourself.ngo) {
+                    context.pushNamed(NgoRegistrationPage.routeName);
+                  }
+                },
+              );
             },
           ),
           Styles.gap20,

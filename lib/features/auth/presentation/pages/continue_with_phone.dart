@@ -9,7 +9,6 @@ import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/core/widgets/phone_text_field.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
-import 'package:dummy/features/signup/presentation/pages/welcome_to_dummy_page.dart';
 import 'package:flutter/material.dart';
 
 class ContinueWithPhone extends StatefulWidget {

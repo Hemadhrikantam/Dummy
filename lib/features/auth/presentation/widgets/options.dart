@@ -43,14 +43,26 @@ class OptionsCard extends StatelessWidget {
 }
 
 class Options extends StatefulWidget {
-  const Options({super.key, required this.labels});
+  const Options({
+    super.key,
+    required this.labels,
+    this.onSelected,
+    this.selected,
+  });
   final List<String> labels;
+  final String? selected;
+  final Function(String)? onSelected;
   @override
   State<Options> createState() => _OptionsState();
 }
 
 class _OptionsState extends State<Options> {
   String selected = "";
+  @override
+  void initState() {
+    super.initState();
+    selected = widget.selected ?? "";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,6 +76,9 @@ class _OptionsState extends State<Options> {
               setState(() {
                 selected = e;
               });
+              if (widget.onSelected != null) {
+                widget.onSelected!(e);
+              }
             },
           );
         }),

@@ -61,8 +61,18 @@ class PhoneTextField extends StatelessWidget {
                 color: Colors.grey,
                 fontWeight: FontWeight.normal,
               ),
-              focusedBorder: Styles.outlineInputBorderRadius50,
-              enabledBorder: Styles.outlineInputBorderRadius50,
+              focusedBorder: Styles.outlineInputBorderRadius50.copyWith(
+                borderSide: BorderSide(
+                  color: borderColor ?? AppColors.black,
+                  width: 1,
+                ),
+              ),
+              enabledBorder: Styles.outlineInputBorderRadius50.copyWith(
+                borderSide: BorderSide(
+                  color: borderColor ?? AppColors.black.withOpacity(0.4),
+                  width: 1,
+                ),
+              ),
               errorBorder: Styles.outlineInputBorderRadius50,
               focusedErrorBorder: Styles.outlineInputBorderRadius50,
             ),

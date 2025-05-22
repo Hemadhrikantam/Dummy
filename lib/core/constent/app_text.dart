@@ -80,15 +80,32 @@ class AppText {
       'Dummy’s owner loved reminders—stay on track with notifications!';
   static String joinDummyToday = 'Join Dummy Today!';
   static String enterVerificationCode = 'Enter Verification Code';
+  static String verificationSuccessful = 'Verification Successful';
   static String enter4DigitVerificationCode =
       'Enter 4 digit sent to your mobile number.';
   static String resend = 'Resend';
   static String letsCreateYopurAccount =
       'Let’s create your account to start caring for your pet!';
+  static String letsCreateYourNgoAccount =
+      'Let’s create your account to start managing your NGO Activities!';
   static String yourName = 'Your Name';
+  static String ngoName = 'NGO Name';
+  static String contactPersonName = 'Contact Person Name';
   static String emailAddress = 'Email Address';
+  static String pincode = 'Pincode';
+  static String startYourNGOJourney = 'Start Your NGO Journey';
+  static String empoweringSheltersToConnect =
+      'Empowering shelters to connect pets with loving families';
+  static String streamlinedAdoptionRequests = 'Streamlined Adoption Requests';
+  static String verifiedPetProfileswithHealth =
+      'Verified Pet Profiles with Health Logs';
+  static String shelterDashboardInsights = 'Shelter Dashboard & Insights';
+  static String premiumExposureFasterAdoptions =
+      'Premium Exposure for Faster Adoptions';
   static String password = 'Password';
   static String confirmPassword = 'Confirm Password';
+  static String effortlessPetListingManagement =
+      'Effortless Pet Listing & Management';
   static String welcomeToDummyPag = 'Welcome to Dummy, [User’s Name]!';
   static String yourAccountIsReady =
       'Your account is ready! Let’s start caring for [Pet’s Name] with Dummy.';
@@ -241,6 +258,7 @@ class AppText {
   //profile
   static const String petProfile = 'Pet Profile';
   static const String accountDetails = 'Account Details';
+  static const String uploadRegistrationProof = 'Upload Registration Proof';
   static const String manageFamily = 'Manage Family Members';
   static const String premiumSubscription = 'Premium Subscription';
   static const String vetNearMe = 'Vet Near Me';

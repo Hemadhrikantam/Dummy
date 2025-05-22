@@ -8,6 +8,7 @@ import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/info_card.dart';
 import 'package:dummy/core/widgets/stepper_widget.dart';
+import 'package:dummy/features/signup/presentation/pages/welcome_to_dummy_page.dart';
 import 'package:flutter/material.dart';
 
 import 'join_dummy1_page.dart';
@@ -69,14 +70,14 @@ class NotificationPermissionPage extends StatelessWidget {
                         TextButton(
                           onPressed: () {
                             Navigator.pop(ctx);
-                            context.pushNamed(JoinDummy1Page.routeName);
+                            context.pushNamed(WelcomeToDummyPage.routeName);
                           },
                           child: Text(AppText.allow),
                         ),
                       ],
                     ),
               );
-              context.pushNamed(JoinDummy1Page.routeName);
+              // context.pushNamed(JoinDummy1Page.routeName);
             },
           ),
           Styles.gap15,

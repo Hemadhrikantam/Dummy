@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/features/auth/presentation/widgets/otp_success_bottom_sheet_content.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/add/add_expenses_form.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/add/add_meal_form.dart';
 import 'package:flutter/material.dart';
@@ -333,6 +334,18 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return FamilyMemberRoleBottomSheetContent();
+      },
+    );
+  }
+
+  static Future<T?> otpSuccessBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return OtpSuccessBottomSheetContent();
       },
     );
   }
