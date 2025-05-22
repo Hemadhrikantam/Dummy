@@ -11,6 +11,12 @@ import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey
 import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey2.dart';
 import 'package:flutter/material.dart';
 
+import '../features/auth/presentation/pages/login_page.dart';
+import '../features/auth/presentation/pages/otp_page.dart';
+import '../features/auth/presentation/pages/password_reset_successfull_page.dart';
+import '../features/auth/presentation/pages/reset_password_page.dart';
+import '../features/auth/presentation/pages/signup_page.dart';
+import '../features/auth/presentation/pages/start_screen_page.dart';
 import '../features/profile/presentation/pages/profile_options_page.dart';
 import '../features/signup/presentation/pages/meet_your_pet_screen.dart';
 import '../features/signup/presentation/pages/notification_permission_page.dart';
@@ -40,7 +46,13 @@ class AppRoutes {
     Start30DaysFreePage1.routeName: (_) => const Start30DaysFreePage1(),
     Start30DaysFreePage2.routeName: (_) => const Start30DaysFreePage2(),
     DummyTimerPage.routeName: (_) => const DummyTimerPage(),
-    
+    LoginPage.routeName: (_) => const LoginPage(),
+    OTPPage.routeName: (_) => const OTPPage(),
+    ResetPasswordPage.routeName: (_) => const ResetPasswordPage(),
+    PasswordResetSuccessfullPage.routeName:
+        (_) => const PasswordResetSuccessfullPage(),
+    SignupPage.routeName: (_) => const SignupPage(),
+    StartScreenPage.routeName: (_) => const StartScreenPage(),
 
     //dashboard
     DashboardPage.routeName: (_) => const DashboardPage(),

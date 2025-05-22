@@ -122,16 +122,22 @@ class AppTextFormField extends StatelessWidget {
               floatingLabelAlignment: FloatingLabelAlignment.start,
               fillColor: AppColors.white,
               filled: true,
-              suffix: suffix,
+              // suffix: suffix,
               prefixText: preffixText,
               hintText: hintText ?? 'Enter',
               errorText: errorText,
               enabled: enable,
               alignLabelWithHint: true,
-              suffixIcon: Padding(
-                padding: Styles.edgeInsetsOnlyW15,
-                child: Icon(suffixIcon, color: AppColors.black),
-              ),
+              suffixIcon:
+                  suffixIcon != null
+                      ? Padding(
+                        padding: Styles.edgeInsetsOnlyW15,
+                        child: Icon(suffixIcon, color: AppColors.black),
+                      )
+                      : Padding(
+                        padding: Styles.edgeInsetsOnlyW15,
+                        child: suffix,
+                      ),
               suffixIconConstraints: const BoxConstraints(
                 minHeight: 24,
                 minWidth: 24,

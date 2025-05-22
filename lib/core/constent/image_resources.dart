@@ -16,6 +16,7 @@ class ImageResources {
   static const String trackImg = '$images/track.png';
   static const String backImg = '$images/back.png';
   static const String ai2 = '$images/ai2.png';
+  static const String startScreenImg = '$images/start_screen_img.png';
 
   //dashboard
   static const String unselectedHome = '$__icons/unselected_home.png';

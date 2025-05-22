@@ -11,6 +11,7 @@ class AppOutlinedButton extends StatelessWidget {
     this.onPressed,
     this.textColor,
     this.borderColor,
+    this.backgroundColor,
   });
   final Widget? icon;
   final Widget name;
@@ -18,6 +19,7 @@ class AppOutlinedButton extends StatelessWidget {
   final void Function()? onPressed;
   final Color? textColor;
   final Color? borderColor;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class AppOutlinedButton extends StatelessWidget {
       child: OutlinedButton(
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
-          backgroundColor: AppColors.whiteShade,
+          backgroundColor: backgroundColor ?? AppColors.whiteShade,
           side: BorderSide(color: borderColor ?? AppColors.grey600),
           shape: RoundedRectangleBorder(
             borderRadius: Styles.borderRadiusCircular25,
@@ -36,9 +38,9 @@ class AppOutlinedButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (icon != null) icon??Styles.sizedBox,
+            if (icon != null) icon ?? Styles.sizedBox,
             if (icon != null) Styles.sizedBoxW04,
-           name,
+            name,
           ],
         ),
       ),

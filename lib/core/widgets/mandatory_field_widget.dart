@@ -26,7 +26,10 @@ class MandatoryFieldWidget extends StatelessWidget {
           if (required)
             TextSpan(
               text: ' *',
-              style: GoogleFonts.instrumentSans(color: AppColors.textRed),
+              style: GoogleFonts.instrumentSans(
+                color: AppColors.textRed,
+                fontSize: 16,
+              ),
             ),
         ],
       ),

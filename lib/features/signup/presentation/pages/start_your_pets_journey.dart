@@ -10,7 +10,7 @@ import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../../dashboard/presentation/pages/dashboard_page.dart';
+import '../../../auth/presentation/pages/start_screen_page.dart';
 
 class StartYourPetsJourney extends StatelessWidget {
   const StartYourPetsJourney({super.key});
@@ -70,7 +70,8 @@ class StartYourPetsJourney extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    context.pushNamedAndRemoveUntil(DashboardPage.routeName);
+                    context.pushNamedAndRemoveUntil(StartScreenPage.routeName);
+                    // context.pushNamedAndRemoveUntil(DashboardPage.routeName);
                     // context.pushNamed(StartYourPetsJourney2.routeName);
                   },
                 ),
