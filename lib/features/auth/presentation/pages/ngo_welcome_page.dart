@@ -12,6 +12,7 @@ import 'package:dummy/core/widgets/dotted_border_widget.dart';
 import 'package:dummy/core/widgets/mandatory_field_widget.dart';
 import 'package:dummy/core/widgets/phone_text_field.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
+import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/signup/presentation/pages/welcome_to_dummy_page.dart';
 import 'package:flutter/material.dart';
 
@@ -70,7 +71,7 @@ class _NgoWelcomePage extends State<NgoWelcomePage> {
               ),
             ),
             onPressed: () {
-              context.pushNamed(DashboardPage.routeName);
+              context.pushAndRemoveUntil(NgoHomePage.route());
             },
           ),
           Styles.gap50,

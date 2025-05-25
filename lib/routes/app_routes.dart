@@ -4,6 +4,7 @@ import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dar
 import 'package:dummy/features/auth/presentation/pages/ngo_welcome_page.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
+import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy1_page.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy2_page.dart'
@@ -59,5 +60,6 @@ class AppRoutes {
     NgoRegistrationPage.routeName: (_) => const NgoRegistrationPage(),
     NgoRegistrationPage2.routeName: (_) => const NgoRegistrationPage2(),
     NgoWelcomePage.routeName: (_) => const NgoWelcomePage(),
+    NgoHomePage.routeName: (_) => const NgoHomePage(),
   };
 }

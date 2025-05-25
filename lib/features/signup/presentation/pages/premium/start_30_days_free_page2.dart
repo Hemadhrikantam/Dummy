@@ -9,6 +9,7 @@ import 'package:dummy/core/widgets/buttons/close_button_widget.dart';
 import 'package:dummy/features/signup/presentation/pages/premium/dummy_timer_page.dart';
 import 'package:dummy/features/signup/presentation/widgets/monthly_yearly_selection_card.dart';
 import 'package:dummy/features/signup/presentation/widgets/plan_info_widget.dart';
+import 'package:dummy/features/signup/presentation/widgets/rating_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/tracking_widget.dart';
@@ -62,7 +63,7 @@ class _Start30DaysFreePage2State extends State<Start30DaysFreePage2> {
                     title: AppText.monthly,
                     value: AppText.monthlyPrice,
                     trialText: AppText.start3DayFreeTrail,
-                    backgroundColor: AppColors.buttonBackground,
+                    backgroundColor: Color(0xFFA7581A),
                     textColor: AppColors.stepperColor,
                     isSelected: selectedIndex == 0,
                     onTap: () => setState(() => selectedIndex = 0),
@@ -102,7 +103,7 @@ class _Start30DaysFreePage2State extends State<Start30DaysFreePage2> {
           Styles.gap15,
           PlanInfoWidget(),
           Styles.gap20,
-          //RatingWidget(),
+          // RatingWidget(),
         ],
       ),
     );

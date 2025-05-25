@@ -19,6 +19,7 @@ class AppText {
   static String comingSoon = 'Coming Soon...';
   static String search = 'Search...';
   static String home = 'Home';
+  static String petList = 'Pet List';
   static String health = 'Health';
   static String dailyCare = 'Care';
   static String addoption = 'Addopt';
@@ -125,7 +126,7 @@ class AppText {
   static String planInfo = 'Only \$4.99/month (billed annually at \$49.99)';
   static String rating = '4.8 Star Ratings';
   static String weWillSendRemainder =
-      "We'll send you a reminder before your free trail ends";
+      "We’ll remind you with an email or notification that your trial is ending.";
   static String start30DayFreeTrail =
       "Start your 30 day FREE trial to continue";
   static String monthly = 'Monthly';
@@ -142,8 +143,8 @@ class AppText {
   static String wellRemaindYou =
       'We’ll remind you with an email or notification that your trial is ending.';
   static String in30Days = 'In 30 days';
-  static String youWillBeCharged =
-      'You’ll be charged on June 14, cancel anytime before.';
+  static String youWillBeCharged(String dateString) =>
+      'You’ll be charged on $dateString, cancel anytime before.';
   static String dummyPremium = ' Dummy Premium!';
   static String get = ' Get';
   static String fiftyPercent = ' 50% OFF';

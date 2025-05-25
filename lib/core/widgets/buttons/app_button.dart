@@ -14,7 +14,7 @@ class AppButton extends StatelessWidget {
   final EdgeInsetsGeometry? padding;
   final Color? backgroundColor;
   final Color? borderColor;
-
+  final bool showShadow;
   const AppButton({
     super.key,
     this.onPressed,
@@ -28,6 +28,7 @@ class AppButton extends StatelessWidget {
     this.padding,
     this.backgroundColor,
     this.borderColor,
+    this.showShadow = true,
   });
 
   @override
@@ -40,13 +41,15 @@ class AppButton extends StatelessWidget {
         color: backgroundColor ?? AppColors.buttonBackground,
         borderRadius: Styles.borderRadiusCircular40,
         border: Border.all(color: const Color(0x42A7581A), width: 1),
-        boxShadow: const [
-          BoxShadow(
-            color: Color(0xFFA75A1D),
-            offset: Offset(0, 4),
-            blurRadius: 0,
-            spreadRadius: 0,
-          ),
+
+        boxShadow: [
+          if (showShadow)
+            BoxShadow(
+              color: Color(0xFFA75A1D),
+              offset: Offset(0, 4),
+              blurRadius: 0,
+              spreadRadius: 0,
+            ),
         ],
       ),
       child: ElevatedButton(

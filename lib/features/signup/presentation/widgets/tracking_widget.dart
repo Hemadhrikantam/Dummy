@@ -16,8 +16,7 @@ class TrackingWidget extends StatelessWidget {
         SizedBox(
           width: 40,
           height: 250,
-          child: 
-          Image.asset(ImageResources.trackImg, fit: BoxFit.contain),
+          child: Image.asset(ImageResources.trackImg, fit: BoxFit.contain),
         ),
         Styles.gap15,
         Expanded(
@@ -36,7 +35,7 @@ class TrackingWidget extends StatelessWidget {
               Styles.gap20,
               _TrackingStep(
                 title: AppText.in30Days,
-                subtitle: AppText.in30Days,
+                subtitle: AppText.youWillBeCharged("June 14"),
               ),
             ],
           ),

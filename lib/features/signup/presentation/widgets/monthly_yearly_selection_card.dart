@@ -53,6 +53,7 @@ class MonthlyYearlySelectionCard extends StatelessWidget {
                     )
                     : BoxDecoration(
                       borderRadius: borderRadius,
+                      color: Color(0x14A7581A),
                       border: Border.all(color: AppColors.stepperColor),
                     ),
             padding: Styles.edgeInsetsAll20,

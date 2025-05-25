@@ -1,5 +1,6 @@
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/image_resources.dart';
+import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey.dart';
 import 'package:flutter/material.dart';
@@ -25,15 +26,24 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return LogoBaseScreen(
-      child: Center(
-        child: Column(
-          children: [
-            AppAssestsImage(
-              path: ImageResources.splashScreen,
-              boxFit: BoxFit.fill,
+    return Material(
+      child: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(ImageResources.splashScreen),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: const Center(
+          child: Padding(
+            padding: Styles.edgeInsetsAll30,
+            child: AppSVGImage(
+              path: ImageResources.dummy,
+
+              height: 80,
+              // width: 60,
             ),
-          ],
+          ),
         ),
       ),
     );

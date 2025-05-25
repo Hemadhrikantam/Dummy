@@ -42,7 +42,7 @@ class PremiumPage1 extends StatelessWidget {
             ),
           ),
           Styles.gap20,
-      PremiumInfoCardWidget(),
+          PremiumInfoCardWidget(),
           Styles.gap20,
           AppButton(
             name: Text(
@@ -59,7 +59,7 @@ class PremiumPage1 extends StatelessWidget {
           Styles.gap15,
           PlanInfoWidget(),
           Styles.gap20,
-          RatingWidget(),
+          // RatingWidget(),
         ],
       ),
     );

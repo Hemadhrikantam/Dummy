@@ -4,7 +4,7 @@ class ImageResources {
   static const String __icons = '$__assets/icons';
   static const String image = '$__assets/image_1.png';
 
-  static const String dummy = '$images/dummy.png';
+  static const String dummy = '$images/dummy.svg';
   static const String splashScreen = '$images/splash_screen.png';
   static const String startPet = '$images/start_pet2.png';
   static const String logo = '$images/dvines_logo.png';
@@ -20,6 +20,8 @@ class ImageResources {
   //dashboard
   static const String unselectedHome = '$__icons/unselected_home.png';
   static const String home = '$__icons/home.png';
+  static const String unselectedPet = '$__icons/unselected_pet.png';
+  static const String pet = '$__icons/pet.png';
   static const String unselectedHeart = '$__icons/unselected_heart.png';
   static const String heart = '$__icons/heart.png';
   static const String unselectedHealth = '$__icons/unselected_health.png';
@@ -27,6 +29,10 @@ class ImageResources {
   static const String unselectedAddoption = '$__icons/addoption_unselected.png';
   static const String addoption = '$__icons/addoption.png';
   static const String dashboardLogo = '$images/dashboard_logo.png';
+  //NGO Home
+  static const String petList = '$__icons/pet_list.png';
+  static const String activeList = '$__icons/active_list.png';
+  static const String totalAdoption = '$__icons/total_adoption.png';
 
   //daily care
   static const String mealsicon = '$__icons/meals.png';

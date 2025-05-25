@@ -37,7 +37,7 @@ class _OtpVerification extends State<OtpVerification> {
   Widget build(BuildContext context) {
     return MaterialBaseScreen(
       child: ListView(
-        padding: Styles.edgeInsetsAll08,
+        padding: Styles.edgeInsetsOnlyW08,
         children: [
           Row(
             children: [

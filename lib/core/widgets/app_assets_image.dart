@@ -72,9 +72,10 @@ class AppSVGImage extends StatelessWidget {
     this.colorFilter,
     this.height,
     this.width,
+    this.boxFit,
   });
   final String path;
-
+  final BoxFit? boxFit;
   final double? height;
   final double? width;
   final ColorFilter? colorFilter;
@@ -84,7 +85,7 @@ class AppSVGImage extends StatelessWidget {
     return RepaintBoundary(
       child: SvgPicture.asset(
         path,
-        fit: BoxFit.cover,
+        fit: boxFit ?? BoxFit.cover,
         colorFilter: colorFilter,
         semanticsLabel: path,
         height: height ?? 15,

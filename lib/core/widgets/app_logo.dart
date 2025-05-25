@@ -24,7 +24,7 @@ class DummyLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: size,
-      child: AppAssestsImage(path: ImageResources.dummy),
+      child: AppSVGImage(path: ImageResources.dummy),
     );
   }
 }

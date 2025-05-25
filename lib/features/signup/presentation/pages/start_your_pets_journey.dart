@@ -54,10 +54,23 @@ class StartYourPetsJourney extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
+                Padding(
+                  padding: Styles.edgeInsetsAll30,
+                  child: AppSVGImage(
+                    path: ImageResources.dummy,
+
+                    height: 80,
+                    // width: 60,
+                  ),
+                ),
+                Styles.gap50,
+                Styles.gap50,
+                Styles.gap50,
+                Styles.gap50,
                 Text(
                   AppText.welcomeToDummy,
                   style: GoogleFonts.instrumentSans(
-                    fontSize: 16,
+                    fontSize: 14,
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
                   ),

@@ -30,8 +30,7 @@ class _ContinueWithPhone extends State<ContinueWithPhone> {
   @override
   Widget build(BuildContext context) {
     return MaterialBaseScreen(
-      child: ListView(
-        padding: Styles.edgeInsetsAll08,
+      child: Column(
         children: [
           Row(
             children: [
@@ -45,20 +44,27 @@ class _ContinueWithPhone extends State<ContinueWithPhone> {
               ),
             ],
           ),
-          Styles.gap20,
-          __YourPhone(),
-          Styles.gap20,
+          ListView(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            padding: Styles.edgeInsetsOnlyW08,
+            children: [
+              Styles.gap20,
+              __YourPhone(),
+              Styles.gap20,
 
-          AppButton(
-            name: Text(
-              AppText.continueBtn,
-              style: context.textTheme.titleSmall?.copyWith(
-                fontWeight: FontWeight.w700,
+              AppButton(
+                name: Text(
+                  AppText.continueBtn,
+                  style: context.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                onPressed: () {
+                  context.pushNamed(OtpVerification.routeName);
+                },
               ),
-            ),
-            onPressed: () {
-              context.pushNamed(OtpVerification.routeName);
-            },
+            ],
           ),
         ],
       ),
@@ -72,6 +78,7 @@ class __YourPhone extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PhoneTextField(
+      headerText: AppText.enterPhoneNumber,
       onChange: (value) {
         // context.read<LoginBloc>().add(LoginEvent.mobileNumber(value.number));
       },

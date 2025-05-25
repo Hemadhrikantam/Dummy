@@ -44,18 +44,7 @@ class JoinDummy1Page extends StatelessWidget {
             style: context.textTheme.titleSmall?.copyWith(fontSize: 13),
           ),
           Image.asset(ImageResources.iPhone, height: 450),
-          AppButton(
-            name: Text(
-              AppText.continueWithEmail,
-              style: context.textTheme.titleSmall?.copyWith(
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            onPressed: () {
-              context.pushNamed(JoinDummy2Page.routeName);
-            },
-          ),
-          Styles.gap15,
+          Styles.gap30,
           AppButton(
             name: Text(
               AppText.continueWithPhone,
@@ -67,21 +56,7 @@ class JoinDummy1Page extends StatelessWidget {
               context.pushNamed(ContinueWithPhone.routeName);
             },
           ),
-          Styles.gap15,
-          AppOutlinedButton(
-            icon: AppAssestsImage(
-              path: ImageResources.googleIcon,
-              height: 24,
-              width: 24,
-            ),
-            name: Text(
-              AppText.continueWithGoogle,
-              style: context.textTheme.titleSmall?.copyWith(
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            onPressed: () {},
-          ),
+
           Styles.gap30,
         ],
       ),
