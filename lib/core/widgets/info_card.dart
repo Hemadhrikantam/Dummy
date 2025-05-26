@@ -25,6 +25,7 @@ class InfoCard extends StatelessWidget {
         style: GoogleFonts.instrumentSans(
           fontSize: 14,
           fontWeight: FontWeight.w500,
+          color: AppColors.stepperColor,
         ),
       ),
     );

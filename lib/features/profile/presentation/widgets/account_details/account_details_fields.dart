@@ -53,6 +53,7 @@ class __ForgotPassword extends StatelessWidget {
           style: context.textTheme.titleMedium?.copyWith(
             fontSize: 14,
             fontWeight: FontWeight.w700,
+            color: AppColors.stepperColor,
           ),
         ),
       ),

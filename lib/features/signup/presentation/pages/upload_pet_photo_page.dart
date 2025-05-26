@@ -7,6 +7,7 @@ import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
+import 'package:dummy/core/widgets/info_card.dart';
 import 'package:dummy/core/widgets/stepper_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -112,7 +113,7 @@ class _UploadPetPhotoPageState extends State<UploadPetPhotoPage> {
           Styles.gap15,
           AppOutlinedButton(
             name: Text(
-              AppText.skip,
+              AppText.changePhoto,
               style: context.textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.w700,
                 color: AppColors.buttonTextColor,
@@ -122,6 +123,8 @@ class _UploadPetPhotoPageState extends State<UploadPetPhotoPage> {
               context.pushNamed(PetInfoPage.routeName);
             },
           ),
+          Styles.gap30,
+          InfoCard(title: AppText.dummyLovedHisPhoto),
         ],
       ),
     );

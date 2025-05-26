@@ -21,6 +21,7 @@ class MandatoryFieldWidget extends StatelessWidget {
             text: labelText,
             style: context.textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.w700,
+              fontSize: 16,
             ),
           ),
           if (required)

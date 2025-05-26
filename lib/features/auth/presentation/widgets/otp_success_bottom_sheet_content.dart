@@ -24,7 +24,7 @@ class OtpSuccessBottomSheetContent extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           AppGraber(),
-          Styles.gap20,
+          Styles.gap30,
           Text(
             AppText.verificationSuccessful,
             style: context.textTheme.titleLarge?.copyWith(
@@ -35,31 +35,31 @@ class OtpSuccessBottomSheetContent extends StatelessWidget {
           ),
           Styles.gap30,
 
-          Row(
-            children: [
-              Expanded(
-                child: AppButton(
-                  onPressed: () {
-                    context.pop();
-                  },
-                  borderColor: AppColors.grey500,
-                  backgroundColor: AppColors.white,
-                  name: RichText(
-                    textAlign: TextAlign.center,
-                    text: TextSpan(
-                      text: AppText.continueBtn,
-                      style: context.textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.buttonTextColor,
-                        letterSpacing: -.5,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
+          // Row(
+          //   children: [
+          //     Expanded(
+          //       child: AppButton(
+          //         onPressed: () {
+          //           context.pop();
+          //         },
+          //         borderColor: AppColors.grey500,
+          //         backgroundColor: AppColors.white,
+          //         name: RichText(
+          //           textAlign: TextAlign.center,
+          //           text: TextSpan(
+          //             text: AppText.continueBtn,
+          //             style: context.textTheme.titleSmall?.copyWith(
+          //               fontWeight: FontWeight.w700,
+          //               color: AppColors.buttonTextColor,
+          //               letterSpacing: -.5,
+          //               fontSize: 14,
+          //             ),
+          //           ),
+          //         ),
+          //       ),
+          //     ),
+          //   ],
+          // ),
         ],
       ),
     );

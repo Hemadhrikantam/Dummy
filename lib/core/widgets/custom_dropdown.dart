@@ -113,7 +113,13 @@ class CustomDropdownSearch extends StatelessWidget {
           dropdownBuilder: (context, selectedItem) {
             return Text(
               selectedItem?.value ?? label ?? 'Select',
-              style: context.textTheme.titleSmall?.copyWith(fontSize: fontSize),
+              style: context.textTheme.titleSmall?.copyWith(
+                fontWeight:
+                    selectedItem == null ? FontWeight.w400 : FontWeight.w600,
+                color:
+                    selectedItem == null ? AppColors.grey700 : AppColors.black,
+                fontSize: fontSize,
+              ),
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
             );

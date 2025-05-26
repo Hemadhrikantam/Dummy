@@ -21,22 +21,25 @@ class AddPetForm extends StatelessWidget {
       children: [
         __UploadImage(),
         Styles.gap30,
-        CustomCard(
-          borderColor: AppColors.transparent,
-          child: Stack(
-            children: [
-              Column(
-                children: [
-                  Styles.gap10,
-                  __PetName(),
-                  __Age(),
-                  __PetType(),
-                  __Breed(),
-                  __Weight(),
-                  __PersonalityTags(),
-                ],
-              ),
-            ],
+        Padding(
+          padding: const EdgeInsets.all(4.0),
+          child: CustomCard(
+            borderColor: AppColors.transparent,
+            child: Stack(
+              children: [
+                Column(
+                  children: [
+                    Styles.gap10,
+                    __PetName(),
+                    __Age(),
+                    __PetType(),
+                    __Breed(),
+                    __Weight(),
+                    __PersonalityTags(),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
         Styles.gap80,

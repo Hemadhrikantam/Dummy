@@ -102,7 +102,7 @@ class PersonalityTagCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-      padding: Styles.edgeInsetsAll06 + Styles.edgeInsetsOnlyW06,
+      padding: Styles.edgeInsetsAll06,
       borderRadius: Styles.borderRadiusCircular40,
       borderColor: AppColors.transparent,
       backgroundColor: AppColors.stepperColor.withOpacity(.2),
@@ -112,7 +112,7 @@ class PersonalityTagCard extends StatelessWidget {
             'Playful',
             style: context.textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.w500,
-              fontSize: 16,
+              fontSize: 14,
             ),
           ),
           Styles.gap10,

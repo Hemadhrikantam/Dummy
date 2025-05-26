@@ -45,6 +45,8 @@ class JoinDummy1Page extends StatelessWidget {
           ),
           Image.asset(ImageResources.iPhone, height: 450),
           Styles.gap30,
+          Styles.gap30,
+          Styles.gap30,
           AppButton(
             name: Text(
               AppText.continueWithPhone,

@@ -23,7 +23,6 @@ class AccountDetailsForm extends StatelessWidget {
             children: [
               Column(
                 children: [
-                  Styles.gap10,
                   __UserName(),
                   Styles.gap10,
                   __EmailAddress(),

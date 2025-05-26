@@ -27,7 +27,7 @@ class PetSelectionPage extends StatefulWidget {
 }
 
 class _PetSelectionPageState extends State<PetSelectionPage> {
-  String? selectedPet;
+  String? selectedPet = AppText.dog;
   @override
   Widget build(BuildContext context) {
     return MaterialBaseScreen(

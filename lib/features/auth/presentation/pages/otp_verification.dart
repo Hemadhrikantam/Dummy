@@ -78,14 +78,16 @@ class _OtpVerification extends State<OtpVerification> {
                   ),
                 ),
                 onPressed: () async {
-                  await BottomModels.otpSuccessBottomSheet(context);
-                  if (state.yourself == Yourself.petParent) {
-                    context.pushNamed(MeetYourPetScreen.routeName);
-                  } else if (state.yourself == Yourself.lookingAdoption) {
-                    context.pushNamedAndRemoveUntil(DashboardPage.routeName);
-                  } else if (state.yourself == Yourself.ngo) {
-                    context.pushNamed(NgoRegistrationPage.routeName);
-                  }
+                  BottomModels.otpSuccessBottomSheet(context);
+                  Future.delayed(const Duration(seconds: 2), () {
+                    if (state.yourself == Yourself.petParent) {
+                      context.pushNamed(MeetYourPetScreen.routeName);
+                    } else if (state.yourself == Yourself.lookingAdoption) {
+                      context.pushNamedAndRemoveUntil(DashboardPage.routeName);
+                    } else if (state.yourself == Yourself.ngo) {
+                      context.pushNamed(NgoRegistrationPage.routeName);
+                    }
+                  });
                 },
               );
             },
@@ -151,31 +153,34 @@ class _OTPInputState extends State<_OTPInput> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(4, (index) {
-        return SizedBox(
-          width: 50,
-          height: 50,
+        return Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 5),
+          child: SizedBox(
+            width: 50,
+            height: 50,
 
-          child: TextField(
-            controller: _controllers[index],
-            focusNode: _focusNodes[index],
-            onChanged: (value) => _handleInput(value, index),
-            maxLength: 1,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 14),
-            keyboardType: TextInputType.number,
-            decoration: InputDecoration(
-              counterText: '',
-              filled: true,
-              fillColor: Colors.white,
-              enabledBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                borderSide: const BorderSide(color: Colors.grey, width: 1),
-              ),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(25),
-                // borderSide: const BorderSide(color: Colors.orange, width: 2),
+            child: TextField(
+              controller: _controllers[index],
+              focusNode: _focusNodes[index],
+              onChanged: (value) => _handleInput(value, index),
+              maxLength: 1,
+              textAlign: TextAlign.center,
+              style: const TextStyle(fontSize: 14),
+              keyboardType: TextInputType.number,
+              decoration: InputDecoration(
+                counterText: '',
+                filled: true,
+                fillColor: Colors.white,
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25),
+                  borderSide: const BorderSide(color: Colors.grey, width: 1),
+                ),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(25),
+                  // borderSide: const BorderSide(color: Colors.orange, width: 2),
+                ),
               ),
             ),
           ),

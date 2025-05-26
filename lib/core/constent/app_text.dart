@@ -61,11 +61,13 @@ class AppText {
   static String cat = "Cat";
   static String petTypeInfo =
       "Dummy was a dog, but we love cats too—tell us about your pet!";
+
   static String uploadPetPhoto =
       'Upload a photo to make their profile special!';
   static String showOffYourPetSmile = 'Show off your pet’s smile!';
   static String upload = 'Upload';
   static String skip = 'Skip';
+  static String changePhoto = 'Change Photo';
   static String tellUsYourPetType = 'Tell Us About Your [Pet Type]!';
   static String theMoreAboutPet =
       'The more we know about your pet, the better we can help!';

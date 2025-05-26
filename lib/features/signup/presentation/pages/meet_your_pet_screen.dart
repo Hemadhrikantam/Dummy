@@ -36,9 +36,12 @@ class MeetYourPetScreen extends StatelessWidget {
             ),
           ),
           Styles.gap30,
-          Text(AppText.petsName, style: context.textTheme.titleSmall),
-          Styles.gap6,
-          AppTextFormField(hintText: '...', onChanged: (value) {}),
+
+          AppTextFormField(
+            headerText: AppText.petsName,
+            hintText: '...',
+            onChanged: (value) {},
+          ),
           Styles.gap30,
           AppButton(
             name: Text(

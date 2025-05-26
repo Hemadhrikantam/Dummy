@@ -42,7 +42,10 @@ class AccountDetailsPage extends StatelessWidget {
           ),
         ),
       ),
-      child: const AccountDetailsForm(),
+      child: Padding(
+        padding: EdgeInsets.only(top: 16),
+        child: const AccountDetailsForm(),
+      ),
     );
   }
 }

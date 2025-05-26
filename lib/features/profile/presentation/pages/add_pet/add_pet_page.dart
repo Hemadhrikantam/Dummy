@@ -1,4 +1,5 @@
 import 'package:dummy/core/constent/app_colors.dart';
+import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/features/profile/presentation/widgets/add_pet/add_pet_form.dart';
@@ -27,7 +28,20 @@ class AddPetPage extends StatelessWidget {
       subTitle: '',
       onlyTitle: true,
       showImage: false,
-      bottom: CustomBottomSheet(
+      bottom: Container(
+        width: double.infinity,
+        padding: Styles.edgeInsetsAll12,
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.grey700,
+              blurRadius: 10,
+              offset: const Offset(0, 0),
+            ),
+          ],
+        ),
         child: AppButton(
           onPressed: () {
             context.pop();
