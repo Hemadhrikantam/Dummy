@@ -34,7 +34,7 @@ class SettingsItemsWidget extends StatelessWidget {
           children: [
             Row(
               children: [
-                AppAssestsImage(path: leadingIcon, height: 45, width: 43),
+                AppAssestsImage(path: leadingIcon, height: 40, width: 40),
                 Styles.gap4,
                 Expanded(
                   child: Text(

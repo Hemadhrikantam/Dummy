@@ -76,6 +76,7 @@ class CustomDropdownSearch extends StatelessWidget {
           ),
           dropdownDecoratorProps: DropDownDecoratorProps(
             dropdownSearchDecoration: InputDecoration(
+              isDense: true,
               contentPadding: Styles.edgeInsetsAll12,
               prefixIconColor: AppColors.buttonTextColor,
               hintText: label ?? 'Select',
@@ -87,7 +88,7 @@ class CustomDropdownSearch extends StatelessWidget {
                 color: hintTextColor ?? AppColors.grey700,
               ),
               enabledBorder: OutlineInputBorder(
-                borderRadius: Styles.borderRadiusCircular40,
+                borderRadius: Styles.borderRadiusCircular25,
                 borderSide: BorderSide(color: AppColors.grey500!, width: 1),
               ),
               focusedBorder: OutlineInputBorder(
@@ -111,17 +112,30 @@ class CustomDropdownSearch extends StatelessWidget {
             ),
           ),
           dropdownBuilder: (context, selectedItem) {
-            return Text(
-              selectedItem?.value ?? label ?? 'Select',
-              style: context.textTheme.titleSmall?.copyWith(
-                fontWeight:
-                    selectedItem == null ? FontWeight.w400 : FontWeight.w600,
-                color:
-                    selectedItem == null ? AppColors.grey700 : AppColors.black,
-                fontSize: fontSize,
+            return Container(
+              constraints: const BoxConstraints(minHeight: 20),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      selectedItem?.value ?? label ?? 'Select',
+                      style: context.textTheme.titleSmall?.copyWith(
+                        fontWeight:
+                            selectedItem == null
+                                ? FontWeight.w400
+                                : FontWeight.w600,
+                        color:
+                            selectedItem == null
+                                ? AppColors.grey700
+                                : AppColors.black,
+                        fontSize: fontSize,
+                      ),
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1,
+                    ),
+                  ),
+                ],
               ),
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
             );
           },
           selectedItem: selectedItem,

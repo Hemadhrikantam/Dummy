@@ -34,64 +34,89 @@ class _AddMealFormState extends State<AddMealForm> {
             controller: scrollController,
             padding: Styles.edgeInsetsAll15,
             children: [
-              Styles.gap4,
-              AppGraber(),
-              Styles.gap20,
-              Text(
-                AppText.meal,
-                style: context.textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.70,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Styles.gap4,
+                    AppGraber(),
+                    Styles.gap20,
+                    Text(
+                      AppText.meal,
+                      style: context.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Styles.gap15,
+
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              AppText.date,
+                              style: context.textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Styles.gap6,
+                            AppTextFormField(
+                              hintText: '...',
+                              readOnly: true,
+                              suffixIcon: Iconsax.calendar,
+                              onTap: () {},
+                            ),
+                            Styles.gap15,
+                            CustomDropdownSearch(
+                              items: [],
+                              title: AppText.timeOfMeal,
+                            ),
+                            Styles.gap10,
+                            Text(
+                              AppText.mealType,
+                              style: context.textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Styles.gap6,
+                            const AppTextFormField(hintText: '...'),
+                            Styles.gap15,
+                            Text(
+                              AppText.notes,
+                              style: context.textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Styles.gap6,
+                            const AppTextFormField(
+                              hintText: '...',
+                              maxLines: 3,
+                            ),
+                            Styles.gap15,
+                            Text(
+                              AppText.media,
+                              style: context.textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Styles.gap6,
+                            DottedBorderWidget(),
+                            Styles.gap30,
+                          ],
+                        ),
+                      ),
+                    ),
+
+                    SaveCancelWidget(
+                      onPressed: () {
+                        context.pop();
+                        BottomModels.addMealSuccessBottomSheet(context);
+                      },
+                    ),
+                  ],
                 ),
-              ),
-              Styles.gap15,
-              Text(
-                AppText.date,
-                style: context.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Styles.gap6,
-              AppTextFormField(
-                hintText: '...',
-                readOnly: true,
-                suffixIcon: Iconsax.calendar,
-                onTap: () {},
-              ),
-              Styles.gap15,
-              CustomDropdownSearch(items: [], title: AppText.timeOfMeal),
-              Styles.gap10,
-              Text(
-                AppText.mealType,
-                style: context.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Styles.gap6,
-              const AppTextFormField(hintText: '...'),
-              Styles.gap15,
-              Text(
-                AppText.notes,
-                style: context.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Styles.gap6,
-              const AppTextFormField(hintText: '...', maxLines: 3),
-              Styles.gap15,
-              Text(
-                AppText.media,
-                style: context.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              Styles.gap6,
-              DottedBorderWidget(),
-              Styles.gap30,
-              SaveCancelWidget(
-                onPressed: () {
-                  context.pop();
-                  BottomModels.addMealSuccessBottomSheet(context);
-                },
               ),
             ],
           ),

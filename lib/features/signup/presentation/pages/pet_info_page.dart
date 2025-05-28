@@ -1,5 +1,9 @@
+import 'package:dummy/app.dart';
+import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
+import 'package:dummy/core/widgets/app_graber.dart';
+import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/custom_dropdown.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -34,18 +38,105 @@ class _PetInfoPageState extends State<PetInfoPage> {
   DateTime? selectedDate;
   final TextEditingController _dobController = TextEditingController();
   void _pickDate() {
-    CupertinoRoundedDatePicker.show(
-      context,
-      fontFamily: "Mali",
-      textColor: Colors.black,
-      background: Colors.white,
-      borderRadius: 16,
-      initialDatePickerMode: CupertinoDatePickerMode.date,
-      onDateTimeChanged: (newDateTime) {
-        setState(() {
-          selectedDate = newDateTime;
-          _dobController.text = _formatDate(newDateTime);
-        });
+    _showCustomCupertinoDatePicker(context);
+    // CupertinoRoundedDatePicker.show(
+    //   context,
+    //   fontFamily: "Mali",
+    //   textColor: Colors.black,
+    //   background: Colors.white,
+    //   borderRadius: 16,
+    //   initialDatePickerMode: CupertinoDatePickerMode.date,
+    //   onDateTimeChanged: (newDateTime) {
+    //     setState(() {
+    //       selectedDate = newDateTime;
+    //       _dobController.text = _formatDate(newDateTime);
+    //     });
+    //   },
+    // );
+  }
+
+  void _showCustomCupertinoDatePicker(BuildContext context) {
+    DateTime tempPickedDate = DateTime.now();
+
+    showModalBottomSheet(
+      context: context,
+      backgroundColor: Colors.white,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+      ),
+      builder: (_) {
+        return SizedBox(
+          height: 300,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Styles.gap4,
+              AppGraber(),
+              Styles.gap10,
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  AppText.dateOfBirth,
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Expanded(
+                child: CupertinoDatePicker(
+                  mode: CupertinoDatePickerMode.date,
+                  initialDateTime: selectedDate ?? DateTime(2000, 1, 1),
+                  maximumDate: DateTime.now(),
+                  onDateTimeChanged: (DateTime dateTime) {
+                    tempPickedDate = dateTime;
+                  },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 10,
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: AppOutlinedButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        name: Text(
+                          AppText.cancel,
+                          style: context.textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.stepperColor,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Styles.gap10,
+                    Expanded(
+                      child: AppButton(
+                        onPressed: () {
+                          setState(() {
+                            selectedDate = tempPickedDate;
+                            _dobController.text = _formatDate(tempPickedDate);
+                          });
+                          Navigator.pop(context);
+                        },
+                        name: Text(
+                          AppText.save,
+                          style: context.textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.stepperColor,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        );
       },
     );
   }

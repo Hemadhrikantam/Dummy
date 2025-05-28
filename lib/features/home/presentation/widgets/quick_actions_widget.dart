@@ -84,15 +84,17 @@ class __ActionItem extends StatelessWidget {
         child: CustomCard(
           backgroundColor: AppColors.background,
           child: Padding(
-            padding: Styles.edgeInsetsAll04,
+            padding: Styles.edgeInsetsOnlyH04,
             child: Column(
               children: [
                 AppAssestsImage(path: image, height: 57, width: 57),
                 Styles.gap10,
                 Text(
                   title,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: context.textTheme.titleSmall?.copyWith(
-                    fontSize: 12,
+                    fontSize: 11,
                     fontWeight: FontWeight.w700,
                     color: AppColors.stepperColor,
                   ),

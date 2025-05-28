@@ -7,47 +7,44 @@ class AddMedicationForm extends StatelessWidget {
   Widget build(BuildContext context) {
     final bottomInset = MediaQuery.of(context).viewInsets.bottom;
 
-    return CustomCard(
-      child: Stack(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(bottom: bottomInset),
-            child: ListView(
-              padding: Styles.edgeInsetsOnlyH00,
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [__Remainder()],
-                ),
-                Styles.gap10,
-                __TabletName(),
-                Styles.gap10,
-                __Company(),
-                Styles.gap10,
-                __Dosage(),
-                Styles.gap10,
-                __Morning(),
-                Styles.gap10,
-                __Afternoon(),
-                Styles.gap10,
-                __Night(),
-                Styles.gap10,
-                TotalDosage(),
-                __Frequency(),
-                Styles.gap10,
-                __StartDate(),
-                Styles.gap10,
-                __EndDate(),
-                Styles.gap10,
-                __Notes(),
-                Styles.gap10,
-                __Media(),
-                Styles.gap100,
-              ],
-            ),
+    return ListView(
+      padding: Styles.edgeInsetsOnlyH00,
+      children: [
+        CustomCard(
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [__Remainder()],
+              ),
+              Styles.gap10,
+              __TabletName(),
+              Styles.gap10,
+              __Company(),
+              Styles.gap10,
+              __Dosage(),
+              Styles.gap10,
+              __Morning(),
+              Styles.gap10,
+              __Afternoon(),
+              Styles.gap10,
+              __Night(),
+              Styles.gap10,
+              TotalDosage(),
+              __Frequency(),
+              Styles.gap10,
+              __StartDate(),
+              Styles.gap10,
+              __EndDate(),
+              Styles.gap10,
+              __Notes(),
+              Styles.gap10,
+              __Media(),
+            ],
           ),
-        ],
-      ),
+        ),
+        Styles.gap100,
+      ],
     );
   }
 }

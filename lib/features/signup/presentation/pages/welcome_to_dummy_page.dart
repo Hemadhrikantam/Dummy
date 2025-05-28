@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/image_resources.dart';
@@ -8,8 +10,10 @@ import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
+import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/signup/presentation/pages/premium/premium_page1.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/widgets/buttons/app_button.dart';
 
@@ -29,13 +33,20 @@ class WelcomeToDummyPage extends StatefulWidget {
 }
 
 class _WelcomeToDummyPageState extends State<WelcomeToDummyPage> {
+  Timer? _navigationTimer;
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 6), () {
+    _navigationTimer = Timer(Duration(seconds: 6), () {
       context.pushNamed(PremiumPage1.routeName);
-      // context.read<AuthBloc>().add(const AuthEvent.checkUser());
     });
+  }
+
+  void cancelTimer() {
+    if (_navigationTimer != null && _navigationTimer!.isActive) {
+      _navigationTimer!.cancel();
+      print('Navigation timer cancelled');
+    }
   }
 
   @override
@@ -68,6 +79,39 @@ class _WelcomeToDummyPageState extends State<WelcomeToDummyPage> {
           ),
           Styles.gap20,
           AppButton(
+            showShadow: false,
+            backgroundColor: AppColors.white,
+            name: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  AppText.explore,
+                  style: context.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.buttonTextColor,
+                  ),
+                ),
+                Styles.gap10,
+                AppAssestsImage(
+                  boxFit: BoxFit.contain,
+                  path: ImageResources.dashboardLogo,
+                  height: 50,
+                  width: 50,
+                ),
+                SvgPicture.asset(
+                  ImageResources.premium,
+                  width: 50,
+                  fit: BoxFit.contain,
+                ),
+              ],
+            ),
+            onPressed: () {
+              cancelTimer();
+              context.pushNamed(PremiumPage1.routeName);
+            },
+          ),
+          Styles.gap20,
+          AppButton(
             name: Text(
               AppText.startUsingDummy,
               style: context.textTheme.titleSmall?.copyWith(
@@ -76,9 +120,8 @@ class _WelcomeToDummyPageState extends State<WelcomeToDummyPage> {
               ),
             ),
             onPressed: () {
-              AppAlert.showToast(
-                message: '🎉 Wait pannunga adhuve next page pogum...😎',
-              );
+              cancelTimer();
+              context.pushNamed(DashboardPage.routeName);
             },
           ),
         ],

@@ -66,6 +66,7 @@ class VaccinationDetailsCard extends StatelessWidget {
                     '12/01/2025',
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
                   ),
                 ],
@@ -83,6 +84,7 @@ class VaccinationDetailsCard extends StatelessWidget {
                     '12/01/2025',
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
                   ),
                 ],

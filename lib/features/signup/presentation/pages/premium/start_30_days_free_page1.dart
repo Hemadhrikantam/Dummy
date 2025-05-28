@@ -6,12 +6,14 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/close_button_widget.dart';
+import 'package:dummy/features/signup/presentation/pages/premium/dummy_timer_page.dart';
 import 'package:dummy/features/signup/presentation/widgets/monthly_yearly_selection_card.dart';
 import 'package:dummy/features/signup/presentation/widgets/plan_info_widget.dart';
 import 'package:dummy/features/signup/presentation/widgets/premium_info_card.dart';
+import 'package:dummy/features/signup/presentation/widgets/tracking_widget.dart';
 import 'package:flutter/material.dart';
 
-import 'start_30_days_free_page2.dart';
+// import 'start_30_days_free_page2.dart';
 
 class Start30DaysFreePage1 extends StatefulWidget {
   const Start30DaysFreePage1({super.key});
@@ -38,7 +40,13 @@ class _Start30DaysFreePage1State extends State<Start30DaysFreePage1> {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: [CloseButtonWidget()],
+            children: [
+              CloseButtonWidget(
+                onTap: () {
+                  context.pushNamed(DummyTimerPage.routeName);
+                },
+              ),
+            ],
           ),
           Styles.gap15,
           Text(
@@ -51,7 +59,16 @@ class _Start30DaysFreePage1State extends State<Start30DaysFreePage1> {
           ),
 
           Styles.gap20,
-          PremiumInfoCardWidget(),
+          SizedBox(
+            height: 300,
+            child: Column(
+              children: [
+                if (selectedIndex == 0) PremiumInfoCardWidget(),
+                if (selectedIndex == 1) TrackingWidget(),
+              ],
+            ),
+          ),
+
           Styles.gap20,
           Padding(
             padding: Styles.edgeInsetsAll08,
@@ -95,7 +112,7 @@ class _Start30DaysFreePage1State extends State<Start30DaysFreePage1> {
               ),
             ),
             onPressed: () {
-              context.pushNamed(Start30DaysFreePage2.routeName);
+              context.pushNamed(DummyTimerPage.routeName);
             },
           ),
           Styles.gap15,

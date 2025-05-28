@@ -29,7 +29,20 @@ class VaccinationDetailsPage extends StatelessWidget {
       title: AppText.details,
       subTitle: '',
       onlyTitle: true,
-      bottom: CustomBottomSheet(
+      bottom: Container(
+        width: double.infinity,
+        padding: Styles.edgeInsetsAll12,
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.grey700,
+              blurRadius: 10,
+              offset: const Offset(0, 0),
+            ),
+          ],
+        ),
         child: Row(
           children: [
             Expanded(
@@ -40,7 +53,7 @@ class VaccinationDetailsPage extends StatelessWidget {
                 },
                 backgroundColor: AppColors.white,
                 name: AppText.delete,
-                textColor: AppColors.buttonTextColor,
+                textColor: AppColors.red,
               ),
             ),
             Styles.gap10,
@@ -62,10 +75,10 @@ class VaccinationDetailsPage extends StatelessWidget {
         ),
       ),
       child: ListView(
-        padding: Styles.edgeInsetsOnlyH00,
+        padding: Styles.edgeInsetsOnlyW08,
         children: [
           VaccinationDetailsCard(),
-          Styles.gap10,
+          Styles.gap15,
           Text(
             AppText.vaccinations,
             style: context.textTheme.titleLarge?.copyWith(
@@ -73,8 +86,10 @@ class VaccinationDetailsPage extends StatelessWidget {
               fontSize: 22,
             ),
           ),
-          Styles.gap10,
           DateList(),
+          Styles.gap20,
+          Styles.gap20,
+          Styles.gap20,
         ],
       ),
     );

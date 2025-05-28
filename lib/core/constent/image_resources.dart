@@ -29,6 +29,7 @@ class ImageResources {
   static const String unselectedAddoption = '$__icons/addoption_unselected.png';
   static const String addoption = '$__icons/addoption.png';
   static const String dashboardLogo = '$images/dashboard_logo.png';
+  static const String premium = '$__icons/premium.svg';
   //NGO Home
   static const String petList = '$__icons/pet_list.png';
   static const String activeList = '$__icons/active_list.png';
@@ -57,6 +58,7 @@ class ImageResources {
   //Health
   static const String heartIcon = '$__icons/heart_icon.png';
   static const String medsIcon = '$__icons/meds_icon.png';
+  static const String petFood = '$__icons/pet_food.svg';
   static const String nailsIcon = '$__icons/nails_icon.png';
   static const String pawIcon = '$__icons/paw_icon.png';
   static const String syringeIcon = '$__icons/syringe_icon.png';

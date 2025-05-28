@@ -42,6 +42,7 @@ class AppText {
   static String continueWithGoogle = 'Continue With Google';
   static String alreadyHaveAccount = 'Already have an account? Log in here.';
   static String startUsingDummy = 'Start Using Dummy';
+  static String explore = 'Explore';
   static String tryFor = 'Try for \$0.00';
   static String continueForFree = 'Continue For Free';
   static String start3Day1FreeTrail = 'Start 3 Day Free Trail';
@@ -175,6 +176,7 @@ class AppText {
   static String deworming = 'Deworming';
   static String productName = 'Product name';
   static String date = 'Date';
+  static String dueDate = 'Due Date';
   static String expenses = 'Expenses';
   static String amount = 'Amount';
   static String food = 'Food';
@@ -191,6 +193,7 @@ class AppText {
   static const String tapHereToAddMedia = 'Tap Here To Add Media';
   static String location = 'Location';
   static const String save = 'Save';
+  static const String clearFilter = 'Clear Filter';
   static const String type = 'Type';
   static const String frequency = 'Frequency';
   static const String duedate = 'Due Date';
@@ -211,7 +214,7 @@ class AppText {
 
   //Medication
   static const String insights = 'Insight';
-  static const String vaccinations = 'Vaccines';
+  static const String vaccinations = 'Vaccinations';
   static const String medications = 'Medication';
   static const String filter = 'Filter';
   static const String startDate = 'Start Date';
@@ -226,6 +229,8 @@ class AppText {
   static const String night = 'Night';
   static const String tablets = 'Tablets';
   static const String select = 'Select';
+  static const String hh = 'HH';
+  static const String mm = 'MM';
   static const String totalDosage = 'Total Dosage';
   static const String medicationAddedFor = 'Medication added for ';
   static const String youreDoingGreat = "You're doing great!";
@@ -288,10 +293,11 @@ class AppText {
   static String quickActions = 'Quick Actions';
   static String logWalks = 'Log Walks';
   static String logMeals = 'Log Meals';
-  static String logVaccin = 'Log Vaccin';
+  static String logVaccin = 'Log Vaccination';
   static String checkMood = 'Check Mood';
   static String symptoms = 'Symptoms';
   static String addMemories = 'Add Memories';
+  static String addMember = 'Add Member';
   static String wagAi = 'Wag AI';
   static String tipOfTheDay = 'Tip of the Day';
   static String nearYou = 'Near You';

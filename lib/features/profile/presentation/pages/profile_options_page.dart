@@ -30,54 +30,57 @@ class ProfileOptionsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialBaseScreen(
-      child: ListView(
+      child: Column(
         children: [
           ProfileHeader(),
           Styles.gap20,
           PetListWidget(),
           Styles.gap20,
-          CustomCard(
-            child: Column(
-              children: [
-                Column(
-                  children: List.generate(
-                    StaticWidget.settingsListData.length,
-                    (i) {
-                      final item = StaticWidget.settingsListData;
-                      return Padding(
-                        padding: Styles.edgeInsetsAll08,
-                        child: SettingsItemsWidget(
-                          leadingIcon: item[i].leadingIcon,
-                          title: item[i].title,
-                          onPressed: () async {
-                            if (item[i].title == AppText.petProfile) {
-                              context.pushNamed(PetDairyPage.routeName);
-                            } else if (item[i].title ==
-                                AppText.accountDetails) {
-                              context.push(AccountDetailsPage.route());
-                            } else if (item[i].title == AppText.manageFamily) {
-                              BottomModels.manageFamilyMembersBottomSheet(
-                                context,
-                              );
-                            } else if (item[i].title ==
-                                AppText.premiumSubscription) {
-                            } else if (item[i].title == AppText.vetNearMe) {
-                            } else if (item[i].title == AppText.support) {
-                              context.push(SupportPage.route());
-                            }
-                          },
-                        ),
-                      );
-                    },
+          Expanded(
+            child: CustomCard(
+              child: Column(
+                children: [
+                  Column(
+                    children: List.generate(
+                      StaticWidget.settingsListData.length,
+                      (i) {
+                        final item = StaticWidget.settingsListData;
+                        return Padding(
+                          padding: Styles.edgeInsetsAll04,
+                          child: SettingsItemsWidget(
+                            leadingIcon: item[i].leadingIcon,
+                            title: item[i].title,
+                            onPressed: () async {
+                              if (item[i].title == AppText.petProfile) {
+                                context.pushNamed(PetDairyPage.routeName);
+                              } else if (item[i].title ==
+                                  AppText.accountDetails) {
+                                context.push(AccountDetailsPage.route());
+                              } else if (item[i].title ==
+                                  AppText.manageFamily) {
+                                BottomModels.manageFamilyMembersBottomSheet(
+                                  context,
+                                );
+                              } else if (item[i].title ==
+                                  AppText.premiumSubscription) {
+                              } else if (item[i].title == AppText.vetNearMe) {
+                              } else if (item[i].title == AppText.support) {
+                                context.push(SupportPage.route());
+                              }
+                            },
+                          ),
+                        );
+                      },
+                    ),
                   ),
-                ),
-                Styles.gap20,
+                  Expanded(child: Container()),
 
-                AppTextButton(
-                  name: AppText.logout,
-                  textColor: AppColors.redText,
-                ),
-              ],
+                  AppTextButton(
+                    name: AppText.logout,
+                    textColor: AppColors.redText,
+                  ),
+                ],
+              ),
             ),
           ),
         ],

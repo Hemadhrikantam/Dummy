@@ -28,7 +28,20 @@ class AdoptionDetailsPage extends StatelessWidget {
       title: AppText.details,
       subTitle: '',
       onlyTitle: true,
-      bottom: CustomBottomSheet(
+      bottom: Container(
+        width: double.infinity,
+        padding: Styles.edgeInsetsAll12,
+        decoration: BoxDecoration(
+          color: AppColors.white,
+          borderRadius: BorderRadius.circular(20),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.grey700,
+              blurRadius: 10,
+              offset: const Offset(0, 0),
+            ),
+          ],
+        ),
         child: Row(
           children: [
             Expanded(
@@ -38,7 +51,7 @@ class AdoptionDetailsPage extends StatelessWidget {
                 },
                 backgroundColor: AppColors.white,
                 name: AppText.delete,
-                textColor: AppColors.buttonTextColor,
+                textColor: AppColors.red,
               ),
             ),
             Styles.gap10,

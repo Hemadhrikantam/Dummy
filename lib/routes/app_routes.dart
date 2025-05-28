@@ -23,7 +23,6 @@ import '../features/signup/presentation/pages/notification_permission_page.dart'
 import '../features/signup/presentation/pages/premium/premium_page1.dart';
 import '../features/signup/presentation/pages/premium/remainder_page.dart';
 import '../features/signup/presentation/pages/premium/start_30_days_free_page1.dart';
-import '../features/signup/presentation/pages/premium/start_30_days_free_page2.dart';
 import '../features/signup/presentation/pages/upload_pet_photo_page.dart';
 import '../features/signup/presentation/pages/welcome_to_dummy_page.dart';
 
@@ -44,7 +43,6 @@ class AppRoutes {
     PremiumPage1.routeName: (_) => const PremiumPage1(),
     RemainderPage.routeName: (_) => const RemainderPage(),
     Start30DaysFreePage1.routeName: (_) => const Start30DaysFreePage1(),
-    Start30DaysFreePage2.routeName: (_) => const Start30DaysFreePage2(),
     DummyTimerPage.routeName: (_) => const DummyTimerPage(),
 
     //dashboard

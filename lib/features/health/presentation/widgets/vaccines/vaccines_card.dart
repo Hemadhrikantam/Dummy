@@ -2,6 +2,7 @@ import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/constent/app_colors.dart';
@@ -65,6 +66,9 @@ class _VaccinesCardState extends State<VaccinesCard> {
                       setState(() {
                         isChecked = !isChecked;
                       });
+                      if (value) {
+                        BottomModels.vaccinationReminderSheet(context);
+                      }
                     },
                   ),
                 ],
@@ -88,6 +92,7 @@ class _VaccinesCardState extends State<VaccinesCard> {
                     '12/01/2025',
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
                   ),
                 ],
@@ -105,6 +110,7 @@ class _VaccinesCardState extends State<VaccinesCard> {
                     '12/01/2025',
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
                   ),
                 ],

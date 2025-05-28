@@ -72,7 +72,7 @@ class MedicationDetailsCard extends StatelessWidget {
                     '3 Tablets /\nServing',
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      fontSize: 18,
                     ),
                   ),
                   Column(

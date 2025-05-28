@@ -5,6 +5,8 @@ import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/features/auth/presentation/widgets/otp_success_bottom_sheet_content.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/add/add_expenses_form.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/add/add_meal_form.dart';
+import 'package:dummy/features/health/presentation/widgets/vaccines/vaccination_filter_bottom_sheet.dart';
+import 'package:dummy/features/health/presentation/widgets/vaccines/vaccination_reminder_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -63,6 +65,30 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return AddMealForm();
+      },
+    );
+  }
+
+  static Future<T?> vaccinationFilterSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return VaccinationFilterBottomSheet();
+      },
+    );
+  }
+
+  static Future<T?> vaccinationReminderSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return VaccinationReminderBottomSheet();
       },
     );
   }

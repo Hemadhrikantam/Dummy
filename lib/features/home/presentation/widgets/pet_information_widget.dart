@@ -53,7 +53,7 @@ class PetInformationWidget extends StatelessWidget {
                   title: AppText.gender,
                   value: 'Female',
                 ),
-                Expanded(child: Styles.sizedBox)
+                Expanded(child: Styles.sizedBox),
               ],
             ),
           ),
@@ -80,6 +80,7 @@ class __InfoValue extends StatelessWidget {
           AppAssestsImage(path: image, height: 20, width: 20),
           Styles.gap6,
           Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 title,

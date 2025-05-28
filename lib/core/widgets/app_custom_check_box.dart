@@ -10,11 +10,13 @@ class CustomCheckBox extends StatelessWidget {
     required this.onChanged,
     super.key,
     this.maxWidth,
+    this.fontSize,
   });
   final bool isChecked;
   final String label;
   final ValueChanged<bool> onChanged;
   final double? maxWidth;
+  final double? fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +31,10 @@ class CustomCheckBox extends StatelessWidget {
                 maxWidth != null ? BoxConstraints(maxWidth: maxWidth!) : null,
             child: Text(
               label,
-              style: context.textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.bold),
+              style: context.textTheme.bodyMedium?.copyWith(
+                fontSize: fontSize ?? 14,
+                fontWeight: FontWeight.bold,
+              ),
               softWrap: true,
             ),
           ),

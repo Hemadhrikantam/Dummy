@@ -9,6 +9,7 @@ import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/close_button_widget.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
+import 'package:dummy/features/signup/presentation/pages/welcome_to_dummy_page.dart';
 import 'package:dummy/features/signup/presentation/widgets/plan_info_widget.dart';
 //import 'package:dummy/features/signup/presentation/widgets/rating_widget.dart';
 import 'package:flutter/material.dart';
@@ -71,7 +72,13 @@ class _DummyTimerPageState extends State<DummyTimerPage> {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: [CloseButtonWidget()],
+            children: [
+              CloseButtonWidget(
+                onTap: () {
+                  context.pushNamed(WelcomeToDummyPage.routeName);
+                },
+              ),
+            ],
           ),
           Styles.gap30,
           const __OfferText(),
@@ -81,16 +88,17 @@ class _DummyTimerPageState extends State<DummyTimerPage> {
             style: context.textTheme.headlineLarge?.copyWith(
               fontWeight: FontWeight.w400,
               fontSize: 15,
-              color: AppColors.grey600,
+              color: AppColors.grey700,
             ),
             textAlign: TextAlign.center,
           ),
-          Styles.gap100,
+          Styles.gap50,
           TimerWidget(minutes: minutes, seconds: seconds),
           Text(
             AppText.availableFor1hr,
             style: context.textTheme.labelMedium?.copyWith(
               fontSize: 15,
+              color: AppColors.grey700,
               fontWeight: FontWeight.w400,
             ),
             textAlign: TextAlign.center,
@@ -139,6 +147,7 @@ class __OfferText extends StatelessWidget {
             text: AppText.fiftyPercent,
             style: GoogleFonts.instrumentSans(
               color: AppColors.stepperColor,
+              fontWeight: FontWeight.bold,
               fontSize: 35,
             ),
           ),

@@ -252,25 +252,32 @@ class ___MorningState extends State<__Morning> {
             borderColor: AppColors.black.withOpacity(.1),
             child: Row(
               children: [
-                Expanded(flex: 3, child: Text(AppText.morning)),
-                Styles.gap10,
                 Expanded(
-                  flex: 5,
-                  child: CustomDropdownSearch(
-                    title: '',
-                    items: [],
-                    onChanged: (value) {},
-                    label: AppText.select,
+                  flex: 3,
+                  child: Text(
+                    AppText.morning,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                Styles.gap10,
+                Styles.gap4,
                 Expanded(
                   flex: 5,
                   child: CustomDropdownSearch(
                     title: '',
                     items: [],
                     onChanged: (value) {},
-                    label: AppText.select,
+                    label: AppText.hh,
+                  ),
+                ),
+                Styles.gap4,
+                Expanded(
+                  flex: 5,
+                  child: CustomDropdownSearch(
+                    title: '',
+                    items: [],
+                    onChanged: (value) {},
+                    label: AppText.mm,
                   ),
                 ),
               ],
@@ -311,25 +318,32 @@ class ___AfternoonState extends State<__Afternoon> {
             borderColor: AppColors.black.withOpacity(.1),
             child: Row(
               children: [
-                Expanded(flex: 3, child: Text(AppText.afternoon)),
-                Styles.gap10,
                 Expanded(
-                  flex: 5,
-                  child: CustomDropdownSearch(
-                    title: '',
-                    items: [],
-                    onChanged: (value) {},
-                    label: AppText.select,
+                  flex: 3,
+                  child: Text(
+                    AppText.afternoon,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                Styles.gap10,
+                Styles.gap4,
                 Expanded(
                   flex: 5,
                   child: CustomDropdownSearch(
                     title: '',
                     items: [],
                     onChanged: (value) {},
-                    label: AppText.select,
+                    label: AppText.hh,
+                  ),
+                ),
+                Styles.gap4,
+                Expanded(
+                  flex: 5,
+                  child: CustomDropdownSearch(
+                    title: '',
+                    items: [],
+                    onChanged: (value) {},
+                    label: AppText.mm,
                   ),
                 ),
               ],
@@ -370,25 +384,32 @@ class ___NightState extends State<__Night> {
             borderColor: AppColors.black.withOpacity(.1),
             child: Row(
               children: [
-                Expanded(flex: 3, child: Text(AppText.night)),
-                Styles.gap10,
                 Expanded(
-                  flex: 5,
-                  child: CustomDropdownSearch(
-                    title: '',
-                    items: [],
-                    onChanged: (value) {},
-                    label: AppText.select,
+                  flex: 3,
+                  child: Text(
+                    AppText.night,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ),
-                Styles.gap10,
+                Styles.gap4,
                 Expanded(
                   flex: 5,
                   child: CustomDropdownSearch(
                     title: '',
                     items: [],
                     onChanged: (value) {},
-                    label: AppText.select,
+                    label: AppText.hh,
+                  ),
+                ),
+                Styles.gap4,
+                Expanded(
+                  flex: 5,
+                  child: CustomDropdownSearch(
+                    title: '',
+                    items: [],
+                    onChanged: (value) {},
+                    label: AppText.mm,
                   ),
                 ),
               ],
@@ -405,9 +426,12 @@ class TotalDosage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomCard(
-      borderRadius: Styles.borderRadiusCircular20,
-      backgroundColor: AppColors.stepperColor.withOpacity(.05),
+    return Container(
+      padding: Styles.edgeInsetsAll10,
+      decoration: BoxDecoration(
+        borderRadius: Styles.borderRadiusCircular20,
+        color: AppColors.stepperColor.withOpacity(.05),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -425,7 +449,7 @@ class TotalDosage extends StatelessWidget {
                 '1 Tablets /\nServing',
                 style: context.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.bold,
-                  fontSize: 20,
+                  fontSize: 16,
                   color: AppColors.stepperColor,
                 ),
               ),
@@ -466,13 +490,13 @@ class DayWithTimeWidget extends StatelessWidget {
         text: day,
         style: context.textTheme.titleLarge?.copyWith(
           fontWeight: FontWeight.bold,
-          fontSize: 16,
+          fontSize: 14,
         ),
         children: [
           TextSpan(
             text: time,
             style: context.textTheme.labelMedium?.copyWith(
-              fontSize: 16,
+              fontSize: 14,
               fontWeight: FontWeight.w300,
             ),
           ),
@@ -491,6 +515,7 @@ class __Media extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         MandatoryFieldWidget(labelText: AppText.media, required: false),
+        Styles.gap10,
         DottedBorderWidget(),
       ],
     );

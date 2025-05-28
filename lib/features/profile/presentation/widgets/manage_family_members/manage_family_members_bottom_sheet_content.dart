@@ -2,6 +2,7 @@ import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
+import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -18,87 +19,95 @@ class ManageFamilyMembersBottomSheetContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: Styles.edgeInsetsAll20,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            AppText.members,
-            style: context.textTheme.titleLarge?.copyWith(
-              fontWeight: FontWeight.w700,
+    return DraggableScrollableSheet(
+      initialChildSize: 0.5,
+      minChildSize: 0.35,
+      maxChildSize: 1,
+      expand: false,
+      builder: (context, scrollController) {
+        return ListView(
+          controller: scrollController,
+          padding: Styles.edgeInsetsAll15,
+          children: [
+            Styles.gap4,
+            AppGraber(),
+            Styles.gap20,
+            Text(
+              AppText.members,
+              style: context.textTheme.titleLarge?.copyWith(
+                fontWeight: FontWeight.w700,
+              ),
             ),
-          ),
-          Styles.gap10,
-          CustomCard(
-            onTap: () {
-              BottomModels.familyMemberRoleBottomSheet(context);
-            },
-            child: Row(
-              children: [
-                TextValueWidget(text: 'Admin', value: 'Suraj S Nair'),
-                Styles.spacer,
-                AppIcon(icon: Iconsax.edit_25, color: AppColors.grey600),
-                Styles.gap10,
-                AppIcon(icon: Iconsax.trush_square, color: AppColors.red),
-              ],
-            ),
-          ),
-          Styles.gap10,
-          CustomCard(
-            onTap: () {
-              BottomModels.familyMemberRoleBottomSheet(context);
-            },
-            child: Row(
-              children: [
-                TextValueWidget(text: 'Admin', value: 'Suraj S Nair'),
-                Styles.spacer,
-                AppIcon(icon: Iconsax.edit_25, color: AppColors.grey600),
-                Styles.gap10,
-                AppIcon(icon: Iconsax.trush_square, color: AppColors.red),
-              ],
-            ),
-          ),
-          Styles.gap10,
-          CustomCard(
-            onTap: () {
-              BottomModels.familyMemberRoleBottomSheet(context);
-            },
-            child: Row(
-              children: [
-                TextValueWidget(text: 'Admin', value: 'Suraj S Nair'),
-                Styles.spacer,
-                AppIcon(icon: Iconsax.edit_25, color: AppColors.grey600),
-                Styles.gap10,
-                AppIcon(icon: Iconsax.trush_square, color: AppColors.red),
-              ],
-            ),
-          ),
-          Styles.gap30,
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
+            Styles.gap10,
+            CustomCard(
+              onTap: () {
+                BottomModels.familyMemberRoleBottomSheet(context);
+              },
+              child: Row(
                 children: [
-                  Expanded(
-                    child: AppTextButton(
-                      onPressed: () {
-                        context.pop();
-                      },
-                      radius: 50,
-                      borderColor: AppColors.transparent,
-                      backgroundColor: AppColors.buttonBackground,
-                      name: AppText.save,
-                      textColor: AppColors.buttonTextColor,
-                    ),
-                  ),
+                  TextValueWidget(text: 'Admin', value: 'Suraj S Nair'),
+                  Styles.spacer,
+                  AppIcon(icon: Iconsax.edit_25, color: AppColors.grey600),
+                  Styles.gap10,
+                  AppIcon(icon: Iconsax.trush_square, color: AppColors.red),
                 ],
               ),
-            ],
-          ),
-        ],
-      ),
+            ),
+            Styles.gap10,
+            CustomCard(
+              onTap: () {
+                BottomModels.familyMemberRoleBottomSheet(context);
+              },
+              child: Row(
+                children: [
+                  TextValueWidget(text: 'Admin', value: 'Suraj S Nair'),
+                  Styles.spacer,
+                  AppIcon(icon: Iconsax.edit_25, color: AppColors.grey600),
+                  Styles.gap10,
+                  AppIcon(icon: Iconsax.trush_square, color: AppColors.red),
+                ],
+              ),
+            ),
+            Styles.gap10,
+            CustomCard(
+              onTap: () {
+                BottomModels.familyMemberRoleBottomSheet(context);
+              },
+              child: Row(
+                children: [
+                  TextValueWidget(text: 'Admin', value: 'Suraj S Nair'),
+                  Styles.spacer,
+                  AppIcon(icon: Iconsax.edit_25, color: AppColors.grey600),
+                  Styles.gap10,
+                  AppIcon(icon: Iconsax.trush_square, color: AppColors.red),
+                ],
+              ),
+            ),
+            Styles.gap30,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Expanded(
+                      child: AppTextButton(
+                        onPressed: () {
+                          context.pop();
+                        },
+                        radius: 50,
+                        borderColor: AppColors.transparent,
+                        backgroundColor: AppColors.buttonBackground,
+                        name: AppText.addMember,
+                        textColor: AppColors.buttonTextColor,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        );
+      },
     );
   }
 }

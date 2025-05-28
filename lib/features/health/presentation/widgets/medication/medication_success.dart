@@ -104,6 +104,7 @@ class MedicationSuccessContent extends StatelessWidget {
                 child: Text(
                   AppText.usersKeepTheirPetsMedOnTrack,
                   style: context.textTheme.titleMedium?.copyWith(
+                    fontStyle: FontStyle.italic,
                     color: AppColors.buttonTextColor,
                     fontWeight: FontWeight.w500,
                     fontSize: 16,

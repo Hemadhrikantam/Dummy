@@ -2,6 +2,7 @@ import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
+import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/custom_search_bar.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +35,13 @@ class VaccinesTab extends StatelessWidget {
             Styles.gap10,
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
-              children: [FilterButton()],
+              children: [
+                FilterButton(
+                  onTap: () {
+                    BottomModels.vaccinationFilterSheet(context);
+                  },
+                ),
+              ],
             ),
             Styles.gap20,
             VaccinesList(),

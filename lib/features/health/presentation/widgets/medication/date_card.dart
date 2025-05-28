@@ -45,6 +45,7 @@ class _DateCardState extends State<DateCard> {
                     '12/01/2025',
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
+                      fontSize: 18,
                     ),
                   ),
                 ],

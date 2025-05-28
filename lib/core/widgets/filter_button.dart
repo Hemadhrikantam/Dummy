@@ -9,18 +9,20 @@ import 'app_icon.dart';
 import 'custom_card.dart';
 
 class FilterButton extends StatelessWidget {
-  const FilterButton({super.key});
-
+  const FilterButton({super.key, this.onTap});
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
+      onTap: onTap,
+      padding: Styles.edgeInsetsAll08,
       borderColor: AppColors.grey400,
       borderRadius: Styles.borderRadiusCircular50,
       child: Row(
         children: [
           Text(AppText.filter, style: context.textTheme.titleMedium),
           Styles.gap20,
-          AppIcon(icon: Iconsax.setting_4),
+          AppIcon(icon: Iconsax.setting_4, size: 20),
         ],
       ),
     );

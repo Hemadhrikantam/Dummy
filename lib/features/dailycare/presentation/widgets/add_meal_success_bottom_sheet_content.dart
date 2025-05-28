@@ -3,6 +3,7 @@ import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/constent/app_colors.dart';
 import '../../../../../core/constent/image_resources.dart';
@@ -25,11 +26,12 @@ class AddMealSuccessBottomSheetContent extends StatelessWidget {
         children: [
           AppGraber(),
           Styles.gap20,
-          AppAssestsImage(
-            path: ImageResources.medsIcon,
-            height: context.height * .07,
-            boxFit: BoxFit.contain,
+          SvgPicture.asset(
+            ImageResources.petFood,
+            height: context.height * .1,
+            fit: BoxFit.contain,
           ),
+
           Text(
             AppText.youreDoingGreat,
             style: context.textTheme.titleLarge?.copyWith(
@@ -66,6 +68,7 @@ class AddMealSuccessBottomSheetContent extends StatelessWidget {
                   onPressed: () {
                     context.pop();
                   },
+                  showShadow: false,
                   borderColor: AppColors.grey500,
                   backgroundColor: AppColors.white,
                   name: RichText(

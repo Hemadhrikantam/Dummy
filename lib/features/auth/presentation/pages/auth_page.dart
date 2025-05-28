@@ -1,3 +1,4 @@
+import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
@@ -89,6 +90,7 @@ class _AuthPage extends State<AuthPage> {
                     AppText.continueBtn,
                     style: context.textTheme.titleSmall?.copyWith(
                       fontWeight: FontWeight.w700,
+                      color: AppColors.stepperColor,
                     ),
                   ),
                   onPressed: () {

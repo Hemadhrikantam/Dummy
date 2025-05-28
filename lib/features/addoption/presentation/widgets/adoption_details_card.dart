@@ -108,6 +108,7 @@ class _AdoptionDetailsCardState extends State<AdoptionDetailsCard> {
           Styles.gap10,
           CustomCheckBox(
             isChecked: isChecked,
+            fontSize: 20,
             label: AppText.markAsAdopted,
             onChanged: (value) {
               setState(() {

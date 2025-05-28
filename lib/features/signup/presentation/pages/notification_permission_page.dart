@@ -1,3 +1,4 @@
+import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
@@ -52,6 +53,7 @@ class NotificationPermissionPage extends StatelessWidget {
               AppText.allow,
               style: context.textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.w700,
+                color: AppColors.stepperColor,
               ),
             ),
 
@@ -86,9 +88,12 @@ class NotificationPermissionPage extends StatelessWidget {
               AppText.maybeLater,
               style: context.textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.w700,
+                color: AppColors.stepperColor,
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(WelcomeToDummyPage.routeName);
+            },
           ),
           Styles.gap30,
           InfoCard(title: AppText.ownerLovedRemainder),

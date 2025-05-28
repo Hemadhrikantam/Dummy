@@ -13,13 +13,13 @@ class PremiumInfoCardWidget extends StatelessWidget {
     return Column(
       children: [
         __PremiumInfoCard(title: AppText.text1),
-        Styles.gap10,
+        Styles.gap8,
         __PremiumInfoCard(title: AppText.text2),
-        Styles.gap10,
+        Styles.gap8,
         __PremiumInfoCard(title: AppText.text3),
-        Styles.gap10,
+        Styles.gap8,
         __PremiumInfoCard(title: AppText.text4),
-        Styles.gap10,
+        Styles.gap8,
         __PremiumInfoCard(title: AppText.text5),
       ],
     );
@@ -33,6 +33,7 @@ class __PremiumInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomCard(
       borderRadius: Styles.borderRadiusCircular08,
+      padding: Styles.edgeInsetsAll08,
       child: Row(
         children: [
           CustomCard(
