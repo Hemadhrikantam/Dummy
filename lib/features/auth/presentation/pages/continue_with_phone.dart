@@ -59,7 +59,7 @@ class _ContinueWithPhone extends State<ContinueWithPhone> {
                   AppText.continueBtn,
                   style: context.textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.w700,
-                    color: AppColors.stepperColor,
+                    color: AppColors.buttonTextColor,
                   ),
                 ),
                 onPressed: () {

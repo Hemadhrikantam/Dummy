@@ -77,7 +77,7 @@ class StartYourPetsJourney2 extends StatelessWidget {
                     AppText.startYourPetsJourney,
                     style: context.textTheme.titleSmall?.copyWith(
                       fontWeight: FontWeight.w700,
-                      color: Color(0xFFA75A1D),
+                      color: AppColors.buttonTextColor,
                     ),
                   ),
                   onPressed: () {

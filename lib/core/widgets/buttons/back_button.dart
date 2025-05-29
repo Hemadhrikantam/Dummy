@@ -9,9 +9,11 @@ class BackButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        context.pop();
-      },
+      onTap:
+          onTap ??
+          () {
+            context.pop();
+          },
       child: AppAssestsImage(
         path: ImageResources.backImg,
         height: 33,

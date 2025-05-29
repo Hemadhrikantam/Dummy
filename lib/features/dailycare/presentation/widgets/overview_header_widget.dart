@@ -34,7 +34,7 @@ class OverviewHeader extends StatelessWidget {
                         child: Container(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 16,
-                            vertical: 10,
+                            vertical: 5,
                           ),
                           decoration: BoxDecoration(
                             color:

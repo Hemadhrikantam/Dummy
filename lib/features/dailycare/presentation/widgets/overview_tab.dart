@@ -11,42 +11,65 @@ class OverviewTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
+    return Column(
       children: [
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.end,
-        //   children: [
-        //     AppButton(
-        //       name: Text(
-        //         AppText.add,
-        //         style: context.textTheme.titleSmall?.copyWith(
-        //           color: AppColors.buttonTextColor,
-        //           fontWeight: FontWeight.w700,
-        //         ),
-        //       ),
-        //       width: 90,
-        //       onPressed: () {
-        //        BottomModels.overViewBottomSheet(context);
-        //       },
-        //     ),
-        //   ],
-        // ),
-        // Styles.gap15,
-        CustomCard(
-          child: AppCustomListViewBuilder(
-            physics: NeverScrollableScrollPhysics(),
-            isExpand: false,
-            shrinkWrap: true,
-            separatorBuilder: (context, i) => Styles.gap10,
-            itemCount: 6,
-            itemBuilder: (context, i) {
-              return OverviewCard(
-                iconPath: ImageResources.mealsicon,
-                title: AppText.meals,
-                subtitle: AppText.fiveloggedtoday,
-                onTap: () {},
-              );
-            },
+        Expanded(
+          child: CustomCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                OverviewCard(
+                  iconPath: ImageResources.mealsicon,
+                  title: AppText.meals,
+                  subtitle: AppText.fiveloggedtoday,
+                  onTap: () {},
+                ),
+                Styles.gap10,
+                OverviewCard(
+                  iconPath: ImageResources.walksicon,
+                  title: AppText.walks,
+                  subtitle: AppText.halfLoggedToday,
+                  onTap: () {},
+                ),
+                Styles.gap10,
+                OverviewCard(
+                  iconPath: ImageResources.groomingicon,
+                  title: AppText.grooming,
+                  subtitle: AppText.lastSessionOn + "03/15/2025",
+                  onTap: () {},
+                ),
+                Styles.gap10,
+                OverviewCard(
+                  iconPath: ImageResources.dewormingicon,
+                  title: AppText.deworming,
+                  subtitle: AppText.dueOn + "03/20/2025",
+                  onTap: () {},
+                ),
+                Styles.gap10,
+                OverviewCard(
+                  iconPath: ImageResources.expensesicon,
+                  title: AppText.expenses,
+                  subtitle: AppText.fiftySpentThisMonth,
+                  onTap: () {},
+                ),
+              ],
+            ),
+
+            // AppCustomListViewBuilder(
+            //   physics: NeverScrollableScrollPhysics(),
+            //   isExpand: false,
+            //   shrinkWrap: true,
+            //   separatorBuilder: (context, i) => Styles.gap10,
+            //   itemCount: 6,
+            //   itemBuilder: (context, i) {
+            //     return OverviewCard(
+            //       iconPath: ImageResources.mealsicon,
+            //       title: AppText.meals,
+            //       subtitle: AppText.fiveloggedtoday,
+            //       onTap: () {},
+            //     );
+            //   },
+            // ),
           ),
         ),
       ],

@@ -80,7 +80,7 @@ class _MealsTabState extends State<MealsTab> {
             });
           },
         ),
-        Styles.gap15,
+        Styles.gap10,
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [

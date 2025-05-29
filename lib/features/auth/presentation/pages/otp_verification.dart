@@ -76,7 +76,7 @@ class _OtpVerification extends State<OtpVerification> {
                   AppText.continueBtn,
                   style: context.textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.w700,
-                    color: AppColors.stepperColor,
+                    color: AppColors.buttonTextColor,
                   ),
                 ),
                 onPressed: () async {

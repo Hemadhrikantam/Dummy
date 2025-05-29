@@ -53,7 +53,7 @@ class JoinDummy1Page extends StatelessWidget {
               AppText.continueWithPhone,
               style: context.textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.w700,
-                color: AppColors.stepperColor,
+                color: AppColors.buttonTextColor,
               ),
             ),
             onPressed: () {

@@ -28,6 +28,7 @@ class PetDairyHeader extends StatelessWidget {
         CustomCard(
           borderRadius: Styles.borderRadiusCircular40,
           borderColor: AppColors.white,
+          padding: Styles.edgeInsetsAll06,
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.2),

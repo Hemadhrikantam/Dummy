@@ -19,11 +19,8 @@ class _DailycarePage extends State<DailycarePage> {
       child: Column(
         children: [
           CustomHeaderWidget(),
-          Styles.gap30,
-          Expanded(
-            child:
-                DailyCareOverviewSection(), 
-          ),
+          Styles.gap20,
+          Expanded(child: DailyCareOverviewSection()),
         ],
       ),
     );

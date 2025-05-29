@@ -1,40 +1,33 @@
-import 'package:dummy/app.dart';
+import 'dart:io';
+
 import 'package:dummy/core/constent/app_colors.dart';
-import 'package:dummy/core/extention/app_navigation.dart';
-import 'package:dummy/core/widgets/app_custom_text_field.dart';
-import 'package:dummy/core/widgets/app_graber.dart';
-import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
-import 'package:dummy/core/widgets/custom_dropdown.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/widgets/base_screen.dart';
+import 'package:dummy/core/widgets/app_custom_text_field.dart';
+import 'package:dummy/core/widgets/app_graber.dart';
+import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
-import 'package:dummy/core/widgets/stepper_widget.dart';
-import 'package:flutter_rounded_date_picker/flutter_rounded_date_picker.dart';
+import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
+import 'package:dummy/core/widgets/custom_dropdown.dart';
+import 'package:dummy/core/widgets/info_card.dart';
+import 'package:dummy/features/profile/presentation/widgets/add_pet/add_pet_form.dart';
+import 'package:dummy/features/signup/presentation/widgets/pet_type_selection_card.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:image_picker/image_picker.dart';
 
-import '../../../profile/presentation/widgets/add_pet/add_pet_form.dart';
-import 'notification_permission_page.dart';
-
-class PetInfoPage extends StatefulWidget {
-  const PetInfoPage({super.key});
-  static const routeName = '/PetInfoPage';
-
-  static Route<T> route<T>() {
-    return MaterialPageRoute<T>(
-      builder: (context) => const PetInfoPage(),
-      settings: const RouteSettings(name: routeName),
-    );
-  }
+class PetInfo extends StatefulWidget {
+  const PetInfo({super.key, this.onNext});
+  final VoidCallback? onNext;
 
   @override
-  State<PetInfoPage> createState() => _PetInfoPageState();
+  State<StatefulWidget> createState() => _PetInfoState();
 }
 
-class _PetInfoPageState extends State<PetInfoPage> {
+class _PetInfoState extends State<PetInfo> {
   DateTime? selectedDate;
   final TextEditingController _dobController = TextEditingController();
 
@@ -138,57 +131,54 @@ class _PetInfoPageState extends State<PetInfoPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialBaseScreen(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          StepperWidget(currentScreenIndex: 3),
-          Styles.gap20,
-          Text(
-            AppText.tellUsYourPetType,
-            style: context.textTheme.headlineLarge?.copyWith(
-              fontWeight: FontWeight.w900,
-              fontSize: 28,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          AppText.tellUsYourPetType,
+          style: context.textTheme.headlineLarge?.copyWith(
+            fontWeight: FontWeight.w900,
+            fontSize: 28,
+          ),
+        ),
+        Styles.gap15,
+        Text(AppText.theMoreAboutPet, style: context.textTheme.titleSmall),
+        Styles.gap30,
+        AppTextFormField(
+          controller: _dobController,
+          headerText: AppText.dateOfBirth,
+          onTap: _pickDate,
+          readOnly: true,
+          suffixIcon: Iconsax.calendar,
+        ),
+        Styles.gap20,
+        CustomDropdownSearch(items: [], title: AppText.breed),
+        Styles.gap20,
+        CustomDropdownSearch(items: [], title: AppText.personalitytags),
+        Row(
+          children: [
+            PersonalityTagCard(),
+            Styles.gap10,
+            PersonalityTagCard(),
+            Styles.gap10,
+            PersonalityTagCard(),
+          ],
+        ),
+        Styles.gap30,
+        AppButton(
+          name: Text(
+            AppText.continueBtn,
+            style: context.textTheme.titleSmall?.copyWith(
+              fontWeight: FontWeight.w700,
+              color: AppColors.buttonTextColor,
             ),
           ),
-          Styles.gap15,
-          Text(AppText.theMoreAboutPet, style: context.textTheme.titleSmall),
-          Styles.gap30,
-          AppTextFormField(
-            controller: _dobController,
-            headerText: AppText.dateOfBirth,
-            onTap: _pickDate,
-            readOnly: true,
-            suffixIcon: Iconsax.calendar,
-          ),
-          Styles.gap20,
-          CustomDropdownSearch(items: [], title: AppText.breed),
-          Styles.gap20,
-          CustomDropdownSearch(items: [], title: AppText.personalitytags),
-          Row(
-            children: [
-              PersonalityTagCard(),
-              Styles.gap10,
-              PersonalityTagCard(),
-              Styles.gap10,
-              PersonalityTagCard(),
-            ],
-          ),
-          Styles.gap30,
-          AppButton(
-            name: Text(
-              AppText.continueBtn,
-              style: context.textTheme.titleSmall?.copyWith(
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            onPressed: () {
-              context.pushNamed(NotificationPermissionPage.routeName);
-            },
-          ),
-          Styles.gap30,
-        ],
-      ),
+          onPressed: () {
+            widget.onNext?.call();
+          },
+        ),
+        Styles.gap30,
+      ],
     );
   }
 }

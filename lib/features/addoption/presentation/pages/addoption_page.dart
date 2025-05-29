@@ -31,7 +31,7 @@ class _AddoptionPage extends State<AddoptionPage> {
       child: Column(
         children: [
           CustomHeaderWidget(),
-          Styles.gap30,
+          Styles.gap20,
           Row(
             children: [
               Expanded(child: SearchButton(hintText: AppText.search)),
@@ -49,6 +49,8 @@ class _AddoptionPage extends State<AddoptionPage> {
             children: [
               FilterButton(),
               AppButton(
+                height: 42,
+                showShadow: false,
                 name: Text(
                   AppText.add,
                   style: context.textTheme.titleSmall?.copyWith(
@@ -63,14 +65,14 @@ class _AddoptionPage extends State<AddoptionPage> {
               ),
             ],
           ),
-          Styles.gap20,
+          Styles.gap10,
           OverviewHeader(
             tabs: tabs,
             selectedTab: selectedTab,
             isExpanded: true,
             onTabSelected: (tab) => setState(() => selectedTab = tab),
           ),
-          Styles.gap20,
+          Styles.gap10,
           Expanded(child: AdoptiontabbarView()),
         ],
       ),

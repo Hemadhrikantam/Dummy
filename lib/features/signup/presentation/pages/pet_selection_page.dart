@@ -12,7 +12,8 @@ import 'package:dummy/features/signup/presentation/widgets/pet_type_selection_ca
 import 'package:flutter/material.dart';
 
 class PetSelectionPage extends StatefulWidget {
-  const PetSelectionPage({super.key});
+  const PetSelectionPage({super.key, this.onNext});
+  final VoidCallback? onNext;
   static const routeName = '/PetSelectionPage';
 
   static Route<T> route<T>() {
@@ -87,9 +88,11 @@ class _PetSelectionPageState extends State<PetSelectionPage> {
               AppText.continueBtn,
               style: context.textTheme.titleSmall?.copyWith(
                 fontWeight: FontWeight.w700,
+                color: AppColors.buttonTextColor,
               ),
             ),
             onPressed: () {
+              widget.onNext?.call();
               context.pushNamed(UploadPetPhotoPage.routeName);
             },
           ),

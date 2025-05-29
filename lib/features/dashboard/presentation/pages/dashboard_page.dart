@@ -55,6 +55,7 @@ class _DashboardPage extends State<DashboardPage> {
       },
       child: Scaffold(
         backgroundColor: AppColors.white,
+        resizeToAvoidBottomInset: false,
         bottomNavigationBar: NavBar(
           onTap: _onItemTapped,
           pageIndex: selectedIndex,

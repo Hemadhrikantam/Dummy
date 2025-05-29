@@ -28,7 +28,7 @@ class AdoptionCard extends StatelessWidget {
             children: [
               AppAssestsImage(
                 borderRadius: Styles.borderRadiusCircular12,
-                height: context.height * .19,
+                height: context.height * .17,
                 width: context.width * .3,
                 boxFit: BoxFit.fitWidth,
                 path: ImageResources.dogImage,
@@ -36,8 +36,9 @@ class AdoptionCard extends StatelessWidget {
               Styles.gap15,
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Styles.gap10,
+                  // Styles.gap10,
                   Text(
                     'Max',
                     style: context.textTheme.titleMedium?.copyWith(
@@ -46,9 +47,9 @@ class AdoptionCard extends StatelessWidget {
                       fontSize: 20,
                     ),
                   ),
-                  Styles.gap20,
+                  Styles.gap10,
                   TextValueWidget(text: 'Breed & age', value: 'Pomerian, 3 Y'),
-                  Styles.gap20,
+                  Styles.gap10,
                   TextValueWidget(text: 'Location', value: 'Bengaluru'),
                   Styles.gap4,
                 ],
@@ -64,7 +65,6 @@ class AdoptionCard extends StatelessWidget {
               subTitle: '',
               title: 'Available',
               padding: Styles.edgeInsetsAll06 + Styles.edgeInsetsOnlyW10,
-              
             ),
           ),
         ],

@@ -10,7 +10,7 @@ class PetImageWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      radius: 100,
+      radius: 70,
       backgroundColor: AppColors.buttonBackground,
       child: AppAssestsImage(path: ImageResources.dog),
     );

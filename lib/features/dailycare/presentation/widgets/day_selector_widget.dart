@@ -23,26 +23,33 @@ class DaySelector extends StatefulWidget {
 
 class _DaySelectorState extends State<DaySelector> {
   late DateTime _selectedDate;
-
+  DateTime today = DateTime.now();
   final Color _selectedColor = AppColors.buttonBackground;
   final Color _unselectedColor = Colors.grey.shade100;
 
-  final double _itemWidth = 63.0;
+  final double _itemWidth = 50;
   // final double _itemHeight = 65.0;
   final double _borderRadius = 8.0;
-  final EdgeInsets _itemPadding = Styles.edgeInsetsAll10;
   final double _itemGap = 9.0;
 
   Widget _defaultDayBuilder(DateTime day, bool isSelected) {
     final backgroundColor = isSelected ? _selectedColor : _unselectedColor;
-
+    final isToday =
+        day.year == today.year &&
+        day.month == today.month &&
+        day.day == today.day;
     return SizedBox(
       width: _itemWidth,
       child: CustomCard(
+        padding: Styles.edgeInsetsOnlyH02,
         backgroundColor: backgroundColor,
-        padding: _itemPadding,
         borderRadius: BorderRadius.circular(_borderRadius),
-        border: Border.all(color: AppColors.grey350),
+        border: Border.all(
+          color:
+              isSelected
+                  ? AppColors.secondaryColor
+                  : (isToday ? AppColors.stepperColor : AppColors.grey350),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -50,7 +57,9 @@ class _DaySelectorState extends State<DaySelector> {
               DateFormat('E').format(day).substring(0, 3),
               style: GoogleFonts.instrumentSans(
                 color:
-                    isSelected ? AppColors.buttonTextColor : AppColors.grey500,
+                    isSelected || isToday
+                        ? AppColors.buttonTextColor
+                        : AppColors.grey500,
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),
@@ -59,9 +68,12 @@ class _DaySelectorState extends State<DaySelector> {
             Text(
               '${day.day}',
               style: GoogleFonts.instrumentSans(
-                color: isSelected ? AppColors.buttonTextColor : AppColors.black,
+                color:
+                    isSelected || isToday
+                        ? AppColors.buttonTextColor
+                        : AppColors.black,
                 fontWeight: FontWeight.bold,
-                fontSize: 16,
+                fontSize: 14,
               ),
             ),
           ],
@@ -91,7 +103,7 @@ class _DaySelectorState extends State<DaySelector> {
                     _selectedDate.day == day.day;
 
                 return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: _itemGap / 2),
+                  padding: Styles.edgeInsetsOnlyW04,
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
