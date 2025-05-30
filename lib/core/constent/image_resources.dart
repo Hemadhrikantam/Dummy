@@ -58,6 +58,7 @@ class ImageResources {
   static const String arrowFarward = '$images/arrow_farward.png';
   static const String delete = '$__icons/delete.png';
   static const String mediaImg = '$images/media.png';
+  static const String success = '$images/success.gif';
 
   //Health
   static const String heartIcon = '$__icons/heart_icon.png';

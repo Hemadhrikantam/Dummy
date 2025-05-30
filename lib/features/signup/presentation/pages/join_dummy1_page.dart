@@ -35,14 +35,14 @@ class JoinDummy1Page extends StatelessWidget {
           Text(
             AppText.joinDummyToday,
             style: context.textTheme.headlineLarge?.copyWith(
-              fontWeight: FontWeight.w900,
+              fontWeight: FontWeight.w700,
               fontSize: 28,
             ),
           ),
-          Styles.gap15,
+          Styles.gap12,
           Text(
             AppText.letsCreateYopurAccount,
-            style: context.textTheme.titleSmall?.copyWith(fontSize: 13),
+            style: context.textTheme.titleSmall?.copyWith(fontSize: 14,fontWeight: FontWeight.w400),
           ),
           Image.asset(ImageResources.iPhone, height: 450),
           Styles.gap30,

@@ -62,10 +62,13 @@ class _PhoneTextField extends State<PhoneTextField> {
         Stack(
           children: [
             IntlPhoneField(
+              
+              flagsButtonPadding: EdgeInsetsGeometry.only(left: 10),
+              dropdownIcon: Icon(Icons.keyboard_arrow_down),
               key: _phoneFieldKey, // force rebuild when country changes
               controller: widget.controller,
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 16,
                 color: widget.textColor ?? AppColors.black.withOpacity(0.7),
               ),
               keyboardType: TextInputType.number,
@@ -98,7 +101,7 @@ class _PhoneTextField extends State<PhoneTextField> {
                 errorBorder: Styles.outlineInputBorderRadius50,
                 focusedErrorBorder: Styles.outlineInputBorderRadius50,
               ),
-              dropdownTextStyle: const TextStyle(fontSize: 12),
+              dropdownTextStyle: const TextStyle(fontSize: 16,color: Color(0xff685879)),
               dropdownIconPosition: IconPosition.trailing,
               showCountryFlag: false,
               initialCountryCode: initialCountryCode,

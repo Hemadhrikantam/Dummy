@@ -14,7 +14,6 @@ import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
-import 'package:dummy/features/signup/presentation/pages/welcome_to_dummy_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -52,22 +51,22 @@ class _OtpVerification extends State<OtpVerification> {
               ),
             ],
           ),
-          Styles.gap20,
+          Styles.gap32,
           Text(
             AppText.enterVerificationCode,
             style: context.textTheme.headlineLarge?.copyWith(
               fontWeight: FontWeight.w900,
-              fontSize: 24,
+              fontSize: 28,
             ),
           ),
-          Styles.gap10,
+          Styles.gap12,
           Text(
             AppText.enter4DigitVerificationCode,
-            style: context.textTheme.bodyMedium?.copyWith(fontSize: 14),
+            style: context.textTheme.bodyMedium?.copyWith(fontSize: 16),
           ),
-          Styles.gap20,
+          Styles.gap32,
           _OTPInput(),
-          Styles.gap30,
+          Styles.gap40,
 
           BlocBuilder<AuthBloc, AuthState>(
             builder: (context, state) {
@@ -76,6 +75,7 @@ class _OtpVerification extends State<OtpVerification> {
                   AppText.continueBtn,
                   style: context.textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.w700,
+                    fontSize: 14,
                     color: AppColors.buttonTextColor,
                   ),
                 ),
@@ -94,7 +94,7 @@ class _OtpVerification extends State<OtpVerification> {
               );
             },
           ),
-          Styles.gap20,
+          Styles.gap16,
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -102,13 +102,13 @@ class _OtpVerification extends State<OtpVerification> {
                 AppText.resend,
                 style: context.textTheme.bodyMedium?.copyWith(
                   fontWeight: FontWeight.bold,
-                  fontSize: 16,
+                  fontSize: 18,
                   color: Color(0xFFA7581A),
                 ),
               ),
               Text(
                 " in 30 sec",
-                style: context.textTheme.bodyMedium?.copyWith(fontSize: 14),
+                style: context.textTheme.bodyMedium?.copyWith(fontSize: 12),
               ),
             ],
           ),

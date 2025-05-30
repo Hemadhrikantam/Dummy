@@ -31,18 +31,18 @@ class _NotificationPermissionState extends State<NotificationPermission> {
         Text(
           AppText.stayOnTop,
           style: context.textTheme.headlineLarge?.copyWith(
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w700,
             fontSize: 28,
           ),
         ),
-        Styles.gap15,
+        Styles.gap12,
         Text(
           AppText.dummyCanSendYouRemainders,
-          style: context.textTheme.titleSmall?.copyWith(fontSize: 13),
+          style: context.textTheme.titleSmall?.copyWith(fontSize: 16,fontWeight: FontWeight.w400),
         ),
         Styles.gap30,
         Image.asset(ImageResources.notificantionImage, height: 120),
-        Styles.gap30,
+        Styles.gap50,
         AppButton(
           name: Text(
             AppText.allow,
@@ -77,7 +77,7 @@ class _NotificationPermissionState extends State<NotificationPermission> {
             // context.pushNamed(JoinDummy1Page.routeName);
           },
         ),
-        Styles.gap15,
+        Styles.gap12,
         AppOutlinedButton(
           name: Text(
             AppText.maybeLater,
@@ -90,7 +90,7 @@ class _NotificationPermissionState extends State<NotificationPermission> {
             widget.onNext?.call();
           },
         ),
-        Styles.gap30,
+        Styles.gap40,
         InfoCard(title: AppText.ownerLovedRemainder),
       ],
     );

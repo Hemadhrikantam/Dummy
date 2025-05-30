@@ -60,24 +60,25 @@ class _WelcomeToDummyPageState extends State<WelcomeToDummyPage> {
           Text(
             AppText.welcomeToDummyPag,
             style: context.textTheme.headlineLarge?.copyWith(
-              fontWeight: FontWeight.w900,
+              fontWeight: FontWeight.w700,
               fontSize: 28,
             ),
           ),
-          Styles.gap20,
+          Styles.gap12,
           Text(AppText.yourAccountIsReady, style: context.textTheme.titleSmall),
           Styles.gap30,
           __ImageUploadWidget(),
-          Styles.gap30,
+          Styles.gap50,
           Text(
             AppText.unlockMoreWithDummy,
             style: context.textTheme.titleSmall?.copyWith(
               color: AppColors.stepperColor,
               fontWeight: FontWeight.w600,
+              fontSize: 16
             ),
             textAlign: TextAlign.center,
           ),
-          Styles.gap20,
+          Styles.gap12,
           AppButton(
             showShadow: false,
             backgroundColor: AppColors.white,
@@ -110,7 +111,7 @@ class _WelcomeToDummyPageState extends State<WelcomeToDummyPage> {
               context.pushNamed(PremiumPage1.routeName);
             },
           ),
-          Styles.gap20,
+          Styles.gap50,
           AppButton(
             name: Text(
               AppText.startUsingDummy,
@@ -136,12 +137,12 @@ class __ImageUploadWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      radius: 100,
+      radius: 90,
       backgroundColor: AppColors.buttonBackground,
       child: ClipOval(
         child: SizedBox(
-          width: 200,
-          height: 200,
+          width: 180,
+          height: 180,
           child: AppAssestsImage(path: ImageResources.dog),
         ),
       ),

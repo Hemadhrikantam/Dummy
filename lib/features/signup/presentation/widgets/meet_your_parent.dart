@@ -17,7 +17,7 @@ class MeetYourParent extends StatelessWidget {
         Text(
           AppText.introduceYourPet,
           style: context.textTheme.headlineLarge?.copyWith(
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w700,
             fontSize: 28,
           ),
         ),
@@ -28,7 +28,7 @@ class MeetYourParent extends StatelessWidget {
           hintText: '...',
           onChanged: (value) {},
         ),
-        Styles.gap30,
+        Styles.gap50,
         AppButton(
           name: Text(
             AppText.continueBtn,

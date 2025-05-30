@@ -40,16 +40,16 @@ class AppButton extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor ?? AppColors.buttonBackground,
         borderRadius: Styles.borderRadiusCircular40,
-        border: Border.all(color: const Color(0x42A7581A), width: 1),
+        // border: Border.all(color: const Color(0x42A7581A), width: 1),
 
         boxShadow: [
-          if (showShadow)
-            BoxShadow(
-              color: Color(0xFFA75A1D),
-              offset: Offset(0, 4),
-              blurRadius: 0,
-              spreadRadius: 0,
-            ),
+          // if (showShadow)
+          //   BoxShadow(
+          //     color: Color(0xFFA75A1D),
+          //     offset: Offset(0, 4),
+          //     blurRadius: 0,
+          //     spreadRadius: 0,
+          //   ),
         ],
       ),
       child: ElevatedButton(

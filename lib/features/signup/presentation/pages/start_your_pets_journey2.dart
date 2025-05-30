@@ -63,13 +63,13 @@ class StartYourPetsJourney2 extends StatelessWidget {
                 Text(
                   AppText.welcomeToDummy2,
                   style: GoogleFonts.instrumentSans(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                    fontWeight: FontWeight.w600,
                     color: Colors.white,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                Styles.gap20,
+                Styles.gap65,
                 AppButton(
                   backgroundColor: AppColors.white,
                   showShadow: false,

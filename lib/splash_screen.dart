@@ -34,14 +34,17 @@ class _SplashScreenState extends State<SplashScreen> {
             fit: BoxFit.cover,
           ),
         ),
-        child: const Center(
-          child: Padding(
-            padding: Styles.edgeInsetsAll30,
-            child: AppSVGImage(
-              path: ImageResources.dummy,
-
-              height: 80,
-              // width: 60,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          child: const Center(
+            child: Padding(
+              padding: Styles.edgeInsetsAll30,
+              child: AppSVGImage(
+                path: ImageResources.dummy,
+                boxFit: BoxFit.contain,
+                height: 110,
+                width: 320,
+              ),
             ),
           ),
         ),

@@ -33,7 +33,7 @@ class OptionsCard extends StatelessWidget {
           label,
           textAlign: TextAlign.center,
           style: context.textTheme.headlineLarge?.copyWith(
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w600,
             fontSize: 16,
           ),
         ),

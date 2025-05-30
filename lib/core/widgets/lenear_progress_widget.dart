@@ -12,12 +12,22 @@ class LenearProgressWidget extends StatelessWidget {
     double progressValue = (currentScreenIndex + 1) / 6;
 
     return Expanded(
-      child: LinearProgressIndicator(
-        value: progressValue,
-        backgroundColor: Colors.white,
-        valueColor: const AlwaysStoppedAnimation<Color>(AppColors.stepperColor),
-        minHeight: 15,
-        borderRadius: Styles.borderRadiusCircular12,
+      child: TweenAnimationBuilder<double>(
+        tween: Tween<double>(
+          begin: 0.0,
+          end: progressValue,
+        ),
+        duration: const Duration(milliseconds: 500), // Adjust speed here
+        curve: Curves.easeInOut, // Smooth curve
+        builder: (context, value, _) {
+          return LinearProgressIndicator(
+            value: value,
+            backgroundColor: Colors.white,
+            valueColor: const AlwaysStoppedAnimation<Color>(AppColors.stepperColor),
+            minHeight: 15,
+            borderRadius: Styles.borderRadiusCircular12,
+          );
+        },
       ),
     );
   }

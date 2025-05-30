@@ -46,6 +46,8 @@ class _MeetYourPetScreenState extends State<MeetYourPetScreen> {
       setState(() {
         currentIndex--;
       });
+    }else{
+      Navigator.of(context).pop();
     }
   }
 
@@ -72,8 +74,13 @@ class _MeetYourPetScreenState extends State<MeetYourPetScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
+          Styles.gap12,
           StepperWidget(onTap: onPrevious, currentScreenIndex: currentIndex),
-          if (screens.isNotEmpty) screens[currentIndex],
+          Styles.gap20,
+          if (screens.isNotEmpty)
+            Expanded(
+              child: SingleChildScrollView(child: screens[currentIndex]),
+            ),
         ],
       ),
     );

@@ -50,15 +50,16 @@ class _ContinueWithPhone extends State<ContinueWithPhone> {
             physics: const NeverScrollableScrollPhysics(),
             padding: Styles.edgeInsetsOnlyW08,
             children: [
-              Styles.gap20,
+              Styles.gap32,
               __YourPhone(),
-              Styles.gap20,
+              Styles.gap40,
 
               AppButton(
                 name: Text(
                   AppText.continueBtn,
                   style: context.textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.w700,
+                    fontSize: 14,
                     color: AppColors.buttonTextColor,
                   ),
                 ),

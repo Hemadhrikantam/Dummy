@@ -58,25 +58,25 @@ class StartYourPetsJourney extends StatelessWidget {
                   padding: Styles.edgeInsetsAll30,
                   child: AppSVGImage(
                     path: ImageResources.dummy,
-
-                    height: 80,
-                    // width: 60,
+                    boxFit: BoxFit.contain,
+                    height: 110,
+                    width: 320,
                   ),
                 ),
-                Styles.gap50,
-                Styles.gap50,
+              
+                Styles.gap30,
                 Styles.gap50,
                 Styles.gap50,
                 Text(
                   AppText.welcomeToDummy,
                   style: GoogleFonts.instrumentSans(
-                    fontSize: 14,
+                    fontSize: 16,
                     fontWeight: FontWeight.w500,
                     color: Colors.white,
                   ),
                   textAlign: TextAlign.center,
                 ),
-                Styles.gap10,
+                Styles.gap25,
                 AppButton(
                   name: Text(
                     AppText.startYourPetsJourney,

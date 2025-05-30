@@ -38,7 +38,7 @@ class AppText {
   static String allow = 'Allow';
   static String maybeLater = 'Maybe Later';
   static String continueWithEmail = 'Continue With Email';
-  static String continueWithPhone = 'Continue With Phone';
+  static String continueWithPhone = 'Continue With Phone Number';
   static String continueWithGoogle = 'Continue With Google';
   static String alreadyHaveAccount = 'Already have an account? Log in here.';
   static String startUsingDummy = 'Start Using Dummy';

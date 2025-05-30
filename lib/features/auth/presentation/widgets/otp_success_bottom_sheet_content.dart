@@ -18,48 +18,29 @@ class OtpSuccessBottomSheetContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: Styles.edgeInsetsAll20,
+      padding: Styles.edgeInsetsZero,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
+          Styles.gap6,
           AppGraber(),
-          Styles.gap30,
+          Styles.gap16,
+          AppAssestsImage(
+            path: ImageResources.success,
+            boxFit: BoxFit.contain,
+          width: 85,
+          height: 85,),
+          Styles.gap20,
           Text(
             AppText.verificationSuccessful,
             style: context.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
               fontSize: 24,
-              color: AppColors.stepperColor,
+              color: Color(0xff190134),
             ),
           ),
           Styles.gap30,
-
-          // Row(
-          //   children: [
-          //     Expanded(
-          //       child: AppButton(
-          //         onPressed: () {
-          //           context.pop();
-          //         },
-          //         borderColor: AppColors.grey500,
-          //         backgroundColor: AppColors.white,
-          //         name: RichText(
-          //           textAlign: TextAlign.center,
-          //           text: TextSpan(
-          //             text: AppText.continueBtn,
-          //             style: context.textTheme.titleSmall?.copyWith(
-          //               fontWeight: FontWeight.w700,
-          //               color: AppColors.buttonTextColor,
-          //               letterSpacing: -.5,
-          //               fontSize: 14,
-          //             ),
-          //           ),
-          //         ),
-          //       ),
-          //     ),
-          //   ],
-          // ),
         ],
       ),
     );

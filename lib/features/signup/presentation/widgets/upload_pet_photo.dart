@@ -33,12 +33,12 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
         Text(
           AppText.uploadPetPhoto,
           style: context.textTheme.headlineLarge?.copyWith(
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w700,
             fontSize: 28,
           ),
         ),
-        Styles.gap20,
-        Text(AppText.showOffYourPetSmile, style: context.textTheme.titleSmall),
+        Styles.gap12,
+        Text(AppText.showOffYourPetSmile, style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400)),
         Styles.gap30,
         GestureDetector(
           onTap: () async {
@@ -51,7 +51,7 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
             }
           },
           child: CircleAvatar(
-            radius: 100,
+            radius: 90,
             backgroundColor: AppColors.buttonBackground,
             backgroundImage:
                 selectedImage != null
@@ -65,13 +65,14 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
                         AppIcon(
                           icon: Icons.photo_camera_rounded,
                           color: AppColors.buttonTextColor,
-                          size: 35,
+                          size: 38,
                         ),
                         Text(
                           AppText.upload,
                           style: GoogleFonts.instrumentSans(
                             color: AppColors.buttonTextColor,
                             fontWeight: FontWeight.w700,
+                            fontSize: 14
                           ),
                         ),
                       ],
@@ -79,14 +80,8 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
                     : null,
           ),
         ),
-        Styles.gap20,
-        if (selectedImage != null)
-          Text(
-            AppText.petPhotoUploadedContent,
-            style: context.textTheme.titleSmall,
-            textAlign: TextAlign.center,
-          ),
-        Styles.gap30,
+      
+        Styles.gap50,
         AppButton(
           name: Text(
             AppText.continueBtn,
@@ -100,10 +95,11 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
             widget.onNext?.call();
           },
         ),
-        Styles.gap15,
+        Styles.gap12,
         AppOutlinedButton(
           name: Text(
-            AppText.changePhoto,
+           (selectedImage != null)? 
+            AppText.changePhoto:AppText.skip,
             style: context.textTheme.titleSmall?.copyWith(
               fontWeight: FontWeight.w700,
               color: AppColors.buttonTextColor,
@@ -113,7 +109,8 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
             widget.onNext?.call();
           },
         ),
-        Styles.gap30,
+        Styles.gap40,
+        if (selectedImage != null)
         InfoCard(title: AppText.dummyLovedHisPhoto),
       ],
     );

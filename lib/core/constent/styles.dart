@@ -27,12 +27,18 @@ class Styles {
   static const gap6 = Gap(6);
   static const gap8 = Gap(8);
   static const gap10 = Gap(10);
+  static const gap12 = Gap(12);
   static const gap15 = Gap(15);
+  static const gap16 = Gap(16);
   static const gap20 = Gap(20);
   static const gap25 = Gap(25);
+  static const gap28 = Gap(28);
 
   static const gap30 = Gap(30);
+  static const gap32 = Gap(32);
+  static const gap40 = Gap(40);
   static const gap50 = Gap(50);
+  static const gap65 = Gap(65);
   static const gap80 = Gap(80);
   static const gap100 = Gap(100);
   static const gap120 = Gap(120);

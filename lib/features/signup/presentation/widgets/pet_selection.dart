@@ -26,30 +26,14 @@ class _PetSelectionState extends State<PetSelection> {
         Text(
           AppText.whatTypeOfPet,
           style: context.textTheme.headlineLarge?.copyWith(
-            fontWeight: FontWeight.w900,
+            fontWeight: FontWeight.w700,
             fontSize: 28,
           ),
         ),
         Styles.gap30,
         Row(
           children: [
-            PetTypeSelectionCard(
-              name: AppText.dog,
-              borderColor:
-                  selectedPet == AppText.dog
-                      ? AppColors.stepperColor
-                      : AppColors.grey400,
-              textColor:
-                  selectedPet == AppText.dog
-                      ? AppColors.stepperColor
-                      : AppColors.black,
-              onTap: () {
-                setState(() {
-                  selectedPet = AppText.dog;
-                });
-              },
-            ),
-            Styles.gap20,
+            
             PetTypeSelectionCard(
               name: AppText.cat,
               borderColor:
@@ -66,9 +50,27 @@ class _PetSelectionState extends State<PetSelection> {
                 });
               },
             ),
+            Styles.gap12,
+            PetTypeSelectionCard(
+              name: AppText.dog,
+              borderColor:
+                  selectedPet == AppText.dog
+                      ? AppColors.stepperColor
+                      : AppColors.grey400,
+              textColor:
+                  selectedPet == AppText.dog
+                      ? AppColors.stepperColor
+                      : AppColors.black,
+              onTap: () {
+                setState(() {
+                  selectedPet = AppText.dog;
+                });
+              },
+            ),
+            Styles.gap40
           ],
         ),
-        Styles.gap30,
+        Styles.gap50,
         AppButton(
           name: Text(
             AppText.continueBtn,

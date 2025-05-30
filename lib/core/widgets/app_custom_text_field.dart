@@ -43,6 +43,7 @@ class AppTextFormField extends StatelessWidget {
   final InputBorder? focusedBorder;
   final bool? headerExtra;
   final BoxConstraints? constraints;
+  final Color? suffixIconColor;
 
   const AppTextFormField({
     super.key,
@@ -80,7 +81,7 @@ class AppTextFormField extends StatelessWidget {
     this.focusedBorder,
     this.headerExtra = false,
     this.isMandatory = false,
-    this.constraints,
+    this.constraints, this.suffixIconColor,
   });
 
   @override
@@ -130,7 +131,7 @@ class AppTextFormField extends StatelessWidget {
               alignLabelWithHint: true,
               suffixIcon: Padding(
                 padding: Styles.edgeInsetsOnlyW15,
-                child: Icon(suffixIcon, color: AppColors.black),
+                child: Icon(suffixIcon, color:suffixIconColor??  AppColors.black),
               ),
               suffixIconConstraints: const BoxConstraints(
                 minHeight: 24,

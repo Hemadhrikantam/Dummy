@@ -36,20 +36,22 @@ class _AuthPage extends State<AuthPage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          Styles.gap16,
           AppAssestsImage(
             path: ImageResources.dashboardLogo,
             boxFit: BoxFit.contain,
-            height: 100,
-            width: MediaQuery.of(context).size.width * 0.5,
+            height: 71,
+            width: 210,
           ),
+          Styles.gap28,
           Text(
             AppText.introduceYourself,
             style: context.textTheme.headlineLarge?.copyWith(
-              fontWeight: FontWeight.w600,
-              fontSize: 20,
+              fontWeight: FontWeight.w800,
+              fontSize: 18,
             ),
           ),
-          Styles.gap10,
+          Styles.gap25,
           BlocSelector<AuthBloc, AuthState, Yourself>(
             selector: (state) {
               return state.yourself;
@@ -81,7 +83,7 @@ class _AuthPage extends State<AuthPage> {
             },
           ),
 
-          Styles.gap10,
+          Styles.gap50,
           Row(
             children: [
               Expanded(
