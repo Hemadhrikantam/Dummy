@@ -1,6 +1,8 @@
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/image_resources.dart';
+import 'package:dummy/core/constent/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class PetPhotoCardPage extends StatelessWidget {
   const PetPhotoCardPage({super.key});
@@ -88,9 +90,14 @@ class PetPhotoCardPage extends StatelessWidget {
                 Positioned(
                   top: 16,
                   right: 16,
-                  child: CircleAvatar(
-                    backgroundColor: Colors.white70,
-                    child: Icon(Icons.close, color: Colors.black),
+                  child: GestureDetector(
+                    onTap: (){
+                      Navigator.of(context).pop();
+                    },
+                    child: CircleAvatar(
+                      backgroundColor: Colors.white70,
+                      child: Icon(Icons.close, color: Colors.black),
+                    ),
                   ),
                 ),
 
@@ -99,14 +106,14 @@ class PetPhotoCardPage extends StatelessWidget {
                   right: 8,
                   bottom: 100,
                   child: Column(
-                    children: const [
-                      Icon(Icons.favorite_border, color: Colors.white),
-                      SizedBox(height: 16),
-                      Icon(Icons.share, color: Colors.white),
-                      SizedBox(height: 16),
-                      Icon(Icons.edit, color: Colors.white),
-                      SizedBox(height: 16),
-                      Icon(Icons.copy, color: Colors.white),
+                    children:  [
+                      SvgPicture.asset(ImageResources.heartWhite,width: 30,),
+                      Styles.gap10,
+                      SvgPicture.asset(ImageResources.share,width: 30,),
+                      Styles.gap10,
+                      SvgPicture.asset(ImageResources.editWhite,width: 30,),
+                      Styles.gap10,
+                      SvgPicture.asset(ImageResources.deleteWhite,width: 30,),
                     ],
                   ),
                 ),

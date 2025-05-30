@@ -30,6 +30,10 @@ class ImageResources {
   static const String addoption = '$__icons/addoption.png';
   static const String dashboardLogo = '$images/dashboard_logo.png';
   static const String premium = '$__icons/premium.svg';
+  static const String editWhite = '$__icons/edit-2.svg';
+  static const String share = '$__icons/share.svg';
+  static const String deleteWhite = '$__icons/delete.svg';
+  static const String heartWhite = '$__icons/heart.svg';
   //NGO Home
   static const String petList = '$__icons/pet_list.png';
   static const String activeList = '$__icons/active_list.png';

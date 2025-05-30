@@ -29,6 +29,14 @@ class AppColors {
   static const Color infoCardBackgroundColor = Color.fromARGB(98, 255, 186, 97);
   static const Color darkOrange = Color(0xff99703A);
 
+  // static const LinearGradient screenBackgroundColor = LinearGradient(
+  //               begin: Alignment.topCenter,
+  //               end: Alignment.bottomCenter,
+  //               colors: [
+  //                 Color.fromRGBO(255, 186, 97, 0.06),
+  //                 Color.fromRGBO(255, 186, 97, 0.06),
+  //               ],
+  //             );
   static const LinearGradient screenBackgroundColor = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
