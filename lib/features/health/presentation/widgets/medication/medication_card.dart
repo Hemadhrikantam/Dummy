@@ -88,6 +88,7 @@ class _MedicationsCardState extends State<MedicationsCard> {
                     '12/01/2025',
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
+                      fontSize: 18
                     ),
                   ),
                 ],
@@ -105,6 +106,7 @@ class _MedicationsCardState extends State<MedicationsCard> {
                     '12/01/2025',
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
+                      fontSize: 18
                     ),
                   ),
                 ],

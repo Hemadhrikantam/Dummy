@@ -68,6 +68,8 @@ class ImageResources {
   static const String pawIcon = '$__icons/paw_icon.png';
   static const String syringeIcon = '$__icons/syringe_icon.png';
   static const String dogImage = '$images/dog_image.png';
+  static const String noMedication = '$images/no_medication.png';
+  static const String noMedia = '$images/no_media.png';
 
   //home
   static const String breed = '$__icons/breed.png';

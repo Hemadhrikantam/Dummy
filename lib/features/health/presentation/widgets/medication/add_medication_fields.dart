@@ -253,7 +253,7 @@ class ___MorningState extends State<__Morning> {
             child: Row(
               children: [
                 Expanded(
-                  flex: 3,
+                  flex: 4,
                   child: Text(
                     AppText.morning,
                     maxLines: 1,
@@ -319,7 +319,7 @@ class ___AfternoonState extends State<__Afternoon> {
             child: Row(
               children: [
                 Expanded(
-                  flex: 3,
+                  flex: 4,
                   child: Text(
                     AppText.afternoon,
                     maxLines: 1,
@@ -385,7 +385,7 @@ class ___NightState extends State<__Night> {
             child: Row(
               children: [
                 Expanded(
-                  flex: 3,
+                  flex: 4 ,
                   child: Text(
                     AppText.night,
                     maxLines: 1,

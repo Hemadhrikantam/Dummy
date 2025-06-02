@@ -47,8 +47,8 @@ class _AuthPage extends State<AuthPage> {
           Text(
             AppText.introduceYourself,
             style: context.textTheme.headlineLarge?.copyWith(
-              fontWeight: FontWeight.w800,
-              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
             ),
           ),
           Styles.gap25,

@@ -218,12 +218,12 @@ class AppText {
 
   //Medication
   static const String insights = 'Insight';
-  static const String vaccinations = 'Vaccinations';
+  static const String vaccinations = 'Vaccination';
   static const String medications = 'Medication';
   static const String filter = 'Filter';
   static const String startDate = 'Start Date';
   static const String endDate = 'End Date';
-  static const String addMedications = 'Add Medications';
+  static const String addMedications = 'Add Medication';
   static const String enter = 'Enter';
   static const String tabletName = 'Tablet Name';
   static const String company = 'Company';
@@ -280,6 +280,13 @@ class AppText {
   static String phoneNumber = 'Phone Number';
   static String forgetPassword = 'Forget Password';
   static String members = 'Members';
+  static String startCapturingMemo = 'Start capturing memories with Luna 🐶';
+  static String doommiHelpsKeep = 'Doommi helps keep your buddy safe.';
+  static String letKeepSafe = 'Let’s keep [Pet Name] safe.';
+  static String trackMedicationsTo = 'Track medications to never miss a dose';
+  static String trackCoreAndBooster = 'Track core and booster shots with reminders.';
+  static String addFirstMedication = 'Add First Medication';
+  static String addFirstVaccination = 'Add First Vaccination';
 
   //pet dairy
   static const String petDairy = 'Pet Dairy';

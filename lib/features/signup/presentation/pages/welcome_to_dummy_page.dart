@@ -96,9 +96,10 @@ class _WelcomeToDummyPageState extends State<WelcomeToDummyPage> {
                 AppAssestsImage(
                   boxFit: BoxFit.contain,
                   path: ImageResources.dashboardLogo,
-                  height: 50,
+                  height: 20,
                   width: 50,
                 ),
+                Styles.gap10,
                 SvgPicture.asset(
                   ImageResources.premium,
                   width: 50,

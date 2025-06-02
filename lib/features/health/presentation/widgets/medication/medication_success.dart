@@ -21,6 +21,7 @@ class MedicationSuccessContent extends StatelessWidget {
       children: [
         CustomCard(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: [
               AppAssestsImage(
@@ -63,7 +64,7 @@ class MedicationSuccessContent extends StatelessWidget {
               AppButton(
                 name: Center(
                   child: Text(
-                    AppText.addVaccination,
+                    AppText.addMedications,
                     style: context.textTheme.titleMedium?.copyWith(
                       color: AppColors.buttonTextColor,
                       fontWeight: FontWeight.w700,
@@ -90,6 +91,7 @@ class MedicationSuccessContent extends StatelessWidget {
         ),
         Styles.gap20,
         CustomCard(
+          border: Border.all(color: Colors.transparent),
           backgroundColor: AppColors.buttonBackground.withOpacity(.6),
           child: Row(
             children: [

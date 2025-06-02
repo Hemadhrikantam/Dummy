@@ -38,7 +38,10 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
           ),
         ),
         Styles.gap12,
-        Text(AppText.showOffYourPetSmile, style: TextStyle(fontSize: 16,fontWeight: FontWeight.w400)),
+        Text(
+          AppText.showOffYourPetSmile,
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
+        ),
         Styles.gap30,
         GestureDetector(
           onTap: () async {
@@ -72,7 +75,7 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
                           style: GoogleFonts.instrumentSans(
                             color: AppColors.buttonTextColor,
                             fontWeight: FontWeight.w700,
-                            fontSize: 14
+                            fontSize: 14,
                           ),
                         ),
                       ],
@@ -80,7 +83,6 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
                     : null,
           ),
         ),
-      
         Styles.gap50,
         AppButton(
           name: Text(
@@ -98,20 +100,28 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
         Styles.gap12,
         AppOutlinedButton(
           name: Text(
-           (selectedImage != null)? 
-            AppText.changePhoto:AppText.skip,
+            (selectedImage != null) ? AppText.changePhoto : AppText.skip,
             style: context.textTheme.titleSmall?.copyWith(
               fontWeight: FontWeight.w700,
               color: AppColors.buttonTextColor,
             ),
           ),
-          onPressed: () {
-            widget.onNext?.call();
+          onPressed: () async {
+            if (selectedImage != null) {
+              final ImagePicker picker = ImagePicker();
+              final image = await picker.pickImage(source: ImageSource.gallery);
+              if (image != null) {
+                setState(() {
+                  selectedImage = image;
+                });
+              }
+            } else {
+              widget.onNext?.call();
+            }
           },
         ),
         Styles.gap40,
-        if (selectedImage != null)
-        InfoCard(title: AppText.dummyLovedHisPhoto),
+        if (selectedImage != null) InfoCard(title: AppText.dummyLovedHisPhoto),
       ],
     );
   }
