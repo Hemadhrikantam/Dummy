@@ -33,7 +33,10 @@ class AdoptionDetailsPage extends StatelessWidget {
         padding: Styles.edgeInsetsAll12,
         decoration: BoxDecoration(
           color: AppColors.white,
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
           boxShadow: [
             BoxShadow(
               color: AppColors.grey700,

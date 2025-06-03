@@ -29,7 +29,7 @@ class PersonalizedRecommendationsSection extends StatelessWidget {
               Text(
                 "Luna's expenses show you're spending a lot on food—try a vet-recommended diet to optimize her health.",
                 style: context.textTheme.titleMedium?.copyWith(
-                  color: AppColors.buttonTextColor,
+                  color: AppColors.stepperColor,
                   fontWeight: FontWeight.w600,
                   fontSize: 18,
                 ),

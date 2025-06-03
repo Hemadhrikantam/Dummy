@@ -53,6 +53,7 @@ class _DaySelectorState extends State<DaySelector> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Styles.gap4,
             Text(
               DateFormat('E').format(day).substring(0, 3),
               style: GoogleFonts.instrumentSans(
@@ -64,7 +65,7 @@ class _DaySelectorState extends State<DaySelector> {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            Styles.gap4,
+            // Styles.gap4,
             Text(
               '${day.day}',
               style: GoogleFonts.instrumentSans(
@@ -76,6 +77,7 @@ class _DaySelectorState extends State<DaySelector> {
                 fontSize: 14,
               ),
             ),
+            Styles.gap4,
           ],
         ),
       ),

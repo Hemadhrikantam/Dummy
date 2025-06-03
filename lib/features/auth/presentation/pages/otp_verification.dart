@@ -55,7 +55,7 @@ class _OtpVerification extends State<OtpVerification> {
           Text(
             AppText.enterVerificationCode,
             style: context.textTheme.headlineLarge?.copyWith(
-              fontWeight: FontWeight.w900,
+              fontWeight: FontWeight.w700,
               fontSize: 28,
             ),
           ),

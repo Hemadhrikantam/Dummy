@@ -9,6 +9,7 @@ import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/day_selector_widget.dart';
+import 'package:dummy/features/health/presentation/widgets/empty_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -68,7 +69,16 @@ class _MealsTabState extends State<MealsTab> {
       6,
       (index) => now.add(Duration(days: index)),
     );
-
+ if (false) {
+      return Padding(
+        padding: Styles.edgeInsetsOnlyH20,
+        child: EmptyListPage(
+          titleFontSize: 24,
+          imagePath: ImageResources.tshirt,
+          title: "We don’t have Luna’s daily care data yet. Start logging her meals to see a summary!",
+        ),
+      );
+    } else {
     return ListView(
       children: [
         DaySelector(
@@ -192,7 +202,7 @@ class _MealsTabState extends State<MealsTab> {
         ),
       ],
     );
-  }
+    }}
 }
 
 class MealItem {

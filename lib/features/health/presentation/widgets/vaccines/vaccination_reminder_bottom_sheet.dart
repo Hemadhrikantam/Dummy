@@ -24,44 +24,38 @@ class _VaccinationReminderBottomSheet
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-      initialChildSize: 0.45,
+      initialChildSize: 0.35,
       minChildSize: 0.35,
       maxChildSize: 1,
       expand: false,
       builder: (context, scrollController) {
-        return Padding(
-          padding: Styles.edgeInsetsAll12,
-          child: ListView(
-            controller: scrollController,
-            padding: Styles.edgeInsetsAll15,
-            children: [
-              Styles.gap4,
-              AppGraber(),
-              Styles.gap20,
-              __Reminder(),
-              Styles.gap25,
-              Row(
-                children: [
-                  Expanded(
-                    child: AppButton(
-                      showShadow: false,
-                      backgroundColor: Colors.white,
-                      name: Text(
-                        AppText.clearFilter,
-                        style: Styles.buttonStyle,
-                      ),
-                    ),
+        return ListView(
+          controller: scrollController,
+          padding: Styles.edgeInsetsOnlyW20,
+          children: [
+            Styles.gap6,
+            AppGraber(),
+            Styles.gap16,
+            __Reminder(),
+            Styles.gap25,
+            Row(
+              children: [
+                Expanded(
+                  child: AppButton(
+                    showShadow: false,
+                    backgroundColor: Colors.white,
+                    name: Text(AppText.clearFilter, style: Styles.buttonStyle),
                   ),
-                  Styles.gap10,
-                  Expanded(
-                    child: AppButton(
-                      name: Text(AppText.save, style: Styles.buttonStyle),
-                    ),
+                ),
+                Styles.gap10,
+                Expanded(
+                  child: AppButton(
+                    name: Text(AppText.save, style: Styles.buttonStyle),
                   ),
-                ],
-              ),
-            ],
-          ),
+                ),
+              ],
+            ),
+          ],
         );
       },
     );
@@ -81,9 +75,12 @@ class __Reminder extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: Styles.edgeInsetsOnlyH20,
-                child: MandatoryFieldWidget(
-                  labelText: AppText.reminder,
-                  required: false,
+                child: Text(
+                  AppText.reminder,
+                  style: context.textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 24,
+                  ),
                 ),
               ),
             ),

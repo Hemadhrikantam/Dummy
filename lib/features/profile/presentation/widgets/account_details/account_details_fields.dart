@@ -32,6 +32,7 @@ class __PhoneNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppTextFormField(
+      readOnly: true,
       hintText: AppText.enter,
       onChanged: (value) {},
       headerText: AppText.phoneNumber,

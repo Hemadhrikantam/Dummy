@@ -1,5 +1,6 @@
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/image_resources.dart';
+import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/features/health/presentation/widgets/empty_list_page.dart';
@@ -12,9 +13,12 @@ class MediaTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
         if (true) {
-      return EmptyListPage(
-        imagePath: ImageResources.noMedia,
-        subTitle: AppText.startCapturingMemo,
+      return Padding(
+        padding: Styles.edgeInsetsOnlyH20,
+        child: EmptyListPage(
+          imagePath: ImageResources.noMedia,
+          subTitle: AppText.startCapturingMemo,
+        ),
       );
     } else {
     return ListView(

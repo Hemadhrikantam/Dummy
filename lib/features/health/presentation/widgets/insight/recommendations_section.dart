@@ -69,7 +69,7 @@ class RecommendationsCard extends StatelessWidget {
                 Text(
                   text,
                   style: context.textTheme.titleMedium?.copyWith(
-                    color: AppColors.buttonTextColor,
+                    color: AppColors.stepperColor,
                     fontWeight: FontWeight.w600,
                     fontSize: 18,
                   ),
@@ -80,14 +80,25 @@ class RecommendationsCard extends StatelessWidget {
           Positioned(
             top: 0,
             right: 0,
-            child: CustomCard(
-              padding: Styles.edgeInsetsAll06 + Styles.edgeInsetsOnlyW10,
-              backgroundColor: AppColors.buttonBackground,
-              borderColor: AppColors.transparent,
-              borderRadius: BorderRadius.only(
-                topRight: Styles.radiusCircular08,
-                bottomLeft: Styles.radiusCircular08,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [0.1751, 0.5754, 1.0],
+                  colors: [
+                    AppColors.buttonBackground,
+                    Color(0xFFD29949),
+                    Color(0xFF997035),
+                  ],
+                ),
+                borderRadius: BorderRadius.only(
+                  topRight: Styles.radiusCircular08,
+                  bottomLeft: Styles.radiusCircular08,
+                ),
               ),
+              padding: Styles.edgeInsetsAll06 + Styles.edgeInsetsOnlyW10,
+
               child: Text(
                 chipText,
                 style: context.textTheme.bodySmall?.copyWith(

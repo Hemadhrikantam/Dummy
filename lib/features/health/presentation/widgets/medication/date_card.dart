@@ -81,11 +81,14 @@ class _DateCardState extends State<DateCard> {
                 Text(
                   AppText.markAsGiven,
                   style: context.textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.grey500,
+                    fontSize: 14
                   ),
                 ),
                 Styles.gap10,
                 CustomCheckBox(
+                  fontSize: 22,
                   isChecked: isMorning,
                   label: AppText.morning,
                   onChanged: (value) {
@@ -96,6 +99,7 @@ class _DateCardState extends State<DateCard> {
                 ),
                 Styles.gap10,
                 CustomCheckBox(
+                  fontSize: 22,
                   isChecked: isAfternoon,
                   label: AppText.afternoon,
                   onChanged: (value) {
@@ -107,6 +111,7 @@ class _DateCardState extends State<DateCard> {
                 Styles.gap10,
                 CustomCheckBox(
                   isChecked: isNight,
+                  fontSize: 22,
                   label: AppText.night,
                   onChanged: (value) {
                     setState(() {

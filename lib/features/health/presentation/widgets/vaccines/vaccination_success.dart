@@ -20,6 +20,7 @@ class VaccinationSuccessContent extends StatelessWidget {
       children: [
         CustomCard(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.min,
             children: [
               AppAssestsImage(

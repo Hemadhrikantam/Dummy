@@ -100,13 +100,13 @@ class MedicationDetailsCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              AppTextButton(
-                padding: Styles.edgeInsetsAll12 + Styles.edgeInsetsOnlyW25,
-                backgroundColor: AppColors.white,
-                name: AppText.viewMore,
-                borderColor: AppColors.grey500,
-                textColor: AppColors.buttonTextColor,
-              ),
+              // AppTextButton(
+              //   padding: Styles.edgeInsetsAll12 + Styles.edgeInsetsOnlyW25,
+              //   backgroundColor: AppColors.white,
+              //   name: AppText.viewMore,
+              //   borderColor: AppColors.grey500,
+              //   textColor: AppColors.buttonTextColor,
+              // ),
             ],
           ),
         ],

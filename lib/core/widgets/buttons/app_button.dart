@@ -110,7 +110,7 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
-      height: height ?? 38,
+      height: height ?? 44,
       child: Container(
         padding: Styles.edgeInsetsOnlyH00,
         decoration: BoxDecoration(
@@ -129,7 +129,7 @@ class AppButton extends StatelessWidget {
           ),
           padding:
               padding ??
-              const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+              const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
           ),
           child: FittedBox(
             child: name

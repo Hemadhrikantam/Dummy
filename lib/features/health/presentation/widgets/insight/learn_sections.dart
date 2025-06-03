@@ -1,6 +1,7 @@
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../../../../../core/constent/app_colors.dart';
 import '../../../../../core/constent/image_resources.dart';
@@ -29,19 +30,7 @@ class LearnSections extends StatelessWidget {
               children: [
                 Image.asset(ImageResources.dashboardLogo, height: 25),
                 Styles.gap6,
-                CustomCard(
-                  padding: Styles.edgeInsetsAll04,
-                  borderRadius: Styles.borderRadiusCircular40,
-                  backgroundColor: AppColors.buttonBackground,
-                  child: Text(
-                    'Premium',
-                    style: context.textTheme.bodySmall?.copyWith(
-                      color: AppColors.white,
-                      fontSize: 7,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ),
+                SvgPicture.asset(ImageResources.premium,width: 50,),
               ],
             ),
           ],
@@ -91,9 +80,9 @@ class LearnSections extends StatelessWidget {
                           child: Text(
                             'Nutrition Tips for Labradors',
                             style: context.textTheme.bodySmall?.copyWith(
-                              color: AppColors.buttonTextColor,
+                              color: AppColors.stepperColor,
                               fontSize: 18,
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),

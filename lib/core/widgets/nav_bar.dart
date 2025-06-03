@@ -54,8 +54,8 @@ class NavBar extends StatelessWidget {
             ),
 
             __NavItem(
-              selectedAsset: ImageResources.addoption,
-              unselectedAsset: ImageResources.unselectedAddoption,
+              selectedAsset: ImageResources.pet,
+              unselectedAsset: ImageResources.unselectedPet,
               selected: pageIndex == 3,
               text: AppText.addoption,
               onTap: onTap,

@@ -67,7 +67,7 @@ class _PetSelectionState extends State<PetSelection> {
                 });
               },
             ),
-            Styles.gap40
+            // Styles.gap40
           ],
         ),
         Styles.gap50,

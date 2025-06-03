@@ -4,6 +4,7 @@ import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/overview_card_widget.dart';
+import 'package:dummy/features/health/presentation/widgets/empty_list_page.dart';
 import 'package:flutter/material.dart';
 
 class OverviewTab extends StatelessWidget {
@@ -11,6 +12,16 @@ class OverviewTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (false) {
+      return Padding(
+        padding: Styles.edgeInsetsOnlyH20,
+        child: EmptyListPage(
+          titleFontSize: 20,
+          imagePath: ImageResources.tshirt,
+          title: "We don’t have Luna’s daily care data yet. Start logging her meals to see a summary!",
+        ),
+      );
+    } else {
     return Column(
       children: [
         Expanded(
@@ -74,5 +85,5 @@ class OverviewTab extends StatelessWidget {
         ),
       ],
     );
-  }
+  }}
 }

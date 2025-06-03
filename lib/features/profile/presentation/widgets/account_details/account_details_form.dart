@@ -35,7 +35,7 @@ class AccountDetailsForm extends StatelessWidget {
           ),
         ),
         Styles.gap10,
-        __ForgotPassword(),
+        // __ForgotPassword(),
       ],
     );
   }

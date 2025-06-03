@@ -82,7 +82,7 @@ class __ActionItem extends StatelessWidget {
       child: InkWell(
         onTap: onTap,
         child: CustomCard(
-          backgroundColor: AppColors.background,
+          backgroundColor: AppColors.white,
           child: Padding(
             padding: Styles.edgeInsetsOnlyH04,
             child: Column(

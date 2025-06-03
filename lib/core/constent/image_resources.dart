@@ -13,6 +13,7 @@ class ImageResources {
   static const String googleIcon = '$__icons/google_icon.png';
   static const String badgeIcon = '$__icons/premium_badge.png';
   static const String dog = '$images/dog.png';
+  static const String injection = '$images/hugeicons_injection.png';
   static const String trackImg = '$images/track.png';
   static const String backImg = '$images/back.png';
   static const String ai2 = '$images/ai2.png';
@@ -53,6 +54,7 @@ class ImageResources {
   static const String petProfile = '$images/pet_profile.png';
   static const String familyMembers = '$images/manage_family.png.png';
   static const String accountDetails = '$images/account_details.png';
+  static const String mdipaw = '$images/mdi_paw.png';
   static const String premiumSubscription = '$images/premium.png';
   static const String support = '$images/support.png';
   static const String arrowFarward = '$images/arrow_farward.png';
@@ -70,6 +72,7 @@ class ImageResources {
   static const String dogImage = '$images/dog_image.png';
   static const String noMedication = '$images/no_medication.png';
   static const String noMedia = '$images/no_media.png';
+  static const String tshirt = '$images/T-shirt.png';
 
   //home
   static const String breed = '$__icons/breed.png';

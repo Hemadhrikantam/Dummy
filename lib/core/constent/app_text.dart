@@ -22,7 +22,7 @@ class AppText {
   static String petList = 'Pet List';
   static String health = 'Health';
   static String dailyCare = 'Care';
-  static String addoption = 'Addopt';
+  static String addoption = 'Adopt';
   static String add = 'Add';
 
   //Notification
@@ -217,7 +217,7 @@ class AppText {
       'Log a memory of this purchase!';
 
   //Medication
-  static const String insights = 'Insight';
+  static const String insights = 'Insights';
   static const String vaccinations = 'Vaccination';
   static const String medications = 'Medication';
   static const String filter = 'Filter';
@@ -304,10 +304,10 @@ class AppText {
   static String quickActions = 'Quick Actions';
   static String logWalks = 'Log Walks';
   static String logMeals = 'Log Meals';
-  static String logVaccin = 'Log Vaccination';
+  static String logVaccin = 'Log Vaccine';
   static String checkMood = 'Check Mood';
   static String symptoms = 'Symptoms';
-  static String addMemories = 'Add Memories';
+  static String addMemories = 'Add Memory';
   static String addMember = 'Add Member';
   static String wagAi = 'Wag AI';
   static String tipOfTheDay = 'Tip of the Day';

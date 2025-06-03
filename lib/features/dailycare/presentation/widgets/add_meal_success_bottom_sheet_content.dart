@@ -2,6 +2,7 @@ import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
+import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -67,6 +68,7 @@ class AddMealSuccessBottomSheetContent extends StatelessWidget {
                 child: AppButton(
                   onPressed: () {
                     context.pop();
+                    context.push(PetDairyPage.route());
                   },
                   showShadow: false,
                   borderColor: AppColors.grey500,

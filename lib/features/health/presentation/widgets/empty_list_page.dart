@@ -13,13 +13,14 @@ class EmptyListPage extends StatelessWidget {
     this.imagePath,
     this.buttonName,
     this.onPressed,
+    this.titleFontSize = 16,
   });
   final String? title;
   final String? subTitle;
   final String? imagePath;
   final String? buttonName;
   final VoidCallback? onPressed;
-
+  final double titleFontSize;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
@@ -27,49 +28,49 @@ class EmptyListPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          if(imagePath!=null)
-          AppAssestsImage(
-            path: imagePath!,
-            width: 220,
-            height: 180,
-            boxFit: BoxFit.contain,
-          ),
+          if (imagePath != null)
+            AppAssestsImage(
+              path: imagePath!,
+              width: 220,
+              height: 180,
+              boxFit: BoxFit.contain,
+            ),
           Styles.gap12,
-          if(title!=null)
-          Text(
-            title!,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontWeight: FontWeight.w700,
-              fontSize: 20,
-              color: AppColors.stepperColor,
-            ),
-          ),
-          Styles.gap10,
-          if(subTitle!=null)
-          Text(
-            subTitle!,
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              fontSize: 24,
-              color: AppColors.text,
-            ),
-          ),
-          Styles.gap30,
-          if(buttonName!=null)
-          AppButton(
-            onPressed: onPressed,
-            name: Text(
-              buttonName!,
+          if (title != null)
+            Text(
+              title!,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontWeight: FontWeight.w700,
-                fontSize: 14,
-                color: AppColors.buttonTextColor,
+                fontSize: titleFontSize,
+                color: AppColors.stepperColor,
               ),
             ),
-          ),
+          Styles.gap10,
+          if (subTitle != null)
+            Text(
+              subTitle!,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 24,
+                color: AppColors.text,
+              ),
+            ),
+          Styles.gap30,
+          if (buttonName != null)
+            AppButton(
+              onPressed: onPressed,
+              name: Text(
+                buttonName!,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 14,
+                  color: AppColors.buttonTextColor,
+                ),
+              ),
+            ),
           Styles.gap20,
         ],
       ),

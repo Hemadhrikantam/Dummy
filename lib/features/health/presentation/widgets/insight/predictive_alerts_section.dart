@@ -30,7 +30,7 @@ class PredictiveAlertsSection extends StatelessWidget {
               Text(
                 "Luna hasn't had a grooming session in 2 weeks—regular grooming can prevent skin issues.",
                 style: context.textTheme.titleMedium?.copyWith(
-                  color: AppColors.buttonTextColor,
+                  color: AppColors.stepperColor,
                   fontWeight: FontWeight.w600,
                   fontSize: 18,
                 ),
