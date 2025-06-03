@@ -41,6 +41,7 @@ class AppText {
   static String continueWithPhone = 'Continue With Phone Number';
   static String continueWithGoogle = 'Continue With Google';
   static String alreadyHaveAccount = 'Already have an account? Log in here.';
+  static String dontHaveAnAccount = 'Don’t have an account? Sign up here';
   static String startUsingDummy = 'Start Using Dummy';
   static String explore = 'Explore';
   static String tryFor = 'Try for \$0.00';
@@ -115,6 +116,21 @@ class AppText {
       'Your account is ready! Let’s start caring for [Pet’s Name] with Dummy.';
   static String unlockMoreWithDummy =
       'Unlock more with Dummy Premium: Advanced Health Insights, Symptom Checker, and more!';
+  static String welcomeBackToDummy = 'Welcome Back to Dummy!';
+  static String forgotPassword = 'Forgot password? Reset here';
+  static String resetYourPassword = 'Reset Your Password';
+  static String weWillSendYouFourDigitCode =
+      'We’ll send you a 4 digit code. Please check your email.';
+  static String enterOneTimePassword = 'Enter One Time Password';
+  static String verify = "Verify";
+  static String login = 'Login';
+  static String enterNewPassword = 'Enter New Password';
+  static String passwordResetSuccessfully = 'Password Reset Successfully';
+  static String dummysOwnerForgotOnceToo =
+      'Dummy’s owner forgot once too—let’s get you back in!';
+  static String provideRequiredFields = 'Provide required fields';
+  static String passwordsDoesntMatch = 'Passwords Doesn\'t match';
+
   //premium
 
   static String unlockTheBest = 'Unlock the Best for Your Pet!';
@@ -287,6 +303,10 @@ class AppText {
   static String trackCoreAndBooster = 'Track core and booster shots with reminders.';
   static String addFirstMedication = 'Add First Medication';
   static String addFirstVaccination = 'Add First Vaccination';
+  static String confirmLogout = 'Confirm Logout';
+  static String areYouSureYouWantToLogout = 'Are you sure you want to logout';
+  static String no = 'No';
+  static String yes = 'Yes';
 
   //pet dairy
   static const String petDairy = 'Pet Dairy';

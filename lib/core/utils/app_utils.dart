@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../models/formz/password.dart';
 import 'toast_message.dart';
 
 class AppUtil {
@@ -153,6 +154,24 @@ class AppUtil {
       await launchUrl(Uri.parse(url));
     } else {
       AppAlert.showToast(message: 'Gmail is not available.');
+    }
+  }
+
+  static String? buildPasswordError(Password password) {
+    if (password.isPure || password.isValid) return null;
+    switch (password.error) {
+      case PasswordValidationError.tooShort:
+        return 'Password must be at least 8 characters long';
+      case PasswordValidationError.noUppercase:
+        return 'Password must contain at least one uppercase letter';
+      case PasswordValidationError.noLowercase:
+        return 'Password must contain at least one lowercase letter';
+      case PasswordValidationError.noSpecialChar:
+        return 'Password must contain at least one special character';
+      case PasswordValidationError.empty:
+        return 'Password is required';
+      default:
+        return null;
     }
   }
 }
