@@ -3,6 +3,8 @@ import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/extention/device_size_extention.dart';
+import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
@@ -200,20 +202,46 @@ class _PetInfoState extends State<PetInfo> {
                 CustomMultiDropdownSearch(
                   items: state.personalityTags,
                   title: AppText.personalitytags,
+                  onChanged: (p0) {
+                    context.read<RegisterBloc>().add(RegisterEvent.addTag(p0));
+                  },
                 ),
-                Row(
-                  children: [
-                    PersonalityTagCard(),
-                    Styles.gap10,
-                    PersonalityTagCard(),
-                    Styles.gap10,
-                    PersonalityTagCard(),
-                  ],
-                ),
+                if (state.selectedPersonalityTags.isNotEmpty)
+                  SizedBox(
+                    height: context.height * .065,
+                    child: AppCustomListViewBuilder(
+                      isExpand: false,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: state.selectedPersonalityTags.length,
+                      separatorBuilder: (context, i) => Styles.gap10,
+                      itemBuilder: (context, index) {
+                        final items = state.selectedPersonalityTags;
+                        final ind = state.selectedPersonalityTags.indexWhere(
+                          (e) => e.value?.id == items[index].value?.id,
+                        );
+                        return PersonalityTagCard(
+                          index: ind,
+                          tag:
+                              state
+                                  .selectedPersonalityTags[index]
+                                  .value
+                                  ?.value ??
+                              '',
+                        );
+                      },
+                    ),
+                  ),
                 Styles.gap20,
                 AppTextFormField(
-                  controller: TextEditingController(text: weight.toString()),
+                  controller: TextEditingController(
+                    text:
+                        state.weight.isPure
+                            ? ''
+                            : '${state.weight.value} ${state.weightUnit.value}',
+                  ),
                   headerText: AppText.weight,
+                  hintText: 'Select',
                   onTap: _pickWeight,
                   readOnly: true,
                   suffixIconColor: Colors.grey.shade700,
@@ -254,6 +282,7 @@ class WeightPickerBody extends StatefulWidget {
 
 class _WeightPickerBodyState extends State<WeightPickerBody> {
   int weight = 1;
+  String selectedUnit = 'Kg';
   @override
   void initState() {
     super.initState();
@@ -281,7 +310,13 @@ class _WeightPickerBodyState extends State<WeightPickerBody> {
               ),
               SizedBox(
                 width: 120,
-                child: CustomDropdownSearch(items: [], title: ''),
+                child: RoundedDropdown(
+                  onValueSelected: (unit) {
+                    setState(() {
+                      selectedUnit = unit;
+                    });
+                  },
+                ),
               ),
             ],
           ),
@@ -295,7 +330,9 @@ class _WeightPickerBodyState extends State<WeightPickerBody> {
               GestureDetector(
                 onTap: () {
                   setState(() {
-                    weight -= 1;
+                    if (weight > 0) {
+                      weight -= 1;
+                    }
                   });
                 },
                 child: Container(
@@ -371,6 +408,12 @@ class _WeightPickerBodyState extends State<WeightPickerBody> {
                 child: AppButton(
                   onPressed: () {
                     widget.onSave(weight);
+                    context.read<RegisterBloc>().add(
+                      RegisterEvent.weight(weight.toString()),
+                    );
+                    context.read<RegisterBloc>().add(
+                      RegisterEvent.weightUnit(selectedUnit),
+                    );
                     Navigator.pop(context);
                   },
                   name: Text(
@@ -386,6 +429,50 @@ class _WeightPickerBodyState extends State<WeightPickerBody> {
           ),
         ),
       ],
+    );
+  }
+}
+
+class RoundedDropdown extends StatefulWidget {
+  const RoundedDropdown({super.key, required this.onValueSelected});
+  final Function(String) onValueSelected;
+
+  @override
+  RoundedDropdownState createState() => RoundedDropdownState();
+}
+
+class RoundedDropdownState extends State<RoundedDropdown> {
+  final List<String> options = ['Kg', 'Lg'];
+  String selectedValue = 'Kg';
+
+  @override
+  Widget build(BuildContext context) {
+    return DropdownButtonFormField<String>(
+      value: selectedValue,
+      items:
+          options
+              .map(
+                (value) => DropdownMenuItem(value: value, child: Text(value)),
+              )
+              .toList(),
+      onChanged: (newValue) {
+        setState(() {
+          selectedValue = newValue!;
+        });
+        widget.onValueSelected(selectedValue);
+      },
+      decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+        border: OutlineInputBorder(borderRadius: Styles.borderRadiusCircular50),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: Styles.borderRadiusCircular50,
+          borderSide: BorderSide(color: AppColors.grey600),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: Styles.borderRadiusCircular50,
+          borderSide: BorderSide(color: AppColors.grey600),
+        ),
+      ),
     );
   }
 }

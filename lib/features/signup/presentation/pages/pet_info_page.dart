@@ -15,7 +15,6 @@ import 'package:dummy/core/widgets/stepper_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../profile/presentation/widgets/add_pet/add_pet_form.dart';
 import '../bloc/register/register_bloc.dart';
 import 'notification_permission_page.dart';
 
@@ -169,15 +168,15 @@ class _PetInfoPageState extends State<PetInfoPage> {
           CustomDropdownSearch(items: [], title: AppText.breed),
           Styles.gap20,
           CustomDropdownSearch(items: [], title: AppText.personalitytags),
-          Row(
-            children: [
-              PersonalityTagCard(),
-              Styles.gap10,
-              PersonalityTagCard(),
-              Styles.gap10,
-              PersonalityTagCard(),
-            ],
-          ),
+          // Row(
+          //   children: [
+          //     PersonalityTagCard(),
+          //     Styles.gap10,
+          //     PersonalityTagCard(),
+          //     Styles.gap10,
+          //     PersonalityTagCard(),
+          //   ],
+          // ),
           Styles.gap30,
           AppButton(
             name: Text(

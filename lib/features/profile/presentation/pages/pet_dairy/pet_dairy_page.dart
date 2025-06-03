@@ -31,50 +31,64 @@ class PetDairyPage extends StatefulWidget {
 class _PetDairyPageState extends State<PetDairyPage>
     with TickerProviderStateMixin {
   late TabController _tabController;
-  bool show = false;
+
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 3, vsync: this);
-    _tabController.addListener(__listener);
-  }
-
-  void __listener() {
-    setState(() {
-      var offset = _tabController.offset;
-      
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Container(
-
-        decoration: BoxDecoration(gradient: AppColors.screenBackgroundColor),
+      decoration: BoxDecoration(gradient: AppColors.screenBackgroundColor),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          leading: SizedBox(),
-          bottom: CustomTabBar1(
-            tabController: _tabController,
-            tabs: [
-              TabModel(text: AppText.timeline),
-              TabModel(text: AppText.media),
-              TabModel(text: AppText.documents),
-            ],
-          ),
-          toolbarHeight: 250,
-          flexibleSpace: FlexibleSpaceBar(
-            titlePadding: EdgeInsets.zero,
-            title: Column(
-              children: [
-                Styles.gap25,
-                PetDairyHeader(),
-                Styles.gap25,
-                PetImageWidget(),
-                Styles.gap15,
-              ],
+        body: DefaultTabController(
+          length: 3,
+          child: NestedScrollView(
+            headerSliverBuilder:
+                (context, innerBoxIsScrolled) => [
+                  SliverAppBar(
+                    backgroundColor: Colors.transparent,
+                    automaticallyImplyLeading: false,
+                    expandedHeight: 300,
+                    pinned: true,
+                    flexibleSpace: FlexibleSpaceBar(
+                      collapseMode: CollapseMode.pin,
+                      background: Column(
+                        children: [
+                          Styles.gap50,
+                          PetDairyHeader(),
+                          Styles.gap25,
+                          PetImageWidget(),
+                          Styles.gap15,
+                        ],
+                      ),
+                    ),
+                    bottom: PreferredSize(
+                      preferredSize: Size.fromHeight(10),
+                      child: Column(
+                        children: [
+                          CustomTabBar1(
+                            tabController: _tabController,
+                            tabs: [
+                              TabModel(text: AppText.timeline),
+                              TabModel(text: AppText.media),
+                              TabModel(text: AppText.documents),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+            body: Padding(
+              padding: Styles.edgeInsetsOnlyW10 + Styles.edgeInsetsOnlyB75,
+              child: TabBarView(
+                controller: _tabController,
+                children: [TimeLineTab(), MediaTab(), DocumentsTab()],
+              ),
             ),
           ),
         ),
@@ -101,33 +115,6 @@ class _PetDairyPageState extends State<PetDairyPage>
                 BottomModels.addPetDocumentsBottomSheet(context);
               }
             },
-          ),
-        ),
-        body: Container(
-          padding: Styles.edgeInsetsAll10,
-          // decoration: BoxDecoration(gradient: AppColors.screenBackgroundColor),
-          child: Column(
-            children: [
-              // Styles.gap25,
-              // PetDairyHeader(),
-              // Styles.gap25,
-              // PetImageWidget(),
-              // Styles.gap15,
-              // CustomTabBar(
-              //   tabController: _tabController,
-              //   tabs: [
-              //     TabModel(text: AppText.timeline),
-              //     TabModel(text: AppText.media),
-              //     TabModel(text: AppText.documents),
-              //   ],
-              // ),
-              Expanded(
-                child: TabBarView(
-                  controller: _tabController,
-                  children: [TimeLineTab(), MediaTab(), DocumentsTab()],
-                ),
-              ),
-            ],
           ),
         ),
       ),

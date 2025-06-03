@@ -506,10 +506,16 @@ as String,
 
 
 class _AddTag implements RegisterEvent {
-  const _AddTag(this.value);
+  const _AddTag(final  List<DropItem> value): _value = value;
   
 
- final  DropItem value;
+ final  List<DropItem> _value;
+ List<DropItem> get value {
+  if (_value is EqualUnmodifiableListView) return _value;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_value);
+}
+
 
 /// Create a copy of RegisterEvent
 /// with the given fields replaced by the non-null parameter values.
@@ -521,12 +527,12 @@ _$AddTagCopyWith<_AddTag> get copyWith => __$AddTagCopyWithImpl<_AddTag>(this, _
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AddTag&&(identical(other.value, value) || other.value == value));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AddTag&&const DeepCollectionEquality().equals(other._value, _value));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,value);
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_value));
 
 @override
 String toString() {
@@ -541,7 +547,7 @@ abstract mixin class _$AddTagCopyWith<$Res> implements $RegisterEventCopyWith<$R
   factory _$AddTagCopyWith(_AddTag value, $Res Function(_AddTag) _then) = __$AddTagCopyWithImpl;
 @useResult
 $Res call({
- DropItem value
+ List<DropItem> value
 });
 
 
@@ -560,8 +566,8 @@ class __$AddTagCopyWithImpl<$Res>
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
   return _then(_AddTag(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as DropItem,
+null == value ? _self._value : value // ignore: cast_nullable_to_non_nullable
+as List<DropItem>,
   ));
 }
 

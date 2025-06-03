@@ -138,6 +138,7 @@ class Styles {
   static const edgeInsetsOnlyT10 = EdgeInsets.only(top: 10);
   static const edgeInsetsOnlyL10 = EdgeInsets.only(left: 10);
   static const edgeInsetsOnlyB85 = EdgeInsets.only(bottom: 85);
+  static const edgeInsetsOnlyB75 = EdgeInsets.only(bottom: 75);
 
   // Padding Vertical
   static const edgeInsetsOnlyH00 = EdgeInsets.zero;

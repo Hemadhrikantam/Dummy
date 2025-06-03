@@ -31,6 +31,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     on<_AddTag>(__addTag);
     on<_RemoveTag>(__removeTag);
     on<_WeightUnit>(__weightUnit);
+    on<_Weight>(__weight);
   }
 
   final CatBreedUsecases __catBreedUsecases;
@@ -76,9 +77,10 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   }
 
   void __addTag(_AddTag event, Emitter<RegisterState> emit) {
-    final value = DropdownValue.dirty(event.value);
-    final updatedTags = List<DropdownValue>.from(state.selectedPersonalityTags)
-      ..add(value);
+    List<DropdownValue> updatedTags = [];
+    event.value.forEach((e) {
+      updatedTags.add(DropdownValue.dirty(e));
+    });
 
     emit(state.copyWith(selectedPersonalityTags: updatedTags));
   }
@@ -93,6 +95,11 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   void __weightUnit(_WeightUnit event, emit) {
     final unit = NotEmpty.dirty(value: event.weightUnit);
     emit(state.copyWith(weightUnit: unit));
+  }
+
+  void __weight(_Weight event, emit) {
+    final weight = NotEmpty.dirty(value: event.weight);
+    emit(state.copyWith(weight: weight));
   }
 
   Future<List<DropItem>> __catBreeds() async {

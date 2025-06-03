@@ -105,21 +105,22 @@ class CustomMultiDropdownSearch extends StatelessWidget {
             ),
           ),
           dropdownBuilder: (context, selectedItems) {
-            final text = selectedItems.map((e) => e.value).join(', ');
+            // final text = selectedItems.map((e) => e.value).join(', ');
             return Text(
-              text.isEmpty ? (label ?? 'Select') : text,
+              'Select',
+              // text.isEmpty ? (label ?? 'Select') : text,
               style: context.textTheme.titleSmall?.copyWith(
-                fontWeight:
-                    selectedItems.isEmpty ? FontWeight.w400 : FontWeight.w600,
-                color:
-                    selectedItems.isEmpty ? AppColors.grey700 : AppColors.black,
+                fontWeight: FontWeight.w400,
+                // selectedItems.isEmpty ? FontWeight.w400 : FontWeight.w600,
+                color: AppColors.grey700,
+                // selectedItems.isEmpty ? AppColors.grey700 : AppColors.black,
                 fontSize: fontSize,
               ),
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
             );
           },
-          selectedItems: selectedItems,
+          selectedItems: [],
           compareFn: (item1, item2) => item1.value == item2.value,
           itemAsString: itemAsString ?? (item) => item.value,
           items: items,

@@ -82,23 +82,24 @@ class __PersonalityTags extends StatelessWidget {
           onChanged: (value) {},
           label: AppText.select,
         ),
-        Row(
-          children: [
-            PersonalityTagCard(),
-            Styles.gap10,
-            PersonalityTagCard(),
-            Styles.gap10,
-            PersonalityTagCard(),
-          ],
-        ),
+        // Row(
+        //   children: [
+        //     PersonalityTagCard(),
+        //     Styles.gap10,
+        //     PersonalityTagCard(),
+        //     Styles.gap10,
+        //     PersonalityTagCard(),
+        //   ],
+        // ),
       ],
     );
   }
 }
 
 class PersonalityTagCard extends StatelessWidget {
-  const PersonalityTagCard({super.key});
-
+  const PersonalityTagCard({super.key, required this.index, required this.tag});
+  final int index;
+  final String tag;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
@@ -109,20 +110,25 @@ class PersonalityTagCard extends StatelessWidget {
       child: Row(
         children: [
           Text(
-            'Playful',
+            tag,
             style: context.textTheme.titleMedium?.copyWith(
               fontWeight: FontWeight.w500,
               fontSize: 14,
             ),
           ),
           Styles.gap10,
-          CircleAvatar(
-            radius: 9,
-            backgroundColor: AppColors.stepperColor.withOpacity(.4),
-            child: AppIcon(
-              icon: Icons.close,
-              color: AppColors.stepperColor,
-              size: 10,
+          GestureDetector(
+            onTap: () {
+              context.read<RegisterBloc>().add(RegisterEvent.removeTag(index));
+            },
+            child: CircleAvatar(
+              radius: 9,
+              backgroundColor: AppColors.stepperColor.withOpacity(.4),
+              child: AppIcon(
+                icon: Icons.close,
+                color: AppColors.stepperColor,
+                size: 10,
+              ),
             ),
           ),
         ],
