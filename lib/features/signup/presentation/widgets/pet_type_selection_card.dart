@@ -1,5 +1,6 @@
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/enum/breed.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +13,7 @@ class PetTypeSelectionCard extends StatelessWidget {
     this.onTap,
     this.textColor,
   });
-  final String name;
+  final PetType name;
   final Color? textColor;
   final Color? borderColor;
   final void Function()? onTap;
@@ -29,7 +30,7 @@ class PetTypeSelectionCard extends StatelessWidget {
         onTap: onTap,
         child: Center(
           child: Text(
-            name,
+            name.name,
             style: GoogleFonts.instrumentSans(
               color: textColor ?? AppColors.black,
               fontWeight: FontWeight.w700,

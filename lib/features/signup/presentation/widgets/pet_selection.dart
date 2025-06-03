@@ -1,11 +1,14 @@
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/enum/breed.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/info_card.dart';
+import 'package:dummy/features/signup/presentation/bloc/register/register_bloc.dart';
 import 'package:dummy/features/signup/presentation/widgets/pet_type_selection_card.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PetSelection extends StatefulWidget {
   const PetSelection({super.key, this.onNext});
@@ -16,7 +19,7 @@ class PetSelection extends StatefulWidget {
 }
 
 class _PetSelectionState extends State<PetSelection> {
-  String? selectedPet = AppText.dog;
+  PetType selectedPet = PetType.Cat;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -32,38 +35,43 @@ class _PetSelectionState extends State<PetSelection> {
         Styles.gap30,
         Row(
           children: [
-            
             PetTypeSelectionCard(
-              name: AppText.cat,
+              name: PetType.Cat,
               borderColor:
-                  selectedPet == AppText.cat
+                  selectedPet == PetType.Cat
                       ? AppColors.stepperColor
                       : AppColors.grey400,
               textColor:
-                  selectedPet == AppText.cat
+                  selectedPet == PetType.Cat
                       ? AppColors.stepperColor
                       : AppColors.black,
               onTap: () {
                 setState(() {
-                  selectedPet = AppText.cat;
+                  selectedPet = PetType.Cat;
                 });
+                context.read<RegisterBloc>().add(
+                  RegisterEvent.petType(selectedPet),
+                );
               },
             ),
             Styles.gap12,
             PetTypeSelectionCard(
-              name: AppText.dog,
+              name: PetType.Dog,
               borderColor:
-                  selectedPet == AppText.dog
+                  selectedPet == PetType.Dog
                       ? AppColors.stepperColor
                       : AppColors.grey400,
               textColor:
-                  selectedPet == AppText.dog
+                  selectedPet == PetType.Dog
                       ? AppColors.stepperColor
                       : AppColors.black,
               onTap: () {
                 setState(() {
-                  selectedPet = AppText.dog;
+                  selectedPet = PetType.Dog;
                 });
+                context.read<RegisterBloc>().add(
+                  RegisterEvent.petType(selectedPet),
+                );
               },
             ),
             // Styles.gap40

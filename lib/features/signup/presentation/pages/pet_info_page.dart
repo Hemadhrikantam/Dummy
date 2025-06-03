@@ -1,4 +1,3 @@
-
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
@@ -13,9 +12,11 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/stepper_widget.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../profile/presentation/widgets/add_pet/add_pet_form.dart';
+import '../bloc/register/register_bloc.dart';
 import 'notification_permission_page.dart';
 
 class PetInfoPage extends StatefulWidget {
@@ -143,12 +144,16 @@ class _PetInfoPageState extends State<PetInfoPage> {
         children: [
           StepperWidget(currentScreenIndex: 3),
           Styles.gap20,
-          Text(
-            AppText.tellUsYourPetType,
-            style: context.textTheme.headlineLarge?.copyWith(
-              fontWeight: FontWeight.w900,
-              fontSize: 28,
-            ),
+          BlocBuilder<RegisterBloc, RegisterState>(
+            builder: (context, state) {
+              return Text(
+                '${AppText.tellUsYourPetType} ${state.petType.name}!',
+                style: context.textTheme.headlineLarge?.copyWith(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 28,
+                ),
+              );
+            },
           ),
           Styles.gap15,
           Text(AppText.theMoreAboutPet, style: context.textTheme.titleSmall),

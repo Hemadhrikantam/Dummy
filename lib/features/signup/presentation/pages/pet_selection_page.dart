@@ -11,6 +11,8 @@ import 'package:dummy/features/signup/presentation/pages/upload_pet_photo_page.d
 import 'package:dummy/features/signup/presentation/widgets/pet_type_selection_card.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/enum/breed.dart';
+
 class PetSelectionPage extends StatefulWidget {
   const PetSelectionPage({super.key, this.onNext});
   final VoidCallback? onNext;
@@ -28,7 +30,7 @@ class PetSelectionPage extends StatefulWidget {
 }
 
 class _PetSelectionPageState extends State<PetSelectionPage> {
-  String? selectedPet = AppText.dog;
+  PetType selectedPet = PetType.Cat;
   @override
   Widget build(BuildContext context) {
     return MaterialBaseScreen(
@@ -48,35 +50,35 @@ class _PetSelectionPageState extends State<PetSelectionPage> {
           Row(
             children: [
               PetTypeSelectionCard(
-                name: AppText.dog,
+                name: PetType.Dog,
                 borderColor:
-                    selectedPet == AppText.dog
+                    selectedPet == PetType.Dog
                         ? AppColors.stepperColor
                         : AppColors.grey400,
                 textColor:
-                    selectedPet == AppText.dog
+                    selectedPet == PetType.Dog
                         ? AppColors.stepperColor
                         : AppColors.black,
                 onTap: () {
                   setState(() {
-                    selectedPet = AppText.dog;
+                    selectedPet = PetType.Dog;
                   });
                 },
               ),
               Styles.gap20,
               PetTypeSelectionCard(
-                name: AppText.cat,
+                name: PetType.Cat,
                 borderColor:
-                    selectedPet == AppText.cat
+                    selectedPet == PetType.Cat
                         ? AppColors.stepperColor
                         : AppColors.grey400,
                 textColor:
-                    selectedPet == AppText.cat
+                    selectedPet == PetType.Cat
                         ? AppColors.stepperColor
                         : AppColors.black,
                 onTap: () {
                   setState(() {
-                    selectedPet = AppText.cat;
+                    selectedPet = PetType.Cat;
                   });
                 },
               ),

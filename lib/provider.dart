@@ -9,7 +9,10 @@ class AppProvider extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [BlocProvider(create: (context) => InjectionBloc.authBloc)],
+      providers: [
+        BlocProvider(create: (context) => InjectionBloc.authBloc),
+        BlocProvider(create: (context) => InjectionBloc.registerBloc),
+      ],
       child: const App(),
     );
   }

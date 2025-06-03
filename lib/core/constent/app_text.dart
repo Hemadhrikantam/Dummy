@@ -70,7 +70,7 @@ class AppText {
   static String upload = 'Upload';
   static String skip = 'Skip';
   static String changePhoto = 'Change Photo';
-  static String tellUsYourPetType = 'Tell Us About Your [Pet Type]!';
+  static String tellUsYourPetType = 'Tell Us About Your';
   static String theMoreAboutPet =
       'The more we know about your pet, the better we can help!';
   static String dateOfBirth = 'Date Of Birth';
@@ -300,7 +300,8 @@ class AppText {
   static String doommiHelpsKeep = 'Doommi helps keep your buddy safe.';
   static String letKeepSafe = 'Let’s keep [Pet Name] safe.';
   static String trackMedicationsTo = 'Track medications to never miss a dose';
-  static String trackCoreAndBooster = 'Track core and booster shots with reminders.';
+  static String trackCoreAndBooster =
+      'Track core and booster shots with reminders.';
   static String addFirstMedication = 'Add First Medication';
   static String addFirstVaccination = 'Add First Vaccination';
   static String confirmLogout = 'Confirm Logout';

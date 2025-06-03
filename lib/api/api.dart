@@ -6,3 +6,6 @@ const String __publicBase = '$__dev/api';
 //login
 String login = '$__publicBase/login/';
 String registerAccount = '$__publicBase/account/register/';
+String catBreeds = '$__publicBase/pets/cat-breeds/';
+String dogBreeds = '$__publicBase/pets/dog-breeds/';
+String personalityTags = '$__publicBase/pets/personality-tags/';
