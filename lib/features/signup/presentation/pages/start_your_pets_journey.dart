@@ -7,12 +7,9 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
-// import 'package:dummy/features/auth/presentation/pages/auth_page.dart';
-// import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey2.dart';
+import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../../auth/presentation/pages/start_screen_page.dart';
 
 class StartYourPetsJourney extends StatelessWidget {
   const StartYourPetsJourney({super.key});
@@ -86,9 +83,9 @@ class StartYourPetsJourney extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    context.pushNamedAndRemoveUntil(StartScreenPage.routeName);
+                    // context.pushNamedAndRemoveUntil(StartScreenPage.routeName);
                     // context.pushNamedAndRemoveUntil(DashboardPage.routeName);
-                    // context.pushNamed(StartYourPetsJourney2.routeName);
+                    context.pushNamed(StartYourPetsJourney2.routeName);
                   },
                 ),
                 Styles.gap20,

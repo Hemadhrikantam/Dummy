@@ -1,6 +1,8 @@
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
+import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,8 +21,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      context.read<AuthBloc>().add(const AuthEvent.checkUser());
-      // context.pushNamedAndRemoveUntil(StartYourPetsJourney.routeName);
+      // context.read<AuthBloc>().add(const AuthEvent.checkUser());
+      context.pushNamedAndRemoveUntil(StartYourPetsJourney.routeName);
       // context.read<AuthBloc>().add(const AuthEvent.checkUser());
     });
   }

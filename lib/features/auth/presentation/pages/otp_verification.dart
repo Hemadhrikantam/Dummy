@@ -119,7 +119,7 @@ class _OtpVerification extends State<OtpVerification> {
 }
 
 class _OTPInput extends StatefulWidget {
-  const _OTPInput({super.key});
+  const _OTPInput();
 
   @override
   State<_OTPInput> createState() => _OTPInputState();

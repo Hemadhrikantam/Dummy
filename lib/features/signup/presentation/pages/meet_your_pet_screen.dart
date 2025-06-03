@@ -1,13 +1,8 @@
-import 'package:dummy/core/constent/app_colors.dart';
-import 'package:dummy/core/constent/app_text.dart';
+
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
-import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
-import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/stepper_widget.dart';
-import 'package:dummy/features/signup/presentation/pages/pet_selection_page.dart';
 import 'package:dummy/features/signup/presentation/pages/welcome_to_dummy_page.dart';
 import 'package:dummy/features/signup/presentation/widgets/meet_your_parent.dart';
 import 'package:dummy/features/signup/presentation/widgets/notification_permission.dart';

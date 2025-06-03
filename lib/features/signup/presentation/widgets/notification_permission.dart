@@ -3,16 +3,10 @@ import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/widgets/app_custom_text_field.dart';
-import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
-import 'package:dummy/core/widgets/custom_dropdown.dart';
 import 'package:dummy/core/widgets/info_card.dart';
-import 'package:dummy/features/profile/presentation/widgets/add_pet/add_pet_form.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 class NotificationPermission extends StatefulWidget {
   const NotificationPermission({super.key, this.onNext});

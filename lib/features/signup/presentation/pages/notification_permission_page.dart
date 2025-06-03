@@ -11,9 +11,6 @@ import 'package:dummy/core/widgets/info_card.dart';
 import 'package:dummy/core/widgets/stepper_widget.dart';
 import 'package:dummy/features/signup/presentation/pages/welcome_to_dummy_page.dart';
 import 'package:flutter/material.dart';
-
-import 'join_dummy1_page.dart';
-
 class NotificationPermissionPage extends StatelessWidget {
   const NotificationPermissionPage({super.key});
   static const routeName = '/NotificationPermissionPage';

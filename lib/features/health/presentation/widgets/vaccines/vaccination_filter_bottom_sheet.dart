@@ -1,15 +1,10 @@
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
-import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
-import 'package:dummy/core/widgets/custom_dropdown.dart';
-import 'package:dummy/core/widgets/dotted_border_widget.dart';
-import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -59,7 +54,7 @@ class _VaccinationFilterBottomSheet
               Expanded(
                 child: CupertinoDatePicker(
                   mode: CupertinoDatePickerMode.date,
-                  initialDateTime: selectedDate ?? DateTime(2000, 1, 1),
+                  initialDateTime: selectedDate,
                   maximumDate: DateTime.now(),
                   onDateTimeChanged: (DateTime dateTime) {
                     tempPickedDate = dateTime;
@@ -147,7 +142,7 @@ class _VaccinationFilterBottomSheet
               Expanded(
                 child: CupertinoDatePicker(
                   mode: CupertinoDatePickerMode.date,
-                  initialDateTime: selectedDate ?? DateTime(2000, 1, 1),
+                  initialDateTime: selectedDate,
                   maximumDate: DateTime.now(),
                   onDateTimeChanged: (DateTime dateTime) {
                     tempPickedDate = dateTime;

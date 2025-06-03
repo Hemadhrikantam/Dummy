@@ -5,9 +5,7 @@ import 'package:dummy/core/widgets/app_custom_chip.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/health/presentation/widgets/medication/circular_progress.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../core/constent/app_text.dart';
-import '../../../../../core/widgets/buttons/app_text_button.dart';
 import 'add_medication_fields.dart';
 
 class MedicationDetailsCard extends StatelessWidget {

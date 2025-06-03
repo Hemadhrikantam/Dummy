@@ -4,14 +4,10 @@ import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/widgets/app_assets_image.dart';
-//import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
-import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/features/auth/presentation/pages/continue_with_phone.dart';
-import 'package:dummy/features/signup/presentation/pages/join_dummy2_page.dart';
 import 'package:flutter/material.dart';
 
 class JoinDummy1Page extends StatelessWidget {

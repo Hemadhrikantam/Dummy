@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
@@ -6,18 +5,12 @@ import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
-import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/custom_dropdown.dart';
-import 'package:dummy/core/widgets/info_card.dart';
-import 'package:dummy/features/profile/presentation/widgets/add_pet/add_pet_form.dart';
-import 'package:dummy/features/signup/presentation/widgets/pet_type_selection_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:image_picker/image_picker.dart';
 
 class PetInfo extends StatefulWidget {
   const PetInfo({super.key, this.onNext});
@@ -121,7 +114,6 @@ class _PetInfoState extends State<PetInfo> {
   }
 
   void _pickWeight() {
-    DateTime tempPickedDate = DateTime.now();
 
     showModalBottomSheet(
       context: context,

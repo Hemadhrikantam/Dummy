@@ -5,7 +5,6 @@ class AddVaccinationForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bottomInset = MediaQuery.of(context).viewInsets.bottom;
 
     return ListView(
       padding: Styles.edgeInsetsOnlyH00,

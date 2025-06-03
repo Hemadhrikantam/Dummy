@@ -1,12 +1,9 @@
-import 'package:dummy/core/constent/app_colors.dart';
+
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
-import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
-import 'package:dummy/core/widgets/buttons/app_button.dart';
-import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/health/presentation/pages/add_medication_page.dart';
 import 'package:dummy/features/health/presentation/widgets/empty_list_page.dart';
 import 'package:dummy/features/health/presentation/widgets/medication/medication_card.dart';

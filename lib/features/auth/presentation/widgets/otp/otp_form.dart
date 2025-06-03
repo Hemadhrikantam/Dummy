@@ -74,7 +74,7 @@ class _OTPFormState extends State<OTPForm> {
             style: context.textTheme.bodyMedium?.copyWith(fontSize: 14),
           ),
           Styles.gap50,
-          OTPField(),
+          // OTPField(),
           Styles.gap30,
           AppButton(
             name: Text(
