@@ -135,3 +135,92 @@ class InnerCustomTabBar extends StatelessWidget {
     );
   }
 }
+
+class CustomTabBar1 extends StatelessWidget implements PreferredSizeWidget {
+  const CustomTabBar1({
+    required TabController tabController,
+    required this.tabs,
+    super.key,
+    this.backgroundColor,
+    this.indicatorColor,
+    this.labelColor,
+    this.unselectedLabelColor,
+    this.indicatorBorderColor,
+    this.borderColor,
+    this.labelFontSize,
+    this.isScrollable,
+    this.tabAlignment,
+    this.labelPadding,
+    this.padding,
+  }) : _tabController = tabController;
+
+  final TabController _tabController;
+  final List<TabModel> tabs;
+  final Color? backgroundColor;
+  final Color? indicatorColor;
+  final Color? labelColor;
+  final Color? unselectedLabelColor;
+  final Color? indicatorBorderColor;
+  final Color? borderColor;
+  final double? labelFontSize;
+  final bool? isScrollable;
+  final TabAlignment? tabAlignment;
+  final EdgeInsets? labelPadding;
+  final EdgeInsets? padding;
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomCard(
+      padding: padding ?? Styles.edgeInsetsAll02,
+      backgroundColor:
+          backgroundColor ?? AppColors.buttonBackground.withOpacity(.16),
+      borderRadius: Styles.borderRadiusCircular50,
+      border: Border.all(
+        color: borderColor ?? AppColors.buttonBackground.withOpacity(.52),
+      ),
+      child: TabBar(
+        physics: const NeverScrollableScrollPhysics(),
+        controller: _tabController,
+        isScrollable: isScrollable ?? false,
+        tabAlignment: tabAlignment,
+        dividerHeight: 0,
+        indicator: BoxDecoration(
+          color: indicatorColor ?? AppColors.stepperColor,
+          borderRadius: Styles.borderRadiusCircular50,
+          border: Border.all(
+            color: indicatorBorderColor ?? AppColors.transparent,
+          ),
+        ),
+        labelColor: labelColor ?? AppColors.white,
+        indicatorSize: TabBarIndicatorSize.tab,
+        labelPadding: labelPadding,
+        labelStyle: GoogleFonts.instrumentSans(fontWeight: FontWeight.w700),
+        unselectedLabelStyle: GoogleFonts.instrumentSans(
+          fontWeight: FontWeight.w400,
+        ),
+        padding: Styles.edgeInsetsOnlyH00,
+        indicatorPadding: Styles.edgeInsetsAll02,
+        unselectedLabelColor: unselectedLabelColor ?? AppColors.black,
+        tabs:
+            tabs
+                .map(
+                  (item) => Tab(
+                    child: Center(
+                      child: Text(
+                        item.text,
+                        style: GoogleFonts.instrumentSans(
+                          fontSize: labelFontSize ?? 14,
+                          letterSpacing: -0.5,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
+      ),
+    );
+  }
+
+  @override
+  Size get preferredSize => Size(double.infinity, 50);
+}

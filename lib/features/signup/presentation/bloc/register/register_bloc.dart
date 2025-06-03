@@ -42,11 +42,9 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     Emitter<RegisterState> emit,
   ) async {
     emit(state.copyWith(initStatus: Status.loading));
-    print('hii');
     final catBreeds = await __catBreeds();
     final dogBreeds = await __dogBreeds();
     final personalityTags = await __personalityTags();
-    print('hiiiiii');
 
     emit(
       state.copyWith(
@@ -78,14 +76,15 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   }
 
   void __addTag(_AddTag event, Emitter<RegisterState> emit) {
-    final updatedTags = List<int>.from(state.selectedPersonalityTags)
-      ..add(event.value);
+    final value = DropdownValue.dirty(event.value);
+    final updatedTags = List<DropdownValue>.from(state.selectedPersonalityTags)
+      ..add(value);
 
     emit(state.copyWith(selectedPersonalityTags: updatedTags));
   }
 
   void __removeTag(_RemoveTag event, Emitter<RegisterState> emit) {
-    final updatedTags = List<int>.from(state.selectedPersonalityTags)
+    final updatedTags = List<DropdownValue>.from(state.selectedPersonalityTags)
       ..removeAt(event.index);
 
     emit(state.copyWith(selectedPersonalityTags: updatedTags));

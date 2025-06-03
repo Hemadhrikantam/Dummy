@@ -1,26 +1,21 @@
-// ignore_for_file: always_put_required_named_parameters_first
-
 import 'package:dropdown_search/dropdown_search.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../models/drop_item.dart';
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/mandatory_field_widget.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import '../models/drop_item.dart';
-
-class CustomDropdownSearch extends StatelessWidget {
-  const CustomDropdownSearch({
+class CustomMultiDropdownSearch extends StatelessWidget {
+  const CustomMultiDropdownSearch({
     super.key,
     required this.items,
     this.label,
     this.lableColor,
     this.errorText,
-    this.selectedItem,
-    this.clearText = false,
+    this.selectedItems = const [],
     this.focusedBorder,
-    this.customWidget,
     this.onClear,
     this.itemBuilder,
     this.emptyBuilder,
@@ -34,24 +29,22 @@ class CustomDropdownSearch extends StatelessWidget {
     this.hintTextFontWeight,
     this.onFind,
   });
+
   final InputBorder? focusedBorder;
   final String? label;
   final Color? lableColor;
   final String? errorText;
-  final bool clearText;
+  final List<DropItem> selectedItems;
   final VoidCallback? onClear;
-  final DropItem? selectedItem;
-  final Widget? customWidget;
   final String title;
   final bool? isMandatory;
-  final Widget Function(BuildContext context, DropItem item, bool isSelected)?
-  itemBuilder;
-  final Widget Function(BuildContext context, String value)? emptyBuilder;
-  final Future<List<DropItem>> Function(String filter)? onFind;
+  final Widget Function(BuildContext, DropItem, bool)? itemBuilder;
+  final Widget Function(BuildContext, String)? emptyBuilder;
+  final Future<List<DropItem>> Function(String)? onFind;
 
   final List<DropItem> items;
-  final void Function(DropItem? item)? onChanged;
-  final String? Function(DropItem? item)? validator;
+  final void Function(List<DropItem>)? onChanged;
+  final FormFieldValidator<List<DropItem>>? validator;
   final double? fontSize;
   final String Function(DropItem)? itemAsString;
   final Color? hintTextColor;
@@ -69,7 +62,7 @@ class CustomDropdownSearch extends StatelessWidget {
             required: isMandatory ?? false,
           ),
         if (title != '') Styles.gap6,
-        DropdownSearch<DropItem>(
+        DropdownSearch<DropItem>.multiSelection(
           asyncItems: onFind,
           dropdownButtonProps: DropdownButtonProps(
             icon: Icon(Icons.keyboard_arrow_down_outlined),
@@ -111,43 +104,34 @@ class CustomDropdownSearch extends StatelessWidget {
               fontSize: fontSize,
             ),
           ),
-          dropdownBuilder: (context, selectedItem) {
-            return Container(
-              constraints: const BoxConstraints(minHeight: 20),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      selectedItem?.value ?? label ?? 'Select',
-                      style: context.textTheme.titleSmall?.copyWith(
-                        fontWeight:
-                            selectedItem == null
-                                ? FontWeight.w400
-                                : FontWeight.w600,
-                        color:
-                            selectedItem == null
-                                ? AppColors.grey700
-                                : AppColors.black,
-                        fontSize: fontSize,
-                      ),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
-                    ),
-                  ),
-                ],
+          dropdownBuilder: (context, selectedItems) {
+            final text = selectedItems.map((e) => e.value).join(', ');
+            return Text(
+              text.isEmpty ? (label ?? 'Select') : text,
+              style: context.textTheme.titleSmall?.copyWith(
+                fontWeight:
+                    selectedItems.isEmpty ? FontWeight.w400 : FontWeight.w600,
+                color:
+                    selectedItems.isEmpty ? AppColors.grey700 : AppColors.black,
+                fontSize: fontSize,
               ),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
             );
           },
-          selectedItem: selectedItem,
+          selectedItems: selectedItems,
           compareFn: (item1, item2) => item1.value == item2.value,
           itemAsString: itemAsString ?? (item) => item.value,
           items: items,
           validator: validator,
           onChanged: onChanged,
-          popupProps: PopupProps.modalBottomSheet(
+          popupProps: PopupPropsMultiSelection.modalBottomSheet(
             showSearchBox: true,
             isFilterOnline: true,
             showSelectedItems: true,
+            selectionWidget: (context, item, isSelected) {
+              return SizedBox();
+            },
             searchFieldProps: TextFieldProps(
               style: GoogleFonts.instrumentSans(fontSize: 14),
               decoration: InputDecoration(
@@ -192,6 +176,7 @@ class CustomDropdownSearch extends StatelessWidget {
               ),
             ),
             emptyBuilder:
+                emptyBuilder ??
                 (context, searchEntry) => Center(child: Text('No Items Found')),
             itemBuilder:
                 itemBuilder ??
@@ -203,12 +188,30 @@ class CustomDropdownSearch extends StatelessWidget {
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(width: 1, color: AppColors.grey),
                     ),
-                    child: Text(
-                      item.value,
-                      style: context.textTheme.titleSmall?.copyWith(
-                        fontSize: fontSize ?? 18,
-                        fontWeight: FontWeight.w600,
-                      ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          item.value,
+                          style: context.textTheme.titleSmall?.copyWith(
+                            fontSize: fontSize ?? 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        if (isSelected)
+                          Container(
+                            decoration: BoxDecoration(
+                              color: AppColors.stepperColor,
+                              borderRadius: Styles.borderRadiusCircular05,
+                            ),
+                            padding: Styles.edgeInsetsAll02,
+                            child: Icon(
+                              Icons.done,
+                              size: 20,
+                              color: Colors.white,
+                            ),
+                          ),
+                      ],
                     ),
                   );
                 },

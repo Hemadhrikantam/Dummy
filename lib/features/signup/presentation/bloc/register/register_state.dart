@@ -11,7 +11,7 @@ abstract class RegisterState with _$RegisterState {
     @Default(PetType.Cat) final PetType petType,
     @Default(NotEmpty.pure()) final NotEmpty dob,
     @Default(DropdownValue.pure()) final DropdownValue breed,
-    @Default([]) final List<int> selectedPersonalityTags,
+    @Default([]) final List<DropdownValue> selectedPersonalityTags,
     @Default(NotEmpty.pure()) final NotEmpty weightUnit,
     @Default(NotEmpty.pure()) final NotEmpty weight,
   }) = _RegisterState;

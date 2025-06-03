@@ -13,17 +13,23 @@ class FilterButton extends StatelessWidget {
   final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
-    return CustomCard(
-      onTap: onTap,
-      padding: Styles.edgeInsetsAll08,
-      borderColor: AppColors.grey400,
-      borderRadius: Styles.borderRadiusCircular50,
-      child: Row(
-        children: [
-          Text(AppText.filter, style: context.textTheme.titleMedium),
-          Styles.gap20,
-          AppIcon(icon: Iconsax.setting_4, size: 20),
-        ],
+    return SizedBox(
+      width: 97,
+      child: CustomCard(
+        onTap: onTap,
+        padding: Styles.edgeInsetsAll06,
+        borderColor: AppColors.grey400,
+        borderRadius: Styles.borderRadiusCircular50,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Styles.gap6,
+            Text(AppText.filter, style: context.textTheme.titleMedium),
+            Styles.gap12,
+            AppIcon(icon: Iconsax.setting_4, size: 20),
+            Styles.gap6,
+          ],
+        ),
       ),
     );
   }

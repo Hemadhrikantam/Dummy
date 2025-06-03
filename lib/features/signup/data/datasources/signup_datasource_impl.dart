@@ -34,7 +34,9 @@ class SignupDatasourceImpl extends SignupDatasource {
           if (statusCode <= 201) {
             final item = <DropItemModel>[];
             for (final dropList in data as List? ?? []) {
-              item.add(DropItemModel.fromMap(dropList as JsonMap));
+              final map = Map<String, dynamic>.from(dropList as Map);
+              map['name'] = map['breed'];
+              item.add(DropItemModel.fromMap(map));
             }
             return Right(item);
           }
@@ -69,10 +71,13 @@ class SignupDatasourceImpl extends SignupDatasource {
           if (statusCode <= 201) {
             final item = <DropItemModel>[];
             for (final dropList in data as List? ?? []) {
-              item.add(DropItemModel.fromMap(dropList as JsonMap));
+              final map = Map<String, dynamic>.from(dropList as Map);
+              map['name'] = map['breed'];
+              item.add(DropItemModel.fromMap(map));
             }
             return Right(item);
           }
+
           return Left(
             ErrorMessage(
               message: data['message'] as String? ?? AppText.somethingWentWrong,
@@ -104,10 +109,13 @@ class SignupDatasourceImpl extends SignupDatasource {
           if (statusCode <= 201) {
             final item = <DropItemModel>[];
             for (final dropList in data as List? ?? []) {
-              item.add(DropItemModel.fromMap(dropList as JsonMap));
+              final map = Map<String, dynamic>.from(dropList as Map);
+              map['name'] = map['personality_tag'];
+              item.add(DropItemModel.fromMap(map));
             }
             return Right(item);
           }
+
           return Left(
             ErrorMessage(
               message: data['message'] as String? ?? AppText.somethingWentWrong,

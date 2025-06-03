@@ -70,7 +70,9 @@ class ImageResources {
   static const String nailsIcon = '$__icons/nails_icon.png';
   static const String pawIcon = '$__icons/paw_icon.png';
   static const String syringeIcon = '$__icons/syringe_icon.png';
+  static const String checkbox = '$__icons/checkbox.png';
   static const String dogImage = '$images/dog_image.png';
+  static const String sadDog = '$images/sad_dog.png';
   static const String noMedication = '$images/no_medication.png';
   static const String noMedia = '$images/no_media.png';
   static const String tshirt = '$images/T-shirt.png';

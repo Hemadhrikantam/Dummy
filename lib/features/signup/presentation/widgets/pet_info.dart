@@ -8,7 +8,9 @@ import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/custom_dropdown.dart';
+import 'package:dummy/core/widgets/custom_multi_dropdown.dart';
 import 'package:dummy/core/widgets/loading_widget.dart';
+import 'package:dummy/features/profile/presentation/widgets/add_pet/add_pet_form.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -165,20 +167,16 @@ class _PetInfoState extends State<PetInfo> {
     return BlocBuilder<RegisterBloc, RegisterState>(
       builder: (context, state) {
         return state.initStatus.loading
-            ? Center(child: LoadingWidget.circularProgressIndicatorCenter)
+            ? LoadingWidget.circularProgressIndicatorCenter
             : Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                BlocBuilder<RegisterBloc, RegisterState>(
-                  builder: (context, state) {
-                    return Text(
-                      '${AppText.tellUsYourPetType} ${state.petType.name}!',
-                      style: context.textTheme.headlineLarge?.copyWith(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 28,
-                      ),
-                    );
-                  },
+                Text(
+                  '${AppText.tellUsYourPetType} ${state.petType.name}!',
+                  style: context.textTheme.headlineLarge?.copyWith(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 28,
+                  ),
                 ),
                 Styles.gap15,
                 Text(
@@ -199,16 +197,19 @@ class _PetInfoState extends State<PetInfo> {
                   title: AppText.breed,
                 ),
                 Styles.gap20,
-                CustomDropdownSearch(items: [], title: AppText.personalitytags),
-                // Row(
-                //   children: [
-                //     PersonalityTagCard(),
-                //     Styles.gap10,
-                //     PersonalityTagCard(),
-                //     Styles.gap10,
-                //     PersonalityTagCard(),
-                //   ],
-                // ),
+                CustomMultiDropdownSearch(
+                  items: state.personalityTags,
+                  title: AppText.personalitytags,
+                ),
+                Row(
+                  children: [
+                    PersonalityTagCard(),
+                    Styles.gap10,
+                    PersonalityTagCard(),
+                    Styles.gap10,
+                    PersonalityTagCard(),
+                  ],
+                ),
                 Styles.gap20,
                 AppTextFormField(
                   controller: TextEditingController(text: weight.toString()),
@@ -255,7 +256,6 @@ class _WeightPickerBodyState extends State<WeightPickerBody> {
   int weight = 1;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     weight = widget.weight;
   }

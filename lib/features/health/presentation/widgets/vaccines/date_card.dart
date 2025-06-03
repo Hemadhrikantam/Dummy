@@ -80,7 +80,9 @@ class _DateCardState extends State<DateCard> {
                 Text(
                   AppText.markAsGiven,
                   style: context.textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.grey500,
+                    fontSize: 14
                   ),
                 ),
                 Styles.gap10,

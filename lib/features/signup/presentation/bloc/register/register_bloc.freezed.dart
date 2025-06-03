@@ -509,7 +509,7 @@ class _AddTag implements RegisterEvent {
   const _AddTag(this.value);
   
 
- final  int value;
+ final  DropItem value;
 
 /// Create a copy of RegisterEvent
 /// with the given fields replaced by the non-null parameter values.
@@ -541,7 +541,7 @@ abstract mixin class _$AddTagCopyWith<$Res> implements $RegisterEventCopyWith<$R
   factory _$AddTagCopyWith(_AddTag value, $Res Function(_AddTag) _then) = __$AddTagCopyWithImpl;
 @useResult
 $Res call({
- int value
+ DropItem value
 });
 
 
@@ -561,7 +561,7 @@ class __$AddTagCopyWithImpl<$Res>
 @pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
   return _then(_AddTag(
 null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as int,
+as DropItem,
   ));
 }
 
@@ -637,7 +637,7 @@ as int,
 /// @nodoc
 mixin _$RegisterState {
 
- Status get initStatus; List<DropItem> get dogBreeds; List<DropItem> get catBreeds; List<DropItem> get personalityTags; NotEmpty get petName; PetType get petType; NotEmpty get dob; DropdownValue get breed; List<int> get selectedPersonalityTags; NotEmpty get weightUnit; NotEmpty get weight;
+ Status get initStatus; List<DropItem> get dogBreeds; List<DropItem> get catBreeds; List<DropItem> get personalityTags; NotEmpty get petName; PetType get petType; NotEmpty get dob; DropdownValue get breed; List<DropdownValue> get selectedPersonalityTags; NotEmpty get weightUnit; NotEmpty get weight;
 /// Create a copy of RegisterState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -668,7 +668,7 @@ abstract mixin class $RegisterStateCopyWith<$Res>  {
   factory $RegisterStateCopyWith(RegisterState value, $Res Function(RegisterState) _then) = _$RegisterStateCopyWithImpl;
 @useResult
 $Res call({
- Status initStatus, List<DropItem> dogBreeds, List<DropItem> catBreeds, List<DropItem> personalityTags, NotEmpty petName, PetType petType, NotEmpty dob, DropdownValue breed, List<int> selectedPersonalityTags, NotEmpty weightUnit, NotEmpty weight
+ Status initStatus, List<DropItem> dogBreeds, List<DropItem> catBreeds, List<DropItem> personalityTags, NotEmpty petName, PetType petType, NotEmpty dob, DropdownValue breed, List<DropdownValue> selectedPersonalityTags, NotEmpty weightUnit, NotEmpty weight
 });
 
 
@@ -696,7 +696,7 @@ as NotEmpty,petType: null == petType ? _self.petType : petType // ignore: cast_n
 as PetType,dob: null == dob ? _self.dob : dob // ignore: cast_nullable_to_non_nullable
 as NotEmpty,breed: null == breed ? _self.breed : breed // ignore: cast_nullable_to_non_nullable
 as DropdownValue,selectedPersonalityTags: null == selectedPersonalityTags ? _self.selectedPersonalityTags : selectedPersonalityTags // ignore: cast_nullable_to_non_nullable
-as List<int>,weightUnit: null == weightUnit ? _self.weightUnit : weightUnit // ignore: cast_nullable_to_non_nullable
+as List<DropdownValue>,weightUnit: null == weightUnit ? _self.weightUnit : weightUnit // ignore: cast_nullable_to_non_nullable
 as NotEmpty,weight: null == weight ? _self.weight : weight // ignore: cast_nullable_to_non_nullable
 as NotEmpty,
   ));
@@ -709,7 +709,7 @@ as NotEmpty,
 
 
 class _RegisterState implements RegisterState {
-  const _RegisterState({this.initStatus = Status.init, final  List<DropItem> dogBreeds = const [], final  List<DropItem> catBreeds = const [], final  List<DropItem> personalityTags = const [], this.petName = const NotEmpty.pure(), this.petType = PetType.Cat, this.dob = const NotEmpty.pure(), this.breed = const DropdownValue.pure(), final  List<int> selectedPersonalityTags = const [], this.weightUnit = const NotEmpty.pure(), this.weight = const NotEmpty.pure()}): _dogBreeds = dogBreeds,_catBreeds = catBreeds,_personalityTags = personalityTags,_selectedPersonalityTags = selectedPersonalityTags;
+  const _RegisterState({this.initStatus = Status.init, final  List<DropItem> dogBreeds = const [], final  List<DropItem> catBreeds = const [], final  List<DropItem> personalityTags = const [], this.petName = const NotEmpty.pure(), this.petType = PetType.Cat, this.dob = const NotEmpty.pure(), this.breed = const DropdownValue.pure(), final  List<DropdownValue> selectedPersonalityTags = const [], this.weightUnit = const NotEmpty.pure(), this.weight = const NotEmpty.pure()}): _dogBreeds = dogBreeds,_catBreeds = catBreeds,_personalityTags = personalityTags,_selectedPersonalityTags = selectedPersonalityTags;
   
 
 @override@JsonKey() final  Status initStatus;
@@ -738,8 +738,8 @@ class _RegisterState implements RegisterState {
 @override@JsonKey() final  PetType petType;
 @override@JsonKey() final  NotEmpty dob;
 @override@JsonKey() final  DropdownValue breed;
- final  List<int> _selectedPersonalityTags;
-@override@JsonKey() List<int> get selectedPersonalityTags {
+ final  List<DropdownValue> _selectedPersonalityTags;
+@override@JsonKey() List<DropdownValue> get selectedPersonalityTags {
   if (_selectedPersonalityTags is EqualUnmodifiableListView) return _selectedPersonalityTags;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_selectedPersonalityTags);
@@ -778,7 +778,7 @@ abstract mixin class _$RegisterStateCopyWith<$Res> implements $RegisterStateCopy
   factory _$RegisterStateCopyWith(_RegisterState value, $Res Function(_RegisterState) _then) = __$RegisterStateCopyWithImpl;
 @override @useResult
 $Res call({
- Status initStatus, List<DropItem> dogBreeds, List<DropItem> catBreeds, List<DropItem> personalityTags, NotEmpty petName, PetType petType, NotEmpty dob, DropdownValue breed, List<int> selectedPersonalityTags, NotEmpty weightUnit, NotEmpty weight
+ Status initStatus, List<DropItem> dogBreeds, List<DropItem> catBreeds, List<DropItem> personalityTags, NotEmpty petName, PetType petType, NotEmpty dob, DropdownValue breed, List<DropdownValue> selectedPersonalityTags, NotEmpty weightUnit, NotEmpty weight
 });
 
 
@@ -806,7 +806,7 @@ as NotEmpty,petType: null == petType ? _self.petType : petType // ignore: cast_n
 as PetType,dob: null == dob ? _self.dob : dob // ignore: cast_nullable_to_non_nullable
 as NotEmpty,breed: null == breed ? _self.breed : breed // ignore: cast_nullable_to_non_nullable
 as DropdownValue,selectedPersonalityTags: null == selectedPersonalityTags ? _self._selectedPersonalityTags : selectedPersonalityTags // ignore: cast_nullable_to_non_nullable
-as List<int>,weightUnit: null == weightUnit ? _self.weightUnit : weightUnit // ignore: cast_nullable_to_non_nullable
+as List<DropdownValue>,weightUnit: null == weightUnit ? _self.weightUnit : weightUnit // ignore: cast_nullable_to_non_nullable
 as NotEmpty,weight: null == weight ? _self.weight : weight // ignore: cast_nullable_to_non_nullable
 as NotEmpty,
   ));

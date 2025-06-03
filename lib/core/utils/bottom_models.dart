@@ -7,6 +7,7 @@ import 'package:dummy/features/dailycare/presentation/widgets/add/add_expenses_f
 import 'package:dummy/features/dailycare/presentation/widgets/add/add_meal_form.dart';
 import 'package:dummy/features/health/presentation/widgets/vaccines/vaccination_filter_bottom_sheet.dart';
 import 'package:dummy/features/health/presentation/widgets/vaccines/vaccination_reminder_bottom_sheet.dart';
+import 'package:dummy/features/home/presentation/widgets/need_premium_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -77,6 +78,17 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return VaccinationFilterBottomSheet();
+      },
+    );
+  }
+  static Future<T?> needPremiumBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return NeedPremiumBottomSheet();
       },
     );
   }
