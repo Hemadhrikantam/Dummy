@@ -234,7 +234,8 @@ class AppText {
 
   //Medication
   static const String insights = 'Insights';
-  static const String vaccinations = 'Vaccination';
+  static const String vaccination = 'Vaccination';
+  static const String vaccinations = 'Vaccinations';
   static const String medications = 'Medication';
   static const String filter = 'Filter';
   static const String startDate = 'Start Date';

@@ -3,17 +3,11 @@ import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
-import 'package:dummy/core/widgets/dotted_border_widget.dart';
-import 'package:dummy/core/widgets/mandatory_field_widget.dart';
-import 'package:dummy/core/widgets/phone_text_field.dart';
-import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
-import 'package:dummy/features/signup/presentation/pages/welcome_to_dummy_page.dart';
 import 'package:flutter/material.dart';
 
 class NgoWelcomePage extends StatefulWidget {

@@ -2,6 +2,7 @@ import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
+import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/nav_bar.dart';
 import 'package:dummy/features/addoption/presentation/pages/addoption_page.dart';
@@ -68,7 +69,8 @@ class _DashboardPage extends State<DashboardPage> {
           child: FloatingActionButton(
             elevation: 0,
             onPressed: () {
-              context.push(WagPage.route());
+                 BottomModels.needPremiumBottomSheet(context);
+              // context.push(WagPage.route());
             },
             shape: RoundedRectangleBorder(
               side: const BorderSide(width: 3, color: AppColors.white),

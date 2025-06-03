@@ -17,6 +17,7 @@ class AppCustomChipWidget extends StatelessWidget {
     this.textOverflow,
     this.maxLines,
     this.textAlign,
+    this.fontSize = 10,
   });
   final Color? backgroundColor;
   final Color? textColor;
@@ -25,7 +26,7 @@ class AppCustomChipWidget extends StatelessWidget {
   final EdgeInsets? padding;
   final TextOverflow? textOverflow;
   final TextAlign? textAlign;
-
+  final double fontSize;
   final int? maxLines;
 
   @override
@@ -44,7 +45,7 @@ class AppCustomChipWidget extends StatelessWidget {
           maxLines: maxLines,
           textColor: textColor ?? AppColors.black,
           title: title,
-          titleFont: 10,
+          titleFont: fontSize,
           subTitleFont: 10,
         ),
       ),

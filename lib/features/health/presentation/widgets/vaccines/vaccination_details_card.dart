@@ -45,6 +45,7 @@ class VaccinationDetailsCard extends StatelessWidget {
                 backgroundColor: AppColors.buttonBackground.withOpacity(.1),
                 textColor: AppColors.stepperColor,
                 subTitle: '',
+                fontSize: 14,
                 title: '3 Days Left',
               ),
             ],
@@ -92,18 +93,18 @@ class VaccinationDetailsCard extends StatelessWidget {
             ],
           ),
           Styles.gap20,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              AppTextButton(
-                padding: Styles.edgeInsetsAll12 + Styles.edgeInsetsOnlyW25,
-                backgroundColor: AppColors.white,
-                name: AppText.viewMore,
-                borderColor: AppColors.grey500,
-                textColor: AppColors.buttonTextColor,
-              ),
-            ],
-          ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     AppTextButton(
+          //       padding: Styles.edgeInsetsAll12 + Styles.edgeInsetsOnlyW25,
+          //       backgroundColor: AppColors.white,
+          //       name: AppText.viewMore,
+          //       borderColor: AppColors.grey500,
+          //       textColor: AppColors.buttonTextColor,
+          //     ),
+          //   ],
+          // ),
         ],
       ),
     );

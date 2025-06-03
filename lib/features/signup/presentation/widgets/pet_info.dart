@@ -3,11 +3,14 @@ import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/custom_dropdown.dart';
+import 'package:dummy/core/widgets/custom_multi_dropdown.dart';
+import 'package:dummy/features/profile/presentation/widgets/add_pet/add_pet_form.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
@@ -174,18 +177,33 @@ class _PetInfoState extends State<PetInfo> {
           suffixIcon: Iconsax.calendar,
         ),
         Styles.gap20,
-        CustomDropdownSearch(items: [], title: AppText.breed),
+        CustomDropdownSearch(items: [
+          DropItemModel(id: 1, value: "hell"),
+          DropItemModel(id: 2, value: "hello"),
+          DropItemModel(id: 3, value: "hello"),
+          DropItemModel(id: 1, value: "hello"),
+          DropItemModel(id: 2, value: "hello"),
+          DropItemModel(id: 3, value: "hello"),
+          DropItemModel(id: 1, value: "hello"),
+          DropItemModel(id: 2, value: "hello"),
+          DropItemModel(id: 3, value: "hello"),
+        ], title: AppText.breed),
         Styles.gap20,
-        CustomDropdownSearch(items: [], title: AppText.personalitytags),
-        // Row(
-        //   children: [
-        //     PersonalityTagCard(),
-        //     Styles.gap10,
-        //     PersonalityTagCard(),
-        //     Styles.gap10,
-        //     PersonalityTagCard(),
-        //   ],
-        // ),
+        CustomMultiDropdownSearch(items: [
+                 DropItemModel(id: 1, value: "hell"),
+          DropItemModel(id: 2, value: "hello"),
+          DropItemModel(id: 3, value: "helo"),
+          DropItemModel(id: 1, value: "hlo"),
+        ], title: AppText.personalitytags),
+        Row(
+          children: [
+            PersonalityTagCard(),
+            Styles.gap10,
+            PersonalityTagCard(),
+            Styles.gap10,
+            PersonalityTagCard(),
+          ],
+        ),
         Styles.gap20,
         AppTextFormField(
           controller: TextEditingController(text: weight.toString()),

@@ -19,8 +19,9 @@ class MedicationDetailsCard extends StatelessWidget {
         children: [
           AppCustomChipWidget(
             backgroundColor: AppColors.buttonBackground.withOpacity(.1),
-            textColor: AppColors.greenText,
+            textColor: AppColors.stepperColor,
             subTitle: '',
+            fontSize: 14,
             title: '3 Days Left',
           ),
           Styles.gap6,
