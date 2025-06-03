@@ -4,7 +4,6 @@ import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/models/tab_model.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
-import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/core/widgets/custom_tab_bar.dart';
 import 'package:dummy/features/profile/presentation/widgets/pet_dairy/documents_tab.dart';
 import 'package:dummy/features/profile/presentation/widgets/pet_dairy/media_tab.dart';

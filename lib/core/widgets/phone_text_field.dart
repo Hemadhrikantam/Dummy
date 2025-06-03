@@ -62,8 +62,7 @@ class _PhoneTextField extends State<PhoneTextField> {
         Stack(
           children: [
             IntlPhoneField(
-              
-              flagsButtonPadding: EdgeInsetsGeometry.only(left: 10),
+              flagsButtonPadding: EdgeInsets.only(left: 10),
               dropdownIcon: Icon(Icons.keyboard_arrow_down),
               key: _phoneFieldKey, // force rebuild when country changes
               controller: widget.controller,

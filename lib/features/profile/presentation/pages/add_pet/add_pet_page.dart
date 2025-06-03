@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import '../../../../../core/constent/app_text.dart';
 import '../../../../../core/widgets/base_screen.dart';
 import '../../../../../core/widgets/buttons/app_button.dart';
-import '../../../../../core/widgets/custom_bottom_sheet.dart';
 
 class AddPetPage extends StatelessWidget {
   const AddPetPage({super.key});

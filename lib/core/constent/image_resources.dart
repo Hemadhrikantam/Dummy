@@ -90,4 +90,7 @@ class ImageResources {
   //wag
   static const String wagLogo = '$images/wag_logo.png';
   static const String sendIcon = '$__icons/send_icon.png';
+
+  //pet dairy
+  static const String petdairyPlaceholder = '$images/pet_dairy_placeholder.png';
 }

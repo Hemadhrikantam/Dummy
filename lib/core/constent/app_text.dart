@@ -296,6 +296,7 @@ class AppText {
   static const String addMedia = 'Add Media';
   static String tellUsLuna = 'Tell us about Luna’s moment!';
   static String events = 'Events';
+  static String favourites = 'Favourites';
 
   //home
   static String weight = 'Weight';

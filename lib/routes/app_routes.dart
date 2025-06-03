@@ -18,6 +18,7 @@ import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey
 import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey2.dart';
 import 'package:flutter/material.dart';
 
+import '../features/profile/presentation/pages/pet_dairy/pet_fav_page.dart';
 import '../features/profile/presentation/pages/profile_options_page.dart';
 import '../features/signup/presentation/pages/meet_your_pet_screen.dart';
 import '../features/signup/presentation/pages/notification_permission_page.dart';
@@ -61,5 +62,6 @@ class AppRoutes {
     NgoWelcomePage.routeName: (_) => const NgoWelcomePage(),
     NgoHomePage.routeName: (_) => const NgoHomePage(),
     PetPhotoCardPage.routeName: (_) => const PetPhotoCardPage(),
+    PetFavPage.routeName: (_) => const PetFavPage(),
   };
 }
