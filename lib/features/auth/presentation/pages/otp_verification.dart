@@ -158,11 +158,10 @@ class _OTPInputState extends State<_OTPInput> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: List.generate(4, (index) {
         return Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5),
+          padding: Styles.edgeInsetsOnlyW04,
           child: SizedBox(
             width: 50,
             height: 50,
-
             child: TextField(
               controller: _controllers[index],
               focusNode: _focusNodes[index],
@@ -176,12 +175,11 @@ class _OTPInputState extends State<_OTPInput> {
                 filled: true,
                 fillColor: Colors.white,
                 enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: Styles.borderRadiusCircular25,
                   borderSide: const BorderSide(color: Colors.grey, width: 1),
                 ),
                 border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(25),
-                  // borderSide: const BorderSide(color: Colors.orange, width: 2),
+                  borderRadius:  Styles.borderRadiusCircular25,
                 ),
               ),
             ),
