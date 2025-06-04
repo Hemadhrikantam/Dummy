@@ -69,8 +69,8 @@ class _DashboardPage extends State<DashboardPage> {
           child: FloatingActionButton(
             elevation: 0,
             onPressed: () {
-                 BottomModels.needPremiumBottomSheet(context);
-              // context.push(WagPage.route());
+              context.push(WagPage.route());
+              //  BottomModels.needPremiumBottomSheet(context);
             },
             shape: RoundedRectangleBorder(
               side: const BorderSide(width: 3, color: AppColors.white),

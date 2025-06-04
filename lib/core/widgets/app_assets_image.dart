@@ -70,6 +70,7 @@ class AppSVGImage extends StatelessWidget {
     required this.path,
     super.key,
     this.colorFilter,
+    this.color,
     this.height,
     this.width,
     this.boxFit,
@@ -79,12 +80,14 @@ class AppSVGImage extends StatelessWidget {
   final double? height;
   final double? width;
   final ColorFilter? colorFilter;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
       child: SvgPicture.asset(
         path,
+        color: color,
         fit: boxFit ?? BoxFit.cover,
         colorFilter: colorFilter,
         semanticsLabel: path,
