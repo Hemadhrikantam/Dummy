@@ -4,6 +4,11 @@ import 'package:dummy/core/services/local_storage_impl.dart';
 import 'package:dummy/core/services/navigation_service.dart';
 import 'package:dummy/core/utils/custom_interceptors.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
+import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
+import 'package:dummy/features/profile/data/datasources/profile_datasource_impl.dart';
+import 'package:dummy/features/profile/data/repositories/profile_repository_impl.dart';
+import 'package:dummy/features/profile/domain/repositories/profile_repository.dart';
+import 'package:dummy/features/profile/domain/usecases/documents_usecases.dart';
 import 'package:dummy/service/app_http_service.dart';
 import 'package:dummy/service/local_storage_service.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +39,7 @@ part 'injection_navigation_services.dart';
 part 'injection_system_settings.dart';
 part 'injection_auth.dart';
 part 'injection_singup.dart';
+part 'injection_profile.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -43,5 +49,6 @@ class Injection {
     await _initSystemSettings();
     await __authDependencies();
     await __signupDependencies();
+    await __profileDependencies();
   }
 }

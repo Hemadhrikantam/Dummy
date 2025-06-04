@@ -9,3 +9,6 @@ String registerAccount = '$__publicBase/account/register/';
 String catBreeds = '$__publicBase/pets/cat-breeds/';
 String dogBreeds = '$__publicBase/pets/dog-breeds/';
 String personalityTags = '$__publicBase/pets/personality-tags/';
+String petDairyEvent = '$__publicBase/pet-diary/event-fields';
+String petDairyMedia = '$__publicBase/pet-diary/media-files';
+String petDairyDocuments = '$__publicBase/pet-diary/documents';
