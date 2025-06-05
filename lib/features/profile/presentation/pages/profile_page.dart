@@ -181,7 +181,7 @@ class _ProfilePage extends State<ProfilePage> {
 }
 
 class _ProfileImage extends StatelessWidget {
-  const _ProfileImage({super.key});
+  const _ProfileImage();
 
   @override
   Widget build(BuildContext context) {

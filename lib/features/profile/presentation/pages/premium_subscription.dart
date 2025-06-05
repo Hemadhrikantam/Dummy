@@ -56,6 +56,7 @@ class _PremiumSubscription extends State<PremiumSubscription> {
               if(isPremium)
               PremiumSubscriptionView(),
               if(!isPremium)
+              // ignore: dead_code
               Start30DaysFreeView()
             ],
           ),

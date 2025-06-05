@@ -44,50 +44,53 @@ class _PetDairyPageState extends State<PetDairyPage>
       decoration: BoxDecoration(gradient: AppColors.screenBackgroundColor),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        body: DefaultTabController(
-          length: 3,
-          child: NestedScrollView(
-            headerSliverBuilder:
-                (context, innerBoxIsScrolled) => [
-                  SliverAppBar(
-                    backgroundColor: Colors.transparent,
-                    automaticallyImplyLeading: false,
-                    expandedHeight: 300,
-                    pinned: true,
-                    flexibleSpace: FlexibleSpaceBar(
-                      collapseMode: CollapseMode.pin,
-                      background: Column(
-                        children: [
-                          Styles.gap50,
-                          PetDairyHeader(),
-                          Styles.gap25,
-                          PetImageWidget(),
-                          Styles.gap15,
-                        ],
+        body: Padding(
+          padding: Styles.edgeInsetsAll10,
+          child: DefaultTabController(
+            length: 3,
+            child: NestedScrollView(
+              headerSliverBuilder:
+                  (context, innerBoxIsScrolled) => [
+                    SliverAppBar(
+                      backgroundColor: Colors.transparent,
+                      automaticallyImplyLeading: false,
+                      expandedHeight: 300,
+                      pinned: true,
+                      flexibleSpace: FlexibleSpaceBar(
+                        collapseMode: CollapseMode.pin,
+                        background: Column(
+                          children: [
+                            Styles.gap50,
+                            PetDairyHeader(),
+                            Styles.gap25,
+                            PetImageWidget(),
+                            Styles.gap15,
+                          ],
+                        ),
+                      ),
+                      bottom: PreferredSize(
+                        preferredSize: Size.fromHeight(10),
+                        child: Column(
+                          children: [
+                            CustomTabBar1(
+                              tabController: _tabController,
+                              tabs: [
+                                TabModel(text: AppText.timeline),
+                                TabModel(text: AppText.media),
+                                TabModel(text: AppText.documents),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    bottom: PreferredSize(
-                      preferredSize: Size.fromHeight(10),
-                      child: Column(
-                        children: [
-                          CustomTabBar1(
-                            tabController: _tabController,
-                            tabs: [
-                              TabModel(text: AppText.timeline),
-                              TabModel(text: AppText.media),
-                              TabModel(text: AppText.documents),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-            body: Padding(
-              padding: Styles.edgeInsetsOnlyW10 + Styles.edgeInsetsOnlyB75,
-              child: TabBarView(
-                controller: _tabController,
-                children: [TimeLineTab(), MediaTab(), DocumentsTab()],
+                  ],
+              body: Padding(
+                padding: Styles.edgeInsetsOnlyW10 + Styles.edgeInsetsOnlyB75,
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [TimeLineTab(), MediaTab(), DocumentsTab()],
+                ),
               ),
             ),
           ),
