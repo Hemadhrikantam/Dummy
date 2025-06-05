@@ -5,11 +5,11 @@ import 'package:dummy/core/models/tab_model.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/custom_tab_bar.dart';
+import 'package:dummy/features/profile/presentation/widgets/bottom_action_button.dart';
 import 'package:dummy/features/profile/presentation/widgets/pet_dairy/documents_tab.dart';
 import 'package:dummy/features/profile/presentation/widgets/pet_dairy/media_tab.dart';
 import 'package:dummy/features/profile/presentation/widgets/pet_dairy/time_line_tab.dart';
 import 'package:flutter/material.dart';
-
 import '../../widgets/pet_dairy/pet_dairy_header.dart';
 import '../../widgets/pet_image_widget.dart';
 
@@ -92,20 +92,7 @@ class _PetDairyPageState extends State<PetDairyPage>
             ),
           ),
         ),
-        bottomSheet: Container(
-          width: double.infinity,
-          padding: Styles.edgeInsetsAll12,
-          decoration: BoxDecoration(
-            color: AppColors.white,
-            borderRadius: BorderRadius.circular(20),
-            boxShadow: [
-              BoxShadow(
-                color: AppColors.grey700,
-                blurRadius: 10,
-                offset: const Offset(0, 0),
-              ),
-            ],
-          ),
+        bottomSheet: BottomActionButton(
           child: AppButton(
             name: Text(AppText.add, style: Styles.buttonStyle),
             onPressed: () {

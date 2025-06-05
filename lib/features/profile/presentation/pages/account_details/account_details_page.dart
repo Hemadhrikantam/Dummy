@@ -43,7 +43,7 @@ class AccountDetailsPage extends StatelessWidget {
         ),
       ),
       child: Padding(
-        padding: EdgeInsets.only(top: 16),
+        padding: EdgeInsets.only(top: 12),
         child: const AccountDetailsForm(),
       ),
     );

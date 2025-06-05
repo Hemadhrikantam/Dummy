@@ -16,7 +16,7 @@ class DateList extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       separatorBuilder: (context, i) => Styles.gap10,
       itemBuilder: (BuildContext context, int i) {
-        return DateCard();
+        return DateCard(isGiven: i%2==0,);
       },
     );
   }

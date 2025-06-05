@@ -30,6 +30,7 @@ class AppText {
   static String allowNotificationContent =
       "Do you want Dummy to send you reminders?";
   static String cancel = "Cancel";
+  static String cancelPlan = "Cancel Plan";
   static String enterPhoneNumber = "Enter Phone Number";
   static String petPhotoUploadedContent = 'Looking good! Let’s move forward.';
 
@@ -47,6 +48,8 @@ class AppText {
   static String tryFor = 'Try for \$0.00';
   static String continueForFree = 'Continue For Free';
   static String start3Day1FreeTrail = 'Start 3 Day Free Trail';
+  static String save20bySwitching = 'Save 20% by switching to an annual plan!';
+  static String renewEarlybyButton = 'Renew early by May 1, 2025, and get 10% off ';
 
   //signup
   static String meetYourPet = 'Meet Your Pet!';
@@ -143,11 +146,19 @@ class AppText {
       'Understand your pet’s emotions with AI mood analysis and strengthen your bond.';
   static String text5 = 'Ability to 3 Family Members & 3 Pets.';
   static String planInfo = 'Only \$4.99/month (billed annually at \$49.99)';
+  static String planType = 'Plan Type';
+  static String planOverview = 'Plan Overview';
+  static String bilingInfo = 'Biling Info';
+  static String paymentMethod = 'Payment Method';
   static String rating = '4.8 Star Ratings';
   static String weWillSendRemainder =
       "We’ll remind you with an email or notification that your trial is ending.";
   static String start30DayFreeTrail =
       "Start your 30 day FREE trial to continue";
+  static String renewEarlyBy =
+      "Renew early by May 1, 2025, and get 10% off your next year!";
+  static String saveBySwitching =
+      "Save 20% by switching to an annual plan! Only \$49.99/year (\$4/month)";
   static String monthly = 'Monthly';
   static String monthlyPrice = "\$4.99";
   static String yearly = "Yearly";
@@ -155,6 +166,7 @@ class AppText {
   static String start3DayFreeTrail = 'Free 3 Days Trial';
   static String start301DayFreeTrail = 'Free 30 Days Trial';
   static String save20Percent = 'Save 20%';
+  static String currentPlan = 'Current Plan';
   static String today = 'Today';
   static String getInstantAccess =
       'Get instant access and see how it can change your life.';
@@ -262,6 +274,7 @@ class AppText {
   static const String details = 'Details';
   static const String markAsGiven = 'Mark As Given';
   static const String edit = 'Edit';
+  static const String share = 'Share';
   static const String delete = 'Delete';
   static const String undo = 'Undo';
   static const String areYouSureToDelete = 'Are you sure to delete';
@@ -287,6 +300,11 @@ class AppText {
   //profile
   static const String petProfile = 'Pet Profile';
   static const String accountDetails = 'Account Details';
+  static const String monthlyPremiumPlan = 'Monthly Premium Plan';
+  static const String annualPremiumPlan = 'Annual Premium Plan';
+  static const String nextBillingMonthly = 'Next billing: May 1, 2025, at \$4.99';
+  static const String card = 'Card';
+  static const String renewsonApril = 'Renews on April 1, 2026, at \$49.99';
   static const String uploadRegistrationProof = 'Upload Registration Proof';
   static const String manageFamily = 'Manage Family Members';
   static const String premiumSubscription = 'Premium Subscription';
@@ -297,6 +315,8 @@ class AppText {
   static String phoneNumber = 'Phone Number';
   static String forgetPassword = 'Forget Password';
   static String members = 'Members';
+  static String clinicsNearMe = 'Clinics Near Me ';
+  static String member = 'Member';
   static String startCapturingMemo = 'Start capturing memories with Luna 🐶';
   static String doommiHelpsKeep = 'Doommi helps keep your buddy safe.';
   static String letKeepSafe = 'Let’s keep [Pet Name] safe.';

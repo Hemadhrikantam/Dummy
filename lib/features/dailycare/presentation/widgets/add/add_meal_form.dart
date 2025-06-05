@@ -1,15 +1,20 @@
+import 'dart:io';
+
+import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
+import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
+import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/custom_dropdown.dart';
 import 'package:dummy/core/widgets/dotted_border_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
-
+import 'package:path/path.dart' as path;
 import '../../../../../core/widgets/app_graber.dart';
 import '../save_cancel_widget.dart';
 
@@ -21,6 +26,7 @@ class AddMealForm extends StatefulWidget {
 }
 
 class _AddMealFormState extends State<AddMealForm> {
+  List<XFile> selectedImages = [];
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
@@ -116,12 +122,61 @@ class _AddMealFormState extends State<AddMealForm> {
                                 source: ImageSource.gallery,
                               );
                               if (image != null) {
-                                // setState(() {
-                                //   selectedImage = image;
-                                // });
+                                setState(() {
+                                  selectedImages.add(image);
+                                });
                               }
                             },
                           ),
+                          Styles.gap10,
+                          if (selectedImages.isNotEmpty)
+                            ...selectedImages.map((i) {
+                              return Container(
+                                margin: Styles.edgeInsetsOnlyH04,
+                                padding: Styles.edgeInsetsAll04,
+                                decoration: BoxDecoration(
+                                  borderRadius: Styles.borderRadiusCircular08,
+                                  border: Border.all(width: 1,color: AppColors.grey400)
+                                ),
+                                child: Row(
+                                  children: [
+                                    Image.file(
+                                      File(i.path),
+                                      height: 40,
+                                      width: 40,
+                                    ),
+                                    Styles.gap10,
+                                    Expanded(
+                                      child: Text(
+                                        path.basename(i.path),
+                                        style: context.textTheme.titleSmall
+                                            ?.copyWith(
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 14,
+                                              color: AppColors.grey600,
+                                            ),
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                    GestureDetector(
+                                      onTap: (){
+                                        setState(() {
+                                          selectedImages.remove(i);
+                                        });
+                                      },
+                                      child: AppAssestsImage(
+                                        path: ImageResources.delete,
+                                        height: 27,
+                                        width: 27,
+                                      ),
+                                    ),
+                                    Styles.gap4
+                                  ],
+                                ),
+                              );
+                            }).toList(),
+                          
                           Styles.gap30,
                         ],
                       ),

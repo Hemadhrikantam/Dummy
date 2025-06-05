@@ -27,11 +27,11 @@ class ManageFamilyMembersBottomSheetContent extends StatelessWidget {
       builder: (context, scrollController) {
         return ListView(
           controller: scrollController,
-          padding: Styles.edgeInsetsAll15,
+          padding: Styles.edgeInsetsOnlyW20,
           children: [
-            Styles.gap4,
+            Styles.gap6,
             AppGraber(),
-            Styles.gap20,
+            Styles.gap16,
             Text(
               AppText.members,
               style: context.textTheme.titleLarge?.copyWith(
@@ -47,9 +47,6 @@ class ManageFamilyMembersBottomSheetContent extends StatelessWidget {
                 children: [
                   TextValueWidget(text: 'Admin', value: 'Suraj S Nair'),
                   Styles.spacer,
-                  AppIcon(icon: Iconsax.edit_25, color: AppColors.grey600),
-                  Styles.gap10,
-                  AppIcon(icon: Iconsax.trush_square, color: AppColors.red),
                 ],
               ),
             ),
@@ -64,7 +61,9 @@ class ManageFamilyMembersBottomSheetContent extends StatelessWidget {
                   Styles.spacer,
                   AppIcon(icon: Iconsax.edit_25, color: AppColors.grey600),
                   Styles.gap10,
-                  AppIcon(icon: Iconsax.trush_square, color: AppColors.red),
+                  AppIcon(onTap: (){
+                      BottomModels.memberDeleteBottomSheet(context);
+                    },icon: Iconsax.trush_square, color: AppColors.red),
                 ],
               ),
             ),
@@ -79,7 +78,11 @@ class ManageFamilyMembersBottomSheetContent extends StatelessWidget {
                   Styles.spacer,
                   AppIcon(icon: Iconsax.edit_25, color: AppColors.grey600),
                   Styles.gap10,
-                  AppIcon(icon: Iconsax.trush_square, color: AppColors.red),
+                  AppIcon(
+                    onTap: (){
+                      BottomModels.memberDeleteBottomSheet(context);
+                    },
+                    icon: Iconsax.trush_square, color: AppColors.red),
                 ],
               ),
             ),

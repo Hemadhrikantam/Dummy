@@ -52,10 +52,14 @@ class ImageResources {
 
   //profile
   static const String profileDog = '$images/profile_dog.png';
+  static const String profileBackground = '$images/profile_background.png';
   static const String petProfile = '$images/pet_profile.png';
   static const String familyMembers = '$images/manage_family.png.png';
   static const String accountDetails = '$images/account_details.png';
+  static const String map = '$__icons/map.png';
+  static const String petDiary = '$__icons/pet_diary.png';
   static const String mdipaw = '$images/mdi_paw.png';
+  static const String darkpaw= '$images/dark_paw.png';
   static const String premiumSubscription = '$images/premium.png';
   static const String support = '$images/support.png';
   static const String arrowFarward = '$images/arrow_farward.png';
