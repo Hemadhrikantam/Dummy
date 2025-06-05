@@ -54,33 +54,39 @@ class _PetDairyPageState extends State<PetDairyPage>
                   pinned: true,
                   flexibleSpace: FlexibleSpaceBar(
                     collapseMode: CollapseMode.pin,
-                    background: Column(
-                      children: [
-                        Styles.gap50,
-                        PetDairyHeader(),
-                        Styles.gap25,
-                        PetImageWidget(),
-                        Styles.gap15,
-                      ],
+                    background: Padding(
+                      padding: Styles.edgeInsetsActivities,
+                      child: Column(
+                        children: [
+                          Styles.gap50,
+                          PetDairyHeader(),
+                          Styles.gap25,
+                          PetImageWidget(),
+                          Styles.gap20,
+                        ],
+                      ),
                     ),
                   ),
                   bottom: PreferredSize(
                     preferredSize: Size.fromHeight(10),
-                    child: Column(
-                      children: [
-                        Material(
-                          color: AppColors.buttonBackground.withOpacity(.16),
-                          child: CustomTabBar1(
-                            tabController: _tabController,
-                            tabs: [
-                              TabModel(text: AppText.timeline),
-                              TabModel(text: AppText.media),
-                              TabModel(text: AppText.documents),
-                            ],
+                    child: Padding(
+                      padding: Styles.edgeInsetsOnlyW10,
+                      child: Column(
+                        children: [
+                          Material(
+                            color: AppColors.buttonBackground.withOpacity(.16),
+                            child: CustomTabBar1(
+                              tabController: _tabController,
+                              tabs: [
+                                TabModel(text: AppText.timeline),
+                                TabModel(text: AppText.media),
+                                TabModel(text: AppText.documents),
+                              ],
+                            ),
                           ),
-                        ),
-                        Styles.gap10,
-                      ],
+                          Styles.gap10,
+                        ],
+                      ),
                     ),
                   ),
                 ),
