@@ -14,7 +14,7 @@ class MediaTab extends StatelessWidget {
   Widget build(BuildContext context) {
         if (true) {
       return Padding(
-        padding: Styles.edgeInsetsOnlyH20,
+        padding: Styles.edgeInsetsOnlyH00,
         child: EmptyListPage(
           imagePath: ImageResources.noMedia,
           subTitle: AppText.startCapturingMemo,

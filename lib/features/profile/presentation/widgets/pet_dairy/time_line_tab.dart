@@ -15,6 +15,7 @@ class TimeLineTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: Styles.edgeInsetsOnlyH00,
       children: [
         CustomCard(
           borderColor: AppColors.white,

@@ -13,6 +13,7 @@ class DocumentsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      padding: Styles.edgeInsetsOnlyH00,
       children: [
         CustomCard(
           borderColor: AppColors.white,
@@ -37,13 +38,17 @@ class DocumentsTab extends StatelessWidget {
                       style: context.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.w400,
                         fontSize: 14,
-                        color: AppColors.grey600
+                        color: AppColors.grey600,
                       ),
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  AppAssestsImage(path: ImageResources.delete, height: 27,width: 27,)
+                  AppAssestsImage(
+                    path: ImageResources.delete,
+                    height: 27,
+                    width: 27,
+                  ),
                 ],
               );
             },

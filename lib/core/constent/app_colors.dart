@@ -28,6 +28,7 @@ class AppColors {
   static const Color buttonTextColor = Color(0xFF6F3201);
   static const Color infoCardBackgroundColor = Color.fromARGB(98, 255, 186, 97);
   static const Color darkOrange = Color(0xff99703A);
+  static const Color scaffoldBackground = Color.fromARGB(255, 255, 221, 177);
 
   // static const LinearGradient screenBackgroundColor = LinearGradient(
   //               begin: Alignment.topCenter,
