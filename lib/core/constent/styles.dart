@@ -183,6 +183,7 @@ class Styles {
   static const radiusCircular10 = Radius.circular(10);
   static const radiusCircular12 = Radius.circular(12);
   static const radiusCircular20 = Radius.circular(20);
+  static const radiusCircular60 = Radius.circular(60);
 
   //
   static const visualCardBorderRadius = BorderRadius.only(

@@ -14,12 +14,22 @@ class PetInformationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomCard(
       backgroundColor: AppColors.buttonBackground,
+      borderRadius: BorderRadius.only(
+        bottomLeft: Styles.radiusCircular08,
+        bottomRight: Styles.radiusCircular08,
+      ),
       borderColor: AppColors.brown,
+      border: Border.all(color: AppColors.buttonBackground),
       child: Column(
         children: [
           CustomCard(
             child: Row(
               children: [
+                __InfoValue(
+                  image: ImageResources.weight,
+                  title: AppText.name,
+                  value: 'Luna',
+                ),
                 __InfoValue(
                   image: ImageResources.breed,
                   title: AppText.breed,
@@ -29,12 +39,6 @@ class PetInformationWidget extends StatelessWidget {
                   image: ImageResources.age,
                   title: AppText.age,
                   value: '2 Years',
-                ),
-                Styles.gap10,
-                __InfoValue(
-                  image: ImageResources.weight,
-                  title: AppText.weight,
-                  value: '14 kgs',
                 ),
               ],
             ),
@@ -53,7 +57,11 @@ class PetInformationWidget extends StatelessWidget {
                   title: AppText.gender,
                   value: 'Female',
                 ),
-                Expanded(child: Styles.sizedBox),
+                __InfoValue(
+                  image: ImageResources.weight,
+                  title: AppText.weight,
+                  value: '14 kgs',
+                ),
               ],
             ),
           ),
