@@ -329,7 +329,6 @@ class AppText {
   static String areYouSureYouWantToLogout = 'Are you sure you want to logout';
   static String no = 'No';
   static String yes = 'Yes';
-
   //pet dairy
   static const String petDairy = 'Pet Dairy';
   static const String timeline = 'Timeline';
