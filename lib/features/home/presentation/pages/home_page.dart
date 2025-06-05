@@ -25,7 +25,6 @@ class _HomePage extends State<HomePage> {
           CustomHeaderWidget(),
           Styles.gap15,
           PetListHomeWidget(),
-          Styles.gap15,
           PetInformationWidget(),
           Styles.gap15,
           QuickActionsWidget(),

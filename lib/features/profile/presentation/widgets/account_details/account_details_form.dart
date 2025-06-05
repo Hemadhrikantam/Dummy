@@ -15,7 +15,7 @@ class AccountDetailsForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      padding: Styles.edgeInsetsOnlyH00,
+      padding: Styles.edgeInsetsZero,
       children: [
         CustomCard(
           borderColor: AppColors.transparent,

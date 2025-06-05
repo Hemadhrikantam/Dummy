@@ -7,6 +7,9 @@ import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart'
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_photo_page.dart';
+import 'package:dummy/features/profile/presentation/pages/premium_subscription.dart';
+import 'package:dummy/features/profile/presentation/pages/profile_page.dart';
+import 'package:dummy/features/profile/presentation/pages/vet_near_me_page.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy1_page.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy2_page.dart'
     show JoinDummy2Page;
@@ -76,5 +79,8 @@ class AppRoutes {
     NgoHomePage.routeName: (_) => const NgoHomePage(),
     PetPhotoCardPage.routeName: (_) => const PetPhotoCardPage(),
     PetFavPage.routeName: (_) => const PetFavPage(),
+    ProfilePage.routeName: (_) => const ProfilePage(),
+    VetNearMePage.routeName: (_) => const VetNearMePage(),
+    PremiumSubscription.routeName: (_) => const PremiumSubscription(),
   };
 }

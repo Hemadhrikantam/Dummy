@@ -15,7 +15,7 @@ class MonthlyYearlySelectionCard extends StatelessWidget {
     required this.textColor,
     required this.isSelected,
     required this.onTap,
-    this.badgeText,
+    this.badgeText, this.badgeFontWeight, this.badgeColor,
   });
 
   final String title;
@@ -25,6 +25,8 @@ class MonthlyYearlySelectionCard extends StatelessWidget {
   final Color backgroundColor;
   final Color textColor;
   final bool isSelected;
+  final FontWeight? badgeFontWeight;
+  final Color? badgeColor;
   final VoidCallback onTap;
 
   @override
@@ -85,12 +87,13 @@ class MonthlyYearlySelectionCard extends StatelessWidget {
                       vertical: 4,
                     ),
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 231, 202, 166),
+                      color:badgeColor?? const Color.fromARGB(255, 231, 202, 166),
                       borderRadius: Styles.borderRadiusCircular20,
                     ),
                     child: Text(
                       badgeText!,
                       style: GoogleFonts.instrumentSans(
+                        fontWeight: badgeFontWeight??FontWeight.w400,
                         fontSize: 12,
                         color: AppColors.stepperColor,
                       ),

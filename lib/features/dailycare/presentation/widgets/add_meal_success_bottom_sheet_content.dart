@@ -5,11 +5,9 @@ import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../../../../core/constent/app_colors.dart';
 import '../../../../../core/constent/image_resources.dart';
 import '../../../../../core/constent/styles.dart';
-import '../../../../../core/widgets/app_assets_image.dart';
 import '../../../../core/widgets/app_graber.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
 
@@ -20,13 +18,14 @@ class AddMealSuccessBottomSheetContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: Styles.edgeInsetsAll20,
+      padding: Styles.edgeInsetsOnlyW20,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
+          Styles.gap6,
           AppGraber(),
-          Styles.gap20,
+          Styles.gap16,
           SvgPicture.asset(
             ImageResources.petFood,
             height: context.height * .1,
@@ -100,6 +99,7 @@ class AddMealSuccessBottomSheetContent extends StatelessWidget {
               ),
             ],
           ),
+          Styles.gap10
         ],
       ),
     );

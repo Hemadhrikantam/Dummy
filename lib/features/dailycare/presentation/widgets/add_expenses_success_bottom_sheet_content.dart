@@ -2,6 +2,7 @@ import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
+import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/constent/app_colors.dart';
@@ -18,13 +19,14 @@ class AddExpensesSuccessBottomSheetContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: Styles.edgeInsetsAll20,
+      padding: Styles.edgeInsetsOnlyW20,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
+          Styles.gap6,
           AppGraber(),
-          Styles.gap20,
+          Styles.gap16,
           AppAssestsImage(
             path: ImageResources.medsIcon,
             height: context.height * .07,
@@ -65,6 +67,7 @@ class AddExpensesSuccessBottomSheetContent extends StatelessWidget {
                 child: AppButton(
                   onPressed: () {
                     context.pop();
+                    context.push(PetDairyPage.route());
                   },
                   borderColor: AppColors.grey500,
                   backgroundColor: AppColors.white,
@@ -84,6 +87,7 @@ class AddExpensesSuccessBottomSheetContent extends StatelessWidget {
               ),
             ],
           ),
+          Styles.gap10,
         ],
       ),
     );
