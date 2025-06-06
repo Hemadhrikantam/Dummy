@@ -3,6 +3,7 @@ import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
+import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -61,6 +62,7 @@ class _VaccinationMarkingBottomSheetContentState
           CustomCard(
             padding: Styles.edgeInsetsAll08,
             backgroundColor: AppColors.buttonBackground.withOpacity(.6),
+            border: Border.all(color: Colors.transparent),
             child: Row(
               children: [
                 AppAssestsImage(

@@ -15,9 +15,12 @@ class __Address extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppTextFormField(
-      maxLines: 5,
-      headerText: AppText.address,
+      hintText: AppText.enter,
+      borderRadius: Styles.borderRadiusCircular25,
       onChanged: (value) {},
+      maxLines: 7,
+      heigth: 140,
+      headerText: AppText.address,
     );
   }
 }
@@ -85,6 +88,7 @@ class __File extends StatelessWidget {
             fontWeight: FontWeight.w700,
           ),
         ),
+        Styles.gap6,
         DottedBorderWidget(),
       ],
     );

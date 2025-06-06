@@ -56,12 +56,17 @@ class ImageResources {
   static const String petProfile = '$images/pet_profile.png';
   static const String familyMembers = '$images/manage_family.png.png';
   static const String accountDetails = '$images/account_details.png';
+  static const String lock = '$__icons/lock.png';
+  static const String successAnimation = '$images/success_animation.gif';
   static const String map = '$__icons/map.png';
   static const String petDiary = '$__icons/pet_diary.png';
   static const String mdipaw = '$images/mdi_paw.png';
-  static const String darkpaw= '$images/dark_paw.png';
+  static const String darkpaw = '$images/dark_paw.png';
   static const String premiumSubscription = '$images/premium.png';
   static const String support = '$images/support.png';
+  static const String faq = '$__icons/faq.png';
+  static const String privacypolicy = '$__icons/privacy_policy.png';
+  static const String termscondition = '$__icons/terms_condition.png';
   static const String arrowFarward = '$images/arrow_farward.png';
   static const String delete = '$__icons/delete.png';
   static const String mediaImg = '$images/media.png';
@@ -91,6 +96,8 @@ class ImageResources {
   static const String logWalks = '$images/log_walks.png';
   static const String logVaccin = '$images/log_vaccin.png';
   static const String checkMood = '$images/check_mood.png';
+  static const String medication = '$__icons/medication.png';
+  static const String expenses = '$__icons/expense.png';
   static const String addMemories = '$images/add_memories.png';
   static const String symptoms = '$images/symptoms.png';
 

@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
 import 'adoption_card.dart';
 
 class AdoptiontabbarView extends StatelessWidget {
-  const AdoptiontabbarView({super.key});
-
+  const AdoptiontabbarView({super.key, required this.tab});
+  final String tab;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
@@ -20,7 +20,9 @@ class AdoptiontabbarView extends StatelessWidget {
         shrinkWrap: true,
         separatorBuilder: (context, i) => Styles.gap10,
         itemBuilder: (BuildContext context, int i) {
-          return AdoptionCard();
+          return AdoptionCard(
+            isAllPet: tab =='All Pets',
+          );
         },
       ),
     );

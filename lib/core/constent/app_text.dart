@@ -231,6 +231,7 @@ class AppText {
   static const String duedate = 'Due Date';
   static const String reminder = 'Reminder';
   static const String logout = 'Logout';
+  static const String logoutText = 'You’ll stop receiving reminders and updates for your pet’s care. You can log back in anytime.';
   static const String dummyStayedParasite =
       'Dummy stayed parasite-free with regular deworming—protect';
   static const String addDewormingTo = 'Add deworming to';

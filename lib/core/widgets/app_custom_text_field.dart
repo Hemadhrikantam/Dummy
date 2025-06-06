@@ -121,7 +121,7 @@ class AppTextFormField extends StatelessWidget {
               prefixStyle: GoogleFonts.inter(color: AppColors.black),
               prefixIcon: preffix,
               floatingLabelAlignment: FloatingLabelAlignment.start,
-              fillColor: AppColors.white,
+              fillColor: enable? AppColors.white:AppColors.grey300,
               filled: true,
               // suffix: suffix,
               prefixText: preffixText,

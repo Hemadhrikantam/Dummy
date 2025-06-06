@@ -1,10 +1,13 @@
+import 'package:dummy/features/addoption/presentation/pages/all_adoption_details_page.dart';
 import 'package:dummy/features/auth/presentation/pages/auth_page.dart';
 import 'package:dummy/features/auth/presentation/pages/continue_with_phone.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_welcome_page.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
+import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
+import 'package:dummy/features/profile/presentation/pages/ngo_profile_options_page.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_photo_page.dart';
 import 'package:dummy/features/profile/presentation/pages/premium_subscription.dart';
@@ -82,5 +85,8 @@ class AppRoutes {
     ProfilePage.routeName: (_) => const ProfilePage(),
     VetNearMePage.routeName: (_) => const VetNearMePage(),
     PremiumSubscription.routeName: (_) => const PremiumSubscription(),
+    AdoptionDashboardPage.routeName: (_) => const AdoptionDashboardPage(),
+    AllAdoptionDetailsPage.routeName: (_) => const AllAdoptionDetailsPage(),
+    NgoProfileOptionsPage.routeName: (_) => const NgoProfileOptionsPage(),
   };
 }

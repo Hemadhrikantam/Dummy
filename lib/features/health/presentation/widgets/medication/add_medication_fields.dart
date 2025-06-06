@@ -1,6 +1,7 @@
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_custom_check_box.dart';
+import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/mandatory_field_widget.dart';
 import 'package:flutter/material.dart';
@@ -47,32 +48,19 @@ class __StartDate extends StatefulWidget {
   const __StartDate();
 
   @override
-  State<__StartDate> createState() => __StartDateState();
+  State<__StartDate> createState() => ___StartDate();
 }
 
-class __StartDateState extends State<__StartDate> {
-  final dateController = TextEditingController();
-
-  @override
-  void dispose() {
-    dateController.dispose();
-    super.dispose();
-  }
-
+class ___StartDate extends State<__StartDate> {
+  var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      controller: dateController,
-      suffixIcon: Iconsax.calendar,
-      readOnly: true,
-      hintText: AppText.enter,
-      onChanged: (value) {},
-      headerText: AppText.startDate,
-      onTap: () {
-        AppUtil.datePicker(context, startDate: DateTime(1900)).then((value) {
-          if (value != null) {
-            dateController.text = value;
-          }
+    return AppCustomDateField(
+      headerText: AppText.dueDate,
+      selectedDate: date,
+      onChange: (value) {
+        setState(() {
+          date = value;
         });
       },
     );
@@ -87,28 +75,15 @@ class __EndDate extends StatefulWidget {
 }
 
 class __EndDateState extends State<__EndDate> {
-  final dateController = TextEditingController();
-
-  @override
-  void dispose() {
-    dateController.dispose();
-    super.dispose();
-  }
-
+  var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      controller: dateController,
-      suffixIcon: Iconsax.calendar,
-      readOnly: true,
-      hintText: AppText.enter,
-      onChanged: (value) {},
-      headerText: AppText.endDate,
-      onTap: () {
-        AppUtil.datePicker(context, startDate: DateTime(1900)).then((value) {
-          if (value != null) {
-            dateController.text = value;
-          }
+    return AppCustomDateField(
+      headerText: AppText.dueDate,
+      selectedDate: date,
+      onChange: (value) {
+        setState(() {
+          date = value;
         });
       },
     );
@@ -385,7 +360,7 @@ class ___NightState extends State<__Night> {
             child: Row(
               children: [
                 Expanded(
-                  flex: 4 ,
+                  flex: 4,
                   child: Text(
                     AppText.night,
                     maxLines: 1,

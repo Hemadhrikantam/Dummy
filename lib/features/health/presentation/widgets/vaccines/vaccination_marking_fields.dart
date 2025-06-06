@@ -24,28 +24,15 @@ class __DueDate extends StatefulWidget {
 }
 
 class __DueDateState extends State<__DueDate> {
-  final dateController = TextEditingController();
-
-  @override
-  void dispose() {
-    dateController.dispose();
-    super.dispose();
-  }
-
+  var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      controller: dateController,
-      suffixIcon: Iconsax.calendar,
-      readOnly: true,
-      hintText: AppText.enter,
-      onChanged: (value) {},
-      headerText: AppText.duedate,
-      onTap: () {
-        AppUtil.datePicker(context, startDate: DateTime(1900)).then((value) {
-          if (value != null) {
-            dateController.text = value;
-          }
+    return AppCustomDateField(
+      headerText: AppText.dueDate,
+      selectedDate: date,
+      onChange: (value) {
+        setState(() {
+          date = value;
         });
       },
     );

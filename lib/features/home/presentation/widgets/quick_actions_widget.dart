@@ -49,14 +49,24 @@ class QuickActionsWidget extends StatelessWidget {
           Styles.gap8,
           Row(
             children: [
+              //FOR PREMIUM
+              // __ActionItem(
+              //   image: ImageResources.checkMood,
+              //   title: AppText.checkMood,
+              // ),
+              // Styles.gap8,
+              // __ActionItem(
+              //   image: ImageResources.symptoms,
+              //   title: AppText.symptoms,
+              // ),
               __ActionItem(
-                image: ImageResources.checkMood,
-                title: AppText.checkMood,
+                image: ImageResources.medication,
+                title: AppText.medications,
               ),
               Styles.gap8,
               __ActionItem(
-                image: ImageResources.symptoms,
-                title: AppText.symptoms,
+                image: ImageResources.expenses,
+                title: AppText.expenses,
               ),
               Styles.gap8,
               __ActionItem(

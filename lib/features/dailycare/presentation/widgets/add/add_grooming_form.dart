@@ -7,6 +7,7 @@ import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
+import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
 
@@ -30,8 +31,8 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-      initialChildSize: 0.80,
-      minChildSize: 0.80,
+      initialChildSize: 0.70,
+      minChildSize: 0.70,
       maxChildSize: 0.80,
       expand: false,
       builder: (context, scrollController) {
@@ -40,7 +41,7 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
           padding: Styles.edgeInsetsOnlyW20,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.79,
+              height: MediaQuery.of(context).size.height * 0.69,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -59,19 +60,7 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
-                            AppText.date,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Styles.gap6,
-                          AppTextFormField(
-                            hintText: '...',
-                            readOnly: true,
-                            suffixIcon: Iconsax.calendar,
-                            onTap: () {},
-                          ),
+                          _Date(),
                           Styles.gap15,
                           Text(
                             AppText.type,
@@ -83,14 +72,14 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                           const AppTextFormField(hintText: '...'),
                           Styles.gap10,
 
-                          Text(
-                            AppText.notes,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
+                          AppTextFormField(
+                            hintText: AppText.enter,
+                            borderRadius: Styles.borderRadiusCircular25,
+                            onChanged: (value) {},
+                            maxLines: 6,
+                            heigth: 140,
+                            headerText: AppText.notes,
                           ),
-                          Styles.gap6,
-                          const AppTextFormField(hintText: '...', maxLines: 3),
                           Styles.gap15,
                           Text(
                             AppText.media,
@@ -99,70 +88,7 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                             ),
                           ),
                           Styles.gap6,
-                          DottedBorderWidget(
-                            onTap: () async {
-                              final ImagePicker picker = ImagePicker();
-                              final image = await picker.pickImage(
-                                source: ImageSource.gallery,
-                              );
-                              if (image != null) {
-                                setState(() {
-                                  selectedImages.add(image);
-                                });
-                              }
-                            },
-                          ),
-                          Styles.gap10,
-                          if (selectedImages.isNotEmpty)
-                            ...selectedImages.map((i) {
-                              return Container(
-                                margin: Styles.edgeInsetsOnlyH04,
-                                padding: Styles.edgeInsetsAll04,
-                                decoration: BoxDecoration(
-                                  borderRadius: Styles.borderRadiusCircular08,
-                                  border: Border.all(
-                                    width: 1,
-                                    color: AppColors.grey400,
-                                  ),
-                                ),
-                                child: Row(
-                                  children: [
-                                    Image.file(
-                                      File(i.path),
-                                      height: 40,
-                                      width: 40,
-                                    ),
-                                    Styles.gap10,
-                                    Expanded(
-                                      child: Text(
-                                        path.basename(i.path),
-                                        style: context.textTheme.titleSmall
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 14,
-                                              color: AppColors.grey600,
-                                            ),
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis,
-                                      ),
-                                    ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        setState(() {
-                                          selectedImages.remove(i);
-                                        });
-                                      },
-                                      child: AppAssestsImage(
-                                        path: ImageResources.delete,
-                                        height: 27,
-                                        width: 27,
-                                      ),
-                                    ),
-                                    Styles.gap4,
-                                  ],
-                                ),
-                              );
-                            }).toList(),
+                          DottedBorderWidget(),
 
                           Styles.gap30,
                         ],
@@ -181,6 +107,27 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
             ),
           ],
         );
+      },
+    );
+  }
+}
+
+class _Date extends StatefulWidget {
+  const _Date();
+  @override
+  State<_Date> createState() => __Date();
+}
+
+class __Date extends State<_Date> {
+  var date = DateTime.now();
+  @override
+  Widget build(BuildContext context) {
+    return AppCustomDateField(
+      selectedDate: date,
+      onChange: (value) {
+        setState(() {
+          date = value;
+        });
       },
     );
   }

@@ -35,18 +35,47 @@ class SupportPage extends StatelessWidget {
             child: const Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                SupportItemsWidget(
-                  title: 'Contact',
-                  subtitle: '+91 9897564567',
-                  leadingIcon: ImageResources.support,
-                  trailingIcon: Iconsax.call_calling5,
-                ),
-                Styles.gap10,
+                // SupportItemsWidget(
+                //   title: 'Contact',
+                //   subtitle: '+91 9897564567',
+                //   leadingIcon: ImageResources.support,
+                //   trailingIcon: Iconsax.call_calling5,
+                // ),
+                // Styles.gap10,
                 SupportItemsWidget(
                   title: 'Email',
                   subtitle: 'sparrow@gmail.com',
                   leadingIcon: ImageResources.support,
                   trailingIcon: Iconsax.sms_tracking5,
+                ),
+              ],
+            ),
+          ),
+          Styles.gap12,
+          CustomCard(
+            borderColor: AppColors.transparent,
+            child: const Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SupportItemsWidget(
+                  subtitle: 'FAQ',
+                  leadingIcon: ImageResources.faq,
+                  tailingIconCover: true,
+                  trailingIcon: Icons.keyboard_arrow_right,
+                ),
+                Styles.gap10,
+                SupportItemsWidget(
+                  subtitle: 'Privacy Policy',
+                  leadingIcon: ImageResources.privacypolicy,
+                  tailingIconCover: true,
+                  trailingIcon: Icons.keyboard_arrow_right,
+                ),
+                Styles.gap10,
+                SupportItemsWidget(
+                  subtitle: 'Terms & Conditions',
+                  leadingIcon: ImageResources.termscondition,
+                  tailingIconCover: true,
+                  trailingIcon: Icons.keyboard_arrow_right,
                 ),
               ],
             ),

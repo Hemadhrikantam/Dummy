@@ -30,6 +30,7 @@ class _ProfilePage extends State<ProfilePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        height: MediaQuery.of(context).size.height,
         padding: EdgeInsets.all(10),
         decoration: BoxDecoration(gradient: AppColors.screenBackgroundColor),
         child: SingleChildScrollView(
@@ -53,125 +54,127 @@ class _ProfilePage extends State<ProfilePage> {
                 ],
               ),
               Styles.gap50,
-              SizedBox(
-                width: double.infinity,
-                height: 527,
-                child: Stack(
-                  alignment: Alignment.center,
-                  fit: StackFit.expand,
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      height: 527,
-                      decoration: BoxDecoration(
-                        borderRadius: Styles.borderRadiusCircular10,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage(ImageResources.profileBackground),
-                        ),
-                      ),
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  AspectRatio(
+                    aspectRatio: 354 / 527,
+                    child: AppAssestsImage(
+                      path: ImageResources.profileBackground,
+                      boxFit: BoxFit.contain,
                     ),
-                    Positioned(
-                      top: 20,
+                  ),
+                  Positioned(
+                    top: 20,
+                    child: Column(
+                      children: [
+                        Text(
+                          "Shiri",
+                          style: TextStyle(
+                            fontSize: 48,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.stepperColor,
+                          ),
+                        ),
+                        _ProfileImage(),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 15,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width * .8,
                       child: Column(
                         children: [
-                          Text(
-                            "Shiri",
-                            style: TextStyle(
-                              fontSize: 48,
-                              fontWeight: FontWeight.w700,
-                              color: AppColors.stepperColor,
-                            ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Breed",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: AppColors.grey700,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Indie",
+                                    style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w700,
+                                      color: AppColors.stepperColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    "Age",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: AppColors.grey700,
+                                    ),
+                                  ),
+                                  Text(
+                                    "2 Years",
+                                    style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w700,
+                                      color: AppColors.stepperColor,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
                           ),
-                          _ProfileImage(),
+                          Styles.gap65  ,
+                          AppAssestsImage(
+                            path: ImageResources.dashboardLogo,
+                            width: 120,
+                            boxFit: BoxFit.contain,
+                            height: 40,
+                          ),
                         ],
                       ),
                     ),
-                    Positioned(
-                      bottom: 150,
-                      child: SizedBox(
-                        width: MediaQuery.of(context).size.width*.8,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Breed",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: AppColors.grey700,
-                                  ),
-                                ),
-                                Text(
-                                  "Indie",
-                                  style: TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w700,
-                                    color: AppColors.stepperColor,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "Age",
-                                  style: TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: AppColors.grey700,
-                                  ),
-                                ),
-                                Text(
-                                  "2 Years",
-                                  style: TextStyle(
-                                    fontSize: 24,
-                                    fontWeight: FontWeight.w700,
-                                    color: AppColors.stepperColor,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
               Styles.gap30,
               AppButton(
-                    backgroundColor: AppColors.white,
-                    showShadow: false,
-                    name: Text(
-                      AppText.edit,
-                      style: context.textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.buttonTextColor,
-                      ),
-                    ),
-                    onPressed: () { 
-                      context.push(AddPetPage.route());
-                    },
+                backgroundColor: AppColors.white,
+                showShadow: false,
+                name: Text(
+                  AppText.edit,
+                  style: context.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.buttonTextColor,
                   ),
+                ),
+                onPressed: () {
+                  context.push(AddPetPage.route());
+                },
+              ),
               Styles.gap16,
               AppButton(
-                    backgroundColor: AppColors.white,
-                    showShadow: false,
-                    name: Text(
-                      AppText.share,
-                      style: context.textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.buttonTextColor,
-                      ),
-                    ),
-                    onPressed: () { },
+                backgroundColor: AppColors.white,
+                showShadow: false,
+                name: Text(
+                  AppText.share,
+                  style: context.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.buttonTextColor,
                   ),
-                  Styles.gap50
+                ),
+                onPressed: () {},
+              ),
+              Styles.gap50,
             ],
           ),
         ),

@@ -12,6 +12,7 @@ import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
+import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
 import 'package:flutter/material.dart';
@@ -85,7 +86,7 @@ class _OtpVerification extends State<OtpVerification> {
                     if (state.yourself == Yourself.petParent) {
                       context.pushNamed(MeetYourPetScreen.routeName);
                     } else if (state.yourself == Yourself.lookingAdoption) {
-                      context.pushNamedAndRemoveUntil(DashboardPage.routeName);
+                      context.pushNamedAndRemoveUntil(AdoptionDashboardPage.routeName);
                     } else if (state.yourself == Yourself.ngo) {
                       context.pushNamed(NgoRegistrationPage.routeName);
                     }

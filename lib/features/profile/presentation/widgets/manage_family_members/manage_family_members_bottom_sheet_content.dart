@@ -20,7 +20,7 @@ class ManageFamilyMembersBottomSheetContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-      initialChildSize: 0.5,
+      initialChildSize: 0.46,
       minChildSize: 0.35,
       maxChildSize: 1,
       expand: false,

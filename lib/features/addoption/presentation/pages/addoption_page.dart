@@ -73,7 +73,7 @@ class _AddoptionPage extends State<AddoptionPage> {
             onTabSelected: (tab) => setState(() => selectedTab = tab),
           ),
           Styles.gap10,
-          Expanded(child: AdoptiontabbarView()),
+          Expanded(child: AdoptiontabbarView( tab: selectedTab,)),
         ],
       ),
     );

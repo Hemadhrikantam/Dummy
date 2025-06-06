@@ -127,6 +127,7 @@ class AppColors {
   static final grey500 = Colors.grey[500];
   static const grey600 = Color(0xff757575);
   static final grey200 = Colors.grey[200];
+  static final grey300 = Colors.grey[300];
 
   static const white = Color(0xffffffff);
   static const red = Color(0xffD30000);

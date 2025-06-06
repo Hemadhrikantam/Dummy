@@ -2,6 +2,7 @@ import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/features/profile/presentation/widgets/bottom_action_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constent/app_text.dart';
@@ -27,20 +28,7 @@ class AddVaccinationPage extends StatelessWidget {
       title: AppText.addVaccination,
       subTitle: '',
       onlyTitle: true,
-      bottom: Container(
-        width: double.infinity,
-        padding: Styles.edgeInsetsAll12,
-        decoration: BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.grey700,
-              blurRadius: 10,
-              offset: const Offset(0, 0),
-            ),
-          ],
-        ),
+      bottom: BottomActionButton(
         child: AppButton(
           onPressed: () {
             context.push(VaccinationSuccessPage.route());

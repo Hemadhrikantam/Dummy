@@ -14,8 +14,8 @@ import '../../../../core/widgets/buttons/app_icon_button.dart';
 import 'adoption_card.dart';
 
 class AdoptionDetailsCard extends StatefulWidget {
-  const AdoptionDetailsCard({super.key});
-
+  const AdoptionDetailsCard({super.key, required this.isAllPet});
+  final bool isAllPet;
   @override
   State<AdoptionDetailsCard> createState() => _AdoptionDetailsCardState();
 }
@@ -105,16 +105,22 @@ class _AdoptionDetailsCardState extends State<AdoptionDetailsCard> {
           Styles.gap30,
           TextValueWidget(text: 'Email', value: 'sparrow@gmail.com'),
           Styles.gap30,
-          Styles.gap10,
-          CustomCheckBox(
-            isChecked: isChecked,
-            fontSize: 20,
-            label: AppText.markAsAdopted,
-            onChanged: (value) {
-              setState(() {
-                isChecked = !isChecked;
-              });
-            },
+          if(!widget.isAllPet)
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Styles.gap10,
+              CustomCheckBox(
+                isChecked: isChecked,
+                fontSize: 20,
+                label: AppText.markAsAdopted,
+                onChanged: (value) {
+                  setState(() {
+                    isChecked = !isChecked;
+                  });
+                },
+              ),
+            ],
           ),
         ],
       ),

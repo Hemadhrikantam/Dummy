@@ -7,18 +7,25 @@ import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/addoption/presentation/pages/adoption_details_page.dart';
+import 'package:dummy/features/addoption/presentation/pages/all_adoption_details_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/app_custom_chip.dart';
 
 class AdoptionCard extends StatelessWidget {
-  const AdoptionCard({super.key});
-
+  const AdoptionCard({super.key, required this.isAllPet});
+final bool isAllPet;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
       onTap: () {
+        if(isAllPet){
+
+        context.push(AllAdoptionDetailsPage.route());
+        }else{
+
         context.push(AdoptionDetailsPage.route());
+        }
       },
       padding: Styles.edgeInsetsAll06,
       borderColor: AppColors.buttonBackground,

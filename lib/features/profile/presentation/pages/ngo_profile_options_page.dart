@@ -20,13 +20,13 @@ import 'package:flutter/material.dart';
 import '../widgets/profile_options/profile_options_widget.dart';
 import 'account_details/account_details_page.dart';
 
-class ProfileOptionsPage extends StatelessWidget {
-  const ProfileOptionsPage({super.key});
-  static const routeName = '/ProfileOptionsPage';
+class NgoProfileOptionsPage extends StatelessWidget {
+  const NgoProfileOptionsPage({super.key});
+  static const routeName = '/NgoProfileOptionsPage';
 
   static Route<T> route<T>() {
     return MaterialPageRoute<T>(
-      builder: (context) => const ProfileOptionsPage(),
+      builder: (context) => const NgoProfileOptionsPage(),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -38,17 +38,15 @@ class ProfileOptionsPage extends StatelessWidget {
         children: [
           ProfileHeader(),
           Styles.gap20,
-          PetListWidget(),
-          Styles.gap20,
           Expanded(
             child: CustomCard(
               child: Column(
                 children: [
                   Column(
                     children: List.generate(
-                      StaticWidget.settingsListData.length,
+                      StaticWidget.ngoProfileListData.length,
                       (i) {
-                        final item = StaticWidget.settingsListData;
+                        final item = StaticWidget.ngoProfileListData;
                         return Padding(
                           padding: Styles.edgeInsetsAll04,
                           child: SettingsItemsWidget(

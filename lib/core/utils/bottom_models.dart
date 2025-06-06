@@ -8,6 +8,7 @@ import 'package:dummy/features/dailycare/presentation/widgets/add/add_meal_form.
 import 'package:dummy/features/health/presentation/widgets/vaccines/vaccination_filter_bottom_sheet.dart';
 import 'package:dummy/features/health/presentation/widgets/vaccines/vaccination_reminder_bottom_sheet.dart';
 import 'package:dummy/features/home/presentation/widgets/need_premium_bottom_sheet.dart';
+import 'package:dummy/features/profile/presentation/widgets/logout_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/manage_family_members/clinic_nearme_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/member_deletion_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/plan_overview_bottom_sheet.dart';
@@ -84,6 +85,7 @@ class BottomModels {
       },
     );
   }
+
   static Future<T?> needPremiumBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -240,6 +242,7 @@ class BottomModels {
       },
     );
   }
+
   static Future<T?> clinicNearMeBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -251,6 +254,7 @@ class BottomModels {
       },
     );
   }
+
   static Future<T?> memberDeleteBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -259,6 +263,18 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return MemberDeleteBottomSheet();
+      },
+    );
+  }
+
+  static Future<T?> logoutBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return LogoutBottomSheet();
       },
     );
   }
@@ -388,6 +404,7 @@ class BottomModels {
       },
     );
   }
+
   static Future<T?> planOverviewBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,

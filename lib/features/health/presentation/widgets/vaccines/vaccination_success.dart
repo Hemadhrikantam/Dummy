@@ -57,7 +57,7 @@ class VaccinationSuccessContent extends StatelessWidget {
                   ],
                 ),
               ),
-              Styles.gap20,
+              Styles.gap40,
               Column(
                 children: [
                   Row(
@@ -81,7 +81,7 @@ class VaccinationSuccessContent extends StatelessWidget {
                   ),
                 ],
               ),
-              Styles.gap10,
+              Styles.gap20,
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -97,7 +97,8 @@ class VaccinationSuccessContent extends StatelessWidget {
                       Text(
                         '12/01/2025',
                         style: context.textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 22,
                         ),
                       ),
                     ],
@@ -114,7 +115,8 @@ class VaccinationSuccessContent extends StatelessWidget {
                       Text(
                         '12/01/2025',
                         style: context.textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
+                          fontWeight: FontWeight.w600,
+                          fontSize: 22,
                         ),
                       ),
                     ],
@@ -147,12 +149,14 @@ class VaccinationSuccessContent extends StatelessWidget {
                   ),
                 ],
               ),
+              Styles.gap20,
             ],
           ),
         ),
         Styles.gap20,
         CustomCard(
           backgroundColor: AppColors.buttonBackground.withOpacity(.6),
+          border: Border.all(color: Colors.transparent),
           child: Row(
             children: [
               AppAssestsImage(

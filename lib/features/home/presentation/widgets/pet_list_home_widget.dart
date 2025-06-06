@@ -21,25 +21,17 @@ class _PetListHomeWidgetState extends State<PetListHomeWidget> {
     return SizedBox(
       height: 60,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          CustomCard(
-            padding: Styles.edgeInsetsAll10,
-            borderRadius: Styles.borderRadiusCircular40,
-            backgroundColor: AppColors.stepperColor,
-            borderColor: AppColors.stepperColor,
-            child: Icon(Icons.add, color: AppColors.white, size: 31),
-          ),
-          Styles.gap15,
           AppCustomListViewBuilder(
             padding: Styles.edgeInsetsZero,
-            itemCount: 3,
-            isExpand: true,
+            itemCount: 2,
+            isExpand: false,
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
             separatorBuilder: (context, i) => Styles.gap10,
             itemBuilder: (context, i) {
               final isSelected = i == selectedIndex;
-
               return GestureDetector(
                 onTap: () {
                   setState(() {
@@ -75,6 +67,15 @@ class _PetListHomeWidgetState extends State<PetListHomeWidget> {
               );
             },
           ),
+          Styles.gap15,
+          CustomCard(
+            padding: Styles.edgeInsetsAll10,
+            borderRadius: Styles.borderRadiusCircular40,
+            backgroundColor: AppColors.stepperColor,
+            borderColor: AppColors.stepperColor,
+            child: Icon(Icons.add, color: AppColors.white, size: 31),
+          ),
+          Expanded(child: SizedBox())
         ],
       ),
     );

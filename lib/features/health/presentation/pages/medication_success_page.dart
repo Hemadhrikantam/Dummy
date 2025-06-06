@@ -1,3 +1,6 @@
+import 'package:dummy/core/constent/image_resources.dart';
+import 'package:dummy/core/widgets/app_assets_image.dart';
+import 'package:dummy/features/health/presentation/widgets/success_animation_wrap.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/base_screen.dart';
@@ -21,7 +24,7 @@ class MedicationSuccessPage extends StatelessWidget {
       subTitle: '',
       showBackIcon: false,
       onlyTitle: true,
-      child: const MedicationSuccessContent(),
+      child: SuccessAnimationWrap(child: MedicationSuccessContent()),
     );
   }
 }

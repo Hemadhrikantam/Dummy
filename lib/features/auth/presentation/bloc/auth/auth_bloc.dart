@@ -201,7 +201,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<void> __logout(_Logout event, Emitter<AuthState> emit) async {
     final result = await __logoutUsecases();
     if (result == true) {
-      currentContext.pushNamedAndRemoveUntil(LoginPage.routeName);
+      currentContext.pushNamedAndRemoveUntil(StartYourPetsJourney.routeName);
     }
   }
 
