@@ -17,11 +17,6 @@ class StaticWidget {
       leadingIcon: ImageResources.petProfile,
       title: AppText.petProfile,
     ),
-    
-    SettingsListData(
-      leadingIcon: ImageResources.petDiary,
-      title: AppText.petDairy,
-    ),
     SettingsListData(
       leadingIcon: ImageResources.accountDetails,
       title: AppText.accountDetails,
