@@ -30,7 +30,7 @@ class StaticWidget {
       title: AppText.premiumSubscription,
     ),
     SettingsListData(
-      leadingIcon: ImageResources.premiumSubscription,
+      leadingIcon: ImageResources.vetNearMe,
       title: AppText.vetNearMe,
     ),
     SettingsListData(

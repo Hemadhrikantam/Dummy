@@ -12,14 +12,15 @@ class AddPetDocuments extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: context.height * 0.40,
-      child: ListView(
-        padding: Styles.edgeInsetsAll15,
+    return Padding(
+      padding: Styles.edgeInsetsOnlyW10,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Styles.gap4,
+          Styles.gap6,
           AppGraber(),
-          Styles.gap10,
+          Styles.gap16,
           Text(
             AppText.addDoc,
             style: context.textTheme.titleLarge?.copyWith(
@@ -37,6 +38,7 @@ class AddPetDocuments extends StatelessWidget {
           DottedBorderWidget(),
           Styles.gap30,
           SaveCancelWidget(),
+          Styles.gap10,
         ],
       ),
     );

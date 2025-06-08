@@ -15,10 +15,11 @@ class AddPetMedia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: context.height * 0.75,
-      child: ListView(
-        padding: Styles.edgeInsetsAll15,
+    return Padding(
+      padding: Styles.edgeInsetsOnlyW15,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
           Styles.gap4,
           AppGraber(),
@@ -31,12 +32,14 @@ class AddPetMedia extends StatelessWidget {
           ),
           Styles.gap20,
           AppTextFormField(
-            headerText: AppText.tellUsLuna,
-            hintText: '...',
-            readOnly: true,
-            onTap: () {},
-            maxLines: 5,
+            hintText: AppText.tellUsLuna,
+            borderRadius: Styles.borderRadiusCircular25,
+            onChanged: (value) {},
+            maxLines: 6,
+            heigth: 140,
+            headerText: AppText.notes,
           ),
+
           Styles.gap10,
           CustomDropdownSearch(items: [], title: AppText.events),
           Styles.gap20,
@@ -51,6 +54,7 @@ class AddPetMedia extends StatelessWidget {
           DottedBorderWidget(),
           Styles.gap30,
           SaveCancelWidget(),
+          Styles.gap10,
         ],
       ),
     );

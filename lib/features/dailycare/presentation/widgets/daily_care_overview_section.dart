@@ -26,6 +26,14 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
     'Deworming',
     'Expenses',
   ];
+  final tabPages = [
+    OverviewTab(),
+    MealsTab(),
+    WalksTab(),
+    GroomingTab(),
+    DewormingTab(),
+    ExpensesTab(),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -35,21 +43,38 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
         OverviewHeader(
           tabs: tabs,
           selectedTab: selectedTab,
-          onTabSelected: (tab) => setState(() => selectedTab = tab),
+          onTabSelected:
+              (tab) => setState(() {
+                selectedTab = tab;
+              }),
         ),
         Styles.gap10,
-        if (selectedTab == 'Overview')
-          const Expanded(child: OverviewTab())
-        else if (selectedTab == 'Meals')
-          const Expanded(child: MealsTab())
-        else if (selectedTab == 'Walks')
-          const Expanded(child: WalksTab())
-        else if (selectedTab == 'Grooming')
-          const Expanded(child: GroomingTab())
-        else if (selectedTab == 'Deworming')
-          const Expanded(child: DewormingTab())
-        else if (selectedTab == 'Expenses')
-          const Expanded(child: ExpensesTab()),
+        Expanded(
+          child: PageView.builder(
+            onPageChanged: (i) {
+              setState(() {
+                selectedTab = tabs[i]; 
+              });
+            },
+            itemCount: tabPages.length,
+            itemBuilder: (context, index) {
+              return tabPages[index];
+            },
+          ),
+        ),
+        // Styles.gap10,
+        // if (selectedTab == 'Overview')
+        //   const Expanded(child: OverviewTab())
+        // else if (selectedTab == 'Meals')
+        //   const Expanded(child: MealsTab())
+        // else if (selectedTab == 'Walks')
+        //   const Expanded(child: WalksTab())
+        // else if (selectedTab == 'Grooming')
+        //   const Expanded(child: GroomingTab())
+        // else if (selectedTab == 'Deworming')
+        //   const Expanded(child: DewormingTab())
+        // else if (selectedTab == 'Expenses')
+        //   const Expanded(child: ExpensesTab()),
       ],
     );
   }

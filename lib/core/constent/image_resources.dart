@@ -63,6 +63,7 @@ class ImageResources {
   static const String mdipaw = '$images/mdi_paw.png';
   static const String darkpaw = '$images/dark_paw.png';
   static const String premiumSubscription = '$images/premium.png';
+  static const String vetNearMe = '$__icons/vet_near_me.png';
   static const String support = '$images/support.png';
   static const String faq = '$__icons/faq.png';
   static const String privacypolicy = '$__icons/privacy_policy.png';
