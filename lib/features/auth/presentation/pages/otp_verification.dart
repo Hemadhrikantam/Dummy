@@ -13,7 +13,6 @@ import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
-import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

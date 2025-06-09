@@ -32,7 +32,6 @@ class NgoInfoCards extends StatelessWidget {
 
 class _CardWidget extends StatelessWidget {
   const _CardWidget({
-    super.key,
     required this.title,
     required this.value,
     required this.image,
@@ -68,13 +67,13 @@ class _CardWidget extends StatelessWidget {
             height: 40,
             boxFit: BoxFit.contain,
           ),
-          Styles.gap10,
+          Styles.gap8,
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(title, style: TextStyle(fontSize: 12, color: Colors.grey)),
-              Styles.gap10,
+              Styles.gap4,
               Text(
                 value.toString(),
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),

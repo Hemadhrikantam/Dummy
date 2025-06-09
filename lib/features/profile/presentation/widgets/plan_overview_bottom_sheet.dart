@@ -1,14 +1,9 @@
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
-import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/signup/presentation/widgets/plan_info_card.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../core/constent/app_colors.dart';
 import '../../../../../core/constent/styles.dart';
-import '../../../../../core/widgets/buttons/app_text_button.dart';
 
 class PlanOverviewBottomSheet extends StatelessWidget {
   const PlanOverviewBottomSheet({super.key, this.onTap});

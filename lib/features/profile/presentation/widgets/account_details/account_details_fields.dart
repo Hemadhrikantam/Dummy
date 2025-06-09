@@ -41,24 +41,3 @@ class __PhoneNumber extends StatelessWidget {
   }
 }
 
-class __ForgotPassword extends StatelessWidget {
-  const __ForgotPassword();
-
-  @override
-  Widget build(BuildContext context) {
-    return CustomCard(
-      borderColor: AppColors.grey500,
-      borderRadius: Styles.borderRadiusCircular40,
-      child: Center(
-        child: Text(
-          AppText.forgetPassword,
-          style: context.textTheme.titleMedium?.copyWith(
-            fontSize: 14,
-            fontWeight: FontWeight.w700,
-            color: AppColors.stepperColor,
-          ),
-        ),
-      ),
-    );
-  }
-}

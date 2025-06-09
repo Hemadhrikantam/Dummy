@@ -23,31 +23,6 @@ class MealsTab extends StatefulWidget {
 DateTime? _selectedDay;
 
 class _MealsTabState extends State<MealsTab> {
-  // void _showAddMealBottomSheet(BuildContext context) {
-  //   showModalBottomSheet(
-  //     context: context,
-  //     isScrollControlled: true,
-  //     backgroundColor: AppColors.backGround1,
-  //     shape: const RoundedRectangleBorder(
-  //       borderRadius: BorderRadius.vertical(top: Radius.circular(16.0)),
-  //     ),
-  //     builder: (BuildContext builderContext) {
-  //       return Column(
-  //         mainAxisSize: MainAxisSize.min,
-  //         children: [
-  //           const Divider(
-  //             thickness: 2.0,
-  //             indent: 80.0,
-  //             endIndent: 80.0,
-  //             color: Colors.grey,
-  //           ),
-  //           const SizedBox(height: 8.0),
-  //           const AddMealForm(),
-  //         ],
-  //       );
-  //     },
-  //   );
-  // }
 
   List<MealItem> get _mealItems {
     final selectedDate = _selectedDay ?? DateTime.now();

@@ -5,12 +5,9 @@ import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
-
 import '../../../../../core/constent/app_colors.dart';
 import '../../../../../core/constent/image_resources.dart';
 import '../../../../../core/constent/styles.dart';
-import '../../../../../core/utils/app_utils.dart';
 import '../../../../../core/widgets/app_assets_image.dart';
 import '../../../../../core/widgets/app_custom_check_box.dart';
 import '../../../../../core/widgets/app_custom_text_field.dart';

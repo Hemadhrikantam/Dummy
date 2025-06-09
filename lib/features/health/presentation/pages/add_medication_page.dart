@@ -1,14 +1,11 @@
 import 'package:dummy/core/constent/app_colors.dart';
-import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/features/profile/presentation/widgets/bottom_action_button.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../core/constent/app_text.dart';
 import '../../../../core/widgets/base_screen.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
-import '../../../../core/widgets/custom_bottom_sheet.dart';
 import '../widgets/medication/add_medication_fields.dart';
 import 'medication_success_page.dart';
 

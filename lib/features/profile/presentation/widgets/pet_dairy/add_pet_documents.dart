@@ -1,7 +1,6 @@
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:dummy/core/widgets/dotted_border_widget.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';

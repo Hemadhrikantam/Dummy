@@ -1,7 +1,6 @@
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:dummy/core/widgets/dotted_border_widget.dart';

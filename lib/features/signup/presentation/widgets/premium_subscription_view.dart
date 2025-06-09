@@ -9,8 +9,6 @@ import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/signup/presentation/pages/premium/dummy_timer_page.dart';
 import 'package:dummy/features/signup/presentation/widgets/monthly_yearly_selection_card.dart';
 import 'package:dummy/features/signup/presentation/widgets/plan_info_widget.dart';
-import 'package:dummy/features/signup/presentation/widgets/premium_info_card.dart';
-import 'package:dummy/features/signup/presentation/widgets/tracking_widget.dart';
 import 'package:flutter/material.dart';
 
 class PremiumSubscriptionView extends StatefulWidget {
@@ -129,7 +127,6 @@ class _PremiumSubscriptionView extends State<PremiumSubscriptionView> {
 
 class _PlanInfoCard extends StatelessWidget {
   const _PlanInfoCard({
-    super.key,
     required this.planType,
     required this.bilingInfo,
     required this.paymentMethod,

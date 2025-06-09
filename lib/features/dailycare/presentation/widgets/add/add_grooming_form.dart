@@ -1,23 +1,14 @@
-import 'dart:io';
-
-import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
-import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
-
 import 'package:dummy/core/widgets/dotted_border_widget.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';
-
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:path/path.dart' as path;
 import '../../../../../core/utils/bottom_models.dart';
 
 class AddGroomingForm extends StatefulWidget {

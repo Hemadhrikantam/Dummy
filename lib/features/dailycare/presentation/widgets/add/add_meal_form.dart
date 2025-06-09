@@ -1,4 +1,3 @@
-
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
@@ -9,7 +8,6 @@ import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/custom_dropdown.dart';
 import 'package:dummy/core/widgets/dotted_border_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../../core/widgets/app_graber.dart';
 import '../save_cancel_widget.dart';
@@ -56,7 +54,7 @@ class _AddMealFormState extends State<AddMealForm> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                         _Date(),
+                          _Date(),
                           Styles.gap15,
                           CustomDropdownSearch(
                             items: [],
@@ -81,10 +79,7 @@ class _AddMealFormState extends State<AddMealForm> {
                             heigth: 140,
                             headerText: AppText.notes,
                           ),
-                          // const AppTextFormField(
-                          //   hintText: '...',
-                          //   maxLines: 3,
-                          // ),
+
                           Styles.gap15,
                           Text(
                             AppText.media,
@@ -116,11 +111,13 @@ class _AddMealFormState extends State<AddMealForm> {
     );
   }
 }
+
 class _Date extends StatefulWidget {
   const _Date();
   @override
   State<_Date> createState() => __Date();
 }
+
 class __Date extends State<_Date> {
   var date = DateTime.now();
   @override

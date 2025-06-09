@@ -1,15 +1,10 @@
 import 'package:dummy/core/constent/app_text.dart';
-import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../../core/constent/app_colors.dart';
 import '../../../../../core/constent/image_resources.dart';
 import '../../../../../core/constent/styles.dart';
 import '../../../../../core/widgets/app_assets_image.dart';
 import '../../../../core/widgets/app_graber.dart';
-import '../../../../core/widgets/buttons/app_button.dart';
 
 class OtpSuccessBottomSheetContent extends StatelessWidget {
   const OtpSuccessBottomSheetContent({super.key, this.onTap});

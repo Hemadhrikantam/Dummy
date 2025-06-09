@@ -1,12 +1,8 @@
 import 'package:dummy/core/constent/app_colors.dart';
-import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
-import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
-import 'package:dummy/core/widgets/custom_dropdown.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/app_graber.dart';

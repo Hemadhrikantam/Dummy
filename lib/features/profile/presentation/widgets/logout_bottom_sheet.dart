@@ -1,11 +1,9 @@
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../../core/constent/app_colors.dart';
 import '../../../../../core/constent/styles.dart';
 import '../../../../../core/widgets/buttons/app_text_button.dart';

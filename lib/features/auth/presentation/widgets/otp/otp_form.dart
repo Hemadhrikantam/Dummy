@@ -12,7 +12,6 @@ import '../../../../../core/widgets/base_screen.dart';
 import '../../../../../core/widgets/buttons/app_button.dart';
 import '../../../../../core/widgets/buttons/app_text_button.dart';
 import '../../../../../core/widgets/buttons/back_button.dart';
-import 'otp.dart';
 
 class OTPForm extends StatefulWidget {
   const OTPForm({super.key});

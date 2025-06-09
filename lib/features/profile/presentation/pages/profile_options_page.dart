@@ -3,7 +3,6 @@ import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
-import 'package:dummy/core/utils/custom_dialog.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_text_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
