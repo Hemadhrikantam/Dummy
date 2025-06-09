@@ -9,6 +9,7 @@ class AppColors {
   static const Color backGround1 = Color(0xfffafafa);
   static const Color backGroundBlue = Color(0xffdbdaed);
   static const Color brown = Color(0xffa87536);
+  static const Color buttonColor = Color(0xffffba61);
   static const Color backGroundGreen = Color.fromARGB(255, 221, 238, 221);
   static const Color backGroundlightRed = Color(0xfff5eceb);
   static const Color textRed = Color(0xffde533e);

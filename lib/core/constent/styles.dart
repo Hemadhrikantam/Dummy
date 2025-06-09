@@ -78,6 +78,7 @@ class Styles {
   static const spacer = Spacer();
   static const divider = Divider(thickness: 0.5);
   static const dividerGrey = Divider(color: AppColors.grey);
+  static const dividerStepper = Divider(color: AppColors.secondaryColor);
   static const voterDividerGrey = Divider(color: AppColors.grey, height: 20);
   static const dividerHeight0 = Divider(color: AppColors.grey, height: 0);
   static const dividerTH2 = Divider(thickness: 2);

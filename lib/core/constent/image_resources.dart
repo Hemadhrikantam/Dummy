@@ -105,6 +105,14 @@ class ImageResources {
   //wag
   static const String wagLogo = '$images/wag_logo.png';
   static const String sendIcon = '$__icons/send_icon.png';
+  static const String dogTail = '$__icons/dog_tail.gif';
+  static const String aiLoading = '$__icons/ai_loading.gif';
+  static const String dots = '$__icons/3-dots-more.svg';
+  static const String setting = '$__icons/setting.svg';
+  static const String audio = '$__icons/audio.svg';
+  static const String camera = '$__icons/camera1.svg';
+  static const String cross = '$__icons/cross.svg';
+  static const String attachment = '$__icons/attachment.svg';
 
   //pet dairy
   static const String petdairyPlaceholder = '$images/pet_dairy_placeholder.png';

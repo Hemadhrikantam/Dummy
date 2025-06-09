@@ -1,5 +1,6 @@
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
+import 'package:dummy/features/wag/presentation/widgets/chat_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constent/image_resources.dart';
@@ -32,32 +33,33 @@ class _WagPage extends State<WagPage> {
         children: [
           CustomHeaderWidget(),
           Styles.gap30,
-          Row(
-            children: [
-              AppAssestsImage(
-                height: 40,
-                width: 40,
-                boxFit: BoxFit.contain,
-                path: ImageResources.ai2,
-              ),
-              Styles.gap8,
-              AppAssestsImage(
-                height: 30,
-                width: 50,
-                boxFit: BoxFit.contain,
-                path: ImageResources.wagLogo,
-              ),
-            ],
-          ),
-          Styles.gap20,
-          Expanded(
-            child: CustomCard(
-              padding: Styles.edgeInsetsOnlyW10,
-              borderColor: AppColors.transparent,
-              backgroundColor: AppColors.buttonBackground,
-              child: ChatPage(),
-            ),
-          ),
+          Expanded(child: ChatCard()),
+          // Row(
+          //   children: [
+          //     AppAssestsImage(
+          //       height: 40,
+          //       width: 40,
+          //       boxFit: BoxFit.contain,
+          //       path: ImageResources.ai2,
+          //     ),
+          //     Styles.gap8,
+          //     AppAssestsImage(
+          //       height: 30,
+          //       width: 50,
+          //       boxFit: BoxFit.contain,
+          //       path: ImageResources.wagLogo,
+          //     ),
+          //   ],
+          // ),
+          // Styles.gap20,
+          // Expanded(
+          //   child: CustomCard(
+          //     padding: Styles.edgeInsetsOnlyW10,
+          //     borderColor: AppColors.transparent,
+          //     backgroundColor: AppColors.buttonBackground,
+          //     child: ChatPage(),
+          //   ),
+          // ),
         ],
       ),
     );
