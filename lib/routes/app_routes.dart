@@ -12,6 +12,9 @@ import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_pa
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_photo_page.dart';
 import 'package:dummy/features/profile/presentation/pages/premium_subscription.dart';
 import 'package:dummy/features/profile/presentation/pages/profile_page.dart';
+import 'package:dummy/features/profile/presentation/pages/support/faq_page.dart';
+import 'package:dummy/features/profile/presentation/pages/support/privacy_policy_page.dart';
+import 'package:dummy/features/profile/presentation/pages/support/terms_and_condition_page.dart';
 import 'package:dummy/features/profile/presentation/pages/vet_near_me_page.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy1_page.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy2_page.dart'
@@ -78,5 +81,8 @@ class AppRoutes {
     AdoptionDashboardPage.routeName: (_) => const AdoptionDashboardPage(),
     AllAdoptionDetailsPage.routeName: (_) => const AllAdoptionDetailsPage(),
     NgoProfileOptionsPage.routeName: (_) => const NgoProfileOptionsPage(),
+    FaqPage.routeName: (_) => const FaqPage(),
+    PrivacyPolicyPage.routeName: (_) => const PrivacyPolicyPage(),
+    TermsAndConditionPage.routeName: (_) => const TermsAndConditionPage(),
   };
 }

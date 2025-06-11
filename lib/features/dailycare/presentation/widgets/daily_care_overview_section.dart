@@ -18,6 +18,7 @@ class DailyCareOverviewSection extends StatefulWidget {
 
 class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
   String selectedTab = 'Overview';
+  final _controller = PageController();
   final tabs = [
     'Overview',
     'Meals',
@@ -46,11 +47,14 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
           onTabSelected:
               (tab) => setState(() {
                 selectedTab = tab;
+
+                _controller.animateToPage(tabs.indexOf(tab),duration: Duration(seconds: 1),curve: Curves.ease);
               }),
         ),
         Styles.gap10,
         Expanded(
           child: PageView.builder(
+            controller: _controller,
             onPageChanged: (i) {
               setState(() {
                 selectedTab = tabs[i]; 
@@ -62,19 +66,6 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
             },
           ),
         ),
-        // Styles.gap10,
-        // if (selectedTab == 'Overview')
-        //   const Expanded(child: OverviewTab())
-        // else if (selectedTab == 'Meals')
-        //   const Expanded(child: MealsTab())
-        // else if (selectedTab == 'Walks')
-        //   const Expanded(child: WalksTab())
-        // else if (selectedTab == 'Grooming')
-        //   const Expanded(child: GroomingTab())
-        // else if (selectedTab == 'Deworming')
-        //   const Expanded(child: DewormingTab())
-        // else if (selectedTab == 'Expenses')
-        //   const Expanded(child: ExpensesTab()),
       ],
     );
   }

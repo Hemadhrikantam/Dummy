@@ -107,9 +107,12 @@ class ImageResources {
   static const String sendIcon = '$__icons/send_icon.png';
   static const String dogTail = '$__icons/dog_tail.gif';
   static const String aiLoading = '$__icons/ai_loading.gif';
+  static const String wagMic = '$images/wag_mic.gif';
+  static const String wag = '$images/wag.gif';
   static const String dots = '$__icons/3-dots-more.svg';
   static const String setting = '$__icons/setting.svg';
   static const String audio = '$__icons/audio.svg';
+  static const String send = '$__icons/send.png';
   static const String camera = '$__icons/camera1.svg';
   static const String cross = '$__icons/cross.svg';
   static const String attachment = '$__icons/attachment.svg';

@@ -75,7 +75,7 @@ class _DashboardPage extends State<DashboardPage> {
               side: const BorderSide(width: 3, color: AppColors.white),
               borderRadius: Styles.borderRadiusCircular50,
             ),
-            child: AppAssestsImage(path: ImageResources.ai2),
+            child: AppAssestsImage(path: ImageResources.dogTail),
           ),
         ),
         body: IndexedStack(index: selectedIndex, children: _screens),

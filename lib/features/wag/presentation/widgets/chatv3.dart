@@ -90,21 +90,14 @@ class _ChatPage1State extends State<ChatPage1> {
                     ),
           ),
         ),
-        if (isClicked)
-          Padding(
-            padding: EdgeInsets.only(
-              bottom: MediaQuery.of(context).viewInsets.bottom,
-            ),
-            child: BuildMessageInput(
+        !isLessing
+            ? TextForm(
               callback: (message) {
                 _sendMessage(message);
               },
-            ),
-          )
-        else
-          !isLessing
-              ? TextForm(isLessing: () => setState(() => isLessing = true))
-              : SizedBox.shrink(),
+              isLessing: () => setState(() => isLessing = true),
+            )
+            : SizedBox.shrink(),
       ],
     );
   }
@@ -117,14 +110,15 @@ class LesseningAI extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: Styles.edgeInsetsAll10,
+      padding: Styles.edgeInsetsAll25,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CircleAvatar(
-            radius: 60,
-            child: AppNetworkImage(url: ImageResources.aiLoading, height: 50),
+            radius: 100,
+            backgroundColor: Colors.transparent,
+            child: AppAssestsImage(path: ImageResources.wagMic),
           ),
           Styles.gap6,
           Text(
@@ -152,16 +146,16 @@ class LesseningAI extends StatelessWidget {
 }
 
 class TextForm extends StatefulWidget {
-  const TextForm({super.key, required this.isLessing});
+  const TextForm({super.key, required this.isLessing, required this.callback});
   final void Function()? isLessing;
-
+  final void Function(String) callback;
   @override
   State<TextForm> createState() => _TextFormState();
 }
 
 class _TextFormState extends State<TextForm> {
   bool isAttached = false;
-
+  final controller = TextEditingController();
   @override
   void initState() {
     super.initState();
@@ -174,7 +168,7 @@ class _TextFormState extends State<TextForm> {
       children: [
         isAttached ? AttachmentCard() : SizedBox.shrink(),
         AppTextFormField(
-          // controller: TextEditingController(),
+          controller: controller,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(20),
             topRight: Radius.circular(20),
@@ -183,6 +177,20 @@ class _TextFormState extends State<TextForm> {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
+              if (controller.text.isNotEmpty)
+                GestureDetector(
+                  onTap: () {
+                    widget.callback(controller.text);
+                    controller.text = "";
+                  },
+                  child: AppAssestsImage(
+                    path: ImageResources.send,
+                    width: 30,
+                    height: 30,
+                    boxFit: BoxFit.contain,
+                  ),
+                ),
+              Styles.gap6,
               ImagesContainer(
                 onTap: widget.isLessing,
                 path: ImageResources.audio,
@@ -208,7 +216,9 @@ class _TextFormState extends State<TextForm> {
             ],
           ),
           hintText: 'Enter here',
-          onChanged: (value) {},
+          onChanged: (value) {
+            setState(() {});
+          },
         ),
       ],
     );
@@ -249,7 +259,10 @@ class ImagesContainer extends StatelessWidget {
         child: CircleAvatar(
           radius: 30,
           backgroundColor: backgroundColor,
-          child: AppSVGImage(path: path, height: size, color: iconColor),
+          child:
+              path.contains('svg')
+                  ? AppSVGImage(path: path, height: size, color: iconColor)
+                  : AppAssestsImage(path: path, height: size),
         ),
       ),
     );
@@ -268,12 +281,19 @@ class EmptyScreen extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            AppNetworkImage(url: ImageResources.dogTail, height: 30),
             AppAssestsImage(
               height: 30,
               width: 50,
               boxFit: BoxFit.contain,
-              path: ImageResources.wagLogo,
+              path: ImageResources.wag,
+            ),
+            Text(
+              "Wag",
+              style: TextStyle(
+                fontSize: 16,
+                color: AppColors.stepperColor,
+                fontWeight: FontWeight.w700,
+              ),
             ),
           ],
         ),
@@ -415,10 +435,11 @@ class Messages extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           margin: const EdgeInsets.symmetric(
             vertical: 10,
-          ).copyWith(left: isUser ? 50 : 0, right: isUser ? 0 : 50),
+          ).copyWith(left: isUser ? 50 : 10, right: isUser ? 10 : 50),
           decoration: BoxDecoration(
             color: AppColors.white,
             borderRadius: Styles.borderRadiusCircular10,
+            border: Border.all(width: 1, color: AppColors.secondaryColor),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -426,12 +447,20 @@ class Messages extends StatelessWidget {
               Text(
                 message,
                 style: context.textTheme.titleLarge?.copyWith(
-                  color: AppColors.stepperColor,
+                  color: AppColors.text,
                   fontSize: 16,
                   fontWeight: FontWeight.w700,
                 ),
               ),
-              Styles.gap50,
+              Styles.gap4,
+              Text(
+                message,
+                style: context.textTheme.titleLarge?.copyWith(
+                  color: AppColors.grey400,
+                  fontSize: 13,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
               if (date != null)
                 Row(
                   children: [

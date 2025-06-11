@@ -1,5 +1,9 @@
 import 'package:dummy/core/constent/app_colors.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
+import 'package:dummy/features/profile/presentation/pages/support/faq_page.dart';
+import 'package:dummy/features/profile/presentation/pages/support/privacy_policy_page.dart';
+import 'package:dummy/features/profile/presentation/pages/support/terms_and_condition_page.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -54,17 +58,23 @@ class SupportPage extends StatelessWidget {
           Styles.gap12,
           CustomCard(
             borderColor: AppColors.transparent,
-            child: const Column(
+            child:  Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 SupportItemsWidget(
-                  subtitle: 'FAQ',
+                  onPressed: (){
+                    context.push(FaqPage.route());
+                  },
+                  subtitle: AppText.faq,
                   leadingIcon: ImageResources.faq,
                   tailingIconCover: true,
                   trailingIcon: Icons.keyboard_arrow_right,
                 ),
                 Styles.gap10,
                 SupportItemsWidget(
+                  onPressed: (){
+                    context.push(PrivacyPolicyPage.route());
+                  },
                   subtitle: 'Privacy Policy',
                   leadingIcon: ImageResources.privacypolicy,
                   tailingIconCover: true,
@@ -72,6 +82,9 @@ class SupportPage extends StatelessWidget {
                 ),
                 Styles.gap10,
                 SupportItemsWidget(
+                  onPressed: (){
+                    context.push(TermsAndConditionPage.route());
+                  },
                   subtitle: 'Terms & Conditions',
                   leadingIcon: ImageResources.termscondition,
                   tailingIconCover: true,

@@ -1,7 +1,6 @@
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
-import 'package:dummy/features/wag/presentation/widgets/chat_page.dart';
 import 'package:dummy/features/wag/presentation/widgets/chatv3.dart';
 import 'package:dummy/features/wag/presentation/widgets/header.dart';
 import 'package:flutter/material.dart';

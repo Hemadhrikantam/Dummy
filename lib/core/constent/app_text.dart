@@ -12,6 +12,9 @@ class AppText {
   static String userNotExists = 'User Not Exists';
   static String sessionOut = 'Session Out';
   static String noItemsFound = 'No Items Found';
+  static String faq = 'FAQ';
+  static String privacyPolicy = 'Privacy Policy';
+  static String termsConditions = 'Terms & Conditions';
 
   static String serverDown = 'Server Down';
   static String somethingWentWrong = 'Something Went Wrong';
