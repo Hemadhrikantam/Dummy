@@ -26,40 +26,58 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
       initialChildSize: 0.80,
-      minChildSize: 0.35,
-      maxChildSize: 1,
+      minChildSize: 0.80,
+      maxChildSize: 0.80,
       expand: false,
       builder: (context, scrollController) {
         return ListView(
           controller: scrollController,
-          padding: Styles.edgeInsetsAll15,
+          padding: Styles.edgeInsetsOnlyW20,
           children: [
-            Styles.gap4,
-            AppGraber(),
-            Styles.gap20,
-            Text(
-              AppText.addAdoptionQuery,
-              style: context.textTheme.titleLarge?.copyWith(
-                fontWeight: FontWeight.bold,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.79,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Styles.gap6,
+                  AppGraber(),
+                  Styles.gap15,
+                  Text(
+                    AppText.addAdoptionQuery,
+                    style: context.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Styles.gap15,
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          __Name(),
+                          __Age(),
+                          __PetType(),
+                          __Breed(),
+                          Styles.gap10,
+                          __Address(),
+                          Styles.gap10,
+                          __Phone(),
+                          Styles.gap10,
+                          __Email(),
+                          Styles.gap10,
+                          __Description(),
+                          Styles.gap10,
+                          __Media(),
+                          Styles.gap30,
+                        ],
+                      ),
+                    ),
+                  ),
+                  Styles.gap10,
+                  SaveCancelWidget(),
+                ],
               ),
             ),
-            Styles.gap15,
-            __Name(),
-            __Age(),
-            __PetType(),
-            __Breed(),
-            Styles.gap10,
-            __Address(),
-            Styles.gap10,
-            __Phone(),
-            Styles.gap10,
-            __Email(),
-            Styles.gap10,
-            __Description(),
-            Styles.gap10,
-            __Media(),
-            Styles.gap50,
-            SaveCancelWidget(),
           ],
         );
       },

@@ -185,8 +185,8 @@ class _TextFormState extends State<TextForm> {
                   },
                   child: AppAssestsImage(
                     path: ImageResources.send,
-                    width: 30,
-                    height: 30,
+                    width: 35,
+                    height: 35,
                     boxFit: BoxFit.contain,
                   ),
                 ),
@@ -247,8 +247,8 @@ class ImagesContainer extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 27,
-        height: 27,
+        width: 32,
+        height: 32,
         decoration: BoxDecoration(
           shape: BoxShape.circle,
           border: Border.all(

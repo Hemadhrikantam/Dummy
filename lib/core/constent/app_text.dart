@@ -257,6 +257,7 @@ class AppText {
   static const String startDate = 'Start Date';
   static const String endDate = 'End Date';
   static const String addMedications = 'Add Medication';
+  static const String editMedications = 'Edit Medication';
   static const String enter = 'Enter';
   static const String tabletName = 'Tablet Name';
   static const String company = 'Company';
@@ -274,6 +275,7 @@ class AppText {
   static const String usersKeepTheirPetsMedOnTrack =
       '85% of users keep their pet’s meds on track!';
   static const String addVaccination = 'Add Vaccination';
+  static const String editVaccination = 'Edit Vaccination';
   static const String viewMore = 'View More';
   static const String details = 'Details';
   static const String markAsGiven = 'Mark As Given';

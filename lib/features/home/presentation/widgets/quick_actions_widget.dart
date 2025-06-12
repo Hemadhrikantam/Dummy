@@ -2,9 +2,11 @@ import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
+import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:flutter/material.dart';
 
 class QuickActionsWidget extends StatelessWidget {
@@ -31,7 +33,9 @@ class QuickActionsWidget extends StatelessWidget {
               __ActionItem(
                 image: ImageResources.logMeals,
                 title: AppText.logMeals,
-                onTap: () {},
+                onTap: () {
+                  
+                },
               ),
               Styles.gap8,
               __ActionItem(
@@ -70,6 +74,9 @@ class QuickActionsWidget extends StatelessWidget {
               // ),
               Styles.gap8,
               __ActionItem(
+                onTap: (){
+                  context.push(PetDairyPage.route());
+                },
                 image: ImageResources.addMemories,
                 title: AppText.addMemories,
               ),
