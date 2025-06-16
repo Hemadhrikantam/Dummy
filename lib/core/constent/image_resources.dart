@@ -113,6 +113,7 @@ class ImageResources {
   static const String dogTail = '$__icons/dog_tail.gif';
   static const String aiLoading = '$__icons/ai_loading.gif';
   static const String wagMic = '$images/wag_mic.gif';
+  static const String micRive = '$rives/mic.riv';
   static const String wag = '$images/wag.gif';
   static const String dots = '$__icons/3-dots-more.svg';
   static const String setting = '$__icons/setting.svg';

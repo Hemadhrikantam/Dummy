@@ -117,22 +117,22 @@ class LesseningAI extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          // SizedBox(
-          //   width: 200,
-          //   height: 200,
-          //   child: RiveAnimation.asset(
-          //     ImageResources.wagMic,
-          //     artboard: 'Artboard',
-          //     animations: ['Timeline 1'],
-          //     fit: BoxFit.contain,
-          //   ),
-          // ),
-          CircleAvatar(
-            radius: 100,
-            backgroundColor: Colors.transparent,
-            child: AppAssestsImage(
-              path: ImageResources.wagMic),
+          SizedBox(
+            width: 200,
+            height: 200,
+            child: RiveAnimation.asset(
+              ImageResources.micRive,
+              artboard: 'Artboard',
+              animations: ['Timeline 1'],
+              fit: BoxFit.contain,
+            ),
           ),
+          // CircleAvatar(
+          //   radius: 100,
+          //   backgroundColor: Colors.transparent,
+          //   child: AppAssestsImage(
+          //     path: ImageResources.wagMic),
+          // ),
           Styles.gap6,
           Text(
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
