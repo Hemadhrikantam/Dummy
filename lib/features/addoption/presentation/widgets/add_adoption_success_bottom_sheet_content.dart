@@ -2,6 +2,7 @@ import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
+import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/features/health/presentation/widgets/success_animation_wrap.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +13,8 @@ import '../../../../../core/constent/styles.dart';
 import '../../../../core/widgets/app_graber.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
 
-class AddMealSuccessBottomSheetContent extends StatelessWidget {
-  const AddMealSuccessBottomSheetContent({super.key, this.onTap});
+class AddAdoptionSuccessBottomSheetContent extends StatelessWidget {
+  const AddAdoptionSuccessBottomSheetContent({super.key, this.onTap});
   final VoidCallback? onTap;
 
   @override
@@ -30,14 +31,14 @@ class AddMealSuccessBottomSheetContent extends StatelessWidget {
               Styles.gap6,
               AppGraber(),
               Styles.gap16,
-              SvgPicture.asset(
-                ImageResources.petFood,
+              AppAssestsImage(path:
+                ImageResources.addAdoption,
                 height: context.height * .1,
-                fit: BoxFit.contain,
+                boxFit: BoxFit.contain,
               ),
 
               Text(
-                AppText.youreDoingGreat,
+                AppText.listedforAdoption,
                 style: context.textTheme.titleLarge?.copyWith(
                   fontWeight: FontWeight.bold,
                   fontSize: 24,
@@ -48,20 +49,11 @@ class AddMealSuccessBottomSheetContent extends StatelessWidget {
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  text: AppText.dummyLovedHisMeals,
+                  text: AppText.thankyouforgiving,
                   style: context.textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
-                  children: [
-                    TextSpan(
-                      text: "[Pet's Name] well-fed!",
-                      style: context.textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                  ],
                 ),
               ),
               Styles.gap15,
@@ -71,7 +63,6 @@ class AddMealSuccessBottomSheetContent extends StatelessWidget {
                     child: AppButton(
                       onPressed: () {
                         context.pop();
-                        context.push(PetDairyPage.route());
                       },
                       showShadow: false,
                       borderColor: AppColors.grey500,
@@ -79,24 +70,14 @@ class AddMealSuccessBottomSheetContent extends StatelessWidget {
                       name: RichText(
                         textAlign: TextAlign.center,
                         text: TextSpan(
-                          text: AppText.logAMemoryOf,
+                          text: AppText.viewMyListings,
                           style: context.textTheme.titleSmall?.copyWith(
                             fontWeight: FontWeight.w700,
                             color: AppColors.buttonTextColor,
                             letterSpacing: -.5,
                             fontSize: 14,
                           ),
-                          children: [
-                            TextSpan(
-                              text: " [Pet's Name]'s meal!",
-                              style: context.textTheme.titleSmall?.copyWith(
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.buttonTextColor,
-                                letterSpacing: -.5,
-                                fontSize: 14,
-                              ),
-                            ),
-                          ],
+                         
                         ),
                       ),
                     ),

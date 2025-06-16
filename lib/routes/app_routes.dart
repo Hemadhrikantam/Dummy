@@ -8,6 +8,7 @@ import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_p
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/health/presentation/pages/edit_medication_page.dart';
 import 'package:dummy/features/health/presentation/pages/edit_vaccination_page.dart';
+import 'package:dummy/features/home/presentation/pages/notification_page.dart';
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/profile/presentation/pages/ngo_profile_options_page.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
@@ -88,5 +89,6 @@ class AppRoutes {
     TermsAndConditionPage.routeName: (_) => const TermsAndConditionPage(),
     EditMedicationPage.routeName: (_) => const EditMedicationPage(),
     EditVaccinationPage.routeName: (_) => const EditVaccinationPage(),
+    NotificationPage.routeName: (_) => const NotificationPage(),
   };
 }

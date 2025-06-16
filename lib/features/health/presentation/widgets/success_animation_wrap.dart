@@ -28,9 +28,16 @@ class _SuccessAnimationWrapState extends State<SuccessAnimationWrap> {
   Widget build(BuildContext context) {
     return Stack(
       alignment: Alignment.topCenter,
+      fit: StackFit.loose,
       children: [
         widget.child,
-        if (_showImage) AppAssestsImage(path: ImageResources.successAnimation),
+        if (_showImage) Container(
+          constraints: BoxConstraints(
+            maxHeight: 350
+          ),
+          child: AppAssestsImage(path: ImageResources.successAnimation
+          
+          )),
       ],
     );
   }

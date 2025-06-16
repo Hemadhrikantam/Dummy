@@ -1,33 +1,29 @@
 import 'package:dummy/core/constent/app_text.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/widgets/app_graber.dart';
-import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
+import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../../core/constent/app_colors.dart';
 import '../../../../../core/constent/styles.dart';
 import '../../../../../core/widgets/buttons/app_text_button.dart';
 
-class LogoutBottomSheet extends StatelessWidget {
-  const LogoutBottomSheet({super.key, this.onTap});
+class VeccinationDeleteBottomSheetContent extends StatelessWidget {
+  const VeccinationDeleteBottomSheetContent({super.key, this.onTap});
   final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: Styles.edgeInsetsOnlyW15,
+      padding: Styles.edgeInsetsAll20,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Styles.gap6,
-          AppGraber(),
-          Styles.gap16,
           Text(
-            AppText.logout,
+            AppText.delete,
             style: context.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.w700,
-              fontSize: 24,
             ),
           ),
           Styles.gap10,
@@ -37,11 +33,27 @@ class LogoutBottomSheet extends StatelessWidget {
               RichText(
                 textAlign: TextAlign.start,
                 text: TextSpan(
-                  text: AppText.logoutText,
+                  text: AppText.areYouSureToDelete,
                   style: context.textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.w400,
+                    fontWeight: FontWeight.bold,
                     fontSize: 16,
                   ),
+                  children: [
+                    TextSpan(
+                      text: "[Pet's Name]'s ",
+                      style: context.textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                    TextSpan(
+                      text: AppText.veccinationQuestionMark,
+                      style: context.textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ],
                 ),
               ),
               Styles.gap20,
@@ -63,17 +75,19 @@ class LogoutBottomSheet extends StatelessWidget {
                   Expanded(
                     child: AppTextButton(
                       onPressed: () {
-                        context.read<AuthBloc>().add(const AuthEvent.logout());
+                        context.pop();
+                        BottomModels.medicationDeleteSuccessBottomSheet(
+                          context,
+                        );
                       },
                       radius: 50,
                       borderColor: AppColors.transparent,
                       backgroundColor: AppColors.red,
-                      name: AppText.logout,
+                      name: AppText.delete,
                     ),
                   ),
                 ],
               ),
-              Styles.gap10,
             ],
           ),
         ],

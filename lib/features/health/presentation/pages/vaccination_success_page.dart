@@ -1,4 +1,4 @@
-import 'package:dummy/features/health/presentation/widgets/success_animation_wrap.dart';
+
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/base_screen.dart';
@@ -22,7 +22,7 @@ class VaccinationSuccessPage extends StatelessWidget {
       subTitle: '',
       showBackIcon: false,
       onlyTitle: true,
-      child: SuccessAnimationWrap(child: const VaccinationSuccessContent()),
+      child:  const VaccinationSuccessContent()
     );
   }
 }

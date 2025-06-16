@@ -309,7 +309,7 @@ class ScaffoldTitleBaseScreen extends StatelessWidget {
           ),
           child: Padding(
             padding:
-                padding ?? Styles.edgeInsetsAll10 + Styles.edgeInsetsOnlyT90,
+                padding ?? Styles.edgeInsetsAll10 + Styles.edgeInsetsOnlyT80,
             child: child,
           ),
         ),

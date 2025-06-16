@@ -239,7 +239,9 @@ class AppText {
       'Dummy stayed parasite-free with regular deworming—protect';
   static const String addDewormingTo = 'Add deworming to';
   static const String dummyLovedHisMeals = 'Dummy loved his meals—keep ';
+  static const String thankyouforgiving = 'Thank you for giving them a chance at a loving home. 💛';
   static const String logAMemoryOf = 'Log a memory of ';
+  static const String viewMyListings = 'View My Listings';
   static const String dummyLovedHisPark = 'Dummy loved his park walks—take ';
   static const String dummyAlwaysLookedHisBest =
       'Dummy always looked his best after grooming—keep ';
@@ -257,6 +259,7 @@ class AppText {
   static const String startDate = 'Start Date';
   static const String endDate = 'End Date';
   static const String addMedications = 'Add Medication';
+  static const String goToMedications = 'Go To Medication';
   static const String editMedications = 'Edit Medication';
   static const String enter = 'Enter';
   static const String tabletName = 'Tablet Name';
@@ -272,9 +275,11 @@ class AppText {
   static const String totalDosage = 'Total Dosage';
   static const String medicationAddedFor = 'Medication added for ';
   static const String youreDoingGreat = "You're doing great!";
+  static const String listedforAdoption = "Listed for Adoption!";
   static const String usersKeepTheirPetsMedOnTrack =
       '85% of users keep their pet’s meds on track!';
   static const String addVaccination = 'Add Vaccination';
+  static const String goToVaccination = 'Go To Vaccination';
   static const String editVaccination = 'Edit Vaccination';
   static const String viewMore = 'View More';
   static const String details = 'Details';
@@ -285,6 +290,7 @@ class AppText {
   static const String undo = 'Undo';
   static const String areYouSureToDelete = 'Are you sure to delete';
   static const String medicationQuestionMark = 'Medication?';
+  static const String veccinationQuestionMark = 'Vaccination?';
   static const String deletedSuccessfully = 'Deleted Successfully';
   static const String tablet = 'Tablet';
   static const String close = 'Close';
@@ -305,6 +311,7 @@ class AppText {
 
   //profile
   static const String petProfile = 'Pet Profile';
+  static const String notifications = 'Notifications';
   static const String accountDetails = 'Account Details';
   static const String monthlyPremiumPlan = 'Monthly Premium Plan';
   static const String annualPremiumPlan = 'Annual Premium Plan';
@@ -326,11 +333,15 @@ class AppText {
   static String startCapturingMemo = 'Start capturing memories with Luna 🐶';
   static String doommiHelpsKeep = 'Doommi helps keep your buddy safe.';
   static String letKeepSafe = 'Let’s keep [Pet Name] safe.';
+  static String nolistingsyet = 'No listings yet.';
   static String trackMedicationsTo = 'Track medications to never miss a dose';
   static String trackCoreAndBooster =
       'Track core and booster shots with reminders.';
+  static String helppetfindahome =
+      'Help a pet find a home 🧡';
   static String addFirstMedication = 'Add First Medication';
   static String addFirstVaccination = 'Add First Vaccination';
+  static String addPetAdoption = 'Add Pet for Adoption';
   static String confirmLogout = 'Confirm Logout';
   static String areYouSureYouWantToLogout = 'Are you sure you want to logout';
   static String no = 'No';

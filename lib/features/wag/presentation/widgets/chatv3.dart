@@ -3,7 +3,9 @@ import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/features/wag/presentation/widgets/attachment_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:rive/rive.dart';
 
 import '../../../../core/constent/app_colors.dart';
 import '../../../../core/constent/image_resources.dart';
@@ -115,10 +117,21 @@ class LesseningAI extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          // SizedBox(
+          //   width: 200,
+          //   height: 200,
+          //   child: RiveAnimation.asset(
+          //     ImageResources.wagMic,
+          //     artboard: 'Artboard',
+          //     animations: ['Timeline 1'],
+          //     fit: BoxFit.contain,
+          //   ),
+          // ),
           CircleAvatar(
             radius: 100,
             backgroundColor: Colors.transparent,
-            child: AppAssestsImage(path: ImageResources.wagMic),
+            child: AppAssestsImage(
+              path: ImageResources.wagMic),
           ),
           Styles.gap6,
           Text(

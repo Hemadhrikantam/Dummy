@@ -37,7 +37,7 @@ class VaccinationDetailsPage extends StatelessWidget {
             Expanded(
               child: AppTextButton(
                 onPressed: () {
-                  BottomModels.medicationDeleteBottomSheet(context);
+                  BottomModels.veccinationDeleteBottomSheet(context);
                   // BottomModels.medicationTakingBottomSheet(context);
                 },
                 backgroundColor: AppColors.white,

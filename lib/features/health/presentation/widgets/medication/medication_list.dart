@@ -14,7 +14,7 @@ class MedicationList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (false) {
+    if (true) {
       return EmptyListPage(
         title: AppText.doommiHelpsKeep,
         imagePath: ImageResources.noMedication,

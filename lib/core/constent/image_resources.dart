@@ -1,6 +1,7 @@
 class ImageResources {
   static const String __assets = 'assets';
   static const String images = '$__assets/images';
+  static const String rives = '$__assets/rives';
   static const String __icons = '$__assets/icons';
   static const String image = '$__assets/image_1.png';
 
@@ -13,6 +14,7 @@ class ImageResources {
   static const String googleIcon = '$__icons/google_icon.png';
   static const String badgeIcon = '$__icons/premium_badge.png';
   static const String dog = '$images/dog.png';
+  static const String bell = '$__icons/bell.png';
   static const String injection = '$images/hugeicons_injection.png';
   static const String trackImg = '$images/track.png';
   static const String backImg = '$images/back.png';
@@ -77,6 +79,7 @@ class ImageResources {
   static const String heartIcon = '$__icons/heart_icon.png';
   static const String medsIcon = '$__icons/meds_icon.png';
   static const String petFood = '$__icons/pet_food.svg';
+  static const String addAdoption = '$__icons/add_adoption.png';
   static const String nailsIcon = '$__icons/nails_icon.png';
   static const String pawIcon = '$__icons/paw_icon.png';
   static const String syringeIcon = '$__icons/syringe_icon.png';
@@ -84,6 +87,8 @@ class ImageResources {
   static const String dogImage = '$images/dog_image.png';
   static const String sadDog = '$images/sad_dog.png';
   static const String noMedication = '$images/no_medication.png';
+  static const String noVaccination = '$images/no_veccination.png';
+  static const String noAdoption = '$images/no_adoption.png';
   static const String noMedia = '$images/no_media.png';
   static const String tshirt = '$images/T-shirt.png';
 

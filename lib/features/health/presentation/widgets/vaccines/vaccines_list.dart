@@ -14,9 +14,9 @@ class VaccinesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (false) {
+    if (true) {
       return EmptyListPage(
-        imagePath: ImageResources.noMedication,
+        imagePath: ImageResources.noVaccination,
         title: AppText.letKeepSafe,
         subTitle: AppText.trackCoreAndBooster,
         onPressed: () {

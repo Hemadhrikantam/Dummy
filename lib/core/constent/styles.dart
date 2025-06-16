@@ -136,6 +136,7 @@ class Styles {
   static const edgeInsetsOnlyR10 = EdgeInsets.only(right: 10);
   static const edgeInsetsOnlyT20 = EdgeInsets.only(top: 20);
   static const edgeInsetsOnlyT90 = EdgeInsets.only(top: 90);
+  static const edgeInsetsOnlyT80 = EdgeInsets.only(top: 80);
   static const edgeInsetsOnlyT10 = EdgeInsets.only(top: 10);
   static const edgeInsetsOnlyL10 = EdgeInsets.only(left: 10);
   static const edgeInsetsOnlyB85 = EdgeInsets.only(bottom: 85);
