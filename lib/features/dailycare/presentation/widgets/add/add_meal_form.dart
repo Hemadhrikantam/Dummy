@@ -175,7 +175,7 @@ class _AddMealFormState extends State<AddMealForm> {
                                   ],
                                 ),
                               );
-                            }).toList(),
+                            }),
                           
                           Styles.gap30,
                         ],

@@ -6,7 +6,6 @@ import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/constent/app_text.dart';
-import '../../../../../core/widgets/buttons/app_text_button.dart';
 
 class VaccinationDetailsCard extends StatelessWidget {
   const VaccinationDetailsCard({super.key});

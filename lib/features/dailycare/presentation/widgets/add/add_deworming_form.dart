@@ -236,7 +236,7 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                                   ],
                                 ),
                               );
-                            }).toList(),
+                            }),
 
                           Styles.gap30,
                         ],

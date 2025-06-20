@@ -161,7 +161,7 @@ class _AddExpensesFormState extends State<AddExpensesForm> {
                                   ],
                                 ),
                               );
-                            }).toList(),
+                            }),
 
                           Styles.gap30,
                         ],

@@ -7,7 +7,6 @@ import '../../../../../core/constent/app_colors.dart';
 import '../../../../../core/constent/image_resources.dart';
 import '../../../../../core/constent/styles.dart';
 import '../../../../../core/widgets/app_custom_listview_builder.dart';
-import '../../../../../core/widgets/custom_card.dart';
 
 class LearnSections extends StatelessWidget {
   const LearnSections({super.key});

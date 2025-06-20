@@ -162,7 +162,7 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                                   ],
                                 ),
                               );
-                            }).toList(),
+                            }),
 
                           Styles.gap30,
                         ],

@@ -166,7 +166,7 @@ class _AddWalkFormState extends State<AddWalkForm> {
                                   ],
                                 ),
                               );
-                            }).toList(),
+                            }),
 
                           Styles.gap20,
                         ],

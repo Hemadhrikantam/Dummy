@@ -129,7 +129,6 @@ class _PremiumSubscriptionView extends State<PremiumSubscriptionView> {
 
 class _PlanInfoCard extends StatelessWidget {
   const _PlanInfoCard({
-    super.key,
     required this.planType,
     required this.bilingInfo,
     required this.paymentMethod,

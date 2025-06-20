@@ -7,7 +7,6 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
-import 'package:dummy/features/auth/presentation/pages/start_screen_page.dart';
 import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

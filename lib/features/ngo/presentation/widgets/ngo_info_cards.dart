@@ -32,7 +32,6 @@ class NgoInfoCards extends StatelessWidget {
 
 class _CardWidget extends StatelessWidget {
   const _CardWidget({
-    super.key,
     required this.title,
     required this.value,
     required this.image,
