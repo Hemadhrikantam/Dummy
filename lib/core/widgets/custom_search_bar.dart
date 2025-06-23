@@ -1,4 +1,4 @@
-import 'package:dummy/core/constent/app_text.dart';
+import 'package:dummy/core/constant/app_text.dart';
 import 'package:flutter/material.dart';
 import '../utils/toast_message.dart';
 import 'app_custom_text_field.dart';

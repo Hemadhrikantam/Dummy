@@ -1,4 +1,4 @@
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/features/health/presentation/widgets/medication/date_card.dart';
 import 'package:flutter/material.dart';

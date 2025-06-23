@@ -1,8 +1,8 @@
-import 'package:dummy/core/constent/app_text.dart';
+import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:flutter/material.dart';
-import '../../../../../core/constent/image_resources.dart';
-import '../../../../../core/constent/styles.dart';
+import '../../../../core/constant/image_resources.dart';
+import '../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/app_assets_image.dart';
 import '../../../../core/widgets/app_graber.dart';
 

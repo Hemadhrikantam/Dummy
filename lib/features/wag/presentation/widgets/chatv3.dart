@@ -7,9 +7,9 @@ import 'package:flutter/services.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:rive/rive.dart';
 
-import '../../../../core/constent/app_colors.dart';
-import '../../../../core/constent/image_resources.dart';
-import '../../../../core/constent/styles.dart';
+import '../../../../core/constant/app_colors.dart';
+import '../../../../core/constant/image_resources.dart';
+import '../../../../core/constant/styles.dart';
 import '../../../../core/widgets/app_assets_image.dart';
 import '../../../../core/widgets/app_custom_listview_builder.dart';
 import '../../../../core/widgets/app_custom_text_field.dart';

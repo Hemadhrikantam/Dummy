@@ -1,6 +1,6 @@
 import 'package:fluttertoast/fluttertoast.dart';
 
-import '../constent/app_colors.dart';
+import '../constant/app_colors.dart';
 
 class AppAlert {
   static void showToast({required String message}) {

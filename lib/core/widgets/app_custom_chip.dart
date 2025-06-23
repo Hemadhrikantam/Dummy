@@ -3,8 +3,8 @@ import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../constent/app_colors.dart';
-import '../constent/styles.dart';
+import '../constant/app_colors.dart';
+import '../constant/styles.dart';
 
 class AppCustomChipWidget extends StatelessWidget {
   const AppCustomChipWidget({

@@ -1,4 +1,4 @@
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/close_button_widget.dart';

@@ -1,4 +1,4 @@
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
@@ -6,8 +6,8 @@ import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/mandatory_field_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/constent/app_colors.dart';
-import '../../../../../core/constent/app_text.dart';
+import '../../../../core/constant/app_colors.dart';
+import '../../../../core/constant/app_text.dart';
 import '../../../../../core/widgets/app_custom_text_field.dart';
 import '../../../../../core/widgets/custom_dropdown.dart';
 import '../../../../../core/widgets/dotted_border_widget.dart';

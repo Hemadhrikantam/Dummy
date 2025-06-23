@@ -2,7 +2,7 @@
 
 import 'dart:io';
 
-import 'package:dummy/core/constent/app_colors.dart';
+import 'package:dummy/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';

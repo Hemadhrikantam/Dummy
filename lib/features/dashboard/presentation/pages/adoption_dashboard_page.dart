@@ -1,6 +1,6 @@
-import 'package:dummy/core/constent/app_colors.dart';
-import 'package:dummy/core/constent/image_resources.dart';
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/app_colors.dart';
+import 'package:dummy/core/constant/image_resources.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/adoption_nav_bar.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';

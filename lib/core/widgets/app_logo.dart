@@ -1,4 +1,4 @@
-import 'package:dummy/core/constent/image_resources.dart';
+import 'package:dummy/core/constant/image_resources.dart';
 import 'package:flutter/material.dart';
 
 import 'app_assets_image.dart';

@@ -1,16 +1,16 @@
-import 'package:dummy/core/constent/app_colors.dart';
+import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/features/auth/presentation/pages/login_page.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/constent/app_text.dart';
-import '../../../../../core/constent/styles.dart';
+import '../../../../core/constant/app_text.dart';
+import '../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/base_screen.dart';
 import '../../../../../core/widgets/buttons/app_button.dart';
 import '../../../../../core/widgets/buttons/back_button.dart';
-import '../../../../core/constent/image_resources.dart';
+import '../../../../core/constant/image_resources.dart';
 import '../../../../core/widgets/app_assets_image.dart';
 
 class PasswordResetSuccessfullPage extends StatelessWidget {

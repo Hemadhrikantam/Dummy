@@ -1,4 +1,4 @@
-import 'package:dummy/core/constent/app_colors.dart';
+import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/profile/presentation/pages/support/faq_page.dart';
@@ -7,9 +7,9 @@ import 'package:dummy/features/profile/presentation/pages/support/terms_and_cond
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../../../core/constent/app_text.dart';
-import '../../../../../core/constent/image_resources.dart';
-import '../../../../../core/constent/styles.dart';
+import '../../../../../core/constant/app_text.dart';
+import '../../../../../core/constant/image_resources.dart';
+import '../../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/base_screen.dart';
 import '../../widgets/support/support_options_widget.dart';
 

@@ -1,4 +1,4 @@
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/custom_header_widget.dart';
 import 'package:dummy/features/home/presentation/widgets/near_you_card.dart' show NearYouCard;

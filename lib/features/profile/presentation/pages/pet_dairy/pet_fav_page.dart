@@ -1,7 +1,7 @@
-import 'package:dummy/core/constent/app_text.dart';
+import 'package:dummy/core/constant/app_text.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/constent/image_resources.dart';
+import '../../../../../core/constant/image_resources.dart';
 import '../../../../../core/widgets/app_assets_image.dart';
 import '../../../../../core/widgets/base_screen.dart';
 

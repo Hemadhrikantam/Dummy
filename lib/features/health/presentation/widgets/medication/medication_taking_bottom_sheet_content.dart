@@ -1,11 +1,11 @@
-import 'package:dummy/core/constent/app_text.dart';
+import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/custom_swipe_button.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/constent/styles.dart';
+import '../../../../../core/constant/styles.dart';
 
 class MedicationTakingBottomSheetContent extends StatelessWidget {
   const MedicationTakingBottomSheetContent({super.key, this.onTap});

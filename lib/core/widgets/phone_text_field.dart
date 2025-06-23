@@ -1,5 +1,5 @@
-import 'package:dummy/core/constent/app_colors.dart';
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/app_colors.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:dummy/core/widgets/mandatory_field_widget.dart';

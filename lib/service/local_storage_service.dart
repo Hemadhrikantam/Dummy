@@ -1,5 +1,5 @@
 abstract class LocalStorage{
-   Future<void> write(SecureStorageItem item);
+  Future<void> write(SecureStorageItem item);
 
   Future<dynamic> read(String key);
 

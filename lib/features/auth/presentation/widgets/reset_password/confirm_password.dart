@@ -1,9 +1,9 @@
-import 'package:dummy/core/constent/app_text.dart';
+import 'package:dummy/core/constant/app_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../../../core/constent/app_colors.dart';
+import '../../../../../core/constant/app_colors.dart';
 import '../../../../../core/models/formz/password.dart';
 import '../../../../../core/utils/app_utils.dart';
 import '../../../../../core/widgets/app_custom_text_field.dart';

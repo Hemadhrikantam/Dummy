@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constent/app_colors.dart';
+import '../constant/app_colors.dart';
 
 class LoadingWidget {
   static Widget get circularProgressIndicatorExpandRow {

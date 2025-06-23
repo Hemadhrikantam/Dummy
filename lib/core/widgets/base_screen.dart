@@ -1,5 +1,5 @@
-import 'package:dummy/core/constent/app_text.dart';
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/app_text.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
@@ -10,8 +10,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../constent/app_colors.dart';
-import '../constent/image_resources.dart';
+import '../constant/app_colors.dart';
+import '../constant/image_resources.dart';
 import 'app_assets_image.dart';
 import 'buttons/app_icon_button.dart';
 import 'custom_search_bar.dart';

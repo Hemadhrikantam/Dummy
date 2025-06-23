@@ -1,4 +1,4 @@
-import 'package:dummy/core/constent/app_colors.dart';
+import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:flutter/material.dart';

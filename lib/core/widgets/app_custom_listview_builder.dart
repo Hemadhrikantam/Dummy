@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../constent/styles.dart';
+import '../constant/styles.dart';
 
 class AppCustomListViewBuilder extends StatelessWidget {
   const AppCustomListViewBuilder({

@@ -1,5 +1,5 @@
-import 'package:dummy/core/constent/app_text.dart';
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/app_text.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/widgets/base_screen.dart';
 import '../widgets/adoption_details_card.dart';

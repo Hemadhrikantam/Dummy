@@ -1,8 +1,8 @@
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/constent/app_colors.dart';
-import '../../../../../core/constent/styles.dart';
+import '../../../../../core/constant/app_colors.dart';
+import '../../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/custom_card.dart';
 
 class PersonalizedRecommendationsSection extends StatelessWidget {

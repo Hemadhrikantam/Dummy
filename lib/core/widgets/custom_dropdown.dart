@@ -1,8 +1,8 @@
 // ignore_for_file: always_put_required_named_parameters_first
 
 import 'package:dropdown_search/dropdown_search.dart';
-import 'package:dummy/core/constent/app_colors.dart';
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/app_colors.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/mandatory_field_widget.dart';
 import 'package:flutter/material.dart';

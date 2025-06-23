@@ -1,5 +1,5 @@
-import 'package:dummy/core/constent/app_text.dart';
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/app_text.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/custom_dropdown.dart';

@@ -4,7 +4,7 @@ import 'package:dartz/dartz.dart';
 
 import '../../../../api/api.dart' as api;
 import '../../../../api/storage_key.dart';
-import '../../../../core/constent/app_text.dart';
+import '../../../../core/constant/app_text.dart';
 import '../../../../core/error/app_error.dart';
 import '../../../../core/error/app_success.dart';
 import '../../../../core/models/login_model.dart';

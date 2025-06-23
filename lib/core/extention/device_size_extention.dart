@@ -1,4 +1,4 @@
-import 'package:dummy/core/constent/device_size.dart';
+import 'package:dummy/core/constant/device_size.dart';
 import 'package:flutter/material.dart';
 
 

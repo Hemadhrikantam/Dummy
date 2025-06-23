@@ -1,4 +1,4 @@
-import 'package:dummy/core/constent/app_text.dart';
+import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
@@ -6,8 +6,8 @@ import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../../../core/constent/app_colors.dart';
-import '../../../../../core/constent/styles.dart';
+import '../../../../../core/constant/app_colors.dart';
+import '../../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/app_icon.dart';
 import '../../../../../core/widgets/buttons/app_text_button.dart';
 import '../../../../../core/widgets/custom_card.dart';

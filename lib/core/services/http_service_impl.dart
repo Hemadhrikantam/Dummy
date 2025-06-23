@@ -8,18 +8,14 @@ import 'package:dummy/service/app_http_service.dart' show AppHttp;
 import 'package:dummy/service/local_storage_service.dart';
 
 import '../../api/storage_key.dart';
-import '../constent/app_text.dart';
+import '../constant/app_text.dart';
 import '../error/app_error.dart';
 import '../models/app_http_response.dart';
 
 class AppHttpImpl extends AppHttp {
   AppHttpImpl(this._dio, this._storage);
   Future<Options> get defaultHeader async {
-    return Options(
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    );
+    return Options(headers: {'Content-Type': 'application/json'});
   }
 
   final Dio _dio;
@@ -41,10 +37,12 @@ class AppHttpImpl extends AppHttp {
           return Left(ErrorMessage(message: AppText.serverDown));
         }
       }
-      final response = await _dio.delete(path,
-          data: data,
-          options: token ? tokenHead! : options ?? await defaultHeader,
-          queryParameters: queryParameters);
+      final response = await _dio.delete(
+        path,
+        data: data,
+        options: token ? tokenHead! : options ?? await defaultHeader,
+        queryParameters: queryParameters,
+      );
       return Right(AppResponse.fromDioResponse(response));
     } on DioException catch (dioError) {
       return Left(_dioErroParse(dioError));
@@ -58,12 +56,13 @@ class AppHttpImpl extends AppHttp {
   }
 
   @override
-  AppHttpResponse get(
-      {required String path,
-      Object? data,
-      Options? options,
-      bool token = true,
-      Map<String, dynamic>? queryParameters}) async {
+  AppHttpResponse get({
+    required String path,
+    Object? data,
+    Options? options,
+    bool token = true,
+    Map<String, dynamic>? queryParameters,
+  }) async {
     try {
       late final Options? tokenHead;
       if (token) {
@@ -92,12 +91,13 @@ class AppHttpImpl extends AppHttp {
   }
 
   @override
-  AppHttpResponse post(
-      {required String path,
-      Object? data,
-      Options? options,
-      bool token = true,
-      Map<String, dynamic>? queryParameters}) async {
+  AppHttpResponse post({
+    required String path,
+    Object? data,
+    Options? options,
+    bool token = true,
+    Map<String, dynamic>? queryParameters,
+  }) async {
     try {
       late final Options? tokenHead;
       if (token) {
@@ -125,12 +125,13 @@ class AppHttpImpl extends AppHttp {
   }
 
   @override
-  AppHttpResponse update(
-      {required String path,
-      Object? data,
-      Options? options,
-      bool token = true,
-      Map<String, dynamic>? queryParameters}) async {
+  AppHttpResponse update({
+    required String path,
+    Object? data,
+    Options? options,
+    bool token = true,
+    Map<String, dynamic>? queryParameters,
+  }) async {
     try {
       late final Options? tokenHead;
       if (token) {
@@ -158,12 +159,13 @@ class AppHttpImpl extends AppHttp {
   }
 
   @override
-  AppHttpResponse put(
-      {required String path,
-      Object? data,
-      Options? options,
-      bool token = true,
-      Map<String, dynamic>? queryParameters}) async {
+  AppHttpResponse put({
+    required String path,
+    Object? data,
+    Options? options,
+    bool token = true,
+    Map<String, dynamic>? queryParameters,
+  }) async {
     try {
       late final Options? tokenHead;
       if (token) {
@@ -192,12 +194,13 @@ class AppHttpImpl extends AppHttp {
   }
 
   @override
-  AppHttpResponse putFile(
-      {required String path,
-      Object? data,
-      Options? options,
-      bool token = true,
-      Map<String, dynamic>? queryParameters}) async {
+  AppHttpResponse putFile({
+    required String path,
+    Object? data,
+    Options? options,
+    bool token = true,
+    Map<String, dynamic>? queryParameters,
+  }) async {
     try {
       late final Options? tokenHead;
       if (token) {
@@ -232,19 +235,21 @@ class AppHttpImpl extends AppHttp {
         final statusMessage = dioError.response!.statusMessage;
         if (statusCode != null && statusCode >= 400 && statusCode < 500) {
           return ErrorMessage(
-            message: (data['message'] ??
-                data['error'] ??
-                statusMessage ??
-                AppText.somethingWentWrong) as String,
+            message:
+                (data['message'] ??
+                        data['error'] ??
+                        statusMessage ??
+                        AppText.somethingWentWrong)
+                    as String,
           );
         }
         if (statusCode != null && statusCode >= 500) {
           return ErrorMessage(message: AppText.serverDown);
         }
         return ErrorMessage(
-          message: (data['message'] ??
-              statusMessage ??
-              AppText.somethingWentWrong) as String,
+          message:
+              (data['message'] ?? statusMessage ?? AppText.somethingWentWrong)
+                  as String,
         );
       } catch (e) {
         return ErrorMessage(message: dioError.message ?? AppText.serverDown);

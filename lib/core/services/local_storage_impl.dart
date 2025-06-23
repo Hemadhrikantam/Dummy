@@ -1,11 +1,6 @@
-
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../../service/local_storage_service.dart';
-
-
-
-
 
 class LocalStorageImpl implements LocalStorage {
   const LocalStorageImpl(this._storage);
@@ -21,7 +16,7 @@ class LocalStorageImpl implements LocalStorage {
   Future<dynamic> read(String key) async {
     final encodedValue = await _storage.read(key: key);
     return encodedValue;
-  } 
+  }
 
   @override
   Future<void> delete(String key) async {

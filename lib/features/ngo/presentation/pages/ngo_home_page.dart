@@ -3,7 +3,7 @@ import 'package:dummy/features/ngo/presentation/widgets/ngo_home_view.dart';
 import 'package:dummy/features/ngo/presentation/widgets/ngo_pets_view.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/constent/app_colors.dart';
+import '../../../../core/constant/app_colors.dart';
 
 class NgoHomePage extends StatefulWidget {
   const NgoHomePage({super.key});

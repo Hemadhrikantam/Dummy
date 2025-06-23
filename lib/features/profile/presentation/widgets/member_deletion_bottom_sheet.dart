@@ -1,10 +1,10 @@
-import 'package:dummy/core/constent/app_text.dart';
+import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/constent/app_colors.dart';
-import '../../../../../core/constent/styles.dart';
+import '../../../../core/constant/app_colors.dart';
+import '../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/buttons/app_text_button.dart';
 
 class MemberDeleteBottomSheet extends StatelessWidget {

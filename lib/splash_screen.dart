@@ -1,6 +1,6 @@
-import 'package:dummy/core/constent/app_colors.dart';
-import 'package:dummy/core/constent/image_resources.dart';
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/app_colors.dart';
+import 'package:dummy/core/constant/image_resources.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 // import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';

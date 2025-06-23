@@ -1,5 +1,5 @@
-import 'package:dummy/core/constent/app_text.dart';
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/app_text.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
@@ -8,7 +8,7 @@ import 'package:dummy/features/health/presentation/widgets/medication/date_list.
 import 'package:dummy/features/profile/presentation/widgets/bottom_action_button.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/constent/app_colors.dart';
+import '../../../../core/constant/app_colors.dart';
 import '../../../../core/widgets/base_screen.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
 import '../../../../core/widgets/buttons/app_text_button.dart';

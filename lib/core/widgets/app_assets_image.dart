@@ -4,8 +4,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:rive/rive.dart' hide Image;
-import '../constent/app_colors.dart';
-import '../constent/styles.dart';
+import '../constant/app_colors.dart';
+import '../constant/styles.dart';
 
 class AppAssestsImage extends StatelessWidget {
   const AppAssestsImage({

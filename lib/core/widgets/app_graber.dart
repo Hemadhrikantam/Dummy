@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../constent/app_colors.dart';
-import '../constent/styles.dart';
+import '../constant/app_colors.dart';
+import '../constant/styles.dart';
 
 class AppGraber extends StatelessWidget {
   const AppGraber({super.key});

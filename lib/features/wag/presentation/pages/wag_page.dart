@@ -1,7 +1,7 @@
-import 'package:dummy/core/constent/app_colors.dart';
+import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/features/wag/presentation/widgets/chat_card.dart';
 import 'package:flutter/material.dart';
-import '../../../../core/constent/styles.dart';
+import '../../../../core/constant/styles.dart';
 import '../../../../core/widgets/custom_header_widget.dart';
 
 class WagPage extends StatefulWidget {

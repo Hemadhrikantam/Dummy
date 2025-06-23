@@ -1,4 +1,4 @@
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

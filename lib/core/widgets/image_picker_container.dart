@@ -1,10 +1,10 @@
-import 'package:dummy/core/constent/app_colors.dart';
+import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
-import '../constent/styles.dart';
+import '../constant/styles.dart';
 import '../utils/image_utility.dart';
 import 'buttons/app_icon_button.dart';
 import 'custom_card.dart';

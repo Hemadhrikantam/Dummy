@@ -1,5 +1,5 @@
-import 'package:dummy/core/constent/app_text.dart';
-import 'package:dummy/core/constent/image_resources.dart';
+import 'package:dummy/core/constant/app_text.dart';
+import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/widgets/bottom_icon_data.dart';
 import 'package:dummy/core/widgets/profile_options_list.dart';
 import 'package:iconsax/iconsax.dart';

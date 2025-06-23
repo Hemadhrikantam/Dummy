@@ -1,4 +1,4 @@
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
@@ -6,8 +6,8 @@ import 'package:dummy/features/health/presentation/widgets/goldern_container.dar
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../core/constent/app_colors.dart';
-import '../../../../../core/constent/image_resources.dart';
+import '../../../../../core/constant/app_colors.dart';
+import '../../../../../core/constant/image_resources.dart';
 import '../../../../../core/widgets/app_assets_image.dart';
 import '../../../../../core/widgets/buttons/app_text_button.dart';
 import 'health_status_card.dart';

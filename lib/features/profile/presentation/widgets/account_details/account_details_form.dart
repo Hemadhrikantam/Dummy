@@ -1,8 +1,8 @@
-import 'package:dummy/core/constent/app_colors.dart';
+import 'package:dummy/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/constent/app_text.dart';
-import '../../../../../core/constent/styles.dart';
+import '../../../../../core/constant/app_text.dart';
+import '../../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/app_custom_text_field.dart';
 import '../../../../../core/widgets/custom_card.dart';
 

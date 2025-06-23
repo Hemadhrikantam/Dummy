@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../../constent/app_colors.dart';
+import '../../constant/app_colors.dart';
 
 class AppTextIconButton extends StatelessWidget {
   final String name;

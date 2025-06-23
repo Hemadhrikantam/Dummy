@@ -2,8 +2,8 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../constent/app_colors.dart';
-import '../constent/styles.dart';
+import '../constant/app_colors.dart';
+import '../constant/styles.dart';
 import '../models/tab_model.dart';
 import 'custom_card.dart';
 

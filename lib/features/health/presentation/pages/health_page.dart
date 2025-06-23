@@ -1,8 +1,8 @@
-import 'package:dummy/core/constent/app_text.dart';
+import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/constent/styles.dart';
+import '../../../../core/constant/styles.dart';
 import '../../../../core/models/tab_model.dart';
 import '../../../../core/widgets/custom_header_widget.dart';
 import '../../../../core/widgets/custom_tab_bar.dart';

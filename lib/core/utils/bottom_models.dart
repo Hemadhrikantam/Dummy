@@ -1,7 +1,7 @@
 import 'dart:io';
 
-import 'package:dummy/core/constent/app_colors.dart';
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/app_colors.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/features/addoption/presentation/widgets/add_adoption_success_bottom_sheet_content.dart';
 import 'package:dummy/features/auth/presentation/widgets/otp_success_bottom_sheet_content.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/add/add_expenses_form.dart';

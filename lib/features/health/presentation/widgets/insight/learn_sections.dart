@@ -3,9 +3,9 @@ import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../core/constent/app_colors.dart';
-import '../../../../../core/constent/image_resources.dart';
-import '../../../../../core/constent/styles.dart';
+import '../../../../../core/constant/app_colors.dart';
+import '../../../../../core/constant/image_resources.dart';
+import '../../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/app_custom_listview_builder.dart';
 
 class LearnSections extends StatelessWidget {

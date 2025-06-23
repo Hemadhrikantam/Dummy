@@ -1,5 +1,5 @@
 // dailycare_page.dart
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/daily_care_overview_section.dart';
 import 'package:dummy/core/widgets/custom_header_widget.dart';
 import 'package:flutter/material.dart';

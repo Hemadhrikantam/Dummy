@@ -1,7 +1,7 @@
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:flutter/material.dart';
 
-import '../constent/app_colors.dart';
+import '../constant/app_colors.dart';
 
 class CustomCheckBox extends StatelessWidget {
   const CustomCheckBox({

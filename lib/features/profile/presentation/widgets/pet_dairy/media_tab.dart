@@ -1,6 +1,6 @@
-import 'package:dummy/core/constent/app_text.dart';
-import 'package:dummy/core/constent/image_resources.dart';
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/app_text.dart';
+import 'package:dummy/core/constant/image_resources.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/features/health/presentation/widgets/empty_list_page.dart';

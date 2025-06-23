@@ -1,13 +1,13 @@
-import 'package:dummy/core/constent/app_colors.dart';
-import 'package:dummy/core/constent/image_resources.dart';
-import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/constant/app_colors.dart';
+import 'package:dummy/core/constant/image_resources.dart';
+import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/constent/app_text.dart';
+import '../../../../core/constant/app_text.dart';
 import '../../../../core/widgets/app_custom_check_box.dart';
 import '../../../../core/widgets/app_custom_chip.dart';
 import '../../../../core/widgets/buttons/app_icon_button.dart';

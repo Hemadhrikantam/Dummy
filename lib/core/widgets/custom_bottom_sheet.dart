@@ -1,8 +1,8 @@
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:flutter/material.dart';
 
-import '../constent/app_colors.dart';
-import '../constent/styles.dart';
+import '../constant/app_colors.dart';
+import '../constant/styles.dart';
 
 class CustomBottomSheet extends StatelessWidget {
   const CustomBottomSheet({super.key, required this.child});

@@ -1,9 +1,9 @@
-import 'package:dummy/core/constent/app_colors.dart';
+import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/constent/styles.dart';
+import '../../../../core/constant/styles.dart';
 
 class TimerWidget extends StatelessWidget {
   final String minutes;

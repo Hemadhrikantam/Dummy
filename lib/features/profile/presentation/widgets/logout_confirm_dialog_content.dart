@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/app_icon.dart';
 import '../../../../../core/widgets/buttons/app_text_button.dart';
-import '../../../../core/constent/app_colors.dart';
-import '../../../../core/constent/app_text.dart';
-import '../../../../core/constent/styles.dart';
+import '../../../../core/constant/app_colors.dart';
+import '../../../../core/constant/app_text.dart';
+import '../../../../core/constant/styles.dart';
 import '../../../auth/presentation/bloc/auth/auth_bloc.dart';
 
 class LogoutConfirmDialogContent extends StatelessWidget {
