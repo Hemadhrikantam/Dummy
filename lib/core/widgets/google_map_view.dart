@@ -29,31 +29,31 @@ class _GoogleMapViewState extends State<GoogleMapView> {
   Future<void> _getDeviceLocation() async {
     Location location = Location();
 
-    bool _serviceEnabled;
-    PermissionStatus _permissionGranted;
-    LocationData _locationData;
+    bool serviceEnabled;
+    PermissionStatus permissionGranted;
+    LocationData locationData;
 
     // Check service
-    _serviceEnabled = await location.serviceEnabled();
-    if (!_serviceEnabled) {
-      _serviceEnabled = await location.requestService();
-      if (!_serviceEnabled) return;
+    serviceEnabled = await location.serviceEnabled();
+    if (!serviceEnabled) {
+      serviceEnabled = await location.requestService();
+      if (!serviceEnabled) return;
     }
 
     // Check permission
-    _permissionGranted = await location.hasPermission();
-    if (_permissionGranted == PermissionStatus.denied) {
-      _permissionGranted = await location.requestPermission();
-      if (_permissionGranted != PermissionStatus.granted) return;
+    permissionGranted = await location.hasPermission();
+    if (permissionGranted == PermissionStatus.denied) {
+      permissionGranted = await location.requestPermission();
+      if (permissionGranted != PermissionStatus.granted) return;
     }
 
     // Get location
-    _locationData = await location.getLocation();
+    locationData = await location.getLocation();
 
     setState(() {
       _currentPosition = LatLng(
-        _locationData.latitude!,
-        _locationData.longitude!,
+        locationData.latitude!,
+        locationData.longitude!,
       );
     });
   }

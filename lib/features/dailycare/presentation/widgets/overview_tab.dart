@@ -45,14 +45,14 @@ class OverviewTab extends StatelessWidget {
                 OverviewCard(
                   iconPath: ImageResources.groomingicon,
                   title: AppText.grooming,
-                  subtitle: AppText.lastSessionOn + "03/15/2025",
+                  subtitle: "${AppText.lastSessionOn}03/15/2025",
                   onTap: () {},
                 ),
                 Styles.gap10,
                 OverviewCard(
                   iconPath: ImageResources.dewormingicon,
                   title: AppText.deworming,
-                  subtitle: AppText.dueOn + "03/20/2025",
+                  subtitle: "${AppText.dueOn}03/20/2025",
                   onTap: () {},
                 ),
                 Styles.gap10,

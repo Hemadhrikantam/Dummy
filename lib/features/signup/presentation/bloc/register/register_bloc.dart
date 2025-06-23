@@ -78,9 +78,9 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
   void __addTag(_AddTag event, Emitter<RegisterState> emit) {
     List<DropdownValue> updatedTags = [];
-    event.value.forEach((e) {
+    for (var e in event.value) {
       updatedTags.add(DropdownValue.dirty(e));
-    });
+    }
 
     emit(state.copyWith(selectedPersonalityTags: updatedTags));
   }

@@ -1,4 +1,3 @@
-import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
@@ -9,14 +8,7 @@ import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
-import 'package:dummy/core/widgets/custom_header_widget.dart';
-import 'package:dummy/core/widgets/nav_bar.dart';
-import 'package:dummy/features/addoption/presentation/pages/addoption_page.dart';
-import 'package:dummy/features/dailycare/presentation/pages/dailycare_page.dart';
-import 'package:dummy/features/health/presentation/pages/health_page.dart';
-import 'package:dummy/features/home/presentation/pages/home_page.dart';
 import 'package:dummy/features/profile/presentation/pages/profile_options_page.dart';
-import 'package:dummy/features/wag/presentation/pages/wag_page.dart';
 import 'package:flutter/material.dart';
 
 class NotificationPage extends StatefulWidget {
@@ -85,7 +77,7 @@ class _NotificationPage extends State<NotificationPage> {
                   itemBuilder: (context, index) {
                     final notification = notifications[index];
                     return Padding(
-                      padding: EdgeInsetsGeometry.only(bottom: 24 ),
+                      padding: Styles.edgeInsetsOnlyH15,
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

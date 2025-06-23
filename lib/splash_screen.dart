@@ -4,7 +4,6 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 // import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
-import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey.dart';
 import 'package:flutter/material.dart';
 
 import 'core/widgets/app_assets_image.dart';

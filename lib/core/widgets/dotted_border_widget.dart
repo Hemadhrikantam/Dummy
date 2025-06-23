@@ -110,7 +110,7 @@ class _DottedBorderWidget extends State<DottedBorderWidget> {
                 ],
               ),
             );
-          }).toList(),
+          }),
       ],
     );
   }

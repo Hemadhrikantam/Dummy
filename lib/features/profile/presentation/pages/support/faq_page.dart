@@ -3,13 +3,10 @@ import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
 
 import '../../../../../core/constant/app_text.dart';
-import '../../../../../core/constant/image_resources.dart';
 import '../../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/base_screen.dart';
-import '../../widgets/support/support_options_widget.dart';
 
 class FaqPage extends StatelessWidget {
   const FaqPage({super.key});

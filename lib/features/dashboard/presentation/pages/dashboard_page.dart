@@ -69,7 +69,6 @@ class _DashboardPage extends State<DashboardPage> {
             elevation: 0,
             onPressed: () {
               context.push(WagPage.route());
-              //  BottomModels.needPremiumBottomSheet(context);
             },
             shape: RoundedRectangleBorder(
               side: const BorderSide(width: 3, color: AppColors.white),

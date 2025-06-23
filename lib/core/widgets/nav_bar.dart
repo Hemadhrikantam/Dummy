@@ -86,26 +86,26 @@ class __NavItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Column(
-        children: [
-          Styles.gap20,
-          InkWell(
-            onTap: () => onTap?.call(index),
-            child: Image.asset(
+      child: InkWell(
+          onTap: () => onTap?.call(index),
+        child: Column(
+          children: [
+            Styles.gap20,
+            Image.asset(
               selected ? selectedAsset : unselectedAsset,
               width: 24,
               height: 24,
             ),
-          ),
-          Text(
-            text,
-            style: currentContext.textTheme.titleSmall?.copyWith(
-              fontSize: 12,
-              fontWeight: FontWeight.w700,
-              color: selected ? AppColors.stepperColor : AppColors.black,
+            Text(
+              text,
+              style: currentContext.textTheme.titleSmall?.copyWith(
+                fontSize: 12,
+                fontWeight: FontWeight.w700,
+                color: selected ? AppColors.stepperColor : AppColors.black,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
