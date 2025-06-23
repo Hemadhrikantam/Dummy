@@ -1,4 +1,3 @@
-
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
@@ -20,41 +19,37 @@ class _VaccinationReminderBottomSheet
     extends State<VaccinationReminderBottomSheet> {
   @override
   Widget build(BuildContext context) {
-    return DraggableScrollableSheet(
-      initialChildSize: 0.35,
-      minChildSize: 0.35,
-      maxChildSize: 1,
-      expand: false,
-      builder: (context, scrollController) {
-        return ListView(
-          controller: scrollController,
-          padding: Styles.edgeInsetsOnlyW20,
-          children: [
-            Styles.gap6,
-            AppGraber(),
-            Styles.gap16,
-            __Reminder(),
-            Styles.gap25,
-            Row(
-              children: [
-                Expanded(
-                  child: AppButton(
-                    showShadow: false,
-                    backgroundColor: Colors.white,
-                    name: Text(AppText.clearFilter, style: Styles.buttonStyle),
-                  ),
+    return Padding(
+      padding: Styles.edgeInsetsOnlyW15,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Styles.gap6,
+          AppGraber(),
+          Styles.gap16,
+          __Reminder(),
+          Styles.gap25,
+          Row(
+            children: [
+              Expanded(
+                child: AppButton(
+                  showShadow: false,
+                  backgroundColor: Colors.white,
+                  name: Text(AppText.clearFilter, style: Styles.buttonStyle),
                 ),
-                Styles.gap10,
-                Expanded(
-                  child: AppButton(
-                    name: Text(AppText.save, style: Styles.buttonStyle),
-                  ),
+              ),
+              Styles.gap10,
+              Expanded(
+                child: AppButton(
+                  name: Text(AppText.save, style: Styles.buttonStyle),
                 ),
-              ],
-            ),
-          ],
-        );
-      },
+              ),
+            ],
+          ),
+          Styles.gap10
+        ],
+      ),
     );
   }
 }

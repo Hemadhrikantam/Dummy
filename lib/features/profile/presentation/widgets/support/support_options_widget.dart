@@ -9,16 +9,17 @@ import 'package:flutter/widgets.dart';
 
 class SupportItemsWidget extends StatelessWidget {
   final String leadingIcon;
-  final String title;
+  final String? title;
   final String subtitle;
   final IconData trailingIcon;
   final Color? color;
-
+  final bool tailingIconCover;
   final Function()? onPressed;
   const SupportItemsWidget({
     super.key,
     required this.leadingIcon,
-    required this.title,
+    this.title,
+    this.tailingIconCover = false,
     required this.trailingIcon,
     this.color,
     this.onPressed,
@@ -42,29 +43,43 @@ class SupportItemsWidget extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        title,
-                        style: context.textTheme.bodySmall?.copyWith(
-                          color: AppColors.black.withOpacity(.5),
-                          fontWeight: FontWeight.w600,
-                          fontSize: 12,
+                      if (title != null)
+                        Text(
+                          title!,
+                          style: context.textTheme.bodySmall?.copyWith(
+                            color: AppColors.black.withOpacity(.5),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 12,
+                          ),
                         ),
-                      ),
                       Text(
                         subtitle,
                         style: context.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.w900,
+                          fontWeight: FontWeight.w700,
                           fontSize: 16,
                         ),
                       ),
                     ],
                   ),
                 ),
-                AppIcon(
-                  icon: trailingIcon,
-                  size: 24,
-                  color: AppColors.stepperColor,
-                ),
+                if (!tailingIconCover)
+                  AppIcon(
+                    icon: trailingIcon,
+                    size: 24,
+                    color: AppColors.stepperColor,
+                  ),
+                if (tailingIconCover)
+                  Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.stepperColor,
+                      shape: BoxShape.circle,
+                    ),
+                    child: AppIcon(
+                      icon: trailingIcon,
+                      size: 24,
+                      color: AppColors.white,
+                    ),
+                  ),
                 Styles.gap4,
               ],
             ),

@@ -1,7 +1,9 @@
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
+import 'package:dummy/features/health/presentation/pages/edit_medication_page.dart';
 import 'package:dummy/features/health/presentation/widgets/medication/date_list.dart';
 import 'package:dummy/features/profile/presentation/widgets/bottom_action_button.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +47,9 @@ class MedicationDetailsPage extends StatelessWidget {
             Styles.gap10,
             Expanded(
               child: AppButton(
+                onPressed: (){
+                  context.push(EditMedicationPage.route());
+                },
                 name: Center(
                   child: Text(
                     AppText.edit,

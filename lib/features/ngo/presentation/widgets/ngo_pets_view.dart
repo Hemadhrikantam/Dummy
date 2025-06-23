@@ -71,7 +71,7 @@ class _NgoPetsView extends State<NgoPetsView> {
             onTabSelected: (tab) => setState(() => selectedTab = tab),
           ),
           Styles.gap20,
-          Expanded(child: AdoptiontabbarView()),
+          Expanded(child: AdoptiontabbarView(tab: selectedTab,)),
         ],
       ),
     );

@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/features/signup/presentation/bloc/register/register_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../../../core/constent/app_text.dart';
 import '../../../../../core/constent/styles.dart';

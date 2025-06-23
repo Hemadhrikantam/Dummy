@@ -28,7 +28,7 @@ class RecentAddedPets extends StatelessWidget {
             physics: NeverScrollableScrollPhysics(),
             separatorBuilder: (context, i) => Styles.gap10,
             itemBuilder: (BuildContext context, int i) {
-              return AdoptionCard();
+              return AdoptionCard(isAllPet: false,);
             },
           ),
         ),

@@ -1,13 +1,11 @@
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/mandatory_field_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
-
 import '../../../../../core/constent/app_colors.dart';
 import '../../../../../core/constent/app_text.dart';
-import '../../../../../core/utils/app_utils.dart';
 import '../../../../../core/widgets/app_custom_text_field.dart';
 import '../../../../../core/widgets/custom_card.dart';
 import '../../../../../core/widgets/custom_dropdown.dart';
@@ -50,28 +48,15 @@ class __DateAdministered extends StatefulWidget {
 }
 
 class __DateAdministeredState extends State<__DateAdministered> {
-  final dateController = TextEditingController();
-
-  @override
-  void dispose() {
-    dateController.dispose();
-    super.dispose();
-  }
-
+  var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      controller: dateController,
-      suffixIcon: Iconsax.calendar,
-      readOnly: true,
-      hintText: AppText.enter,
-      onChanged: (value) {},
+    return AppCustomDateField(
       headerText: AppText.dateAdministered,
-      onTap: () {
-        AppUtil.datePicker(context, startDate: DateTime(1900)).then((value) {
-          if (value != null) {
-            dateController.text = value;
-          }
+      selectedDate: date,
+      onChange: (value) {
+        setState(() {
+          date = value;
         });
       },
     );
@@ -86,28 +71,15 @@ class __DueDate extends StatefulWidget {
 }
 
 class __DueDateState extends State<__DueDate> {
-  final dateController = TextEditingController();
-
-  @override
-  void dispose() {
-    dateController.dispose();
-    super.dispose();
-  }
-
+  var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      controller: dateController,
-      suffixIcon: Iconsax.calendar,
-      readOnly: true,
-      hintText: AppText.enter,
-      onChanged: (value) {},
-      headerText: AppText.duedate,
-      onTap: () {
-        AppUtil.datePicker(context, startDate: DateTime(1900)).then((value) {
-          if (value != null) {
-            dateController.text = value;
-          }
+    return AppCustomDateField(
+      headerText: AppText.dueDate,
+      selectedDate: date,
+      onChange: (value) {
+        setState(() {
+          date = value;
         });
       },
     );

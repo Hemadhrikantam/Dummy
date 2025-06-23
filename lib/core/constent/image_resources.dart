@@ -1,6 +1,7 @@
 class ImageResources {
   static const String __assets = 'assets';
   static const String images = '$__assets/images';
+  static const String rives = '$__assets/rives';
   static const String __icons = '$__assets/icons';
   static const String image = '$__assets/image_1.png';
 
@@ -13,6 +14,7 @@ class ImageResources {
   static const String googleIcon = '$__icons/google_icon.png';
   static const String badgeIcon = '$__icons/premium_badge.png';
   static const String dog = '$images/dog.png';
+  static const String bell = '$__icons/bell.png';
   static const String injection = '$images/hugeicons_injection.png';
   static const String trackImg = '$images/track.png';
   static const String backImg = '$images/back.png';
@@ -56,12 +58,18 @@ class ImageResources {
   static const String petProfile = '$images/pet_profile.png';
   static const String familyMembers = '$images/manage_family.png.png';
   static const String accountDetails = '$images/account_details.png';
+  static const String lock = '$__icons/lock.png';
+  static const String successAnimation = '$images/success_animation.gif';
   static const String map = '$__icons/map.png';
   static const String petDiary = '$__icons/pet_diary.png';
   static const String mdipaw = '$images/mdi_paw.png';
-  static const String darkpaw= '$images/dark_paw.png';
+  static const String darkpaw = '$images/dark_paw.png';
   static const String premiumSubscription = '$images/premium.png';
+  static const String vetNearMe = '$__icons/vet_near_me.png';
   static const String support = '$images/support.png';
+  static const String faq = '$__icons/faq.png';
+  static const String privacypolicy = '$__icons/privacy_policy.png';
+  static const String termscondition = '$__icons/terms_condition.png';
   static const String arrowFarward = '$images/arrow_farward.png';
   static const String delete = '$__icons/delete.png';
   static const String mediaImg = '$images/media.png';
@@ -71,6 +79,7 @@ class ImageResources {
   static const String heartIcon = '$__icons/heart_icon.png';
   static const String medsIcon = '$__icons/meds_icon.png';
   static const String petFood = '$__icons/pet_food.svg';
+  static const String addAdoption = '$__icons/add_adoption.png';
   static const String nailsIcon = '$__icons/nails_icon.png';
   static const String pawIcon = '$__icons/paw_icon.png';
   static const String syringeIcon = '$__icons/syringe_icon.png';
@@ -78,6 +87,8 @@ class ImageResources {
   static const String dogImage = '$images/dog_image.png';
   static const String sadDog = '$images/sad_dog.png';
   static const String noMedication = '$images/no_medication.png';
+  static const String noVaccination = '$images/no_veccination.png';
+  static const String noAdoption = '$images/no_adoption.png';
   static const String noMedia = '$images/no_media.png';
   static const String tshirt = '$images/T-shirt.png';
 
@@ -91,12 +102,26 @@ class ImageResources {
   static const String logWalks = '$images/log_walks.png';
   static const String logVaccin = '$images/log_vaccin.png';
   static const String checkMood = '$images/check_mood.png';
+  static const String medication = '$__icons/medication.png';
+  static const String expenses = '$__icons/expense.png';
   static const String addMemories = '$images/add_memories.png';
   static const String symptoms = '$images/symptoms.png';
 
   //wag
   static const String wagLogo = '$images/wag_logo.png';
   static const String sendIcon = '$__icons/send_icon.png';
+  static const String dogTail = '$__icons/dog_tail.gif';
+  static const String aiLoading = '$__icons/ai_loading.gif';
+  static const String wagMic = '$images/wag_mic.gif';
+  static const String micRive = '$rives/mic.riv';
+  static const String wag = '$images/wag.gif';
+  static const String dots = '$__icons/3-dots-more.svg';
+  static const String setting = '$__icons/setting.svg';
+  static const String audio = '$__icons/audio.svg';
+  static const String send = '$__icons/send.png';
+  static const String camera = '$__icons/camera1.svg';
+  static const String cross = '$__icons/cross.svg';
+  static const String attachment = '$__icons/attachment.svg';
 
   //pet dairy
   static const String petdairyPlaceholder = '$images/pet_dairy_placeholder.png';

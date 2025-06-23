@@ -1,9 +1,11 @@
 import 'package:dummy/core/constent/app_colors.dart';
 import 'package:dummy/core/constent/image_resources.dart';
 import 'package:dummy/core/constent/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
+import 'package:dummy/features/profile/presentation/pages/add_pet/add_pet_page.dart';
 import 'package:flutter/material.dart';
 
 class PetListHomeWidget extends StatefulWidget {
@@ -19,27 +21,19 @@ class _PetListHomeWidgetState extends State<PetListHomeWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60,
+      height: 65,
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          CustomCard(
-            padding: Styles.edgeInsetsAll10,
-            borderRadius: Styles.borderRadiusCircular40,
-            backgroundColor: AppColors.stepperColor,
-            borderColor: AppColors.stepperColor,
-            child: Icon(Icons.add, color: AppColors.white, size: 31),
-          ),
-          Styles.gap15,
           AppCustomListViewBuilder(
             padding: Styles.edgeInsetsZero,
-            itemCount: 3,
-            isExpand: true,
+            itemCount: 2,
+            isExpand: false,
             shrinkWrap: true,
             scrollDirection: Axis.horizontal,
             separatorBuilder: (context, i) => Styles.gap10,
             itemBuilder: (context, i) {
               final isSelected = i == selectedIndex;
-
               return GestureDetector(
                 onTap: () {
                   setState(() {
@@ -57,17 +51,21 @@ class _PetListHomeWidgetState extends State<PetListHomeWidget> {
                             ),
                           )
                           : null,
-                  padding: Styles.edgeInsetsActivities,
-                  child: CustomCard(
-                    padding: Styles.edgeInsetsZero,
-                    borderRadius: Styles.borderRadiusCircular40,
-                    border: Border.all(width: 2, color: AppColors.white),
-                    child: ClipRRect(
+                  padding: Styles.edgeInsetsActivities+ EdgeInsets.only(top: 8),
+                  child: SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: CustomCard(
+                      padding: Styles.edgeInsetsAll02,
                       borderRadius: Styles.borderRadiusCircular40,
-                      child: AppAssestsImage(
-                        path: ImageResources.dog,
-                        width: 50,
+                      border: Border.all(width: 2, color: AppColors.white),
+                      child: ClipRRect(
                         borderRadius: Styles.borderRadiusCircular40,
+                        child: AppAssestsImage(
+                          path: ImageResources.dog,
+                          width: 50,
+                          borderRadius: Styles.borderRadiusCircular40,
+                        ),
                       ),
                     ),
                   ),
@@ -75,6 +73,18 @@ class _PetListHomeWidgetState extends State<PetListHomeWidget> {
               );
             },
           ),
+          Styles.gap15,
+          CustomCard(
+            padding: Styles.edgeInsetsAll10,
+            borderRadius: Styles.borderRadiusCircular40,
+            backgroundColor: AppColors.stepperColor,
+            borderColor: AppColors.stepperColor,
+            onTap: (){
+              context.push(AddPetPage.route());
+            },
+            child: Icon(Icons.add, color: AppColors.white, size: 31),
+          ),
+          Expanded(child: SizedBox())
         ],
       ),
     );

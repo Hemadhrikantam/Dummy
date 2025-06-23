@@ -62,6 +62,7 @@ class InsightTab extends StatelessWidget {
                         ),
                       ],
                     ),
+                    if(empty)
                     AppTextButton(
                       backgroundColor: AppColors.white,
                       name: "Log Walks",

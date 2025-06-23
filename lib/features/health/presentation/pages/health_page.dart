@@ -42,7 +42,7 @@ class _HealthPage extends State<HealthPage> with TickerProviderStateMixin {
             tabController: _tabController,
             tabs: [
               TabModel(text: AppText.insights),
-              TabModel(text: AppText.vaccinations),
+              TabModel(text: AppText.vaccination),
               TabModel(text: AppText.medications),
             ],
           ),

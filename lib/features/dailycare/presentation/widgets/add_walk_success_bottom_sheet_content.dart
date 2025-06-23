@@ -2,6 +2,7 @@ import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
+import 'package:dummy/features/health/presentation/widgets/success_animation_wrap.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +21,10 @@ class AddWalkSuccessBottomSheetContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: Styles.edgeInsetsOnlyW20,
-      child: Column(
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height*0.3,
+        child: SuccessAnimationWrap(
+          child:Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -100,7 +104,7 @@ class AddWalkSuccessBottomSheetContent extends StatelessWidget {
           ),
           Styles.gap10,
         ],
-      ),
+      ),))
     );
   }
 }

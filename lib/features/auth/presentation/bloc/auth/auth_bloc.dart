@@ -18,7 +18,6 @@ import '../../../domain/entities/current_user.dart';
 import '../../../domain/usecases/current_user_usecases.dart';
 import '../../../domain/usecases/login_usecases.dart';
 import '../../../domain/usecases/logout_usecases.dart';
-import '../../pages/login_page.dart';
 
 part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
@@ -201,7 +200,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   Future<void> __logout(_Logout event, Emitter<AuthState> emit) async {
     final result = await __logoutUsecases();
     if (result == true) {
-      currentContext.pushNamedAndRemoveUntil(LoginPage.routeName);
+      currentContext.pushNamedAndRemoveUntil(StartYourPetsJourney.routeName);
     }
   }
 

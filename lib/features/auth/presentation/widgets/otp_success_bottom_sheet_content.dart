@@ -1,7 +1,6 @@
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../core/constent/image_resources.dart';
 import '../../../../../core/constent/styles.dart';
 import '../../../../../core/widgets/app_assets_image.dart';

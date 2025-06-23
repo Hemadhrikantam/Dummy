@@ -1,7 +1,6 @@
 import 'package:dummy/core/constent/app_text.dart';
 import 'package:dummy/core/constent/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:dummy/core/widgets/dotted_border_widget.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';
@@ -12,14 +11,15 @@ class AddPetDocuments extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: context.height * 0.40,
-      child: ListView(
-        padding: Styles.edgeInsetsAll15,
+    return Padding(
+      padding: Styles.edgeInsetsOnlyW10,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Styles.gap4,
+          Styles.gap6,
           AppGraber(),
-          Styles.gap10,
+          Styles.gap16,
           Text(
             AppText.addDoc,
             style: context.textTheme.titleLarge?.copyWith(
@@ -37,6 +37,7 @@ class AddPetDocuments extends StatelessWidget {
           DottedBorderWidget(),
           Styles.gap30,
           SaveCancelWidget(),
+          Styles.gap10,
         ],
       ),
     );

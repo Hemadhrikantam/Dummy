@@ -8,6 +8,7 @@ import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
+import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/signup/presentation/pages/premium/premium_page1.dart';
@@ -78,9 +79,7 @@ class _WelcomeToDummyPageState extends State<WelcomeToDummyPage> {
             textAlign: TextAlign.center,
           ),
           Styles.gap12,
-          AppButton(
-            showShadow: false,
-            backgroundColor: AppColors.white,
+          AppOutlinedButton(
             name: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

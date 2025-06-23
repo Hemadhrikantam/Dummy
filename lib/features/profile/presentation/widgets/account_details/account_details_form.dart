@@ -1,5 +1,4 @@
 import 'package:dummy/core/constent/app_colors.dart';
-import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/constent/app_text.dart';

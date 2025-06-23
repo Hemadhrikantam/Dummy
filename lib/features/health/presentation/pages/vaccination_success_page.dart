@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/base_screen.dart';
@@ -21,7 +22,7 @@ class VaccinationSuccessPage extends StatelessWidget {
       subTitle: '',
       showBackIcon: false,
       onlyTitle: true,
-      child: const VaccinationSuccessContent(),
+      child:  const VaccinationSuccessContent()
     );
   }
 }

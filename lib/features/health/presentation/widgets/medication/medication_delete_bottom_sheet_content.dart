@@ -1,4 +1,5 @@
 import 'package:dummy/core/constent/app_text.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:flutter/material.dart';
@@ -30,7 +31,7 @@ class MedicationDeleteBottomSheetContent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               RichText(
-                textAlign: TextAlign.center,
+                textAlign: TextAlign.start,
                 text: TextSpan(
                   text: AppText.areYouSureToDelete,
                   style: context.textTheme.titleSmall?.copyWith(
@@ -74,6 +75,7 @@ class MedicationDeleteBottomSheetContent extends StatelessWidget {
                   Expanded(
                     child: AppTextButton(
                       onPressed: () {
+                        context.pop();
                         BottomModels.medicationDeleteSuccessBottomSheet(
                           context,
                         );

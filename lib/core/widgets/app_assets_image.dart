@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:rive/rive.dart' hide Image;
 import '../constent/app_colors.dart';
 import '../constent/styles.dart';
 
@@ -64,12 +65,43 @@ class AppAssestsImage extends StatelessWidget {
     );
   }
 }
+class AppAssetsRive extends StatelessWidget {
+  const AppAssetsRive({
+    required this.path,
+    super.key,
+    this.height,
+    this.width,
+    this.cacheHeight,
+    this.cacheWidth,
+    this.borderRadius,
+    this.boxFit = BoxFit.cover,
+  });
+  final String path;
+  final BoxFit? boxFit;
+  final double? height;
+  final double? width;
+  final int? cacheHeight;
+  final int? cacheWidth;
+  final BorderRadiusGeometry? borderRadius;
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: borderRadius ?? Styles.borderRadiusCircular10,
+      child: SizedBox(
+        height: height ?? MediaQuery.of(context).size.height,
+        width: width ?? MediaQuery.of(context).size.width,
+        child: RiveAnimation.asset(path, fit: boxFit),
+      ),
+    );
+  }
+}
 
 class AppSVGImage extends StatelessWidget {
   const AppSVGImage({
     required this.path,
     super.key,
     this.colorFilter,
+    this.color,
     this.height,
     this.width,
     this.boxFit,
@@ -79,12 +111,14 @@ class AppSVGImage extends StatelessWidget {
   final double? height;
   final double? width;
   final ColorFilter? colorFilter;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
       child: SvgPicture.asset(
         path,
+        color: color,
         fit: boxFit ?? BoxFit.cover,
         colorFilter: colorFilter,
         semanticsLabel: path,
