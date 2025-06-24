@@ -1,8 +1,17 @@
+import 'dart:async';
+
 import 'package:dummy/core/extention/app_navigation.dart';
+import 'package:dummy/core/models/formz/mobile.dart';
+import 'package:dummy/core/models/formz/otp.dart';
 import 'package:dummy/core/payload/register_account_payload.dart';
+import 'package:dummy/core/utils/bottom_models.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/features/auth/domain/usecases/register_account_usecases.dart';
+import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
+import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
+import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
+import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/enum/status.dart';
@@ -18,6 +27,7 @@ import '../../../domain/entities/current_user.dart';
 import '../../../domain/usecases/current_user_usecases.dart';
 import '../../../domain/usecases/login_usecases.dart';
 import '../../../domain/usecases/logout_usecases.dart';
+import '../../../domain/usecases/send_otp_usecases.dart';
 
 part 'auth_bloc.freezed.dart';
 part 'auth_event.dart';
@@ -29,23 +39,25 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     required CurrentUserUsecases currentUserUsecases,
     required LogoutUsecases logoutUsecases,
     required RegisterAccountUsecases registerAccountUsecases,
-  }) : __loginUserUsecases = loginUserUsecases,
+    required SendOtpUsecases sendOtpUsecases,
+  }) : __sendOtpUsecases = sendOtpUsecases,
+       __loginUserUsecases = loginUserUsecases,
        __currentUserUsecases = currentUserUsecases,
        __logoutUsecases = logoutUsecases,
        __registerAccountUsecases = registerAccountUsecases,
        super(const AuthState()) {
     on<_Init>(__init);
     on<_Initialisation>(__initialisation);
-    on<_Email>(__email);
-    on<_Password>(__password);
-    on<_ConfirmPassword>(__confirmPassword);
-    on<_Name>(__name);
     on<_Login>(__login);
     on<_CheckUser>(__checkUser);
     on<_Logout>(__logout);
     on<_Signup>(__signup);
     on<_Yourself>(__yourself);
+    on<_Phone>(__phone);
+    on<_SendOtp>(__sendOtp);
+    on<_Otp>(__otp);
   }
+  final SendOtpUsecases __sendOtpUsecases;
   final LoginUserUsecases __loginUserUsecases;
   final CurrentUserUsecases __currentUserUsecases;
   final LogoutUsecases __logoutUsecases;
@@ -59,74 +71,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(state.copyWith(loginValidation: false, loginStatus: Status.init));
   }
 
-  void __email(_Email event, Emitter<AuthState> emit) {
-    final email = NotEmpty.dirty(value: event.email);
-    emit(
-      state.copyWith(
-        email: email,
-        loginValidation: Formz.validate([email, state.password]),
-        signupValidation: Formz.validate([
-          email,
-          state.password,
-          state.confirmPassword,
-          state.name,
-        ]),
-      ),
-    );
-  }
-
-  void __password(_Password event, Emitter<AuthState> emit) {
-    final password = Password.dirty(event.password);
-    emit(
-      state.copyWith(
-        password: password,
-        loginValidation: Formz.validate([state.email, password]),
-        signupValidation: Formz.validate([
-          state.email,
-          password,
-          state.confirmPassword,
-          state.name,
-        ]),
-      ),
-    );
-  }
-
-  void __confirmPassword(_ConfirmPassword event, Emitter<AuthState> emit) {
-    final confirmPassword = Password.dirty(event.confirmPassword);
-    emit(
-      state.copyWith(
-        confirmPassword: confirmPassword,
-        signupValidation: Formz.validate([
-          state.email,
-          state.password,
-          confirmPassword,
-          state.name,
-        ]),
-      ),
-    );
-  }
-
-  void __name(_Name event, Emitter<AuthState> emit) {
-    final name = NotEmpty.dirty(value: event.name);
-    emit(
-      state.copyWith(
-        name: name,
-        signupValidation: Formz.validate([
-          state.email,
-          state.password,
-          state.confirmPassword,
-          name,
-        ]),
-      ),
-    );
-  }
-
   Future<void> __login(_Login event, Emitter<AuthState> emit) async {
     emit(state.copyWith(loginStatus: Status.loading));
     final result = await __loginUserUsecases(
       login: LoginModel(
-        email: state.email.value,
-        password: state.password.value,
+        phone: state.phone.value ?? '',
+        otp: state.otp.value ?? '',
       ),
     );
     result.fold(
@@ -135,9 +85,24 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(state.copyWith(loginStatus: Status.failure));
       },
       (success) {
-        if (success?.id != null) {
-          currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
-        }
+        BottomModels.otpSuccessBottomSheet(currentContext);
+        Future.delayed(const Duration(seconds: 2), () {
+          final userType = success?.user.userType;
+          if (userType == Yourself.petParent) {
+            currentContext.pushNamed(MeetYourPetScreen.routeName);
+          } else if (userType == Yourself.lookingAdoption) {
+            currentContext.pushNamedAndRemoveUntil(
+              AdoptionDashboardPage.routeName,
+            );
+          } else if (userType == Yourself.ngo) {
+            currentContext.pushNamed(NgoRegistrationPage.routeName);
+          } else {
+            currentContext.pushNamed(MeetYourPetScreen.routeName);
+
+            //  currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
+          }
+        });
+
         emit(
           state.copyWith(
             loginStatus: Status.success,
@@ -154,9 +119,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(state.copyWith(signupStatus: Status.loading));
     final result = await __registerAccountUsecases(
       registerAccount: RegisterAccountPayload(
-        name: state.name.value,
-        email: state.email.value,
-        password: state.password.value,
+        petName: state.name.value,
+        petType: state.email.value,
+        dob: state.password.value,
+        petWeight: 0,
+        petImage: '',
+        breed: 0,
+        personalityTag: [],
       ),
     );
     result.fold(
@@ -173,11 +142,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             name: NotEmpty.pure(),
             password: Password.pure(),
             confirmPassword: Password.pure(),
-            user: CurrentUser(
-              id: '',
-              email: state.name.value,
-              name: state.name.value,
-            ),
+            // user: CurrentUser(
+            //   id: '',
+            //   email: state.name.value,
+            //   name: state.name.value,
+            // ),
           ),
         );
       },
@@ -206,5 +175,35 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   void __yourself(_Yourself event, Emitter<AuthState> emit) {
     emit(state.copyWith(yourself: event.value));
+  }
+
+  void __phone(_Phone event, Emitter<AuthState> emit) {
+    final phone = MobileNo.dirty(value: event.phone);
+    emit(state.copyWith(phone: phone));
+  }
+
+  FutureOr<void> __sendOtp(_SendOtp event, Emitter<AuthState> emit) async {
+    LogUtility.info("event calling");
+
+    emit(state.copyWith(sendOtpStatus: Status.loading));
+    LogUtility.info("${state.phone.value}");
+    final result = await __sendOtpUsecases(phone: state.phone.value.toString());
+    result.fold(
+      (error) {
+        AppAlert.showToast(message: error.message);
+
+        emit(state.copyWith(sendOtpStatus: Status.failure));
+      },
+      (success) {
+        AppAlert.showToast(message: success.message);
+        currentContext.pushNamed(OtpVerification.routeName);
+        emit(state.copyWith(sendOtpStatus: Status.success));
+      },
+    );
+  }
+
+  void __otp(_Otp event, Emitter<AuthState> emit) {
+    final otp = OTP.dirty(value: event.otp);
+    emit(state.copyWith(otp: otp));
   }
 }

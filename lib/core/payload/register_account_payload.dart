@@ -5,16 +5,42 @@ import 'payload.dart';
 
 class RegisterAccountPayload extends Equatable implements Payload {
   const RegisterAccountPayload({
-    required this.name,
-    required this.email,
-    required this.password,
+    required this.petName,
+    required this.petType,
+    required this.dob,
+    required this.petWeight,
+    required this.petImage,
+    required this.breed,
+    required this.personalityTag,
   });
-  final String name;
-  final String email;
-  final String password;
-  @override
-  List<Object?> get props => [name, email, password];
+
+  final String petName;
+  final String petType;
+  final String dob;
+  final int petWeight;
+  final String petImage;
+  final int breed;
+  final List<int> personalityTag;
 
   @override
-  JsonMap toMap() => {'name': name, 'email': email, 'password': password};
+  List<Object?> get props => [
+    petName,
+    petType,
+    dob,
+    petWeight,
+    petImage,
+    breed,
+    personalityTag,
+  ];
+
+  @override
+  JsonMap toMap() => {
+    'pet_name': petName,
+    'pet_type': petType,
+    'dob': dob,
+    'pet_weight': petWeight,
+    'pet_image': petImage,
+    'breed': breed,
+    'personality_tag': [personalityTag],
+  };
 }

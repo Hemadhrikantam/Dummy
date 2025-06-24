@@ -30,12 +30,14 @@ class AuthDatasourceImpl extends AuthDatasource {
     );
     return response.fold(
       (error) {
+        LogUtility.error('OTP verification failed: $ErrorMessage}');
         return Left(ErrorMessage(message: error.message));
       },
       (response) async {
+        
         final statusCode = response.data['statusCode'] ?? response.statusCode;
         if (statusCode != null && statusCode <= 201) {
-          final token = response.data['refresh'];
+          final token = response.data['access_token'];
           var item = SecureStorageItem(key: StorageKey.token, value: token);
           var userInfo = SecureStorageItem(
             key: StorageKey.userInfo,
@@ -48,7 +50,7 @@ class AuthDatasourceImpl extends AuthDatasource {
           await storage.write(item);
           await storage.write(userInfo);
           await storage.write(userCredential);
-          return Right(CurrentUserModel(id: '', name: '', email: login.email));
+          return Right(CurrentUserModel( message: response.data['message'],  user: UserModel.fromMap(response.data['user'])));
         } else {
           if (statusCode != null && statusCode >= 400 && statusCode <= 500) {
             return Left(
@@ -128,6 +130,45 @@ class AuthDatasourceImpl extends AuthDatasource {
     );
   }
 
+  @override
+  AppSuccessResponse sendOtp({required String phone}) async {
+    final response = await http.post(path: api.sendOTP, data: {"phone": "$phone"}, token: false);
+    return response.fold(
+      (error) {
+                  LogUtility.error('${error.message}');
+
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) {
+        try {
+          final statusCode =
+              (success.data['statusCode'] as int?) ?? success.statusCode;
+          final data = success.data;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message: data['message'] as String? ?? 'Otp sent successfully',
+              ),
+            );
+          } else {
+            return Left(
+              ErrorMessage(
+                message:
+                    data['message'] as String? ?? AppText.somethingWentWrong,
+              ),
+            );
+          }
+        } catch (e) {
+          LogUtility.error('${e}');
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+}
+
+  
+
   // @override
   // AppTypeResponse<List<AwsSignedUrlModel>> generateSignedUrl(
   //     List<String> extensions) async {
@@ -192,4 +233,4 @@ class AuthDatasourceImpl extends AuthDatasource {
   //     },
   //   );
   // }
-}
+

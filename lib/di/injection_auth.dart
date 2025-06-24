@@ -15,6 +15,7 @@ Future<void> __authDependencies() async {
 
   // AUTH Usecase
   final login = LoginUserUsecases(getIt<AuthRepository>());
+  final sendOtp = SendOtpUsecases(getIt<AuthRepository>());
   final currentUser = CurrentUserUsecases(getIt<AuthRepository>());
   final registerAccount = RegisterAccountUsecases(getIt<AuthRepository>());
   // final awsSignedUrl = AwsGenerateSignedUrlUsecases(getIt<AuthRepository>());
@@ -28,4 +29,5 @@ Future<void> __authDependencies() async {
   // getIt.registerLazySingleton<AwsGenerateSignedUrlUsecases>(() => awsSignedUrl);
   // getIt.registerLazySingleton<UploadUsecases>(() => upload);
   getIt.registerLazySingleton<LogoutUsecases>(() => logout);
+  getIt.registerLazySingleton<SendOtpUsecases>(() => sendOtp);
 }

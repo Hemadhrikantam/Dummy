@@ -5,6 +5,7 @@ import '../models/current_user_model.dart';
 
 abstract class AuthDatasource {
   const AuthDatasource();
+    AppSuccessResponse sendOtp({required String phone});
   AppTypeResponse<CurrentUserModel> login({required LoginModel login});
   AppTypeResponse<CurrentUserModel> currentUser();
   AppSuccessResponse registerAccount({

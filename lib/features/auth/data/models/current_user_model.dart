@@ -2,24 +2,24 @@ import '../../domain/entities/current_user.dart';
 
 class CurrentUserModel extends CurrentUser {
   const CurrentUserModel({
-    required super.id,
-    required super.email,
-    required super.name,
+    required super.message,
+    required super.user,
   });
-
-  Map<String, dynamic> toMap() {
-    return {
-      'id': id,
-      'email': email,
-      'name': name,
-    };
-  }
 
   factory CurrentUserModel.fromMap(Map<String, dynamic> map) {
     return CurrentUserModel(
-      id: map['email'] ?? '',
-      email: map['email'] ?? '',
-      name: map['firstName'] ?? '',
+      message: map['message'] ?? '',
+      user: UserModel.fromMap(map['user'] ?? {}),
+    );
+  }
+}
+
+class UserModel extends User {
+const  UserModel({required super.phone, required super.userType});
+    factory UserModel.fromMap(Map<String, dynamic> map) {
+    return UserModel(
+      phone: map['phone'] ?? '',
+      userType: map['user_type'] ?? '',
     );
   }
 }

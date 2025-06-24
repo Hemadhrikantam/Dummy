@@ -2,15 +2,18 @@ import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
-import 'package:dummy/core/extention/app_navigation.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
+import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/core/widgets/phone_text_field.dart';
-import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
+import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ContinueWithPhone extends StatefulWidget {
   const ContinueWithPhone({super.key});
@@ -54,17 +57,24 @@ class _ContinueWithPhone extends State<ContinueWithPhone> {
               __YourPhone(),
               Styles.gap40,
 
-              AppButton(
-                name: Text(
-                  AppText.continueBtn,
-                  style: context.textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 14,
-                    color: AppColors.buttonTextColor,
-                  ),
-                ),
-                onPressed: () {
-                  context.pushNamed(OtpVerification.routeName);
+              BlocBuilder<AuthBloc, AuthState>(
+                builder: (context, state) {
+                  return state.sendOtpStatus.loading
+                      ? LoadingWidget.circularProgressIndicatorCenter
+                      : AppButton(
+                        name: Text(
+                          AppText.continueBtn,
+                          style: context.textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.w700,
+                            fontSize: 14,
+                            color: AppColors.buttonTextColor,
+                          ),
+                        ),
+                        onPressed: () {
+                          context.read<AuthBloc>().add(AuthEvent.sendOtp());
+                          // LogUtility.info('${state.phone.value}');
+                        },
+                      );
                 },
               ),
             ],
@@ -83,7 +93,7 @@ class __YourPhone extends StatelessWidget {
     return PhoneTextField(
       headerText: AppText.enterPhoneNumber,
       onChange: (value) {
-        // context.read<LoginBloc>().add(LoginEvent.mobileNumber(value.number));
+        context.read<AuthBloc>().add(AuthEvent.phone(value.number));
       },
       placeHolder: AppText.enterPhoneNumber,
     );

@@ -14,7 +14,7 @@ class FilterButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 97,
+      width: 100,
       child: CustomCard(
         onTap: onTap,
         padding: Styles.edgeInsetsAll06,

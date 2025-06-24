@@ -1,9 +1,12 @@
-const String __dev = 'http://3.110.135.231';
+const String __dev = 'http://13.233.100.253';
 
-const String __publicBase = '$__dev/api';
+// const String __privateBase = '$__dev/api';
+const String __publicBase = '$__dev';
 
 //login
-String login = '$__publicBase/login/';
+String sendOTP = '$__publicBase/user/send-otp/';
+//String login = '$__publicBase/login/';
+String login = '$__publicBase/user/login/';
 String registerAccount = '$__publicBase/account/register/';
 String catBreeds = '$__publicBase/pets/cat-breeds/';
 String dogBreeds = '$__publicBase/pets/dog-breeds/';

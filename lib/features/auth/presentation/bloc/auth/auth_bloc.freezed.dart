@@ -175,6 +175,138 @@ as String,
 /// @nodoc
 
 
+class _Phone implements AuthEvent {
+  const _Phone(this.phone);
+  
+
+ final  String phone;
+
+/// Create a copy of AuthEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PhoneCopyWith<_Phone> get copyWith => __$PhoneCopyWithImpl<_Phone>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Phone&&(identical(other.phone, phone) || other.phone == phone));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,phone);
+
+@override
+String toString() {
+  return 'AuthEvent.phone(phone: $phone)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PhoneCopyWith<$Res> implements $AuthEventCopyWith<$Res> {
+  factory _$PhoneCopyWith(_Phone value, $Res Function(_Phone) _then) = __$PhoneCopyWithImpl;
+@useResult
+$Res call({
+ String phone
+});
+
+
+
+
+}
+/// @nodoc
+class __$PhoneCopyWithImpl<$Res>
+    implements _$PhoneCopyWith<$Res> {
+  __$PhoneCopyWithImpl(this._self, this._then);
+
+  final _Phone _self;
+  final $Res Function(_Phone) _then;
+
+/// Create a copy of AuthEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? phone = null,}) {
+  return _then(_Phone(
+null == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _Otp implements AuthEvent {
+  const _Otp(this.otp);
+  
+
+ final  String otp;
+
+/// Create a copy of AuthEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$OtpCopyWith<_Otp> get copyWith => __$OtpCopyWithImpl<_Otp>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Otp&&(identical(other.otp, otp) || other.otp == otp));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,otp);
+
+@override
+String toString() {
+  return 'AuthEvent.otp(otp: $otp)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$OtpCopyWith<$Res> implements $AuthEventCopyWith<$Res> {
+  factory _$OtpCopyWith(_Otp value, $Res Function(_Otp) _then) = __$OtpCopyWithImpl;
+@useResult
+$Res call({
+ String otp
+});
+
+
+
+
+}
+/// @nodoc
+class __$OtpCopyWithImpl<$Res>
+    implements _$OtpCopyWith<$Res> {
+  __$OtpCopyWithImpl(this._self, this._then);
+
+  final _Otp _self;
+  final $Res Function(_Otp) _then;
+
+/// Create a copy of AuthEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? otp = null,}) {
+  return _then(_Otp(
+null == otp ? _self.otp : otp // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
 class _Password implements AuthEvent {
   const _Password(this.password);
   
@@ -405,6 +537,38 @@ String toString() {
 /// @nodoc
 
 
+class _SendOtp implements AuthEvent {
+  const _SendOtp();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SendOtp);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'AuthEvent.sendOtp()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
 class _Signup implements AuthEvent {
   const _Signup();
   
@@ -567,7 +731,7 @@ as Yourself,
 /// @nodoc
 mixin _$AuthState {
 
- NotEmpty get email; Password get password; NotEmpty get name; Password get confirmPassword; CurrentUser? get user; Status get loginStatus; bool get loginValidation; Status get signupStatus; bool get signupValidation; Yourself get yourself;
+ NotEmpty get email; Password get password; NotEmpty get name; MobileNo get phone; OTP get otp; Password get confirmPassword; CurrentUser? get user; Status get loginStatus; Status get sendOtpStatus; bool get loginValidation; Status get signupStatus; bool get signupValidation; Yourself get yourself;
 /// Create a copy of AuthState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -578,16 +742,16 @@ $AuthStateCopyWith<AuthState> get copyWith => _$AuthStateCopyWithImpl<AuthState>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthState&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.name, name) || other.name == name)&&(identical(other.confirmPassword, confirmPassword) || other.confirmPassword == confirmPassword)&&(identical(other.user, user) || other.user == user)&&(identical(other.loginStatus, loginStatus) || other.loginStatus == loginStatus)&&(identical(other.loginValidation, loginValidation) || other.loginValidation == loginValidation)&&(identical(other.signupStatus, signupStatus) || other.signupStatus == signupStatus)&&(identical(other.signupValidation, signupValidation) || other.signupValidation == signupValidation)&&(identical(other.yourself, yourself) || other.yourself == yourself));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthState&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.name, name) || other.name == name)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.otp, otp) || other.otp == otp)&&(identical(other.confirmPassword, confirmPassword) || other.confirmPassword == confirmPassword)&&(identical(other.user, user) || other.user == user)&&(identical(other.loginStatus, loginStatus) || other.loginStatus == loginStatus)&&(identical(other.sendOtpStatus, sendOtpStatus) || other.sendOtpStatus == sendOtpStatus)&&(identical(other.loginValidation, loginValidation) || other.loginValidation == loginValidation)&&(identical(other.signupStatus, signupStatus) || other.signupStatus == signupStatus)&&(identical(other.signupValidation, signupValidation) || other.signupValidation == signupValidation)&&(identical(other.yourself, yourself) || other.yourself == yourself));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,email,password,name,confirmPassword,user,loginStatus,loginValidation,signupStatus,signupValidation,yourself);
+int get hashCode => Object.hash(runtimeType,email,password,name,phone,otp,confirmPassword,user,loginStatus,sendOtpStatus,loginValidation,signupStatus,signupValidation,yourself);
 
 @override
 String toString() {
-  return 'AuthState(email: $email, password: $password, name: $name, confirmPassword: $confirmPassword, user: $user, loginStatus: $loginStatus, loginValidation: $loginValidation, signupStatus: $signupStatus, signupValidation: $signupValidation, yourself: $yourself)';
+  return 'AuthState(email: $email, password: $password, name: $name, phone: $phone, otp: $otp, confirmPassword: $confirmPassword, user: $user, loginStatus: $loginStatus, sendOtpStatus: $sendOtpStatus, loginValidation: $loginValidation, signupStatus: $signupStatus, signupValidation: $signupValidation, yourself: $yourself)';
 }
 
 
@@ -598,7 +762,7 @@ abstract mixin class $AuthStateCopyWith<$Res>  {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) _then) = _$AuthStateCopyWithImpl;
 @useResult
 $Res call({
- NotEmpty email, Password password, NotEmpty name, Password confirmPassword, CurrentUser? user, Status loginStatus, bool loginValidation, Status signupStatus, bool signupValidation, Yourself yourself
+ NotEmpty email, Password password, NotEmpty name, MobileNo phone, OTP otp, Password confirmPassword, CurrentUser? user, Status loginStatus, Status sendOtpStatus, bool loginValidation, Status signupStatus, bool signupValidation, Yourself yourself
 });
 
 
@@ -615,14 +779,17 @@ class _$AuthStateCopyWithImpl<$Res>
 
 /// Create a copy of AuthState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? email = null,Object? password = null,Object? name = null,Object? confirmPassword = null,Object? user = freezed,Object? loginStatus = null,Object? loginValidation = null,Object? signupStatus = null,Object? signupValidation = null,Object? yourself = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? email = null,Object? password = null,Object? name = null,Object? phone = null,Object? otp = null,Object? confirmPassword = null,Object? user = freezed,Object? loginStatus = null,Object? sendOtpStatus = null,Object? loginValidation = null,Object? signupStatus = null,Object? signupValidation = null,Object? yourself = null,}) {
   return _then(_self.copyWith(
 email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as NotEmpty,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
 as Password,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as NotEmpty,confirmPassword: null == confirmPassword ? _self.confirmPassword : confirmPassword // ignore: cast_nullable_to_non_nullable
+as NotEmpty,phone: null == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
+as MobileNo,otp: null == otp ? _self.otp : otp // ignore: cast_nullable_to_non_nullable
+as OTP,confirmPassword: null == confirmPassword ? _self.confirmPassword : confirmPassword // ignore: cast_nullable_to_non_nullable
 as Password,user: freezed == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
 as CurrentUser?,loginStatus: null == loginStatus ? _self.loginStatus : loginStatus // ignore: cast_nullable_to_non_nullable
+as Status,sendOtpStatus: null == sendOtpStatus ? _self.sendOtpStatus : sendOtpStatus // ignore: cast_nullable_to_non_nullable
 as Status,loginValidation: null == loginValidation ? _self.loginValidation : loginValidation // ignore: cast_nullable_to_non_nullable
 as bool,signupStatus: null == signupStatus ? _self.signupStatus : signupStatus // ignore: cast_nullable_to_non_nullable
 as Status,signupValidation: null == signupValidation ? _self.signupValidation : signupValidation // ignore: cast_nullable_to_non_nullable
@@ -638,15 +805,18 @@ as Yourself,
 
 
 class _AuthState implements AuthState {
-  const _AuthState({this.email = const NotEmpty.pure(), this.password = const Password.pure(), this.name = const NotEmpty.pure(), this.confirmPassword = const Password.pure(), this.user = null, this.loginStatus = Status.init, this.loginValidation = false, this.signupStatus = Status.init, this.signupValidation = false, this.yourself = Yourself.petParent});
+  const _AuthState({this.email = const NotEmpty.pure(), this.password = const Password.pure(), this.name = const NotEmpty.pure(), this.phone = const MobileNo.pure(), this.otp = const OTP.pure(), this.confirmPassword = const Password.pure(), this.user = null, this.loginStatus = Status.init, this.sendOtpStatus = Status.init, this.loginValidation = false, this.signupStatus = Status.init, this.signupValidation = false, this.yourself = Yourself.petParent});
   
 
 @override@JsonKey() final  NotEmpty email;
 @override@JsonKey() final  Password password;
 @override@JsonKey() final  NotEmpty name;
+@override@JsonKey() final  MobileNo phone;
+@override@JsonKey() final  OTP otp;
 @override@JsonKey() final  Password confirmPassword;
 @override@JsonKey() final  CurrentUser? user;
 @override@JsonKey() final  Status loginStatus;
+@override@JsonKey() final  Status sendOtpStatus;
 @override@JsonKey() final  bool loginValidation;
 @override@JsonKey() final  Status signupStatus;
 @override@JsonKey() final  bool signupValidation;
@@ -662,16 +832,16 @@ _$AuthStateCopyWith<_AuthState> get copyWith => __$AuthStateCopyWithImpl<_AuthSt
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuthState&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.name, name) || other.name == name)&&(identical(other.confirmPassword, confirmPassword) || other.confirmPassword == confirmPassword)&&(identical(other.user, user) || other.user == user)&&(identical(other.loginStatus, loginStatus) || other.loginStatus == loginStatus)&&(identical(other.loginValidation, loginValidation) || other.loginValidation == loginValidation)&&(identical(other.signupStatus, signupStatus) || other.signupStatus == signupStatus)&&(identical(other.signupValidation, signupValidation) || other.signupValidation == signupValidation)&&(identical(other.yourself, yourself) || other.yourself == yourself));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuthState&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.name, name) || other.name == name)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.otp, otp) || other.otp == otp)&&(identical(other.confirmPassword, confirmPassword) || other.confirmPassword == confirmPassword)&&(identical(other.user, user) || other.user == user)&&(identical(other.loginStatus, loginStatus) || other.loginStatus == loginStatus)&&(identical(other.sendOtpStatus, sendOtpStatus) || other.sendOtpStatus == sendOtpStatus)&&(identical(other.loginValidation, loginValidation) || other.loginValidation == loginValidation)&&(identical(other.signupStatus, signupStatus) || other.signupStatus == signupStatus)&&(identical(other.signupValidation, signupValidation) || other.signupValidation == signupValidation)&&(identical(other.yourself, yourself) || other.yourself == yourself));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,email,password,name,confirmPassword,user,loginStatus,loginValidation,signupStatus,signupValidation,yourself);
+int get hashCode => Object.hash(runtimeType,email,password,name,phone,otp,confirmPassword,user,loginStatus,sendOtpStatus,loginValidation,signupStatus,signupValidation,yourself);
 
 @override
 String toString() {
-  return 'AuthState(email: $email, password: $password, name: $name, confirmPassword: $confirmPassword, user: $user, loginStatus: $loginStatus, loginValidation: $loginValidation, signupStatus: $signupStatus, signupValidation: $signupValidation, yourself: $yourself)';
+  return 'AuthState(email: $email, password: $password, name: $name, phone: $phone, otp: $otp, confirmPassword: $confirmPassword, user: $user, loginStatus: $loginStatus, sendOtpStatus: $sendOtpStatus, loginValidation: $loginValidation, signupStatus: $signupStatus, signupValidation: $signupValidation, yourself: $yourself)';
 }
 
 
@@ -682,7 +852,7 @@ abstract mixin class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Re
   factory _$AuthStateCopyWith(_AuthState value, $Res Function(_AuthState) _then) = __$AuthStateCopyWithImpl;
 @override @useResult
 $Res call({
- NotEmpty email, Password password, NotEmpty name, Password confirmPassword, CurrentUser? user, Status loginStatus, bool loginValidation, Status signupStatus, bool signupValidation, Yourself yourself
+ NotEmpty email, Password password, NotEmpty name, MobileNo phone, OTP otp, Password confirmPassword, CurrentUser? user, Status loginStatus, Status sendOtpStatus, bool loginValidation, Status signupStatus, bool signupValidation, Yourself yourself
 });
 
 
@@ -699,14 +869,17 @@ class __$AuthStateCopyWithImpl<$Res>
 
 /// Create a copy of AuthState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? email = null,Object? password = null,Object? name = null,Object? confirmPassword = null,Object? user = freezed,Object? loginStatus = null,Object? loginValidation = null,Object? signupStatus = null,Object? signupValidation = null,Object? yourself = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? email = null,Object? password = null,Object? name = null,Object? phone = null,Object? otp = null,Object? confirmPassword = null,Object? user = freezed,Object? loginStatus = null,Object? sendOtpStatus = null,Object? loginValidation = null,Object? signupStatus = null,Object? signupValidation = null,Object? yourself = null,}) {
   return _then(_AuthState(
 email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
 as NotEmpty,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
 as Password,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as NotEmpty,confirmPassword: null == confirmPassword ? _self.confirmPassword : confirmPassword // ignore: cast_nullable_to_non_nullable
+as NotEmpty,phone: null == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
+as MobileNo,otp: null == otp ? _self.otp : otp // ignore: cast_nullable_to_non_nullable
+as OTP,confirmPassword: null == confirmPassword ? _self.confirmPassword : confirmPassword // ignore: cast_nullable_to_non_nullable
 as Password,user: freezed == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
 as CurrentUser?,loginStatus: null == loginStatus ? _self.loginStatus : loginStatus // ignore: cast_nullable_to_non_nullable
+as Status,sendOtpStatus: null == sendOtpStatus ? _self.sendOtpStatus : sendOtpStatus // ignore: cast_nullable_to_non_nullable
 as Status,loginValidation: null == loginValidation ? _self.loginValidation : loginValidation // ignore: cast_nullable_to_non_nullable
 as bool,signupStatus: null == signupStatus ? _self.signupStatus : signupStatus // ignore: cast_nullable_to_non_nullable
 as Status,signupValidation: null == signupValidation ? _self.signupValidation : signupValidation // ignore: cast_nullable_to_non_nullable

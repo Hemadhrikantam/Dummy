@@ -2,6 +2,7 @@ import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/enum/yourself.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
@@ -10,12 +11,14 @@ import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
+import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
 import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'dart:async';
 
 class OtpVerification extends StatefulWidget {
   const OtpVerification({super.key});
@@ -70,47 +73,46 @@ class _OtpVerification extends State<OtpVerification> {
 
           BlocBuilder<AuthBloc, AuthState>(
             builder: (context, state) {
-              return AppButton(
-                name: Text(
-                  AppText.continueBtn,
-                  style: context.textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 14,
-                    color: AppColors.buttonTextColor,
-                  ),
-                ),
-                onPressed: () async {
-                  BottomModels.otpSuccessBottomSheet(context);
-                  Future.delayed(const Duration(seconds: 2), () {
-                    if (state.yourself == Yourself.petParent) {
-                      context.pushNamed(MeetYourPetScreen.routeName);
-                    } else if (state.yourself == Yourself.lookingAdoption) {
-                      context.pushNamedAndRemoveUntil(AdoptionDashboardPage.routeName);
-                    } else if (state.yourself == Yourself.ngo) {
-                      context.pushNamed(NgoRegistrationPage.routeName);
-                    }
-                  });
-                },
-              );
+              return state.loginStatus.loading
+                  ? LoadingWidget.circularProgressIndicatorCenter
+                  : AppButton(
+                    name: Text(
+                      AppText.continueBtn,
+                      style: context.textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
+                        color: AppColors.buttonTextColor,
+                      ),
+                    ),
+                    onPressed: () {
+                      context.read<AuthBloc>().add(AuthEvent.login());
+                    },
+                  );
             },
           ),
           Styles.gap16,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                AppText.resend,
-                style: context.textTheme.bodyMedium?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18,
-                  color: Color(0xFFA7581A),
-                ),
-              ),
-              Text(
-                " in 30 sec",
-                style: context.textTheme.bodyMedium?.copyWith(fontSize: 12),
-              ),
-            ],
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.center,
+          //   children: [
+          //     Text(
+          //       AppText.resend,
+          //       style: context.textTheme.bodyMedium?.copyWith(
+          //         fontWeight: FontWeight.bold,
+          //         fontSize: 18,
+          //         color: Color(0xFFA7581A),
+          //       ),
+          //     ),
+          //     Text(
+          //       " in $_secondsRemaining sec",
+          //       style: context.textTheme.bodyMedium?.copyWith(fontSize: 12),
+          //     ),
+          //   ],
+          // )
+          //,
+          ResendTimerText(
+            onResend: () {
+              context.read<AuthBloc>().add(AuthEvent.sendOtp());
+            },
           ),
         ],
       ),
@@ -150,6 +152,14 @@ class _OTPInputState extends State<_OTPInput> {
     if (value.isEmpty && index > 0) {
       FocusScope.of(context).requestFocus(_focusNodes[index - 1]);
     }
+    bool allFilled = _controllers.every(
+      (controller) => controller.text.length == 1,
+    );
+
+    if (allFilled) {
+      final otp = _controllers.map((c) => c.text).join();
+      context.read<AuthBloc>().add(AuthEvent.otp(otp));
+    }
   }
 
   @override
@@ -179,7 +189,7 @@ class _OTPInputState extends State<_OTPInput> {
                   borderSide: const BorderSide(color: Colors.grey, width: 1),
                 ),
                 border: OutlineInputBorder(
-                  borderRadius:  Styles.borderRadiusCircular25,
+                  borderRadius: Styles.borderRadiusCircular25,
                 ),
               ),
             ),
@@ -187,5 +197,86 @@ class _OTPInputState extends State<_OTPInput> {
         );
       }),
     );
+  }
+}
+
+class ResendTimerText extends StatefulWidget {
+  final VoidCallback onResend;
+
+  const ResendTimerText({super.key, required this.onResend});
+
+  @override
+  State<ResendTimerText> createState() => _ResendTimerTextState();
+}
+
+class _ResendTimerTextState extends State<ResendTimerText> {
+  int _secondsRemaining = 30;
+  Timer? _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _startTimer();
+  }
+
+  void _startTimer() {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (_secondsRemaining > 0) {
+        setState(() {
+          _secondsRemaining--;
+        });
+      } else {
+        timer.cancel();
+      }
+    });
+  }
+
+  void _handleResend() {
+    widget.onResend();
+    setState(() {
+      _secondsRemaining = 30;
+    });
+    _startTimer();
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _secondsRemaining > 0
+        ? Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              AppText.resend,
+              style: context.textTheme.bodyMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color:  AppColors.stepperColor,
+              ),
+            ),
+            Text(
+              " in $_secondsRemaining sec",
+              style: context.textTheme.bodyMedium?.copyWith(fontSize: 12),
+            ),
+          ],
+        )
+        : Center(
+          child: GestureDetector(
+            onTap: _handleResend,
+            child: Text(
+              AppText.resend,
+              style: context.textTheme.bodyMedium?.copyWith(
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+                color: AppColors.stepperColor
+              ),
+            ),
+          ),
+        );
   }
 }

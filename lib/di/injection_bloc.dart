@@ -3,6 +3,7 @@ part of 'injection.dart';
 class InjectionBloc {
   static AuthBloc get authBloc {
     return AuthBloc(
+      sendOtpUsecases: getIt<SendOtpUsecases>(),
       loginUserUsecases: getIt<LoginUserUsecases>(),
       currentUserUsecases: getIt<CurrentUserUsecases>(),
       logoutUsecases: getIt<LogoutUsecases>(),

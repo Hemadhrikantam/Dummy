@@ -6,6 +6,7 @@ import '../entities/current_user.dart';
 abstract class AuthRepository {
   const AuthRepository();
   AppTypeResponse<CurrentUser> login({required LoginModel login});
+  AppSuccessResponse sendOtp({required String phone});
   AppTypeResponse<CurrentUser> currentUser();
   Future<bool?> logout();
   AppSuccessResponse registerAccount({

@@ -29,6 +29,11 @@ class AuthRepositoryImpl extends AuthRepository {
   }) {
     return _authDatasource.registerAccount(registerAccount: registerAccount);
   }
+  
+  @override
+  AppSuccessResponse sendOtp({required String phone}) {
+    return _authDatasource.sendOtp(phone: phone);
+  }
 
   // @override
   // AppTypeResponse<List<AwsSignedUrlModel>> generateSignedUrl(
