@@ -7,8 +7,10 @@ import 'package:dummy/core/payload/register_account_payload.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/features/auth/domain/usecases/register_account_usecases.dart';
+import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
+import 'package:dummy/features/auth/presentation/pages/pet_type_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
 import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -40,7 +42,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     required LogoutUsecases logoutUsecases,
     required RegisterAccountUsecases registerAccountUsecases,
     required SendOtpUsecases sendOtpUsecases,
+    required RegisterUserUsecases registerUserUsecases,
   }) : __sendOtpUsecases = sendOtpUsecases,
+  __registerUserUsecases = registerUserUsecases,
        __loginUserUsecases = loginUserUsecases,
        __currentUserUsecases = currentUserUsecases,
        __logoutUsecases = logoutUsecases,
@@ -56,8 +60,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<_Phone>(__phone);
     on<_SendOtp>(__sendOtp);
     on<_Otp>(__otp);
+    on<_Register>(__register);
   }
   final SendOtpUsecases __sendOtpUsecases;
+  final RegisterUserUsecases __registerUserUsecases;
   final LoginUserUsecases __loginUserUsecases;
   final CurrentUserUsecases __currentUserUsecases;
   final LogoutUsecases __logoutUsecases;
@@ -195,8 +201,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(state.copyWith(sendOtpStatus: Status.failure));
       },
       (success) {
-        AppAlert.showToast(message: success.message);
-        currentContext.pushNamed(OtpVerification.routeName);
+        if (success.isRegistered) {
+          AppAlert.showToast(message: success.message);
+          currentContext.pushNamed(OtpVerification.routeName);
+        } else {
+          currentContext.pushNamed(PetTypePage.routeName);
+        }
         emit(state.copyWith(sendOtpStatus: Status.success));
       },
     );
@@ -205,5 +215,24 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   void __otp(_Otp event, Emitter<AuthState> emit) {
     final otp = OTP.dirty(value: event.otp);
     emit(state.copyWith(otp: otp));
+  }
+
+  FutureOr<void> __register(_Register event, Emitter<AuthState> emit) async{
+     LogUtility.info("event calling");
+
+    emit(state.copyWith(sendOtpStatus: Status.loading));
+    LogUtility.info("${state.phone.value}");
+    final result = await __registerUserUsecases(phone: event.phone, userType: event.userType);
+    result.fold(
+      (error) {
+        AppAlert.showToast(message: error.message);
+
+        emit(state.copyWith(sendOtpStatus: Status.failure));
+      },
+      (success) {
+        currentContext.pushNamed(PetTypePage.routeName);
+        emit(state.copyWith(sendOtpStatus: Status.success));
+      },
+    );
   }
 }

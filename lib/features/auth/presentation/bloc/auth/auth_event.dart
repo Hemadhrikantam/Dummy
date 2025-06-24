@@ -13,6 +13,7 @@ class AuthEvent with _$AuthEvent {
   const factory AuthEvent.name(String name) = _Name;
   const factory AuthEvent.login() = _Login;
   const factory AuthEvent.sendOtp() = _SendOtp;
+  const factory AuthEvent.registerUser(String phone, String userType) = _Register;
   const factory AuthEvent.signup() = _Signup;
   const factory AuthEvent.checkUser() = _CheckUser;
   const factory AuthEvent.logout() = _Logout;

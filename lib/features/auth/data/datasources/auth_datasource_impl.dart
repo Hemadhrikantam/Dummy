@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
+import 'package:dummy/features/auth/data/models/send_otp_model.dart';
 
 import '../../../../api/api.dart' as api;
 import '../../../../api/storage_key.dart';
@@ -34,7 +35,6 @@ class AuthDatasourceImpl extends AuthDatasource {
         return Left(ErrorMessage(message: error.message));
       },
       (response) async {
-        
         final statusCode = response.data['statusCode'] ?? response.statusCode;
         if (statusCode != null && statusCode <= 201) {
           final token = response.data['access_token'];
@@ -50,7 +50,12 @@ class AuthDatasourceImpl extends AuthDatasource {
           await storage.write(item);
           await storage.write(userInfo);
           await storage.write(userCredential);
-          return Right(CurrentUserModel( message: response.data['message'],  user: UserModel.fromMap(response.data['user'])));
+          return Right(
+            CurrentUserModel(
+              message: response.data['message'],
+              user: UserModel.fromMap(response.data['user']),
+            ),
+          );
         } else {
           if (statusCode != null && statusCode >= 400 && statusCode <= 500) {
             return Left(
@@ -131,12 +136,15 @@ class AuthDatasourceImpl extends AuthDatasource {
   }
 
   @override
-  AppSuccessResponse sendOtp({required String phone}) async {
-    final response = await http.post(path: api.sendOTP, data: {"phone": "$phone"}, token: false);
+  AppTypeResponse<SendOtpModel> sendOtp({required String phone}) async {
+    final response = await http.post(
+      path: api.sendOTP,
+      data: {"phone": phone},
+      token: false,
+    );
     return response.fold(
       (error) {
-                  LogUtility.error('${error.message}');
-
+        LogUtility.error('${error.message}');
         return Left(ErrorMessage(message: error.message));
       },
       (success) {
@@ -146,8 +154,51 @@ class AuthDatasourceImpl extends AuthDatasource {
           final data = success.data;
           if (statusCode <= 201) {
             return Right(
-              SuccessMessage(
+              SendOtpModel(
                 message: data['message'] as String? ?? 'Otp sent successfully',
+                isRegistered: data['isRegistered'] as bool? ?? false,
+              ),
+            );
+          } else {
+            return Left(
+              ErrorMessage(
+                message:
+                    data['message'] as String? ?? AppText.somethingWentWrong,
+              ),
+            );
+          }
+        } catch (e) {
+          LogUtility.error('${e}');
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<CurrentUserModel> registerUser({
+    required String phone,
+    required String userType,
+  }) async {
+    final response = await http.post(
+      path: api.register,
+      data: {"phone": phone, "user_type": userType},
+      token: false,
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) {
+        try {
+          final statusCode =
+              (success.data['statusCode'] as int?) ?? success.statusCode;
+          final data = success.data;
+          if (statusCode <= 201) {
+            return Right(
+              CurrentUserModel(
+                message: data['message'] as String? ?? 'Otp sent successfully',
+                user: UserModel.fromMap(data['user']),
               ),
             );
           } else {

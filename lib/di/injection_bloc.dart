@@ -8,6 +8,7 @@ class InjectionBloc {
       currentUserUsecases: getIt<CurrentUserUsecases>(),
       logoutUsecases: getIt<LogoutUsecases>(),
       registerAccountUsecases: getIt<RegisterAccountUsecases>(),
+      registerUserUsecases: getIt<RegisterUserUsecases>(),
     );
   }
 

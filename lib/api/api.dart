@@ -5,6 +5,7 @@ const String __publicBase = '$__dev';
 
 //login
 String sendOTP = '$__publicBase/user/send-otp/';
+String register = '$__publicBase/user/register/';
 //String login = '$__publicBase/login/';
 String login = '$__publicBase/user/login/';
 String registerAccount = '$__publicBase/account/register/';
