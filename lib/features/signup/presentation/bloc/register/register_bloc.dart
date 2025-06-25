@@ -2,6 +2,9 @@ import 'package:bloc/bloc.dart';
 import 'package:dummy/core/enum/breed.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
+import 'package:dummy/core/payload/register_account_payload.dart';
+import 'package:dummy/core/utils/app_utils.dart';
+import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/enum/status.dart';
@@ -19,9 +22,11 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     required CatBreedUsecases catBreedUsecases,
     required DogBreedUsecases dogBreedUsecases,
     required PersonalityTagUsecases personalityTagUsecases,
+    required CreatePetUsecases createPetUsecases,
   }) : __catBreedUsecases = catBreedUsecases,
        __dogBreedUsecases = dogBreedUsecases,
        __personalityTagUsecases = personalityTagUsecases,
+       __createPetUsecases = createPetUsecases,
        super(RegisterState()) {
     on<_Initialization>(__initialization);
     on<_PetName>(__petName);
@@ -32,11 +37,13 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     on<_RemoveTag>(__removeTag);
     on<_WeightUnit>(__weightUnit);
     on<_Weight>(__weight);
+    on<_CreatePet>(__createPet);
   }
 
   final CatBreedUsecases __catBreedUsecases;
   final DogBreedUsecases __dogBreedUsecases;
   final PersonalityTagUsecases __personalityTagUsecases;
+  final CreatePetUsecases __createPetUsecases;
 
   Future<void> __initialization(
     _Initialization event,
@@ -56,7 +63,29 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       ),
     );
   }
+  Future<void> __createPet(
+    _CreatePet event,
+    Emitter<RegisterState> emit,
+  ) async {
+    emit(state.copyWith(submitStatus: Status.loading));
+    final payload = RegisterAccountPayload(
+      petName: state.petName.value,
+      petType: state.petType.name,
+      dob:  AppUtil.formatDate(state.dob.value)??"",
+      breed: state.breed.value!.id,
+      petWeight: int.parse(state.weight.value),
+      petImage: 1,
+      personalityTag: state.selectedPersonalityTags
+          .map((e) => e.value!.id)
+          .toList(),
+    );
+    final result = await __createPetUsecases(payload: payload);
 
+    result.fold(
+      (error) => emit(state.copyWith(submitStatus: Status.error)),
+      (success) => emit(state.copyWith(submitStatus: Status.success)),
+    );
+  }
   void __petName(_PetName event, Emitter<RegisterState> emit) {
     final petName = NotEmpty.dirty(value: event.name);
     emit(state.copyWith(petName: petName));

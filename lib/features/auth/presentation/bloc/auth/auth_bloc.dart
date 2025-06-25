@@ -123,7 +123,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         petType: state.email.value,
         dob: state.password.value,
         petWeight: 0,
-        petImage: '',
+        petImage: 1,
         breed: 0,
         personalityTag: [],
       ),

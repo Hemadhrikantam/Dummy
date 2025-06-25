@@ -1,3 +1,5 @@
+import 'package:dummy/core/payload/payload.dart';
+
 import '../../../../core/models/drop_item.dart';
 import '../../../../core/utils/type_def.dart';
 import '../../domain/repositories/signup_repository.dart';
@@ -20,5 +22,10 @@ class SignupRepositoryImpl extends SignupRepository {
   @override
   AppTypeResponse<List<DropItem>> personalityTags() {
     return _signupDatasource.personalityTags();
+  }
+
+  @override
+  AppSuccessResponse createPet({required Payload payload}) {
+    return _signupDatasource.createPet(payload: payload);
   }
 }

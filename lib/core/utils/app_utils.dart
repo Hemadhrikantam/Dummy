@@ -60,8 +60,8 @@ class AppUtil {
 
   static String? formatDate(String? date) {
     if (date != null) {
-      final parse = DateFormat('dd/MM/yyyy').parse(date);
-      date = DateFormat('yyyy/MM/dd').format(parse);
+      final parse = DateFormat('2023-04-23 00:00:00.000').parse(date);
+      date = DateFormat('yyyy-MM-dd').format(parse);
     }
     return date;
   }
@@ -81,6 +81,7 @@ class AppUtil {
   static String formatDateTime(DateTime dateTime) {
     return DateFormat('MM/dd/yyyy hh:mm a').format(dateTime);
   }
+
 
   // Format from String (if your date is a String)
   static String formatDateTimeFromString(String dateString) {

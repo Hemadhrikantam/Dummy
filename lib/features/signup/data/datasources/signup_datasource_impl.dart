@@ -1,4 +1,6 @@
 import 'package:dartz/dartz.dart';
+import 'package:dummy/core/error/app_success.dart';
+import 'package:dummy/core/payload/payload.dart';
 
 import '../../../../api/api.dart' as api;
 import '../../../../core/constant/app_text.dart';
@@ -17,7 +19,7 @@ class SignupDatasourceImpl extends SignupDatasource {
 
   @override
   AppTypeResponse<List<DropItemModel>> catBreeds() async {
-    final response = await http.get(path: api.catBreeds, token: false);
+    final response = await http.get(path: api.catbreeds, token: false);
     return response.fold(
       (error) {
         print(error);
@@ -55,7 +57,7 @@ class SignupDatasourceImpl extends SignupDatasource {
 
   @override
   AppTypeResponse<List<DropItemModel>> dogBreeds() async {
-    final response = await http.get(path: api.dogBreeds, token: false);
+    final response = await http.get(path: api.dogbreeds, token: false);
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -93,7 +95,7 @@ class SignupDatasourceImpl extends SignupDatasource {
 
   @override
   AppTypeResponse<List<DropItemModel>> personalityTags() async {
-    final response = await http.get(path: api.personalityTags, token: false);
+    final response = await http.get(path: api.personalitytags, token: false);
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -123,6 +125,35 @@ class SignupDatasourceImpl extends SignupDatasource {
           );
         } on Exception catch (err) {
           LogUtility.error('err $err');
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+  @override
+  AppSuccessResponse createPet({required Payload payload}) async {
+     final response = await http.post(path: api.petcreate, data: payload.toMap());
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(SuccessMessage(message: data['message'] as String? ??""));
+          }
+
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
           return Left(ErrorMessage(message: AppText.somethingWentWrong));
         }
       },

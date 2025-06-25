@@ -3,6 +3,7 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/stepper_widget.dart';
+import 'package:dummy/features/signup/presentation/bloc/register/register_bloc.dart';
 import 'package:dummy/features/signup/presentation/pages/welcome_to_dummy_page.dart';
 import 'package:dummy/features/signup/presentation/widgets/meet_your_parent.dart';
 import 'package:dummy/features/signup/presentation/widgets/notification_permission.dart';
@@ -10,6 +11,7 @@ import 'package:dummy/features/signup/presentation/widgets/pet_info.dart';
 import 'package:dummy/features/signup/presentation/widgets/pet_selection.dart';
 import 'package:dummy/features/signup/presentation/widgets/upload_pet_photo.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MeetYourPetScreen extends StatefulWidget {
   const MeetYourPetScreen({super.key});
@@ -50,6 +52,9 @@ class _MeetYourPetScreenState extends State<MeetYourPetScreen> {
   @override
   void initState() {
     super.initState();
+    Future.delayed(Duration.zero, () {
+      context.read<RegisterBloc>().add(RegisterEvent.initialization());
+    });
     screens = [
       MeetYourParent(onNext: onNext),
       PetSelection(onNext: onNext),
@@ -57,6 +62,7 @@ class _MeetYourPetScreenState extends State<MeetYourPetScreen> {
       PetInfo(onNext: onNext),
       NotificationPermission(
         onNext: () {
+          context.read<RegisterBloc>().add(RegisterEvent.createPet());
           context.pushNamed(WelcomeToDummyPage.routeName);
         },
       ),

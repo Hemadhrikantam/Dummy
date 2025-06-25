@@ -2,6 +2,7 @@ const String __dev = 'http://13.233.100.253';
 
 // const String __privateBase = '$__dev/api';
 const String __publicBase = '$__dev';
+const String __api = '$__dev/api';
 
 //login
 String sendOTP = '$__publicBase/user/send-otp/';
@@ -14,3 +15,8 @@ String personalityTags = '$__publicBase/pets/personality-tags/';
 String petDairyEvent = '$__publicBase/pet-diary/event-fields';
 String petDairyMedia = '$__publicBase/pet-diary/media-files';
 String petDairyDocuments = '$__publicBase/pet-diary/documents';
+//
+String petcreate = '$__api/pets/create';
+String personalitytags = '$__api/pets/personality-tags';
+String catbreeds = '$__api/pets/cat-breeds';
+String dogbreeds = '$__api/pets/dog-breeds';
