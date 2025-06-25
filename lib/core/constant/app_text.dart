@@ -67,8 +67,8 @@ class AppText {
   static String whatTypeOfPet = "What Type of Pet Do You Have?";
   static String dog = "Dog";
   static String cat = "Cat";
-  static String petTypeInfo =
-      "Dummy was a dog, but we love cats too—tell us about your pet!";
+  static String petTypeInfo(String a, String b) =>
+      "Dummy was a $a, but we love ${b}s too—tell us about your pet!";
 
   static String uploadPetPhoto =
       'Upload a photo to make their profile special!';

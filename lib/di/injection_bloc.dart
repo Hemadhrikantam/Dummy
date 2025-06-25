@@ -14,6 +14,7 @@ class InjectionBloc {
 
   static RegisterBloc get registerBloc {
     return RegisterBloc(
+      petImageUsecases: getIt<PetImageUsecases>(),
       createPetUsecases: getIt<CreatePetUsecases>(),
       catBreedUsecases: getIt<CatBreedUsecases>(),
       dogBreedUsecases: getIt<DogBreedUsecases>(),

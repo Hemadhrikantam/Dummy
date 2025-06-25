@@ -18,10 +18,12 @@ Future<void> __signupDependencies() async {
   final dogBreed = DogBreedUsecases(getIt<SignupRepository>());
   final personalityTag = PersonalityTagUsecases(getIt<SignupRepository>());
   final createPetUsecases = CreatePetUsecases(getIt<SignupRepository>());
+  final petImageUsecases = PetImageUsecases(getIt<SignupRepository>());
 
   //   //
   getIt.registerLazySingleton<CatBreedUsecases>(() => catBreed);
   getIt.registerLazySingleton<DogBreedUsecases>(() => dogBreed);
   getIt.registerLazySingleton<PersonalityTagUsecases>(() => personalityTag);
   getIt.registerLazySingleton<CreatePetUsecases>(() => createPetUsecases);
+  getIt.registerLazySingleton<PetImageUsecases>(() => petImageUsecases);
 }

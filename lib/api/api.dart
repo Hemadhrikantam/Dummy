@@ -17,7 +17,8 @@ String petDairyEvent = '$__publicBase/pet-diary/event-fields';
 String petDairyMedia = '$__publicBase/pet-diary/media-files';
 String petDairyDocuments = '$__publicBase/pet-diary/documents';
 //
-String petcreate = '$__api/pets/create';
-String personalitytags = '$__api/pets/personality-tags';
-String catbreeds = '$__api/pets/cat-breeds';
-String dogbreeds = '$__api/pets/dog-breeds';
+String petcreate = '$__api/pets/create/';
+String petImage = '$__api/pets/pet-image/';
+String personalitytags = '$__api/pets/personality-tags/';
+String catbreeds = '$__api/pets/cat-breeds/';
+String dogbreeds = '$__api/pets/dog-breeds/';

@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
 import 'package:dummy/core/error/app_success.dart';
 import 'package:dummy/core/payload/payload.dart';
+import 'package:dummy/features/signup/data/models/pet_image_model.dart';
 
 import '../../../../api/api.dart' as api;
 import '../../../../core/constant/app_text.dart';
@@ -98,6 +100,7 @@ class SignupDatasourceImpl extends SignupDatasource {
     final response = await http.get(path: api.personalitytags, token: false);
     return response.fold(
       (error) {
+        LogUtility.error('Error: ${error.message}');
         return Left(ErrorMessage(message: error.message));
       },
       (success) async {
@@ -130,9 +133,57 @@ class SignupDatasourceImpl extends SignupDatasource {
       },
     );
   }
+
   @override
   AppSuccessResponse createPet({required Payload payload}) async {
-     final response = await http.post(path: api.petcreate, data: payload.toMap());
+    final response = await http.post(
+      path: api.petcreate,
+      data: payload.toMap(),
+    );
+    return response.fold(
+      (error) {
+        LogUtility.error('Error: ${error.message}');
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(message: data['message'] as String? ?? ""),
+            );
+          }
+
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<PetImageModel> petImage({required String path}) async {
+    final formData = FormData.fromMap({
+      'pet_image': await MultipartFile.fromFile(
+        path,
+        filename: path.split('/').last,
+      ),
+    });
+
+    final response = await http.post(
+      path: api.petImage,
+      data: formData,
+      options: Options(contentType: 'multipart/form-data'),
+    );
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -145,7 +196,7 @@ class SignupDatasourceImpl extends SignupDatasource {
                   ? data['statusCode'] as int? ?? success.statusCode
                   : success.statusCode;
           if (statusCode <= 201) {
-            return Right(SuccessMessage(message: data['message'] as String? ??""));
+            return Right(PetImageModel.fromJson(data));
           }
 
           return Left(

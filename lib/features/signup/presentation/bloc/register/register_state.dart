@@ -9,6 +9,7 @@ abstract class RegisterState with _$RegisterState {
     @Default([]) final List<DropItem> catBreeds,
     @Default([]) final List<DropItem> personalityTags,
     @Default(NotEmpty.pure()) final NotEmpty petName,
+    @Default(NotEmpty.pure()) final NotEmpty petImage,
     @Default(PetType.Cat) final PetType petType,
     @Default(NotEmpty.pure()) final NotEmpty dob,
     @Default(DropdownValue.pure()) final DropdownValue breed,

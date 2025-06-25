@@ -67,7 +67,6 @@ class _PetSelectionState extends State<PetSelection> {
                           ? AppColors.stepperColor
                           : AppColors.black,
                   onTap: () {
-                   
                     context.read<RegisterBloc>().add(
                       RegisterEvent.petType(PetType.Dog),
                     );
@@ -92,7 +91,13 @@ class _PetSelectionState extends State<PetSelection> {
           },
         ),
         Styles.gap30,
-        InfoCard(title: AppText.petTypeInfo),
+        BlocBuilder<RegisterBloc, RegisterState>(
+          builder: (context, state) {
+            return InfoCard(title: AppText.petTypeInfo(state.petType.name,
+              state.petType == PetType.Cat ? PetType.Dog.name : PetType.Cat.name 
+            ));
+          },
+        ),
       ],
     );
   }

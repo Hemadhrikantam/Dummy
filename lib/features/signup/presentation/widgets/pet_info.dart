@@ -87,11 +87,9 @@ class _PetInfoState extends State<PetInfo> {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                 ),
                 Styles.gap30,
-                BlocSelector<RegisterBloc, RegisterState, DateTime>(
+                BlocSelector<RegisterBloc, RegisterState, DateTime?>(
                   selector: (state) {
-                    return state.dob.isValid
-                        ? DateTime.parse(state.dob.value)
-                        : DateTime.now();
+                    return DateTime.tryParse(state.dob.value);
                   },
                   builder: (context, state) {
                     return AppCustomDateField(

@@ -5,6 +5,7 @@ import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/register_account_payload.dart';
 import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
+import 'package:dummy/features/signup/domain/usecases/pet_image_usecases.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/enum/status.dart';
@@ -23,14 +24,17 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     required DogBreedUsecases dogBreedUsecases,
     required PersonalityTagUsecases personalityTagUsecases,
     required CreatePetUsecases createPetUsecases,
+    required PetImageUsecases petImageUsecases,
   }) : __catBreedUsecases = catBreedUsecases,
        __dogBreedUsecases = dogBreedUsecases,
        __personalityTagUsecases = personalityTagUsecases,
        __createPetUsecases = createPetUsecases,
+       __petImageUsecases = petImageUsecases,
        super(RegisterState()) {
     on<_Initialization>(__initialization);
     on<_PetName>(__petName);
     on<_PetType>(__petType);
+    on<_PetImage>(__petImage);
     on<_Breed>(__breed);
     on<_DOB>(__dob);
     on<_AddTag>(__addTag);
@@ -44,7 +48,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   final DogBreedUsecases __dogBreedUsecases;
   final PersonalityTagUsecases __personalityTagUsecases;
   final CreatePetUsecases __createPetUsecases;
-
+  final PetImageUsecases __petImageUsecases;
   Future<void> __initialization(
     _Initialization event,
     Emitter<RegisterState> emit,
@@ -63,21 +67,34 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       ),
     );
   }
+
   Future<void> __createPet(
     _CreatePet event,
     Emitter<RegisterState> emit,
   ) async {
     emit(state.copyWith(submitStatus: Status.loading));
+    var imageId = 0;
+    if (state.petImage.isValid) {
+      final result = await __petImageUsecases(path: state.petImage.value);
+      result.fold(
+        (error) {
+          emit(state.copyWith(submitStatus: Status.error));
+          return;
+        },
+        (success) {
+          imageId = success.id;
+        },
+      );
+    }
     final payload = RegisterAccountPayload(
       petName: state.petName.value,
       petType: state.petType.name,
-      dob:  AppUtil.formatDate(state.dob.value)??"",
+      dob: AppUtil.formatDate(DateTime.parse(state.dob.value)) ?? "",
       breed: state.breed.value!.id,
       petWeight: int.parse(state.weight.value),
-      petImage: 1,
-      personalityTag: state.selectedPersonalityTags
-          .map((e) => e.value!.id)
-          .toList(),
+      petImage: imageId,
+      personalityTag:
+          state.selectedPersonalityTags.map((e) => e.value!.id).toList(),
     );
     final result = await __createPetUsecases(payload: payload);
 
@@ -86,6 +103,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       (success) => emit(state.copyWith(submitStatus: Status.success)),
     );
   }
+
   void __petName(_PetName event, Emitter<RegisterState> emit) {
     final petName = NotEmpty.dirty(value: event.name);
     emit(state.copyWith(petName: petName));
@@ -93,6 +111,10 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
   void __petType(_PetType event, Emitter<RegisterState> emit) {
     emit(state.copyWith(petType: event.value));
+  }
+
+  void __petImage(_PetImage event, Emitter<RegisterState> emit) {
+    emit(state.copyWith(petImage: NotEmpty.dirty(value: event.value)));
   }
 
   void __dob(_DOB event, Emitter<RegisterState> emit) {

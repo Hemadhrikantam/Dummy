@@ -175,6 +175,72 @@ as String,
 /// @nodoc
 
 
+class _PetImage implements RegisterEvent {
+  const _PetImage(this.value);
+  
+
+ final  String value;
+
+/// Create a copy of RegisterEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PetImageCopyWith<_PetImage> get copyWith => __$PetImageCopyWithImpl<_PetImage>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PetImage&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'RegisterEvent.petImage(value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PetImageCopyWith<$Res> implements $RegisterEventCopyWith<$Res> {
+  factory _$PetImageCopyWith(_PetImage value, $Res Function(_PetImage) _then) = __$PetImageCopyWithImpl;
+@useResult
+$Res call({
+ String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$PetImageCopyWithImpl<$Res>
+    implements _$PetImageCopyWith<$Res> {
+  __$PetImageCopyWithImpl(this._self, this._then);
+
+  final _PetImage _self;
+  final $Res Function(_PetImage) _then;
+
+/// Create a copy of RegisterEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_PetImage(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
 class _PetType implements RegisterEvent {
   const _PetType(this.value);
   
@@ -675,7 +741,7 @@ String toString() {
 /// @nodoc
 mixin _$RegisterState {
 
- Status get initStatus; Status get submitStatus; List<DropItem> get dogBreeds; List<DropItem> get catBreeds; List<DropItem> get personalityTags; NotEmpty get petName; PetType get petType; NotEmpty get dob; DropdownValue get breed; List<DropdownValue> get selectedPersonalityTags; NotEmpty get weightUnit; NotEmpty get weight;
+ Status get initStatus; Status get submitStatus; List<DropItem> get dogBreeds; List<DropItem> get catBreeds; List<DropItem> get personalityTags; NotEmpty get petName; NotEmpty get petImage; PetType get petType; NotEmpty get dob; DropdownValue get breed; List<DropdownValue> get selectedPersonalityTags; NotEmpty get weightUnit; NotEmpty get weight;
 /// Create a copy of RegisterState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -686,16 +752,16 @@ $RegisterStateCopyWith<RegisterState> get copyWith => _$RegisterStateCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RegisterState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&const DeepCollectionEquality().equals(other.dogBreeds, dogBreeds)&&const DeepCollectionEquality().equals(other.catBreeds, catBreeds)&&const DeepCollectionEquality().equals(other.personalityTags, personalityTags)&&(identical(other.petName, petName) || other.petName == petName)&&(identical(other.petType, petType) || other.petType == petType)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.breed, breed) || other.breed == breed)&&const DeepCollectionEquality().equals(other.selectedPersonalityTags, selectedPersonalityTags)&&(identical(other.weightUnit, weightUnit) || other.weightUnit == weightUnit)&&(identical(other.weight, weight) || other.weight == weight));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RegisterState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&const DeepCollectionEquality().equals(other.dogBreeds, dogBreeds)&&const DeepCollectionEquality().equals(other.catBreeds, catBreeds)&&const DeepCollectionEquality().equals(other.personalityTags, personalityTags)&&(identical(other.petName, petName) || other.petName == petName)&&(identical(other.petImage, petImage) || other.petImage == petImage)&&(identical(other.petType, petType) || other.petType == petType)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.breed, breed) || other.breed == breed)&&const DeepCollectionEquality().equals(other.selectedPersonalityTags, selectedPersonalityTags)&&(identical(other.weightUnit, weightUnit) || other.weightUnit == weightUnit)&&(identical(other.weight, weight) || other.weight == weight));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,initStatus,submitStatus,const DeepCollectionEquality().hash(dogBreeds),const DeepCollectionEquality().hash(catBreeds),const DeepCollectionEquality().hash(personalityTags),petName,petType,dob,breed,const DeepCollectionEquality().hash(selectedPersonalityTags),weightUnit,weight);
+int get hashCode => Object.hash(runtimeType,initStatus,submitStatus,const DeepCollectionEquality().hash(dogBreeds),const DeepCollectionEquality().hash(catBreeds),const DeepCollectionEquality().hash(personalityTags),petName,petImage,petType,dob,breed,const DeepCollectionEquality().hash(selectedPersonalityTags),weightUnit,weight);
 
 @override
 String toString() {
-  return 'RegisterState(initStatus: $initStatus, submitStatus: $submitStatus, dogBreeds: $dogBreeds, catBreeds: $catBreeds, personalityTags: $personalityTags, petName: $petName, petType: $petType, dob: $dob, breed: $breed, selectedPersonalityTags: $selectedPersonalityTags, weightUnit: $weightUnit, weight: $weight)';
+  return 'RegisterState(initStatus: $initStatus, submitStatus: $submitStatus, dogBreeds: $dogBreeds, catBreeds: $catBreeds, personalityTags: $personalityTags, petName: $petName, petImage: $petImage, petType: $petType, dob: $dob, breed: $breed, selectedPersonalityTags: $selectedPersonalityTags, weightUnit: $weightUnit, weight: $weight)';
 }
 
 
@@ -706,7 +772,7 @@ abstract mixin class $RegisterStateCopyWith<$Res>  {
   factory $RegisterStateCopyWith(RegisterState value, $Res Function(RegisterState) _then) = _$RegisterStateCopyWithImpl;
 @useResult
 $Res call({
- Status initStatus, Status submitStatus, List<DropItem> dogBreeds, List<DropItem> catBreeds, List<DropItem> personalityTags, NotEmpty petName, PetType petType, NotEmpty dob, DropdownValue breed, List<DropdownValue> selectedPersonalityTags, NotEmpty weightUnit, NotEmpty weight
+ Status initStatus, Status submitStatus, List<DropItem> dogBreeds, List<DropItem> catBreeds, List<DropItem> personalityTags, NotEmpty petName, NotEmpty petImage, PetType petType, NotEmpty dob, DropdownValue breed, List<DropdownValue> selectedPersonalityTags, NotEmpty weightUnit, NotEmpty weight
 });
 
 
@@ -723,7 +789,7 @@ class _$RegisterStateCopyWithImpl<$Res>
 
 /// Create a copy of RegisterState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? initStatus = null,Object? submitStatus = null,Object? dogBreeds = null,Object? catBreeds = null,Object? personalityTags = null,Object? petName = null,Object? petType = null,Object? dob = null,Object? breed = null,Object? selectedPersonalityTags = null,Object? weightUnit = null,Object? weight = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? initStatus = null,Object? submitStatus = null,Object? dogBreeds = null,Object? catBreeds = null,Object? personalityTags = null,Object? petName = null,Object? petImage = null,Object? petType = null,Object? dob = null,Object? breed = null,Object? selectedPersonalityTags = null,Object? weightUnit = null,Object? weight = null,}) {
   return _then(_self.copyWith(
 initStatus: null == initStatus ? _self.initStatus : initStatus // ignore: cast_nullable_to_non_nullable
 as Status,submitStatus: null == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
@@ -731,6 +797,7 @@ as Status,dogBreeds: null == dogBreeds ? _self.dogBreeds : dogBreeds // ignore: 
 as List<DropItem>,catBreeds: null == catBreeds ? _self.catBreeds : catBreeds // ignore: cast_nullable_to_non_nullable
 as List<DropItem>,personalityTags: null == personalityTags ? _self.personalityTags : personalityTags // ignore: cast_nullable_to_non_nullable
 as List<DropItem>,petName: null == petName ? _self.petName : petName // ignore: cast_nullable_to_non_nullable
+as NotEmpty,petImage: null == petImage ? _self.petImage : petImage // ignore: cast_nullable_to_non_nullable
 as NotEmpty,petType: null == petType ? _self.petType : petType // ignore: cast_nullable_to_non_nullable
 as PetType,dob: null == dob ? _self.dob : dob // ignore: cast_nullable_to_non_nullable
 as NotEmpty,breed: null == breed ? _self.breed : breed // ignore: cast_nullable_to_non_nullable
@@ -748,7 +815,7 @@ as NotEmpty,
 
 
 class _RegisterState implements RegisterState {
-  const _RegisterState({this.initStatus = Status.init, this.submitStatus = Status.init, final  List<DropItem> dogBreeds = const [], final  List<DropItem> catBreeds = const [], final  List<DropItem> personalityTags = const [], this.petName = const NotEmpty.pure(), this.petType = PetType.Cat, this.dob = const NotEmpty.pure(), this.breed = const DropdownValue.pure(), final  List<DropdownValue> selectedPersonalityTags = const [], this.weightUnit = const NotEmpty.pure(), this.weight = const NotEmpty.pure()}): _dogBreeds = dogBreeds,_catBreeds = catBreeds,_personalityTags = personalityTags,_selectedPersonalityTags = selectedPersonalityTags;
+  const _RegisterState({this.initStatus = Status.init, this.submitStatus = Status.init, final  List<DropItem> dogBreeds = const [], final  List<DropItem> catBreeds = const [], final  List<DropItem> personalityTags = const [], this.petName = const NotEmpty.pure(), this.petImage = const NotEmpty.pure(), this.petType = PetType.Cat, this.dob = const NotEmpty.pure(), this.breed = const DropdownValue.pure(), final  List<DropdownValue> selectedPersonalityTags = const [], this.weightUnit = const NotEmpty.pure(), this.weight = const NotEmpty.pure()}): _dogBreeds = dogBreeds,_catBreeds = catBreeds,_personalityTags = personalityTags,_selectedPersonalityTags = selectedPersonalityTags;
   
 
 @override@JsonKey() final  Status initStatus;
@@ -775,6 +842,7 @@ class _RegisterState implements RegisterState {
 }
 
 @override@JsonKey() final  NotEmpty petName;
+@override@JsonKey() final  NotEmpty petImage;
 @override@JsonKey() final  PetType petType;
 @override@JsonKey() final  NotEmpty dob;
 @override@JsonKey() final  DropdownValue breed;
@@ -798,16 +866,16 @@ _$RegisterStateCopyWith<_RegisterState> get copyWith => __$RegisterStateCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RegisterState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&const DeepCollectionEquality().equals(other._dogBreeds, _dogBreeds)&&const DeepCollectionEquality().equals(other._catBreeds, _catBreeds)&&const DeepCollectionEquality().equals(other._personalityTags, _personalityTags)&&(identical(other.petName, petName) || other.petName == petName)&&(identical(other.petType, petType) || other.petType == petType)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.breed, breed) || other.breed == breed)&&const DeepCollectionEquality().equals(other._selectedPersonalityTags, _selectedPersonalityTags)&&(identical(other.weightUnit, weightUnit) || other.weightUnit == weightUnit)&&(identical(other.weight, weight) || other.weight == weight));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RegisterState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&const DeepCollectionEquality().equals(other._dogBreeds, _dogBreeds)&&const DeepCollectionEquality().equals(other._catBreeds, _catBreeds)&&const DeepCollectionEquality().equals(other._personalityTags, _personalityTags)&&(identical(other.petName, petName) || other.petName == petName)&&(identical(other.petImage, petImage) || other.petImage == petImage)&&(identical(other.petType, petType) || other.petType == petType)&&(identical(other.dob, dob) || other.dob == dob)&&(identical(other.breed, breed) || other.breed == breed)&&const DeepCollectionEquality().equals(other._selectedPersonalityTags, _selectedPersonalityTags)&&(identical(other.weightUnit, weightUnit) || other.weightUnit == weightUnit)&&(identical(other.weight, weight) || other.weight == weight));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,initStatus,submitStatus,const DeepCollectionEquality().hash(_dogBreeds),const DeepCollectionEquality().hash(_catBreeds),const DeepCollectionEquality().hash(_personalityTags),petName,petType,dob,breed,const DeepCollectionEquality().hash(_selectedPersonalityTags),weightUnit,weight);
+int get hashCode => Object.hash(runtimeType,initStatus,submitStatus,const DeepCollectionEquality().hash(_dogBreeds),const DeepCollectionEquality().hash(_catBreeds),const DeepCollectionEquality().hash(_personalityTags),petName,petImage,petType,dob,breed,const DeepCollectionEquality().hash(_selectedPersonalityTags),weightUnit,weight);
 
 @override
 String toString() {
-  return 'RegisterState(initStatus: $initStatus, submitStatus: $submitStatus, dogBreeds: $dogBreeds, catBreeds: $catBreeds, personalityTags: $personalityTags, petName: $petName, petType: $petType, dob: $dob, breed: $breed, selectedPersonalityTags: $selectedPersonalityTags, weightUnit: $weightUnit, weight: $weight)';
+  return 'RegisterState(initStatus: $initStatus, submitStatus: $submitStatus, dogBreeds: $dogBreeds, catBreeds: $catBreeds, personalityTags: $personalityTags, petName: $petName, petImage: $petImage, petType: $petType, dob: $dob, breed: $breed, selectedPersonalityTags: $selectedPersonalityTags, weightUnit: $weightUnit, weight: $weight)';
 }
 
 
@@ -818,7 +886,7 @@ abstract mixin class _$RegisterStateCopyWith<$Res> implements $RegisterStateCopy
   factory _$RegisterStateCopyWith(_RegisterState value, $Res Function(_RegisterState) _then) = __$RegisterStateCopyWithImpl;
 @override @useResult
 $Res call({
- Status initStatus, Status submitStatus, List<DropItem> dogBreeds, List<DropItem> catBreeds, List<DropItem> personalityTags, NotEmpty petName, PetType petType, NotEmpty dob, DropdownValue breed, List<DropdownValue> selectedPersonalityTags, NotEmpty weightUnit, NotEmpty weight
+ Status initStatus, Status submitStatus, List<DropItem> dogBreeds, List<DropItem> catBreeds, List<DropItem> personalityTags, NotEmpty petName, NotEmpty petImage, PetType petType, NotEmpty dob, DropdownValue breed, List<DropdownValue> selectedPersonalityTags, NotEmpty weightUnit, NotEmpty weight
 });
 
 
@@ -835,7 +903,7 @@ class __$RegisterStateCopyWithImpl<$Res>
 
 /// Create a copy of RegisterState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? initStatus = null,Object? submitStatus = null,Object? dogBreeds = null,Object? catBreeds = null,Object? personalityTags = null,Object? petName = null,Object? petType = null,Object? dob = null,Object? breed = null,Object? selectedPersonalityTags = null,Object? weightUnit = null,Object? weight = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? initStatus = null,Object? submitStatus = null,Object? dogBreeds = null,Object? catBreeds = null,Object? personalityTags = null,Object? petName = null,Object? petImage = null,Object? petType = null,Object? dob = null,Object? breed = null,Object? selectedPersonalityTags = null,Object? weightUnit = null,Object? weight = null,}) {
   return _then(_RegisterState(
 initStatus: null == initStatus ? _self.initStatus : initStatus // ignore: cast_nullable_to_non_nullable
 as Status,submitStatus: null == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
@@ -843,6 +911,7 @@ as Status,dogBreeds: null == dogBreeds ? _self._dogBreeds : dogBreeds // ignore:
 as List<DropItem>,catBreeds: null == catBreeds ? _self._catBreeds : catBreeds // ignore: cast_nullable_to_non_nullable
 as List<DropItem>,personalityTags: null == personalityTags ? _self._personalityTags : personalityTags // ignore: cast_nullable_to_non_nullable
 as List<DropItem>,petName: null == petName ? _self.petName : petName // ignore: cast_nullable_to_non_nullable
+as NotEmpty,petImage: null == petImage ? _self.petImage : petImage // ignore: cast_nullable_to_non_nullable
 as NotEmpty,petType: null == petType ? _self.petType : petType // ignore: cast_nullable_to_non_nullable
 as PetType,dob: null == dob ? _self.dob : dob // ignore: cast_nullable_to_non_nullable
 as NotEmpty,breed: null == breed ? _self.breed : breed // ignore: cast_nullable_to_non_nullable

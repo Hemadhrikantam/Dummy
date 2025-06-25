@@ -58,12 +58,11 @@ class AppUtil {
     return null;
   }
 
-  static String? formatDate(String? date) {
+  static String? formatDate(DateTime? date) {
     if (date != null) {
-      final parse = DateFormat('2023-04-23 00:00:00.000').parse(date);
-      date = DateFormat('yyyy-MM-dd').format(parse);
+      return DateFormat('yyyy-MM-dd').format(date);
     }
-    return date;
+    return "";
   }
 
   static String convertToYYYYMMDD(String dateStr) {

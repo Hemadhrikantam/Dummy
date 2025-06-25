@@ -1,4 +1,5 @@
 import 'package:dummy/core/payload/payload.dart';
+import 'package:dummy/features/signup/domain/entities/pet_image.dart';
 
 import '../../../../core/models/drop_item.dart';
 import '../../../../core/utils/type_def.dart';
@@ -28,4 +29,10 @@ class SignupRepositoryImpl extends SignupRepository {
   AppSuccessResponse createPet({required Payload payload}) {
     return _signupDatasource.createPet(payload: payload);
   }
+
+  @override
+  AppTypeResponse<PetImage> petImage({required String path}) {
+    return _signupDatasource.petImage(path: path);
+  }
+  
 }

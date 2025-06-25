@@ -23,10 +23,10 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
       // context.read<AuthBloc>().add(const AuthEvent.checkUser());
-      // context.pushNamedAndRemoveUntil(StartYourPetsJourney.routeName); //Real
+      context.pushNamedAndRemoveUntil(StartYourPetsJourney.routeName); //Real
       // context.pushNamedAndRemoveUntil(AdoptionDashboardPage.routeName); // testing one
-      context.pushNamedAndRemoveUntil(DashboardPage.routeName); // testing one
-      context.pushNamedAndRemoveUntil(MeetYourPetScreen.routeName);// testing one
+      // context.pushNamedAndRemoveUntil(DashboardPage.routeName); // testing one
+      // context.pushNamedAndRemoveUntil(MeetYourPetScreen.routeName);// testing one
       // context.pushNamedAndRemoveUntil(NgoHomePage.routeName); // testing one
       // context.read<AuthBloc>().add(const AuthEvent.checkUser());
     });

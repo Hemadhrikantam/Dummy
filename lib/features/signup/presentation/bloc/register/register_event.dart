@@ -5,6 +5,7 @@ class RegisterEvent with _$RegisterEvent {
   const factory RegisterEvent.initialization() = _Initialization;
   const factory RegisterEvent.petDetails() = _PetDetails;
   const factory RegisterEvent.petName(String name) = _PetName;
+  const factory RegisterEvent.petImage(String value) = _PetImage;
   const factory RegisterEvent.petType(PetType value) = _PetType;
   const factory RegisterEvent.dob(String dob) = _DOB;
   const factory RegisterEvent.breed(DropItem breed) = _Breed;
