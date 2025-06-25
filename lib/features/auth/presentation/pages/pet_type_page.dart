@@ -3,14 +3,12 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/yourself.dart';
-import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/auth/presentation/widgets/options.dart';
-import 'package:dummy/features/signup/presentation/pages/join_dummy1_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -99,7 +97,6 @@ class _PetTypePage extends State<PetTypePage> {
                                   ),
                                   onPressed: () {
                                     context.read<AuthBloc>().add(AuthEvent.registerUser(state.phone.value??'', state.yourself.name));
-                                    context.pushNamed(JoinDummy1Page.routeName);
                                   },
                                 );
                   },

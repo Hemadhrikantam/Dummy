@@ -9,6 +9,7 @@ import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/features/auth/domain/usecases/register_account_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
+import 'package:dummy/features/auth/presentation/pages/otp_page.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
 import 'package:dummy/features/auth/presentation/pages/pet_type_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
@@ -230,7 +231,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(state.copyWith(sendOtpStatus: Status.failure));
       },
       (success) {
-        currentContext.pushNamed(PetTypePage.routeName);
+        currentContext.pushNamed(OtpVerification.routeName);
         emit(state.copyWith(sendOtpStatus: Status.success));
       },
     );
