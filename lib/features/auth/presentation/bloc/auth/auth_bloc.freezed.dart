@@ -569,6 +569,74 @@ String toString() {
 /// @nodoc
 
 
+class _Register implements AuthEvent {
+  const _Register(this.phone, this.userType);
+  
+
+ final  String phone;
+ final  String userType;
+
+/// Create a copy of AuthEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$RegisterCopyWith<_Register> get copyWith => __$RegisterCopyWithImpl<_Register>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Register&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.userType, userType) || other.userType == userType));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,phone,userType);
+
+@override
+String toString() {
+  return 'AuthEvent.registerUser(phone: $phone, userType: $userType)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$RegisterCopyWith<$Res> implements $AuthEventCopyWith<$Res> {
+  factory _$RegisterCopyWith(_Register value, $Res Function(_Register) _then) = __$RegisterCopyWithImpl;
+@useResult
+$Res call({
+ String phone, String userType
+});
+
+
+
+
+}
+/// @nodoc
+class __$RegisterCopyWithImpl<$Res>
+    implements _$RegisterCopyWith<$Res> {
+  __$RegisterCopyWithImpl(this._self, this._then);
+
+  final _Register _self;
+  final $Res Function(_Register) _then;
+
+/// Create a copy of AuthEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? phone = null,Object? userType = null,}) {
+  return _then(_Register(
+null == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
+as String,null == userType ? _self.userType : userType // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
 class _Signup implements AuthEvent {
   const _Signup();
   

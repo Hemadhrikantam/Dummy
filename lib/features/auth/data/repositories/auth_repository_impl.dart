@@ -1,3 +1,6 @@
+import 'package:dummy/features/auth/data/models/current_user_model.dart';
+import 'package:dummy/features/auth/data/models/send_otp_model.dart';
+
 import '../../../../core/models/login_model.dart';
 import '../../../../core/payload/register_account_payload.dart';
 import '../../../../core/utils/type_def.dart';
@@ -31,8 +34,13 @@ class AuthRepositoryImpl extends AuthRepository {
   }
   
   @override
-  AppSuccessResponse sendOtp({required String phone}) {
+    AppTypeResponse<SendOtpModel>  sendOtp({required String phone}) {
     return _authDatasource.sendOtp(phone: phone);
+  }
+  
+  @override
+   AppTypeResponse<CurrentUserModel> registerUser({required String phone, required String userType}) {
+    return _authDatasource.registerUser(phone: phone, userType: userType);
   }
 
   // @override

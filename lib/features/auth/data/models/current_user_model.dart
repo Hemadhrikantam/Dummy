@@ -9,7 +9,7 @@ class CurrentUserModel extends CurrentUser {
   factory CurrentUserModel.fromMap(Map<String, dynamic> map) {
     return CurrentUserModel(
       message: map['message'] ?? '',
-      user: UserModel.fromMap(map['user'] ?? {}),
+      user:UserModel.fromMap(map['user'] ?? {}),
     );
   }
 }

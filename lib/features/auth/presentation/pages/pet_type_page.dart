@@ -14,22 +14,22 @@ import 'package:dummy/features/signup/presentation/pages/join_dummy1_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AuthPage extends StatefulWidget {
-  const AuthPage({super.key});
+class PetTypePage extends StatefulWidget {
+  const PetTypePage({super.key});
   static const routeName = '/AuthPage';
 
   static Route<T> route<T>() {
     return MaterialPageRoute<T>(
-      builder: (context) => const AuthPage(),
+      builder: (context) => const PetTypePage(),
       settings: const RouteSettings(name: routeName),
     );
   }
 
   @override
-  createState() => _AuthPage();
+  createState() => _PetTypePage();
 }
 
-class _AuthPage extends State<AuthPage> {
+class _PetTypePage extends State<PetTypePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialBaseScreen(
@@ -87,16 +87,21 @@ class _AuthPage extends State<AuthPage> {
           Row(
             children: [
               Expanded(
-                child: AppButton(
-                  name: Text(
-                    AppText.continueBtn,
-                    style: context.textTheme.titleSmall?.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.buttonTextColor,
-                    ),
-                  ),
-                  onPressed: () {
-                    context.pushNamed(JoinDummy1Page.routeName);
+                child: BlocBuilder<AuthBloc, AuthState>(
+                  builder: (context, state) {
+                    return AppButton(
+                                  name: Text(
+                                    AppText.continueBtn,
+                                    style: context.textTheme.titleSmall?.copyWith(
+                                      fontWeight: FontWeight.w700,
+                                      color: AppColors.buttonTextColor,
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    context.read<AuthBloc>().add(AuthEvent.registerUser(state.phone.value??'', state.yourself.name));
+                                    context.pushNamed(JoinDummy1Page.routeName);
+                                  },
+                                );
                   },
                 ),
               ),

@@ -3,6 +3,7 @@ import 'package:dummy/core/services/http_service_impl.dart';
 import 'package:dummy/core/services/local_storage_impl.dart';
 import 'package:dummy/core/services/navigation_service.dart';
 import 'package:dummy/core/utils/custom_interceptors.dart';
+import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/send_otp_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';

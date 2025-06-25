@@ -4,7 +4,10 @@ class CurrentUser extends Equatable {
   final String message;
   final User user;
 
-  const CurrentUser({required this.message, required this.user});
+  const CurrentUser({
+    required this.message,
+    required this.user,
+  });
 
   @override
   List<Object?> get props => [message, user];
