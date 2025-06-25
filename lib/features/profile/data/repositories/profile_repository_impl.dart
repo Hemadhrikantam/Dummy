@@ -1,3 +1,4 @@
+import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
 import 'package:dummy/features/profile/domain/entities/documents.dart';
@@ -10,4 +11,10 @@ final ProfileDatasource datasource;
   AppTypeResponse<List<Documents>> documents() {
     return datasource.documents();
   }
+
+ @override
+AppTypeResponse<List<DropItem>> eventFields() {
+  return datasource.eventFields();
+}
+  
 }

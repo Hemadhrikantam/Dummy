@@ -7,6 +7,7 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
+import 'package:dummy/core/widgets/file_picker.dart';
 import 'package:dummy/core/widgets/info_card.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -42,11 +43,12 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
         Styles.gap30,
         GestureDetector(
           onTap: () async {
-            final ImagePicker picker = ImagePicker();
-            final image = await picker.pickImage(source: ImageSource.gallery);
-            if (image != null) {
+            final images = await customFilePicker(context );
+            // final ImagePicker picker = ImagePicker();
+            // final image = await picker.pickImage(source: ImageSource.gallery);
+            if (images.isNotEmpty) {
               setState(() {
-                selectedImage = image;
+                selectedImage = XFile(images.first);
               });
             }
           },

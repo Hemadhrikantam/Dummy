@@ -4,6 +4,7 @@ part of 'register_bloc.dart';
 abstract class RegisterState with _$RegisterState {
   const factory RegisterState({
     @Default(Status.init) final Status initStatus,
+    @Default(Status.init) final Status submitStatus,
     @Default([]) final List<DropItem> dogBreeds,
     @Default([]) final List<DropItem> catBreeds,
     @Default([]) final List<DropItem> personalityTags,

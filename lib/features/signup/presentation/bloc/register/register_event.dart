@@ -12,4 +12,6 @@ class RegisterEvent with _$RegisterEvent {
   const factory RegisterEvent.weight(String weight) = _Weight;
   const factory RegisterEvent.addTag(List<DropItem> value) = _AddTag;
   const factory RegisterEvent.removeTag(int index) = _RemoveTag;
+  const factory RegisterEvent.createPet() = _CreatePet;
+
 }

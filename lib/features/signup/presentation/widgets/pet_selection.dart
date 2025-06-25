@@ -19,7 +19,6 @@ class PetSelection extends StatefulWidget {
 }
 
 class _PetSelectionState extends State<PetSelection> {
-  PetType selectedPet = PetType.Cat;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -33,49 +32,51 @@ class _PetSelectionState extends State<PetSelection> {
           ),
         ),
         Styles.gap30,
-        Row(
-          children: [
-            PetTypeSelectionCard(
-              name: PetType.Cat,
-              borderColor:
-                  selectedPet == PetType.Cat
-                      ? AppColors.stepperColor
-                      : AppColors.grey400,
-              textColor:
-                  selectedPet == PetType.Cat
-                      ? AppColors.stepperColor
-                      : AppColors.black,
-              onTap: () {
-                setState(() {
-                  selectedPet = PetType.Cat;
-                });
-                context.read<RegisterBloc>().add(
-                  RegisterEvent.petType(selectedPet),
-                );
-              },
-            ),
-            Styles.gap12,
-            PetTypeSelectionCard(
-              name: PetType.Dog,
-              borderColor:
-                  selectedPet == PetType.Dog
-                      ? AppColors.stepperColor
-                      : AppColors.grey400,
-              textColor:
-                  selectedPet == PetType.Dog
-                      ? AppColors.stepperColor
-                      : AppColors.black,
-              onTap: () {
-                setState(() {
-                  selectedPet = PetType.Dog;
-                });
-                context.read<RegisterBloc>().add(
-                  RegisterEvent.petType(selectedPet),
-                );
-              },
-            ),
-            // Styles.gap40
-          ],
+        BlocSelector<RegisterBloc, RegisterState, PetType>(
+          selector: (state) {
+            return state.petType;
+          },
+          builder: (context, state) {
+            return Row(
+              children: [
+                PetTypeSelectionCard(
+                  name: PetType.Cat,
+                  borderColor:
+                      state == PetType.Cat
+                          ? AppColors.stepperColor
+                          : AppColors.grey400,
+                  textColor:
+                      state == PetType.Cat
+                          ? AppColors.stepperColor
+                          : AppColors.black,
+                  onTap: () {
+                    context.read<RegisterBloc>().add(
+                      RegisterEvent.petType(PetType.Cat),
+                    );
+                  },
+                ),
+                Styles.gap12,
+                PetTypeSelectionCard(
+                  name: PetType.Dog,
+                  borderColor:
+                      state == PetType.Dog
+                          ? AppColors.stepperColor
+                          : AppColors.grey400,
+                  textColor:
+                      state == PetType.Dog
+                          ? AppColors.stepperColor
+                          : AppColors.black,
+                  onTap: () {
+                   
+                    context.read<RegisterBloc>().add(
+                      RegisterEvent.petType(PetType.Dog),
+                    );
+                  },
+                ),
+                // Styles.gap40
+              ],
+            );
+          },
         ),
         Styles.gap50,
         AppButton(

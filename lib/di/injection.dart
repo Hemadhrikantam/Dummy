@@ -11,6 +11,9 @@ import 'package:dummy/features/profile/data/datasources/profile_datasource_impl.
 import 'package:dummy/features/profile/data/repositories/profile_repository_impl.dart';
 import 'package:dummy/features/profile/domain/repositories/profile_repository.dart';
 import 'package:dummy/features/profile/domain/usecases/documents_usecases.dart';
+import 'package:dummy/features/profile/domain/usecases/event_fields_usecases.dart';
+import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
+import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
 import 'package:dummy/service/app_http_service.dart';
 import 'package:dummy/service/local_storage_service.dart';
 import 'package:flutter/material.dart';

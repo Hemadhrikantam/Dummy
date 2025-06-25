@@ -1,4 +1,6 @@
 import 'package:dartz/dartz.dart';
+import 'package:dummy/core/models/drop_item.dart';
+import 'package:dummy/core/models/formz/not_empty.dart';
 
 import '../error/app_error.dart';
 import '../error/app_success.dart';
@@ -11,3 +13,4 @@ typedef AppSuccessResponse = Future<Either<AppError, AppSuccess>>;
 typedef AppTypeResponse<T> = Future<Either<AppError, T>>;
 typedef AppTypeResponseWithoutFuture<T> = Either<AppError, T>;
 typedef JsonMap = Map<String,dynamic>;
+typedef DropItemFrom = TypeNotNull<DropItem>;

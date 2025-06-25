@@ -12,7 +12,9 @@ Future<void> __profileDependencies() async {
 
   // profile Usecases
   final documents = DocumentsUsecases(getIt<ProfileRepository>());
+  final eventFields = EventFieldsUsecases(getIt<ProfileRepository>());
 
   //   //
   getIt.registerLazySingleton<DocumentsUsecases>(() => documents);
+  getIt.registerLazySingleton<EventFieldsUsecases>(() => eventFields);
 }

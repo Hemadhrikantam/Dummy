@@ -1,9 +1,11 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/breed.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
+import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
@@ -29,104 +31,15 @@ class PetInfo extends StatefulWidget {
 }
 
 class _PetInfoState extends State<PetInfo> {
+  int weight = 1;
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration.zero, () {
-      context.read<RegisterBloc>().add(RegisterEvent.initialization());
-    });
   }
 
-  DateTime? selectedDate;
-  int weight = 1;
-  final TextEditingController _dobController = TextEditingController();
-
-  void _pickDate() {
-    DateTime tempPickedDate = DateTime.now();
-
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.white,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (_) {
-        return SizedBox(
-          height: 300,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Styles.gap4,
-              AppGraber(),
-              Styles.gap10,
-              const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  AppText.dateOfBirth,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-                ),
-              ),
-              Styles.gap10,
-              Expanded(
-                child: CupertinoDatePicker(
-                  mode: CupertinoDatePickerMode.date,
-                  initialDateTime: selectedDate ?? DateTime(2000, 1, 1),
-                  maximumDate: DateTime.now(),
-                  onDateTimeChanged: (DateTime dateTime) {
-                    tempPickedDate = dateTime;
-                  },
-                ),
-              ),
-              Styles.gap10,
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 10,
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: AppOutlinedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        name: Text(
-                          AppText.cancel,
-                          style: context.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.buttonTextColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Styles.gap10,
-                    Expanded(
-                      child: AppButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedDate = tempPickedDate;
-                            _dobController.text = _formatDate(tempPickedDate);
-                          });
-                          Navigator.pop(context);
-                        },
-                        name: Text(
-                          AppText.save,
-                          style: context.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.buttonTextColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
+  @override
+  void dispose() {
+    super.dispose();
   }
 
   void _pickWeight() {
@@ -152,18 +65,6 @@ class _PetInfoState extends State<PetInfo> {
     );
   }
 
-  String _formatDate(DateTime date) {
-    return "${date.day.toString().padLeft(2, '0')}/"
-        "${date.month.toString().padLeft(2, '0')}/"
-        "${date.year}";
-  }
-
-  @override
-  void dispose() {
-    _dobController.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<RegisterBloc, RegisterState>(
@@ -186,17 +87,43 @@ class _PetInfoState extends State<PetInfo> {
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.w400),
                 ),
                 Styles.gap30,
-                AppTextFormField(
-                  controller: _dobController,
-                  headerText: AppText.dateOfBirth,
-                  onTap: _pickDate,
-                  readOnly: true,
-                  suffixIcon: Iconsax.calendar,
+                BlocSelector<RegisterBloc, RegisterState, DateTime>(
+                  selector: (state) {
+                    return state.dob.isValid
+                        ? DateTime.parse(state.dob.value)
+                        : DateTime.now();
+                  },
+                  builder: (context, state) {
+                    return AppCustomDateField(
+                      headerText: AppText.dateOfBirth,
+                      selectedDate: state,
+                      suffixIcon: Iconsax.calendar,
+                      onChange: (DateTime) {
+                        context.read<RegisterBloc>().add(
+                          RegisterEvent.dob(DateTime.toString()),
+                        );
+                      },
+                    );
+                  },
                 ),
                 Styles.gap20,
-                CustomDropdownSearch(
-                  items: state.catBreeds,
-                  title: AppText.breed,
+                BlocBuilder<RegisterBloc, RegisterState>(
+                  builder: (context, state) {
+                    return CustomDropdownSearch(
+                      items:
+                          state.petType == PetType.Cat
+                              ? state.catBreeds
+                              : state.dogBreeds,
+                      selectedItem: state.breed.value,
+                      title: AppText.breed,
+                      onChanged: (value) {
+                        if (value != null)
+                          context.read<RegisterBloc>().add(
+                            RegisterEvent.breed(value),
+                          );
+                      },
+                    );
+                  },
                 ),
                 Styles.gap20,
                 CustomMultiDropdownSearch(

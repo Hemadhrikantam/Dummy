@@ -18,7 +18,7 @@ class RegisterAccountPayload extends Equatable implements Payload {
   final String petType;
   final String dob;
   final int petWeight;
-  final String petImage;
+  final int petImage;
   final int breed;
   final List<int> personalityTag;
 
@@ -41,6 +41,6 @@ class RegisterAccountPayload extends Equatable implements Payload {
     'pet_weight': petWeight,
     'pet_image': petImage,
     'breed': breed,
-    'personality_tag': [personalityTag],
+    'personality_tag': personalityTag,
   };
 }

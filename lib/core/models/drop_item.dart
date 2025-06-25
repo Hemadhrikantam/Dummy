@@ -17,7 +17,7 @@ class DropItemModel extends DropItem {
   factory DropItemModel.fromMap(Map<String, dynamic> map) {
     return DropItemModel(
       id: map['id'] as int? ?? 0,
-      value: map['name'] as String? ?? '',
+      value: map['title'] as String? ?? '',
     );
   }
 }
