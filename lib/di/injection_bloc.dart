@@ -21,4 +21,11 @@ class InjectionBloc {
       personalityTagUsecases: getIt<PersonalityTagUsecases>(),
     );
   }
+
+  static PetDairyBloc get petDairyBloc {
+    return PetDairyBloc(
+      documentsUsecases: getIt<DocumentsUsecases>(),
+      eventFieldsUsecases: getIt<EventFieldsUsecases>(),
+    );
+  }
 }

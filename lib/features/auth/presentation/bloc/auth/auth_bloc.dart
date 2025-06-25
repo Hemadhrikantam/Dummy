@@ -15,6 +15,7 @@ import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_p
 import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../../core/enum/status.dart';
 import '../../../../../core/enum/yourself.dart';
@@ -44,7 +45,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     required SendOtpUsecases sendOtpUsecases,
     required RegisterUserUsecases registerUserUsecases,
   }) : __sendOtpUsecases = sendOtpUsecases,
-  __registerUserUsecases = registerUserUsecases,
+       __registerUserUsecases = registerUserUsecases,
        __loginUserUsecases = loginUserUsecases,
        __currentUserUsecases = currentUserUsecases,
        __logoutUsecases = logoutUsecases,
@@ -90,24 +91,25 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         AppAlert.showToast(message: error.message);
         emit(state.copyWith(loginStatus: Status.failure));
       },
-      (success) {
-        BottomModels.otpSuccessBottomSheet(currentContext);
-        Future.delayed(const Duration(seconds: 2), () {
-          final userType = success?.user.userType;
-          if (userType == Yourself.petParent) {
-            currentContext.pushNamed(MeetYourPetScreen.routeName);
-          } else if (userType == Yourself.lookingAdoption) {
-            currentContext.pushNamedAndRemoveUntil(
-              AdoptionDashboardPage.routeName,
-            );
-          } else if (userType == Yourself.ngo) {
-            currentContext.pushNamed(NgoRegistrationPage.routeName);
-          } else {
-            currentContext.pushNamed(MeetYourPetScreen.routeName);
+      (success) async {
+        final userType = success?.user.userType ?? '';
+        final prefs = await SharedPreferences.getInstance();
+        await prefs.setString('userType', userType);
 
-            //  currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
-          }
-        });
+        BottomModels.otpSuccessBottomSheet(currentContext);
+        await Future.delayed(Duration(seconds: 2));
+
+        if (userType == Yourself.petParent) {
+          currentContext.pushNamed(MeetYourPetScreen.routeName);
+        } else if (userType == Yourself.lookingAdoption) {
+          currentContext.pushNamedAndRemoveUntil(
+            AdoptionDashboardPage.routeName,
+          );
+        } else if (userType == Yourself.ngo) {
+          currentContext.pushNamed(NgoRegistrationPage.routeName);
+        } else {
+          currentContext.pushNamed(MeetYourPetScreen.routeName);
+        }
 
         emit(
           state.copyWith(
@@ -165,9 +167,21 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       (error) {
         currentContext.pushNamedAndRemoveUntil(StartYourPetsJourney.routeName);
       },
-      (success) {
-        currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
+      (success) async {
         emit(state.copyWith(user: success));
+        final prefs = await SharedPreferences.getInstance();
+        final storedUserType = prefs.getString('userType');
+        if (storedUserType == Yourself.petParent) {
+          currentContext.pushNamed(MeetYourPetScreen.routeName);
+        } else if (storedUserType == Yourself.lookingAdoption) {
+          currentContext.pushNamedAndRemoveUntil(
+            AdoptionDashboardPage.routeName,
+          );
+        } else if (storedUserType == Yourself.ngo) {
+          currentContext.pushNamed(NgoRegistrationPage.routeName);
+        } else {
+          currentContext.pushNamed(MeetYourPetScreen.routeName);
+        }
       },
     );
   }
@@ -217,12 +231,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(state.copyWith(otp: otp));
   }
 
-  FutureOr<void> __register(_Register event, Emitter<AuthState> emit) async{
-     LogUtility.info("event calling");
+  FutureOr<void> __register(_Register event, Emitter<AuthState> emit) async {
+    LogUtility.info("event calling");
 
     emit(state.copyWith(sendOtpStatus: Status.loading));
     LogUtility.info("${state.phone.value}");
-    final result = await __registerUserUsecases(phone: event.phone, userType: event.userType);
+    final result = await __registerUserUsecases(
+      phone: event.phone,
+      userType: event.userType,
+    );
     result.fold(
       (error) {
         AppAlert.showToast(message: error.message);
@@ -230,7 +247,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(state.copyWith(sendOtpStatus: Status.failure));
       },
       (success) {
-        currentContext.pushNamed(PetTypePage.routeName);
+        currentContext.pushNamed(OtpVerification.routeName);
         emit(state.copyWith(sendOtpStatus: Status.success));
       },
     );

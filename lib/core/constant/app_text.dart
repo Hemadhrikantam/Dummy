@@ -31,7 +31,7 @@ class AppText {
   //Notification
   static String allowNotificationTitle = "Allow Notifications";
   static String allowNotificationContent =
-      "Do you want Dummy to send you reminders?";
+      "Do you want Doommi to send you reminders?";
   static String cancel = "Cancel";
   static String cancelPlan = "Cancel Plan";
   static String enterPhoneNumber = "Enter Phone Number";
@@ -46,7 +46,7 @@ class AppText {
   static String continueWithGoogle = 'Continue With Google';
   static String alreadyHaveAccount = 'Already have an account? Log in here.';
   static String dontHaveAnAccount = 'Don’t have an account? Sign up here';
-  static String startUsingDummy = 'Start Using Dummy';
+  static String startUsingDummy = 'Start Using Doommi';
   static String explore = 'Explore';
   static String tryFor = 'Try for \$0.00';
   static String continueForFree = 'Continue For Free';
@@ -61,9 +61,9 @@ class AppText {
   static String petsName = "Pet's Name";
   static String startYourPetsJourney = "Start Your Pet’s Journey";
   static String welcomeToDummy =
-      "Welcome to Dummy! We’re here to help you care for your cat or dog like never before.";
+      "Welcome to Doommi! We’re here to help you care for your cat or dog like never before.";
   static String welcomeToDummy2 =
-      "Dummy was our beloved pet who inspired this app. Let’s keep his memory alive by caring for your pet with love and attention.";
+      "Doommi was our beloved pet who inspired this app. Let’s keep his memory alive by caring for your pet with love and attention.";
   static String whatTypeOfPet = "What Type of Pet Do You Have?";
   static String dog = "Dog";
   static String cat = "Cat";
@@ -83,13 +83,13 @@ class AppText {
   static String breed = 'Breed';
   static String personalitytags = 'Personality Tags';
   static String dummyLovedHisPhoto =
-      'Dummy loved his photo in his profile—add one for your pet!';
+      'Doommi loved his photo in his profile—add one for your pet!';
   static String stayOnTop = 'Stay on Top of Your Pet’s Care!';
   static String dummyCanSendYouRemainders =
-      'Dummy can send you reminders for meals, walks, and health updates. Allow notifications to stay on track!';
+      'Doommi can send you reminders for meals, walks, and health updates. Allow notifications to stay on track!';
   static String ownerLovedRemainder =
-      'Dummy’s owner loved reminders—stay on track with notifications!';
-  static String joinDummyToday = 'Join Dummy Today!';
+      'Doommi’s owner loved reminders—stay on track with notifications!';
+  static String joinDummyToday = 'Join Doommi Today!';
   static String enterVerificationCode = 'Enter Verification Code';
   static String verificationSuccessful = 'Verification Successful';
   static String enter4DigitVerificationCode =
@@ -117,12 +117,12 @@ class AppText {
   static String confirmPassword = 'Confirm Password';
   static String effortlessPetListingManagement =
       'Effortless Pet Listing & Management';
-  static String welcomeToDummyPag = 'Welcome to Dummy, [User’s Name]!';
+  static String welcomeToDummyPag = 'Welcome to Doommi, [User’s Name]!';
   static String yourAccountIsReady =
-      'Your account is ready! Let’s start caring for [Pet’s Name] with Dummy.';
+      'Your account is ready! Let’s start caring for [Pet’s Name] with Doommi.';
   static String unlockMoreWithDummy =
-      'Unlock more with Dummy Premium: Advanced Health Insights, Symptom Checker, and more!';
-  static String welcomeBackToDummy = 'Welcome Back to Dummy!';
+      'Unlock more with Doommi Premium: Advanced Health Insights, Symptom Checker, and more!';
+  static String welcomeBackToDummy = 'Welcome Back to Doommi!';
   static String forgotPassword = 'Forgot password? Reset here';
   static String resetYourPassword = 'Reset Your Password';
   static String weWillSendYouFourDigitCode =
@@ -133,7 +133,7 @@ class AppText {
   static String enterNewPassword = 'Enter New Password';
   static String passwordResetSuccessfully = 'Password Reset Successfully';
   static String dummysOwnerForgotOnceToo =
-      'Dummy’s owner forgot once too—let’s get you back in!';
+      'Doommi’s owner forgot once too—let’s get you back in!';
   static String provideRequiredFields = 'Provide required fields';
   static String passwordsDoesntMatch = 'Passwords Doesn\'t match';
 
@@ -179,13 +179,13 @@ class AppText {
   static String in30Days = 'In 30 days';
   static String youWillBeCharged(String dateString) =>
       'You’ll be charged on $dateString, cancel anytime before.';
-  static String dummyPremium = ' Dummy Premium!';
+  static String dummyPremium = ' Doommi Premium!';
   static String get = ' Get';
   static String fiftyPercent = ' 50% OFF';
   static String availableFor1hr = 'Available for 1 hour';
   static String then = 'Then \$59.99';
   static String withDummyPremium =
-      'With Dummy Premium, you get advanced health insights, unlimited tracking, and exclusive content for your cat or dog.';
+      'With Doommi Premium, you get advanced health insights, unlimited tracking, and exclusive content for your cat or dog.';
 
   //dashboard
   //daily care
@@ -236,17 +236,17 @@ class AppText {
   static const String logout = 'Logout';
   static const String logoutText = 'You’ll stop receiving reminders and updates for your pet’s care. You can log back in anytime.';
   static const String dummyStayedParasite =
-      'Dummy stayed parasite-free with regular deworming—protect';
+      'Doommi stayed parasite-free with regular deworming—protect';
   static const String addDewormingTo = 'Add deworming to';
-  static const String dummyLovedHisMeals = 'Dummy loved his meals—keep ';
+  static const String dummyLovedHisMeals = 'Doommi loved his meals—keep ';
   static const String thankyouforgiving = 'Thank you for giving them a chance at a loving home. 💛';
   static const String logAMemoryOf = 'Log a memory of ';
   static const String viewMyListings = 'View My Listings';
-  static const String dummyLovedHisPark = 'Dummy loved his park walks—take ';
+  static const String dummyLovedHisPark = 'Doommi loved his park walks—take ';
   static const String dummyAlwaysLookedHisBest =
-      'Dummy always looked his best after grooming—keep ';
+      'Doommi always looked his best after grooming—keep ';
   static const String dummysCareWasWorth =
-      'Dummy’s care was worth every penny—track ';
+      'Doommi’s care was worth every penny—track ';
   static const String logAMemoryOfThisPurchase =
       'Log a memory of this purchase!';
 
@@ -301,7 +301,7 @@ class AppText {
   static const String greatJobKeeping = 'Great job keeping ';
   static const String healthy = 'healthy! ';
   static const String dummyWouldBeProudOfYouForKeeping =
-      'dummy would be proud of you for keeping ';
+      'Doommi would be proud of you for keeping ';
   static const String nextDueDate = 'Next Due Date : ';
   static const String autoSuggestedBasedOnAnnualFrequency =
       'Auto suggested based on annual frequency';

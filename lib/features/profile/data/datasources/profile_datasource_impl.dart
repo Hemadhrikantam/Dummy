@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/error/app_error.dart';
-import 'package:dummy/core/error/app_success.dart';
-import 'package:dummy/core/payload/payload.dart';
+import 'package:dummy/core/models/drop_item.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
 import 'package:dummy/features/profile/data/models/documents_model.dart';
@@ -11,11 +11,11 @@ import '../../../../api/api.dart' as api;
 
 class ProfileDatasourceImpl extends ProfileDatasource {
   ProfileDatasourceImpl({required this.http});
-    final AppHttp http;
+  final AppHttp http;
 
   @override
-  AppTypeResponse<List<DocumentsModel>> documents() async{
-  final response = await http.get(path: api.petDairyDocuments, token: false);
+  AppTypeResponse<List<DocumentsModel>> documents() async {
+    final response = await http.get(path: api.petDairyDocuments, token: false);
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -48,5 +48,38 @@ class ProfileDatasourceImpl extends ProfileDatasource {
     );
   }
 
-  
+  @override
+  AppTypeResponse<List<DropItemModel>> eventFields() async {
+  final response = await http.get(path: api.petDairyEvent);
+    return response.fold(
+      (err) {
+        return Left(ErrorMessage(message: AppText.somethingWentWrong));
+      },
+      (success) {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+
+          if (statusCode <= 201) {
+            final item = <DropItemModel>[];
+            for (final dropList in data as List? ?? []) {
+              item.add(DropItemModel.fromMap(dropList as JsonMap));
+            }
+            return Right(item);
+          }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (err) {
+          LogUtility.error('err $err');
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+
+  });
+  }
 }

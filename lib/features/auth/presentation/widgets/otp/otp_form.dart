@@ -21,7 +21,7 @@ class OTPForm extends StatefulWidget {
 }
 
 class _OTPFormState extends State<OTPForm> {
-  int _secondsRemaining = 60;
+  int _secondsRemaining = 30;
   late Timer _timer;
   bool _showResendButton = false;
 

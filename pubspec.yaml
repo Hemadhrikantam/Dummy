@@ -63,6 +63,7 @@ dependencies:
   location: ^8.0.0
   rive: ^0.13.20
   flutter_native_splash: ^2.4.6
+  shared_preferences: ^2.5.3
 
 dev_dependencies:
   build_runner: ^2.4.15
@@ -128,17 +129,3 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
 
-flutter_native_splash:
-    color: "#000000" # or any background color, or transparent for Android 12+
-    image: assets/images/splash_screen.png # optional, remove this line if you want no splash at all
-    android: true
-    ios: true
-    fullscreen: true
-    android_gravity: center
-    android_disable_fullscreen: true
-
-    android_12:
-      color: "#000000"
-      icon_background_color: "#000000"
-      image: assets/images/splash_screen.png
-      icon_background: "#000000"
