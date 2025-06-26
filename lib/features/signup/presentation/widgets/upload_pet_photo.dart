@@ -114,13 +114,22 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
               ),
               onPressed: () async {
                 if (selectedImage != null) {
-                  final ImagePicker picker = ImagePicker();
-                  final image = await picker.pickImage(
-                    source: ImageSource.gallery,
-                  );
-                  if (image != null) {
+                  final images = await customFilePicker(context);
+                  // final ImagePicker picker = ImagePicker();
+                  // final image = await picker.pickImage(
+                  //   source: ImageSource.gallery,
+                  // );
+                  // if (image != null) {
+                  //   setState(() {
+                  //     selectedImage = image;
+                  //   });
+                  // }
+                  if (images.isNotEmpty) {
+                    context.read<RegisterBloc>().add(
+                      RegisterEvent.petImage(images.first),
+                    );
                     setState(() {
-                      selectedImage = image;
+                      selectedImage = XFile(images.first);
                     });
                   }
                 } else {

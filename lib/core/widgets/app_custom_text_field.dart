@@ -81,7 +81,8 @@ class AppTextFormField extends StatelessWidget {
     this.focusedBorder,
     this.headerExtra = false,
     this.isMandatory = false,
-    this.constraints, this.suffixIconColor,
+    this.constraints,
+    this.suffixIconColor,
   });
 
   @override
@@ -121,7 +122,7 @@ class AppTextFormField extends StatelessWidget {
               prefixStyle: GoogleFonts.inter(color: AppColors.black),
               prefixIcon: preffix,
               floatingLabelAlignment: FloatingLabelAlignment.start,
-              fillColor: enable? AppColors.white:AppColors.grey300,
+              fillColor: enable ? AppColors.white : AppColors.grey300,
               filled: true,
               // suffix: suffix,
               prefixText: preffixText,

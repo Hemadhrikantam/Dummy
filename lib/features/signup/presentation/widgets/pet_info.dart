@@ -5,6 +5,8 @@ import 'package:dummy/core/enum/breed.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
+import 'package:dummy/core/utils/app_utils.dart';
+import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
@@ -32,6 +34,7 @@ class PetInfo extends StatefulWidget {
 
 class _PetInfoState extends State<PetInfo> {
   int weight = 1;
+  String age = '';
   @override
   void initState() {
     super.initState();
@@ -46,19 +49,25 @@ class _PetInfoState extends State<PetInfo> {
     showModalBottomSheet(
       context: context,
       backgroundColor: Colors.white,
+      isScrollControlled: true,
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (_) {
-        return SizedBox(
-          height: 300,
-          child: WeightPickerBody(
-            weight: weight,
-            onSave: (value) {
-              setState(() {
-                weight = value;
-              });
-            },
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: SizedBox(
+            height: 300,
+            child: WeightPickerBody(
+              weight: weight,
+              onSave: (value) {
+                setState(() {
+                  weight = value;
+                });
+              },
+            ),
           ),
         );
       },
@@ -95,15 +104,31 @@ class _PetInfoState extends State<PetInfo> {
                     return AppCustomDateField(
                       headerText: AppText.dateOfBirth,
                       selectedDate: state,
+                      isMandatory: true,
+                      maxDate: DateTime.now(),
                       suffixIcon: Iconsax.calendar,
-                      onChange: (DateTime) {
+                      onChange: (date) {
                         context.read<RegisterBloc>().add(
-                          RegisterEvent.dob(DateTime.toString()),
+                          RegisterEvent.dob(date.toString()),
                         );
                       },
                     );
                   },
                 ),
+
+                if (state.dob.isValid) Styles.gap4,
+                if (state.dob.isValid)
+                  Text(
+                    AppUtil.calculateAge(
+                      AppUtil.formatDateToMMDDYYYY(
+                        DateTime.tryParse(state.dob.value)!,
+                      ),
+                    ),
+                    style: TextStyle(
+                      color: AppColors.stepperColor,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
                 Styles.gap20,
                 BlocBuilder<RegisterBloc, RegisterState>(
                   builder: (context, state) {
@@ -113,12 +138,14 @@ class _PetInfoState extends State<PetInfo> {
                               ? state.catBreeds
                               : state.dogBreeds,
                       selectedItem: state.breed.value,
+                      isMandatory: true,
                       title: AppText.breed,
                       onChanged: (value) {
-                        if (value != null)
+                        if (value != null) {
                           context.read<RegisterBloc>().add(
                             RegisterEvent.breed(value),
                           );
+                        }
                       },
                     );
                   },
@@ -127,6 +154,7 @@ class _PetInfoState extends State<PetInfo> {
                 CustomMultiDropdownSearch(
                   items: state.personalityTags,
                   title: AppText.personalitytags,
+                  isMandatory: true,
                   onChanged: (p0) {
                     context.read<RegisterBloc>().add(RegisterEvent.addTag(p0));
                   },
@@ -166,6 +194,7 @@ class _PetInfoState extends State<PetInfo> {
                             : '${state.weight.value} ${state.weightUnit.value}',
                   ),
                   headerText: AppText.weight,
+                  isMandatory: true,
                   hintText: 'Select',
                   onTap: _pickWeight,
                   readOnly: true,
@@ -181,9 +210,26 @@ class _PetInfoState extends State<PetInfo> {
                       color: AppColors.buttonTextColor,
                     ),
                   ),
-                  onPressed: () {
-                    widget.onNext?.call();
-                  },
+                  backgroundColor:
+                      state.dob.isValid &&
+                              state.breed.isValid &&
+                              state.selectedPersonalityTags.isNotEmpty &&
+                              state.weight.isValid
+                          ? AppColors.buttonBackground
+                          : AppColors.grey,
+                  onPressed:
+                      state.dob.isValid &&
+                              state.breed.isValid &&
+                              state.selectedPersonalityTags.isNotEmpty &&
+                              state.weight.isValid
+                          ? () {
+                            widget.onNext?.call();
+                          }
+                          : () {
+                            AppAlert.showToast(
+                              message: 'Provide all mandatory fields',
+                            );
+                          },
                 ),
                 Styles.gap30,
               ],
@@ -199,8 +245,10 @@ class WeightPickerBody extends StatefulWidget {
     required this.weight,
     required this.onSave,
   });
+
   final int weight;
   final Function(int) onSave;
+
   @override
   State<WeightPickerBody> createState() => _WeightPickerBodyState();
 }
@@ -208,10 +256,26 @@ class WeightPickerBody extends StatefulWidget {
 class _WeightPickerBodyState extends State<WeightPickerBody> {
   int weight = 1;
   String selectedUnit = 'Kg';
+  late TextEditingController _weightController;
+
   @override
   void initState() {
     super.initState();
     weight = widget.weight;
+    _weightController = TextEditingController(text: weight.toString());
+  }
+
+  @override
+  void dispose() {
+    _weightController.dispose();
+    super.dispose();
+  }
+
+  void _updateWeight(int newWeight) {
+    setState(() {
+      weight = newWeight;
+      _weightController.text = weight.toString();
+    });
   }
 
   @override
@@ -254,54 +318,62 @@ class _WeightPickerBodyState extends State<WeightPickerBody> {
             children: [
               GestureDetector(
                 onTap: () {
-                  setState(() {
-                    if (weight > 0) {
-                      weight -= 1;
-                    }
-                  });
+                  if (weight > 0) _updateWeight(weight - 1);
                 },
                 child: Container(
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(167, 90, 29, 0.19), // RGBA equivalent
-                    borderRadius: BorderRadius.circular(8), // 8px border radius
+                    color: Color.fromRGBO(167, 90, 29, 0.19),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   child: Icon(Icons.remove, color: AppColors.buttonTextColor),
                 ),
               ),
               Styles.gap4,
               Container(
-                width: 50,
+                width: 70,
                 height: 50,
+                alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: Color(0xffFAFAFA), // RGBA equivalent
-                  borderRadius: BorderRadius.circular(8), // 8px border radius
+                  color: Color(0xffFAFAFA),
+                  borderRadius: BorderRadius.circular(8),
                 ),
-                child: Center(
-                  child: Text(
-                    "$weight",
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Color(0xff5E5E5E),
-                      fontWeight: FontWeight.w700,
-                    ),
+                child: TextField(
+                  controller: _weightController,
+                  keyboardType: TextInputType.number,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: Color(0xff5E5E5E),
                   ),
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
+                    isCollapsed: true,
+                    contentPadding: EdgeInsets.zero,
+                  ),
+                  onSubmitted: (value) {
+                    final parsed = int.tryParse(value);
+                    if (parsed != null && parsed >= 0) {
+                      _updateWeight(parsed);
+                    } else {
+                      _weightController.text = weight.toString();
+                    }
+                  },
                 ),
               ),
               Styles.gap4,
               GestureDetector(
                 onTap: () {
-                  setState(() {
-                    weight += 1;
-                  });
+                  _updateWeight(weight + 1);
                 },
                 child: Container(
                   width: 50,
                   height: 50,
                   decoration: BoxDecoration(
-                    color: Color.fromRGBO(167, 90, 29, 0.19), // RGBA equivalent
-                    borderRadius: BorderRadius.circular(8), // 8px border radius
+                    color: Color.fromRGBO(167, 90, 29, 0.19),
+                    borderRadius: BorderRadius.circular(8),
                   ),
                   child: Icon(Icons.add, color: AppColors.buttonTextColor),
                 ),
@@ -367,7 +439,7 @@ class RoundedDropdown extends StatefulWidget {
 }
 
 class RoundedDropdownState extends State<RoundedDropdown> {
-  final List<String> options = ['Kg', 'Lg'];
+  final List<String> options = ['Kg', 'Lb'];
   String selectedValue = 'Kg';
 
   @override

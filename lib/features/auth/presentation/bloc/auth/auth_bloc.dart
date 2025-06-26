@@ -25,6 +25,7 @@ import '../../../../../core/models/login_model.dart';
 import '../../../../../core/utils/toast_message.dart';
 import '../../../../../di/injection.dart';
 import '../../../../dashboard/presentation/pages/dashboard_page.dart';
+import '../../../../home/presentation/pages/home_page.dart';
 import '../../../../signup/presentation/pages/start_your_pets_journey.dart';
 import '../../../domain/entities/current_user.dart';
 import '../../../domain/usecases/current_user_usecases.dart';
@@ -100,13 +101,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         BottomModels.otpSuccessBottomSheet(currentContext);
         await Future.delayed(Duration(seconds: 2));
 
-        if (userType == Yourself.petParent) {
+        if (userType == Yourself.petParent.name) {
           currentContext.pushNamed(MeetYourPetScreen.routeName);
-        } else if (userType == Yourself.lookingAdoption) {
+        } else if (userType == Yourself.lookingAdoption.name) {
           currentContext.pushNamedAndRemoveUntil(
             AdoptionDashboardPage.routeName,
           );
-        } else if (userType == Yourself.ngo) {
+        } else if (userType == Yourself.ngo.name) {
           currentContext.pushNamed(NgoRegistrationPage.routeName);
         } else {
           currentContext.pushNamed(MeetYourPetScreen.routeName);
@@ -172,16 +173,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(state.copyWith(user: success));
         final prefs = await SharedPreferences.getInstance();
         final storedUserType = prefs.getString('userType');
-        if (storedUserType == Yourself.petParent) {
-          currentContext.pushNamed(MeetYourPetScreen.routeName);
-        } else if (storedUserType == Yourself.lookingAdoption) {
+        if (storedUserType == Yourself.petParent.name) {
+          currentContext.pushNamed(HomePage.routeName);
+        } else if (storedUserType == Yourself.lookingAdoption.name) {
           currentContext.pushNamedAndRemoveUntil(
             AdoptionDashboardPage.routeName,
           );
-        } else if (storedUserType == Yourself.ngo) {
+        } else if (storedUserType == Yourself.ngo.name) {
           currentContext.pushNamed(NgoRegistrationPage.routeName);
         } else {
-          currentContext.pushNamed(MeetYourPetScreen.routeName);
+          currentContext.pushNamed(StartYourPetsJourney.routeName);
         }
       },
     );
@@ -194,7 +195,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  void __yourself(_Yourself event, Emitter<AuthState> emit) {
+  void __yourself(_Yourself event, Emitter<AuthState> emit) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('userType', event.value.name);
     emit(state.copyWith(yourself: event.value));
   }
 

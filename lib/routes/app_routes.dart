@@ -27,6 +27,7 @@ import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey
 import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey2.dart';
 import 'package:flutter/material.dart';
 
+import '../features/home/presentation/pages/home_page.dart';
 import '../features/profile/presentation/pages/pet_dairy/pet_fav_page.dart';
 import '../features/auth/presentation/pages/login_page.dart';
 import '../features/auth/presentation/pages/otp_page.dart';
@@ -90,5 +91,6 @@ class AppRoutes {
     EditMedicationPage.routeName: (_) => const EditMedicationPage(),
     EditVaccinationPage.routeName: (_) => const EditVaccinationPage(),
     NotificationPage.routeName: (_) => const NotificationPage(),
+    HomePage.routeName: (_) => const HomePage(),
   };
 }

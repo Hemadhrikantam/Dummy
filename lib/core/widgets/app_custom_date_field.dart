@@ -18,7 +18,10 @@ class AppCustomDateField extends StatelessWidget {
     this.hintText,
     this.selectedDate,
     required this.onChange,
-    this.headerText, this.maxDate, this.minDate,
+    this.headerText,
+    this.maxDate,
+    this.minDate,
+    this.isMandatory = false,
   });
   final IconData? suffixIcon;
   final bool enable;
@@ -28,6 +31,7 @@ class AppCustomDateField extends StatelessWidget {
   final DateTime? maxDate;
   final DateTime? minDate;
   final Function(DateTime) onChange;
+  final bool isMandatory;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +44,7 @@ class AppCustomDateField extends StatelessWidget {
       readOnly: true,
       hintText: hintText ?? AppText.enter,
       onChanged: (value) {},
+      isMandatory: isMandatory,
       headerText: headerText ?? AppText.date,
       enable: enable,
       onTap:
@@ -100,7 +105,13 @@ void _pickDate(
             Expanded(
               child: CupertinoDatePicker(
                 mode: CupertinoDatePickerMode.date,
-                initialDateTime: selectedDate??DateTime.now(),
+                initialDateTime:
+                    selectedDate ??
+                    DateTime(
+                      DateTime.now().year,
+                      DateTime.now().month,
+                      DateTime.now().day,
+                    ),
                 maximumDate: maxDate,
                 minimumDate: minDate,
                 onDateTimeChanged: (DateTime dateTime) {

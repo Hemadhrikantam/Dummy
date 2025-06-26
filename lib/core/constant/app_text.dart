@@ -52,7 +52,8 @@ class AppText {
   static String continueForFree = 'Continue For Free';
   static String start3Day1FreeTrail = 'Start 3 Day Free Trail';
   static String save20bySwitching = 'Save 20% by switching to an annual plan!';
-  static String renewEarlybyButton = 'Renew early by May 1, 2025, and get 10% off ';
+  static String renewEarlybyButton =
+      'Renew early by May 1, 2025, and get 10% off ';
 
   //signup
   static String meetYourPet = 'Meet Your Pet!';
@@ -67,8 +68,8 @@ class AppText {
   static String whatTypeOfPet = "What Type of Pet Do You Have?";
   static String dog = "Dog";
   static String cat = "Cat";
-  static String petTypeInfo(String a, String b) =>
-      "Dummy was a $a, but we love ${b}s too—tell us about your pet!";
+  static String petTypeInfo(String name, String a, String b) =>
+      "$name was a $a, but we love ${b}s too—tell us about your pet!";
 
   static String uploadPetPhoto =
       'Upload a photo to make their profile special!';
@@ -234,12 +235,14 @@ class AppText {
   static const String duedate = 'Due Date';
   static const String reminder = 'Reminder';
   static const String logout = 'Logout';
-  static const String logoutText = 'You’ll stop receiving reminders and updates for your pet’s care. You can log back in anytime.';
+  static const String logoutText =
+      'You’ll stop receiving reminders and updates for your pet’s care. You can log back in anytime.';
   static const String dummyStayedParasite =
       'Doommi stayed parasite-free with regular deworming—protect';
   static const String addDewormingTo = 'Add deworming to';
   static const String dummyLovedHisMeals = 'Doommi loved his meals—keep ';
-  static const String thankyouforgiving = 'Thank you for giving them a chance at a loving home. 💛';
+  static const String thankyouforgiving =
+      'Thank you for giving them a chance at a loving home. 💛';
   static const String logAMemoryOf = 'Log a memory of ';
   static const String viewMyListings = 'View My Listings';
   static const String dummyLovedHisPark = 'Doommi loved his park walks—take ';
@@ -315,7 +318,8 @@ class AppText {
   static const String accountDetails = 'Account Details';
   static const String monthlyPremiumPlan = 'Monthly Premium Plan';
   static const String annualPremiumPlan = 'Annual Premium Plan';
-  static const String nextBillingMonthly = 'Next billing: May 1, 2025, at \$4.99';
+  static const String nextBillingMonthly =
+      'Next billing: May 1, 2025, at \$4.99';
   static const String card = 'Card';
   static const String renewsonApril = 'Renews on April 1, 2026, at \$49.99';
   static const String uploadRegistrationProof = 'Upload Registration Proof';
@@ -337,8 +341,7 @@ class AppText {
   static String trackMedicationsTo = 'Track medications to never miss a dose';
   static String trackCoreAndBooster =
       'Track core and booster shots with reminders.';
-  static String helppetfindahome =
-      'Help a pet find a home 🧡';
+  static String helppetfindahome = 'Help a pet find a home 🧡';
   static String addFirstMedication = 'Add First Medication';
   static String addFirstVaccination = 'Add First Vaccination';
   static String addPetAdoption = 'Add Pet for Adoption';

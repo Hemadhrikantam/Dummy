@@ -98,14 +98,16 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     );
     final result = await __createPetUsecases(payload: payload);
 
-    result.fold(
-      (error) => emit(state.copyWith(submitStatus: Status.error)),
-      (success) => emit(state.copyWith(submitStatus: Status.success)),
-    );
+    result.fold((error) => emit(state.copyWith(submitStatus: Status.error)), (
+      success,
+    ) async {
+      emit(state.copyWith(submitStatus: Status.success));
+    });
   }
 
   void __petName(_PetName event, Emitter<RegisterState> emit) {
     final petName = NotEmpty.dirty(value: event.name);
+    print(petName);
     emit(state.copyWith(petName: petName));
   }
 
