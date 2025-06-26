@@ -39,7 +39,7 @@ class SignupDatasourceImpl extends SignupDatasource {
             final item = <DropItemModel>[];
             for (final dropList in data as List? ?? []) {
               final map = Map<String, dynamic>.from(dropList as Map);
-              map['name'] = map['breed'];
+              map['title'] = map['breed'];
               item.add(DropItemModel.fromMap(map));
             }
             return Right(item);
@@ -76,7 +76,7 @@ class SignupDatasourceImpl extends SignupDatasource {
             final item = <DropItemModel>[];
             for (final dropList in data as List? ?? []) {
               final map = Map<String, dynamic>.from(dropList as Map);
-              map['name'] = map['breed'];
+              map['title'] = map['breed'];
               item.add(DropItemModel.fromMap(map));
             }
             return Right(item);
@@ -115,7 +115,7 @@ class SignupDatasourceImpl extends SignupDatasource {
             final item = <DropItemModel>[];
             for (final dropList in data as List? ?? []) {
               final map = Map<String, dynamic>.from(dropList as Map);
-              map['name'] = map['personality_tag'];
+              map['title'] = map['personality_tag'];
               item.add(DropItemModel.fromMap(map));
             }
             return Right(item);
