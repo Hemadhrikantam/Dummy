@@ -14,7 +14,7 @@ String catBreeds = '$__publicBase/pets/cat-breeds/';
 String dogBreeds = '$__publicBase/pets/dog-breeds/';
 String personalityTags = '$__publicBase/pets/personality-tags/';
 String petDairyEvent = '$__privateBase/pet-diary/event-fields/';
-String petDairyMedia = '$__publicBase/pet-diary/media-files/';
+String petDairyMedia = '$__privateBase/pet-diary/media-files/';
 String petDairyDocuments = '$__privateBase/pet-diary/documents/';
 //
 String petcreate = '$__api/pets/create/';

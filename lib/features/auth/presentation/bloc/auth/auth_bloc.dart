@@ -92,6 +92,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         emit(state.copyWith(loginStatus: Status.failure));
       },
       (success) async {
+        emit(state.copyWith(loginStatus: Status.init));
         final userType = success?.user.userType ?? '';
         final prefs = await SharedPreferences.getInstance();
         await prefs.setString('userType', userType);
