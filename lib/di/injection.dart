@@ -6,6 +6,11 @@ import 'package:dummy/core/utils/custom_interceptors.dart';
 import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/send_otp_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
+import 'package:dummy/features/dashboard/data/datasources/dashboard_details_datasource.dart';
+import 'package:dummy/features/dashboard/data/datasources/dashboard_details_datasource_impl.dart';
+import 'package:dummy/features/dashboard/data/repositories/dashboard_details_repository_impl.dart';
+import 'package:dummy/features/dashboard/domain/repositories/dashboard_details_repository.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource_impl.dart';
 import 'package:dummy/features/profile/data/repositories/profile_repository_impl.dart';
@@ -30,6 +35,7 @@ import '../features/auth/domain/usecases/current_user_usecases.dart';
 import '../features/auth/domain/usecases/login_usecases.dart';
 import '../features/auth/domain/usecases/logout_usecases.dart';
 import '../features/auth/domain/usecases/register_account_usecases.dart';
+import '../features/dashboard/domain/usecases/dashboard_details_usecases.dart';
 import '../features/signup/data/datasources/signup_datasource.dart';
 import '../features/signup/data/datasources/signup_datasource_impl.dart';
 import '../features/signup/data/repositories/signup_repository_impl.dart';
@@ -46,6 +52,7 @@ part 'injection_system_settings.dart';
 part 'injection_auth.dart';
 part 'injection_singup.dart';
 part 'injection_profile.dart';
+part 'injection_dashboard.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -56,5 +63,6 @@ class Injection {
     await __authDependencies();
     await __signupDependencies();
     await __profileDependencies();
+    await __dashboardDependencies();
   }
 }
