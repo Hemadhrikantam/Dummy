@@ -4,7 +4,9 @@ import 'package:dummy/core/widgets/custom_header_widget.dart';
 import 'package:dummy/features/home/presentation/widgets/near_you_card.dart'
     show NearYouCard;
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../dashboard/presentation/bloc/dashboard_bloc.dart';
 import '../widgets/pet_information_widget.dart';
 import '../widgets/pet_list_home_widget.dart';
 import '../widgets/quick_actions_widget.dart';
@@ -26,6 +28,14 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
+  @override
+  void initState() {
+    Future.delayed(Duration(seconds: 0), () {
+      context.read<DashboardBloc>().add(DashboardEvent.dashboardPets());
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialBaseScreen(

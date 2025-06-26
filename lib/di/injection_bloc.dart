@@ -28,4 +28,9 @@ class InjectionBloc {
       eventFieldsUsecases: getIt<EventFieldsUsecases>(),
     );
   }
+  static DashboardBloc get dashboardBloc {
+    return DashboardBloc(
+      dashboardDetailsUsecases: getIt<DashboardDetailsUsecases>(),
+    );
+  }
 }
