@@ -23,7 +23,7 @@ class DashboardDetailsModel extends DashboardPetDetails {
       petName: map['pet_name'] as String? ?? '',
       petType: map['pet_type'] as String? ?? '',
       dob: map['dob'] as String? ?? '',
-      petWeight: (map['pet_weight'] as int?) ?? 0,
+      petWeight: (map['pet_weight'] as double?) ?? 0,
       trackActivity: map['track_activity'] as bool? ?? false,
       petImage: PetImageModel.fromMap(map['pet_image'] ?? {}),
       breed: BreedModel.fromMap(map['breed'] ?? {}),
