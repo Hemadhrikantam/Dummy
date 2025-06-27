@@ -26,7 +26,21 @@ String catbreeds = '$__api/pets/cat-breeds/';
 String dogbreeds = '$__api/pets/dog-breeds/';
 String pets = '$__privateBase/pets/';
 //daily care
-String mealsByDate(DateTime date) => '$__api/daily-care/meals/?date=${AppUtil.formatDate(date)}';
-String walksByDate(DateTime date) => '$__api/daily-care/walks/?date=${AppUtil.formatDate(date)}';
+String meals(DateTime? date) {
+  if (date != null) {
+    return '$__api/daily-care/meals/?date=${AppUtil.formatDate(date)}';
+  } else {
+    return '$__api/daily-care/meals/';
+  }
+}
+
+String walks(DateTime? date) {
+  if (date != null) {
+    return '$__api/daily-care/walks/?date=${AppUtil.formatDate(date)}';
+  } else {
+    return '$__api/daily-care/walks/';
+  }
+}
+
 String addMeal = '$__api/daily-care/meals/';
 String addWalk = '$__api/daily-care/walks/';

@@ -16,8 +16,12 @@ Future<void> __dailyCareDependencies() async {
   // AUTH Usecase
   final addMealUsecases = AddMealUsecases(getIt<DailyCareRepository>());
   final addWalkUsecases = AddWalkUsecases(getIt<DailyCareRepository>());
+  final mealsUsecases = MealsUsecases(getIt<DailyCareRepository>());
+  final walksUsecases = WalksUsecases(getIt<DailyCareRepository>());
 
   //   //
   getIt.registerLazySingleton<AddMealUsecases>(() => addMealUsecases);
   getIt.registerLazySingleton<AddWalkUsecases>(() => addWalkUsecases);
+  getIt.registerLazySingleton<MealsUsecases>(() => mealsUsecases);
+  getIt.registerLazySingleton<WalksUsecases>(() => walksUsecases);
 }

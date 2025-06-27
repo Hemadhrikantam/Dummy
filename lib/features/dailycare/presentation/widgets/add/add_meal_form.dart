@@ -5,6 +5,7 @@ import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
+import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/custom_dropdown.dart';
@@ -13,6 +14,8 @@ import 'package:dummy/features/dailycare/presentation/bloc/meal_form/meal_form_b
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/widgets/app_graber.dart';
+import '../../../../../core/widgets/mandatory_field_widget.dart';
+import '../../bloc/meals/meals_bloc.dart';
 import '../save_cancel_widget.dart';
 
 class AddMealForm extends StatefulWidget {
@@ -56,7 +59,6 @@ class _AddMealFormState extends State<AddMealForm> {
                     ),
                   ),
                   Styles.gap15,
-
                   Expanded(
                     child: SingleChildScrollView(
                       child: Column(
@@ -68,10 +70,11 @@ class _AddMealFormState extends State<AddMealForm> {
                             builder: (context, state) {
                               return CustomDropdownSearch(
                                 items: state.mealTimes,
+                                isMandatory: true,
                                 onChanged: (value) {
                                   if (value == null) return;
                                   context.read<MealFormBloc>().add(
-                                    MealFormEvent.mealTime(value!),
+                                    MealFormEvent.mealTime(value),
                                   );
                                 },
                                 title: AppText.timeOfMeal,
@@ -79,21 +82,15 @@ class _AddMealFormState extends State<AddMealForm> {
                             },
                           ),
                           Styles.gap10,
-                          Text(
-                            AppText.mealType,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Styles.gap6,
                           BlocSelector<MealFormBloc, MealFormState, NotEmpty>(
                             selector: (state) {
                               return state.mealType;
                             },
                             builder: (context, state) {
                               return AppTextFormField(
-                                controller:
-                                    TextEditingController()..text = state.value,
+                                initialValue: state.value,
+                                isMandatory: true,
+                                headerText: AppText.mealType,
                                 hintText: '...',
                                 onChanged: (value) {
                                   context.read<MealFormBloc>().add(
@@ -104,15 +101,13 @@ class _AddMealFormState extends State<AddMealForm> {
                             },
                           ),
                           Styles.gap15,
-
                           BlocSelector<MealFormBloc, MealFormState, NotEmpty>(
                             selector: (state) {
                               return state.notes;
                             },
                             builder: (context, state) {
                               return AppTextFormField(
-                                controller:
-                                    TextEditingController()..text = state.value,
+                                initialValue: state.value,
                                 hintText: AppText.enter,
                                 borderRadius: Styles.borderRadiusCircular25,
                                 onChanged: (value) {
@@ -122,17 +117,15 @@ class _AddMealFormState extends State<AddMealForm> {
                                 },
                                 maxLines: 7,
                                 heigth: 140,
+                                isMandatory: true,
                                 headerText: AppText.notes,
                               );
                             },
                           ),
-
                           Styles.gap15,
-                          Text(
-                            AppText.media,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
+                          MandatoryFieldWidget(
+                            labelText: AppText.media,
+                            required: true,
                           ),
                           Styles.gap6,
                           BlocSelector<MealFormBloc, MealFormState, NotEmpty>(
@@ -160,18 +153,26 @@ class _AddMealFormState extends State<AddMealForm> {
                   Styles.gap10,
                   BlocConsumer<MealFormBloc, MealFormState>(
                     listener: (context, state) {
-                      if (state.submitStatus == Status.success) {
+                      if (state.submitStatus.success) {
+                        context.read<MealsBloc>().add(
+                          MealsEvent.meals(DateTime.now()),
+                        );
                         context.pop();
                         BottomModels.addMealSuccessBottomSheet(context);
                       }
                     },
                     builder: (context, state) {
                       return SaveCancelWidget(
-                        onPressed: () {
-                          context.read<MealFormBloc>().add(
-                            const MealFormEvent.submit(),
-                          );
-                        },
+                        onPressed:
+                            state.validation
+                                ? () {
+                                  context.read<MealFormBloc>().add(
+                                    const MealFormEvent.submit(),
+                                  );
+                                }
+                                : () => AppAlert.showToast(
+                                  message: 'Provide Required Fields',
+                                ),
                       );
                     },
                   ),
@@ -202,6 +203,7 @@ class __Date extends State<_Date> {
         return AppCustomDateField(
           selectedDate:
               state.value.isNotEmpty ? DateTime.parse(state.value) : null,
+          isMandatory: true,
           onChange: (value) {
             context.read<MealFormBloc>().add(
               MealFormEvent.date(value.toString()),

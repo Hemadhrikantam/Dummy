@@ -70,14 +70,12 @@ class _HomePage extends State<HomePage> {
                     children: [
                       CustomHeaderWidget(),
                       Styles.gap15,
-
                       PetListHomeWidget(
                         dashboardPetDetails: petList,
                         onPetSelected: _handlePetSelected,
                       ),
                       if (selectedPet != null)
                         PetInformationWidget(dashboardPetDetails: selectedPet!),
-
                       Styles.gap15,
                       QuickActionsWidget(),
                       Styles.gap15,
