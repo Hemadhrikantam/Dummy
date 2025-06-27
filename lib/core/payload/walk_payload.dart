@@ -1,6 +1,6 @@
+import 'package:dio/dio.dart';
 import 'package:dummy/core/utils/app_utils.dart';
 import 'package:equatable/equatable.dart';
-import 'package:http/http.dart';
 import '../utils/type_def.dart';
 import 'payload.dart';
 

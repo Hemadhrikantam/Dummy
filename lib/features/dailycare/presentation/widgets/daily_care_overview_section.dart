@@ -19,7 +19,7 @@ class DailyCareOverviewSection extends StatefulWidget {
 class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
   final ScrollController _tabScrollController = ScrollController();
   final Map<String, GlobalKey> _tabKeys = {};
-  BuildContext? _scrollContext;
+  // BuildContext? _scrollContext;
   String selectedTab = 'Overview';
   final _controller = PageController();
   final tabs = [

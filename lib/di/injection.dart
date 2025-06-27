@@ -6,6 +6,14 @@ import 'package:dummy/core/utils/custom_interceptors.dart';
 import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/send_otp_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
+import 'package:dummy/features/dailycare/data/datasources/daily_care_datasource.dart';
+import 'package:dummy/features/dailycare/data/datasources/daily_care_datasource_impl.dart';
+import 'package:dummy/features/dailycare/data/repositories/daily_care_repository_impl.dart';
+import 'package:dummy/features/dailycare/domain/repositories/daily_care_repository.dart';
+import 'package:dummy/features/dailycare/domain/usecases/add_meal_usecases.dart';
+import 'package:dummy/features/dailycare/domain/usecases/add_walk_usecases.dart';
+import 'package:dummy/features/dailycare/presentation/bloc/meal_form/meal_form_bloc.dart';
+import 'package:dummy/features/dailycare/presentation/bloc/walk_form/walk_form_bloc.dart';
 import 'package:dummy/features/dashboard/data/datasources/dashboard_details_datasource.dart';
 import 'package:dummy/features/dashboard/data/datasources/dashboard_details_datasource_impl.dart';
 import 'package:dummy/features/dashboard/data/repositories/dashboard_details_repository_impl.dart';
@@ -53,6 +61,7 @@ part 'injection_auth.dart';
 part 'injection_singup.dart';
 part 'injection_profile.dart';
 part 'injection_dashboard.dart';
+part 'injection_daily_care.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -64,5 +73,6 @@ class Injection {
     await __signupDependencies();
     await __profileDependencies();
     await __dashboardDependencies();
+    await __dailyCareDependencies();
   }
 }
