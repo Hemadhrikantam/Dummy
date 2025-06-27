@@ -33,4 +33,14 @@ class InjectionBloc {
       dashboardDetailsUsecases: getIt<DashboardDetailsUsecases>(),
     );
   }
+  static MealFormBloc get mealFormBloc {
+    return MealFormBloc(
+      addMealUsecases: getIt<AddMealUsecases>(),
+    );
+  }
+  static WalkFormBloc get walkFormBloc {
+    return WalkFormBloc(
+      addWalkUsecases: getIt<AddWalkUsecases>(),
+    );
+  }
 }

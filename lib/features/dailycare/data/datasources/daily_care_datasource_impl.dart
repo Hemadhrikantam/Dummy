@@ -10,7 +10,7 @@ import 'package:dummy/service/app_http_service.dart';
 import 'package:dummy/service/local_storage_service.dart';
 import '../../../../core/utils/type_def.dart';
 
-abstract class DailyCareDatasourceImpl extends DailyCareDatasource {
+class DailyCareDatasourceImpl extends DailyCareDatasource {
   const DailyCareDatasourceImpl({required this.http, required this.storage});
   final AppHttp http;
   final LocalStorage storage;
@@ -19,7 +19,47 @@ abstract class DailyCareDatasourceImpl extends DailyCareDatasource {
   AppSuccessResponse addMeal({required Payload payload}) async {
     final formData = FormData.fromMap(payload.toMap());
     final response = await http.post(
-      path: api.petImage,
+      path: api.addMeal,
+      data: formData,
+      options: Options(contentType: 'multipart/form-data'),
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message:
+                    data['message'] as String? ?? 'Meal added successfully',
+              ),
+            );
+          }
+
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+  
+  @override
+  AppSuccessResponse addWalk({required Payload payload}) async {
+     final formData = FormData.fromMap(payload.toMap());
+    final response = await http.post(
+      path: api.addWalk,
       data: formData,
       options: Options(contentType: 'multipart/form-data'),
     );

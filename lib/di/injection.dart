@@ -53,6 +53,7 @@ part 'injection_auth.dart';
 part 'injection_singup.dart';
 part 'injection_profile.dart';
 part 'injection_dashboard.dart';
+part 'injection_daily_care.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -64,5 +65,6 @@ class Injection {
     await __signupDependencies();
     await __profileDependencies();
     await __dashboardDependencies();
+    await __dailyCareDependencies();
   }
 }
