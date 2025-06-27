@@ -1,3 +1,5 @@
+import 'package:dummy/core/utils/app_utils.dart';
+
 const String __dev = 'http://13.233.100.253';
 
 const String __privateBase = '$__dev/api';
@@ -22,3 +24,6 @@ String petImage = '$__api/pets/pet-image/';
 String personalitytags = '$__api/pets/personality-tags/';
 String catbreeds = '$__api/pets/cat-breeds/';
 String dogbreeds = '$__api/pets/dog-breeds/';
+//daily care
+String mealsByDate(DateTime date) => '$__api/daily-care/meals/?date=${AppUtil.formatDate(date)}';
+String walksByDate(DateTime date) => '$__api/daily-care/walks/?date=${AppUtil.formatDate(date)}';
