@@ -124,7 +124,10 @@ class BottomModels {
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return AddWalkForm();
+        return BlocProvider(
+          create: (context) => InjectionBloc.walkFormBloc,
+          child: AddWalkForm(),
+        );
       },
     );
   }

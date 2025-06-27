@@ -29,14 +29,14 @@ class WalkFormBloc extends Bloc<WalkFormEvent, WalkFormState> {
   Future<void> __init(_Init event, Emitter<WalkFormState> emit) async {
     emit(state.copyWith(
       durations: [
-        DropItemModel(id: 1, value: '5 minutes'),
-        DropItemModel(id: 2, value: '10 minutes'),
-        DropItemModel(id: 3, value: '15 minutes'),
-        DropItemModel(id: 4, value: '20 minutes'),
-        DropItemModel(id: 4, value: '25 minutes'),
-        DropItemModel(id: 4, value: '30 minutes'),  
-        DropItemModel(id: 4, value: '45 minutes'),  
-        DropItemModel(id: 4, value: '60 minutes'),  
+        DropItemModel(id: 1, value: '5 mins'),
+        DropItemModel(id: 2, value: '10 mins'),
+        DropItemModel(id: 3, value: '15 mins'),
+        DropItemModel(id: 4, value: '20 mins'),
+        DropItemModel(id: 4, value: '25 mins'),
+        DropItemModel(id: 4, value: '30 mins'),  
+        DropItemModel(id: 4, value: '45 mins'),  
+        DropItemModel(id: 4, value: '60 mins'),  
       ],
       submitStatus: Status.init,
     ));
