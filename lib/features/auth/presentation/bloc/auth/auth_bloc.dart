@@ -175,7 +175,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         final prefs = await SharedPreferences.getInstance();
         final storedUserType = prefs.getString('userType');
         if (storedUserType == Yourself.petParent.name) {
-          currentContext.pushNamed(HomePage.routeName);
+          currentContext.pushNamed(DashboardPage.routeName);
         } else if (storedUserType == Yourself.lookingAdoption.name) {
           currentContext.pushNamedAndRemoveUntil(
             AdoptionDashboardPage.routeName,

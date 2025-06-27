@@ -5,11 +5,12 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
+import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:flutter/material.dart';
 
 class PetInformationWidget extends StatelessWidget {
-  const PetInformationWidget({super.key});
-
+  const PetInformationWidget({super.key, required this.dashboardPetDetails});
+  final DashboardPetDetails dashboardPetDetails;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
@@ -28,17 +29,20 @@ class PetInformationWidget extends StatelessWidget {
                 __InfoValue(
                   image: ImageResources.weight,
                   title: AppText.name,
-                  value: 'Luna',
+                  value: dashboardPetDetails.petName,
                 ),
-                __InfoValue(
-                  image: ImageResources.breed,
-                  title: AppText.breed,
-                  value: 'Indie',
+                Flexible(
+                  flex: 2,
+                  child: __InfoValue(
+                    image: ImageResources.breed,
+                    title: AppText.breed,
+                    value: dashboardPetDetails.breed.breed,
+                  ),
                 ),
                 __InfoValue(
                   image: ImageResources.age,
                   title: AppText.age,
-                  value: '2 Years',
+                  value: _calculateAge(dashboardPetDetails.dob),
                 ),
               ],
             ),
@@ -50,7 +54,7 @@ class PetInformationWidget extends StatelessWidget {
                 __InfoValue(
                   image: ImageResources.petType,
                   title: AppText.petType,
-                  value: 'Dog',
+                  value: dashboardPetDetails.petType,
                 ),
                 __InfoValue(
                   image: ImageResources.gender,
@@ -60,7 +64,7 @@ class PetInformationWidget extends StatelessWidget {
                 __InfoValue(
                   image: ImageResources.weight,
                   title: AppText.weight,
-                  value: '14 kgs',
+                  value: '${dashboardPetDetails.petWeight} kgs',
                 ),
               ],
             ),
@@ -69,6 +73,13 @@ class PetInformationWidget extends StatelessWidget {
       ),
     );
   }
+}
+
+String _calculateAge(String dob) {
+  final birthDate = DateTime.parse(dob);
+  final now = DateTime.now();
+  final age = now.year - birthDate.year;
+  return '$age Years';
 }
 
 class __InfoValue extends StatelessWidget {
@@ -84,30 +95,35 @@ class __InfoValue extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           AppAssestsImage(path: image, height: 20, width: 20),
           Styles.gap6,
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: context.textTheme.titleSmall?.copyWith(
-                  fontWeight: FontWeight.w500,
-                  color: AppColors.grey600,
-                  fontSize: 10,
+          Flexible(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: context.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w500,
+                    color: AppColors.grey600,
+                    fontSize: 10,
+                  ),
                 ),
-              ),
-              Styles.gap2,
-              Text(
-                value,
-                style: context.textTheme.titleSmall?.copyWith(
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.stepperColor,
-                  fontSize: 16,
+                Styles.gap2,
+                Text(
+                  value,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: context.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.stepperColor,
+                    fontSize: 16,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ],
       ),

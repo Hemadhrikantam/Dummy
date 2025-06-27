@@ -190,30 +190,36 @@ class AppNetworkImage extends StatelessWidget {
     this.width,
     this.cachedHeight,
     this.boxFit = BoxFit.cover,
+    this.borderRadius,
   });
   final String url;
   final BoxFit? boxFit;
   final double? height;
   final double? width;
   final int? cachedHeight;
+  final BorderRadiusGeometry? borderRadius;
+
   @override
   Widget build(BuildContext context) {
-    return CachedNetworkImage(
-      imageUrl: url,
-      fit: boxFit,
-      height: height,
-      width: width,
-      memCacheHeight: cachedHeight,
-      memCacheWidth: cachedHeight,
-      progressIndicatorBuilder: (_, value, DownloadProgress progress) {
-        return const Center(
-          child: CircularProgressIndicator(color: AppColors.primaryColor),
-        );
-      },
-      errorWidget: (_, value, data) {
-        return Styles.sizedBox;
-        // return const Placeholder(color: AppColors.appPrimaryColor, strokeWidth: 1);
-      },
+    return ClipRRect(
+      borderRadius: borderRadius ?? Styles.borderRadiusCircular10,
+      child: CachedNetworkImage(
+        imageUrl: url,
+        fit: boxFit,
+        height: height,
+        width: width,
+        memCacheHeight: cachedHeight,
+        memCacheWidth: cachedHeight,
+        progressIndicatorBuilder: (_, value, DownloadProgress progress) {
+          return const Center(
+            child: CircularProgressIndicator(color: AppColors.stepperColor),
+          );
+        },
+        errorWidget: (_, value, data) {
+          return Styles.sizedBox;
+          // return const Placeholder(color: AppColors.appPrimaryColor, strokeWidth: 1);
+        },
+      ),
     );
   }
 }

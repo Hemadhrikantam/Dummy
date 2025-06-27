@@ -18,7 +18,7 @@ class DashboardPetDetails extends Equatable {
   final String petName;
   final String petType;
   final String dob;
-  final int petWeight;
+  final double petWeight;
   final bool trackActivity;
   final PetImage petImage;
   final Breed breed;
