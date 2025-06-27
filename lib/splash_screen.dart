@@ -7,8 +7,10 @@ import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart'
 import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
 import 'package:dummy/features/signup/presentation/pages/start_your_pets_journey.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/widgets/app_assets_image.dart';
+import 'features/auth/presentation/bloc/auth/auth_bloc.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -22,8 +24,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
-      // context.read<AuthBloc>().add(const AuthEvent.checkUser());
-      context.pushNamedAndRemoveUntil(StartYourPetsJourney.routeName); //Real
+      context.read<AuthBloc>().add(const AuthEvent.checkUser());
+      // context.pushNamedAndRemoveUntil(StartYourPetsJourney.routeName); //Real
       // context.pushNamedAndRemoveUntil(AdoptionDashboardPage.routeName); // testing one
       // context.pushNamedAndRemoveUntil(DashboardPage.routeName); // testing one
       // context.pushNamedAndRemoveUntil(MeetYourPetScreen.routeName);// testing one

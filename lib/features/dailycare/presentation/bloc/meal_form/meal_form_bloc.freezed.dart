@@ -1,0 +1,590 @@
+// dart format width=80
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'meal_form_bloc.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+// dart format off
+T _$identity<T>(T value) => value;
+/// @nodoc
+mixin _$MealFormEvent {
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MealFormEvent);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'MealFormEvent()';
+}
+
+
+}
+
+/// @nodoc
+class $MealFormEventCopyWith<$Res>  {
+$MealFormEventCopyWith(MealFormEvent _, $Res Function(MealFormEvent) __);
+}
+
+
+/// @nodoc
+
+
+class _Init implements MealFormEvent {
+  const _Init();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Init);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'MealFormEvent.init()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+
+
+class _Date implements MealFormEvent {
+  const _Date(this.value);
+  
+
+ final  String value;
+
+/// Create a copy of MealFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DateCopyWith<_Date> get copyWith => __$DateCopyWithImpl<_Date>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Date&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'MealFormEvent.date(value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DateCopyWith<$Res> implements $MealFormEventCopyWith<$Res> {
+  factory _$DateCopyWith(_Date value, $Res Function(_Date) _then) = __$DateCopyWithImpl;
+@useResult
+$Res call({
+ String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$DateCopyWithImpl<$Res>
+    implements _$DateCopyWith<$Res> {
+  __$DateCopyWithImpl(this._self, this._then);
+
+  final _Date _self;
+  final $Res Function(_Date) _then;
+
+/// Create a copy of MealFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_Date(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _MealType implements MealFormEvent {
+  const _MealType(this.value);
+  
+
+ final  String value;
+
+/// Create a copy of MealFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$MealTypeCopyWith<_MealType> get copyWith => __$MealTypeCopyWithImpl<_MealType>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MealType&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'MealFormEvent.mealType(value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$MealTypeCopyWith<$Res> implements $MealFormEventCopyWith<$Res> {
+  factory _$MealTypeCopyWith(_MealType value, $Res Function(_MealType) _then) = __$MealTypeCopyWithImpl;
+@useResult
+$Res call({
+ String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$MealTypeCopyWithImpl<$Res>
+    implements _$MealTypeCopyWith<$Res> {
+  __$MealTypeCopyWithImpl(this._self, this._then);
+
+  final _MealType _self;
+  final $Res Function(_MealType) _then;
+
+/// Create a copy of MealFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_MealType(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _Notes implements MealFormEvent {
+  const _Notes(this.value);
+  
+
+ final  String value;
+
+/// Create a copy of MealFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$NotesCopyWith<_Notes> get copyWith => __$NotesCopyWithImpl<_Notes>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Notes&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'MealFormEvent.notes(value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$NotesCopyWith<$Res> implements $MealFormEventCopyWith<$Res> {
+  factory _$NotesCopyWith(_Notes value, $Res Function(_Notes) _then) = __$NotesCopyWithImpl;
+@useResult
+$Res call({
+ String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$NotesCopyWithImpl<$Res>
+    implements _$NotesCopyWith<$Res> {
+  __$NotesCopyWithImpl(this._self, this._then);
+
+  final _Notes _self;
+  final $Res Function(_Notes) _then;
+
+/// Create a copy of MealFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_Notes(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _Media implements MealFormEvent {
+  const _Media(this.value);
+  
+
+ final  String value;
+
+/// Create a copy of MealFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$MediaCopyWith<_Media> get copyWith => __$MediaCopyWithImpl<_Media>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Media&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'MealFormEvent.media(value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$MediaCopyWith<$Res> implements $MealFormEventCopyWith<$Res> {
+  factory _$MediaCopyWith(_Media value, $Res Function(_Media) _then) = __$MediaCopyWithImpl;
+@useResult
+$Res call({
+ String value
+});
+
+
+
+
+}
+/// @nodoc
+class __$MediaCopyWithImpl<$Res>
+    implements _$MediaCopyWith<$Res> {
+  __$MediaCopyWithImpl(this._self, this._then);
+
+  final _Media _self;
+  final $Res Function(_Media) _then;
+
+/// Create a copy of MealFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_Media(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _MealTime implements MealFormEvent {
+  const _MealTime(this.value);
+  
+
+ final  DropItem value;
+
+/// Create a copy of MealFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$MealTimeCopyWith<_MealTime> get copyWith => __$MealTimeCopyWithImpl<_MealTime>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MealTime&&const DeepCollectionEquality().equals(other.value, value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(value));
+
+@override
+String toString() {
+  return 'MealFormEvent.mealTime(value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$MealTimeCopyWith<$Res> implements $MealFormEventCopyWith<$Res> {
+  factory _$MealTimeCopyWith(_MealTime value, $Res Function(_MealTime) _then) = __$MealTimeCopyWithImpl;
+@useResult
+$Res call({
+ DropItem value
+});
+
+
+
+
+}
+/// @nodoc
+class __$MealTimeCopyWithImpl<$Res>
+    implements _$MealTimeCopyWith<$Res> {
+  __$MealTimeCopyWithImpl(this._self, this._then);
+
+  final _MealTime _self;
+  final $Res Function(_MealTime) _then;
+
+/// Create a copy of MealFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? value = freezed,}) {
+  return _then(_MealTime(
+freezed == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as DropItem,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _Submit implements MealFormEvent {
+  const _Submit();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Submit);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'MealFormEvent.submit()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
+mixin _$MealFormState {
+
+ Status get submitStatus; List<DropItem> get mealTimes; DropdownValue get mealTime; NotEmpty get date; NotEmpty get mealType; NotEmpty get notes; NotEmpty get media;
+/// Create a copy of MealFormState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$MealFormStateCopyWith<MealFormState> get copyWith => _$MealFormStateCopyWithImpl<MealFormState>(this as MealFormState, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MealFormState&&const DeepCollectionEquality().equals(other.submitStatus, submitStatus)&&const DeepCollectionEquality().equals(other.mealTimes, mealTimes)&&const DeepCollectionEquality().equals(other.mealTime, mealTime)&&const DeepCollectionEquality().equals(other.date, date)&&const DeepCollectionEquality().equals(other.mealType, mealType)&&const DeepCollectionEquality().equals(other.notes, notes)&&const DeepCollectionEquality().equals(other.media, media));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(submitStatus),const DeepCollectionEquality().hash(mealTimes),const DeepCollectionEquality().hash(mealTime),const DeepCollectionEquality().hash(date),const DeepCollectionEquality().hash(mealType),const DeepCollectionEquality().hash(notes),const DeepCollectionEquality().hash(media));
+
+@override
+String toString() {
+  return 'MealFormState(submitStatus: $submitStatus, mealTimes: $mealTimes, mealTime: $mealTime, date: $date, mealType: $mealType, notes: $notes, media: $media)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $MealFormStateCopyWith<$Res>  {
+  factory $MealFormStateCopyWith(MealFormState value, $Res Function(MealFormState) _then) = _$MealFormStateCopyWithImpl;
+@useResult
+$Res call({
+ Status submitStatus, List<DropItem> mealTimes, DropdownValue mealTime, NotEmpty date, NotEmpty mealType, NotEmpty notes, NotEmpty media
+});
+
+
+
+
+}
+/// @nodoc
+class _$MealFormStateCopyWithImpl<$Res>
+    implements $MealFormStateCopyWith<$Res> {
+  _$MealFormStateCopyWithImpl(this._self, this._then);
+
+  final MealFormState _self;
+  final $Res Function(MealFormState) _then;
+
+/// Create a copy of MealFormState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? submitStatus = freezed,Object? mealTimes = null,Object? mealTime = freezed,Object? date = freezed,Object? mealType = freezed,Object? notes = freezed,Object? media = freezed,}) {
+  return _then(_self.copyWith(
+submitStatus: freezed == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
+as Status,mealTimes: null == mealTimes ? _self.mealTimes : mealTimes // ignore: cast_nullable_to_non_nullable
+as List<DropItem>,mealTime: freezed == mealTime ? _self.mealTime : mealTime // ignore: cast_nullable_to_non_nullable
+as DropdownValue,date: freezed == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
+as NotEmpty,mealType: freezed == mealType ? _self.mealType : mealType // ignore: cast_nullable_to_non_nullable
+as NotEmpty,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as NotEmpty,media: freezed == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
+as NotEmpty,
+  ));
+}
+
+}
+
+
+/// @nodoc
+
+
+class _MealFormState implements MealFormState {
+  const _MealFormState({this.submitStatus = Status.init, final  List<DropItem> mealTimes = const [], this.mealTime = const DropdownValue.pure(), this.date = const NotEmpty.pure(), this.mealType = const NotEmpty.pure(), this.notes = const NotEmpty.pure(), this.media = const NotEmpty.pure()}): _mealTimes = mealTimes;
+  
+
+@override@JsonKey() final  Status submitStatus;
+ final  List<DropItem> _mealTimes;
+@override@JsonKey() List<DropItem> get mealTimes {
+  if (_mealTimes is EqualUnmodifiableListView) return _mealTimes;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_mealTimes);
+}
+
+@override@JsonKey() final  DropdownValue mealTime;
+@override@JsonKey() final  NotEmpty date;
+@override@JsonKey() final  NotEmpty mealType;
+@override@JsonKey() final  NotEmpty notes;
+@override@JsonKey() final  NotEmpty media;
+
+/// Create a copy of MealFormState
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$MealFormStateCopyWith<_MealFormState> get copyWith => __$MealFormStateCopyWithImpl<_MealFormState>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MealFormState&&const DeepCollectionEquality().equals(other.submitStatus, submitStatus)&&const DeepCollectionEquality().equals(other._mealTimes, _mealTimes)&&const DeepCollectionEquality().equals(other.mealTime, mealTime)&&const DeepCollectionEquality().equals(other.date, date)&&const DeepCollectionEquality().equals(other.mealType, mealType)&&const DeepCollectionEquality().equals(other.notes, notes)&&const DeepCollectionEquality().equals(other.media, media));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(submitStatus),const DeepCollectionEquality().hash(_mealTimes),const DeepCollectionEquality().hash(mealTime),const DeepCollectionEquality().hash(date),const DeepCollectionEquality().hash(mealType),const DeepCollectionEquality().hash(notes),const DeepCollectionEquality().hash(media));
+
+@override
+String toString() {
+  return 'MealFormState(submitStatus: $submitStatus, mealTimes: $mealTimes, mealTime: $mealTime, date: $date, mealType: $mealType, notes: $notes, media: $media)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$MealFormStateCopyWith<$Res> implements $MealFormStateCopyWith<$Res> {
+  factory _$MealFormStateCopyWith(_MealFormState value, $Res Function(_MealFormState) _then) = __$MealFormStateCopyWithImpl;
+@override @useResult
+$Res call({
+ Status submitStatus, List<DropItem> mealTimes, DropdownValue mealTime, NotEmpty date, NotEmpty mealType, NotEmpty notes, NotEmpty media
+});
+
+
+
+
+}
+/// @nodoc
+class __$MealFormStateCopyWithImpl<$Res>
+    implements _$MealFormStateCopyWith<$Res> {
+  __$MealFormStateCopyWithImpl(this._self, this._then);
+
+  final _MealFormState _self;
+  final $Res Function(_MealFormState) _then;
+
+/// Create a copy of MealFormState
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? submitStatus = freezed,Object? mealTimes = null,Object? mealTime = freezed,Object? date = freezed,Object? mealType = freezed,Object? notes = freezed,Object? media = freezed,}) {
+  return _then(_MealFormState(
+submitStatus: freezed == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
+as Status,mealTimes: null == mealTimes ? _self._mealTimes : mealTimes // ignore: cast_nullable_to_non_nullable
+as List<DropItem>,mealTime: freezed == mealTime ? _self.mealTime : mealTime // ignore: cast_nullable_to_non_nullable
+as DropdownValue,date: freezed == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
+as NotEmpty,mealType: freezed == mealType ? _self.mealType : mealType // ignore: cast_nullable_to_non_nullable
+as NotEmpty,notes: freezed == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as NotEmpty,media: freezed == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
+as NotEmpty,
+  ));
+}
+
+
+}
+
+// dart format on

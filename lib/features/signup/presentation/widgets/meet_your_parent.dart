@@ -10,54 +10,65 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class MeetYourParent extends StatelessWidget {
-   MeetYourParent({super.key, this.onNext});
+  MeetYourParent({super.key, this.onNext});
   final VoidCallback? onNext;
   final nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        Text(
-          AppText.introduceYourPet,
-          style: context.textTheme.headlineLarge?.copyWith(
-            fontWeight: FontWeight.w700,
-            fontSize: 28,
-          ),
-        ),
-        Styles.gap30,
-
-        BlocSelector<RegisterBloc, RegisterState, NotEmpty>(
-          selector: (state) {
-            return state.petName;
-          },
-          builder: (context, state) {
-            return AppTextFormField(
-              headerText: AppText.petsName,
-              controller: nameController..text = state.value,
-              hintText: '...',
-              onChanged: (value) {
-                context.read<RegisterBloc>().add(
-                  RegisterEvent.petName(value),
+    return BlocBuilder<RegisterBloc, RegisterState>(
+      builder: (context, state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              AppText.introduceYourPet,
+              style: context.textTheme.headlineLarge?.copyWith(
+                fontWeight: FontWeight.w700,
+                fontSize: 28,
+              ),
+            ),
+            Styles.gap30,
+            BlocSelector<RegisterBloc, RegisterState, NotEmpty>(
+              selector: (state) {
+                return state.petName;
+              },
+              builder: (context, state) {
+                return AppTextFormField(
+                  headerText: AppText.petsName,
+                  controller: nameController..text = state.value,
+                  isMandatory: true,
+                  hintText: '...',
+                  onChanged: (value) {
+                    context.read<RegisterBloc>().add(
+                      RegisterEvent.petName(value),
+                    );
+                  },
                 );
               },
-            );
-          },
-        ),
-        Styles.gap50,
-        AppButton(
-          name: Text(
-            AppText.continueBtn,
-            style: context.textTheme.titleSmall?.copyWith(
-              fontWeight: FontWeight.w700,
-              color: AppColors.buttonTextColor,
             ),
-          ),
-          onPressed: () {
-            onNext?.call();
-          },
-        ),
-      ],
+            Styles.gap50,
+            AppButton(
+              name: Text(
+                AppText.continueBtn,
+                style: context.textTheme.titleSmall?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.buttonTextColor,
+                ),
+              ),
+              backgroundColor:
+                  state.petName.isValid && state.petName.value.length > 2
+                      ? AppColors.buttonBackground
+                      : AppColors.grey,
+              onPressed:
+                  state.petName.isValid && state.petName.value.length > 2
+                      ? () {
+                        onNext?.call();
+                      }
+                      : () {},
+            ),
+          ],
+        );
+      },
     );
   }
 }

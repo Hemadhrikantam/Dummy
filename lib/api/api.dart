@@ -27,3 +27,4 @@ String dogbreeds = '$__api/pets/dog-breeds/';
 //daily care
 String mealsByDate(DateTime date) => '$__api/daily-care/meals/?date=${AppUtil.formatDate(date)}';
 String walksByDate(DateTime date) => '$__api/daily-care/walks/?date=${AppUtil.formatDate(date)}';
+String pets = '$__privateBase/pets/';

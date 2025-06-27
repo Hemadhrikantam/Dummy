@@ -77,10 +77,15 @@ class AppUtil {
     }
   }
 
+  static String formatDateToMMDDYYYY(DateTime date) {
+    return "${date.day.toString().padLeft(2, '0')}/"
+        "${date.month.toString().padLeft(2, '0')}/"
+        "${date.year}";
+  }
+
   static String formatDateTime(DateTime dateTime) {
     return DateFormat('MM/dd/yyyy hh:mm a').format(dateTime);
   }
-
 
   // Format from String (if your date is a String)
   static String formatDateTimeFromString(String dateString) {
@@ -88,6 +93,37 @@ class AppUtil {
       final dateTime = DateTime.parse(dateString);
       return DateFormat('MM/dd/yyyy hh:mm a').format(dateTime);
     } catch (e) {
+      return '';
+    }
+  }
+
+  static String calculateAge(String dobString) {
+    try {
+      final parts = dobString.split('/');
+      if (parts.length != 3) return '';
+
+      final day = int.parse(parts[0]);
+      final month = int.parse(parts[1]);
+      final year = int.parse(parts[2]);
+
+      final birthDate = DateTime(year, month, day);
+      final today = DateTime.now();
+
+      int years = today.year - birthDate.year;
+      int months = today.month - birthDate.month;
+
+      if (today.day < birthDate.day) {
+        months--;
+      }
+
+      if (months < 0) {
+        years--;
+        months += 12;
+      }
+
+      return "$years year${years == 1 ? '' : 's'} ${months > 0 ? '$months month${months == 1 ? '' : 's'}' : ''}";
+    } catch (e) {
+      print(e);
       return '';
     }
   }

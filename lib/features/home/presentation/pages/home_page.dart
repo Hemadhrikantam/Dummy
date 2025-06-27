@@ -1,9 +1,12 @@
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/custom_header_widget.dart';
-import 'package:dummy/features/home/presentation/widgets/near_you_card.dart' show NearYouCard;
+import 'package:dummy/features/home/presentation/widgets/near_you_card.dart'
+    show NearYouCard;
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../dashboard/presentation/bloc/dashboard_bloc.dart';
 import '../widgets/pet_information_widget.dart';
 import '../widgets/pet_list_home_widget.dart';
 import '../widgets/quick_actions_widget.dart';
@@ -11,12 +14,28 @@ import '../widgets/tip_of_the_day_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
+  static const routeName = '/HomePage';
+
+  static Route<T> route<T>() {
+    return MaterialPageRoute<T>(
+      builder: (context) => const HomePage(),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
 
   @override
   createState() => _HomePage();
 }
 
 class _HomePage extends State<HomePage> {
+  @override
+  void initState() {
+    Future.delayed(Duration(seconds: 0), () {
+      context.read<DashboardBloc>().add(DashboardEvent.dashboardPets());
+    });
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialBaseScreen(
@@ -31,7 +50,7 @@ class _HomePage extends State<HomePage> {
           Styles.gap15,
           TipOfTheDayCard(),
           Styles.gap15,
-          NearYouCard()
+          NearYouCard(),
         ],
       ),
     );

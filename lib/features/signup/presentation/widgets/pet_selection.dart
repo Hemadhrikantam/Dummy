@@ -93,9 +93,15 @@ class _PetSelectionState extends State<PetSelection> {
         Styles.gap30,
         BlocBuilder<RegisterBloc, RegisterState>(
           builder: (context, state) {
-            return InfoCard(title: AppText.petTypeInfo(state.petType.name,
-              state.petType == PetType.Cat ? PetType.Dog.name : PetType.Cat.name 
-            ));
+            return InfoCard(
+              title: AppText.petTypeInfo(
+                state.petName.value,
+                state.petType.name,
+                state.petType == PetType.Cat
+                    ? PetType.Dog.name
+                    : PetType.Cat.name,
+              ),
+            );
           },
         ),
       ],
