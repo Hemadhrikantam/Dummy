@@ -11,16 +11,23 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
 class DottedBorderWidget extends StatefulWidget {
-  const DottedBorderWidget({super.key, this.onTap});
+  const DottedBorderWidget({super.key, this.onTap,  this.paths=const[], this.onAdd});
   final void Function()? onTap;
-
+  final void Function(String)? onAdd;
+  final List<String> paths;
   @override
   State<StatefulWidget> createState() => _DottedBorderWidget();
 }
 
 class _DottedBorderWidget extends State<DottedBorderWidget> {
   List<XFile> selectedImages = [];
-
+  @override
+  void initState() {
+    setState(() {
+      selectedImages = widget.paths.map((path) => XFile(path)).toList();
+    });
+    super.initState();
+  }
   get path => null;
   @override
   Widget build(BuildContext context) {
@@ -32,6 +39,7 @@ class _DottedBorderWidget extends State<DottedBorderWidget> {
             final ImagePicker picker = ImagePicker();
             final image = await picker.pickImage(source: ImageSource.gallery);
             if (image != null) {
+              widget.onAdd?.call(image.path);
               setState(() {
                 selectedImages.add(image);
               });

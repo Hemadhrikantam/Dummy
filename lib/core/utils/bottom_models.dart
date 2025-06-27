@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/addoption/presentation/widgets/add_adoption_success_bottom_sheet_content.dart';
 import 'package:dummy/features/auth/presentation/widgets/otp_success_bottom_sheet_content.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/add/add_expenses_form.dart';
@@ -15,6 +16,7 @@ import 'package:dummy/features/profile/presentation/widgets/manage_family_member
 import 'package:dummy/features/profile/presentation/widgets/member_deletion_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/plan_overview_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../features/addoption/presentation/widgets/add_adoption_form.dart';
@@ -71,7 +73,10 @@ class BottomModels {
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return AddMealForm();
+        return BlocProvider(
+          create: (_) => InjectionBloc.mealFormBloc,
+          child: const AddMealForm(),
+        );
       },
     );
   }
@@ -183,6 +188,7 @@ class BottomModels {
       },
     );
   }
+
   static Future<T?> addAdoptionSuccessBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -255,6 +261,7 @@ class BottomModels {
       },
     );
   }
+
   static Future<T?> veccinationDeleteBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,

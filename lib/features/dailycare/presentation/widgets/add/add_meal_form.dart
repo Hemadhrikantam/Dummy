@@ -1,14 +1,17 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/custom_dropdown.dart';
 import 'package:dummy/core/widgets/dotted_border_widget.dart';
+import 'package:dummy/features/dailycare/presentation/bloc/meal_form/meal_form_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/widgets/app_graber.dart';
 import '../save_cancel_widget.dart';
 
@@ -20,7 +23,12 @@ class AddMealForm extends StatefulWidget {
 }
 
 class _AddMealFormState extends State<AddMealForm> {
-  List<XFile> selectedImages = [];
+  @override
+  void initState() {
+    context.read<MealFormBloc>().add(const MealFormEvent.init());
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
@@ -56,9 +64,19 @@ class _AddMealFormState extends State<AddMealForm> {
                         children: [
                           _Date(),
                           Styles.gap15,
-                          CustomDropdownSearch(
-                            items: [],
-                            title: AppText.timeOfMeal,
+                          BlocBuilder<MealFormBloc, MealFormState>(
+                            builder: (context, state) {
+                              return CustomDropdownSearch(
+                                items: state.mealTimes,
+                                onChanged: (value) {
+                                  if (value == null) return;
+                                  context.read<MealFormBloc>().add(
+                                    MealFormEvent.mealTime(value!),
+                                  );
+                                },
+                                title: AppText.timeOfMeal,
+                              );
+                            },
                           ),
                           Styles.gap10,
                           Text(
@@ -68,16 +86,45 @@ class _AddMealFormState extends State<AddMealForm> {
                             ),
                           ),
                           Styles.gap6,
-                          const AppTextFormField(hintText: '...'),
+                          BlocSelector<MealFormBloc, MealFormState, NotEmpty>(
+                            selector: (state) {
+                              return state.mealType;
+                            },
+                            builder: (context, state) {
+                              return AppTextFormField(
+                                controller:
+                                    TextEditingController()..text = state.value,
+                                hintText: '...',
+                                onChanged: (value) {
+                                  context.read<MealFormBloc>().add(
+                                    MealFormEvent.mealType(value),
+                                  );
+                                },
+                              );
+                            },
+                          ),
                           Styles.gap15,
 
-                          AppTextFormField(
-                            hintText: AppText.enter,
-                            borderRadius: Styles.borderRadiusCircular25,
-                            onChanged: (value) {},
-                            maxLines: 7,
-                            heigth: 140,
-                            headerText: AppText.notes,
+                          BlocSelector<MealFormBloc, MealFormState, NotEmpty>(
+                            selector: (state) {
+                              return state.notes;
+                            },
+                            builder: (context, state) {
+                              return AppTextFormField(
+                                controller:
+                                    TextEditingController()..text = state.value,
+                                hintText: AppText.enter,
+                                borderRadius: Styles.borderRadiusCircular25,
+                                onChanged: (value) {
+                                  context.read<MealFormBloc>().add(
+                                    MealFormEvent.notes(value),
+                                  );
+                                },
+                                maxLines: 7,
+                                heigth: 140,
+                                headerText: AppText.notes,
+                              );
+                            },
                           ),
 
                           Styles.gap15,
@@ -88,7 +135,22 @@ class _AddMealFormState extends State<AddMealForm> {
                             ),
                           ),
                           Styles.gap6,
-                          DottedBorderWidget(),
+                          BlocSelector<MealFormBloc, MealFormState, NotEmpty>(
+                            selector: (state) {
+                              return state.media;
+                            },
+                            builder: (context, state) {
+                              return DottedBorderWidget(
+                                paths:
+                                    state.value.isNotEmpty ? [state.value] : [],
+                                onAdd: (value) {
+                                  context.read<MealFormBloc>().add(
+                                    MealFormEvent.media(value),
+                                  );
+                                },
+                              );
+                            },
+                          ),
 
                           Styles.gap30,
                         ],
@@ -96,10 +158,21 @@ class _AddMealFormState extends State<AddMealForm> {
                     ),
                   ),
                   Styles.gap10,
-                  SaveCancelWidget(
-                    onPressed: () {
-                      context.pop();
-                      BottomModels.addMealSuccessBottomSheet(context);
+                  BlocConsumer<MealFormBloc, MealFormState>(
+                    listener: (context, state) {
+                      if (state.submitStatus == Status.success) {
+                        context.pop();
+                        BottomModels.addMealSuccessBottomSheet(context);
+                      }
+                    },
+                    builder: (context, state) {
+                      return SaveCancelWidget(
+                        onPressed: () {
+                          context.read<MealFormBloc>().add(
+                            const MealFormEvent.submit(),
+                          );
+                        },
+                      );
                     },
                   ),
                 ],
@@ -119,15 +192,22 @@ class _Date extends StatefulWidget {
 }
 
 class __Date extends State<_Date> {
-  var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return AppCustomDateField(
-      selectedDate: date,
-      onChange: (value) {
-        setState(() {
-          date = value;
-        });
+    return BlocSelector<MealFormBloc, MealFormState, NotEmpty>(
+      selector: (state) {
+        return state.date;
+      },
+      builder: (context, state) {
+        return AppCustomDateField(
+          selectedDate:
+              state.value.isNotEmpty ? DateTime.parse(state.value) : null,
+          onChange: (value) {
+            context.read<MealFormBloc>().add(
+              MealFormEvent.date(value.toString()),
+            );
+          },
+        );
       },
     );
   }

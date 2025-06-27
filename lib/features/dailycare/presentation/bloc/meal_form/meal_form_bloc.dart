@@ -31,7 +31,7 @@ class MealFormBloc extends Bloc<MealFormEvent, MealFormState> {
         DropItemModel(id: 1, value: 'Breakfast'),
         DropItemModel(id: 2, value: 'Lunch'),
         DropItemModel(id: 3, value: 'Dinner'),
-        DropItemModel(id: 4, value: 'Snack'),
+        DropItemModel(id: 4, value: 'Evening Snack'),
       ],
       submitStatus: Status.init,
     ));
@@ -47,8 +47,16 @@ class MealFormBloc extends Bloc<MealFormEvent, MealFormState> {
         state.media.value,
         filename: state.media.value.split('/').last,
       ), 
-      timeOfMeal: state.mealTime.value!.value, 
-      pet: 1,
+      timeOfMeal: state.mealTime.value!.value.contains("Lunch")?
+        "lunch":
+        state.mealTime.value!.value.contains("Breakfast")?
+        "breakfast":
+        state.mealTime.value!.value.contains("Dinner")?
+        "dinner":
+        state.mealTime.value!.value.contains("Evening Snack")?
+        "eveningSnack":
+        '', 
+      pet: 8,
       )
     );
     result.fold(

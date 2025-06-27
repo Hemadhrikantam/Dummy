@@ -5,6 +5,7 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/error/app_error.dart';
 import 'package:dummy/core/error/app_success.dart';
 import 'package:dummy/core/payload/payload.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/features/dailycare/data/datasources/daily_care_datasource.dart';
 import 'package:dummy/service/app_http_service.dart';
 import 'package:dummy/service/local_storage_service.dart';
@@ -17,6 +18,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
 
   @override
   AppSuccessResponse addMeal({required Payload payload}) async {
+    LogUtility.warning(payload.toMap().toString());
     final formData = FormData.fromMap(payload.toMap());
     final response = await http.post(
       path: api.addMeal,
