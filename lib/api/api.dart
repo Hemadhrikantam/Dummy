@@ -25,6 +25,7 @@ String personalitytags = '$__api/pets/personality-tags/';
 String catbreeds = '$__api/pets/cat-breeds/';
 String dogbreeds = '$__api/pets/dog-breeds/';
 String pets = '$__privateBase/pets/';
+
 //daily care
 String meals(DateTime? date) {
   if (date != null) {
@@ -42,11 +43,30 @@ String walks(DateTime? date) {
   }
 }
 
-String addMeal = '$__api/daily-care/meals/';
-String addWalk = '$__api/daily-care/walks/';
-String addGrooming = '$__api/daily-care/groomings/';
-String addDeworming = '$__api/daily-care/deworming/';
-String addExpense = '$__api/daily-care/expense/';
+String groomings(DateTime? date) {
+  if (date != null) {
+    return '$__api/daily-care/groomings/?date=${AppUtil.formatDate(date)}';
+  } else {
+    return '$__api/daily-care/groomings/';
+  }
+}
+
+String dewormings(DateTime? date) {
+  if (date != null) {
+    return '$__api/daily-care/deworming/?date=${AppUtil.formatDate(date)}';
+  } else {
+    return '$__api/daily-care/deworming/';
+  }
+}
+
+String expenses(DateTime? date) {
+  if (date != null) {
+    return '$__api/daily-care/expense/?date=${AppUtil.formatDate(date)}';
+  } else {
+    return '$__api/daily-care/expense/';
+  }
+}
+
 String frequencies = '$__api/daily-care/deworming-frequency/';
 String remindBefores = '$__api/daily-care/remind-before/';
 String timezones = '$__api/daily-care/timezone/';

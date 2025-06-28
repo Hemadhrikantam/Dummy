@@ -6,6 +6,9 @@ import 'package:dummy/features/dailycare/domain/entities/remind_before.dart';
 import 'package:dummy/features/dailycare/domain/entities/timezone.dart';
 import 'package:dummy/features/dailycare/domain/repositories/daily_care_repository.dart';
 
+import '../../domain/entities/deworming.dart';
+import '../../domain/entities/expense.dart';
+import '../../domain/entities/grooming.dart';
 import '../../domain/entities/meal.dart';
 import '../../domain/entities/walk.dart';
 
@@ -22,20 +25,21 @@ class DailyCareRepositoryImpl extends DailyCareRepository {
   AppSuccessResponse addWalk({required Payload payload}) {
     return _careDatasource.addWalk(payload: payload);
   }
-  
+
   @override
   AppSuccessResponse addGrooming({required Payload payload}) {
     return _careDatasource.addGrooming(payload: payload);
   }
+
   @override
   AppSuccessResponse addDeworming({required Payload payload}) {
     return _careDatasource.addDeworming(payload: payload);
   }
+
   @override
   AppSuccessResponse addExpense({required Payload payload}) {
     return _careDatasource.addExpense(payload: payload);
   }
-
 
   @override
   AppTypeResponse<List<PetMeal>> meals(DateTime? date) {
@@ -45,6 +49,21 @@ class DailyCareRepositoryImpl extends DailyCareRepository {
   @override
   AppTypeResponse<List<PetWalk>> walks(DateTime? date) {
     return _careDatasource.walks(date);
+  }
+
+  @override
+  AppTypeResponse<List<PetGrooming>> groomings(DateTime? date) {
+    return _careDatasource.groomings(date);
+  }
+
+  @override
+  AppTypeResponse<List<PetExpense>> expenses(DateTime? date) {
+    return _careDatasource.expenses(date);
+  }
+
+  @override
+  AppTypeResponse<List<PetDeworming>> dewormings(DateTime? date) {
+    return _careDatasource.dewormings(date);
   }
 
   @override

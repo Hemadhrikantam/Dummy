@@ -36,19 +36,6 @@ class _MealsTabState extends State<MealsTab> {
     super.initState();
   }
 
-  // List<MealItem> get _mealItems {
-  //   final selectedDate = _selectedDay ?? DateTime.now();
-  //   return List.generate(
-  //     5,
-  //     (index) => MealItem(
-  //       name: AppText.chickenandrice,
-  //       imageUrls: [ImageResources.mealsdagicon, ImageResources.mealsdagicon],
-  //       date: selectedDate.add(Duration(days: index)),
-  //       timeOfDay: AppText.breakfast,
-  //     ),
-  //   );
-  // }
-
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
@@ -57,17 +44,7 @@ class _MealsTabState extends State<MealsTab> {
       6,
       (index) => now.add(Duration(days: index)),
     );
-    // if (false) {
-    //   return Padding(
-    //     padding: Styles.edgeInsetsOnlyH20,
-    //     child: EmptyListPage(
-    //       titleFontSize: 24,
-    //       imagePath: ImageResources.tshirt,
-    //       title:
-    //           "We don’t have Luna’s daily care data yet. Start logging her meals to see a summary!",
-    //     ),
-    //   );
-    // } else {
+
     return RefreshIndicator.adaptive(
       onRefresh: () async {
         context.read<MealsBloc>().add(MealsEvent.meals(_selectedDay));

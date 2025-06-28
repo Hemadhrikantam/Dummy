@@ -15,6 +15,8 @@ import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/bottom_models.dart';
+import '../../../../../core/widgets/mandatory_field_widget.dart';
+import '../../bloc/expenses/expenses_bloc.dart';
 
 class AddExpensesForm extends StatefulWidget {
   const AddExpensesForm({super.key});
@@ -65,13 +67,6 @@ class _AddExpensesFormState extends State<AddExpensesForm> {
                         children: [
                           _Date(),
                           Styles.gap15,
-                          Text(
-                            AppText.category,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Styles.gap6,
                           BlocSelector<
                             ExpenseFormBloc,
                             ExpenseFormState,
@@ -82,14 +77,15 @@ class _AddExpensesFormState extends State<AddExpensesForm> {
                             },
                             builder: (context, state) {
                               return AppTextFormField(
-                                controller:
-                                    TextEditingController()..text = state.value,
+                                initialValue: state.value,
                                 onChanged: (value) {
                                   context.read<ExpenseFormBloc>().add(
                                     ExpenseFormEvent.category(value.toString()),
                                   );
                                 },
                                 hintText: '...',
+                                headerText: AppText.category,
+                                isMandatory: true,
                               );
                             },
                           ),
@@ -104,8 +100,7 @@ class _AddExpensesFormState extends State<AddExpensesForm> {
                             },
                             builder: (context, state) {
                               return AppTextFormField(
-                                controller:
-                                    TextEditingController()..text = state.value,
+                                initialValue: state.value,
                                 hintText: AppText.enter,
                                 borderRadius: Styles.borderRadiusCircular25,
                                 onChanged: (value) {
@@ -116,15 +111,14 @@ class _AddExpensesFormState extends State<AddExpensesForm> {
                                 maxLines: 7,
                                 heigth: 140,
                                 headerText: AppText.notes,
+                                isMandatory: true,
                               );
                             },
                           ),
                           Styles.gap15,
-                          Text(
-                            AppText.media,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
+                          MandatoryFieldWidget(
+                            labelText: AppText.media,
+                            required: true,
                           ),
                           Styles.gap6,
                           BlocSelector<
@@ -157,13 +151,17 @@ class _AddExpensesFormState extends State<AddExpensesForm> {
                   BlocConsumer<ExpenseFormBloc, ExpenseFormState>(
                     listener: (context, state) {
                       if (state.submitStatus.success) {
+                        context.read<ExpensesBloc>().add(
+                          ExpensesEvent.expenses(DateTime.now()),
+                        );
                         context.pop();
-                          BottomModels.addExpensesSuccessBottomSheet(context);
-                        }
+                        BottomModels.addExpensesSuccessBottomSheet(context);
+                      }
                     },
                     builder: (context, state) {
                       return SaveCancelWidget(
-                        onPressed: state.validation
+                        onPressed:
+                            state.validation
                                 ? () {
                                   context.read<ExpenseFormBloc>().add(
                                     const ExpenseFormEvent.submit(),

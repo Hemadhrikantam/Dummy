@@ -4,6 +4,9 @@ import 'package:dummy/features/dailycare/domain/entities/frequency.dart';
 import 'package:dummy/features/dailycare/domain/entities/remind_before.dart';
 import 'package:dummy/features/dailycare/domain/entities/timezone.dart';
 
+import '../entities/deworming.dart';
+import '../entities/expense.dart';
+import '../entities/grooming.dart';
 import '../entities/meal.dart';
 import '../entities/walk.dart';
 
@@ -19,4 +22,7 @@ abstract class DailyCareRepository {
   AppTypeResponse<List<RemindBefore>> remindBefores();
   AppTypeResponse<List<PetMeal>> meals(DateTime? date);
   AppTypeResponse<List<PetWalk>> walks(DateTime? date);
+  AppTypeResponse<List<PetGrooming>> groomings(DateTime? date);
+  AppTypeResponse<List<PetExpense>> expenses(DateTime? date);
+  AppTypeResponse<List<PetDeworming>> dewormings(DateTime? date);
 }

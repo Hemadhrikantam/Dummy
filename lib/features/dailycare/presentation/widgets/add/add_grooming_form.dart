@@ -15,6 +15,8 @@ import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/bottom_models.dart';
+import '../../../../../core/widgets/mandatory_field_widget.dart';
+import '../../bloc/groomings/groomings_bloc.dart';
 
 class AddGroomingForm extends StatefulWidget {
   const AddGroomingForm({super.key});
@@ -64,13 +66,6 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                         children: [
                           _Date(),
                           Styles.gap15,
-                          Text(
-                            AppText.type,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Styles.gap6,
                           BlocSelector<
                             GroomingFormBloc,
                             GroomingFormState,
@@ -81,9 +76,10 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                             },
                             builder: (context, state) {
                               return AppTextFormField(
+                                headerText: AppText.type,
+                                isMandatory: true,
                                 hintText: '...',
-                                controller:
-                                    TextEditingController()..text = state.value,
+                                initialValue: state.value,
                                 onChanged: (value) {
                                   context.read<GroomingFormBloc>().add(
                                     GroomingFormEvent.groomingType(value),
@@ -93,7 +89,6 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                             },
                           ),
                           Styles.gap10,
-
                           BlocSelector<
                             GroomingFormBloc,
                             GroomingFormState,
@@ -104,8 +99,7 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                             },
                             builder: (context, state) {
                               return AppTextFormField(
-                                controller:
-                                    TextEditingController()..text = state.value,
+                                initialValue: state.value,
                                 hintText: AppText.enter,
                                 borderRadius: Styles.borderRadiusCircular25,
                                 onChanged: (value) {
@@ -116,15 +110,14 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                                 maxLines: 6,
                                 heigth: 140,
                                 headerText: AppText.notes,
+                                isMandatory: true,
                               );
                             },
                           ),
                           Styles.gap15,
-                          Text(
-                            AppText.media,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
+                          MandatoryFieldWidget(
+                            labelText: AppText.media,
+                            required: true,
                           ),
                           Styles.gap6,
                           BlocSelector<
@@ -155,7 +148,10 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                   Styles.gap10,
                   BlocConsumer<GroomingFormBloc, GroomingFormState>(
                     listener: (context, state) {
-                      if (state.submitStatus == Status.success) {
+                      if (state.submitStatus.success) {
+                        context.read<GroomingsBloc>().add(
+                          GroomingsEvent.groomings(DateTime.now()),
+                        );
                         context.pop();
                         BottomModels.addGroomingSuccessBottomSheet(context);
                       }
@@ -206,6 +202,7 @@ class __Date extends State<_Date> {
               GroomingFormEvent.date(value.toString()),
             );
           },
+          isMandatory: true,
         );
       },
     );

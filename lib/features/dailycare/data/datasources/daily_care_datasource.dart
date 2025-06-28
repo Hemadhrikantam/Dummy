@@ -4,6 +4,9 @@ import 'package:dummy/features/dailycare/data/models/meal_model.dart';
 import 'package:dummy/features/dailycare/data/models/remind_before_model.dart';
 import 'package:dummy/features/dailycare/data/models/timezone_model.dart';
 import '../../../../core/utils/type_def.dart';
+import '../models/deworming_model.dart';
+import '../models/expense_model.dart';
+import '../models/grooming_model.dart';
 import '../models/walk_model.dart';
 
 abstract class DailyCareDatasource {
@@ -18,4 +21,7 @@ abstract class DailyCareDatasource {
   AppTypeResponse<List<RemindBeforeModel>> remindBefores();
   AppTypeResponse<List<PetMealModel>> meals(DateTime? date);
   AppTypeResponse<List<PetWalkModel>> walks(DateTime? date);
+  AppTypeResponse<List<PetGroomingModel>> groomings(DateTime? date);
+  AppTypeResponse<List<PetExpenseModel>> expenses(DateTime? date);
+  AppTypeResponse<List<PetDewormingModel>> dewormings(DateTime? date);
 }

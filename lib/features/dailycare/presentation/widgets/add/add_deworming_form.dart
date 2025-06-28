@@ -18,6 +18,8 @@ import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/bottom_models.dart';
+import '../../../../../core/widgets/mandatory_field_widget.dart';
+import '../../bloc/dewormings/dewormings_bloc.dart';
 
 class AddDewormingForm extends StatefulWidget {
   const AddDewormingForm({super.key});
@@ -67,14 +69,7 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           _Date(),
-                          Styles.gap10,
-                          Text(
-                            AppText.productName,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Styles.gap6,
+                          Styles.gap15,
                           BlocSelector<
                             DewormingFormBloc,
                             DewormingFormState,
@@ -85,8 +80,8 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                             },
                             builder: (context, state) {
                               return AppTextFormField(
-                                controller:
-                                    TextEditingController()..text = state.value,
+                                initialValue: state.value,
+                                isMandatory: true,
                                 onChanged: (value) {
                                   context.read<DewormingFormBloc>().add(
                                     DewormingFormEvent.productName(
@@ -95,22 +90,25 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                                   );
                                 },
                                 hintText: '...',
+                                headerText: AppText.productName,
                               );
                             },
                           ),
-                          Styles.gap15,
+                          Styles.gap10,
                           BlocBuilder<DewormingFormBloc, DewormingFormState>(
                             builder: (context, state) {
                               return CustomDropdownSearch(
                                 items: state.frequencies,
                                 selectedItem: state.frequency.value,
                                 onChanged: (value) {
-                                  if (value != null)
+                                  if (value != null) {
                                     context.read<DewormingFormBloc>().add(
                                       DewormingFormEvent.frequency(value),
                                     );
+                                  }
                                 },
                                 title: AppText.frequency,
+                                isMandatory: true,
                               );
                             },
                           ),
@@ -147,10 +145,9 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                             children: [
                               Flexible(
                                 flex: 2,
-                                child: Text(
-                                  AppText.reminder,
-                                  style: context.textTheme.titleMedium
-                                      ?.copyWith(fontWeight: FontWeight.bold),
+                                child: MandatoryFieldWidget(
+                                  labelText: AppText.reminder,
+                                  required: true,
                                 ),
                               ),
                               Styles.gap10,
@@ -283,8 +280,7 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                             },
                             builder: (context, state) {
                               return AppTextFormField(
-                                controller:
-                                    TextEditingController()..text = state.value,
+                                initialValue: state.value,
                                 hintText: AppText.enter,
                                 borderRadius: Styles.borderRadiusCircular25,
                                 onChanged: (value) {
@@ -295,15 +291,14 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                                 maxLines: 7,
                                 heigth: 140,
                                 headerText: AppText.notes,
+                                isMandatory: true,
                               );
                             },
                           ),
                           Styles.gap15,
-                          Text(
-                            AppText.media,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
+                          MandatoryFieldWidget(
+                            labelText: AppText.media,
+                            required: true,
                           ),
                           Styles.gap6,
                           BlocSelector<
@@ -336,6 +331,9 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                   BlocConsumer<DewormingFormBloc, DewormingFormState>(
                     listener: (context, state) {
                       if (state.submitStatus.success) {
+                        context.read<DewormingsBloc>().add(
+                          DewormingsEvent.dewormings(DateTime.now()),
+                        );
                         context.pop();
                         BottomModels.addDewormingSuccessBottomSheet(context);
                       }

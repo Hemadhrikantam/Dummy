@@ -2,6 +2,7 @@ import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
@@ -10,7 +11,12 @@ import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/day_selector_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/utils/app_utils.dart';
+import '../../../../core/widgets/loading_widget.dart';
+import '../../../health/presentation/widgets/empty_list_page.dart';
+import '../bloc/groomings/groomings_bloc.dart';
 
 class GroomingTab extends StatefulWidget {
   const GroomingTab({super.key});
@@ -22,120 +28,140 @@ class GroomingTab extends StatefulWidget {
 DateTime? _selectedDay;
 
 class _GroomingTabState extends State<GroomingTab> {
-  List<GroomingItem> get _groomingItems {
-    final selectedDate = _selectedDay ?? DateTime.now();
-    return List.generate(
-      5,
-      (index) => GroomingItem(
-        name: AppText.bath,
-        date: selectedDate.add(Duration(days: index)),
-        time: AppText.tenth,
-      ),
-    );
+  @override
+  void initState() {
+    Future.delayed(Duration.zero, () {
+      context.read<GroomingsBloc>().add(GroomingsEvent.groomings(_selectedDay));
+    });
+    super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
+    _selectedDay = DateTime.now();
     final nextFiveDays = List.generate(
       6,
       (index) => now.add(Duration(days: index)),
     );
 
-    return ListView(
-      children: [
-        DaySelector(
-          days: nextFiveDays,
-          initialDate: now,
-          onDaySelected: (day) {
-            setState(() {
-              _selectedDay = day;
-            });
-          },
-        ),
-        Styles.gap15,
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            AppButton(
-              name: Text(
-                AppText.add,
-                style: context.textTheme.titleSmall?.copyWith(
-                  color: AppColors.buttonTextColor,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              width: 90,
-              onPressed: () {
-                BottomModels.addGroomingBottomSheet(context);
-              },
-            ),
-          ],
-        ),
-        Styles.gap15,
-        CustomCard(
-          child: AppCustomListViewBuilder(
-            itemCount: _groomingItems.length,
-            physics: NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            isExpand: false,
-            separatorBuilder: (context, i) => Styles.gap10,
-            itemBuilder: (context, index) {
-              final walkItem = _groomingItems[index];
-              return CustomCard(
-                borderRadius: Styles.borderRadiusCircular08,
-                child: Row(
-                  children: [
-                    AppAssestsImage(
-                      path: ImageResources.walksicon,
-                      width: 40,
-                      height: 40,
-                    ),
-                    Styles.gap10,
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            AppText.duration,
-                            style: context.textTheme.labelSmall?.copyWith(
-                              fontSize: 12,
-                              color: AppColors.grey500,
-                            ),
-                          ),
-                          Text(
-                            walkItem.name,
-                            style: context.textTheme.labelSmall?.copyWith(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w700,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Styles.gap15,
-                    Text(
-                      DateFormat('MM/dd/yyyy').format(walkItem.date),
-                      style: context.textTheme.titleSmall?.copyWith(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ],
-                ),
+    return RefreshIndicator.adaptive(
+      onRefresh: () async {
+        context.read<GroomingsBloc>().add(
+          GroomingsEvent.groomings(_selectedDay),
+        );
+      },
+      child: ListView(
+        children: [
+          DaySelector(
+            days: nextFiveDays,
+            initialDate: now,
+            onDaySelected: (day) {
+              setState(() {
+                _selectedDay = day;
+              });
+              context.read<GroomingsBloc>().add(
+                GroomingsEvent.groomings(_selectedDay),
               );
             },
           ),
-        ),
-      ],
+          Styles.gap15,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              AppButton(
+                name: Text(
+                  AppText.add,
+                  style: context.textTheme.titleSmall?.copyWith(
+                    color: AppColors.buttonTextColor,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                width: 90,
+                onPressed: () {
+                  BottomModels.addGroomingBottomSheet(context);
+                },
+              ),
+            ],
+          ),
+          Styles.gap15,
+          CustomCard(
+            child: BlocBuilder<GroomingsBloc, GroomingsState>(
+              builder: (context, state) {
+                final items = state.groomings;
+                return state.groomingsStatus.loading
+                    ? LoadingWidget.circularProgressIndicatorCenter
+                    : items.isEmpty
+                    ? Padding(
+                      padding: Styles.edgeInsetsOnlyH20,
+                      child: EmptyListPage(
+                        titleFontSize: 24,
+                        imagePath: ImageResources.tshirt,
+                        title:
+                            "We don’t have Luna’s daily care data yet. Start logging her groomings to see a summary!",
+                      ),
+                    )
+                    : AppCustomListViewBuilder(
+                      itemCount: items.length,
+                      physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      isExpand: false,
+                      separatorBuilder: (context, i) => Styles.gap10,
+                      itemBuilder: (context, index) {
+                        final groomingItem = items[index];
+                        return CustomCard(
+                          borderRadius: Styles.borderRadiusCircular08,
+                          child: Row(
+                            children: [
+                              AppAssestsImage(
+                                path: ImageResources.walksicon,
+                                width: 40,
+                                height: 40,
+                              ),
+                              Styles.gap10,
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      AppText.duration,
+                                      style: context.textTheme.labelSmall
+                                          ?.copyWith(
+                                            fontSize: 12,
+                                            color: AppColors.grey500,
+                                          ),
+                                    ),
+                                    Text(
+                                      groomingItem.groomingType,
+                                      style: context.textTheme.labelSmall
+                                          ?.copyWith(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Styles.gap15,
+                              Text(
+                                AppUtil.formatDateToMMDDYYYY(
+                                  DateTime.parse(groomingItem.date),
+                                ),
+                                style: context.textTheme.titleSmall?.copyWith(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        );
+                      },
+                    );
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
-}
-
-class GroomingItem {
-  final String name;
-  final DateTime date;
-  final String time;
-
-  GroomingItem({required this.name, required this.date, required this.time});
 }

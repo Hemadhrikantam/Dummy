@@ -64,4 +64,16 @@ class InjectionBloc {
   static WalksBloc get walksBloc {
     return WalksBloc(walksUsecases: getIt<WalksUsecases>());
   }
+
+  static GroomingsBloc get groomingsBloc {
+    return GroomingsBloc(groomingsUsecases: getIt<GroomingsUsecases>());
+  }
+
+  static ExpensesBloc get expensesBloc {
+    return ExpensesBloc(expensesUsecases: getIt<ExpensesUsecases>());
+  }
+
+  static DewormingsBloc get dewormingsBloc {
+    return DewormingsBloc(dewormingsUsecases: getIt<DewormingsUsecases>());
+  }
 }
