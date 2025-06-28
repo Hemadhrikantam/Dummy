@@ -28,19 +28,26 @@ class InjectionBloc {
       eventFieldsUsecases: getIt<EventFieldsUsecases>(),
     );
   }
+
   static DashboardBloc get dashboardBloc {
     return DashboardBloc(
       dashboardDetailsUsecases: getIt<DashboardDetailsUsecases>(),
     );
   }
+
   static MealFormBloc get mealFormBloc {
-    return MealFormBloc(
-      addMealUsecases: getIt<AddMealUsecases>(),
-    );
+    return MealFormBloc(addMealUsecases: getIt<AddMealUsecases>());
   }
+
   static WalkFormBloc get walkFormBloc {
-    return WalkFormBloc(
-      addWalkUsecases: getIt<AddWalkUsecases>(),
-    );
+    return WalkFormBloc(addWalkUsecases: getIt<AddWalkUsecases>());
+  }
+
+  static MealsBloc get mealsBloc {
+    return MealsBloc(mealsUsecases: getIt<MealsUsecases>());
+  }
+
+  static WalksBloc get walksBloc {
+    return WalksBloc(walksUsecases: getIt<WalksUsecases>());
   }
 }

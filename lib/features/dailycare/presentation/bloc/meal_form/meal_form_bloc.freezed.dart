@@ -473,7 +473,11 @@ String toString() {
 /// @nodoc
 mixin _$MealFormState {
 
+<<<<<<< HEAD
  Status get submitStatus; List<DropItem> get mealTimes; DropdownValue get mealTime; NotEmpty get date; NotEmpty get mealType; NotEmpty get notes; NotEmpty get media; int get petId;
+=======
+ Status get submitStatus; List<DropItem> get mealTimes; DropdownValue get mealTime; NotEmpty get date; NotEmpty get mealType; NotEmpty get notes; NotEmpty get media; bool get validation;
+>>>>>>> 02ea0c7d4d531c308b3197d7f7ea1f27289d1639
 /// Create a copy of MealFormState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -484,16 +488,28 @@ $MealFormStateCopyWith<MealFormState> get copyWith => _$MealFormStateCopyWithImp
 
 @override
 bool operator ==(Object other) {
+<<<<<<< HEAD
   return identical(this, other) || (other.runtimeType == runtimeType&&other is MealFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&const DeepCollectionEquality().equals(other.mealTimes, mealTimes)&&(identical(other.mealTime, mealTime) || other.mealTime == mealTime)&&(identical(other.date, date) || other.date == date)&&(identical(other.mealType, mealType) || other.mealType == mealType)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.media, media) || other.media == media)&&(identical(other.petId, petId) || other.petId == petId));
+=======
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MealFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&const DeepCollectionEquality().equals(other.mealTimes, mealTimes)&&(identical(other.mealTime, mealTime) || other.mealTime == mealTime)&&(identical(other.date, date) || other.date == date)&&(identical(other.mealType, mealType) || other.mealType == mealType)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.media, media) || other.media == media)&&(identical(other.validation, validation) || other.validation == validation));
+>>>>>>> 02ea0c7d4d531c308b3197d7f7ea1f27289d1639
 }
 
 
 @override
+<<<<<<< HEAD
 int get hashCode => Object.hash(runtimeType,submitStatus,const DeepCollectionEquality().hash(mealTimes),mealTime,date,mealType,notes,media,petId);
 
 @override
 String toString() {
   return 'MealFormState(submitStatus: $submitStatus, mealTimes: $mealTimes, mealTime: $mealTime, date: $date, mealType: $mealType, notes: $notes, media: $media, petId: $petId)';
+=======
+int get hashCode => Object.hash(runtimeType,submitStatus,const DeepCollectionEquality().hash(mealTimes),mealTime,date,mealType,notes,media,validation);
+
+@override
+String toString() {
+  return 'MealFormState(submitStatus: $submitStatus, mealTimes: $mealTimes, mealTime: $mealTime, date: $date, mealType: $mealType, notes: $notes, media: $media, validation: $validation)';
+>>>>>>> 02ea0c7d4d531c308b3197d7f7ea1f27289d1639
 }
 
 
@@ -504,7 +520,11 @@ abstract mixin class $MealFormStateCopyWith<$Res>  {
   factory $MealFormStateCopyWith(MealFormState value, $Res Function(MealFormState) _then) = _$MealFormStateCopyWithImpl;
 @useResult
 $Res call({
+<<<<<<< HEAD
  Status submitStatus, List<DropItem> mealTimes, DropdownValue mealTime, NotEmpty date, NotEmpty mealType, NotEmpty notes, NotEmpty media, int petId
+=======
+ Status submitStatus, List<DropItem> mealTimes, DropdownValue mealTime, NotEmpty date, NotEmpty mealType, NotEmpty notes, NotEmpty media, bool validation
+>>>>>>> 02ea0c7d4d531c308b3197d7f7ea1f27289d1639
 });
 
 
@@ -521,7 +541,11 @@ class _$MealFormStateCopyWithImpl<$Res>
 
 /// Create a copy of MealFormState
 /// with the given fields replaced by the non-null parameter values.
+<<<<<<< HEAD
 @pragma('vm:prefer-inline') @override $Res call({Object? submitStatus = null,Object? mealTimes = null,Object? mealTime = null,Object? date = null,Object? mealType = null,Object? notes = null,Object? media = null,Object? petId = null,}) {
+=======
+@pragma('vm:prefer-inline') @override $Res call({Object? submitStatus = null,Object? mealTimes = null,Object? mealTime = null,Object? date = null,Object? mealType = null,Object? notes = null,Object? media = null,Object? validation = null,}) {
+>>>>>>> 02ea0c7d4d531c308b3197d7f7ea1f27289d1639
   return _then(_self.copyWith(
 submitStatus: null == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
 as Status,mealTimes: null == mealTimes ? _self.mealTimes : mealTimes // ignore: cast_nullable_to_non_nullable
@@ -530,8 +554,13 @@ as DropdownValue,date: null == date ? _self.date : date // ignore: cast_nullable
 as NotEmpty,mealType: null == mealType ? _self.mealType : mealType // ignore: cast_nullable_to_non_nullable
 as NotEmpty,notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as NotEmpty,media: null == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
+<<<<<<< HEAD
 as NotEmpty,petId: null == petId ? _self.petId : petId // ignore: cast_nullable_to_non_nullable
 as int,
+=======
+as NotEmpty,validation: null == validation ? _self.validation : validation // ignore: cast_nullable_to_non_nullable
+as bool,
+>>>>>>> 02ea0c7d4d531c308b3197d7f7ea1f27289d1639
   ));
 }
 
@@ -542,7 +571,11 @@ as int,
 
 
 class _MealFormState implements MealFormState {
+<<<<<<< HEAD
   const _MealFormState({this.submitStatus = Status.init, final  List<DropItem> mealTimes = const [], this.mealTime = const DropdownValue.pure(), this.date = const NotEmpty.pure(), this.mealType = const NotEmpty.pure(), this.notes = const NotEmpty.pure(), this.media = const NotEmpty.pure(), this.petId = 0}): _mealTimes = mealTimes;
+=======
+  const _MealFormState({this.submitStatus = Status.init, final  List<DropItem> mealTimes = const [], this.mealTime = const DropdownValue.pure(), this.date = const NotEmpty.pure(), this.mealType = const NotEmpty.pure(), this.notes = const NotEmpty.pure(), this.media = const NotEmpty.pure(), this.validation = false}): _mealTimes = mealTimes;
+>>>>>>> 02ea0c7d4d531c308b3197d7f7ea1f27289d1639
   
 
 @override@JsonKey() final  Status submitStatus;
@@ -558,7 +591,11 @@ class _MealFormState implements MealFormState {
 @override@JsonKey() final  NotEmpty mealType;
 @override@JsonKey() final  NotEmpty notes;
 @override@JsonKey() final  NotEmpty media;
+<<<<<<< HEAD
 @override@JsonKey() final  int petId;
+=======
+@override@JsonKey() final  bool validation;
+>>>>>>> 02ea0c7d4d531c308b3197d7f7ea1f27289d1639
 
 /// Create a copy of MealFormState
 /// with the given fields replaced by the non-null parameter values.
@@ -570,16 +607,28 @@ _$MealFormStateCopyWith<_MealFormState> get copyWith => __$MealFormStateCopyWith
 
 @override
 bool operator ==(Object other) {
+<<<<<<< HEAD
   return identical(this, other) || (other.runtimeType == runtimeType&&other is _MealFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&const DeepCollectionEquality().equals(other._mealTimes, _mealTimes)&&(identical(other.mealTime, mealTime) || other.mealTime == mealTime)&&(identical(other.date, date) || other.date == date)&&(identical(other.mealType, mealType) || other.mealType == mealType)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.media, media) || other.media == media)&&(identical(other.petId, petId) || other.petId == petId));
+=======
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MealFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&const DeepCollectionEquality().equals(other._mealTimes, _mealTimes)&&(identical(other.mealTime, mealTime) || other.mealTime == mealTime)&&(identical(other.date, date) || other.date == date)&&(identical(other.mealType, mealType) || other.mealType == mealType)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.media, media) || other.media == media)&&(identical(other.validation, validation) || other.validation == validation));
+>>>>>>> 02ea0c7d4d531c308b3197d7f7ea1f27289d1639
 }
 
 
 @override
+<<<<<<< HEAD
 int get hashCode => Object.hash(runtimeType,submitStatus,const DeepCollectionEquality().hash(_mealTimes),mealTime,date,mealType,notes,media,petId);
 
 @override
 String toString() {
   return 'MealFormState(submitStatus: $submitStatus, mealTimes: $mealTimes, mealTime: $mealTime, date: $date, mealType: $mealType, notes: $notes, media: $media, petId: $petId)';
+=======
+int get hashCode => Object.hash(runtimeType,submitStatus,const DeepCollectionEquality().hash(_mealTimes),mealTime,date,mealType,notes,media,validation);
+
+@override
+String toString() {
+  return 'MealFormState(submitStatus: $submitStatus, mealTimes: $mealTimes, mealTime: $mealTime, date: $date, mealType: $mealType, notes: $notes, media: $media, validation: $validation)';
+>>>>>>> 02ea0c7d4d531c308b3197d7f7ea1f27289d1639
 }
 
 
@@ -590,7 +639,11 @@ abstract mixin class _$MealFormStateCopyWith<$Res> implements $MealFormStateCopy
   factory _$MealFormStateCopyWith(_MealFormState value, $Res Function(_MealFormState) _then) = __$MealFormStateCopyWithImpl;
 @override @useResult
 $Res call({
+<<<<<<< HEAD
  Status submitStatus, List<DropItem> mealTimes, DropdownValue mealTime, NotEmpty date, NotEmpty mealType, NotEmpty notes, NotEmpty media, int petId
+=======
+ Status submitStatus, List<DropItem> mealTimes, DropdownValue mealTime, NotEmpty date, NotEmpty mealType, NotEmpty notes, NotEmpty media, bool validation
+>>>>>>> 02ea0c7d4d531c308b3197d7f7ea1f27289d1639
 });
 
 
@@ -607,7 +660,11 @@ class __$MealFormStateCopyWithImpl<$Res>
 
 /// Create a copy of MealFormState
 /// with the given fields replaced by the non-null parameter values.
+<<<<<<< HEAD
 @override @pragma('vm:prefer-inline') $Res call({Object? submitStatus = null,Object? mealTimes = null,Object? mealTime = null,Object? date = null,Object? mealType = null,Object? notes = null,Object? media = null,Object? petId = null,}) {
+=======
+@override @pragma('vm:prefer-inline') $Res call({Object? submitStatus = null,Object? mealTimes = null,Object? mealTime = null,Object? date = null,Object? mealType = null,Object? notes = null,Object? media = null,Object? validation = null,}) {
+>>>>>>> 02ea0c7d4d531c308b3197d7f7ea1f27289d1639
   return _then(_MealFormState(
 submitStatus: null == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
 as Status,mealTimes: null == mealTimes ? _self._mealTimes : mealTimes // ignore: cast_nullable_to_non_nullable
@@ -616,8 +673,13 @@ as DropdownValue,date: null == date ? _self.date : date // ignore: cast_nullable
 as NotEmpty,mealType: null == mealType ? _self.mealType : mealType // ignore: cast_nullable_to_non_nullable
 as NotEmpty,notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as NotEmpty,media: null == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
+<<<<<<< HEAD
 as NotEmpty,petId: null == petId ? _self.petId : petId // ignore: cast_nullable_to_non_nullable
 as int,
+=======
+as NotEmpty,validation: null == validation ? _self.validation : validation // ignore: cast_nullable_to_non_nullable
+as bool,
+>>>>>>> 02ea0c7d4d531c308b3197d7f7ea1f27289d1639
   ));
 }
 

@@ -15,6 +15,9 @@ import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/bottom_models.dart';
+import '../../../../../core/utils/toast_message.dart';
+import '../../../../../core/widgets/mandatory_field_widget.dart';
+import '../../bloc/walks/walks_bloc.dart';
 
 class AddWalkForm extends StatefulWidget {
   const AddWalkForm({super.key});
@@ -69,6 +72,7 @@ class _AddWalkFormState extends State<AddWalkForm> {
                             builder: (context, state) {
                               return CustomDropdownSearch(
                                 items: state.durations,
+                                isMandatory: true,
                                 onChanged: (value) {
                                   context.read<WalkFormBloc>().add(
                                     WalkFormEvent.duration(value!),
@@ -80,27 +84,21 @@ class _AddWalkFormState extends State<AddWalkForm> {
                             },
                           ),
                           Styles.gap10,
-                          Text(
-                            AppText.location,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Styles.gap6,
                           BlocSelector<WalkFormBloc, WalkFormState, NotEmpty>(
                             selector: (state) {
                               return state.location;
                             },
                             builder: (context, state) {
                               return AppTextFormField(
-                                controller:
-                                    TextEditingController()..text = state.value,
+                                initialValue: state.value,
+                                isMandatory: true,
                                 onChanged: (value) {
                                   context.read<WalkFormBloc>().add(
                                     WalkFormEvent.location(value),
                                   );
                                 },
                                 hintText: '...',
+                                headerText: AppText.location,
                               );
                             },
                           ),
@@ -111,9 +109,9 @@ class _AddWalkFormState extends State<AddWalkForm> {
                             },
                             builder: (context, state) {
                               return AppTextFormField(
-                                controller:
-                                    TextEditingController()..text = state.value,
+                                initialValue: state.value,
                                 hintText: AppText.enter,
+                                isMandatory: true,
                                 borderRadius: Styles.borderRadiusCircular25,
                                 onChanged: (value) {
                                   context.read<WalkFormBloc>().add(
@@ -127,11 +125,9 @@ class _AddWalkFormState extends State<AddWalkForm> {
                             },
                           ),
                           Styles.gap15,
-                          Text(
-                            AppText.media,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
+                          MandatoryFieldWidget(
+                            labelText: AppText.media,
+                            required: true,
                           ),
                           Styles.gap6,
                           BlocSelector<WalkFormBloc, WalkFormState, NotEmpty>(
@@ -159,7 +155,10 @@ class _AddWalkFormState extends State<AddWalkForm> {
                   Styles.gap10,
                   BlocConsumer<WalkFormBloc, WalkFormState>(
                     listener: (context, state) {
-                      if (state.submitStatus == Status.success) {
+                      if (state.submitStatus.success) {
+                        context.read<WalksBloc>().add(
+                          WalksEvent.walks(DateTime.now()),
+                        );
                         context.pop();
                         BottomModels.addWalkSuccessBottomSheet(context);
                       }
@@ -169,11 +168,16 @@ class _AddWalkFormState extends State<AddWalkForm> {
                         return const Center(child: CircularProgressIndicator());
                       }
                       return SaveCancelWidget(
-                        onPressed: () {
-                          context.read<WalkFormBloc>().add(
-                            const WalkFormEvent.submit(),
-                          );
-                        },
+                        onPressed:
+                            state.validation
+                                ? () {
+                                  context.read<WalkFormBloc>().add(
+                                    const WalkFormEvent.submit(),
+                                  );
+                                }
+                                : () => AppAlert.showToast(
+                                  message: 'Provide Required Fields',
+                                ),
                       );
                     },
                   ),
@@ -202,9 +206,9 @@ class __Date extends State<_Date> {
       },
       builder: (context, state) {
         return AppCustomDateField(
-          selectedDate: state.value.isNotEmpty
-              ? DateTime.parse(state.value)
-              : null,
+          selectedDate:
+              state.value.isNotEmpty ? DateTime.parse(state.value) : null,
+          isMandatory: true,
           onChange: (value) {
             context.read<WalkFormBloc>().add(
               WalkFormEvent.date(value.toString()),

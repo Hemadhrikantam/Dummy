@@ -7,6 +7,7 @@ import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/meal_payload.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/dailycare/domain/usecases/add_meal_usecases.dart';
+import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'meal_form_event.dart';
@@ -38,6 +39,7 @@ class MealFormBloc extends Bloc<MealFormEvent, MealFormState> {
       petId: event.petId,
     ));
   }
+
   Future<void> __submit(_Submit event, Emitter<MealFormState> emit) async {
     emit(state.copyWith(submitStatus: Status.loading));
     final result = await _addMealUsecases(
@@ -66,19 +68,89 @@ class MealFormBloc extends Bloc<MealFormEvent, MealFormState> {
       (success) => emit(state.copyWith(submitStatus: Status.success)),
     );
   }
+
   void __date(_Date event, Emitter<MealFormState> emit) {
-    emit(state.copyWith(date: NotEmpty.dirty(value:  event.value)));
+    final value = NotEmpty.dirty(value: event.value);
+
+    emit(
+      state.copyWith(
+        date: value,
+        validation: Formz.validate([
+          value,
+          state.mealType,
+          state.notes,
+          state.media,
+          state.mealTime,
+        ]),
+      ),
+    );
   }
+
   void __mealType(_MealType event, Emitter<MealFormState> emit) {
-    emit(state.copyWith(mealType: NotEmpty.dirty(value: event.value)));
+    final value = NotEmpty.dirty(value: event.value);
+
+    emit(
+      state.copyWith(
+        mealType: value,
+        validation: Formz.validate([
+          value,
+          state.date,
+          state.notes,
+          state.media,
+          state.mealTime,
+        ]),
+      ),
+    );
   }
+
   void __notes(_Notes event, Emitter<MealFormState> emit) {
-    emit(state.copyWith(notes: NotEmpty.dirty(value: event.value)));
+    final value = NotEmpty.dirty(value: event.value);
+
+    emit(
+      state.copyWith(
+        notes: value,
+        validation: Formz.validate([
+          value,
+          state.mealType,
+          state.date,
+          state.media,
+          state.mealTime,
+        ]),
+      ),
+    );
   }
+
   void __media(_Media event, Emitter<MealFormState> emit) {
-    emit(state.copyWith(media: NotEmpty.dirty(value: event.value)));
+    final value = NotEmpty.dirty(value: event.value);
+
+    emit(
+      state.copyWith(
+        media: value,
+        validation: Formz.validate([
+          value,
+          state.mealType,
+          state.notes,
+          state.date,
+          state.mealTime,
+        ]),
+      ),
+    );
   }
+
   void __mealTime(_MealTime event, Emitter<MealFormState> emit) {
-    emit(state.copyWith(mealTime: DropdownValue.dirty(event.value)));
+    final value = DropdownValue.dirty(event.value);
+
+    emit(
+      state.copyWith(
+        mealTime: value,
+        validation: Formz.validate([
+          value,
+          state.mealType,
+          state.notes,
+          state.media,
+          state.date,
+        ]),
+      ),
+    );
   }
 }

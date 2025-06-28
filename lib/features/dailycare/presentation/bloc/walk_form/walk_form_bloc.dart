@@ -6,6 +6,7 @@ import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/walk_payload.dart';
 import 'package:dummy/features/dailycare/domain/usecases/add_walk_usecases.dart';
+import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'walk_form_event.dart';
@@ -42,6 +43,7 @@ class WalkFormBloc extends Bloc<WalkFormEvent, WalkFormState> {
       petId: event.petId,
     ));
   }
+
   Future<void> __submit(_Submit event, Emitter<WalkFormState> emit) async {
     emit(state.copyWith(submitStatus: Status.loading));
     final result = await _addWalkUsecases(
@@ -62,19 +64,89 @@ class WalkFormBloc extends Bloc<WalkFormEvent, WalkFormState> {
       (success) => emit(state.copyWith(submitStatus: Status.success)),
     );
   }
+
   void __date(_Date event, Emitter<WalkFormState> emit) {
-    emit(state.copyWith(date: NotEmpty.dirty(value:  event.value)));
+    final value = NotEmpty.dirty(value: event.value);
+    
+    emit(
+      state.copyWith(
+        date: value,
+        validation: Formz.validate([
+          value,
+          state.location,
+          state.notes,
+          state.media,
+          state.duration,
+        ]),
+      ),
+    );
   }
+
   void __location(_Location event, Emitter<WalkFormState> emit) {
-    emit(state.copyWith(location: NotEmpty.dirty(value: event.value)));
+    final value = NotEmpty.dirty(value: event.value);
+
+    emit(
+      state.copyWith(
+        location: value,
+        validation: Formz.validate([
+          value,
+          state.date,
+          state.notes,
+          state.media,
+          state.duration,
+        ]),
+      ),
+    );
   }
+
   void __notes(_Notes event, Emitter<WalkFormState> emit) {
-    emit(state.copyWith(notes: NotEmpty.dirty(value: event.value)));
+    final value = NotEmpty.dirty(value: event.value);
+
+    emit(
+      state.copyWith(
+        notes: value,
+        validation: Formz.validate([
+          value,
+          state.location,
+          state.date,
+          state.media,
+          state.duration,
+        ]),
+      ),
+    );
   }
+
   void __media(_Media event, Emitter<WalkFormState> emit) {
-    emit(state.copyWith(media: NotEmpty.dirty(value: event.value)));
+    final value = NotEmpty.dirty(value: event.value);
+
+    emit(
+      state.copyWith(
+        media: value,
+        validation: Formz.validate([
+          value,
+          state.location,
+          state.notes,
+          state.date,
+          state.duration,
+        ]),
+      ),
+    );
   }
+
   void __duration(_Duration event, Emitter<WalkFormState> emit) {
-    emit(state.copyWith(duration: DropdownValue.dirty(event.value)));
+    final value = DropdownValue.dirty(event.value);
+
+    emit(
+      state.copyWith(
+        duration: value,
+        validation: Formz.validate([
+          value,
+          state.location,
+          state.notes,
+          state.date,
+          state.date,
+        ]),
+      ),
+    );
   }
 }
