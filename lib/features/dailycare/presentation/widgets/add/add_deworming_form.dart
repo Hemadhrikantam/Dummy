@@ -2,14 +2,18 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
 
 import 'package:dummy/core/widgets/custom_dropdown.dart';
 import 'package:dummy/core/widgets/dotted_border_widget.dart';
+import 'package:dummy/features/dailycare/presentation/bloc/deworming_form/deworming_form_bloc.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
 import '../../../../../core/utils/bottom_models.dart';
@@ -22,7 +26,13 @@ class AddDewormingForm extends StatefulWidget {
 }
 
 class _AddDewormingFormState extends State<AddDewormingForm> {
-  List<XFile> selectedImages = [];
+  @override
+  void initState() {
+    final petId = context.read<DashboardBloc>().state.selectedPet?.id;
+    context.read<DewormingFormBloc>().add(DewormingFormEvent.init(petId ?? 0));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
@@ -64,11 +74,44 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                             ),
                           ),
                           Styles.gap6,
-                          const AppTextFormField(hintText: '...'),
+                          BlocSelector<
+                            DewormingFormBloc,
+                            DewormingFormState,
+                            NotEmpty
+                          >(
+                            selector: (state) {
+                              return state.productName;
+                            },
+                            builder: (context, state) {
+                              return AppTextFormField(
+                                controller:
+                                    TextEditingController()..text = state.value,
+                                onChanged: (value) {
+                                  context.read<DewormingFormBloc>().add(
+                                    DewormingFormEvent.productName(
+                                      value.toString(),
+                                    ),
+                                  );
+                                },
+                                hintText: '...',
+                              );
+                            },
+                          ),
                           Styles.gap15,
-                          CustomDropdownSearch(
-                            items: [],
-                            title: AppText.frequency,
+                          BlocBuilder<DewormingFormBloc, DewormingFormState>(
+                            builder: (context, state) {
+                              return CustomDropdownSearch(
+                                items: state.frequencies,
+                                selectedItem: state.frequency.value,
+                                onChanged: (value){
+                                  if(value!=null)
+                                  context.read<DewormingFormBloc>().add(
+                                    DewormingFormEvent.frequency(value),
+                                  );
+                                },
+                                title: AppText.frequency,
+                              );
+                            },
                           ),
                           Text(
                             AppText.duedate,
@@ -187,15 +230,23 @@ class _Date extends StatefulWidget {
 }
 
 class __Date extends State<_Date> {
-  var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return AppCustomDateField(
-      selectedDate: date,
-      onChange: (value) {
-        setState(() {
-          date = value;
-        });
+    return BlocSelector<DewormingFormBloc, DewormingFormState, NotEmpty>(
+      selector: (state) {
+        return state.date;
+      },
+      builder: (context, state) {
+        return AppCustomDateField(
+          selectedDate:
+              state.value.isNotEmpty ? DateTime.parse(state.value) : null,
+          isMandatory: true,
+          onChange: (value) {
+            context.read<DewormingFormBloc>().add(
+              DewormingFormEvent.date(value.toString()),
+            );
+          },
+        );
       },
     );
   }

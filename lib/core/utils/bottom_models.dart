@@ -154,7 +154,10 @@ class BottomModels {
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return AddDewormingForm();
+        return BlocProvider(
+          create: (context) => InjectionBloc.dewormingFormBloc,
+          child: AddDewormingForm(),
+        );
       },
     );
   }

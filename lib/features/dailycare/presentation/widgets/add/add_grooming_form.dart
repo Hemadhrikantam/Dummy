@@ -1,14 +1,19 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/models/formz/not_empty.dart';
+import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:dummy/core/widgets/dotted_border_widget.dart';
+import 'package:dummy/features/dailycare/presentation/bloc/grooming_form/grooming_form_bloc.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/bottom_models.dart';
 
 class AddGroomingForm extends StatefulWidget {
@@ -18,7 +23,13 @@ class AddGroomingForm extends StatefulWidget {
 }
 
 class _AddGroomingFormState extends State<AddGroomingForm> {
-  List<XFile> selectedImages = [];
+  @override
+  void initState() {
+    final petId = context.read<DashboardBloc>().state.selectedPet?.id;
+    context.read<GroomingFormBloc>().add(GroomingFormEvent.init(petId ?? 0));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
@@ -60,16 +71,53 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                             ),
                           ),
                           Styles.gap6,
-                          const AppTextFormField(hintText: '...'),
+                          BlocSelector<
+                            GroomingFormBloc,
+                            GroomingFormState,
+                            NotEmpty
+                          >(
+                            selector: (state) {
+                              return state.groomingType;
+                            },
+                            builder: (context, state) {
+                              return AppTextFormField(
+                                hintText: '...',
+                                controller:
+                                    TextEditingController()..text = state.value,
+                                onChanged: (value) {
+                                  context.read<GroomingFormBloc>().add(
+                                    GroomingFormEvent.groomingType(value),
+                                  );
+                                },
+                              );
+                            },
+                          ),
                           Styles.gap10,
 
-                          AppTextFormField(
-                            hintText: AppText.enter,
-                            borderRadius: Styles.borderRadiusCircular25,
-                            onChanged: (value) {},
-                            maxLines: 6,
-                            heigth: 140,
-                            headerText: AppText.notes,
+                          BlocSelector<
+                            GroomingFormBloc,
+                            GroomingFormState,
+                            NotEmpty
+                          >(
+                            selector: (state) {
+                              return state.notes;
+                            },
+                            builder: (context, state) {
+                              return AppTextFormField(
+                                controller:
+                                    TextEditingController()..text = state.value,
+                                hintText: AppText.enter,
+                                borderRadius: Styles.borderRadiusCircular25,
+                                onChanged: (value) {
+                                  context.read<GroomingFormBloc>().add(
+                                    GroomingFormEvent.notes(value.toString()),
+                                  );
+                                },
+                                maxLines: 6,
+                                heigth: 140,
+                                headerText: AppText.notes,
+                              );
+                            },
                           ),
                           Styles.gap15,
                           Text(
@@ -79,18 +127,52 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                             ),
                           ),
                           Styles.gap6,
-                          DottedBorderWidget(),
-
+                          BlocSelector<
+                            GroomingFormBloc,
+                            GroomingFormState,
+                            NotEmpty
+                          >(
+                            selector: (state) {
+                              return state.media;
+                            },
+                            builder: (context, state) {
+                              return DottedBorderWidget(
+                                paths:
+                                    state.value.isNotEmpty ? [state.value] : [],
+                                onAdd: (value) {
+                                  context.read<GroomingFormBloc>().add(
+                                    GroomingFormEvent.media(value),
+                                  );
+                                },
+                              );
+                            },
+                          ),
                           Styles.gap30,
                         ],
                       ),
                     ),
                   ),
                   Styles.gap10,
-                  SaveCancelWidget(
-                    onPressed: () {
-                      context.pop();
-                      BottomModels.addGroomingSuccessBottomSheet(context);
+                  BlocConsumer<GroomingFormBloc, GroomingFormState>(
+                    listener: (context, state) {
+                      if (state.submitStatus == Status.success) {
+                        context.pop();
+                        BottomModels.addGroomingSuccessBottomSheet(context);
+                      }
+                    },
+                    builder: (context, state) {
+                      return SaveCancelWidget(
+                        onPressed:
+                            state.validation
+                                ? () {
+                                  context.read<GroomingFormBloc>().add(
+                                    const GroomingFormEvent.submit(),
+                                  );
+                                }
+                                : () => AppAlert.showToast(
+                                  message: 'Provide Required Fields',
+                                ),
+                      );
                     },
                   ),
                 ],
@@ -104,21 +186,27 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
 }
 
 class _Date extends StatefulWidget {
-  const _Date();
   @override
   State<_Date> createState() => __Date();
 }
 
 class __Date extends State<_Date> {
-  var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return AppCustomDateField(
-      selectedDate: date,
-      onChange: (value) {
-        setState(() {
-          date = value;
-        });
+    return BlocSelector<GroomingFormBloc, GroomingFormState, NotEmpty>(
+      selector: (state) {
+        return state.date;
+      },
+      builder: (context, state) {
+        return AppCustomDateField(
+          selectedDate:
+              state.value.isEmpty ? null : DateTime.parse(state.value),
+          onChange: (value) {
+            context.read<GroomingFormBloc>().add(
+              GroomingFormEvent.date(value.toString()),
+            );
+          },
+        );
       },
     );
   }
