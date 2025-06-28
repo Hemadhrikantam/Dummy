@@ -46,33 +46,67 @@ $WalkFormEventCopyWith(WalkFormEvent _, $Res Function(WalkFormEvent) __);
 
 
 class _Init implements WalkFormEvent {
-  const _Init();
+  const _Init(this.petId);
   
 
+ final  int petId;
 
-
+/// Create a copy of WalkFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$InitCopyWith<_Init> get copyWith => __$InitCopyWithImpl<_Init>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Init);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Init&&(identical(other.petId, petId) || other.petId == petId));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,petId);
 
 @override
 String toString() {
-  return 'WalkFormEvent.init()';
+  return 'WalkFormEvent.init(petId: $petId)';
 }
 
 
 }
 
+/// @nodoc
+abstract mixin class _$InitCopyWith<$Res> implements $WalkFormEventCopyWith<$Res> {
+  factory _$InitCopyWith(_Init value, $Res Function(_Init) _then) = __$InitCopyWithImpl;
+@useResult
+$Res call({
+ int petId
+});
 
 
+
+
+}
+/// @nodoc
+class __$InitCopyWithImpl<$Res>
+    implements _$InitCopyWith<$Res> {
+  __$InitCopyWithImpl(this._self, this._then);
+
+  final _Init _self;
+  final $Res Function(_Init) _then;
+
+/// Create a copy of WalkFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? petId = null,}) {
+  return _then(_Init(
+null == petId ? _self.petId : petId // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
 
 /// @nodoc
 
@@ -439,7 +473,7 @@ String toString() {
 /// @nodoc
 mixin _$WalkFormState {
 
- Status get submitStatus; List<DropItem> get durations; DropdownValue get duration; NotEmpty get location; NotEmpty get date; NotEmpty get notes; NotEmpty get media;
+ Status get submitStatus; List<DropItem> get durations; DropdownValue get duration; NotEmpty get location; NotEmpty get date; NotEmpty get notes; NotEmpty get media; int get petId;
 /// Create a copy of WalkFormState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -450,16 +484,16 @@ $WalkFormStateCopyWith<WalkFormState> get copyWith => _$WalkFormStateCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is WalkFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&const DeepCollectionEquality().equals(other.durations, durations)&&const DeepCollectionEquality().equals(other.duration, duration)&&(identical(other.location, location) || other.location == location)&&(identical(other.date, date) || other.date == date)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.media, media) || other.media == media));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is WalkFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&const DeepCollectionEquality().equals(other.durations, durations)&&(identical(other.duration, duration) || other.duration == duration)&&(identical(other.location, location) || other.location == location)&&(identical(other.date, date) || other.date == date)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.media, media) || other.media == media)&&(identical(other.petId, petId) || other.petId == petId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,submitStatus,const DeepCollectionEquality().hash(durations),const DeepCollectionEquality().hash(duration),location,date,notes,media);
+int get hashCode => Object.hash(runtimeType,submitStatus,const DeepCollectionEquality().hash(durations),duration,location,date,notes,media,petId);
 
 @override
 String toString() {
-  return 'WalkFormState(submitStatus: $submitStatus, durations: $durations, duration: $duration, location: $location, date: $date, notes: $notes, media: $media)';
+  return 'WalkFormState(submitStatus: $submitStatus, durations: $durations, duration: $duration, location: $location, date: $date, notes: $notes, media: $media, petId: $petId)';
 }
 
 
@@ -470,7 +504,7 @@ abstract mixin class $WalkFormStateCopyWith<$Res>  {
   factory $WalkFormStateCopyWith(WalkFormState value, $Res Function(WalkFormState) _then) = _$WalkFormStateCopyWithImpl;
 @useResult
 $Res call({
- Status submitStatus, List<DropItem> durations, DropdownValue duration, NotEmpty location, NotEmpty date, NotEmpty notes, NotEmpty media
+ Status submitStatus, List<DropItem> durations, DropdownValue duration, NotEmpty location, NotEmpty date, NotEmpty notes, NotEmpty media, int petId
 });
 
 
@@ -487,16 +521,17 @@ class _$WalkFormStateCopyWithImpl<$Res>
 
 /// Create a copy of WalkFormState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? submitStatus = null,Object? durations = null,Object? duration = freezed,Object? location = null,Object? date = null,Object? notes = null,Object? media = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? submitStatus = null,Object? durations = null,Object? duration = null,Object? location = null,Object? date = null,Object? notes = null,Object? media = null,Object? petId = null,}) {
   return _then(_self.copyWith(
 submitStatus: null == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
 as Status,durations: null == durations ? _self.durations : durations // ignore: cast_nullable_to_non_nullable
-as List<DropItem>,duration: freezed == duration ? _self.duration : duration // ignore: cast_nullable_to_non_nullable
+as List<DropItem>,duration: null == duration ? _self.duration : duration // ignore: cast_nullable_to_non_nullable
 as DropdownValue,location: null == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
 as NotEmpty,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
 as NotEmpty,notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as NotEmpty,media: null == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
-as NotEmpty,
+as NotEmpty,petId: null == petId ? _self.petId : petId // ignore: cast_nullable_to_non_nullable
+as int,
   ));
 }
 
@@ -507,7 +542,7 @@ as NotEmpty,
 
 
 class _WalkFormState implements WalkFormState {
-  const _WalkFormState({this.submitStatus = Status.init, final  List<DropItem> durations = const [], this.duration = const DropdownValue.pure(), this.location = const NotEmpty.pure(), this.date = const NotEmpty.pure(), this.notes = const NotEmpty.pure(), this.media = const NotEmpty.pure()}): _durations = durations;
+  const _WalkFormState({this.submitStatus = Status.init, final  List<DropItem> durations = const [], this.duration = const DropdownValue.pure(), this.location = const NotEmpty.pure(), this.date = const NotEmpty.pure(), this.notes = const NotEmpty.pure(), this.media = const NotEmpty.pure(), this.petId = 0}): _durations = durations;
   
 
 @override@JsonKey() final  Status submitStatus;
@@ -523,6 +558,7 @@ class _WalkFormState implements WalkFormState {
 @override@JsonKey() final  NotEmpty date;
 @override@JsonKey() final  NotEmpty notes;
 @override@JsonKey() final  NotEmpty media;
+@override@JsonKey() final  int petId;
 
 /// Create a copy of WalkFormState
 /// with the given fields replaced by the non-null parameter values.
@@ -534,16 +570,16 @@ _$WalkFormStateCopyWith<_WalkFormState> get copyWith => __$WalkFormStateCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WalkFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&const DeepCollectionEquality().equals(other._durations, _durations)&&const DeepCollectionEquality().equals(other.duration, duration)&&(identical(other.location, location) || other.location == location)&&(identical(other.date, date) || other.date == date)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.media, media) || other.media == media));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _WalkFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&const DeepCollectionEquality().equals(other._durations, _durations)&&(identical(other.duration, duration) || other.duration == duration)&&(identical(other.location, location) || other.location == location)&&(identical(other.date, date) || other.date == date)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.media, media) || other.media == media)&&(identical(other.petId, petId) || other.petId == petId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,submitStatus,const DeepCollectionEquality().hash(_durations),const DeepCollectionEquality().hash(duration),location,date,notes,media);
+int get hashCode => Object.hash(runtimeType,submitStatus,const DeepCollectionEquality().hash(_durations),duration,location,date,notes,media,petId);
 
 @override
 String toString() {
-  return 'WalkFormState(submitStatus: $submitStatus, durations: $durations, duration: $duration, location: $location, date: $date, notes: $notes, media: $media)';
+  return 'WalkFormState(submitStatus: $submitStatus, durations: $durations, duration: $duration, location: $location, date: $date, notes: $notes, media: $media, petId: $petId)';
 }
 
 
@@ -554,7 +590,7 @@ abstract mixin class _$WalkFormStateCopyWith<$Res> implements $WalkFormStateCopy
   factory _$WalkFormStateCopyWith(_WalkFormState value, $Res Function(_WalkFormState) _then) = __$WalkFormStateCopyWithImpl;
 @override @useResult
 $Res call({
- Status submitStatus, List<DropItem> durations, DropdownValue duration, NotEmpty location, NotEmpty date, NotEmpty notes, NotEmpty media
+ Status submitStatus, List<DropItem> durations, DropdownValue duration, NotEmpty location, NotEmpty date, NotEmpty notes, NotEmpty media, int petId
 });
 
 
@@ -571,16 +607,17 @@ class __$WalkFormStateCopyWithImpl<$Res>
 
 /// Create a copy of WalkFormState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? submitStatus = null,Object? durations = null,Object? duration = freezed,Object? location = null,Object? date = null,Object? notes = null,Object? media = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? submitStatus = null,Object? durations = null,Object? duration = null,Object? location = null,Object? date = null,Object? notes = null,Object? media = null,Object? petId = null,}) {
   return _then(_WalkFormState(
 submitStatus: null == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
 as Status,durations: null == durations ? _self._durations : durations // ignore: cast_nullable_to_non_nullable
-as List<DropItem>,duration: freezed == duration ? _self.duration : duration // ignore: cast_nullable_to_non_nullable
+as List<DropItem>,duration: null == duration ? _self.duration : duration // ignore: cast_nullable_to_non_nullable
 as DropdownValue,location: null == location ? _self.location : location // ignore: cast_nullable_to_non_nullable
 as NotEmpty,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
 as NotEmpty,notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as NotEmpty,media: null == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
-as NotEmpty,
+as NotEmpty,petId: null == petId ? _self.petId : petId // ignore: cast_nullable_to_non_nullable
+as int,
   ));
 }
 

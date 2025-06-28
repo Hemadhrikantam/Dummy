@@ -11,9 +11,9 @@ import 'package:dummy/core/widgets/custom_dropdown.dart';
 import 'package:dummy/core/widgets/dotted_border_widget.dart';
 import 'package:dummy/features/dailycare/presentation/bloc/walk_form/walk_form_bloc.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:image_picker/image_picker.dart';
 import '../../../../../core/utils/bottom_models.dart';
 
 class AddWalkForm extends StatefulWidget {
@@ -26,7 +26,8 @@ class AddWalkForm extends StatefulWidget {
 class _AddWalkFormState extends State<AddWalkForm> {
   @override
   void initState() {
-    context.read<WalkFormBloc>().add(const WalkFormEvent.init());
+    final petId = context.read<DashboardBloc>().state.selectedPet?.id;
+    context.read<WalkFormBloc>().add(WalkFormEvent.init(petId ?? 0));
     super.initState();
   }
 
@@ -161,13 +162,11 @@ class _AddWalkFormState extends State<AddWalkForm> {
                       if (state.submitStatus == Status.success) {
                         context.pop();
                         BottomModels.addWalkSuccessBottomSheet(context);
-                      } 
+                      }
                     },
                     builder: (context, state) {
                       if (state.submitStatus == Status.loading) {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
+                        return const Center(child: CircularProgressIndicator());
                       }
                       return SaveCancelWidget(
                         onPressed: () {
@@ -195,15 +194,23 @@ class _Date extends StatefulWidget {
 }
 
 class __Date extends State<_Date> {
-  var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return AppCustomDateField(
-      selectedDate: date,
-      onChange: (value) {
-        setState(() {
-          date = value;
-        });
+    return BlocSelector<WalkFormBloc, WalkFormState, NotEmpty>(
+      selector: (state) {
+        return state.date;
+      },
+      builder: (context, state) {
+        return AppCustomDateField(
+          selectedDate: state.value.isNotEmpty
+              ? DateTime.parse(state.value)
+              : null,
+          onChange: (value) {
+            context.read<WalkFormBloc>().add(
+              WalkFormEvent.date(value.toString()),
+            );
+          },
+        );
       },
     );
   }

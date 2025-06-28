@@ -10,5 +10,6 @@ abstract class WalkFormState with _$WalkFormState {
     @Default(NotEmpty.pure()) final NotEmpty date,
     @Default(NotEmpty.pure()) final NotEmpty notes,
     @Default(NotEmpty.pure()) final NotEmpty media,
+    @Default(0) final int petId,
   }) = _WalkFormState;
 }

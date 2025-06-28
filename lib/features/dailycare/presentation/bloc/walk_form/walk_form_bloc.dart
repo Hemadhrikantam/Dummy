@@ -16,7 +16,7 @@ class WalkFormBloc extends Bloc<WalkFormEvent, WalkFormState> {
   WalkFormBloc({
     required AddWalkUsecases addWalkUsecases,
   }) : _addWalkUsecases = addWalkUsecases,
-       super(const WalkFormState()) {
+       super(WalkFormState()) {
     on<_Init>(__init);
     on<_Submit>(__submit);
     on<_Date>(__date);
@@ -39,6 +39,7 @@ class WalkFormBloc extends Bloc<WalkFormEvent, WalkFormState> {
         DropItemModel(id: 4, value: '60 mins'),  
       ],
       submitStatus: Status.init,
+      petId: event.petId,
     ));
   }
   Future<void> __submit(_Submit event, Emitter<WalkFormState> emit) async {
@@ -51,7 +52,7 @@ class WalkFormBloc extends Bloc<WalkFormEvent, WalkFormState> {
         state.media.value,
         filename: state.media.value.split('/').last,
       ), 
-      pet: 1, 
+      pet: state.petId, 
       duration: state.duration.value!.value, 
       location: state.location.value,
       )

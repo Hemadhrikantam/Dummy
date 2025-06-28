@@ -5,6 +5,7 @@ import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/meal_payload.dart';
+import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/dailycare/domain/usecases/add_meal_usecases.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -34,6 +35,7 @@ class MealFormBloc extends Bloc<MealFormEvent, MealFormState> {
         DropItemModel(id: 4, value: 'Evening Snack'),
       ],
       submitStatus: Status.init,
+      petId: event.petId,
     ));
   }
   Future<void> __submit(_Submit event, Emitter<MealFormState> emit) async {
@@ -56,7 +58,7 @@ class MealFormBloc extends Bloc<MealFormEvent, MealFormState> {
         state.mealTime.value!.value.contains("Evening Snack")?
         "eveningSnack":
         '', 
-      pet: 8,
+      pet: state.petId,
       )
     );
     result.fold(

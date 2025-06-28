@@ -25,7 +25,6 @@ import '../../../../../core/models/login_model.dart';
 import '../../../../../core/utils/toast_message.dart';
 import '../../../../../di/injection.dart';
 import '../../../../dashboard/presentation/pages/dashboard_page.dart';
-import '../../../../home/presentation/pages/home_page.dart';
 import '../../../../signup/presentation/pages/start_your_pets_journey.dart';
 import '../../../domain/entities/current_user.dart';
 import '../../../domain/usecases/current_user_usecases.dart';
@@ -110,8 +109,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         } else if (userType == Yourself.ngo.name) {
           currentContext.pushNamed(NgoRegistrationPage.routeName);
         } else {
-          // currentContext.pushNamed(DashboardPage.routeName);
-          currentContext.pushNamed(MeetYourPetScreen.routeName);
+          currentContext.pushNamed(DashboardPage.routeName);
+          // currentContext.pushNamed(MeetYourPetScreen.routeName);
         }
 
         emit(

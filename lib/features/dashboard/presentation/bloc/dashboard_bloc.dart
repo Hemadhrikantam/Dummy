@@ -28,10 +28,12 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
         emit(state.copyWith(initStatus: Status.failure));
       },
       (success) {
+
         emit(
           state.copyWith(
             initStatus: Status.success,
             dashboardPetDetails: success,
+            selectedPet: success.isNotEmpty ? success.first : null, 
           ),
         );
       },

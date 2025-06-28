@@ -10,5 +10,6 @@ abstract class MealFormState with _$MealFormState {
     @Default(NotEmpty.pure()) final NotEmpty mealType,
     @Default(NotEmpty.pure()) final NotEmpty notes,
     @Default(NotEmpty.pure()) final NotEmpty media,
+    @Default(0) final int petId,
   }) = _MealFormState;
 }
