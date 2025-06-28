@@ -7,6 +7,9 @@ abstract class DailyCareDatasource {
   const DailyCareDatasource();
   AppSuccessResponse addMeal({required Payload payload});
   AppSuccessResponse addWalk({required Payload payload});
+  AppSuccessResponse addGrooming({required Payload payload});
+  AppSuccessResponse addDeworming({required Payload payload});
+  AppSuccessResponse addExpense({required Payload payload});
   AppTypeResponse<List<PetMealModel>> meals(DateTime? date);
   AppTypeResponse<List<PetWalkModel>> walks(DateTime? date);
 }

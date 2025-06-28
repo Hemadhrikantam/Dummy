@@ -98,6 +98,123 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
       },
     );
   }
+  @override
+  AppSuccessResponse addGrooming({required Payload payload}) async {
+    final formData = FormData.fromMap(payload.toMap());
+    final response = await http.post(
+      path: api.addGrooming,
+      data: formData,
+      options: Options(contentType: 'multipart/form-data'),
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message:
+                    data['message'] as String? ?? 'Meal added successfully',
+              ),
+            );
+          }
+
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+  @override
+  AppSuccessResponse addDeworming({required Payload payload}) async {
+    final formData = FormData.fromMap(payload.toMap());
+    final response = await http.post(
+      path: api.addDeworming,
+      data: formData,
+      options: Options(contentType: 'multipart/form-data'),
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message:
+                    data['message'] as String? ?? 'Meal added successfully',
+              ),
+            );
+          }
+
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+  @override
+  AppSuccessResponse addExpense({required Payload payload}) async {
+    final formData = FormData.fromMap(payload.toMap());
+    final response = await http.post(
+      path: api.addExpense,
+      data: formData,
+      options: Options(contentType: 'multipart/form-data'),
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message:
+                    data['message'] as String? ?? 'Meal added successfully',
+              ),
+            );
+          }
+
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
 
   @override
   AppTypeResponse<List<PetMealModel>> meals(DateTime? date) async {

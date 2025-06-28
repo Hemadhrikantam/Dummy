@@ -14,3 +14,9 @@ abstract class MealFormState with _$MealFormState {
     @Default(0) final int petId,
   }) = _MealFormState;
 }
+
+extension WalkValidation on MealFormState {
+  bool get validationX {
+    return Formz.validate([mealTime, date, notes, media, mealType]);
+  }
+}

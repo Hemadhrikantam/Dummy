@@ -1,5 +1,3 @@
-
-
 import 'package:dummy/core/payload/payload.dart';
 import 'package:dummy/core/utils/type_def.dart';
 
@@ -10,7 +8,9 @@ abstract class DailyCareRepository {
   const DailyCareRepository();
   AppSuccessResponse addMeal({required Payload payload});
   AppSuccessResponse addWalk({required Payload payload});
+  AppSuccessResponse addGrooming({required Payload payload});
+  AppSuccessResponse addDeworming({required Payload payload});
+  AppSuccessResponse addExpense({required Payload payload});
   AppTypeResponse<List<PetMeal>> meals(DateTime? date);
   AppTypeResponse<List<PetWalk>> walks(DateTime? date);
 }
-

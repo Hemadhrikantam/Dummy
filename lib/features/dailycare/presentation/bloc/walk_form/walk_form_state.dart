@@ -14,3 +14,8 @@ abstract class WalkFormState with _$WalkFormState {
     @Default(false) final bool validation,
   }) = _WalkFormState;
 }
+extension WalkValidation on WalkFormState {
+  bool get validationX {
+    return Formz.validate([duration, date, notes, media, location]);
+  }
+}

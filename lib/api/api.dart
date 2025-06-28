@@ -44,3 +44,6 @@ String walks(DateTime? date) {
 
 String addMeal = '$__api/daily-care/meals/';
 String addWalk = '$__api/daily-care/walks/';
+String addGrooming = '$__api/daily-care/groomings/';
+String addDeworming = '$__api/daily-care/deworming/';
+String addExpense = '$__api/daily-care/expense/';

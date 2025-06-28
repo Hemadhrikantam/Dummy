@@ -139,7 +139,10 @@ class BottomModels {
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return AddGroomingForm();
+        return BlocProvider(
+          create: (context) => InjectionBloc.groomingFormBloc,
+          child: AddGroomingForm(),
+        );
       },
     );
   }

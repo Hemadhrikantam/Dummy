@@ -19,6 +19,20 @@ class DailyCareRepositoryImpl extends DailyCareRepository {
   AppSuccessResponse addWalk({required Payload payload}) {
     return _careDatasource.addWalk(payload: payload);
   }
+  
+  @override
+  AppSuccessResponse addGrooming({required Payload payload}) {
+    return _careDatasource.addGrooming(payload: payload);
+  }
+  @override
+  AppSuccessResponse addDeworming({required Payload payload}) {
+    return _careDatasource.addDeworming(payload: payload);
+  }
+  @override
+  AppSuccessResponse addExpense({required Payload payload}) {
+    return _careDatasource.addExpense(payload: payload);
+  }
+
 
   @override
   AppTypeResponse<List<PetMeal>> meals(DateTime? date) {

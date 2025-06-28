@@ -42,6 +42,15 @@ class InjectionBloc {
   static WalkFormBloc get walkFormBloc {
     return WalkFormBloc(addWalkUsecases: getIt<AddWalkUsecases>());
   }
+  static GroomingFormBloc get groomingFormBloc {
+    return GroomingFormBloc(addGroomingUsecases: getIt<AddGroomingUsecases>());
+  }
+  static DewormingFormBloc get dewormingFormBloc {
+    return DewormingFormBloc(addDewormingUsecases: getIt<AddDewormingUsecases>());
+  }
+  static ExpenseFormBloc get expenseFormBloc {
+    return ExpenseFormBloc(addExpenseUsecases: getIt<AddExpenseUsecases>());
+  }
 
   static MealsBloc get mealsBloc {
     return MealsBloc(mealsUsecases: getIt<MealsUsecases>());

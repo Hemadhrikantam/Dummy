@@ -10,10 +10,17 @@ import 'package:dummy/features/dailycare/data/datasources/daily_care_datasource.
 import 'package:dummy/features/dailycare/data/datasources/daily_care_datasource_impl.dart';
 import 'package:dummy/features/dailycare/data/repositories/daily_care_repository_impl.dart';
 import 'package:dummy/features/dailycare/domain/repositories/daily_care_repository.dart';
+import 'package:dummy/features/dailycare/domain/usecases/add_deworming_usecases.dart';
+import 'package:dummy/features/dailycare/domain/usecases/add_expense_usecases.dart';
+import 'package:dummy/features/dailycare/domain/usecases/add_grooming_usecases.dart';
 import 'package:dummy/features/dailycare/domain/usecases/add_meal_usecases.dart';
 import 'package:dummy/features/dailycare/domain/usecases/add_walk_usecases.dart';
+import 'package:dummy/features/dailycare/presentation/bloc/deworming_form/deworming_form_bloc.dart';
+import 'package:dummy/features/dailycare/presentation/bloc/expense_form/expense_form_bloc.dart';
+import 'package:dummy/features/dailycare/presentation/bloc/grooming_form/grooming_form_bloc.dart';
 import 'package:dummy/features/dailycare/presentation/bloc/meal_form/meal_form_bloc.dart';
 import 'package:dummy/features/dailycare/presentation/bloc/walk_form/walk_form_bloc.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/add/add_grooming_form.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/add/add_walk_form.dart';
 import 'package:dummy/features/dashboard/data/datasources/dashboard_details_datasource.dart';
 import 'package:dummy/features/dashboard/data/datasources/dashboard_details_datasource_impl.dart';
