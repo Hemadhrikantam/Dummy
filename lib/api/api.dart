@@ -47,3 +47,6 @@ String addWalk = '$__api/daily-care/walks/';
 String addGrooming = '$__api/daily-care/groomings/';
 String addDeworming = '$__api/daily-care/deworming/';
 String addExpense = '$__api/daily-care/expense/';
+String frequencies = '$__api/daily-care/deworming-frequency/';
+String remindBefores = '$__api/daily-care/remind-before/';
+String timezones = '$__api/daily-care/timezone/';

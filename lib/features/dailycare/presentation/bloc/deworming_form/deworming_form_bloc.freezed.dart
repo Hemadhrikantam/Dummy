@@ -309,72 +309,6 @@ as String,
 /// @nodoc
 
 
-class _ReminderTime implements DewormingFormEvent {
-  const _ReminderTime(this.value);
-  
-
- final  String value;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$ReminderTimeCopyWith<_ReminderTime> get copyWith => __$ReminderTimeCopyWithImpl<_ReminderTime>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReminderTime&&(identical(other.value, value) || other.value == value));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,value);
-
-@override
-String toString() {
-  return 'DewormingFormEvent.reminderTime(value: $value)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$ReminderTimeCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
-  factory _$ReminderTimeCopyWith(_ReminderTime value, $Res Function(_ReminderTime) _then) = __$ReminderTimeCopyWithImpl;
-@useResult
-$Res call({
- String value
-});
-
-
-
-
-}
-/// @nodoc
-class __$ReminderTimeCopyWithImpl<$Res>
-    implements _$ReminderTimeCopyWith<$Res> {
-  __$ReminderTimeCopyWithImpl(this._self, this._then);
-
-  final _ReminderTime _self;
-  final $Res Function(_ReminderTime) _then;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_ReminderTime(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
 class _Notes implements DewormingFormEvent {
   const _Notes(this.value);
   
@@ -705,6 +639,204 @@ as DropItem,
 /// @nodoc
 
 
+class _ReminderHour implements DewormingFormEvent {
+  const _ReminderHour(this.value);
+  
+
+ final  DropItem value;
+
+/// Create a copy of DewormingFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ReminderHourCopyWith<_ReminderHour> get copyWith => __$ReminderHourCopyWithImpl<_ReminderHour>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReminderHour&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'DewormingFormEvent.reminderHour(value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ReminderHourCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
+  factory _$ReminderHourCopyWith(_ReminderHour value, $Res Function(_ReminderHour) _then) = __$ReminderHourCopyWithImpl;
+@useResult
+$Res call({
+ DropItem value
+});
+
+
+
+
+}
+/// @nodoc
+class __$ReminderHourCopyWithImpl<$Res>
+    implements _$ReminderHourCopyWith<$Res> {
+  __$ReminderHourCopyWithImpl(this._self, this._then);
+
+  final _ReminderHour _self;
+  final $Res Function(_ReminderHour) _then;
+
+/// Create a copy of DewormingFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_ReminderHour(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as DropItem,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _ReminderMin implements DewormingFormEvent {
+  const _ReminderMin(this.value);
+  
+
+ final  DropItem value;
+
+/// Create a copy of DewormingFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ReminderMinCopyWith<_ReminderMin> get copyWith => __$ReminderMinCopyWithImpl<_ReminderMin>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReminderMin&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'DewormingFormEvent.reminderMin(value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ReminderMinCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
+  factory _$ReminderMinCopyWith(_ReminderMin value, $Res Function(_ReminderMin) _then) = __$ReminderMinCopyWithImpl;
+@useResult
+$Res call({
+ DropItem value
+});
+
+
+
+
+}
+/// @nodoc
+class __$ReminderMinCopyWithImpl<$Res>
+    implements _$ReminderMinCopyWith<$Res> {
+  __$ReminderMinCopyWithImpl(this._self, this._then);
+
+  final _ReminderMin _self;
+  final $Res Function(_ReminderMin) _then;
+
+/// Create a copy of DewormingFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_ReminderMin(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as DropItem,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _ReminderAmPm implements DewormingFormEvent {
+  const _ReminderAmPm(this.value);
+  
+
+ final  DropItem value;
+
+/// Create a copy of DewormingFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ReminderAmPmCopyWith<_ReminderAmPm> get copyWith => __$ReminderAmPmCopyWithImpl<_ReminderAmPm>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReminderAmPm&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'DewormingFormEvent.reminderAmPm(value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ReminderAmPmCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
+  factory _$ReminderAmPmCopyWith(_ReminderAmPm value, $Res Function(_ReminderAmPm) _then) = __$ReminderAmPmCopyWithImpl;
+@useResult
+$Res call({
+ DropItem value
+});
+
+
+
+
+}
+/// @nodoc
+class __$ReminderAmPmCopyWithImpl<$Res>
+    implements _$ReminderAmPmCopyWith<$Res> {
+  __$ReminderAmPmCopyWithImpl(this._self, this._then);
+
+  final _ReminderAmPm _self;
+  final $Res Function(_ReminderAmPm) _then;
+
+/// Create a copy of DewormingFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_ReminderAmPm(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as DropItem,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
 class _Submit implements DewormingFormEvent {
   const _Submit();
   
@@ -738,7 +870,7 @@ String toString() {
 mixin _$DewormingFormState {
 
  Status get submitStatus;// Form fields
- NotEmpty get date; NotEmpty get productName; NotEmpty get dueDate; NotEmpty get reminderTime; NotEmpty get notes; NotEmpty get media; DropdownValue get frequency; DropdownValue get reminderTimezone; DropdownValue get reminderBefore; List<DropItem> get frequencies; List<DropItem> get reminderTimezones; List<DropItem> get reminderBefores; bool get validation; int get petId;
+ NotEmpty get date; NotEmpty get productName; NotEmpty get dueDate; DropdownValue get reminderHour; DropdownValue get reminderMin; DropdownValue get reminderAmPm; NotEmpty get notes; NotEmpty get media; DropdownValue get frequency; DropdownValue get reminderTimezone; DropdownValue get reminderBefore; List<DropItem> get frequencies; List<DropItem> get reminderTimezones; List<DropItem> get reminderBefores; bool get validation; int get petId;
 /// Create a copy of DewormingFormState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -749,16 +881,16 @@ $DewormingFormStateCopyWith<DewormingFormState> get copyWith => _$DewormingFormS
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DewormingFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&(identical(other.date, date) || other.date == date)&&(identical(other.productName, productName) || other.productName == productName)&&(identical(other.dueDate, dueDate) || other.dueDate == dueDate)&&(identical(other.reminderTime, reminderTime) || other.reminderTime == reminderTime)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.media, media) || other.media == media)&&(identical(other.frequency, frequency) || other.frequency == frequency)&&(identical(other.reminderTimezone, reminderTimezone) || other.reminderTimezone == reminderTimezone)&&(identical(other.reminderBefore, reminderBefore) || other.reminderBefore == reminderBefore)&&const DeepCollectionEquality().equals(other.frequencies, frequencies)&&const DeepCollectionEquality().equals(other.reminderTimezones, reminderTimezones)&&const DeepCollectionEquality().equals(other.reminderBefores, reminderBefores)&&(identical(other.validation, validation) || other.validation == validation)&&(identical(other.petId, petId) || other.petId == petId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DewormingFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&(identical(other.date, date) || other.date == date)&&(identical(other.productName, productName) || other.productName == productName)&&(identical(other.dueDate, dueDate) || other.dueDate == dueDate)&&(identical(other.reminderHour, reminderHour) || other.reminderHour == reminderHour)&&(identical(other.reminderMin, reminderMin) || other.reminderMin == reminderMin)&&(identical(other.reminderAmPm, reminderAmPm) || other.reminderAmPm == reminderAmPm)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.media, media) || other.media == media)&&(identical(other.frequency, frequency) || other.frequency == frequency)&&(identical(other.reminderTimezone, reminderTimezone) || other.reminderTimezone == reminderTimezone)&&(identical(other.reminderBefore, reminderBefore) || other.reminderBefore == reminderBefore)&&const DeepCollectionEquality().equals(other.frequencies, frequencies)&&const DeepCollectionEquality().equals(other.reminderTimezones, reminderTimezones)&&const DeepCollectionEquality().equals(other.reminderBefores, reminderBefores)&&(identical(other.validation, validation) || other.validation == validation)&&(identical(other.petId, petId) || other.petId == petId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,submitStatus,date,productName,dueDate,reminderTime,notes,media,frequency,reminderTimezone,reminderBefore,const DeepCollectionEquality().hash(frequencies),const DeepCollectionEquality().hash(reminderTimezones),const DeepCollectionEquality().hash(reminderBefores),validation,petId);
+int get hashCode => Object.hash(runtimeType,submitStatus,date,productName,dueDate,reminderHour,reminderMin,reminderAmPm,notes,media,frequency,reminderTimezone,reminderBefore,const DeepCollectionEquality().hash(frequencies),const DeepCollectionEquality().hash(reminderTimezones),const DeepCollectionEquality().hash(reminderBefores),validation,petId);
 
 @override
 String toString() {
-  return 'DewormingFormState(submitStatus: $submitStatus, date: $date, productName: $productName, dueDate: $dueDate, reminderTime: $reminderTime, notes: $notes, media: $media, frequency: $frequency, reminderTimezone: $reminderTimezone, reminderBefore: $reminderBefore, frequencies: $frequencies, reminderTimezones: $reminderTimezones, reminderBefores: $reminderBefores, validation: $validation, petId: $petId)';
+  return 'DewormingFormState(submitStatus: $submitStatus, date: $date, productName: $productName, dueDate: $dueDate, reminderHour: $reminderHour, reminderMin: $reminderMin, reminderAmPm: $reminderAmPm, notes: $notes, media: $media, frequency: $frequency, reminderTimezone: $reminderTimezone, reminderBefore: $reminderBefore, frequencies: $frequencies, reminderTimezones: $reminderTimezones, reminderBefores: $reminderBefores, validation: $validation, petId: $petId)';
 }
 
 
@@ -769,7 +901,7 @@ abstract mixin class $DewormingFormStateCopyWith<$Res>  {
   factory $DewormingFormStateCopyWith(DewormingFormState value, $Res Function(DewormingFormState) _then) = _$DewormingFormStateCopyWithImpl;
 @useResult
 $Res call({
- Status submitStatus, NotEmpty date, NotEmpty productName, NotEmpty dueDate, NotEmpty reminderTime, NotEmpty notes, NotEmpty media, DropdownValue frequency, DropdownValue reminderTimezone, DropdownValue reminderBefore, List<DropItem> frequencies, List<DropItem> reminderTimezones, List<DropItem> reminderBefores, bool validation, int petId
+ Status submitStatus, NotEmpty date, NotEmpty productName, NotEmpty dueDate, DropdownValue reminderHour, DropdownValue reminderMin, DropdownValue reminderAmPm, NotEmpty notes, NotEmpty media, DropdownValue frequency, DropdownValue reminderTimezone, DropdownValue reminderBefore, List<DropItem> frequencies, List<DropItem> reminderTimezones, List<DropItem> reminderBefores, bool validation, int petId
 });
 
 
@@ -786,14 +918,16 @@ class _$DewormingFormStateCopyWithImpl<$Res>
 
 /// Create a copy of DewormingFormState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? submitStatus = null,Object? date = null,Object? productName = null,Object? dueDate = null,Object? reminderTime = null,Object? notes = null,Object? media = null,Object? frequency = null,Object? reminderTimezone = null,Object? reminderBefore = null,Object? frequencies = null,Object? reminderTimezones = null,Object? reminderBefores = null,Object? validation = null,Object? petId = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? submitStatus = null,Object? date = null,Object? productName = null,Object? dueDate = null,Object? reminderHour = null,Object? reminderMin = null,Object? reminderAmPm = null,Object? notes = null,Object? media = null,Object? frequency = null,Object? reminderTimezone = null,Object? reminderBefore = null,Object? frequencies = null,Object? reminderTimezones = null,Object? reminderBefores = null,Object? validation = null,Object? petId = null,}) {
   return _then(_self.copyWith(
 submitStatus: null == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
 as Status,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
 as NotEmpty,productName: null == productName ? _self.productName : productName // ignore: cast_nullable_to_non_nullable
 as NotEmpty,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
-as NotEmpty,reminderTime: null == reminderTime ? _self.reminderTime : reminderTime // ignore: cast_nullable_to_non_nullable
-as NotEmpty,notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as NotEmpty,reminderHour: null == reminderHour ? _self.reminderHour : reminderHour // ignore: cast_nullable_to_non_nullable
+as DropdownValue,reminderMin: null == reminderMin ? _self.reminderMin : reminderMin // ignore: cast_nullable_to_non_nullable
+as DropdownValue,reminderAmPm: null == reminderAmPm ? _self.reminderAmPm : reminderAmPm // ignore: cast_nullable_to_non_nullable
+as DropdownValue,notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as NotEmpty,media: null == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
 as NotEmpty,frequency: null == frequency ? _self.frequency : frequency // ignore: cast_nullable_to_non_nullable
 as DropdownValue,reminderTimezone: null == reminderTimezone ? _self.reminderTimezone : reminderTimezone // ignore: cast_nullable_to_non_nullable
@@ -814,7 +948,7 @@ as int,
 
 
 class _DewormingFormState implements DewormingFormState {
-  const _DewormingFormState({this.submitStatus = Status.init, this.date = const NotEmpty.pure(), this.productName = const NotEmpty.pure(), this.dueDate = const NotEmpty.pure(), this.reminderTime = const NotEmpty.pure(), this.notes = const NotEmpty.pure(), this.media = const NotEmpty.pure(), this.frequency = const DropdownValue.pure(), this.reminderTimezone = const DropdownValue.pure(), this.reminderBefore = const DropdownValue.pure(), final  List<DropItem> frequencies = const [], final  List<DropItem> reminderTimezones = const [], final  List<DropItem> reminderBefores = const [], this.validation = false, this.petId = 0}): _frequencies = frequencies,_reminderTimezones = reminderTimezones,_reminderBefores = reminderBefores;
+  const _DewormingFormState({this.submitStatus = Status.init, this.date = const NotEmpty.pure(), this.productName = const NotEmpty.pure(), this.dueDate = const NotEmpty.pure(), this.reminderHour = const DropdownValue.pure(), this.reminderMin = const DropdownValue.pure(), this.reminderAmPm = const DropdownValue.pure(), this.notes = const NotEmpty.pure(), this.media = const NotEmpty.pure(), this.frequency = const DropdownValue.pure(), this.reminderTimezone = const DropdownValue.pure(), this.reminderBefore = const DropdownValue.pure(), final  List<DropItem> frequencies = const [], final  List<DropItem> reminderTimezones = const [], final  List<DropItem> reminderBefores = const [], this.validation = false, this.petId = 0}): _frequencies = frequencies,_reminderTimezones = reminderTimezones,_reminderBefores = reminderBefores;
   
 
 @override@JsonKey() final  Status submitStatus;
@@ -822,7 +956,9 @@ class _DewormingFormState implements DewormingFormState {
 @override@JsonKey() final  NotEmpty date;
 @override@JsonKey() final  NotEmpty productName;
 @override@JsonKey() final  NotEmpty dueDate;
-@override@JsonKey() final  NotEmpty reminderTime;
+@override@JsonKey() final  DropdownValue reminderHour;
+@override@JsonKey() final  DropdownValue reminderMin;
+@override@JsonKey() final  DropdownValue reminderAmPm;
 @override@JsonKey() final  NotEmpty notes;
 @override@JsonKey() final  NotEmpty media;
 @override@JsonKey() final  DropdownValue frequency;
@@ -862,16 +998,16 @@ _$DewormingFormStateCopyWith<_DewormingFormState> get copyWith => __$DewormingFo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DewormingFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&(identical(other.date, date) || other.date == date)&&(identical(other.productName, productName) || other.productName == productName)&&(identical(other.dueDate, dueDate) || other.dueDate == dueDate)&&(identical(other.reminderTime, reminderTime) || other.reminderTime == reminderTime)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.media, media) || other.media == media)&&(identical(other.frequency, frequency) || other.frequency == frequency)&&(identical(other.reminderTimezone, reminderTimezone) || other.reminderTimezone == reminderTimezone)&&(identical(other.reminderBefore, reminderBefore) || other.reminderBefore == reminderBefore)&&const DeepCollectionEquality().equals(other._frequencies, _frequencies)&&const DeepCollectionEquality().equals(other._reminderTimezones, _reminderTimezones)&&const DeepCollectionEquality().equals(other._reminderBefores, _reminderBefores)&&(identical(other.validation, validation) || other.validation == validation)&&(identical(other.petId, petId) || other.petId == petId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DewormingFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&(identical(other.date, date) || other.date == date)&&(identical(other.productName, productName) || other.productName == productName)&&(identical(other.dueDate, dueDate) || other.dueDate == dueDate)&&(identical(other.reminderHour, reminderHour) || other.reminderHour == reminderHour)&&(identical(other.reminderMin, reminderMin) || other.reminderMin == reminderMin)&&(identical(other.reminderAmPm, reminderAmPm) || other.reminderAmPm == reminderAmPm)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.media, media) || other.media == media)&&(identical(other.frequency, frequency) || other.frequency == frequency)&&(identical(other.reminderTimezone, reminderTimezone) || other.reminderTimezone == reminderTimezone)&&(identical(other.reminderBefore, reminderBefore) || other.reminderBefore == reminderBefore)&&const DeepCollectionEquality().equals(other._frequencies, _frequencies)&&const DeepCollectionEquality().equals(other._reminderTimezones, _reminderTimezones)&&const DeepCollectionEquality().equals(other._reminderBefores, _reminderBefores)&&(identical(other.validation, validation) || other.validation == validation)&&(identical(other.petId, petId) || other.petId == petId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,submitStatus,date,productName,dueDate,reminderTime,notes,media,frequency,reminderTimezone,reminderBefore,const DeepCollectionEquality().hash(_frequencies),const DeepCollectionEquality().hash(_reminderTimezones),const DeepCollectionEquality().hash(_reminderBefores),validation,petId);
+int get hashCode => Object.hash(runtimeType,submitStatus,date,productName,dueDate,reminderHour,reminderMin,reminderAmPm,notes,media,frequency,reminderTimezone,reminderBefore,const DeepCollectionEquality().hash(_frequencies),const DeepCollectionEquality().hash(_reminderTimezones),const DeepCollectionEquality().hash(_reminderBefores),validation,petId);
 
 @override
 String toString() {
-  return 'DewormingFormState(submitStatus: $submitStatus, date: $date, productName: $productName, dueDate: $dueDate, reminderTime: $reminderTime, notes: $notes, media: $media, frequency: $frequency, reminderTimezone: $reminderTimezone, reminderBefore: $reminderBefore, frequencies: $frequencies, reminderTimezones: $reminderTimezones, reminderBefores: $reminderBefores, validation: $validation, petId: $petId)';
+  return 'DewormingFormState(submitStatus: $submitStatus, date: $date, productName: $productName, dueDate: $dueDate, reminderHour: $reminderHour, reminderMin: $reminderMin, reminderAmPm: $reminderAmPm, notes: $notes, media: $media, frequency: $frequency, reminderTimezone: $reminderTimezone, reminderBefore: $reminderBefore, frequencies: $frequencies, reminderTimezones: $reminderTimezones, reminderBefores: $reminderBefores, validation: $validation, petId: $petId)';
 }
 
 
@@ -882,7 +1018,7 @@ abstract mixin class _$DewormingFormStateCopyWith<$Res> implements $DewormingFor
   factory _$DewormingFormStateCopyWith(_DewormingFormState value, $Res Function(_DewormingFormState) _then) = __$DewormingFormStateCopyWithImpl;
 @override @useResult
 $Res call({
- Status submitStatus, NotEmpty date, NotEmpty productName, NotEmpty dueDate, NotEmpty reminderTime, NotEmpty notes, NotEmpty media, DropdownValue frequency, DropdownValue reminderTimezone, DropdownValue reminderBefore, List<DropItem> frequencies, List<DropItem> reminderTimezones, List<DropItem> reminderBefores, bool validation, int petId
+ Status submitStatus, NotEmpty date, NotEmpty productName, NotEmpty dueDate, DropdownValue reminderHour, DropdownValue reminderMin, DropdownValue reminderAmPm, NotEmpty notes, NotEmpty media, DropdownValue frequency, DropdownValue reminderTimezone, DropdownValue reminderBefore, List<DropItem> frequencies, List<DropItem> reminderTimezones, List<DropItem> reminderBefores, bool validation, int petId
 });
 
 
@@ -899,14 +1035,16 @@ class __$DewormingFormStateCopyWithImpl<$Res>
 
 /// Create a copy of DewormingFormState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? submitStatus = null,Object? date = null,Object? productName = null,Object? dueDate = null,Object? reminderTime = null,Object? notes = null,Object? media = null,Object? frequency = null,Object? reminderTimezone = null,Object? reminderBefore = null,Object? frequencies = null,Object? reminderTimezones = null,Object? reminderBefores = null,Object? validation = null,Object? petId = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? submitStatus = null,Object? date = null,Object? productName = null,Object? dueDate = null,Object? reminderHour = null,Object? reminderMin = null,Object? reminderAmPm = null,Object? notes = null,Object? media = null,Object? frequency = null,Object? reminderTimezone = null,Object? reminderBefore = null,Object? frequencies = null,Object? reminderTimezones = null,Object? reminderBefores = null,Object? validation = null,Object? petId = null,}) {
   return _then(_DewormingFormState(
 submitStatus: null == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
 as Status,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
 as NotEmpty,productName: null == productName ? _self.productName : productName // ignore: cast_nullable_to_non_nullable
 as NotEmpty,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
-as NotEmpty,reminderTime: null == reminderTime ? _self.reminderTime : reminderTime // ignore: cast_nullable_to_non_nullable
-as NotEmpty,notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
+as NotEmpty,reminderHour: null == reminderHour ? _self.reminderHour : reminderHour // ignore: cast_nullable_to_non_nullable
+as DropdownValue,reminderMin: null == reminderMin ? _self.reminderMin : reminderMin // ignore: cast_nullable_to_non_nullable
+as DropdownValue,reminderAmPm: null == reminderAmPm ? _self.reminderAmPm : reminderAmPm // ignore: cast_nullable_to_non_nullable
+as DropdownValue,notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
 as NotEmpty,media: null == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
 as NotEmpty,frequency: null == frequency ? _self.frequency : frequency // ignore: cast_nullable_to_non_nullable
 as DropdownValue,reminderTimezone: null == reminderTimezone ? _self.reminderTimezone : reminderTimezone // ignore: cast_nullable_to_non_nullable

@@ -169,7 +169,10 @@ class BottomModels {
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return AddExpensesForm();
+        return BlocProvider(
+          create: (context) => InjectionBloc.expenseFormBloc,
+          child: AddExpensesForm(),
+        );
       },
     );
   }

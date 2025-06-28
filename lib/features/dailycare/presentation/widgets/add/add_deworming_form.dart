@@ -1,8 +1,11 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
+import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
@@ -14,8 +17,6 @@ import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iconsax/iconsax.dart';
-import 'package:image_picker/image_picker.dart';
 import '../../../../../core/utils/bottom_models.dart';
 
 class AddDewormingForm extends StatefulWidget {
@@ -103,28 +104,42 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                               return CustomDropdownSearch(
                                 items: state.frequencies,
                                 selectedItem: state.frequency.value,
-                                onChanged: (value){
-                                  if(value!=null)
-                                  context.read<DewormingFormBloc>().add(
-                                    DewormingFormEvent.frequency(value),
-                                  );
+                                onChanged: (value) {
+                                  if (value != null)
+                                    context.read<DewormingFormBloc>().add(
+                                      DewormingFormEvent.frequency(value),
+                                    );
                                 },
                                 title: AppText.frequency,
                               );
                             },
                           ),
-                          Text(
-                            AppText.duedate,
-                            style: context.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Styles.gap6,
-                          AppTextFormField(
-                            hintText: '...',
-                            readOnly: true,
-                            suffixIcon: Iconsax.calendar,
-                            onTap: () {},
+
+                          BlocSelector<
+                            DewormingFormBloc,
+                            DewormingFormState,
+                            NotEmpty
+                          >(
+                            selector: (state) {
+                              return state.dueDate;
+                            },
+                            builder: (context, state) {
+                              return AppCustomDateField(
+                                headerText: AppText.duedate,
+                                selectedDate:
+                                    state.value.isNotEmpty
+                                        ? DateTime.parse(state.value)
+                                        : null,
+                                isMandatory: true,
+                                onChange: (value) {
+                                  context.read<DewormingFormBloc>().add(
+                                    DewormingFormEvent.dueDate(
+                                      value.toString(),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
                           ),
                           Styles.gap15,
                           Row(
@@ -140,10 +155,28 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                               ),
                               Styles.gap10,
                               Flexible(
-                                child: CustomDropdownSearch(
-                                  items: [],
-                                  title: '',
-                                  label: 'IST',
+                                child: BlocBuilder<
+                                  DewormingFormBloc,
+                                  DewormingFormState
+                                >(
+                                  builder: (context, state) {
+                                    return CustomDropdownSearch(
+                                      items: state.reminderTimezones,
+                                      selectedItem:
+                                          state.reminderTimezone.value,
+                                      onChanged: (value) {
+                                        if (value != null) {
+                                          context.read<DewormingFormBloc>().add(
+                                            DewormingFormEvent.reminderTimezone(
+                                              value,
+                                            ),
+                                          );
+                                        }
+                                      },
+                                      title: '',
+                                      label: 'IST',
+                                    );
+                                  },
                                 ),
                               ),
                             ],
@@ -151,45 +184,119 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
 
                           Styles.gap6,
                           Styles.gap10,
-                          const AppTextFormField(
-                            hintText: 'One Day before the due date',
+                          BlocBuilder<DewormingFormBloc, DewormingFormState>(
+                            builder: (context, state) {
+                              return CustomDropdownSearch(
+                                items: state.reminderBefores,
+                                selectedItem: state.reminderBefore.value,
+                                onChanged: (value) {
+                                  if (value != null) {
+                                    context.read<DewormingFormBloc>().add(
+                                      DewormingFormEvent.reminderBefore(value),
+                                    );
+                                  }
+                                },
+                                title: '',
+                                label: 'One Day before the due date',
+                              );
+                            },
                           ),
                           Styles.gap10,
-                          Row(
-                            children: [
-                              Expanded(
-                                child: CustomDropdownSearch(
-                                  items: [],
-                                  title: '',
-                                  label: '3',
-                                ),
-                              ),
-                              Styles.gap10,
-                              Expanded(
-                                child: CustomDropdownSearch(
-                                  items: [],
-                                  title: '',
-                                  label: '30',
-                                ),
-                              ),
-                              Styles.gap10,
-                              Expanded(
-                                child: CustomDropdownSearch(
-                                  items: [],
-                                  title: '',
-                                  label: 'PM',
-                                ),
-                              ),
-                            ],
+                          BlocBuilder<DewormingFormBloc, DewormingFormState>(
+                            builder: (context, state) {
+                              return Row(
+                                children: [
+                                  Expanded(
+                                    child: CustomDropdownSearch(
+                                      selectedItem: state.reminderHour.value,
+                                      items: List.generate(
+                                        12,
+                                        (index) => DropItemModel(
+                                          id: index + 1,
+                                          value: '${index + 1}',
+                                        ),
+                                      ),
+                                      title: '',
+                                      label: 'HH',
+                                      onChanged: (v) {
+                                        if (v != null) {
+                                          context.read<DewormingFormBloc>().add(
+                                            DewormingFormEvent.reminderHour(v),
+                                          );
+                                        }
+                                      },
+                                    ),
+                                  ),
+                                  Styles.gap10,
+                                  Expanded(
+                                    child: CustomDropdownSearch(
+                                      selectedItem: state.reminderMin.value,
+                                      items: List.generate(
+                                        60,
+                                        (index) => DropItemModel(
+                                          id: index + 1,
+                                          value: '$index',
+                                        ),
+                                      ),
+                                      title: '',
+                                      label: 'MM',
+                                      onChanged: (v) {
+                                        if (v != null) {
+                                          context.read<DewormingFormBloc>().add(
+                                            DewormingFormEvent.reminderMin(v),
+                                          );
+                                        }
+                                      },
+                                    ),
+                                  ),
+                                  Styles.gap10,
+                                  Expanded(
+                                    child: CustomDropdownSearch(
+                                      selectedItem: state.reminderAmPm.value,
+                                      items: [
+                                        DropItemModel(id: 1, value: 'AM'),
+                                        DropItemModel(id: 2, value: 'PM'),
+                                      ],
+                                      title: '',
+                                      label: 'PM',
+                                      onChanged: (v) {
+                                        if (v != null) {
+                                          context.read<DewormingFormBloc>().add(
+                                            DewormingFormEvent.reminderAmPm(v),
+                                          );
+                                        }
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              );
+                            },
                           ),
                           Styles.gap15,
-                          AppTextFormField(
-                            hintText: AppText.enter,
-                            borderRadius: Styles.borderRadiusCircular25,
-                            onChanged: (value) {},
-                            maxLines: 7,
-                            heigth: 140,
-                            headerText: AppText.notes,
+                          BlocSelector<
+                            DewormingFormBloc,
+                            DewormingFormState,
+                            NotEmpty
+                          >(
+                            selector: (state) {
+                              return state.notes;
+                            },
+                            builder: (context, state) {
+                              return AppTextFormField(
+                                controller:
+                                    TextEditingController()..text = state.value,
+                                hintText: AppText.enter,
+                                borderRadius: Styles.borderRadiusCircular25,
+                                onChanged: (value) {
+                                  context.read<DewormingFormBloc>().add(
+                                    DewormingFormEvent.notes(value.toString()),
+                                  );
+                                },
+                                maxLines: 7,
+                                heigth: 140,
+                                headerText: AppText.notes,
+                              );
+                            },
                           ),
                           Styles.gap15,
                           Text(
@@ -199,7 +306,26 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                             ),
                           ),
                           Styles.gap6,
-                          DottedBorderWidget(),
+                          BlocSelector<
+                            DewormingFormBloc,
+                            DewormingFormState,
+                            NotEmpty
+                          >(
+                            selector: (state) {
+                              return state.media;
+                            },
+                            builder: (context, state) {
+                              return DottedBorderWidget(
+                                paths:
+                                    state.value.isNotEmpty ? [state.value] : [],
+                                onAdd: (value) {
+                                  context.read<DewormingFormBloc>().add(
+                                    DewormingFormEvent.media(value),
+                                  );
+                                },
+                              );
+                            },
+                          ),
 
                           Styles.gap30,
                         ],
@@ -207,10 +333,26 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                     ),
                   ),
                   Styles.gap10,
-                  SaveCancelWidget(
-                    onPressed: () {
-                      context.pop();
-                      BottomModels.addDewormingSuccessBottomSheet(context);
+                  BlocConsumer<DewormingFormBloc, DewormingFormState>(
+                    listener: (context, state) {
+                      if (state.submitStatus.success) {
+                        context.pop();
+                        BottomModels.addDewormingSuccessBottomSheet(context);
+                      }
+                    },
+                    builder: (context, state) {
+                      return SaveCancelWidget(
+                        onPressed:
+                            state.validation
+                                ? () {
+                                  context.read<DewormingFormBloc>().add(
+                                    const DewormingFormEvent.submit(),
+                                  );
+                                }
+                                : () => AppAlert.showToast(
+                                  message: 'Provide Required Fields',
+                                ),
+                      );
                     },
                   ),
                 ],

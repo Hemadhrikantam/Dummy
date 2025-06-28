@@ -1,6 +1,9 @@
 import 'package:dummy/core/payload/payload.dart';
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/dailycare/data/datasources/daily_care_datasource.dart';
+import 'package:dummy/features/dailycare/domain/entities/frequency.dart';
+import 'package:dummy/features/dailycare/domain/entities/remind_before.dart';
+import 'package:dummy/features/dailycare/domain/entities/timezone.dart';
 import 'package:dummy/features/dailycare/domain/repositories/daily_care_repository.dart';
 
 import '../../domain/entities/meal.dart';
@@ -42,5 +45,20 @@ class DailyCareRepositoryImpl extends DailyCareRepository {
   @override
   AppTypeResponse<List<PetWalk>> walks(DateTime? date) {
     return _careDatasource.walks(date);
+  }
+
+  @override
+  AppTypeResponse<List<Frequency>> frequencies() {
+    return _careDatasource.frequencies();
+  }
+
+  @override
+  AppTypeResponse<List<RemindBefore>> remindBefores() {
+    return _careDatasource.remindBefores();
+  }
+
+  @override
+  AppTypeResponse<List<Timezone>> timezones() {
+    return _careDatasource.timezones();
   }
 }
