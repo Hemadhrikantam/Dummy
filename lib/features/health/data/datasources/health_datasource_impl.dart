@@ -20,7 +20,7 @@ class HealthDatasourceImpl extends HealthDatasource {
     LogUtility.warning(payload.toMap().toString());
     final formData = FormData.fromMap(payload.toMap());
     final response = await http.post(
-      path: api.meals(null),
+      path: api.medication(null),
       data: formData,
       options: Options(contentType: 'multipart/form-data'),
     );

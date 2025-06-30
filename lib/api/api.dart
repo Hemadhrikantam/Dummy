@@ -70,3 +70,12 @@ String expenses(DateTime? date) {
 String frequencies = '$__api/daily-care/deworming-frequency/';
 String remindBefores = '$__api/daily-care/remind-before/';
 String timezones = '$__api/daily-care/timezone/';
+
+//health
+String medication(DateTime? date) {
+  if (date != null) {
+    return '$__api/medication/?date=${AppUtil.formatDate(date)}';
+  } else {
+    return '$__api/medication/';
+  }
+}
