@@ -7,8 +7,11 @@ import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/custom_search_bar.dart';
 import 'package:dummy/features/health/presentation/pages/add_medication_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/utils/debouncer.dart';
 import '../../../../../core/widgets/filter_button.dart';
+import '../../bloc/medications/medications_bloc.dart';
 import 'medication_list.dart';
 
 class MedicationsTab extends StatelessWidget {
@@ -16,34 +19,64 @@ class MedicationsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final DebouncerClass _debouncer = DebouncerClass();
+
     return Stack(
       children: [
-        ListView(
-          children: [
-            Styles.gap10,
-            Row(
-              children: [
-                Expanded(child: SearchButton(hintText: AppText.search)),
-                Styles.gap10,
-                CircleAvatar(
-                  radius: 25,
-                  backgroundColor: AppColors.stepperColor,
-                  child: AppIcon(icon: Icons.search, color: AppColors.white),
-                ),
-              ],
-            ),
-            Styles.gap10,
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [FilterButton(
-                onTap: (){
-                   BottomModels.vaccinationFilterSheet(context);
-                },
-              )],
-            ),
-            Styles.gap20,
-            MedicationList(),
-          ],
+        RefreshIndicator.adaptive(
+          onRefresh: () async {
+            context.read<MedicationsBloc>().add(
+              MedicationsEvent.medications(null),
+            );
+          },
+          child: ListView(
+            children: [
+              Styles.gap10,
+              Row(
+                children: [
+                  Expanded(
+                    child: SearchButton(
+                      hintText: AppText.search,
+                      onChanged: (value) {
+                        _debouncer.run(() {
+                          context.read<MedicationsBloc>().add(
+                            MedicationsEvent.medications(value),
+                          );
+                        });
+                      },
+                    ),
+                  ),
+                  // Styles.gap10,
+                  // CircleAvatar(
+                  //   radius: 25,
+                  //   backgroundColor: AppColors.stepperColor,
+                  //   child: AppIcon(
+                  //     onTap: () {
+                  //       context.read<MedicationsBloc>().add(
+                  //         MedicationsEvent.medications(serachVal),
+                  //       );
+                  //     },
+                  //     icon: Icons.search,
+                  //     color: AppColors.white,
+                  //   ),
+                  // ),
+                ],
+              ),
+              Styles.gap10,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  FilterButton(
+                    onTap: () {
+                      BottomModels.vaccinationFilterSheet(context);
+                    },
+                  ),
+                ],
+              ),
+              Styles.gap20,
+              MedicationList(),
+            ],
+          ),
         ),
         Positioned(
           bottom: 0,

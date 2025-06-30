@@ -6,10 +6,11 @@ import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/medication_payload.dart';
 import 'package:dummy/features/dailycare/domain/entities/frequency.dart';
-import 'package:dummy/features/dailycare/domain/usecases/frequency_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/add_medication_usecases.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../../domain/usecases/medication_frequency_usecases.dart';
 
 part 'medication_form_event.dart';
 part 'medication_form_state.dart';
@@ -19,9 +20,9 @@ class MedicationFormBloc
     extends Bloc<MedicationFormEvent, MedicationFormState> {
   MedicationFormBloc({
     required AddMedicationUsecases addMedicationUsecases,
-    required FrequencyUsecases frequencyUsecases,
+    required MedicationFrequencyUsecases medicationFrequencyUsecases,
   }) : _addMedicationUsecase = addMedicationUsecases,
-       _frequencyUsecases = frequencyUsecases,
+       _medicationFrequencyUsecases = medicationFrequencyUsecases,
        super(const MedicationFormState()) {
     on<_Init>(_onInit);
     on<_Reminder>((e, emit) => emit(state.copyWith(reminder: e.value)));
@@ -107,28 +108,29 @@ class MedicationFormBloc
       (e, emit) => _updateField(
         e.value,
         state.startDate,
-        (v) => emit(state.copyWith(startDate: v)),
+        (v) =>
+            emit(state.copyWith(startDate: v, validation: state.validationX)),
       ),
     );
     on<_EndDate>(
       (e, emit) => _updateField(
         e.value,
         state.endDate,
-        (v) => emit(state.copyWith(endDate: v)),
+        (v) => emit(state.copyWith(endDate: v, validation: state.validationX)),
       ),
     );
     on<_Note>(
       (e, emit) => _updateField(
         e.value,
         state.note,
-        (v) => emit(state.copyWith(note: v)),
+        (v) => emit(state.copyWith(note: v, validation: state.validationX)),
       ),
     );
     on<_Media>(
       (e, emit) => _updateField(
         e.value,
         state.media,
-        (v) => emit(state.copyWith(media: v)),
+        (v) => emit(state.copyWith(media: v, validation: state.validationX)),
       ),
     );
     on<_Frequency>(
@@ -143,14 +145,16 @@ class MedicationFormBloc
   }
 
   final AddMedicationUsecases _addMedicationUsecase;
-  final FrequencyUsecases _frequencyUsecases;
+  final MedicationFrequencyUsecases _medicationFrequencyUsecases;
 
   Future<void> _onInit(_Init event, Emitter<MedicationFormState> emit) async {
+    emit(state.copyWith(initStatus: Status.loading));
     final frequencies = List<Frequency>.from(
-      (await _frequencyUsecases()).fold((l) => [], (r) => r),
+      (await _medicationFrequencyUsecases()).fold((l) => [], (r) => r),
     );
     emit(
       state.copyWith(
+        initStatus: Status.success,
         petId: event.petId,
         dosageUnits: [DropItemModel(id: 1, value: "Tablets")],
         frequencies:
@@ -182,9 +186,8 @@ class MedicationFormBloc
         tabletName: state.tabletName.value,
         company: state.company.value,
         dosage: int.parse(state.dosage.value),
-        dosageUnit: state.dosageUnit.value!.value.contains("Tablets")
-                ? "tablets"
-                : '',
+        dosageUnit:
+            state.dosageUnit.value!.value.contains("Tablets") ? "tablets" : '',
         morningTime:
             '${state.morningTimeHour.value!.value}:${state.morningTimeMin.value!.value}',
         afternoonTime:

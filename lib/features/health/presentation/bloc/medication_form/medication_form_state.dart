@@ -1,9 +1,9 @@
 part of 'medication_form_bloc.dart';
 
-
 @freezed
 abstract class MedicationFormState with _$MedicationFormState {
   const factory MedicationFormState({
+    @Default(Status.init) Status initStatus,
     @Default(Status.init) Status submitStatus,
 
     @Default(false) bool reminder,

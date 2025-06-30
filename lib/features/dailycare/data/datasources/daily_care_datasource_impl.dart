@@ -259,6 +259,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
       },
     );
   }
+
   @override
   AppTypeResponse<List<TimezoneModel>> timezones() async {
     final response = await http.get(path: api.timezones);
@@ -293,6 +294,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
       },
     );
   }
+
   @override
   AppTypeResponse<List<RemindBeforeModel>> remindBefores() async {
     final response = await http.get(path: api.remindBefores);
@@ -327,6 +329,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
       },
     );
   }
+  
   @override
   AppTypeResponse<List<PetMealModel>> meals(DateTime? date) async {
     final response = await http.get(path: api.meals(date));

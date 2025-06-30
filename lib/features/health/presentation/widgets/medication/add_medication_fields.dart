@@ -1,12 +1,14 @@
 import 'dart:math';
 
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/widgets/app_custom_check_box.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
+import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/core/widgets/mandatory_field_widget.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/features/health/presentation/bloc/medication_form/medication_form_bloc.dart';
@@ -33,7 +35,7 @@ class __TabletName extends StatelessWidget {
       },
       builder: (context, state) {
         return AppTextFormField(
-          controller: TextEditingController()..text = state.value,
+          initialValue: state.value,
           onChanged: (value) {
             context.read<MedicationFormBloc>().add(
               MedicationFormEvent.tabletName(value),
@@ -41,6 +43,7 @@ class __TabletName extends StatelessWidget {
           },
           hintText: AppText.enter,
           headerText: AppText.tabletName,
+          isMandatory: true,
         );
       },
     );
@@ -58,7 +61,7 @@ class __Company extends StatelessWidget {
       },
       builder: (context, state) {
         return AppTextFormField(
-          controller: TextEditingController()..text = state.value,
+          initialValue: state.value,
           onChanged: (value) {
             context.read<MedicationFormBloc>().add(
               MedicationFormEvent.company(value),
@@ -66,6 +69,7 @@ class __Company extends StatelessWidget {
           },
           hintText: AppText.enter,
           headerText: AppText.company,
+          isMandatory: true,
         );
       },
     );
@@ -96,6 +100,7 @@ class ___StartDate extends State<__StartDate> {
           },
           headerText: AppText.startDate,
           selectedDate: DateTime.tryParse(state.value),
+          isMandatory: true,
         );
       },
     );
@@ -126,6 +131,7 @@ class __EndDateState extends State<__EndDate> {
           },
           headerText: AppText.endDate,
           selectedDate: DateTime.tryParse(state.value),
+          isMandatory: true,
         );
       },
     );
@@ -195,7 +201,7 @@ class __Dosage extends StatelessWidget {
                 },
                 builder: (context, state) {
                   return AppTextFormField(
-                    controller: TextEditingController()..text = state.value,
+                    initialValue: state.value,
                     onChanged: (value) {
                       context.read<MedicationFormBloc>().add(
                         MedicationFormEvent.dosage(value),
@@ -204,6 +210,7 @@ class __Dosage extends StatelessWidget {
                     keyboardType: TextInputType.numberWithOptions(),
                     hintText: AppText.enter,
                     headerText: AppText.dosage,
+                    isMandatory: true,
                   );
                 },
               ),
@@ -261,6 +268,7 @@ class __Frequency extends StatelessWidget {
             }
           },
           label: AppText.select,
+          isMandatory: true,
         );
       },
     );
@@ -275,7 +283,7 @@ class __Notes extends StatelessWidget {
     return BlocBuilder<MedicationFormBloc, MedicationFormState>(
       builder: (context, state) {
         return AppTextFormField(
-          controller: TextEditingController()..text = state.note.value,
+          initialValue: state.note.value,
           onChanged: (value) {
             context.read<MedicationFormBloc>().add(
               MedicationFormEvent.note(value),
@@ -286,6 +294,7 @@ class __Notes extends StatelessWidget {
           maxLines: 7,
           heigth: 140,
           headerText: AppText.notes,
+          isMandatory: true,
         );
       },
     );
@@ -602,7 +611,9 @@ class TotalDosage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '${state.dosage.value} ${state.dosageUnit.value?.value} /\nServing',
+                    state.dosage.isPure || state.dosageUnit.isPure
+                        ? '0 /\nServing'
+                        : '${state.dosage.value} ${state.dosageUnit.value?.value} /\nServing',
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
@@ -612,18 +623,27 @@ class TotalDosage extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      DayWithTimeWidget(
-                        day: '${AppText.morning} ',
-                        time: '- 3.30 PM IST',
-                      ),
-                      DayWithTimeWidget(
-                        day: '${AppText.afternoon} ',
-                        time: '- 3.30 PM IST',
-                      ),
-                      DayWithTimeWidget(
-                        day: '${AppText.night} ',
-                        time: '- 3.30 PM IST',
-                      ),
+                      if (state.morningTimeHour.isValid &&
+                          state.morningTimeMin.isValid)
+                        DayWithTimeWidget(
+                          day: '${AppText.morning} ',
+                          time:
+                              '- ${state.morningTimeHour.value?.value}.${state.morningTimeMin.value?.value} AM IST',
+                        ),
+                      if (state.afternoonTimeHour.isValid &&
+                          state.afternoonTimeMin.isValid)
+                        DayWithTimeWidget(
+                          day: '${AppText.afternoon} ',
+                          time:
+                              '- ${state.afternoonTimeHour.value?.value}.${state.afternoonTimeMin.value?.value} PM IST',
+                        ),
+                      if (state.nightTimeHour.isValid &&
+                          state.nightTimeMin.isValid)
+                        DayWithTimeWidget(
+                          day: '${AppText.night} ',
+                          time:
+                              '- ${state.nightTimeHour.value?.value}.${state.nightTimeMin.value?.value} PM IST',
+                        ),
                     ],
                   ),
                 ],
@@ -672,7 +692,7 @@ class __Media extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        MandatoryFieldWidget(labelText: AppText.media, required: false),
+        MandatoryFieldWidget(labelText: AppText.media, required: true),
         Styles.gap10,
         BlocSelector<MedicationFormBloc, MedicationFormState, NotEmpty>(
           selector: (state) {
@@ -685,7 +705,7 @@ class __Media extends StatelessWidget {
                   MedicationFormEvent.media(v),
                 );
               },
-              paths:state.value.isEmpty?[]: [state.value],
+              paths: state.value.isEmpty ? [] : [state.value],
             );
           },
         ),
