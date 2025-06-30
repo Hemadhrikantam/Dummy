@@ -1,12 +1,15 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
+import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/health/presentation/widgets/success_animation_wrap.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/constant/app_colors.dart';
 import '../../../../../core/widgets/buttons/app_text_button.dart';
@@ -18,109 +21,116 @@ class MedicationSuccessContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        SuccessAnimationWrap(
-          child: CustomCard(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                AppAssestsImage(
-                  path: ImageResources.medsIcon,
-                  height: context.height * .1,
-                  boxFit: BoxFit.contain,
-                ),
-                RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    text: AppText.medicationAddedFor,
-                    style: context.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 24,
-                      color: AppColors.stepperColor,
+    return BlocProvider(
+      create: (context) => InjectionBloc.medicationFormBloc,
+      child: Column(
+        children: [
+          SuccessAnimationWrap(
+            child: CustomCard(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  AppAssestsImage(
+                    path: ImageResources.medsIcon,
+                    height: context.height * .1,
+                    boxFit: BoxFit.contain,
+                  ),
+                  RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      text: AppText.medicationAddedFor,
+                      style: context.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 24,
+                        color: AppColors.stepperColor,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: "[Pet's Name]! ",
+                          style: context.textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                            color: AppColors.stepperColor,
+                          ),
+                        ),
+                        TextSpan(
+                          text: AppText.youreDoingGreat,
+                          style: context.textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                            color: AppColors.stepperColor,
+                          ),
+                        ),
+                      ],
                     ),
-                    children: [
-                      TextSpan(
-                        text: "[Pet's Name]! ",
-                        style: context.textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
-                          color: AppColors.stepperColor,
+                  ),
+                  Styles.gap20,
+                  TotalDosage(),
+                  Styles.gap20,
+                  AppButton(
+                    onPressed: () {
+                      context.pop();
+                      context.pop();
+                    },
+                    name: Center(
+                      child: Text(
+                        AppText.goToMedications,
+                        style: context.textTheme.titleMedium?.copyWith(
+                          color: AppColors.buttonTextColor,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 14,
                         ),
                       ),
-                      TextSpan(
-                        text: AppText.youreDoingGreat,
-                        style: context.textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
-                          color: AppColors.stepperColor,
+                    ),
+                  ),
+                  Styles.gap10,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: AppTextButton(
+                          backgroundColor: AppColors.white,
+                          name: AppText.home,
+                          borderColor: AppColors.grey500,
+                          textColor: AppColors.buttonTextColor,
                         ),
                       ),
                     ],
                   ),
-                ),
-                Styles.gap20,
-                TotalDosageSubmit(),
-                Styles.gap20,
-                AppButton(
-                  name: Center(
-                    child: Text(
-                      AppText.goToMedications,
-                      style: context.textTheme.titleMedium?.copyWith(
-                        color: AppColors.buttonTextColor,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 14,
-                      ),
-                    ),
-                  ),
+                ],
+              ),
+            ),
+          ),
+          Styles.gap20,
+          CustomCard(
+            border: Border.all(color: Colors.transparent),
+            backgroundColor: AppColors.buttonBackground.withOpacity(.6),
+            child: Row(
+              children: [
+                AppAssestsImage(
+                  path: ImageResources.medsIcon,
+                  height: context.height * .05,
+                  width: context.height * .05,
+                  boxFit: BoxFit.contain,
                 ),
                 Styles.gap10,
-                Row(
-                  children: [
-                    Expanded(
-                      child: AppTextButton(
-                        backgroundColor: AppColors.white,
-                        name: AppText.home,
-                        borderColor: AppColors.grey500,
-                        textColor: AppColors.buttonTextColor,
-                      ),
+                Expanded(
+                  child: Text(
+                    AppText.usersKeepTheirPetsMedOnTrack,
+                    style: context.textTheme.titleMedium?.copyWith(
+                      fontStyle: FontStyle.italic,
+                      color: AppColors.buttonTextColor,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16,
                     ),
-                  ],
+                  ),
                 ),
               ],
             ),
           ),
-        ),
-        Styles.gap20,
-          CustomCard(
-          border: Border.all(color: Colors.transparent),
-          backgroundColor: AppColors.buttonBackground.withOpacity(.6),
-          child: Row(
-            children: [
-              AppAssestsImage(
-                path: ImageResources.medsIcon,
-                height: context.height * .05,
-                width: context.height * .05,
-                boxFit: BoxFit.contain,
-              ),
-              Styles.gap10,
-              Expanded(
-                child: Text(
-                  AppText.usersKeepTheirPetsMedOnTrack,
-                  style: context.textTheme.titleMedium?.copyWith(
-                    fontStyle: FontStyle.italic,
-                    color: AppColors.buttonTextColor,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 16,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Expanded(child: SizedBox())
-      ],
+          Expanded(child: SizedBox()),
+        ],
+      ),
     );
   }
 }

@@ -33,6 +33,7 @@ import 'package:dummy/features/health/data/datasources/health_datasource_impl.da
 import 'package:dummy/features/health/data/repositories/health_repository_impl.dart';
 import 'package:dummy/features/health/domain/repositories/health_repository.dart';
 import 'package:dummy/features/health/domain/usecases/add_medication_usecases.dart';
+import 'package:dummy/features/health/domain/usecases/medication_frequency_usecases.dart';
 import 'package:dummy/features/health/presentation/bloc/medication_form/medication_form_bloc.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource_impl.dart';
@@ -69,6 +70,8 @@ import '../features/dailycare/presentation/bloc/groomings/groomings_bloc.dart';
 import '../features/dailycare/presentation/bloc/meals/meals_bloc.dart';
 import '../features/dailycare/presentation/bloc/walks/walks_bloc.dart';
 import '../features/dashboard/domain/usecases/dashboard_details_usecases.dart';
+import '../features/health/domain/usecases/medications_usecases.dart';
+import '../features/health/presentation/bloc/medications/medications_bloc.dart';
 import '../features/signup/data/datasources/signup_datasource.dart';
 import '../features/signup/data/datasources/signup_datasource_impl.dart';
 import '../features/signup/data/repositories/signup_repository_impl.dart';

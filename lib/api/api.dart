@@ -72,10 +72,12 @@ String remindBefores = '$__api/daily-care/remind-before/';
 String timezones = '$__api/daily-care/timezone/';
 
 //health
-String medication(DateTime? date) {
-  if (date != null) {
-    return '$__api/medication/?date=${AppUtil.formatDate(date)}';
+String medication(String? key) {
+  if (key != null) {
+    return '$__api/medication/?search=$key';
   } else {
     return '$__api/medication/';
   }
 }
+
+String medicationFrequencies = '$__api/medication/medication-frequency/';

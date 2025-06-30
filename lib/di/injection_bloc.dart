@@ -42,9 +42,11 @@ class InjectionBloc {
   static WalkFormBloc get walkFormBloc {
     return WalkFormBloc(addWalkUsecases: getIt<AddWalkUsecases>());
   }
+
   static GroomingFormBloc get groomingFormBloc {
     return GroomingFormBloc(addGroomingUsecases: getIt<AddGroomingUsecases>());
   }
+
   static DewormingFormBloc get dewormingFormBloc {
     return DewormingFormBloc(
       addDewormingUsecases: getIt<AddDewormingUsecases>(),
@@ -53,6 +55,7 @@ class InjectionBloc {
       beforeUsecases: getIt<RemindBeforeUsecases>(),
     );
   }
+
   static ExpenseFormBloc get expenseFormBloc {
     return ExpenseFormBloc(addExpenseUsecases: getIt<AddExpenseUsecases>());
   }
@@ -80,8 +83,11 @@ class InjectionBloc {
   static MedicationFormBloc get medicationFormBloc {
     return MedicationFormBloc(
       addMedicationUsecases: getIt<AddMedicationUsecases>(),
-      frequencyUsecases: getIt<FrequencyUsecases>(),
+      medicationFrequencyUsecases: getIt<MedicationFrequencyUsecases>(),
     );
   }
 
+  static MedicationsBloc get medicationsBloc {
+    return MedicationsBloc(medicationsUsecases: getIt<MedicationsUsecases>());
+  }
 }

@@ -1,6 +1,6 @@
-import 'package:dummy/core/constant/app_text.dart';
 import 'package:flutter/material.dart';
-import '../utils/toast_message.dart';
+import 'package:iconsax/iconsax.dart';
+import '../constant/app_colors.dart';
 import 'app_custom_text_field.dart';
 
 class SearchButton extends StatelessWidget {
@@ -18,13 +18,10 @@ class SearchButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return AppTextFormField(
       hintText: hintText,
-      onTap: () {
-        AppAlert.showToast(message: AppText.comingSoon);
-      },
-      // preffix: const Icon(
-      //   Iconsax.search_normal,
-      //   color: AppColors.primaryColor,
-      // ),
+      // onTap: () {
+      //   AppAlert.showToast(message: AppText.comingSoon);
+      // },
+      preffix: const Icon(Iconsax.search_normal, color: AppColors.stepperColor),
       onChanged: onChanged,
       suffix: suffix,
     );

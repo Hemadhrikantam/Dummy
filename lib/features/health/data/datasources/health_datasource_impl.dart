@@ -11,6 +11,9 @@ import 'package:dummy/features/health/data/datasources/health_datasource.dart';
 import 'package:dummy/service/app_http_service.dart';
 import 'package:dummy/service/local_storage_service.dart';
 
+import '../../../dailycare/data/models/frequency_model.dart';
+import '../models/medication_model.dart';
+
 class HealthDatasourceImpl extends HealthDatasource {
   const HealthDatasourceImpl({required this.http, required this.storage});
   final AppHttp http;
@@ -43,6 +46,76 @@ class HealthDatasourceImpl extends HealthDatasource {
               ),
             );
           }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<List<FrequencyModel>> medicationFrequencies() async {
+    final response = await http.get(path: api.medicationFrequencies);
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            final item = <FrequencyModel>[];
+            for (final documents in data as List? ?? []) {
+              final map = Map<String, dynamic>.from(documents as Map);
+              item.add(FrequencyModel.fromJson(map));
+            }
+            return Right(item);
+          }
+
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<List<PetMedicationModel>> medications(String? key) async {
+    final response = await http.get(path: api.medication(key));
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            final item = <PetMedicationModel>[];
+            for (final documents in data as List? ?? []) {
+              final map = Map<String, dynamic>.from(documents as Map);
+              item.add(PetMedicationModel.fromJson(map));
+            }
+            return Right(item);
+          }
+
           return Left(
             ErrorMessage(
               message: data['message'] as String? ?? AppText.somethingWentWrong,

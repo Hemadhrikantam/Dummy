@@ -2,22 +2,19 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/features/health/domain/entities/medication.dart';
 import 'package:dummy/features/health/presentation/pages/medication_details_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/constant/app_colors.dart';
+import '../../../../../core/utils/app_utils.dart';
 import '../../../../../core/widgets/custom_card.dart';
 import '../../../../../core/widgets/custom_switch.dart';
 
-class MedicationsCard extends StatefulWidget {
-  const MedicationsCard({super.key});
+class MedicationsCard extends StatelessWidget {
+  const MedicationsCard({super.key, required this.medication});
+  final PetMedication medication;
 
-  @override
-  State<MedicationsCard> createState() => _MedicationsCardState();
-}
-
-class _MedicationsCardState extends State<MedicationsCard> {
-  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
@@ -42,7 +39,7 @@ class _MedicationsCardState extends State<MedicationsCard> {
                   ),
                   children: [
                     TextSpan(
-                      text: 'Abhayrab',
+                      text: medication.tabletName,
                       style: context.textTheme.labelMedium?.copyWith(
                         color: AppColors.stepperColor,
                       ),
@@ -60,11 +57,11 @@ class _MedicationsCardState extends State<MedicationsCard> {
                   ),
                   Styles.gap6,
                   CustomSwitch(
-                    value: isChecked,
+                    value: medication.reminder,
                     onChanged: (value) {
-                      setState(() {
-                        isChecked = !isChecked;
-                      });
+                      // setState(() {
+                      //   isChecked = !isChecked;
+                      // });
                     },
                   ),
                 ],
@@ -85,10 +82,12 @@ class _MedicationsCardState extends State<MedicationsCard> {
                     ),
                   ),
                   Text(
-                    '12/01/2025',
+                    AppUtil.formatDateToMMDDYYYY(
+                      DateTime.parse(medication.startDate),
+                    ),
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
-                      fontSize: 18
+                      fontSize: 18,
                     ),
                   ),
                 ],
@@ -103,10 +102,12 @@ class _MedicationsCardState extends State<MedicationsCard> {
                     ),
                   ),
                   Text(
-                    '12/01/2025',
+                    AppUtil.formatDateToMMDDYYYY(
+                      DateTime.parse(medication.endDate),
+                    ),
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
-                      fontSize: 18
+                      fontSize: 18,
                     ),
                   ),
                 ],

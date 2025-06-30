@@ -12,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/constant/app_text.dart';
 import '../../../../core/widgets/base_screen.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
+import '../bloc/medications/medications_bloc.dart';
 import '../widgets/medication/add_medication_fields.dart';
 import 'medication_success_page.dart';
 
@@ -40,6 +41,9 @@ class AddMedicationPage extends StatelessWidget {
         child: BlocConsumer<MedicationFormBloc, MedicationFormState>(
           listener: (context, state) {
             if (state.submitStatus.success) {
+              context.read<MedicationsBloc>().add(
+                MedicationsEvent.medications(null),
+              );
               context.push(MedicationSuccessPage.route());
             }
           },
@@ -56,7 +60,7 @@ class AddMedicationPage extends StatelessWidget {
                         message: 'Provide Required Fields',
                       ),
               name: Text(
-                AppText.addVaccination,
+                AppText.addMedications,
                 style: context.textTheme.titleMedium?.copyWith(
                   color: AppColors.buttonTextColor,
                   fontWeight: FontWeight.w700,
