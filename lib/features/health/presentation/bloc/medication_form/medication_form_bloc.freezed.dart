@@ -837,6 +837,204 @@ as DropItem,
 /// @nodoc
 
 
+class _MorningTimeEnable implements MedicationFormEvent {
+  const _MorningTimeEnable(this.value);
+  
+
+ final  bool value;
+
+/// Create a copy of MedicationFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$MorningTimeEnableCopyWith<_MorningTimeEnable> get copyWith => __$MorningTimeEnableCopyWithImpl<_MorningTimeEnable>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MorningTimeEnable&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'MedicationFormEvent.morningTimeEnable(value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$MorningTimeEnableCopyWith<$Res> implements $MedicationFormEventCopyWith<$Res> {
+  factory _$MorningTimeEnableCopyWith(_MorningTimeEnable value, $Res Function(_MorningTimeEnable) _then) = __$MorningTimeEnableCopyWithImpl;
+@useResult
+$Res call({
+ bool value
+});
+
+
+
+
+}
+/// @nodoc
+class __$MorningTimeEnableCopyWithImpl<$Res>
+    implements _$MorningTimeEnableCopyWith<$Res> {
+  __$MorningTimeEnableCopyWithImpl(this._self, this._then);
+
+  final _MorningTimeEnable _self;
+  final $Res Function(_MorningTimeEnable) _then;
+
+/// Create a copy of MedicationFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_MorningTimeEnable(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _NightTimeEnable implements MedicationFormEvent {
+  const _NightTimeEnable(this.value);
+  
+
+ final  bool value;
+
+/// Create a copy of MedicationFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$NightTimeEnableCopyWith<_NightTimeEnable> get copyWith => __$NightTimeEnableCopyWithImpl<_NightTimeEnable>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _NightTimeEnable&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'MedicationFormEvent.nightTimeEnable(value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$NightTimeEnableCopyWith<$Res> implements $MedicationFormEventCopyWith<$Res> {
+  factory _$NightTimeEnableCopyWith(_NightTimeEnable value, $Res Function(_NightTimeEnable) _then) = __$NightTimeEnableCopyWithImpl;
+@useResult
+$Res call({
+ bool value
+});
+
+
+
+
+}
+/// @nodoc
+class __$NightTimeEnableCopyWithImpl<$Res>
+    implements _$NightTimeEnableCopyWith<$Res> {
+  __$NightTimeEnableCopyWithImpl(this._self, this._then);
+
+  final _NightTimeEnable _self;
+  final $Res Function(_NightTimeEnable) _then;
+
+/// Create a copy of MedicationFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_NightTimeEnable(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _AfternoonTimeEnable implements MedicationFormEvent {
+  const _AfternoonTimeEnable(this.value);
+  
+
+ final  bool value;
+
+/// Create a copy of MedicationFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AfternoonTimeEnableCopyWith<_AfternoonTimeEnable> get copyWith => __$AfternoonTimeEnableCopyWithImpl<_AfternoonTimeEnable>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AfternoonTimeEnable&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,value);
+
+@override
+String toString() {
+  return 'MedicationFormEvent.afternoonTimeEnable(value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AfternoonTimeEnableCopyWith<$Res> implements $MedicationFormEventCopyWith<$Res> {
+  factory _$AfternoonTimeEnableCopyWith(_AfternoonTimeEnable value, $Res Function(_AfternoonTimeEnable) _then) = __$AfternoonTimeEnableCopyWithImpl;
+@useResult
+$Res call({
+ bool value
+});
+
+
+
+
+}
+/// @nodoc
+class __$AfternoonTimeEnableCopyWithImpl<$Res>
+    implements _$AfternoonTimeEnableCopyWith<$Res> {
+  __$AfternoonTimeEnableCopyWithImpl(this._self, this._then);
+
+  final _AfternoonTimeEnable _self;
+  final $Res Function(_AfternoonTimeEnable) _then;
+
+/// Create a copy of MedicationFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
+  return _then(_AfternoonTimeEnable(
+null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
 class _StartDate implements MedicationFormEvent {
   const _StartDate(this.value);
   
@@ -1199,7 +1397,7 @@ String toString() {
 /// @nodoc
 mixin _$MedicationFormState {
 
- Status get submitStatus; bool get reminder; NotEmpty get tabletName; NotEmpty get company; NotEmpty get dosage; DropdownValue get dosageUnit; DropdownValue get morningTimeHour; DropdownValue get morningTimeMin; DropdownValue get afternoonTimeHour; DropdownValue get afternoonTimeMin; DropdownValue get nightTimeHour; DropdownValue get nightTimeMin; NotEmpty get startDate; NotEmpty get endDate; NotEmpty get note; NotEmpty get media; DropdownValue get frequency; List<DropItem> get dosageUnits; List<DropItem> get frequencies; bool get validation; int get petId;
+ Status get submitStatus; bool get reminder; NotEmpty get tabletName; NotEmpty get company; NotEmpty get dosage; DropdownValue get dosageUnit; bool get morningTimeEnable; bool get afternoonTimeEnable; bool get nightTimeEnable; DropdownValue get morningTimeHour; DropdownValue get morningTimeMin; DropdownValue get afternoonTimeHour; DropdownValue get afternoonTimeMin; DropdownValue get nightTimeHour; DropdownValue get nightTimeMin; NotEmpty get startDate; NotEmpty get endDate; NotEmpty get note; NotEmpty get media; DropdownValue get frequency; List<DropItem> get dosageUnits; List<DropItem> get frequencies; bool get validation; int get petId;
 /// Create a copy of MedicationFormState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -1210,16 +1408,16 @@ $MedicationFormStateCopyWith<MedicationFormState> get copyWith => _$MedicationFo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MedicationFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&(identical(other.reminder, reminder) || other.reminder == reminder)&&(identical(other.tabletName, tabletName) || other.tabletName == tabletName)&&(identical(other.company, company) || other.company == company)&&(identical(other.dosage, dosage) || other.dosage == dosage)&&(identical(other.dosageUnit, dosageUnit) || other.dosageUnit == dosageUnit)&&(identical(other.morningTimeHour, morningTimeHour) || other.morningTimeHour == morningTimeHour)&&(identical(other.morningTimeMin, morningTimeMin) || other.morningTimeMin == morningTimeMin)&&(identical(other.afternoonTimeHour, afternoonTimeHour) || other.afternoonTimeHour == afternoonTimeHour)&&(identical(other.afternoonTimeMin, afternoonTimeMin) || other.afternoonTimeMin == afternoonTimeMin)&&(identical(other.nightTimeHour, nightTimeHour) || other.nightTimeHour == nightTimeHour)&&(identical(other.nightTimeMin, nightTimeMin) || other.nightTimeMin == nightTimeMin)&&(identical(other.startDate, startDate) || other.startDate == startDate)&&(identical(other.endDate, endDate) || other.endDate == endDate)&&(identical(other.note, note) || other.note == note)&&(identical(other.media, media) || other.media == media)&&(identical(other.frequency, frequency) || other.frequency == frequency)&&const DeepCollectionEquality().equals(other.dosageUnits, dosageUnits)&&const DeepCollectionEquality().equals(other.frequencies, frequencies)&&(identical(other.validation, validation) || other.validation == validation)&&(identical(other.petId, petId) || other.petId == petId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MedicationFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&(identical(other.reminder, reminder) || other.reminder == reminder)&&(identical(other.tabletName, tabletName) || other.tabletName == tabletName)&&(identical(other.company, company) || other.company == company)&&(identical(other.dosage, dosage) || other.dosage == dosage)&&(identical(other.dosageUnit, dosageUnit) || other.dosageUnit == dosageUnit)&&(identical(other.morningTimeEnable, morningTimeEnable) || other.morningTimeEnable == morningTimeEnable)&&(identical(other.afternoonTimeEnable, afternoonTimeEnable) || other.afternoonTimeEnable == afternoonTimeEnable)&&(identical(other.nightTimeEnable, nightTimeEnable) || other.nightTimeEnable == nightTimeEnable)&&(identical(other.morningTimeHour, morningTimeHour) || other.morningTimeHour == morningTimeHour)&&(identical(other.morningTimeMin, morningTimeMin) || other.morningTimeMin == morningTimeMin)&&(identical(other.afternoonTimeHour, afternoonTimeHour) || other.afternoonTimeHour == afternoonTimeHour)&&(identical(other.afternoonTimeMin, afternoonTimeMin) || other.afternoonTimeMin == afternoonTimeMin)&&(identical(other.nightTimeHour, nightTimeHour) || other.nightTimeHour == nightTimeHour)&&(identical(other.nightTimeMin, nightTimeMin) || other.nightTimeMin == nightTimeMin)&&(identical(other.startDate, startDate) || other.startDate == startDate)&&(identical(other.endDate, endDate) || other.endDate == endDate)&&(identical(other.note, note) || other.note == note)&&(identical(other.media, media) || other.media == media)&&(identical(other.frequency, frequency) || other.frequency == frequency)&&const DeepCollectionEquality().equals(other.dosageUnits, dosageUnits)&&const DeepCollectionEquality().equals(other.frequencies, frequencies)&&(identical(other.validation, validation) || other.validation == validation)&&(identical(other.petId, petId) || other.petId == petId));
 }
 
 
 @override
-int get hashCode => Object.hashAll([runtimeType,submitStatus,reminder,tabletName,company,dosage,dosageUnit,morningTimeHour,morningTimeMin,afternoonTimeHour,afternoonTimeMin,nightTimeHour,nightTimeMin,startDate,endDate,note,media,frequency,const DeepCollectionEquality().hash(dosageUnits),const DeepCollectionEquality().hash(frequencies),validation,petId]);
+int get hashCode => Object.hashAll([runtimeType,submitStatus,reminder,tabletName,company,dosage,dosageUnit,morningTimeEnable,afternoonTimeEnable,nightTimeEnable,morningTimeHour,morningTimeMin,afternoonTimeHour,afternoonTimeMin,nightTimeHour,nightTimeMin,startDate,endDate,note,media,frequency,const DeepCollectionEquality().hash(dosageUnits),const DeepCollectionEquality().hash(frequencies),validation,petId]);
 
 @override
 String toString() {
-  return 'MedicationFormState(submitStatus: $submitStatus, reminder: $reminder, tabletName: $tabletName, company: $company, dosage: $dosage, dosageUnit: $dosageUnit, morningTimeHour: $morningTimeHour, morningTimeMin: $morningTimeMin, afternoonTimeHour: $afternoonTimeHour, afternoonTimeMin: $afternoonTimeMin, nightTimeHour: $nightTimeHour, nightTimeMin: $nightTimeMin, startDate: $startDate, endDate: $endDate, note: $note, media: $media, frequency: $frequency, dosageUnits: $dosageUnits, frequencies: $frequencies, validation: $validation, petId: $petId)';
+  return 'MedicationFormState(submitStatus: $submitStatus, reminder: $reminder, tabletName: $tabletName, company: $company, dosage: $dosage, dosageUnit: $dosageUnit, morningTimeEnable: $morningTimeEnable, afternoonTimeEnable: $afternoonTimeEnable, nightTimeEnable: $nightTimeEnable, morningTimeHour: $morningTimeHour, morningTimeMin: $morningTimeMin, afternoonTimeHour: $afternoonTimeHour, afternoonTimeMin: $afternoonTimeMin, nightTimeHour: $nightTimeHour, nightTimeMin: $nightTimeMin, startDate: $startDate, endDate: $endDate, note: $note, media: $media, frequency: $frequency, dosageUnits: $dosageUnits, frequencies: $frequencies, validation: $validation, petId: $petId)';
 }
 
 
@@ -1230,7 +1428,7 @@ abstract mixin class $MedicationFormStateCopyWith<$Res>  {
   factory $MedicationFormStateCopyWith(MedicationFormState value, $Res Function(MedicationFormState) _then) = _$MedicationFormStateCopyWithImpl;
 @useResult
 $Res call({
- Status submitStatus, bool reminder, NotEmpty tabletName, NotEmpty company, NotEmpty dosage, DropdownValue dosageUnit, DropdownValue morningTimeHour, DropdownValue morningTimeMin, DropdownValue afternoonTimeHour, DropdownValue afternoonTimeMin, DropdownValue nightTimeHour, DropdownValue nightTimeMin, NotEmpty startDate, NotEmpty endDate, NotEmpty note, NotEmpty media, DropdownValue frequency, List<DropItem> dosageUnits, List<DropItem> frequencies, bool validation, int petId
+ Status submitStatus, bool reminder, NotEmpty tabletName, NotEmpty company, NotEmpty dosage, DropdownValue dosageUnit, bool morningTimeEnable, bool afternoonTimeEnable, bool nightTimeEnable, DropdownValue morningTimeHour, DropdownValue morningTimeMin, DropdownValue afternoonTimeHour, DropdownValue afternoonTimeMin, DropdownValue nightTimeHour, DropdownValue nightTimeMin, NotEmpty startDate, NotEmpty endDate, NotEmpty note, NotEmpty media, DropdownValue frequency, List<DropItem> dosageUnits, List<DropItem> frequencies, bool validation, int petId
 });
 
 
@@ -1247,7 +1445,7 @@ class _$MedicationFormStateCopyWithImpl<$Res>
 
 /// Create a copy of MedicationFormState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? submitStatus = null,Object? reminder = null,Object? tabletName = null,Object? company = null,Object? dosage = null,Object? dosageUnit = null,Object? morningTimeHour = null,Object? morningTimeMin = null,Object? afternoonTimeHour = null,Object? afternoonTimeMin = null,Object? nightTimeHour = null,Object? nightTimeMin = null,Object? startDate = null,Object? endDate = null,Object? note = null,Object? media = null,Object? frequency = null,Object? dosageUnits = null,Object? frequencies = null,Object? validation = null,Object? petId = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? submitStatus = null,Object? reminder = null,Object? tabletName = null,Object? company = null,Object? dosage = null,Object? dosageUnit = null,Object? morningTimeEnable = null,Object? afternoonTimeEnable = null,Object? nightTimeEnable = null,Object? morningTimeHour = null,Object? morningTimeMin = null,Object? afternoonTimeHour = null,Object? afternoonTimeMin = null,Object? nightTimeHour = null,Object? nightTimeMin = null,Object? startDate = null,Object? endDate = null,Object? note = null,Object? media = null,Object? frequency = null,Object? dosageUnits = null,Object? frequencies = null,Object? validation = null,Object? petId = null,}) {
   return _then(_self.copyWith(
 submitStatus: null == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
 as Status,reminder: null == reminder ? _self.reminder : reminder // ignore: cast_nullable_to_non_nullable
@@ -1255,7 +1453,10 @@ as bool,tabletName: null == tabletName ? _self.tabletName : tabletName // ignore
 as NotEmpty,company: null == company ? _self.company : company // ignore: cast_nullable_to_non_nullable
 as NotEmpty,dosage: null == dosage ? _self.dosage : dosage // ignore: cast_nullable_to_non_nullable
 as NotEmpty,dosageUnit: null == dosageUnit ? _self.dosageUnit : dosageUnit // ignore: cast_nullable_to_non_nullable
-as DropdownValue,morningTimeHour: null == morningTimeHour ? _self.morningTimeHour : morningTimeHour // ignore: cast_nullable_to_non_nullable
+as DropdownValue,morningTimeEnable: null == morningTimeEnable ? _self.morningTimeEnable : morningTimeEnable // ignore: cast_nullable_to_non_nullable
+as bool,afternoonTimeEnable: null == afternoonTimeEnable ? _self.afternoonTimeEnable : afternoonTimeEnable // ignore: cast_nullable_to_non_nullable
+as bool,nightTimeEnable: null == nightTimeEnable ? _self.nightTimeEnable : nightTimeEnable // ignore: cast_nullable_to_non_nullable
+as bool,morningTimeHour: null == morningTimeHour ? _self.morningTimeHour : morningTimeHour // ignore: cast_nullable_to_non_nullable
 as DropdownValue,morningTimeMin: null == morningTimeMin ? _self.morningTimeMin : morningTimeMin // ignore: cast_nullable_to_non_nullable
 as DropdownValue,afternoonTimeHour: null == afternoonTimeHour ? _self.afternoonTimeHour : afternoonTimeHour // ignore: cast_nullable_to_non_nullable
 as DropdownValue,afternoonTimeMin: null == afternoonTimeMin ? _self.afternoonTimeMin : afternoonTimeMin // ignore: cast_nullable_to_non_nullable
@@ -1281,7 +1482,7 @@ as int,
 
 
 class _MedicationFormState implements MedicationFormState {
-  const _MedicationFormState({this.submitStatus = Status.init, this.reminder = false, this.tabletName = const NotEmpty.pure(), this.company = const NotEmpty.pure(), this.dosage = const NotEmpty.pure(), this.dosageUnit = const DropdownValue.pure(), this.morningTimeHour = const DropdownValue.pure(), this.morningTimeMin = const DropdownValue.pure(), this.afternoonTimeHour = const DropdownValue.pure(), this.afternoonTimeMin = const DropdownValue.pure(), this.nightTimeHour = const DropdownValue.pure(), this.nightTimeMin = const DropdownValue.pure(), this.startDate = const NotEmpty.pure(), this.endDate = const NotEmpty.pure(), this.note = const NotEmpty.pure(), this.media = const NotEmpty.pure(), this.frequency = const DropdownValue.pure(), final  List<DropItem> dosageUnits = const [], final  List<DropItem> frequencies = const [], this.validation = false, this.petId = 0}): _dosageUnits = dosageUnits,_frequencies = frequencies;
+  const _MedicationFormState({this.submitStatus = Status.init, this.reminder = false, this.tabletName = const NotEmpty.pure(), this.company = const NotEmpty.pure(), this.dosage = const NotEmpty.pure(), this.dosageUnit = const DropdownValue.pure(), this.morningTimeEnable = false, this.afternoonTimeEnable = false, this.nightTimeEnable = false, this.morningTimeHour = const DropdownValue.pure(), this.morningTimeMin = const DropdownValue.pure(), this.afternoonTimeHour = const DropdownValue.pure(), this.afternoonTimeMin = const DropdownValue.pure(), this.nightTimeHour = const DropdownValue.pure(), this.nightTimeMin = const DropdownValue.pure(), this.startDate = const NotEmpty.pure(), this.endDate = const NotEmpty.pure(), this.note = const NotEmpty.pure(), this.media = const NotEmpty.pure(), this.frequency = const DropdownValue.pure(), final  List<DropItem> dosageUnits = const [], final  List<DropItem> frequencies = const [], this.validation = false, this.petId = 0}): _dosageUnits = dosageUnits,_frequencies = frequencies;
   
 
 @override@JsonKey() final  Status submitStatus;
@@ -1290,6 +1491,9 @@ class _MedicationFormState implements MedicationFormState {
 @override@JsonKey() final  NotEmpty company;
 @override@JsonKey() final  NotEmpty dosage;
 @override@JsonKey() final  DropdownValue dosageUnit;
+@override@JsonKey() final  bool morningTimeEnable;
+@override@JsonKey() final  bool afternoonTimeEnable;
+@override@JsonKey() final  bool nightTimeEnable;
 @override@JsonKey() final  DropdownValue morningTimeHour;
 @override@JsonKey() final  DropdownValue morningTimeMin;
 @override@JsonKey() final  DropdownValue afternoonTimeHour;
@@ -1328,16 +1532,16 @@ _$MedicationFormStateCopyWith<_MedicationFormState> get copyWith => __$Medicatio
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MedicationFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&(identical(other.reminder, reminder) || other.reminder == reminder)&&(identical(other.tabletName, tabletName) || other.tabletName == tabletName)&&(identical(other.company, company) || other.company == company)&&(identical(other.dosage, dosage) || other.dosage == dosage)&&(identical(other.dosageUnit, dosageUnit) || other.dosageUnit == dosageUnit)&&(identical(other.morningTimeHour, morningTimeHour) || other.morningTimeHour == morningTimeHour)&&(identical(other.morningTimeMin, morningTimeMin) || other.morningTimeMin == morningTimeMin)&&(identical(other.afternoonTimeHour, afternoonTimeHour) || other.afternoonTimeHour == afternoonTimeHour)&&(identical(other.afternoonTimeMin, afternoonTimeMin) || other.afternoonTimeMin == afternoonTimeMin)&&(identical(other.nightTimeHour, nightTimeHour) || other.nightTimeHour == nightTimeHour)&&(identical(other.nightTimeMin, nightTimeMin) || other.nightTimeMin == nightTimeMin)&&(identical(other.startDate, startDate) || other.startDate == startDate)&&(identical(other.endDate, endDate) || other.endDate == endDate)&&(identical(other.note, note) || other.note == note)&&(identical(other.media, media) || other.media == media)&&(identical(other.frequency, frequency) || other.frequency == frequency)&&const DeepCollectionEquality().equals(other._dosageUnits, _dosageUnits)&&const DeepCollectionEquality().equals(other._frequencies, _frequencies)&&(identical(other.validation, validation) || other.validation == validation)&&(identical(other.petId, petId) || other.petId == petId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MedicationFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&(identical(other.reminder, reminder) || other.reminder == reminder)&&(identical(other.tabletName, tabletName) || other.tabletName == tabletName)&&(identical(other.company, company) || other.company == company)&&(identical(other.dosage, dosage) || other.dosage == dosage)&&(identical(other.dosageUnit, dosageUnit) || other.dosageUnit == dosageUnit)&&(identical(other.morningTimeEnable, morningTimeEnable) || other.morningTimeEnable == morningTimeEnable)&&(identical(other.afternoonTimeEnable, afternoonTimeEnable) || other.afternoonTimeEnable == afternoonTimeEnable)&&(identical(other.nightTimeEnable, nightTimeEnable) || other.nightTimeEnable == nightTimeEnable)&&(identical(other.morningTimeHour, morningTimeHour) || other.morningTimeHour == morningTimeHour)&&(identical(other.morningTimeMin, morningTimeMin) || other.morningTimeMin == morningTimeMin)&&(identical(other.afternoonTimeHour, afternoonTimeHour) || other.afternoonTimeHour == afternoonTimeHour)&&(identical(other.afternoonTimeMin, afternoonTimeMin) || other.afternoonTimeMin == afternoonTimeMin)&&(identical(other.nightTimeHour, nightTimeHour) || other.nightTimeHour == nightTimeHour)&&(identical(other.nightTimeMin, nightTimeMin) || other.nightTimeMin == nightTimeMin)&&(identical(other.startDate, startDate) || other.startDate == startDate)&&(identical(other.endDate, endDate) || other.endDate == endDate)&&(identical(other.note, note) || other.note == note)&&(identical(other.media, media) || other.media == media)&&(identical(other.frequency, frequency) || other.frequency == frequency)&&const DeepCollectionEquality().equals(other._dosageUnits, _dosageUnits)&&const DeepCollectionEquality().equals(other._frequencies, _frequencies)&&(identical(other.validation, validation) || other.validation == validation)&&(identical(other.petId, petId) || other.petId == petId));
 }
 
 
 @override
-int get hashCode => Object.hashAll([runtimeType,submitStatus,reminder,tabletName,company,dosage,dosageUnit,morningTimeHour,morningTimeMin,afternoonTimeHour,afternoonTimeMin,nightTimeHour,nightTimeMin,startDate,endDate,note,media,frequency,const DeepCollectionEquality().hash(_dosageUnits),const DeepCollectionEquality().hash(_frequencies),validation,petId]);
+int get hashCode => Object.hashAll([runtimeType,submitStatus,reminder,tabletName,company,dosage,dosageUnit,morningTimeEnable,afternoonTimeEnable,nightTimeEnable,morningTimeHour,morningTimeMin,afternoonTimeHour,afternoonTimeMin,nightTimeHour,nightTimeMin,startDate,endDate,note,media,frequency,const DeepCollectionEquality().hash(_dosageUnits),const DeepCollectionEquality().hash(_frequencies),validation,petId]);
 
 @override
 String toString() {
-  return 'MedicationFormState(submitStatus: $submitStatus, reminder: $reminder, tabletName: $tabletName, company: $company, dosage: $dosage, dosageUnit: $dosageUnit, morningTimeHour: $morningTimeHour, morningTimeMin: $morningTimeMin, afternoonTimeHour: $afternoonTimeHour, afternoonTimeMin: $afternoonTimeMin, nightTimeHour: $nightTimeHour, nightTimeMin: $nightTimeMin, startDate: $startDate, endDate: $endDate, note: $note, media: $media, frequency: $frequency, dosageUnits: $dosageUnits, frequencies: $frequencies, validation: $validation, petId: $petId)';
+  return 'MedicationFormState(submitStatus: $submitStatus, reminder: $reminder, tabletName: $tabletName, company: $company, dosage: $dosage, dosageUnit: $dosageUnit, morningTimeEnable: $morningTimeEnable, afternoonTimeEnable: $afternoonTimeEnable, nightTimeEnable: $nightTimeEnable, morningTimeHour: $morningTimeHour, morningTimeMin: $morningTimeMin, afternoonTimeHour: $afternoonTimeHour, afternoonTimeMin: $afternoonTimeMin, nightTimeHour: $nightTimeHour, nightTimeMin: $nightTimeMin, startDate: $startDate, endDate: $endDate, note: $note, media: $media, frequency: $frequency, dosageUnits: $dosageUnits, frequencies: $frequencies, validation: $validation, petId: $petId)';
 }
 
 
@@ -1348,7 +1552,7 @@ abstract mixin class _$MedicationFormStateCopyWith<$Res> implements $MedicationF
   factory _$MedicationFormStateCopyWith(_MedicationFormState value, $Res Function(_MedicationFormState) _then) = __$MedicationFormStateCopyWithImpl;
 @override @useResult
 $Res call({
- Status submitStatus, bool reminder, NotEmpty tabletName, NotEmpty company, NotEmpty dosage, DropdownValue dosageUnit, DropdownValue morningTimeHour, DropdownValue morningTimeMin, DropdownValue afternoonTimeHour, DropdownValue afternoonTimeMin, DropdownValue nightTimeHour, DropdownValue nightTimeMin, NotEmpty startDate, NotEmpty endDate, NotEmpty note, NotEmpty media, DropdownValue frequency, List<DropItem> dosageUnits, List<DropItem> frequencies, bool validation, int petId
+ Status submitStatus, bool reminder, NotEmpty tabletName, NotEmpty company, NotEmpty dosage, DropdownValue dosageUnit, bool morningTimeEnable, bool afternoonTimeEnable, bool nightTimeEnable, DropdownValue morningTimeHour, DropdownValue morningTimeMin, DropdownValue afternoonTimeHour, DropdownValue afternoonTimeMin, DropdownValue nightTimeHour, DropdownValue nightTimeMin, NotEmpty startDate, NotEmpty endDate, NotEmpty note, NotEmpty media, DropdownValue frequency, List<DropItem> dosageUnits, List<DropItem> frequencies, bool validation, int petId
 });
 
 
@@ -1365,7 +1569,7 @@ class __$MedicationFormStateCopyWithImpl<$Res>
 
 /// Create a copy of MedicationFormState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? submitStatus = null,Object? reminder = null,Object? tabletName = null,Object? company = null,Object? dosage = null,Object? dosageUnit = null,Object? morningTimeHour = null,Object? morningTimeMin = null,Object? afternoonTimeHour = null,Object? afternoonTimeMin = null,Object? nightTimeHour = null,Object? nightTimeMin = null,Object? startDate = null,Object? endDate = null,Object? note = null,Object? media = null,Object? frequency = null,Object? dosageUnits = null,Object? frequencies = null,Object? validation = null,Object? petId = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? submitStatus = null,Object? reminder = null,Object? tabletName = null,Object? company = null,Object? dosage = null,Object? dosageUnit = null,Object? morningTimeEnable = null,Object? afternoonTimeEnable = null,Object? nightTimeEnable = null,Object? morningTimeHour = null,Object? morningTimeMin = null,Object? afternoonTimeHour = null,Object? afternoonTimeMin = null,Object? nightTimeHour = null,Object? nightTimeMin = null,Object? startDate = null,Object? endDate = null,Object? note = null,Object? media = null,Object? frequency = null,Object? dosageUnits = null,Object? frequencies = null,Object? validation = null,Object? petId = null,}) {
   return _then(_MedicationFormState(
 submitStatus: null == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
 as Status,reminder: null == reminder ? _self.reminder : reminder // ignore: cast_nullable_to_non_nullable
@@ -1373,7 +1577,10 @@ as bool,tabletName: null == tabletName ? _self.tabletName : tabletName // ignore
 as NotEmpty,company: null == company ? _self.company : company // ignore: cast_nullable_to_non_nullable
 as NotEmpty,dosage: null == dosage ? _self.dosage : dosage // ignore: cast_nullable_to_non_nullable
 as NotEmpty,dosageUnit: null == dosageUnit ? _self.dosageUnit : dosageUnit // ignore: cast_nullable_to_non_nullable
-as DropdownValue,morningTimeHour: null == morningTimeHour ? _self.morningTimeHour : morningTimeHour // ignore: cast_nullable_to_non_nullable
+as DropdownValue,morningTimeEnable: null == morningTimeEnable ? _self.morningTimeEnable : morningTimeEnable // ignore: cast_nullable_to_non_nullable
+as bool,afternoonTimeEnable: null == afternoonTimeEnable ? _self.afternoonTimeEnable : afternoonTimeEnable // ignore: cast_nullable_to_non_nullable
+as bool,nightTimeEnable: null == nightTimeEnable ? _self.nightTimeEnable : nightTimeEnable // ignore: cast_nullable_to_non_nullable
+as bool,morningTimeHour: null == morningTimeHour ? _self.morningTimeHour : morningTimeHour // ignore: cast_nullable_to_non_nullable
 as DropdownValue,morningTimeMin: null == morningTimeMin ? _self.morningTimeMin : morningTimeMin // ignore: cast_nullable_to_non_nullable
 as DropdownValue,afternoonTimeHour: null == afternoonTimeHour ? _self.afternoonTimeHour : afternoonTimeHour // ignore: cast_nullable_to_non_nullable
 as DropdownValue,afternoonTimeMin: null == afternoonTimeMin ? _self.afternoonTimeMin : afternoonTimeMin // ignore: cast_nullable_to_non_nullable

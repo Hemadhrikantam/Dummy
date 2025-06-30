@@ -19,6 +19,11 @@ class MedicationFormEvent with _$MedicationFormEvent {
   const factory MedicationFormEvent.nightTimeHour(DropItem value) = _NightTimeHour;
   const factory MedicationFormEvent.nightTimeMin(DropItem value) = _NightTimeMin;
 
+  const factory MedicationFormEvent.morningTimeEnable(bool value) = _MorningTimeEnable;
+  const factory MedicationFormEvent.nightTimeEnable(bool value) = _NightTimeEnable;
+  const factory MedicationFormEvent.afternoonTimeEnable(bool value) = _AfternoonTimeEnable;
+
+
   const factory MedicationFormEvent.startDate(String value) = _StartDate;
   const factory MedicationFormEvent.endDate(String value) = _EndDate;
   const factory MedicationFormEvent.note(String value) = _Note;

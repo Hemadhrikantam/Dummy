@@ -61,7 +61,7 @@ class MedicationSuccessContent extends StatelessWidget {
                   ),
                 ),
                 Styles.gap20,
-                TotalDosage(),
+                TotalDosageSubmit(),
                 Styles.gap20,
                 AppButton(
                   name: Center(

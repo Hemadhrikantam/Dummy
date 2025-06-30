@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/models/drop_item.dart';
@@ -23,8 +21,8 @@ import '../../../../../core/widgets/dotted_border_widget.dart';
 part 'add_medication_form.dart';
 
 class __TabletName extends StatelessWidget {
-  const __TabletName();
-
+   __TabletName();
+  final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return BlocSelector<MedicationFormBloc, MedicationFormState, NotEmpty>(
@@ -33,7 +31,7 @@ class __TabletName extends StatelessWidget {
       },
       builder: (context, state) {
         return AppTextFormField(
-          controller: TextEditingController()..text = state.value,
+          controller: controller..text = state.value,
           onChanged: (value) {
             context.read<MedicationFormBloc>().add(
               MedicationFormEvent.tabletName(value),
@@ -48,8 +46,8 @@ class __TabletName extends StatelessWidget {
 }
 
 class __Company extends StatelessWidget {
-  const __Company();
-
+   __Company();
+  final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return BlocSelector<MedicationFormBloc, MedicationFormState, NotEmpty>(
@@ -58,7 +56,7 @@ class __Company extends StatelessWidget {
       },
       builder: (context, state) {
         return AppTextFormField(
-          controller: TextEditingController()..text = state.value,
+          controller: controller..text = state.value,
           onChanged: (value) {
             context.read<MedicationFormBloc>().add(
               MedicationFormEvent.company(value),
@@ -173,8 +171,8 @@ class __RemainderState extends State<__Remainder> {
 }
 
 class __Dosage extends StatelessWidget {
-  const __Dosage();
-
+   __Dosage();
+  final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -195,7 +193,7 @@ class __Dosage extends StatelessWidget {
                 },
                 builder: (context, state) {
                   return AppTextFormField(
-                    controller: TextEditingController()..text = state.value,
+                    controller:controller..text = state.value,
                     onChanged: (value) {
                       context.read<MedicationFormBloc>().add(
                         MedicationFormEvent.dosage(value),
@@ -268,14 +266,14 @@ class __Frequency extends StatelessWidget {
 }
 
 class __Notes extends StatelessWidget {
-  const __Notes();
-
+   __Notes();
+  final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<MedicationFormBloc, MedicationFormState>(
       builder: (context, state) {
         return AppTextFormField(
-          controller: TextEditingController()..text = state.note.value,
+          controller: controller..text = state.note.value,
           onChanged: (value) {
             context.read<MedicationFormBloc>().add(
               MedicationFormEvent.note(value),
@@ -636,6 +634,63 @@ class TotalDosage extends StatelessWidget {
   }
 }
 
+class TotalDosageSubmit extends StatelessWidget {
+  const TotalDosageSubmit({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: Styles.edgeInsetsAll10,
+      decoration: BoxDecoration(
+        borderRadius: Styles.borderRadiusCircular20,
+        color: AppColors.stepperColor.withOpacity(.05),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            AppText.totalDosage,
+            style: context.textTheme.labelLarge?.copyWith(
+              color: AppColors.grey500,
+            ),
+          ),
+          Styles.gap10,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '1 Tablets /\nServing',
+                style: context.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: AppColors.stepperColor,
+                ),
+              ),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  DayWithTimeWidget(
+                    day: '${AppText.morning} ',
+                    time: '- 3.30 PM IST',
+                  ),
+                  DayWithTimeWidget(
+                    day: '${AppText.afternoon} ',
+                    time: '- 3.30 PM IST',
+                  ),
+                  DayWithTimeWidget(
+                    day: '${AppText.night} ',
+                    time: '- 3.30 PM IST',
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+}
+
 class DayWithTimeWidget extends StatelessWidget {
   const DayWithTimeWidget({super.key, required this.day, required this.time});
   final String day;
@@ -685,7 +740,7 @@ class __Media extends StatelessWidget {
                   MedicationFormEvent.media(v),
                 );
               },
-              paths:state.value.isEmpty?[]: [state.value],
+              paths: state.value.isEmpty ? [] : [state.value],
             );
           },
         ),

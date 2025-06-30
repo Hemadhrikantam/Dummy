@@ -12,6 +12,10 @@ abstract class MedicationFormState with _$MedicationFormState {
     @Default(NotEmpty.pure()) NotEmpty dosage,
     @Default(DropdownValue.pure()) DropdownValue dosageUnit,
 
+    @Default(false) bool morningTimeEnable,
+    @Default(false) bool afternoonTimeEnable,
+    @Default(false) bool nightTimeEnable,
+
     @Default(DropdownValue.pure()) DropdownValue morningTimeHour,
     @Default(DropdownValue.pure()) DropdownValue morningTimeMin,
 
