@@ -1,11 +1,24 @@
 part of 'add_medication_fields.dart';
 
-class AddMedicationForm extends StatelessWidget {
+class AddMedicationForm extends StatefulWidget {
   const AddMedicationForm({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<StatefulWidget> createState() => _AddMedicationForm();
+}
 
+class _AddMedicationForm extends State<AddMedicationForm> {
+  @override
+  void initState() {
+    final petId = context.read<DashboardBloc>().state.selectedPet?.id;
+    context.read<MedicationFormBloc>().add(
+      MedicationFormEvent.init(petId ?? 0),
+    );
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return ListView(
       padding: Styles.edgeInsetsOnlyH00,
       children: [

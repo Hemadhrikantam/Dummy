@@ -28,6 +28,12 @@ import 'package:dummy/features/dashboard/data/datasources/dashboard_details_data
 import 'package:dummy/features/dashboard/data/repositories/dashboard_details_repository_impl.dart';
 import 'package:dummy/features/dashboard/domain/repositories/dashboard_details_repository.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/health/data/datasources/health_datasource.dart';
+import 'package:dummy/features/health/data/datasources/health_datasource_impl.dart';
+import 'package:dummy/features/health/data/repositories/health_repository_impl.dart';
+import 'package:dummy/features/health/domain/repositories/health_repository.dart';
+import 'package:dummy/features/health/domain/usecases/add_medication_usecases.dart';
+import 'package:dummy/features/health/presentation/bloc/medication_form/medication_form_bloc.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource_impl.dart';
 import 'package:dummy/features/profile/data/repositories/profile_repository_impl.dart';
@@ -81,6 +87,7 @@ part 'injection_singup.dart';
 part 'injection_profile.dart';
 part 'injection_dashboard.dart';
 part 'injection_daily_care.dart';
+part 'injection_health.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -93,5 +100,6 @@ class Injection {
     await __profileDependencies();
     await __dashboardDependencies();
     await __dailyCareDependencies();
+    await __healthDependencies();
   }
 }

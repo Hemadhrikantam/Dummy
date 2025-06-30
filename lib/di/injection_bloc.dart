@@ -76,4 +76,12 @@ class InjectionBloc {
   static DewormingsBloc get dewormingsBloc {
     return DewormingsBloc(dewormingsUsecases: getIt<DewormingsUsecases>());
   }
+
+  static MedicationFormBloc get medicationFormBloc {
+    return MedicationFormBloc(
+      addMedicationUsecases: getIt<AddMedicationUsecases>(),
+      frequencyUsecases: getIt<FrequencyUsecases>(),
+    );
+  }
+
 }

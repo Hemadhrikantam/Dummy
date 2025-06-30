@@ -1,10 +1,17 @@
+import 'dart:math';
+
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/models/drop_item.dart';
+import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/widgets/app_custom_check_box.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/mandatory_field_widget.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/health/presentation/bloc/medication_form/medication_form_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/constant/app_colors.dart';
 import '../../../../../core/constant/app_text.dart';
 import '../../../../../core/widgets/app_custom_text_field.dart';
@@ -20,10 +27,22 @@ class __TabletName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      hintText: AppText.enter,
-      onChanged: (value) {},
-      headerText: AppText.tabletName,
+    return BlocSelector<MedicationFormBloc, MedicationFormState, NotEmpty>(
+      selector: (state) {
+        return state.tabletName;
+      },
+      builder: (context, state) {
+        return AppTextFormField(
+          controller: TextEditingController()..text = state.value,
+          onChanged: (value) {
+            context.read<MedicationFormBloc>().add(
+              MedicationFormEvent.tabletName(value),
+            );
+          },
+          hintText: AppText.enter,
+          headerText: AppText.tabletName,
+        );
+      },
     );
   }
 }
@@ -33,10 +52,22 @@ class __Company extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      hintText: AppText.enter,
-      onChanged: (value) {},
-      headerText: AppText.company,
+    return BlocSelector<MedicationFormBloc, MedicationFormState, NotEmpty>(
+      selector: (state) {
+        return state.company;
+      },
+      builder: (context, state) {
+        return AppTextFormField(
+          controller: TextEditingController()..text = state.value,
+          onChanged: (value) {
+            context.read<MedicationFormBloc>().add(
+              MedicationFormEvent.company(value),
+            );
+          },
+          hintText: AppText.enter,
+          headerText: AppText.company,
+        );
+      },
     );
   }
 }
@@ -52,13 +83,20 @@ class ___StartDate extends State<__StartDate> {
   var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return AppCustomDateField(
-      headerText: AppText.dueDate,
-      selectedDate: date,
-      onChange: (value) {
-        setState(() {
-          date = value;
-        });
+    return BlocSelector<MedicationFormBloc, MedicationFormState, NotEmpty>(
+      selector: (state) {
+        return state.startDate;
+      },
+      builder: (context, state) {
+        return AppCustomDateField(
+          onChange: (value) {
+            context.read<MedicationFormBloc>().add(
+              MedicationFormEvent.startDate(value.toString()),
+            );
+          },
+          headerText: AppText.startDate,
+          selectedDate: DateTime.tryParse(state.value),
+        );
       },
     );
   }
@@ -75,13 +113,20 @@ class __EndDateState extends State<__EndDate> {
   var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return AppCustomDateField(
-      headerText: AppText.dueDate,
-      selectedDate: date,
-      onChange: (value) {
-        setState(() {
-          date = value;
-        });
+    return BlocSelector<MedicationFormBloc, MedicationFormState, NotEmpty>(
+      selector: (state) {
+        return state.endDate;
+      },
+      builder: (context, state) {
+        return AppCustomDateField(
+          onChange: (value) {
+            context.read<MedicationFormBloc>().add(
+              MedicationFormEvent.endDate(value.toString()),
+            );
+          },
+          headerText: AppText.endDate,
+          selectedDate: DateTime.tryParse(state.value),
+        );
       },
     );
   }
@@ -107,12 +152,19 @@ class __RemainderState extends State<__Remainder> {
           ),
         ),
         Styles.gap6,
-        CustomSwitch(
-          value: isChecked,
-          onChanged: (value) {
-            setState(() {
-              isChecked = !isChecked;
-            });
+        BlocSelector<MedicationFormBloc, MedicationFormState, bool>(
+          selector: (state) {
+            return state.reminder;
+          },
+          builder: (context, state) {
+            return CustomSwitch(
+              value: state,
+              onChanged: (value) {
+                context.read<MedicationFormBloc>().add(
+                  MedicationFormEvent.reminder(value),
+                );
+              },
+            );
           },
         ),
       ],
@@ -133,10 +185,27 @@ class __Dosage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Expanded(
-              child: AppTextFormField(
-                hintText: AppText.enter,
-                onChanged: (value) {},
-                headerText: AppText.dosage,
+              child: BlocSelector<
+                MedicationFormBloc,
+                MedicationFormState,
+                NotEmpty
+              >(
+                selector: (state) {
+                  return state.dosage;
+                },
+                builder: (context, state) {
+                  return AppTextFormField(
+                    controller: TextEditingController()..text = state.value,
+                    onChanged: (value) {
+                      context.read<MedicationFormBloc>().add(
+                        MedicationFormEvent.dosage(value),
+                      );
+                    },
+                    keyboardType: TextInputType.numberWithOptions(),
+                    hintText: AppText.enter,
+                    headerText: AppText.dosage,
+                  );
+                },
               ),
             ),
             Styles.gap10,
@@ -154,11 +223,21 @@ class __Tablets extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: CustomDropdownSearch(
-        title: '',
-        items: [],
-        onChanged: (value) {},
-        label: AppText.select,
+      child: BlocBuilder<MedicationFormBloc, MedicationFormState>(
+        builder: (context, state) {
+          return CustomDropdownSearch(
+            title: '',
+            items: state.dosageUnits,
+            onChanged: (value) {
+              if (value != null) {
+                context.read<MedicationFormBloc>().add(
+                  MedicationFormEvent.dosageUnit(value),
+                );
+              }
+            },
+            label: AppText.select,
+          );
+        },
       ),
     );
   }
@@ -169,11 +248,21 @@ class __Frequency extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomDropdownSearch(
-      title: AppText.frequency,
-      items: [],
-      onChanged: (value) {},
-      label: AppText.select,
+    return BlocBuilder<MedicationFormBloc, MedicationFormState>(
+      builder: (context, state) {
+        return CustomDropdownSearch(
+          title: AppText.frequency,
+          items: state.frequencies,
+          onChanged: (value) {
+            if (value != null) {
+              context.read<MedicationFormBloc>().add(
+                MedicationFormEvent.frequency(value),
+              );
+            }
+          },
+          label: AppText.select,
+        );
+      },
     );
   }
 }
@@ -183,13 +272,22 @@ class __Notes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      hintText: AppText.enter,
-      borderRadius: Styles.borderRadiusCircular25,
-      onChanged: (value) {},
-      maxLines: 7,
-      heigth: 140,
-      headerText: AppText.notes,
+    return BlocBuilder<MedicationFormBloc, MedicationFormState>(
+      builder: (context, state) {
+        return AppTextFormField(
+          controller: TextEditingController()..text = state.note.value,
+          onChanged: (value) {
+            context.read<MedicationFormBloc>().add(
+              MedicationFormEvent.note(value),
+            );
+          },
+          hintText: AppText.enter,
+          borderRadius: Styles.borderRadiusCircular25,
+          maxLines: 7,
+          heigth: 140,
+          headerText: AppText.notes,
+        );
+      },
     );
   }
 }
@@ -222,37 +320,65 @@ class ___MorningState extends State<__Morning> {
             padding: Styles.edgeInsetsAll06,
             borderRadius: Styles.borderRadiusCircular50,
             borderColor: AppColors.black.withOpacity(.1),
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    AppText.morning,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                Styles.gap4,
-                Expanded(
-                  flex: 5,
-                  child: CustomDropdownSearch(
-                    title: '',
-                    items: [],
-                    onChanged: (value) {},
-                    label: AppText.hh,
-                  ),
-                ),
-                Styles.gap4,
-                Expanded(
-                  flex: 5,
-                  child: CustomDropdownSearch(
-                    title: '',
-                    items: [],
-                    onChanged: (value) {},
-                    label: AppText.mm,
-                  ),
-                ),
-              ],
+            child: BlocBuilder<MedicationFormBloc, MedicationFormState>(
+              builder: (context, state) {
+                return Row(
+                  children: [
+                    Expanded(
+                      flex: 4,
+                      child: Text(
+                        AppText.morning,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Styles.gap4,
+                    Expanded(
+                      flex: 5,
+                      child: CustomDropdownSearch(
+                        title: '',
+                        selectedItem: state.morningTimeHour.value,
+                        items: List.generate(12, (i) {
+                          return DropItemModel(
+                            id: i + 1,
+                            value: (i + 1).toString(),
+                          );
+                        }),
+                        onChanged: (value) {
+                          if (value != null) {
+                            context.read<MedicationFormBloc>().add(
+                              MedicationFormEvent.morningTimeHour(value),
+                            );
+                          }
+                        },
+                        label: AppText.hh,
+                      ),
+                    ),
+                    Styles.gap4,
+                    Expanded(
+                      flex: 5,
+                      child: CustomDropdownSearch(
+                        title: '',
+                        selectedItem: state.morningTimeMin.value,
+                        items: List.generate(60, (i) {
+                          return DropItemModel(
+                            id: i + 1,
+                            value: (i).toString(),
+                          );
+                        }),
+                        onChanged: (value) {
+                          if (value != null) {
+                            context.read<MedicationFormBloc>().add(
+                              MedicationFormEvent.morningTimeMin(value),
+                            );
+                          }
+                        },
+                        label: AppText.mm,
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
           ),
         ),
@@ -288,37 +414,65 @@ class ___AfternoonState extends State<__Afternoon> {
             padding: Styles.edgeInsetsAll06,
             borderRadius: Styles.borderRadiusCircular50,
             borderColor: AppColors.black.withOpacity(.1),
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    AppText.afternoon,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                Styles.gap4,
-                Expanded(
-                  flex: 5,
-                  child: CustomDropdownSearch(
-                    title: '',
-                    items: [],
-                    onChanged: (value) {},
-                    label: AppText.hh,
-                  ),
-                ),
-                Styles.gap4,
-                Expanded(
-                  flex: 5,
-                  child: CustomDropdownSearch(
-                    title: '',
-                    items: [],
-                    onChanged: (value) {},
-                    label: AppText.mm,
-                  ),
-                ),
-              ],
+            child: BlocBuilder<MedicationFormBloc, MedicationFormState>(
+              builder: (context, state) {
+                return Row(
+                  children: [
+                    Expanded(
+                      flex: 4,
+                      child: Text(
+                        AppText.afternoon,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Styles.gap4,
+                    Expanded(
+                      flex: 5,
+                      child: CustomDropdownSearch(
+                        title: '',
+                        selectedItem: state.afternoonTimeHour.value,
+                        items: List.generate(12, (i) {
+                          return DropItemModel(
+                            id: i + 1,
+                            value: (i + 1).toString(),
+                          );
+                        }),
+                        onChanged: (value) {
+                          if (value != null) {
+                            context.read<MedicationFormBloc>().add(
+                              MedicationFormEvent.afternoonTimeHour(value),
+                            );
+                          }
+                        },
+                        label: AppText.hh,
+                      ),
+                    ),
+                    Styles.gap4,
+                    Expanded(
+                      flex: 5,
+                      child: CustomDropdownSearch(
+                        title: '',
+                        selectedItem: state.afternoonTimeMin.value,
+                        items: List.generate(60, (i) {
+                          return DropItemModel(
+                            id: i + 1,
+                            value: (i).toString(),
+                          );
+                        }),
+                        onChanged: (value) {
+                          if (value != null) {
+                            context.read<MedicationFormBloc>().add(
+                              MedicationFormEvent.afternoonTimeMin(value),
+                            );
+                          }
+                        },
+                        label: AppText.mm,
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
           ),
         ),
@@ -354,37 +508,65 @@ class ___NightState extends State<__Night> {
             padding: Styles.edgeInsetsAll06,
             borderRadius: Styles.borderRadiusCircular50,
             borderColor: AppColors.black.withOpacity(.1),
-            child: Row(
-              children: [
-                Expanded(
-                  flex: 4,
-                  child: Text(
-                    AppText.night,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                ),
-                Styles.gap4,
-                Expanded(
-                  flex: 5,
-                  child: CustomDropdownSearch(
-                    title: '',
-                    items: [],
-                    onChanged: (value) {},
-                    label: AppText.hh,
-                  ),
-                ),
-                Styles.gap4,
-                Expanded(
-                  flex: 5,
-                  child: CustomDropdownSearch(
-                    title: '',
-                    items: [],
-                    onChanged: (value) {},
-                    label: AppText.mm,
-                  ),
-                ),
-              ],
+            child: BlocBuilder<MedicationFormBloc, MedicationFormState>(
+              builder: (context, state) {
+                return Row(
+                  children: [
+                    Expanded(
+                      flex: 4,
+                      child: Text(
+                        AppText.night,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Styles.gap4,
+                    Expanded(
+                      flex: 5,
+                      child: CustomDropdownSearch(
+                        title: '',
+                        selectedItem: state.nightTimeHour.value,
+                        items: List.generate(12, (i) {
+                          return DropItemModel(
+                            id: i + 1,
+                            value: (i + 1).toString(),
+                          );
+                        }),
+                        onChanged: (value) {
+                          if (value != null) {
+                            context.read<MedicationFormBloc>().add(
+                              MedicationFormEvent.nightTimeHour(value),
+                            );
+                          }
+                        },
+                        label: AppText.hh,
+                      ),
+                    ),
+                    Styles.gap4,
+                    Expanded(
+                      flex: 5,
+                      child: CustomDropdownSearch(
+                        title: '',
+                        selectedItem: state.nightTimeMin.value,
+                        items: List.generate(60, (i) {
+                          return DropItemModel(
+                            id: i + 1,
+                            value: (i).toString(),
+                          );
+                        }),
+                        onChanged: (value) {
+                          if (value != null) {
+                            context.read<MedicationFormBloc>().add(
+                              MedicationFormEvent.nightTimeMin(value),
+                            );
+                          }
+                        },
+                        label: AppText.mm,
+                      ),
+                    ),
+                  ],
+                );
+              },
             ),
           ),
         ),
@@ -398,54 +580,58 @@ class TotalDosage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: Styles.edgeInsetsAll10,
-      decoration: BoxDecoration(
-        borderRadius: Styles.borderRadiusCircular20,
-        color: AppColors.stepperColor.withOpacity(.05),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            AppText.totalDosage,
-            style: context.textTheme.labelLarge?.copyWith(
-              color: AppColors.grey500,
-            ),
+    return BlocBuilder<MedicationFormBloc, MedicationFormState>(
+      builder: (context, state) {
+        return Container(
+          padding: Styles.edgeInsetsAll10,
+          decoration: BoxDecoration(
+            borderRadius: Styles.borderRadiusCircular20,
+            color: AppColors.stepperColor.withOpacity(.05),
           ),
-          Styles.gap10,
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                '1 Tablets /\nServing',
-                style: context.textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: AppColors.stepperColor,
+                AppText.totalDosage,
+                style: context.textTheme.labelLarge?.copyWith(
+                  color: AppColors.grey500,
                 ),
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              Styles.gap10,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  DayWithTimeWidget(
-                    day: '${AppText.morning} ',
-                    time: '- 3.30 PM IST',
+                  Text(
+                    '${state.dosage.value} ${state.dosageUnit.value?.value} /\nServing',
+                    style: context.textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      color: AppColors.stepperColor,
+                    ),
                   ),
-                  DayWithTimeWidget(
-                    day: '${AppText.afternoon} ',
-                    time: '- 3.30 PM IST',
-                  ),
-                  DayWithTimeWidget(
-                    day: '${AppText.night} ',
-                    time: '- 3.30 PM IST',
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      DayWithTimeWidget(
+                        day: '${AppText.morning} ',
+                        time: '- 3.30 PM IST',
+                      ),
+                      DayWithTimeWidget(
+                        day: '${AppText.afternoon} ',
+                        time: '- 3.30 PM IST',
+                      ),
+                      DayWithTimeWidget(
+                        day: '${AppText.night} ',
+                        time: '- 3.30 PM IST',
+                      ),
+                    ],
                   ),
                 ],
               ),
             ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
@@ -488,7 +674,21 @@ class __Media extends StatelessWidget {
       children: [
         MandatoryFieldWidget(labelText: AppText.media, required: false),
         Styles.gap10,
-        DottedBorderWidget(),
+        BlocSelector<MedicationFormBloc, MedicationFormState, NotEmpty>(
+          selector: (state) {
+            return state.media;
+          },
+          builder: (context, state) {
+            return DottedBorderWidget(
+              onAdd: (v) {
+                context.read<MedicationFormBloc>().add(
+                  MedicationFormEvent.media(v),
+                );
+              },
+              paths:state.value.isEmpty?[]: [state.value],
+            );
+          },
+        ),
       ],
     );
   }

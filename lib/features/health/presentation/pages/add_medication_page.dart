@@ -1,9 +1,14 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/toast_message.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/health/presentation/bloc/medication_form/medication_form_bloc.dart';
 import 'package:dummy/features/profile/presentation/widgets/bottom_action_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/constant/app_text.dart';
 import '../../../../core/widgets/base_screen.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
@@ -16,7 +21,11 @@ class AddMedicationPage extends StatelessWidget {
 
   static Route<T> route<T>() {
     return MaterialPageRoute<T>(
-      builder: (context) => const AddMedicationPage(),
+      builder:
+          (context) => BlocProvider(
+            create: (context) => InjectionBloc.medicationFormBloc,
+            child: const AddMedicationPage(),
+          ),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -28,18 +37,34 @@ class AddMedicationPage extends StatelessWidget {
       subTitle: '',
       onlyTitle: true,
       bottom: BottomActionButton(
-        child: AppButton(
-          onPressed: () {
-            context.push(MedicationSuccessPage.route());
+        child: BlocConsumer<MedicationFormBloc, MedicationFormState>(
+          listener: (context, state) {
+            if (state.submitStatus.success) {
+              context.push(MedicationSuccessPage.route());
+            }
           },
-          name: Text(
-            AppText.addVaccination,
-            style: context.textTheme.titleMedium?.copyWith(
-              color: AppColors.buttonTextColor,
-              fontWeight: FontWeight.w700,
-              fontSize: 14,
-            ),
-          ),
+          builder: (context, state) {
+            return AppButton(
+              onPressed:
+                  state.validation
+                      ? () {
+                        context.read<MedicationFormBloc>().add(
+                          const MedicationFormEvent.submit(),
+                        );
+                      }
+                      : () => AppAlert.showToast(
+                        message: 'Provide Required Fields',
+                      ),
+              name: Text(
+                AppText.addVaccination,
+                style: context.textTheme.titleMedium?.copyWith(
+                  color: AppColors.buttonTextColor,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 14,
+                ),
+              ),
+            );
+          },
         ),
       ),
       child: Padding(
