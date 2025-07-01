@@ -84,6 +84,8 @@ class InjectionBloc {
     return MedicationFormBloc(
       addMedicationUsecases: getIt<AddMedicationUsecases>(),
       medicationFrequencyUsecases: getIt<MedicationFrequencyUsecases>(),
+      getMedicationUsecases: getIt<GetMedicationUsecases>(),
+      editMedicationUsecases: getIt<EditMedicationUsecases>(),
     );
   }
 

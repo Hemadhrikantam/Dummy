@@ -24,4 +24,14 @@ class HealthRepositoryImpl extends HealthRepository {
   AppTypeResponse<List<PetMedication>> medications(String? key) {
     return _healthDatasource.medications(key);
   }
+  
+  @override
+  AppSuccessResponse editMedication({required Payload payload, required int id}) {
+    return _healthDatasource.editMedication(payload: payload, id: id);
+  }
+  
+  @override
+  AppTypeResponse<PetMedication> getMedication({required int id}) {
+    return _healthDatasource.getMedication(id: id);
+  }
 }

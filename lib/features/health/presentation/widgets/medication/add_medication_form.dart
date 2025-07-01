@@ -1,8 +1,8 @@
 part of 'add_medication_fields.dart';
 
 class AddMedicationForm extends StatefulWidget {
-  const AddMedicationForm({super.key});
-
+  const AddMedicationForm({super.key, this.id});
+  final int? id;
   @override
   State<StatefulWidget> createState() => _AddMedicationForm();
 }
@@ -12,7 +12,7 @@ class _AddMedicationForm extends State<AddMedicationForm> {
   void initState() {
     final petId = context.read<DashboardBloc>().state.selectedPet?.id;
     context.read<MedicationFormBloc>().add(
-      MedicationFormEvent.init(petId ?? 0),
+      MedicationFormEvent.init(petId ?? 0,widget.id),
     );
     super.initState();
   }

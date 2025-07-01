@@ -21,6 +21,8 @@ Future<void> __healthDependencies() async {
     getIt<HealthRepository>(),
   );
   final medicationsUsecases = MedicationsUsecases(getIt<HealthRepository>());
+  final getMedicationUsecases = GetMedicationUsecases(getIt<HealthRepository>());
+  final editMedicationUsecases = EditMedicationUsecases(getIt<HealthRepository>());
 
   //
   getIt.registerLazySingleton<AddMedicationUsecases>(
@@ -30,4 +32,6 @@ Future<void> __healthDependencies() async {
     () => medicationFrequencyUsecases,
   );
   getIt.registerLazySingleton<MedicationsUsecases>(() => medicationsUsecases);
+  getIt.registerLazySingleton<GetMedicationUsecases>(() => getMedicationUsecases);
+  getIt.registerLazySingleton<EditMedicationUsecases>(() => editMedicationUsecases);
 }

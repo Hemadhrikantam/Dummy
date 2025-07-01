@@ -1,9 +1,15 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/toast_message.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/health/presentation/bloc/medication_form/medication_form_bloc.dart';
+import 'package:dummy/features/health/presentation/bloc/medications/medications_bloc.dart';
 import 'package:dummy/features/profile/presentation/widgets/bottom_action_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/constant/app_text.dart';
 import '../../../../core/widgets/base_screen.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
@@ -11,12 +17,16 @@ import '../widgets/medication/add_medication_fields.dart';
 import 'medication_success_page.dart';
 
 class EditMedicationPage extends StatelessWidget {
-  const EditMedicationPage({super.key});
+  const EditMedicationPage({super.key, required this.id});
   static const routeName = '/EditMedicationPage';
-
-  static Route<T> route<T>() {
+  final int id;
+  static Route<T> route<T>(int id) {
     return MaterialPageRoute<T>(
-      builder: (context) => const EditMedicationPage(),
+      builder:
+          (context) => BlocProvider(
+            create: (context) => InjectionBloc.medicationFormBloc,
+            child:  EditMedicationPage(id: id,),
+          ),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -28,23 +38,41 @@ class EditMedicationPage extends StatelessWidget {
       subTitle: '',
       onlyTitle: true,
       bottom: BottomActionButton(
-        child: AppButton(
-          onPressed: () {
-            context.push(MedicationSuccessPage.route());
+        child: BlocConsumer<MedicationFormBloc, MedicationFormState>(
+          listener: (context, state) {
+            if (state.submitStatus.success) {
+              context.read<MedicationsBloc>().add(
+                MedicationsEvent.medications(null),
+              );
+              context.push(MedicationSuccessPage.route());
+            }
           },
-          name: Text(
-            AppText.editMedications,
-            style: context.textTheme.titleMedium?.copyWith(
-              color: AppColors.buttonTextColor,
-              fontWeight: FontWeight.w700,
-              fontSize: 14,
-            ),
-          ),
+          builder: (context, state) {
+            return AppButton(
+              onPressed: state.validation
+                      ? () {
+                        context.read<MedicationFormBloc>().add(
+                           MedicationFormEvent.submit(id),
+                        );
+                      }
+                      : () => AppAlert.showToast(
+                        message: 'Provide Required Fields',
+                      ),
+              name: Text(
+                AppText.editMedications,
+                style: context.textTheme.titleMedium?.copyWith(
+                  color: AppColors.buttonTextColor,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 14,
+                ),
+              ),
+            );
+          },
         ),
       ),
       child: Padding(
         padding: Styles.edgeInsetsOnlyH10,
-        child: const AddMedicationForm(),
+        child:  AddMedicationForm(id: id,),
       ),
     );
   }

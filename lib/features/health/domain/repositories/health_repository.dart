@@ -9,4 +9,6 @@ abstract class HealthRepository {
   AppSuccessResponse addMedication({required Payload payload});
   AppTypeResponse<List<Frequency>> medicationFrequencies();
   AppTypeResponse<List<PetMedication>> medications(String? key);
+    AppSuccessResponse editMedication({required Payload payload,required int id});
+   AppTypeResponse<PetMedication> getMedication({required int id});
 }

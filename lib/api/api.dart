@@ -80,4 +80,6 @@ String medication(String? key) {
   }
 }
 
+
+String medicationItem(int id) => '$__api/medication/item/$id/';
 String medicationFrequencies = '$__api/medication/medication-frequency/';

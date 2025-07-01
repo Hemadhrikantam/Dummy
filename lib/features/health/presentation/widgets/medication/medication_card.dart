@@ -19,7 +19,7 @@ class MedicationsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomCard(
       onTap: () {
-        context.push(MedicationDetailsPage.route());
+        context.push(MedicationDetailsPage.route(medication.id));
       },
       borderColor: AppColors.transparent,
       child: Column(

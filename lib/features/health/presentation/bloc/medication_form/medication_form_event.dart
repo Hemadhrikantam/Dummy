@@ -3,7 +3,7 @@ part of 'medication_form_bloc.dart';
 
 @freezed
 class MedicationFormEvent with _$MedicationFormEvent {
-  const factory MedicationFormEvent.init(int petId) = _Init;
+  const factory MedicationFormEvent.init(int petId,int? id) = _Init;
   const factory MedicationFormEvent.reminder(bool value) = _Reminder;
   const factory MedicationFormEvent.tabletName(String value) = _TabletName;
   const factory MedicationFormEvent.company(String value) = _Company;
@@ -29,5 +29,5 @@ class MedicationFormEvent with _$MedicationFormEvent {
   const factory MedicationFormEvent.note(String value) = _Note;
   const factory MedicationFormEvent.media(String value) = _Media;
   const factory MedicationFormEvent.frequency(DropItem value) = _Frequency;
-  const factory MedicationFormEvent.submit() = _Submit;
+  const factory MedicationFormEvent.submit(int? id) = _Submit;
 }

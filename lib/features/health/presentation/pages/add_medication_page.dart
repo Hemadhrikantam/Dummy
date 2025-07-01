@@ -53,7 +53,7 @@ class AddMedicationPage extends StatelessWidget {
                   state.validation
                       ? () {
                         context.read<MedicationFormBloc>().add(
-                          const MedicationFormEvent.submit(),
+                          const MedicationFormEvent.submit(null),
                         );
                       }
                       : () => AppAlert.showToast(
