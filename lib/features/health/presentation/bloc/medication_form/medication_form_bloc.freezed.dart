@@ -46,10 +46,11 @@ $MedicationFormEventCopyWith(MedicationFormEvent _, $Res Function(MedicationForm
 
 
 class _Init implements MedicationFormEvent {
-  const _Init(this.petId);
+  const _Init(this.petId, this.id);
   
 
  final  int petId;
+ final  int? id;
 
 /// Create a copy of MedicationFormEvent
 /// with the given fields replaced by the non-null parameter values.
@@ -61,16 +62,16 @@ _$InitCopyWith<_Init> get copyWith => __$InitCopyWithImpl<_Init>(this, _$identit
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Init&&(identical(other.petId, petId) || other.petId == petId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Init&&(identical(other.petId, petId) || other.petId == petId)&&(identical(other.id, id) || other.id == id));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,petId);
+int get hashCode => Object.hash(runtimeType,petId,id);
 
 @override
 String toString() {
-  return 'MedicationFormEvent.init(petId: $petId)';
+  return 'MedicationFormEvent.init(petId: $petId, id: $id)';
 }
 
 
@@ -81,7 +82,7 @@ abstract mixin class _$InitCopyWith<$Res> implements $MedicationFormEventCopyWit
   factory _$InitCopyWith(_Init value, $Res Function(_Init) _then) = __$InitCopyWithImpl;
 @useResult
 $Res call({
- int petId
+ int petId, int? id
 });
 
 
@@ -98,10 +99,11 @@ class __$InitCopyWithImpl<$Res>
 
 /// Create a copy of MedicationFormEvent
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? petId = null,}) {
+@pragma('vm:prefer-inline') $Res call({Object? petId = null,Object? id = freezed,}) {
   return _then(_Init(
 null == petId ? _self.petId : petId // ignore: cast_nullable_to_non_nullable
-as int,
+as int,freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,
   ));
 }
 
@@ -1366,33 +1368,67 @@ as DropItem,
 
 
 class _Submit implements MedicationFormEvent {
-  const _Submit();
+  const _Submit(this.id);
   
 
+ final  int? id;
 
-
+/// Create a copy of MedicationFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SubmitCopyWith<_Submit> get copyWith => __$SubmitCopyWithImpl<_Submit>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Submit);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Submit&&(identical(other.id, id) || other.id == id));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,id);
 
 @override
 String toString() {
-  return 'MedicationFormEvent.submit()';
+  return 'MedicationFormEvent.submit(id: $id)';
 }
 
 
 }
 
+/// @nodoc
+abstract mixin class _$SubmitCopyWith<$Res> implements $MedicationFormEventCopyWith<$Res> {
+  factory _$SubmitCopyWith(_Submit value, $Res Function(_Submit) _then) = __$SubmitCopyWithImpl;
+@useResult
+$Res call({
+ int? id
+});
 
 
+
+
+}
+/// @nodoc
+class __$SubmitCopyWithImpl<$Res>
+    implements _$SubmitCopyWith<$Res> {
+  __$SubmitCopyWithImpl(this._self, this._then);
+
+  final _Submit _self;
+  final $Res Function(_Submit) _then;
+
+/// Create a copy of MedicationFormEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? id = freezed,}) {
+  return _then(_Submit(
+freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+
+}
 
 /// @nodoc
 mixin _$MedicationFormState {

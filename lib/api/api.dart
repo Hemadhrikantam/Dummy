@@ -82,6 +82,8 @@ String medication(String? key, String? fromDate, String? toDate) {
   }
 }
 
+
+String medicationItem(int id) => '$__api/medication/item/$id/';
 String medicationFrequencies = '$__api/medication/medication-frequency/';
 
 String vaccination(String? key) {

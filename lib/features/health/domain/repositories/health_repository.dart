@@ -13,5 +13,10 @@ abstract class HealthRepository {
     String? fromDate,
     String? toDate,
   );
+  AppSuccessResponse editMedication({
+    required Payload payload,
+    required int id,
+  });
+  AppTypeResponse<PetMedication> getMedication({required int id});
   AppSuccessResponse addVaccination({required Payload payload});
 }

@@ -15,12 +15,12 @@ import '../../../../core/widgets/buttons/app_text_button.dart';
 import '../widgets/medication/medication_details_card.dart';
 
 class MedicationDetailsPage extends StatelessWidget {
-  const MedicationDetailsPage({super.key});
+  const MedicationDetailsPage({super.key, required this.id});
   static const routeName = '/MedicationDetailsPage';
-
-  static Route<T> route<T>() {
+  final int id;
+  static Route<T> route<T>(int id) {
     return MaterialPageRoute<T>(
-      builder: (context) => const MedicationDetailsPage(),
+      builder: (context) =>  MedicationDetailsPage(id: id,),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -48,7 +48,7 @@ class MedicationDetailsPage extends StatelessWidget {
             Expanded(
               child: AppButton(
                 onPressed: (){
-                  context.push(EditMedicationPage.route());
+                  context.push(EditMedicationPage.route(id));
                 },
                 name: Center(
                   child: Text(
