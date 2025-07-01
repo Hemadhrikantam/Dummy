@@ -4,7 +4,7 @@ import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
-import 'package:dummy/core/payload/deworming_payload.dart';
+import 'package:dummy/core/payload/dailycare/deworming_payload.dart';
 import 'package:dummy/features/dailycare/domain/entities/frequency.dart';
 import 'package:dummy/features/dailycare/domain/entities/remind_before.dart';
 import 'package:dummy/features/dailycare/domain/entities/timezone.dart';

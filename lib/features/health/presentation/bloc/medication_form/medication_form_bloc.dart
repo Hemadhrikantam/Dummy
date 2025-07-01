@@ -4,7 +4,7 @@ import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
-import 'package:dummy/core/payload/medication_payload.dart';
+import 'package:dummy/core/payload/health/medication_payload.dart';
 import 'package:dummy/features/dailycare/domain/entities/frequency.dart';
 import 'package:dummy/features/health/domain/usecases/add_medication_usecases.dart';
 import 'package:formz/formz.dart';

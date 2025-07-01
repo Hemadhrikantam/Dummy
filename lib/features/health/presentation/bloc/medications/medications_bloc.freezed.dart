@@ -141,9 +141,77 @@ as String?,
 }
 
 /// @nodoc
+
+
+class _Filter implements MedicationsEvent {
+  const _Filter(this.startDate, this.endDate);
+  
+
+ final  String startDate;
+ final  String endDate;
+
+/// Create a copy of MedicationsEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$FilterCopyWith<_Filter> get copyWith => __$FilterCopyWithImpl<_Filter>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Filter&&(identical(other.startDate, startDate) || other.startDate == startDate)&&(identical(other.endDate, endDate) || other.endDate == endDate));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,startDate,endDate);
+
+@override
+String toString() {
+  return 'MedicationsEvent.filter(startDate: $startDate, endDate: $endDate)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$FilterCopyWith<$Res> implements $MedicationsEventCopyWith<$Res> {
+  factory _$FilterCopyWith(_Filter value, $Res Function(_Filter) _then) = __$FilterCopyWithImpl;
+@useResult
+$Res call({
+ String startDate, String endDate
+});
+
+
+
+
+}
+/// @nodoc
+class __$FilterCopyWithImpl<$Res>
+    implements _$FilterCopyWith<$Res> {
+  __$FilterCopyWithImpl(this._self, this._then);
+
+  final _Filter _self;
+  final $Res Function(_Filter) _then;
+
+/// Create a copy of MedicationsEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? startDate = null,Object? endDate = null,}) {
+  return _then(_Filter(
+null == startDate ? _self.startDate : startDate // ignore: cast_nullable_to_non_nullable
+as String,null == endDate ? _self.endDate : endDate // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
 mixin _$MedicationsState {
 
- Status get medicationsStatus; List<PetMedication> get medications;
+ Status get medicationsStatus; List<PetMedication> get medications; NotEmpty get startDate; NotEmpty get endDate;
 /// Create a copy of MedicationsState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -154,16 +222,16 @@ $MedicationsStateCopyWith<MedicationsState> get copyWith => _$MedicationsStateCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MedicationsState&&(identical(other.medicationsStatus, medicationsStatus) || other.medicationsStatus == medicationsStatus)&&const DeepCollectionEquality().equals(other.medications, medications));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MedicationsState&&(identical(other.medicationsStatus, medicationsStatus) || other.medicationsStatus == medicationsStatus)&&const DeepCollectionEquality().equals(other.medications, medications)&&(identical(other.startDate, startDate) || other.startDate == startDate)&&(identical(other.endDate, endDate) || other.endDate == endDate));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,medicationsStatus,const DeepCollectionEquality().hash(medications));
+int get hashCode => Object.hash(runtimeType,medicationsStatus,const DeepCollectionEquality().hash(medications),startDate,endDate);
 
 @override
 String toString() {
-  return 'MedicationsState(medicationsStatus: $medicationsStatus, medications: $medications)';
+  return 'MedicationsState(medicationsStatus: $medicationsStatus, medications: $medications, startDate: $startDate, endDate: $endDate)';
 }
 
 
@@ -174,7 +242,7 @@ abstract mixin class $MedicationsStateCopyWith<$Res>  {
   factory $MedicationsStateCopyWith(MedicationsState value, $Res Function(MedicationsState) _then) = _$MedicationsStateCopyWithImpl;
 @useResult
 $Res call({
- Status medicationsStatus, List<PetMedication> medications
+ Status medicationsStatus, List<PetMedication> medications, NotEmpty startDate, NotEmpty endDate
 });
 
 
@@ -191,11 +259,13 @@ class _$MedicationsStateCopyWithImpl<$Res>
 
 /// Create a copy of MedicationsState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? medicationsStatus = null,Object? medications = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? medicationsStatus = null,Object? medications = null,Object? startDate = null,Object? endDate = null,}) {
   return _then(_self.copyWith(
 medicationsStatus: null == medicationsStatus ? _self.medicationsStatus : medicationsStatus // ignore: cast_nullable_to_non_nullable
 as Status,medications: null == medications ? _self.medications : medications // ignore: cast_nullable_to_non_nullable
-as List<PetMedication>,
+as List<PetMedication>,startDate: null == startDate ? _self.startDate : startDate // ignore: cast_nullable_to_non_nullable
+as NotEmpty,endDate: null == endDate ? _self.endDate : endDate // ignore: cast_nullable_to_non_nullable
+as NotEmpty,
   ));
 }
 
@@ -206,7 +276,7 @@ as List<PetMedication>,
 
 
 class _MedicationsState implements MedicationsState {
-  const _MedicationsState({this.medicationsStatus = Status.init, final  List<PetMedication> medications = const []}): _medications = medications;
+  const _MedicationsState({this.medicationsStatus = Status.init, final  List<PetMedication> medications = const [], this.startDate = const NotEmpty.pure(), this.endDate = const NotEmpty.pure()}): _medications = medications;
   
 
 @override@JsonKey() final  Status medicationsStatus;
@@ -217,6 +287,8 @@ class _MedicationsState implements MedicationsState {
   return EqualUnmodifiableListView(_medications);
 }
 
+@override@JsonKey() final  NotEmpty startDate;
+@override@JsonKey() final  NotEmpty endDate;
 
 /// Create a copy of MedicationsState
 /// with the given fields replaced by the non-null parameter values.
@@ -228,16 +300,16 @@ _$MedicationsStateCopyWith<_MedicationsState> get copyWith => __$MedicationsStat
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MedicationsState&&(identical(other.medicationsStatus, medicationsStatus) || other.medicationsStatus == medicationsStatus)&&const DeepCollectionEquality().equals(other._medications, _medications));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MedicationsState&&(identical(other.medicationsStatus, medicationsStatus) || other.medicationsStatus == medicationsStatus)&&const DeepCollectionEquality().equals(other._medications, _medications)&&(identical(other.startDate, startDate) || other.startDate == startDate)&&(identical(other.endDate, endDate) || other.endDate == endDate));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,medicationsStatus,const DeepCollectionEquality().hash(_medications));
+int get hashCode => Object.hash(runtimeType,medicationsStatus,const DeepCollectionEquality().hash(_medications),startDate,endDate);
 
 @override
 String toString() {
-  return 'MedicationsState(medicationsStatus: $medicationsStatus, medications: $medications)';
+  return 'MedicationsState(medicationsStatus: $medicationsStatus, medications: $medications, startDate: $startDate, endDate: $endDate)';
 }
 
 
@@ -248,7 +320,7 @@ abstract mixin class _$MedicationsStateCopyWith<$Res> implements $MedicationsSta
   factory _$MedicationsStateCopyWith(_MedicationsState value, $Res Function(_MedicationsState) _then) = __$MedicationsStateCopyWithImpl;
 @override @useResult
 $Res call({
- Status medicationsStatus, List<PetMedication> medications
+ Status medicationsStatus, List<PetMedication> medications, NotEmpty startDate, NotEmpty endDate
 });
 
 
@@ -265,11 +337,13 @@ class __$MedicationsStateCopyWithImpl<$Res>
 
 /// Create a copy of MedicationsState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? medicationsStatus = null,Object? medications = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? medicationsStatus = null,Object? medications = null,Object? startDate = null,Object? endDate = null,}) {
   return _then(_MedicationsState(
 medicationsStatus: null == medicationsStatus ? _self.medicationsStatus : medicationsStatus // ignore: cast_nullable_to_non_nullable
 as Status,medications: null == medications ? _self._medications : medications // ignore: cast_nullable_to_non_nullable
-as List<PetMedication>,
+as List<PetMedication>,startDate: null == startDate ? _self.startDate : startDate // ignore: cast_nullable_to_non_nullable
+as NotEmpty,endDate: null == endDate ? _self.endDate : endDate // ignore: cast_nullable_to_non_nullable
+as NotEmpty,
   ));
 }
 

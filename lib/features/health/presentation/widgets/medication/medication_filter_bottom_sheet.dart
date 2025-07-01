@@ -1,29 +1,44 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
+import 'package:dummy/features/health/presentation/bloc/medications/medications_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../core/widgets/app_graber.dart';
 
-class VaccinationFilterBottomSheet extends StatefulWidget {
-  const VaccinationFilterBottomSheet({super.key});
+class MedicationFilterBottomSheet extends StatefulWidget {
+  const MedicationFilterBottomSheet({super.key});
 
   @override
-  State<VaccinationFilterBottomSheet> createState() =>
-      _VaccinationFilterBottomSheet();
+  State<MedicationFilterBottomSheet> createState() =>
+      _MedicationFilterBottomSheet();
 }
 
-class _VaccinationFilterBottomSheet
-    extends State<VaccinationFilterBottomSheet> {
+class _MedicationFilterBottomSheet extends State<MedicationFilterBottomSheet> {
   DateTime selectedDate = DateTime.now();
   final _dobController = TextEditingController();
   final _dobController1 = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    final state = context.read<MedicationsBloc>().state;
+    if (state.startDate.value.isNotEmpty) {
+      _dobController.text = state.startDate.value;
+    }
+    if (state.endDate.value.isNotEmpty) {
+      _dobController1.text = state.endDate.value;
+    }
+  }
+
   void _pickDate() {
     DateTime tempPickedDate = DateTime.now();
 
@@ -46,7 +61,7 @@ class _VaccinationFilterBottomSheet
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
-                  AppText.dateAdministered,
+                  AppText.startDate,
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
                 ),
               ),
@@ -134,7 +149,7 @@ class _VaccinationFilterBottomSheet
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
-                  AppText.dueDate,
+                  AppText.endDate,
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
                 ),
               ),
@@ -225,41 +240,64 @@ class _VaccinationFilterBottomSheet
             ),
           ),
           Styles.gap15,
-          Text(
-            AppText.dateAdministered,
-            style: context.textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Styles.gap6,
-          AppTextFormField(
-            controller: _dobController,
-            hintText: 'Select Date Adminstered',
-            readOnly: true,
-            suffixIcon: Iconsax.calendar,
-            onTap: () {
-              _pickDate();
+          BlocSelector<MedicationsBloc, MedicationsState, NotEmpty>(
+            selector: (state) {
+              return state.startDate;
+            },
+            builder: (context, state) {
+              return AppTextFormField(
+                controller: _dobController,
+                hintText: 'Select Start Date',
+                readOnly: true,
+                isMandatory: true,
+                headerText: AppText.startDate,
+                suffixIcon: Iconsax.calendar,
+                onTap: _pickDate,
+              );
             },
           ),
           Styles.gap15,
-          Text(
-            AppText.duedate,
-            style: context.textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Styles.gap6,
-          AppTextFormField(
-            controller: _dobController1,
-            hintText: 'Select Due Date',
-            readOnly: true,
-            suffixIcon: Iconsax.calendar,
-            onTap: () {
-              _pickDate1();
+          BlocSelector<MedicationsBloc, MedicationsState, NotEmpty>(
+            selector: (state) {
+              return state.endDate;
+            },
+            builder: (context, state) {
+              return AppTextFormField(
+                headerText: AppText.endDate,
+                controller: _dobController1,
+                isMandatory: true,
+                onTap: _pickDate1,
+                readOnly: true,
+                suffixIcon: Iconsax.calendar,
+                hintText: 'Select End Date',
+              );
             },
           ),
           Styles.gap30,
-          AppButton(name: Text(AppText.save, style: Styles.buttonStyle)),
+          BlocBuilder<MedicationsBloc, MedicationsState>(
+            builder: (context, state) {
+              return AppButton(
+                onPressed:
+                    (_dobController.text.isNotEmpty &&
+                                _dobController1.text.isNotEmpty) ||
+                            (state.startDate.isValid && state.endDate.isValid)
+                        ? () {
+                          context.read<MedicationsBloc>().add(
+                            MedicationsEvent.filter(
+                              _dobController.text,
+                              _dobController1.text,
+                            ),
+                          );
+                          context.pop();
+                          context.read<MedicationsBloc>().add(
+                            MedicationsEvent.medications(null),
+                          );
+                        }
+                        : () {},
+                name: Text(AppText.save, style: Styles.buttonStyle),
+              );
+            },
+          ),
           Styles.gap10,
         ],
       ),

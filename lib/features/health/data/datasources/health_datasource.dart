@@ -8,5 +8,10 @@ abstract class HealthDatasource {
   const HealthDatasource();
   AppSuccessResponse addMedication({required Payload payload});
   AppTypeResponse<List<FrequencyModel>> medicationFrequencies();
-  AppTypeResponse<List<PetMedicationModel>> medications(String? key);
+  AppTypeResponse<List<PetMedicationModel>> medications(
+    String? key,
+    String? fromDate,
+    String? toDate,
+  );
+  AppSuccessResponse addVaccination({required Payload payload});
 }

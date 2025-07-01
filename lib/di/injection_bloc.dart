@@ -90,4 +90,13 @@ class InjectionBloc {
   static MedicationsBloc get medicationsBloc {
     return MedicationsBloc(medicationsUsecases: getIt<MedicationsUsecases>());
   }
+
+  static VaccinationFormBloc get vaccinationFormBloc {
+    return VaccinationFormBloc(
+      addVaccinationUsecases: getIt<AddVaccinationUsecases>(),
+      medicationFrequencyUsecases: getIt<MedicationFrequencyUsecases>(),
+      timezonesUsecases: getIt<TimezonesUsecases>(),
+      beforeUsecases: getIt<RemindBeforeUsecases>(),
+    );
+  }
 }

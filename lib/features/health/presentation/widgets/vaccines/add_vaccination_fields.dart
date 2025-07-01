@@ -1,16 +1,23 @@
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/mandatory_field_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/constant/app_colors.dart';
 import '../../../../../core/constant/app_text.dart';
+import '../../../../../core/models/drop_item.dart';
+import '../../../../../core/models/formz/not_empty.dart';
 import '../../../../../core/widgets/app_custom_text_field.dart';
 import '../../../../../core/widgets/custom_card.dart';
 import '../../../../../core/widgets/custom_dropdown.dart';
 import '../../../../../core/widgets/custom_switch.dart';
 import '../../../../../core/widgets/dotted_border_widget.dart';
+import '../../../../../core/widgets/loading_widget.dart';
+import '../../../../dashboard/presentation/bloc/dashboard_bloc.dart';
+import '../../bloc/vaccination_form/vaccination_form_bloc.dart';
 
 part 'add_vaccination_form.dart';
 
@@ -19,10 +26,23 @@ class __VaccinationName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      hintText: AppText.enter,
-      onChanged: (value) {},
-      headerText: AppText.vaccinationName,
+    return BlocSelector<VaccinationFormBloc, VaccinationFormState, NotEmpty>(
+      selector: (state) {
+        return state.vaccinationName;
+      },
+      builder: (context, state) {
+        return AppTextFormField(
+          initialValue: state.value,
+          hintText: AppText.enter,
+          onChanged: (value) {
+            context.read<VaccinationFormBloc>().add(
+              VaccinationFormEvent.vaccinationName(value),
+            );
+          },
+          headerText: AppText.vaccinationName,
+          isMandatory: true,
+        );
+      },
     );
   }
 }
@@ -32,10 +52,23 @@ class __Company extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      hintText: AppText.enter,
-      onChanged: (value) {},
-      headerText: AppText.company,
+    return BlocSelector<VaccinationFormBloc, VaccinationFormState, NotEmpty>(
+      selector: (state) {
+        return state.company;
+      },
+      builder: (context, state) {
+        return AppTextFormField(
+          hintText: AppText.enter,
+          onChanged: (value) {
+            context.read<VaccinationFormBloc>().add(
+              VaccinationFormEvent.company(value),
+            );
+          },
+          headerText: AppText.company,
+          isMandatory: true,
+          initialValue: state.value,
+        );
+      },
     );
   }
 }
@@ -51,13 +84,21 @@ class __DateAdministeredState extends State<__DateAdministered> {
   var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return AppCustomDateField(
-      headerText: AppText.dateAdministered,
-      selectedDate: date,
-      onChange: (value) {
-        setState(() {
-          date = value;
-        });
+    return BlocSelector<VaccinationFormBloc, VaccinationFormState, NotEmpty>(
+      selector: (state) {
+        return state.dateAdministered;
+      },
+      builder: (context, state) {
+        return AppCustomDateField(
+          headerText: AppText.dateAdministered,
+          onChange: (value) {
+            context.read<VaccinationFormBloc>().add(
+              VaccinationFormEvent.dateAdministered(value.toString()),
+            );
+          },
+          selectedDate: DateTime.tryParse(state.value),
+          isMandatory: true,
+        );
       },
     );
   }
@@ -74,13 +115,21 @@ class __DueDateState extends State<__DueDate> {
   var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return AppCustomDateField(
-      headerText: AppText.dueDate,
-      selectedDate: date,
-      onChange: (value) {
-        setState(() {
-          date = value;
-        });
+    return BlocSelector<VaccinationFormBloc, VaccinationFormState, NotEmpty>(
+      selector: (state) {
+        return state.dueDate;
+      },
+      builder: (context, state) {
+        return AppCustomDateField(
+          headerText: AppText.dueDate,
+          selectedDate: DateTime.tryParse(state.value),
+          isMandatory: true,
+          onChange: (value) {
+            context.read<VaccinationFormBloc>().add(
+              VaccinationFormEvent.dueDate(value.toString()),
+            );
+          },
+        );
       },
     );
   }
@@ -91,11 +140,22 @@ class __Frequency extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomDropdownSearch(
-      title: AppText.frequency,
-      items: [],
-      onChanged: (value) {},
-      label: AppText.select,
+    return BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
+      builder: (context, state) {
+        return CustomDropdownSearch(
+          items: state.frequencies,
+          selectedItem: state.frequency.value,
+          onChanged: (value) {
+            if (value != null) {
+              context.read<VaccinationFormBloc>().add(
+                VaccinationFormEvent.frequency(value),
+              );
+            }
+          },
+          title: AppText.frequency,
+          isMandatory: true,
+        );
+      },
     );
   }
 }
@@ -147,16 +207,27 @@ class __Reminder extends StatelessWidget {
               padding: Styles.edgeInsetsOnlyH20,
               child: MandatoryFieldWidget(
                 labelText: AppText.reminder,
-                required: false,
+                required: true,
               ),
             ),
             Styles.gap10,
-            Expanded(
-              child: CustomDropdownSearch(
-                title: '',
-                items: [],
-                onChanged: (value) {},
-                label: AppText.select,
+            Flexible(
+              child: BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
+                builder: (context, state) {
+                  return CustomDropdownSearch(
+                    items: state.reminderTimezones,
+                    selectedItem: state.reminderTimezone.value,
+                    onChanged: (value) {
+                      if (value != null) {
+                        context.read<VaccinationFormBloc>().add(
+                          VaccinationFormEvent.reminderTimezone(value),
+                        );
+                      }
+                    },
+                    title: '',
+                    label: 'IST',
+                  );
+                },
               ),
             ),
           ],
@@ -174,17 +245,22 @@ class __Tablets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: CustomDropdownSearch(
-            title: '',
-            items: [],
-            onChanged: (value) {},
-            label: AppText.select,
-          ),
-        ),
-      ],
+    return BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
+      builder: (context, state) {
+        return CustomDropdownSearch(
+          items: state.reminderBefores,
+          selectedItem: state.reminderBefore.value,
+          onChanged: (value) {
+            if (value != null) {
+              context.read<VaccinationFormBloc>().add(
+                VaccinationFormEvent.reminderBefore(value),
+              );
+            }
+          },
+          title: '',
+          label: 'One Day before the due date',
+        );
+      },
     );
   }
 }
@@ -194,35 +270,70 @@ class __Time extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: CustomDropdownSearch(
-            title: '',
-            items: [],
-            onChanged: (value) {},
-            label: 'HH',
-          ),
-        ),
-        Styles.gap10,
-        Expanded(
-          child: CustomDropdownSearch(
-            title: '',
-            items: [],
-            onChanged: (value) {},
-            label: 'MM',
-          ),
-        ),
-        Styles.gap10,
-        Expanded(
-          child: CustomDropdownSearch(
-            title: '',
-            items: [],
-            onChanged: (value) {},
-            label: 'AM',
-          ),
-        ),
-      ],
+    return BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
+      builder: (context, state) {
+        return Row(
+          children: [
+            Expanded(
+              child: CustomDropdownSearch(
+                selectedItem: state.reminderHour.value,
+                items: List.generate(
+                  12,
+                  (index) =>
+                      DropItemModel(id: index + 1, value: '${index + 1}'),
+                ),
+                title: '',
+                label: 'HH',
+                onChanged: (v) {
+                  if (v != null) {
+                    context.read<VaccinationFormBloc>().add(
+                      VaccinationFormEvent.reminderHour(v),
+                    );
+                  }
+                },
+              ),
+            ),
+            Styles.gap10,
+            Expanded(
+              child: CustomDropdownSearch(
+                selectedItem: state.reminderMin.value,
+                items: List.generate(
+                  60,
+                  (index) => DropItemModel(id: index + 1, value: '$index'),
+                ),
+                title: '',
+                label: 'MM',
+                onChanged: (v) {
+                  if (v != null) {
+                    context.read<VaccinationFormBloc>().add(
+                      VaccinationFormEvent.reminderMin(v),
+                    );
+                  }
+                },
+              ),
+            ),
+            Styles.gap10,
+            Expanded(
+              child: CustomDropdownSearch(
+                selectedItem: state.reminderAmPm.value,
+                items: [
+                  DropItemModel(id: 1, value: 'AM'),
+                  DropItemModel(id: 2, value: 'PM'),
+                ],
+                title: '',
+                label: 'PM',
+                onChanged: (v) {
+                  if (v != null) {
+                    context.read<VaccinationFormBloc>().add(
+                      VaccinationFormEvent.reminderAmPm(v),
+                    );
+                  }
+                },
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }
@@ -232,13 +343,23 @@ class __Notes extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      hintText: AppText.enter,
-      borderRadius: Styles.borderRadiusCircular25,
-      onChanged: (value) {},
-      maxLines: 7,
-      heigth: 140,
-      headerText: AppText.notes,
+    return BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
+      builder: (context, state) {
+        return AppTextFormField(
+          initialValue: state.note.value,
+          hintText: AppText.enter,
+          borderRadius: Styles.borderRadiusCircular25,
+          onChanged: (value) {
+            context.read<VaccinationFormBloc>().add(
+              VaccinationFormEvent.note(value),
+            );
+          },
+          maxLines: 7,
+          heigth: 140,
+          headerText: AppText.notes,
+          isMandatory: true,
+        );
+      },
     );
   }
 }
@@ -251,9 +372,23 @@ class __Media extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        MandatoryFieldWidget(labelText: AppText.media, required: false),
+        MandatoryFieldWidget(labelText: AppText.media, required: true),
         Styles.gap10,
-        DottedBorderWidget(),
+        BlocSelector<VaccinationFormBloc, VaccinationFormState, NotEmpty>(
+          selector: (state) {
+            return state.media;
+          },
+          builder: (context, state) {
+            return DottedBorderWidget(
+              onAdd: (v) {
+                context.read<VaccinationFormBloc>().add(
+                  VaccinationFormEvent.media(v),
+                );
+              },
+              paths: state.value.isEmpty ? [] : [state.value],
+            );
+          },
+        ),
       ],
     );
   }

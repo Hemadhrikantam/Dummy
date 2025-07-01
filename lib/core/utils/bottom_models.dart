@@ -31,6 +31,7 @@ import '../../features/dailycare/presentation/widgets/add_meal_success_bottom_sh
 import '../../features/dailycare/presentation/widgets/add_walk_success_bottom_sheet_content.dart';
 import '../../features/health/presentation/widgets/medication/medication_delete_bottom_sheet_content.dart';
 import '../../features/health/presentation/widgets/medication/medication_delete_success_bottom_sheet_content.dart';
+import '../../features/health/presentation/widgets/medication/medication_filter_bottom_sheet.dart';
 import '../../features/health/presentation/widgets/medication/medication_taking_bottom_sheet_content.dart';
 import '../../features/health/presentation/widgets/medication/medication_taking_success_bottom_sheet_content.dart';
 import '../../features/health/presentation/widgets/vaccines/vaccination_marked_success_bottom_sheet_content.dart';
@@ -89,6 +90,18 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return VaccinationFilterBottomSheet();
+      },
+    );
+  }
+
+  static Future<T?> medicationFilterSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return MedicationFilterBottomSheet();
       },
     );
   }

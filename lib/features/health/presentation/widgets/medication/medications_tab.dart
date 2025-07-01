@@ -68,7 +68,7 @@ class MedicationsTab extends StatelessWidget {
                 children: [
                   FilterButton(
                     onTap: () {
-                      BottomModels.vaccinationFilterSheet(context);
+                      BottomModels.medicationFilterSheet(context);
                     },
                   ),
                 ],

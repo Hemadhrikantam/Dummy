@@ -18,12 +18,13 @@ class HealthDatasourceImpl extends HealthDatasource {
   const HealthDatasourceImpl({required this.http, required this.storage});
   final AppHttp http;
   final LocalStorage storage;
+
   @override
   AppSuccessResponse addMedication({required Payload payload}) async {
     LogUtility.warning(payload.toMap().toString());
     final formData = FormData.fromMap(payload.toMap());
     final response = await http.post(
-      path: api.medication(null),
+      path: api.medication(null, null, null),
       data: formData,
       options: Options(contentType: 'multipart/form-data'),
     );
@@ -42,7 +43,8 @@ class HealthDatasourceImpl extends HealthDatasource {
             return Right(
               SuccessMessage(
                 message:
-                    data['message'] as String? ?? 'Meal added successfully',
+                    data['message'] as String? ??
+                    'Medication added successfully',
               ),
             );
           }
@@ -94,8 +96,14 @@ class HealthDatasourceImpl extends HealthDatasource {
   }
 
   @override
-  AppTypeResponse<List<PetMedicationModel>> medications(String? key) async {
-    final response = await http.get(path: api.medication(key));
+  AppTypeResponse<List<PetMedicationModel>> medications(
+    String? key,
+    String? fromDate,
+    String? toDate,
+  ) async {
+    final response = await http.get(
+      path: api.medication(key, fromDate, toDate),
+    );
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -116,6 +124,47 @@ class HealthDatasourceImpl extends HealthDatasource {
             return Right(item);
           }
 
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppSuccessResponse addVaccination({required Payload payload}) async {
+    LogUtility.warning(payload.toMap().toString());
+    final formData = FormData.fromMap(payload.toMap());
+    final response = await http.post(
+      path: api.vaccination(null),
+      data: formData,
+      options: Options(contentType: 'multipart/form-data'),
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message:
+                    data['message'] as String? ??
+                    'Vaccination added successfully',
+              ),
+            );
+          }
           return Left(
             ErrorMessage(
               message: data['message'] as String? ?? AppText.somethingWentWrong,

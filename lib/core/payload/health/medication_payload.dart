@@ -2,7 +2,7 @@ import 'package:dummy/core/payload/payload.dart';
 import 'package:equatable/equatable.dart';
 import 'package:dio/dio.dart';
 import 'package:dummy/core/utils/app_utils.dart';
-import '../utils/type_def.dart';
+import '../../utils/type_def.dart';
 
 class MedicationPayload extends Equatable implements Payload {
   const MedicationPayload({

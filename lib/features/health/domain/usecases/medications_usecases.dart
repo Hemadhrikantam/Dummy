@@ -6,7 +6,11 @@ class MedicationsUsecases {
   MedicationsUsecases(this.repository);
   final HealthRepository repository;
 
-  AppTypeResponse<List<PetMedication>> call(String? key) {
-    return repository.medications(key);
+  AppTypeResponse<List<PetMedication>> call(
+    String? key,
+    String? fromDate,
+    String? toDate,
+  ) {
+    return repository.medications(key, fromDate, toDate);
   }
 }

@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
-import 'package:dummy/core/payload/grooming_payload.dart';
+import 'package:dummy/core/payload/dailycare/grooming_payload.dart';
 import 'package:dummy/features/dailycare/domain/usecases/add_grooming_usecases.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';

@@ -1,35 +1,54 @@
 part of 'add_vaccination_fields.dart';
 
-class AddVaccinationForm extends StatelessWidget {
+class AddVaccinationForm extends StatefulWidget {
   const AddVaccinationForm({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  State<AddVaccinationForm> createState() => _AddVaccinationFormState();
+}
 
-    return ListView(
-      padding: Styles.edgeInsetsOnlyH00,
-      children: [
-        CustomCard(
-          child: Column(
-            children: [
-              __VaccinationName(),
-              Styles.gap10,
-              __Company(),
-              Styles.gap10,
-              __DateAdministered(),
-              __Frequency(),
-              __DueDate(),
-              Styles.gap10,
-              __Notes(),
-              __Reminder(),
-              Styles.gap10,
-              __Media(),
-            ],
-          ),
-        ),
-        Styles.gap30,
-        Styles.gap50,
-      ],
+class _AddVaccinationFormState extends State<AddVaccinationForm> {
+  @override
+  void initState() {
+    final petId = context.read<DashboardBloc>().state.selectedPet?.id;
+    context.read<VaccinationFormBloc>().add(
+      VaccinationFormEvent.init(petId ?? 0),
+    );
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
+      builder: (context, state) {
+        return state.initStatus.loading
+            ? LoadingWidget.circularProgressIndicatorCenter
+            : ListView(
+              padding: Styles.edgeInsetsOnlyH00,
+              children: [
+                CustomCard(
+                  child: Column(
+                    children: [
+                      __VaccinationName(),
+                      Styles.gap10,
+                      __Company(),
+                      Styles.gap10,
+                      __DateAdministered(),
+                      __Frequency(),
+                      __DueDate(),
+                      Styles.gap10,
+                      __Notes(),
+                      __Reminder(),
+                      Styles.gap10,
+                      __Media(),
+                    ],
+                  ),
+                ),
+                Styles.gap30,
+                Styles.gap50,
+              ],
+            );
+      },
     );
   }
 }

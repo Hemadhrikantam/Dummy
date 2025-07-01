@@ -3,6 +3,8 @@ import 'package:dummy/features/health/domain/entities/medication.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../core/models/formz/not_empty.dart';
+import '../../../../../core/utils/app_utils.dart';
 import '../../../domain/usecases/medications_usecases.dart';
 
 part 'medications_event.dart';
@@ -14,6 +16,7 @@ class MedicationsBloc extends Bloc<MedicationsEvent, MedicationsState> {
     : _medicationsUsecases = medicationsUsecases,
       super(MedicationsState()) {
     on<_Medications>(__medications);
+    on<_Filter>(__filter);
   }
   final MedicationsUsecases _medicationsUsecases;
 
@@ -22,7 +25,15 @@ class MedicationsBloc extends Bloc<MedicationsEvent, MedicationsState> {
     Emitter<MedicationsState> emit,
   ) async {
     emit(state.copyWith(medicationsStatus: Status.loading));
-    final result = await _medicationsUsecases(event.key);
+    final result = await _medicationsUsecases(
+      event.key,
+      state.startDate.isValid
+          ? AppUtil.convertToYYYYMMDD(state.startDate.value)
+          : null,
+      state.endDate.isValid
+          ? AppUtil.convertToYYYYMMDD(state.endDate.value)
+          : null,
+    );
 
     result.fold(
       (failure) => emit(state.copyWith(medicationsStatus: Status.error)),
@@ -30,5 +41,11 @@ class MedicationsBloc extends Bloc<MedicationsEvent, MedicationsState> {
         state.copyWith(medicationsStatus: Status.success, medications: success),
       ),
     );
+  }
+
+  void __filter(_Filter event, emit) {
+    final startDate = NotEmpty.dirty(value: event.startDate);
+    final endDate = NotEmpty.dirty(value: event.endDate);
+    emit(state.copyWith(startDate: startDate, endDate: endDate));
   }
 }

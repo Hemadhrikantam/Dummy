@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:dummy/core/utils/app_utils.dart';
 import 'package:equatable/equatable.dart';
-import '../utils/type_def.dart';
-import 'payload.dart';
+import '../../utils/type_def.dart';
+import '../payload.dart';
 
 class GroomingPayload extends Equatable implements Payload {
   const GroomingPayload({

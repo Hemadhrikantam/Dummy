@@ -72,12 +72,22 @@ String remindBefores = '$__api/daily-care/remind-before/';
 String timezones = '$__api/daily-care/timezone/';
 
 //health
-String medication(String? key) {
+String medication(String? key, String? fromDate, String? toDate) {
   if (key != null) {
     return '$__api/medication/?search=$key';
+  } else if (fromDate != null) {
+    return '$__api/medication/?from_date=$fromDate&to_date=$toDate';
   } else {
     return '$__api/medication/';
   }
 }
 
 String medicationFrequencies = '$__api/medication/medication-frequency/';
+
+String vaccination(String? key) {
+  if (key != null) {
+    return '$__api/medication/vaccinations/?search=$key';
+  } else {
+    return '$__api/medication/vaccinations/';
+  }
+}
