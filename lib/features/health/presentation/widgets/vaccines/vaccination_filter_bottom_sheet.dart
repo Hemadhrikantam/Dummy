@@ -1,18 +1,23 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../core/widgets/app_graber.dart';
+import '../../bloc/vaccinations/vaccinations_bloc.dart';
 
 class VaccinationFilterBottomSheet extends StatefulWidget {
-  const VaccinationFilterBottomSheet({super.key});
+  const VaccinationFilterBottomSheet({super.key, required this.onSaved});
+  final Function(String startDate, String endDate) onSaved;
 
   @override
   State<VaccinationFilterBottomSheet> createState() =>
@@ -24,6 +29,18 @@ class _VaccinationFilterBottomSheet
   DateTime selectedDate = DateTime.now();
   final _dobController = TextEditingController();
   final _dobController1 = TextEditingController();
+  @override
+  void initState() {
+    super.initState();
+    final state = context.read<VaccinationsBloc>().state;
+    if (state.dateAdministered.value.isNotEmpty) {
+      _dobController.text = state.dateAdministered.value;
+    }
+    if (state.dueDate.value.isNotEmpty) {
+      _dobController1.text = state.dueDate.value;
+    }
+  }
+
   void _pickDate() {
     DateTime tempPickedDate = DateTime.now();
 
@@ -91,7 +108,7 @@ class _VaccinationFilterBottomSheet
                             selectedDate = tempPickedDate;
                             _dobController.text = _formatDate(tempPickedDate);
                           });
-                          Navigator.pop(context);
+                          context.pop();
                         },
                         name: Text(
                           AppText.save,
@@ -179,7 +196,7 @@ class _VaccinationFilterBottomSheet
                             selectedDate = tempPickedDate;
                             _dobController1.text = _formatDate(tempPickedDate);
                           });
-                          Navigator.pop(context);
+                          context.pop();
                         },
                         name: Text(
                           AppText.save,
@@ -225,41 +242,59 @@ class _VaccinationFilterBottomSheet
             ),
           ),
           Styles.gap15,
-          Text(
-            AppText.dateAdministered,
-            style: context.textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Styles.gap6,
-          AppTextFormField(
-            controller: _dobController,
-            hintText: 'Select Date Adminstered',
-            readOnly: true,
-            suffixIcon: Iconsax.calendar,
-            onTap: () {
-              _pickDate();
+          BlocSelector<VaccinationsBloc, VaccinationsState, NotEmpty>(
+            selector: (state) {
+              return state.dateAdministered;
+            },
+            builder: (context, state) {
+              return AppTextFormField(
+                controller: _dobController,
+                hintText: 'Select Date Adminstered',
+                readOnly: true,
+                isMandatory: true,
+                headerText: AppText.dateAdministered,
+                suffixIcon: Iconsax.calendar,
+                onTap: _pickDate,
+              );
             },
           ),
           Styles.gap15,
-          Text(
-            AppText.duedate,
-            style: context.textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Styles.gap6,
-          AppTextFormField(
-            controller: _dobController1,
-            hintText: 'Select Due Date',
-            readOnly: true,
-            suffixIcon: Iconsax.calendar,
-            onTap: () {
-              _pickDate1();
+          BlocSelector<VaccinationsBloc, VaccinationsState, NotEmpty>(
+            selector: (state) {
+              return state.dueDate;
+            },
+            builder: (context, state) {
+              return AppTextFormField(
+                controller: _dobController1,
+                hintText: 'Select Due Date',
+                readOnly: true,
+                isMandatory: true,
+                suffixIcon: Iconsax.calendar,
+                headerText: AppText.duedate,
+                onTap: _pickDate1,
+              );
             },
           ),
           Styles.gap30,
-          AppButton(name: Text(AppText.save, style: Styles.buttonStyle)),
+          BlocBuilder<VaccinationsBloc, VaccinationsState>(
+            builder: (context, state) {
+              return AppButton(
+                onPressed:
+                    (_dobController.text.isNotEmpty &&
+                                _dobController1.text.isNotEmpty) ||
+                            (state.dateAdministered.isValid &&
+                                state.dueDate.isValid)
+                        ? () {
+                          widget.onSaved(
+                            _dobController.text,
+                            _dobController1.text,
+                          );
+                        }
+                        : () {},
+                name: Text(AppText.save, style: Styles.buttonStyle),
+              );
+            },
+          ),
           Styles.gap10,
         ],
       ),

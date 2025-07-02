@@ -6,19 +6,16 @@ import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/constant/app_colors.dart';
+import '../../../../../core/utils/app_utils.dart';
 import '../../../../../core/widgets/custom_card.dart';
 import '../../../../../core/widgets/custom_switch.dart';
+import '../../../domain/entities/vaccination.dart';
 import '../../pages/vaccination_details_page.dart';
 
-class VaccinesCard extends StatefulWidget {
-  const VaccinesCard({super.key});
+class VaccinesCard extends StatelessWidget {
+  const VaccinesCard({super.key, required this.vaccination});
+  final PetVaccination vaccination;
 
-  @override
-  State<VaccinesCard> createState() => _VaccinesCardState();
-}
-
-class _VaccinesCardState extends State<VaccinesCard> {
-  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
@@ -35,7 +32,7 @@ class _VaccinesCardState extends State<VaccinesCard> {
             children: [
               RichText(
                 text: TextSpan(
-                  text: 'Rabies  ',
+                  text: vaccination.vaccinationName,
                   style: context.textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
@@ -43,7 +40,7 @@ class _VaccinesCardState extends State<VaccinesCard> {
                   ),
                   children: [
                     TextSpan(
-                      text: 'Abhayrab',
+                      text: vaccination.company,
                       style: context.textTheme.labelMedium?.copyWith(
                         color: AppColors.stepperColor,
                       ),
@@ -61,11 +58,8 @@ class _VaccinesCardState extends State<VaccinesCard> {
                   ),
                   Styles.gap6,
                   CustomSwitch(
-                    value: isChecked,
+                    value: vaccination.reminder,
                     onChanged: (value) {
-                      setState(() {
-                        isChecked = !isChecked;
-                      });
                       if (value) {
                         BottomModels.vaccinationReminderSheet(context);
                       }
@@ -89,7 +83,9 @@ class _VaccinesCardState extends State<VaccinesCard> {
                     ),
                   ),
                   Text(
-                    '12/01/2025',
+                    AppUtil.formatDateToMMDDYYYY(
+                      DateTime.parse(vaccination.dateAdministered),
+                    ),
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -107,7 +103,9 @@ class _VaccinesCardState extends State<VaccinesCard> {
                     ),
                   ),
                   Text(
-                    '12/01/2025',
+                    AppUtil.formatDateToMMDDYYYY(
+                      DateTime.parse(vaccination.dueDate),
+                    ),
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,

@@ -73,7 +73,9 @@ String timezones = '$__api/daily-care/timezone/';
 
 //health
 String medication(String? key, String? fromDate, String? toDate) {
-  if (key != null) {
+  if (key != null && fromDate != null) {
+    return '$__api/medication/?search=$key&from_date=$fromDate&to_date=$toDate';
+  } else if (key != null) {
     return '$__api/medication/?search=$key';
   } else if (fromDate != null) {
     return '$__api/medication/?from_date=$fromDate&to_date=$toDate';
@@ -82,13 +84,16 @@ String medication(String? key, String? fromDate, String? toDate) {
   }
 }
 
-
 String medicationItem(int id) => '$__api/medication/item/$id/';
 String medicationFrequencies = '$__api/medication/medication-frequency/';
 
-String vaccination(String? key) {
-  if (key != null) {
+String vaccination(String? key, String? fromDate, String? toDate) {
+  if (key != null && fromDate != null) {
+    return '$__api/medication/vaccinations/?search=$key&from_date=$fromDate&to_date=$toDate';
+  } else if (key != null) {
     return '$__api/medication/vaccinations/?search=$key';
+  } else if (fromDate != null) {
+    return '$__api/medication/vaccinations/?from_date=$fromDate&to_date=$toDate';
   } else {
     return '$__api/medication/vaccinations/';
   }

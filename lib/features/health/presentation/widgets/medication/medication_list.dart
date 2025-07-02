@@ -13,21 +13,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../bloc/medications/medications_bloc.dart';
 
-class MedicationList extends StatefulWidget {
+class MedicationList extends StatelessWidget {
   const MedicationList({super.key});
-
-  @override
-  State<MedicationList> createState() => _MedicationListState();
-}
-
-class _MedicationListState extends State<MedicationList> {
-  @override
-  void initState() {
-    Future.delayed(Duration.zero, () {
-      context.read<MedicationsBloc>().add(MedicationsEvent.medications(null));
-    });
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {

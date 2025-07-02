@@ -16,7 +16,8 @@ import 'package:iconsax/iconsax.dart';
 import '../../../../../core/widgets/app_graber.dart';
 
 class MedicationFilterBottomSheet extends StatefulWidget {
-  const MedicationFilterBottomSheet({super.key});
+  const MedicationFilterBottomSheet({super.key, required this.onSaved});
+  final Function(String startDate, String endDate) onSaved;
 
   @override
   State<MedicationFilterBottomSheet> createState() =>
@@ -106,7 +107,7 @@ class _MedicationFilterBottomSheet extends State<MedicationFilterBottomSheet> {
                             selectedDate = tempPickedDate;
                             _dobController.text = _formatDate(tempPickedDate);
                           });
-                          Navigator.pop(context);
+                          context.pop();
                         },
                         name: Text(
                           AppText.save,
@@ -194,7 +195,7 @@ class _MedicationFilterBottomSheet extends State<MedicationFilterBottomSheet> {
                             selectedDate = tempPickedDate;
                             _dobController1.text = _formatDate(tempPickedDate);
                           });
-                          Navigator.pop(context);
+                          context.pop();
                         },
                         name: Text(
                           AppText.save,
@@ -282,15 +283,9 @@ class _MedicationFilterBottomSheet extends State<MedicationFilterBottomSheet> {
                                 _dobController1.text.isNotEmpty) ||
                             (state.startDate.isValid && state.endDate.isValid)
                         ? () {
-                          context.read<MedicationsBloc>().add(
-                            MedicationsEvent.filter(
-                              _dobController.text,
-                              _dobController1.text,
-                            ),
-                          );
-                          context.pop();
-                          context.read<MedicationsBloc>().add(
-                            MedicationsEvent.medications(null),
+                          widget.onSaved(
+                            _dobController.text,
+                            _dobController1.text,
                           );
                         }
                         : () {},

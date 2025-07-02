@@ -5,6 +5,7 @@ import 'package:dummy/features/health/domain/entities/medication.dart';
 import 'package:dummy/features/health/domain/repositories/health_repository.dart';
 
 import '../../../dailycare/domain/entities/frequency.dart';
+import '../../domain/entities/vaccination.dart';
 
 class HealthRepositoryImpl extends HealthRepository {
   HealthRepositoryImpl(this._healthDatasource);
@@ -33,14 +34,26 @@ class HealthRepositoryImpl extends HealthRepository {
   AppSuccessResponse addVaccination({required Payload payload}) {
     return _healthDatasource.addVaccination(payload: payload);
   }
-  
+
   @override
-  AppSuccessResponse editMedication({required Payload payload, required int id}) {
+  AppSuccessResponse editMedication({
+    required Payload payload,
+    required int id,
+  }) {
     return _healthDatasource.editMedication(payload: payload, id: id);
   }
-  
+
   @override
   AppTypeResponse<PetMedication> getMedication({required int id}) {
     return _healthDatasource.getMedication(id: id);
+  }
+
+  @override
+  AppTypeResponse<List<PetVaccination>> vaccinations(
+    String? key,
+    String? fromDate,
+    String? toDate,
+  ) {
+    return _healthDatasource.vaccinations(key, fromDate, toDate);
   }
 }

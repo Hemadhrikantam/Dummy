@@ -3,6 +3,7 @@ import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/health/domain/entities/medication.dart';
 
 import '../../../dailycare/domain/entities/frequency.dart';
+import '../entities/vaccination.dart';
 
 abstract class HealthRepository {
   const HealthRepository();
@@ -19,4 +20,9 @@ abstract class HealthRepository {
   });
   AppTypeResponse<PetMedication> getMedication({required int id});
   AppSuccessResponse addVaccination({required Payload payload});
+  AppTypeResponse<List<PetVaccination>> vaccinations(
+    String? key,
+    String? fromDate,
+    String? toDate,
+  );
 }

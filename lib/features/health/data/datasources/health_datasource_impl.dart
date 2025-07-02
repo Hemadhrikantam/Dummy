@@ -13,6 +13,7 @@ import 'package:dummy/service/local_storage_service.dart';
 
 import '../../../dailycare/data/models/frequency_model.dart';
 import '../models/medication_model.dart';
+import '../models/vaccination_model.dart';
 
 class HealthDatasourceImpl extends HealthDatasource {
   const HealthDatasourceImpl({required this.http, required this.storage});
@@ -215,7 +216,7 @@ class HealthDatasourceImpl extends HealthDatasource {
     LogUtility.warning(payload.toMap().toString());
     final formData = FormData.fromMap(payload.toMap());
     final response = await http.post(
-      path: api.vaccination(null),
+      path: api.vaccination(null, null, null),
       data: formData,
       options: Options(contentType: 'multipart/form-data'),
     );
@@ -239,6 +240,47 @@ class HealthDatasourceImpl extends HealthDatasource {
               ),
             );
           }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<List<PetVaccinationModel>> vaccinations(
+    String? key,
+    String? fromDate,
+    String? toDate,
+  ) async {
+    final response = await http.get(
+      path: api.vaccination(key, fromDate, toDate),
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            final item = <PetVaccinationModel>[];
+            for (final documents in data as List? ?? []) {
+              final map = Map<String, dynamic>.from(documents as Map);
+              item.add(PetVaccinationModel.fromJson(map));
+            }
+            return Right(item);
+          }
+
           return Left(
             ErrorMessage(
               message: data['message'] as String? ?? AppText.somethingWentWrong,

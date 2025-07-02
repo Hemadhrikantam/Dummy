@@ -14,20 +14,38 @@ import '../../../../../core/widgets/filter_button.dart';
 import '../../bloc/medications/medications_bloc.dart';
 import 'medication_list.dart';
 
-class MedicationsTab extends StatelessWidget {
+class MedicationsTab extends StatefulWidget {
   const MedicationsTab({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final DebouncerClass _debouncer = DebouncerClass();
+  State<MedicationsTab> createState() => _MedicationsTabState();
+}
 
+class _MedicationsTabState extends State<MedicationsTab> {
+  final DebouncerClass _debouncer = DebouncerClass();
+  String? searchVal;
+
+  @override
+  void initState() {
+    Future.delayed(Duration.zero, () {
+      refresh();
+    });
+    super.initState();
+  }
+
+  refresh() {
+    context.read<MedicationsBloc>().add(
+      MedicationsEvent.medications(searchVal),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Stack(
       children: [
         RefreshIndicator.adaptive(
           onRefresh: () async {
-            context.read<MedicationsBloc>().add(
-              MedicationsEvent.medications(null),
-            );
+            refresh();
           },
           child: ListView(
             children: [
@@ -39,9 +57,10 @@ class MedicationsTab extends StatelessWidget {
                       hintText: AppText.search,
                       onChanged: (value) {
                         _debouncer.run(() {
-                          context.read<MedicationsBloc>().add(
-                            MedicationsEvent.medications(value),
-                          );
+                          setState(() {
+                            searchVal = value;
+                          });
+                          refresh();
                         });
                       },
                     ),
@@ -68,7 +87,16 @@ class MedicationsTab extends StatelessWidget {
                 children: [
                   FilterButton(
                     onTap: () {
-                      BottomModels.medicationFilterSheet(context);
+                      BottomModels.medicationFilterSheet(context, (
+                        startDate,
+                        endDate,
+                      ) {
+                        context.read<MedicationsBloc>().add(
+                          MedicationsEvent.filter(startDate, endDate),
+                        );
+                        context.pop();
+                        refresh();
+                      });
                     },
                   ),
                 ],

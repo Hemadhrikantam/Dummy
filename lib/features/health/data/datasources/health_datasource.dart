@@ -3,12 +3,16 @@ import 'package:dummy/core/utils/type_def.dart';
 
 import '../../../dailycare/data/models/frequency_model.dart';
 import '../models/medication_model.dart';
+import '../models/vaccination_model.dart';
 
 abstract class HealthDatasource {
   const HealthDatasource();
   AppSuccessResponse addMedication({required Payload payload});
-  AppSuccessResponse editMedication({required Payload payload,required int id});
-   AppTypeResponse<PetMedicationModel> getMedication({required int id});
+  AppSuccessResponse editMedication({
+    required Payload payload,
+    required int id,
+  });
+  AppTypeResponse<PetMedicationModel> getMedication({required int id});
   AppTypeResponse<List<FrequencyModel>> medicationFrequencies();
   AppTypeResponse<List<PetMedicationModel>> medications(
     String? key,
@@ -16,4 +20,9 @@ abstract class HealthDatasource {
     String? toDate,
   );
   AppSuccessResponse addVaccination({required Payload payload});
+  AppTypeResponse<List<PetVaccinationModel>> vaccinations(
+    String? key,
+    String? fromDate,
+    String? toDate,
+  );
 }

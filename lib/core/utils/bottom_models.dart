@@ -82,26 +82,32 @@ class BottomModels {
     );
   }
 
-  static Future<T?> vaccinationFilterSheet<T>(BuildContext context) {
+  static Future<T?> vaccinationFilterSheet<T>(
+    BuildContext context,
+    Function(String startDate, String endDate) onSaved,
+  ) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: backgroundColor,
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return VaccinationFilterBottomSheet();
+        return VaccinationFilterBottomSheet(onSaved: onSaved);
       },
     );
   }
 
-  static Future<T?> medicationFilterSheet<T>(BuildContext context) {
+  static Future<T?> medicationFilterSheet<T>(
+    BuildContext context,
+    Function(String startDate, String endDate) onSaved,
+  ) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: backgroundColor,
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return MedicationFilterBottomSheet();
+        return MedicationFilterBottomSheet(onSaved: onSaved);
       },
     );
   }

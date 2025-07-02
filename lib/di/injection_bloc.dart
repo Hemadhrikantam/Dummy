@@ -101,4 +101,10 @@ class InjectionBloc {
       beforeUsecases: getIt<RemindBeforeUsecases>(),
     );
   }
+
+  static VaccinationsBloc get vaccinationsBloc {
+    return VaccinationsBloc(
+      vaccinationsUsecases: getIt<VaccinationsUsecases>(),
+    );
+  }
 }
