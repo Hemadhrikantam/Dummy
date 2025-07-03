@@ -107,11 +107,12 @@ void _pickDate(
                 mode: CupertinoDatePickerMode.date,
                 initialDateTime:
                     selectedDate ??
-                    DateTime(
-                      DateTime.now().year,
-                      DateTime.now().month,
-                      DateTime.now().day,
-                    ),
+                    DateTime.now(),
+                    // (
+                    //   DateTime.now().year,
+                    //   DateTime.now().month,
+                    //   DateTime.now().day,
+                    // ),
                 maximumDate: maxDate,
                 minimumDate: minDate,
                 onDateTimeChanged: (DateTime dateTime) {

@@ -7,11 +7,18 @@ import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
+import 'package:dummy/core/widgets/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:image_picker/image_picker.dart';
+
 class DottedBorderWidget extends StatefulWidget {
-  const DottedBorderWidget({super.key, this.onTap,  this.paths=const[], this.onAdd});
+  const DottedBorderWidget({
+    super.key,
+    this.onTap,
+    this.paths = const [],
+    this.onAdd,
+  });
   final void Function()? onTap;
   final void Function(String)? onAdd;
   final List<String> paths;
@@ -28,6 +35,7 @@ class _DottedBorderWidget extends State<DottedBorderWidget> {
     });
     super.initState();
   }
+
   get path => null;
   @override
   Widget build(BuildContext context) {
@@ -36,12 +44,13 @@ class _DottedBorderWidget extends State<DottedBorderWidget> {
       children: [
         GestureDetector(
           onTap: () async {
-            final ImagePicker picker = ImagePicker();
-            final image = await picker.pickImage(source: ImageSource.gallery);
+            final files = await customFilePicker(context);
+            // final ImagePicker picker = ImagePicker();
+            final image = files.firstOrNull;
             if (image != null) {
-              widget.onAdd?.call(image.path);
+              widget.onAdd?.call(image);
               setState(() {
-                selectedImages.add(image);
+                selectedImages.add(XFile(image));
               });
             }
           },

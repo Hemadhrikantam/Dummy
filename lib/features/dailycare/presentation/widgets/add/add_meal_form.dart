@@ -203,6 +203,7 @@ class __Date extends State<_Date> {
       },
       builder: (context, state) {
         return AppCustomDateField(
+          minDate: DateTime.now(),
           selectedDate:
               state.value.isNotEmpty ? DateTime.parse(state.value) : null,
           isMandatory: true,
