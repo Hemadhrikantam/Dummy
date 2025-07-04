@@ -5,10 +5,28 @@ class PetMedication extends Equatable {
   final bool reminder;
   final String tabletName;
   final String company;
-  final String startDate;
-  final String endDate;
+  final DateTime startDate;
+  final DateTime endDate;
+  final double dosage;
+  final String dosageUnit;
+  final String morningTime;
+  final String afternoonTime;
+  final String nightTime;
+  final String note;
+  final String media;
+  final int pet;
+  final int frequency;
 
   const PetMedication({
+    required this.dosage,
+    required this.dosageUnit,
+    required this.morningTime,
+    required this.afternoonTime,
+    required this.nightTime,
+    required this.note,
+    required this.media,
+    required this.pet,
+    required this.frequency,
     required this.id,
     required this.reminder,
     required this.tabletName,
@@ -23,7 +41,16 @@ class PetMedication extends Equatable {
     reminder,
     tabletName,
     company,
+    dosage,
+    dosageUnit,
+    morningTime,
+    afternoonTime,
+    nightTime,
     startDate,
     endDate,
+    note,
+    media,
+    pet,
+    frequency,
   ];
 }

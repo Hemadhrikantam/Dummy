@@ -1,5 +1,6 @@
 import 'package:dummy/core/payload/payload.dart';
 import 'package:dummy/core/utils/type_def.dart';
+import 'package:dummy/features/health/data/models/medication_date_model.dart';
 
 import '../../../dailycare/data/models/frequency_model.dart';
 import '../models/medication_model.dart';
@@ -13,6 +14,11 @@ abstract class HealthDatasource {
     required int id,
   });
   AppTypeResponse<PetMedicationModel> getMedication({required int id});
+  AppTypeResponse<MedicationDateModel> getMedicationDate({
+    required int id,
+    required DateTime date,
+  });
+  AppSuccessResponse updateMedicationDate({required int id, required MedicationDateModel payload});
   AppTypeResponse<List<FrequencyModel>> medicationFrequencies();
   AppTypeResponse<List<PetMedicationModel>> medications(
     String? key,

@@ -82,9 +82,7 @@ class MedicationsCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    AppUtil.formatDateToMMDDYYYY(
-                      DateTime.parse(medication.startDate),
-                    ),
+                    AppUtil.formatDateToMMDDYYYY(medication.startDate),
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -102,9 +100,7 @@ class MedicationsCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    AppUtil.formatDateToMMDDYYYY(
-                      DateTime.parse(medication.endDate),
-                    ),
+                    AppUtil.formatDateToMMDDYYYY(medication.endDate),
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,

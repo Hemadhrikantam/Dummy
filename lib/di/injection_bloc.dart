@@ -107,4 +107,12 @@ class InjectionBloc {
       vaccinationsUsecases: getIt<VaccinationsUsecases>(),
     );
   }
+
+  static MedicationDetailsBloc get medicationDetailsBloc {
+    return MedicationDetailsBloc(
+      getMedicationUsecases: getIt<GetMedicationUsecases>(),
+      dateUsecases: getIt<GetMedicationDateUsecases>(),
+      editDateUsecases: getIt<UpdateMedicationDateUsecases>(),
+    );
+  }
 }

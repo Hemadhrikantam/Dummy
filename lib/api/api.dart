@@ -98,3 +98,4 @@ String vaccination(String? key, String? fromDate, String? toDate) {
     return '$__api/medication/vaccinations/';
   }
 }
+String medicationServing(int id, String date) => '$__api/medication/medication-serving/?medication=$id&date=$date';

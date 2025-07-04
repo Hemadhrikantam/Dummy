@@ -58,11 +58,8 @@ class AppUtil {
     return null;
   }
 
-  static String? formatDate(DateTime? date) {
-    if (date != null) {
-      return DateFormat('yyyy-MM-dd').format(date);
-    }
-    return "";
+  static String formatDate(DateTime date) {
+    return DateFormat('yyyy-MM-dd').format(date);
   }
 
   static String convertToYYYYMMDD(String dateStr) {

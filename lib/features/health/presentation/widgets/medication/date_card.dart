@@ -1,16 +1,20 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/core/widgets/app_custom_check_box.dart';
+import 'package:dummy/features/health/domain/entities/medication_date.dart';
+import 'package:dummy/features/health/presentation/bloc/medication_details/medication_details_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/constant/app_colors.dart';
 import '../../../../../core/widgets/buttons/app_icon_button.dart';
 import '../../../../../core/widgets/custom_card.dart';
 
 class DateCard extends StatefulWidget {
-  const DateCard({super.key});
-
+  const DateCard({super.key, required this.date});
+  final MedicationDate date;
   @override
   State<DateCard> createState() => _DateCardState();
 }
@@ -42,7 +46,7 @@ class _DateCardState extends State<DateCard> {
                     ),
                   ),
                   Text(
-                    '12/01/2025',
+                    AppUtil.formatDateToMMDDYYYY(widget.date.date),
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -55,6 +59,11 @@ class _DateCardState extends State<DateCard> {
                   setState(() {
                     isOpen = !isOpen;
                   });
+                  if (isOpen) {
+                    context.read<MedicationDetailsBloc>().add(
+                      MedicationDetailsEvent.getDate(widget.date.date),
+                    );
+                  }
                 },
                 padding: Styles.edgeInsetsAll02,
                 borderRadius: Styles.borderRadiusCircular50,
@@ -83,40 +92,46 @@ class _DateCardState extends State<DateCard> {
                   style: context.textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.w400,
                     color: AppColors.grey500,
-                    fontSize: 14
+                    fontSize: 14,
                   ),
                 ),
                 Styles.gap10,
                 CustomCheckBox(
                   fontSize: 22,
-                  isChecked: isMorning,
+                  isChecked: widget.date.morning,
                   label: AppText.morning,
                   onChanged: (value) {
-                    setState(() {
-                      isMorning = !isMorning;
-                    });
+                    context.read<MedicationDetailsBloc>().add(
+                      MedicationDetailsEvent.updateDate(
+                        widget.date.copyWith(morning: !widget.date.morning),
+                      ),
+                    );
                   },
                 ),
                 Styles.gap10,
                 CustomCheckBox(
                   fontSize: 22,
-                  isChecked: isAfternoon,
+                  isChecked: widget.date.afternoon,
                   label: AppText.afternoon,
                   onChanged: (value) {
-                    setState(() {
-                      isAfternoon = !isAfternoon;
-                    });
+                    context.read<MedicationDetailsBloc>().add(
+                      MedicationDetailsEvent.updateDate(
+                        widget.date.copyWith(afternoon: !widget.date.afternoon),
+                      ),
+                    );
                   },
                 ),
                 Styles.gap10,
                 CustomCheckBox(
-                  isChecked: isNight,
+                  isChecked: widget.date.night,
                   fontSize: 22,
                   label: AppText.night,
                   onChanged: (value) {
-                    setState(() {
-                      isNight = !isNight;
-                    });
+                    context.read<MedicationDetailsBloc>().add(
+                      MedicationDetailsEvent.updateDate(
+                        widget.date.copyWith(night: !widget.date.night),
+                      ),
+                    );
                   },
                 ),
               ],
