@@ -4,8 +4,10 @@ import 'package:bloc/bloc.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
+import 'package:dummy/features/profile/domain/entities/media.dart';
 import 'package:dummy/features/profile/domain/usecases/documents_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/event_fields_usecases.dart';
+import 'package:dummy/features/profile/domain/usecases/medias_usecases.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/entities/documents.dart';
@@ -18,15 +20,18 @@ part 'pet_dairy_bloc.freezed.dart';
 class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
   PetDairyBloc({
     required DocumentsUsecases documentsUsecases,
+    required MediasUsecases mediasUsecases,
     required EventFieldsUsecases eventFieldsUsecases,
-  })  : _documentsUsecases = documentsUsecases,
-        _eventFieldsUsecases = eventFieldsUsecases,
-        super(const PetDairyState()) {
+  }) : _documentsUsecases = documentsUsecases,
+       _mediasUsecases = mediasUsecases,
+       _eventFieldsUsecases = eventFieldsUsecases,
+       super(const PetDairyState()) {
     on<_Initialization>(_initialization);
     on<_EventId>(__eventId);
   }
 
   final DocumentsUsecases _documentsUsecases;
+  final MediasUsecases _mediasUsecases;
   final EventFieldsUsecases _eventFieldsUsecases;
 
   Future<void> _initialization(
@@ -35,10 +40,12 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
   ) async {
     emit(state.copyWith(initStatus: Status.loading));
     final documents = await _documents();
-    final events =  await _eventFields();
+    final medias = await _medias();
+    final events = await _eventFields();
     emit(
       state.copyWith(
         documents: documents,
+        medias: medias,
         eventFields: events,
         initStatus: Status.success,
       ),
@@ -47,6 +54,11 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
 
   Future<List<Documents>> _documents() async {
     final result = await _documentsUsecases();
+    return result.fold((l) => [], (r) => r);
+  }
+
+  Future<List<Media>> _medias() async {
+    final result = await _mediasUsecases();
     return result.fold((l) => [], (r) => r);
   }
 

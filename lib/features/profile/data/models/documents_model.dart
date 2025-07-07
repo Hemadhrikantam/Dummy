@@ -9,14 +9,13 @@ class DocumentsModel extends Documents {
     required super.document,
     required super.uploadedAt,
   });
-   factory DocumentsModel.fromMap(JsonMap map) {
+  factory DocumentsModel.fromMap(JsonMap map) {
     return DocumentsModel(
       id: map['id'] as int? ?? 0,
       user: map['user'] as String? ?? '',
-      pet: map['pet'] as String? ?? '',
+      pet: map['pet'] as int? ?? 0,
       document: map['document'] as String? ?? '',
       uploadedAt: map['uploaded_at'] as String? ?? '',
-      
     );
   }
 }

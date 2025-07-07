@@ -1,16 +1,17 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/features/profile/domain/entities/media.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class PetPhotoCardPage extends StatelessWidget {
-  const PetPhotoCardPage({super.key});
+  const PetPhotoCardPage({super.key, required this.media});
   static const routeName = '/PetPhotoCardPage';
-
-  static Route<T> route<T>() {
+  final Media media;
+  static Route<T> route<T>({required Media media}) {
     return MaterialPageRoute<T>(
-      builder: (context) => const PetPhotoCardPage(),
+      builder: (context) => PetPhotoCardPage(media: media),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -21,7 +22,7 @@ class PetPhotoCardPage extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(gradient: AppColors.screenBackgroundColor),
         child: Padding(
-          padding: const EdgeInsets.all(16),
+          padding: Styles.edgeInsetsAll20,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(20),
             child: Stack(
@@ -31,7 +32,7 @@ class PetPhotoCardPage extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: const AssetImage(ImageResources.dogImage),
+                      image: NetworkImage(media.media),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -91,7 +92,7 @@ class PetPhotoCardPage extends StatelessWidget {
                   top: 16,
                   right: 16,
                   child: GestureDetector(
-                    onTap: (){
+                    onTap: () {
                       Navigator.of(context).pop();
                     },
                     child: CircleAvatar(
@@ -106,14 +107,14 @@ class PetPhotoCardPage extends StatelessWidget {
                   right: 8,
                   bottom: 100,
                   child: Column(
-                    children:  [
-                      SvgPicture.asset(ImageResources.heartWhite,width: 30,),
+                    children: [
+                      SvgPicture.asset(ImageResources.heartWhite, width: 30),
                       Styles.gap10,
-                      SvgPicture.asset(ImageResources.share,width: 30,),
+                      SvgPicture.asset(ImageResources.share, width: 30),
                       Styles.gap10,
-                      SvgPicture.asset(ImageResources.editWhite,width: 30,),
+                      SvgPicture.asset(ImageResources.editWhite, width: 30),
                       Styles.gap10,
-                      SvgPicture.asset(ImageResources.deleteWhite,width: 30,),
+                      SvgPicture.asset(ImageResources.deleteWhite, width: 30),
                     ],
                   ),
                 ),

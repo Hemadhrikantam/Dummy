@@ -77,7 +77,6 @@ class AppRoutes {
     NgoRegistrationPage2.routeName: (_) => const NgoRegistrationPage2(),
     NgoWelcomePage.routeName: (_) => const NgoWelcomePage(),
     NgoHomePage.routeName: (_) => const NgoHomePage(),
-    PetPhotoCardPage.routeName: (_) => const PetPhotoCardPage(),
     PetFavPage.routeName: (_) => const PetFavPage(),
     ProfilePage.routeName: (_) => const ProfilePage(),
     VetNearMePage.routeName: (_) => const VetNearMePage(),
