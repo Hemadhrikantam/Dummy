@@ -23,6 +23,7 @@ class AppCustomDateField extends StatelessWidget {
     this.minDate,
     this.isMandatory = false,
   });
+
   final IconData? suffixIcon;
   final bool enable;
   final String? hintText;
@@ -36,10 +37,9 @@ class AppCustomDateField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppTextFormField(
-      controller:
-          selectedDate != null
-              ? TextEditingController(text: _formatDate(selectedDate!))
-              : null,
+      controller: selectedDate != null
+          ? TextEditingController(text: _formatDate(selectedDate!))
+          : null,
       suffixIcon: suffixIcon ?? Iconsax.calendar,
       readOnly: true,
       hintText: hintText ?? AppText.enter,
@@ -47,18 +47,17 @@ class AppCustomDateField extends StatelessWidget {
       isMandatory: isMandatory,
       headerText: headerText ?? AppText.date,
       enable: enable,
-      onTap:
-          !enable
-              ? null
-              : () {
-                _pickDate(
-                  context,
-                  selectedDate: selectedDate,
-                  minDate: minDate,
-                  maxDate: maxDate,
-                  onChange: onChange,
-                );
-              },
+      onTap: !enable
+          ? null
+          : () {
+              _pickDate(
+                context,
+                selectedDate: selectedDate,
+                minDate: minDate,
+                maxDate: maxDate,
+                onChange: onChange,
+              );
+            },
     );
   }
 }
@@ -98,21 +97,18 @@ void _pickDate(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
                 AppText.dateOfBirth,
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
               ),
             ),
             Styles.gap10,
             Expanded(
               child: CupertinoDatePicker(
                 mode: CupertinoDatePickerMode.date,
-                initialDateTime:
-                    selectedDate ??
-                    DateTime.now(),
-                    // (
-                    //   DateTime.now().year,
-                    //   DateTime.now().month,
-                    //   DateTime.now().day,
-                    // ),
+                initialDateTime: _getValidInitialDate(
+                  selectedDate,
+                  minDate,
+                  maxDate,
+                ),
                 maximumDate: maxDate,
                 minimumDate: minDate,
                 onDateTimeChanged: (DateTime dateTime) {
@@ -163,4 +159,21 @@ void _pickDate(
       );
     },
   );
+}
+
+DateTime _getValidInitialDate(
+  DateTime? selectedDate,
+  DateTime? minDate,
+  DateTime? maxDate,
+) {
+  DateTime now = DateTime.now();
+  DateTime baseDate = selectedDate ?? now;
+
+  if (maxDate != null && baseDate.isAfter(maxDate)) {
+    return maxDate;
+  }
+  if (minDate != null && baseDate.isBefore(minDate)) {
+    return minDate;
+  }
+  return baseDate;
 }

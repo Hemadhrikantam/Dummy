@@ -6,19 +6,23 @@ import 'package:dummy/core/widgets/adoption_nav_bar.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/features/addoption/presentation/pages/addoption_page.dart';
 import 'package:dummy/features/dailycare/presentation/pages/dailycare_page.dart';
+import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/features/health/presentation/pages/health_page.dart';
 import 'package:dummy/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // import '../../../wag/presentation/pages/wag_page.dart';
 
 class AdoptionDashboardPage extends StatefulWidget {
-  const AdoptionDashboardPage({super.key});
+  final DashboardPetDetails selectedPet;
+  AdoptionDashboardPage({super.key, required this.selectedPet});
   static const routeName = '/AdoptionDashboardPage';
 
-  static Route<T> route<T>() {
+  static Route<T> route<T>(DashboardPetDetails selectedPet) {
     return MaterialPageRoute<T>(
-      builder: (context) => const AdoptionDashboardPage(),
+      builder: (context) => AdoptionDashboardPage(selectedPet: selectedPet),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -28,18 +32,11 @@ class AdoptionDashboardPage extends StatefulWidget {
 }
 
 class _AdoptionDashboardPage extends State<AdoptionDashboardPage> {
-  final List<Widget> _screens = <Widget>[
-    HomePage(),
-    HealthPage(),
-    DailycarePage(),
-    AddoptionPage(),
-  ];
   int selectedIndex = 3;
 
   void _onItemTapped(int index) {
     if (index < 3) {
-
-              BottomModels.needPremiumBottomSheet(context);
+      BottomModels.needPremiumBottomSheet(context);
     } else {
       setState(() {
         selectedIndex = index;
@@ -48,7 +45,21 @@ class _AdoptionDashboardPage extends State<AdoptionDashboardPage> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    Future.delayed(Duration.zero, () {
+      context.read<DashboardBloc>().add(DashboardEvent.dashboardPets());
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final List<Widget> _screens = <Widget>[
+      HomePage(),
+      HealthPage(selectedPet: widget.selectedPet),
+      DailycarePage(selectedPet: widget.selectedPet),
+      AddoptionPage(),
+    ];
     return PopScope(
       canPop: selectedIndex == 0,
       onPopInvoked: (didPop) {

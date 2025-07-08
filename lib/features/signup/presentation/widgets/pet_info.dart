@@ -105,7 +105,11 @@ class _PetInfoState extends State<PetInfo> {
                       headerText: AppText.dateOfBirth,
                       selectedDate: state,
                       isMandatory: true,
-                      maxDate: DateTime.now(),
+                      maxDate: DateTime(
+                        DateTime.now().year,
+                        DateTime.now().month,
+                        DateTime.now().day,
+                      ),
                       suffixIcon: Iconsax.calendar,
                       onChange: (date) {
                         context.read<RegisterBloc>().add(

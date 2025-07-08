@@ -1,6 +1,8 @@
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/buttons/app_text_button.dart';
+import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
+import 'package:dummy/features/home/presentation/widgets/pet_information_widget.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/constant/app_colors.dart';
@@ -10,8 +12,13 @@ import '../../../../../core/widgets/app_assets_image.dart';
 import '../../../../../core/widgets/custom_card.dart';
 
 class HealthStatusCard extends StatelessWidget {
-  const HealthStatusCard({super.key, required this.isEmpty});
+  const HealthStatusCard({
+    super.key,
+    required this.isEmpty,
+    required this.selectedPet,
+  });
   final bool isEmpty;
+  final DashboardPetDetails selectedPet;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
@@ -43,7 +50,7 @@ class HealthStatusCard extends StatelessWidget {
                               Styles.gap10,
                               Expanded(
                                 child: Text(
-                                  "Luna is a 5-year-old Labrador—start logging her daily care to see her health score!",
+                                  " ${selectedPet.petName} is a ${ calculateAge(selectedPet.dob)} old ${selectedPet.breed.breed}—start logging her daily care to see her health score!",
                                   style: context.textTheme.labelLarge?.copyWith(
                                     color: AppColors.text,
                                     fontSize: 12,
@@ -69,7 +76,7 @@ class HealthStatusCard extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        "Luna's Health Status",
+                                        " ${selectedPet.petName} Health Status",
                                         style: context.textTheme.labelLarge
                                             ?.copyWith(
                                               color: AppColors.grey500,
@@ -154,3 +161,5 @@ class HealthStatusCard extends StatelessWidget {
     );
   }
 }
+
+

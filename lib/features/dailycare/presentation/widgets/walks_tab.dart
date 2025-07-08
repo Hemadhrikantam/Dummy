@@ -10,6 +10,7 @@ import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/day_selector_widget.dart';
+import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -19,7 +20,8 @@ import '../../../health/presentation/widgets/empty_list_page.dart';
 import '../bloc/walks/walks_bloc.dart';
 
 class WalksTab extends StatefulWidget {
-  const WalksTab({super.key});
+  final DashboardPetDetails selectedPet;
+  const WalksTab({super.key, required this.selectedPet});
 
   @override
   State<WalksTab> createState() => _WalksTabState();
@@ -106,7 +108,7 @@ class _WalksTabState extends State<WalksTab> {
                         titleFontSize: 24,
                         imagePath: ImageResources.tshirt,
                         title:
-                            "We don’t have Luna’s daily care data yet. Start logging her walks to see a summary!",
+                            "We don’t have ${widget.selectedPet.petName} daily care data yet. Start logging her walks to see a summary!",
                       ),
                     )
                     : AppCustomListViewBuilder(

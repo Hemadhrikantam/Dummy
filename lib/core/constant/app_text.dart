@@ -217,8 +217,8 @@ class AppText {
   static String amount = 'Amount';
   static String food = 'Food';
   static String category = 'Category';
-  static String emptyDailyCareTitle =
-      "We don't have Luna's daily care data yet.";
+  // static String emptyDailyCareTitle =
+  //     "We don't have Luna's daily care data yet.";
   static String emptyDailyCareSubtitleMeals =
       "Start logging her meals to see a summary!";
   static String timeOfMeal = 'Time of Meal';
@@ -336,7 +336,7 @@ class AppText {
   static String member = 'Member';
   static String startCapturingMemo = 'Start capturing memories with Luna 🐶';
   static String doommiHelpsKeep = 'Doommi helps keep your buddy safe.';
-  static String letKeepSafe = 'Let’s keep [Pet Name] safe.';
+  // static String letKeepSafe = 'Let’s keep [Pet Name] safe.';
   static String nolistingsyet = 'No listings yet.';
   static String trackMedicationsTo = 'Track medications to never miss a dose';
   static String trackCoreAndBooster =

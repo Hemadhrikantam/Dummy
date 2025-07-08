@@ -14,7 +14,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class PetTypePage extends StatefulWidget {
   const PetTypePage({super.key});
-  static const routeName = '/AuthPage';
+  static const routeName = '/PetTypePage';
 
   static Route<T> route<T>() {
     return MaterialPageRoute<T>(
@@ -88,17 +88,22 @@ class _PetTypePage extends State<PetTypePage> {
                 child: BlocBuilder<AuthBloc, AuthState>(
                   builder: (context, state) {
                     return AppButton(
-                                  name: Text(
-                                    AppText.continueBtn,
-                                    style: context.textTheme.titleSmall?.copyWith(
-                                      fontWeight: FontWeight.w700,
-                                      color: AppColors.buttonTextColor,
-                                    ),
-                                  ),
-                                  onPressed: () {
-                                    context.read<AuthBloc>().add(AuthEvent.registerUser(state.phone.value??'', state.yourself.name));
-                                  },
-                                );
+                      name: Text(
+                        AppText.continueBtn,
+                        style: context.textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.buttonTextColor,
+                        ),
+                      ),
+                      onPressed: () {
+                        context.read<AuthBloc>().add(
+                          AuthEvent.registerUser(
+                            state.phone.value ?? '',
+                            state.yourself.name,
+                          ),
+                        );
+                      },
+                    );
                   },
                 ),
               ),

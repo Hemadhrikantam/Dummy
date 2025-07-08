@@ -139,36 +139,39 @@ class PersonalityTagCard extends StatelessWidget {
 
 class __UploadImage extends StatefulWidget {
   const __UploadImage();
-  
+
   @override
-  State<StatefulWidget> createState() => ___UploadImage();
+  State<__UploadImage> createState() => ___UploadImage();
 }
-class ___UploadImage extends State<__UploadImage>{
+
+class ___UploadImage extends State<__UploadImage> {
   XFile? _image;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        final ImagePicker picker = ImagePicker();
-            final image = await picker.pickImage(source: ImageSource.gallery);
-            if (image != null) {
-              setState(() {
-                _image=image;
-              });
-            }
+        final images = await customFilePicker(context); 
+        if (images.isNotEmpty) {
+          setState(() {
+            _image = XFile(images.first);
+          });
+        }
       },
       child: CircleAvatar(
-        backgroundColor: AppColors.buttonBackground,
-        backgroundImage: _image!=null? FileImage(File(_image!.path)):null,
         radius: 100,
-        child: Text(
-          AppText.upload,
-          style: context.textTheme.titleMedium?.copyWith(
-            color: AppColors.buttonTextColor,
-            fontWeight: FontWeight.w700,
-            fontSize: 14,
-          ),
-        ),
+        backgroundColor: AppColors.buttonBackground,
+        backgroundImage: _image != null ? FileImage(File(_image!.path)) : null,
+        child: _image == null
+            ? Text(
+                AppText.upload,
+                style: context.textTheme.titleMedium?.copyWith(
+                  color: AppColors.buttonTextColor,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 14,
+                ),
+              )
+            : null,
       ),
     );
   }

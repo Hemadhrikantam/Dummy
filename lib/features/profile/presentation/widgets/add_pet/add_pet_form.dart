@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
+import 'package:dummy/core/widgets/file_picker.dart';
 import 'package:dummy/features/signup/presentation/bloc/register/register_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,7 +28,7 @@ class AddPetForm extends StatelessWidget {
         __UploadImage(),
         Styles.gap30,
         Padding(
-          padding: const EdgeInsets.all(4.0),
+          padding: Styles.edgeInsetsAll04,
           child: CustomCard(
             borderColor: AppColors.transparent,
             child: Stack(

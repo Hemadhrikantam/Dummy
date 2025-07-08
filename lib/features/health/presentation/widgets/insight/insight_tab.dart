@@ -2,6 +2,7 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
+import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/health/presentation/widgets/goldern_container.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -17,13 +18,14 @@ import 'predictive_alerts_section.dart';
 import 'recommendations_section.dart';
 
 class InsightTab extends StatelessWidget {
-  const InsightTab({super.key});
+   final DashboardPetDetails selectedPet;
+  const InsightTab({super.key, required this.selectedPet});
 
   @override
   Widget build(BuildContext context) {
     final empty = false;
     return Padding(
-      padding: Styles.edgeInsetsOnlyT20,
+      padding: Styles.edgeInsetsOnlyT20+Styles.edgeInsetsOnlyB20,
       child: CustomCard(
         borderColor: AppColors.white,
         child: Container(
@@ -32,7 +34,7 @@ class InsightTab extends StatelessWidget {
           ),
           child: ListView(
             children: [
-              HealthStatusCard(isEmpty: empty),
+              HealthStatusCard(isEmpty: empty, selectedPet: selectedPet),
               Styles.gap20,
               CustomCard(
                 borderColor: AppColors.buttonBackground,
@@ -51,8 +53,9 @@ class InsightTab extends StatelessWidget {
                         Expanded(
                           child: Text(
                             empty
-                                ? "Track Luna’s daily care to unlock more insights!"
-                                : 'Luna has had 10 walks this month—great job keeping her active!',
+                                ? "Track ${selectedPet.petName}’s daily care to unlock more insights!"
+                                : '${selectedPet.petName} has had 10 walks this month—great job keeping her active!',
+
                             style: context.textTheme.titleMedium?.copyWith(
                               color: AppColors.stepperColor,
                               fontWeight: FontWeight.w600,
@@ -62,13 +65,13 @@ class InsightTab extends StatelessWidget {
                         ),
                       ],
                     ),
-                    if(empty)
-                    AppTextButton(
-                      backgroundColor: AppColors.white,
-                      name: "Log Walks",
-                      borderColor: AppColors.grey500,
-                      textColor: AppColors.buttonTextColor,
-                    ),
+                    if (empty)
+                      AppTextButton(
+                        backgroundColor: AppColors.white,
+                        name: "Log Walks",
+                        borderColor: AppColors.grey500,
+                        textColor: AppColors.buttonTextColor,
+                      ),
                   ],
                 ),
               ),
@@ -87,7 +90,8 @@ class InsightTab extends StatelessWidget {
                     ),
                     Styles.gap20,
                     Text(
-                      'Luna has had 10 walks this month—great job keeping her active!',
+                     '${selectedPet.petName} has had 10 walks this month—great job keeping her active!',
+
                       style: context.textTheme.titleMedium?.copyWith(
                         color: AppColors.stepperColor,
                         fontWeight: FontWeight.w600,
@@ -172,7 +176,8 @@ class InsightTab extends StatelessWidget {
                                   gradient: AppColors.blackAndWhite,
                                 ),
                                 child: Text(
-                                  'Luna seems happiest at the beach based on your recent photos!',
+                                  '${selectedPet.petName} seems happiest at the beach based on your recent photos!',
+
                                   style: context.textTheme.bodySmall?.copyWith(
                                     color: AppColors.white,
                                     fontSize: 14,
@@ -191,6 +196,7 @@ class InsightTab extends StatelessWidget {
               RecommendationsSection(),
               Styles.gap20,
               LearnSections(),
+
             ],
           ),
         ),

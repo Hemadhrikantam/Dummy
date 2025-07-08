@@ -4,9 +4,9 @@ import 'package:dummy/features/auth/presentation/pages/continue_with_phone.dart'
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_welcome_page.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
+import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
-import 'package:dummy/features/health/presentation/pages/edit_medication_page.dart';
 import 'package:dummy/features/health/presentation/pages/edit_vaccination_page.dart';
 import 'package:dummy/features/home/presentation/pages/notification_page.dart';
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
@@ -64,7 +64,17 @@ class AppRoutes {
     StartScreenPage.routeName: (_) => const StartScreenPage(),
 
     //dashboard
-    DashboardPage.routeName: (_) => const DashboardPage(),
+    DashboardPage.routeName: (_) => DashboardPage(selectedPet: DashboardPetDetails(
+                      id: 0,
+                      petName: '',
+                      dob: '',
+                      petWeight: 0,
+                      breed: Breed(id: 0, petType: '', breed: ''),
+                      personalityTag: [PersonalityTag(id: 0, personality: '')],
+                      petType: '',
+                      trackActivity: false,
+                      petImage: PetImage(id: 0, petImage: ''),
+                    ),),
 
     //profile
     ProfileOptionsPage.routeName: (_) => const ProfileOptionsPage(),
@@ -82,7 +92,17 @@ class AppRoutes {
     ProfilePage.routeName: (_) => const ProfilePage(),
     VetNearMePage.routeName: (_) => const VetNearMePage(),
     PremiumSubscription.routeName: (_) => const PremiumSubscription(),
-    AdoptionDashboardPage.routeName: (_) => const AdoptionDashboardPage(),
+    AdoptionDashboardPage.routeName: (_) =>  AdoptionDashboardPage(selectedPet: DashboardPetDetails(
+                      id: 0,
+                      petName: '',
+                      dob: '',
+                      petWeight: 0,
+                      breed: Breed(id: 0, petType: '', breed: ''),
+                      personalityTag: [PersonalityTag(id: 0, personality: '')],
+                      petType: '',
+                      trackActivity: false,
+                      petImage: PetImage(id: 0, petImage: ''),
+                    ),),
     AllAdoptionDetailsPage.routeName: (_) => const AllAdoptionDetailsPage(),
     NgoProfileOptionsPage.routeName: (_) => const NgoProfileOptionsPage(),
     FaqPage.routeName: (_) => const FaqPage(),

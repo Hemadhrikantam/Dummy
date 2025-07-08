@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 
 class PetInformationWidget extends StatelessWidget {
   const PetInformationWidget({super.key, required this.dashboardPetDetails});
-  final DashboardPetDetails dashboardPetDetails;
+  final DashboardPetDetails? dashboardPetDetails;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
@@ -29,20 +29,20 @@ class PetInformationWidget extends StatelessWidget {
                 __InfoValue(
                   image: ImageResources.weight,
                   title: AppText.name,
-                  value: dashboardPetDetails.petName,
+                  value: dashboardPetDetails?.petName??'',
                 ),
                 Flexible(
                   flex: 2,
                   child: __InfoValue(
                     image: ImageResources.breed,
                     title: AppText.breed,
-                    value: dashboardPetDetails.breed.breed,
+                    value: dashboardPetDetails?.breed.breed??"",
                   ),
                 ),
                 __InfoValue(
                   image: ImageResources.age,
                   title: AppText.age,
-                  value: _calculateAge(dashboardPetDetails.dob),
+                  value: calculateAge(dashboardPetDetails?.dob??''),
                 ),
               ],
             ),
@@ -54,7 +54,7 @@ class PetInformationWidget extends StatelessWidget {
                 __InfoValue(
                   image: ImageResources.petType,
                   title: AppText.petType,
-                  value: dashboardPetDetails.petType,
+                  value: dashboardPetDetails?.petType??'',
                 ),
                 __InfoValue(
                   image: ImageResources.gender,
@@ -64,7 +64,7 @@ class PetInformationWidget extends StatelessWidget {
                 __InfoValue(
                   image: ImageResources.weight,
                   title: AppText.weight,
-                  value: '${dashboardPetDetails.petWeight} kgs',
+                  value: '${dashboardPetDetails?.petWeight} kgs',
                 ),
               ],
             ),
@@ -75,7 +75,7 @@ class PetInformationWidget extends StatelessWidget {
   }
 }
 
-String _calculateAge(String dob) {
+String calculateAge(String dob) {
   final birthDate = DateTime.parse(dob);
   final now = DateTime.now();
   final age = now.year - birthDate.year;

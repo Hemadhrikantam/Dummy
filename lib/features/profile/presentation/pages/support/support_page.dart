@@ -35,25 +35,28 @@ class SupportPage extends StatelessWidget {
         alignment: Alignment.topCenter,
         child: Column(
           children: [
-            CustomCard(
-              borderColor: AppColors.transparent,
-              child: const Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  // SupportItemsWidget(
-                  //   title: 'Contact',
-                  //   subtitle: '+91 9897564567',
-                  //   leadingIcon: ImageResources.support,
-                  //   trailingIcon: Iconsax.call_calling5,
-                  // ),
-                  // Styles.gap10,
-                  SupportItemsWidget(
-                    title: 'Email',
-                    subtitle: 'support@doommi.com',
-                    leadingIcon: ImageResources.support,
-                    trailingIcon: Iconsax.sms_tracking5,
-                  ),
-                ],
+            Padding(
+              padding: EdgeInsets.only(top: 12),
+              child: CustomCard(
+                borderColor: AppColors.transparent,
+                child: const Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    // SupportItemsWidget(
+                    //   title: 'Contact',
+                    //   subtitle: '+91 9897564567',
+                    //   leadingIcon: ImageResources.support,
+                    //   trailingIcon: Iconsax.call_calling5,
+                    // ),
+                    // Styles.gap10,
+                    SupportItemsWidget(
+                      title: 'Email',
+                      subtitle: 'support@doommi.com',
+                      leadingIcon: ImageResources.support,
+                      trailingIcon: Iconsax.sms_tracking5,
+                    ),
+                  ],
+                ),
               ),
             ),
             Styles.gap12,

@@ -6,6 +6,7 @@ import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/nav_bar.dart';
 import 'package:dummy/features/addoption/presentation/pages/addoption_page.dart';
 import 'package:dummy/features/dailycare/presentation/pages/dailycare_page.dart';
+import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/health/presentation/pages/health_page.dart';
 import 'package:dummy/features/home/presentation/pages/home_page.dart';
 import 'package:dummy/features/wag/presentation/pages/wag_page.dart';
@@ -13,12 +14,13 @@ import 'package:flutter/material.dart';
 
 
 class DashboardPage extends StatefulWidget {
-  const DashboardPage({super.key});
+  final DashboardPetDetails selectedPet;
+ const DashboardPage({super.key, required this.selectedPet});
   static const routeName = '/DashBoardPage';
 
-  static Route<T> route<T>() {
+  static Route<T> route<T>(DashboardPetDetails selectedPet)  {
     return MaterialPageRoute<T>(
-      builder: (context) => const DashboardPage(),
+      builder: (context) => DashboardPage(selectedPet: selectedPet,),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -28,12 +30,7 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPage extends State<DashboardPage> {
-  final List<Widget> _screens = <Widget>[
-    HomePage(),
-    HealthPage(),
-    DailycarePage(),
-    AddoptionPage(),
-  ];
+  
   int selectedIndex = 0;
 
   void _onItemTapped(int index) {
@@ -44,6 +41,12 @@ class _DashboardPage extends State<DashboardPage> {
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> _screens = <Widget>[
+    HomePage(),
+    HealthPage(selectedPet: widget.selectedPet,),
+    DailycarePage(selectedPet: widget.selectedPet,),
+    AddoptionPage(),
+  ];
     return PopScope(
       canPop: selectedIndex == 0,
       onPopInvoked: (didPop) {

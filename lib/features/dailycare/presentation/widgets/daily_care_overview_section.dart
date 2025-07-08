@@ -4,12 +4,14 @@ import 'package:dummy/features/dailycare/presentation/widgets/expenses_tab.dart'
 import 'package:dummy/features/dailycare/presentation/widgets/grooming_tab.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/overview_daily_header_widget.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/walks_tab.dart';
+import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:flutter/material.dart';
 import 'overview_tab.dart';
 import 'meals_tab.dart';
 
 class DailyCareOverviewSection extends StatefulWidget {
-  const DailyCareOverviewSection({super.key});
+      final DashboardPetDetails selectedPet;
+  const DailyCareOverviewSection({super.key, required this.selectedPet});
 
   @override
   State<DailyCareOverviewSection> createState() =>
@@ -30,14 +32,7 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
     'Deworming',
     'Expenses',
   ];
-  final tabPages = [
-    OverviewTab(),
-    MealsTab(),
-    WalksTab(),
-    GroomingTab(),
-    DewormingTab(),
-    ExpensesTab(),
-  ];
+  
   @override
   void initState() {
     super.initState();
@@ -74,6 +69,14 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
 
   @override
   Widget build(BuildContext context) {
+    final tabPages = [
+    OverviewTab(),
+    MealsTab(selectedPet: widget.selectedPet,),
+    WalksTab(selectedPet: widget.selectedPet,),
+    GroomingTab(selectedPet: widget.selectedPet,),
+    DewormingTab(selectedPet: widget.selectedPet,),
+    ExpensesTab(selectedPet: widget.selectedPet,),
+  ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
