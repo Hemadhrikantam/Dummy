@@ -413,7 +413,10 @@ class BottomModels {
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return AddPetDocuments();
+        return BlocProvider(
+          create: (context) => InjectionBloc.documentFormBloc,
+          child: AddPetDocuments(),
+        );
       },
     );
   }
@@ -425,7 +428,10 @@ class BottomModels {
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return AddPetMedia();
+        return BlocProvider(
+          create: (context) => InjectionBloc.mediaFormBloc,
+          child: AddPetMedia(),
+        );
       },
     );
   }

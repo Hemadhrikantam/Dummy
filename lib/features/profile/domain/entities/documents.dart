@@ -10,7 +10,7 @@ class Documents extends Equatable {
   });
   final int id;
   final String user;
-  final String pet;
+  final int pet;
   final String document;
   final String uploadedAt;
   @override

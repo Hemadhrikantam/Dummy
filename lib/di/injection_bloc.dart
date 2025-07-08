@@ -26,7 +26,19 @@ class InjectionBloc {
     return PetDairyBloc(
       documentsUsecases: getIt<DocumentsUsecases>(),
       eventFieldsUsecases: getIt<EventFieldsUsecases>(),
+      mediasUsecases: getIt<MediasUsecases>(),
     );
+  }
+
+  static MediaFormBloc get mediaFormBloc {
+    return MediaFormBloc(
+      addMediaUsecases: getIt<AddMediaUsecases>(),
+      eventFieldsUsecases: getIt<EventFieldsUsecases>(),
+    );
+  }
+
+  static DocumentFormBloc get documentFormBloc {
+    return DocumentFormBloc(addDocumentUsecases: getIt<AddDocumentUsecases>());
   }
 
   static DashboardBloc get dashboardBloc {

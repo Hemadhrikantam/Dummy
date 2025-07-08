@@ -353,6 +353,7 @@ class AppText {
   static const String petDairy = 'Pet Dairy';
   static const String timeline = 'Timeline';
   static const String documents = 'Documents';
+  static const String document = 'Document';
   static const String addDoc = 'Add Documents';
   static const String addMedia = 'Add Media';
   static String tellUsLuna = 'Tell us about Luna’s moment!';
