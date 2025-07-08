@@ -27,9 +27,12 @@ class _DailycarePage extends State<DailycarePage> {
               CustomHeaderWidget(petImage: state.petImage),
               Styles.gap20,
               Expanded(
-                child: DailyCareOverviewSection(
-                  selectedPet: widget.selectedPet,
-                ),
+                child:
+                    (state.selectedPet == null)
+                        ? SizedBox()
+                        : DailyCareOverviewSection(
+                          selectedPet: state.selectedPet!,
+                        ),
               ),
             ],
           ),

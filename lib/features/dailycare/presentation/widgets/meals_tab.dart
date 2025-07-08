@@ -21,8 +21,7 @@ import '../bloc/meals/meals_bloc.dart';
 
 class MealsTab extends StatefulWidget {
   final DashboardPetDetails selectedPet;
-  const MealsTab({super.key, required this.selectedPet}
- );
+  const MealsTab({super.key, required this.selectedPet});
 
   @override
   State<MealsTab> createState() => _MealsTabState();

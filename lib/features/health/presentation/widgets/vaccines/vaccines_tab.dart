@@ -16,7 +16,7 @@ import '../../pages/add_vaccination_page.dart';
 import 'vaccines_list.dart';
 
 class VaccinesTab extends StatefulWidget {
-  const VaccinesTab({super.key, });
+  const VaccinesTab({super.key});
 
   @override
   State<VaccinesTab> createState() => _VaccinesTabState();
@@ -29,7 +29,7 @@ class _VaccinesTabState extends State<VaccinesTab> {
   @override
   void initState() {
     Future.delayed(Duration.zero, () {
-      // refresh();
+      refresh();
     });
     super.initState();
   }

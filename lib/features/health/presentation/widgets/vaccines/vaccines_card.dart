@@ -58,10 +58,13 @@ class VaccinesCard extends StatelessWidget {
                   ),
                   Styles.gap6,
                   CustomSwitch(
-                    value: vaccination.reminder,
+                    value: true,
                     onChanged: (value) {
                       if (value) {
-                        BottomModels.vaccinationReminderSheet(context);
+                        BottomModels.vaccinationReminderSheet(
+                          context,
+                          vaccination,
+                        );
                       }
                     },
                   ),
@@ -83,9 +86,7 @@ class VaccinesCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    AppUtil.formatDateToMMDDYYYY(
-                      DateTime.parse(vaccination.dateAdministered),
-                    ),
+                    AppUtil.formatDateToMMDDYYYY(vaccination.dateAdministered),
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -103,9 +104,7 @@ class VaccinesCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    AppUtil.formatDateToMMDDYYYY(
-                      DateTime.parse(vaccination.dueDate),
-                    ),
+                    AppUtil.formatDateToMMDDYYYY(vaccination.dueDate),
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,

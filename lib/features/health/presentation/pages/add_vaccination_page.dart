@@ -4,6 +4,7 @@ import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/health/presentation/bloc/vaccinations/vaccinations_bloc.dart';
 import 'package:dummy/features/profile/presentation/widgets/bottom_action_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -41,9 +42,10 @@ class AddVaccinationPage extends StatelessWidget {
         child: BlocConsumer<VaccinationFormBloc, VaccinationFormState>(
           listener: (context, state) {
             if (state.submitStatus.success) {
-              // context.read<MedicationsBloc>().add(
-              //   MedicationsEvent.medications(null),
-              // );
+              context.read<VaccinationsBloc>().add(
+                VaccinationsEvent.vaccinations(null),
+              );
+              context.pop();
               context.push(VaccinationSuccessPage.route());
             }
           },
