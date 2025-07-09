@@ -15,7 +15,18 @@ import '../widgets/vaccines/vaccines_tab.dart';
 
 class HealthPage extends StatefulWidget {
   final DashboardPetDetails selectedPet;
-  const HealthPage({super.key, required this.selectedPet});
+    final String initialTab;
+  const HealthPage({super.key, required this.selectedPet, this.initialTab='Insight'});
+
+  static const routeName = '/HealthPage';
+
+
+   static Route<T> route<T>(DashboardPetDetails selectedPet) {
+    return MaterialPageRoute<T>(
+      builder: (context) =>  HealthPage(selectedPet: selectedPet,),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
 
   @override
   createState() => _HealthPage();
@@ -27,7 +38,15 @@ class _HealthPage extends State<HealthPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 3, vsync: this);
+    int initialIndex = 0;
+  if (widget.initialTab == 'Insight') {
+    initialIndex = 0;
+  } else if (widget.initialTab == 'Vaccination') {
+    initialIndex = 1;
+  } else if (widget.initialTab == 'Medications') {
+    initialIndex = 2;
+  }
+    _tabController = TabController(length: 3, vsync: this, initialIndex: initialIndex);
     _tabController.addListener(__listener);
   }
 
@@ -57,7 +76,7 @@ class _HealthPage extends State<HealthPage> with TickerProviderStateMixin {
                   controller: _tabController,
                   children: [
                     InsightTab(selectedPet: widget.selectedPet),
-                    VaccinesTab(),
+                    VaccinesTab(selectedPet: widget.selectedPet, initialTab: widget.initialTab,),
                     MedicationsTab(),
                   ],
                 ),

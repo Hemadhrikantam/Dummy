@@ -10,8 +10,13 @@ import 'overview_tab.dart';
 import 'meals_tab.dart';
 
 class DailyCareOverviewSection extends StatefulWidget {
-      final DashboardPetDetails selectedPet;
-  const DailyCareOverviewSection({super.key, required this.selectedPet});
+  final DashboardPetDetails selectedPet;
+  final String initialTab;
+  const DailyCareOverviewSection({
+    super.key,
+    required this.selectedPet,
+    this.initialTab = 'Overview',
+  });
 
   @override
   State<DailyCareOverviewSection> createState() =>
@@ -22,8 +27,8 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
   final ScrollController _tabScrollController = ScrollController();
   final Map<String, GlobalKey> _tabKeys = {};
   // BuildContext? _scrollContext;
-  String selectedTab = 'Overview';
-  final _controller = PageController();
+  late String selectedTab;
+  late PageController _controller;
   final tabs = [
     'Overview',
     'Meals',
@@ -32,13 +37,15 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
     'Deworming',
     'Expenses',
   ];
-  
+
   @override
   void initState() {
     super.initState();
     for (var tab in tabs) {
       _tabKeys[tab] = GlobalKey();
     }
+    selectedTab = widget.initialTab;
+    _controller = PageController(initialPage: tabs.indexOf(widget.initialTab));
   }
 
   void _scrollToSelectedTab(String tab) {
@@ -70,13 +77,13 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
   @override
   Widget build(BuildContext context) {
     final tabPages = [
-    OverviewTab(),
-    MealsTab(selectedPet: widget.selectedPet,),
-    WalksTab(selectedPet: widget.selectedPet,),
-    GroomingTab(selectedPet: widget.selectedPet,),
-    DewormingTab(selectedPet: widget.selectedPet,),
-    ExpensesTab(selectedPet: widget.selectedPet,),
-  ];
+      OverviewTab(),
+      MealsTab(selectedPet: widget.selectedPet),
+      WalksTab(selectedPet: widget.selectedPet),
+      GroomingTab(selectedPet: widget.selectedPet),
+      DewormingTab(selectedPet: widget.selectedPet),
+      ExpensesTab(selectedPet: widget.selectedPet),
+    ];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -98,17 +105,17 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
             _scrollToSelectedTab(tab);
           },
         ),
-       
+
         Styles.gap10,
         Expanded(
           child: PageView.builder(
             controller: _controller,
-           onPageChanged: (i) {
-            setState(() {
-              selectedTab = tabs[i];
-            });
-            _scrollToSelectedTab(tabs[i]); 
-          },
+            onPageChanged: (i) {
+              setState(() {
+                selectedTab = tabs[i];
+              });
+              _scrollToSelectedTab(tabs[i]);
+            },
             itemCount: tabPages.length,
             itemBuilder: (context, index) {
               return tabPages[index];

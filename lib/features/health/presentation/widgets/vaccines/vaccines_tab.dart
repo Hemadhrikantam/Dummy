@@ -5,6 +5,7 @@ import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/custom_search_bar.dart';
+import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +17,9 @@ import '../../pages/add_vaccination_page.dart';
 import 'vaccines_list.dart';
 
 class VaccinesTab extends StatefulWidget {
-  const VaccinesTab({super.key, });
+   final String initialTab;
+    final DashboardPetDetails selectedPet;
+  const VaccinesTab({super.key, this.initialTab = 'Insight', required this.selectedPet, });
 
   @override
   State<VaccinesTab> createState() => _VaccinesTabState();

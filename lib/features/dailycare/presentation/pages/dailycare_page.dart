@@ -10,7 +10,18 @@ import '../../../../core/widgets/base_screen.dart';
 
 class DailycarePage extends StatefulWidget {
   final DashboardPetDetails selectedPet;
-  const DailycarePage({super.key, required this.selectedPet});
+       final String initialTab;
+  const DailycarePage({super.key, required this.selectedPet,this.initialTab = 'Overview'});
+  static const routeName = '/DailyCarePage';
+
+
+   static Route<T> route<T>(DashboardPetDetails selectedPet) {
+    return MaterialPageRoute<T>(
+      builder: (context) =>  DailycarePage(selectedPet: selectedPet,),
+      settings: const RouteSettings(name: routeName),
+    );
+  }
+
 
   @override
   State<DailycarePage> createState() => _DailycarePage();
@@ -29,6 +40,7 @@ class _DailycarePage extends State<DailycarePage> {
               Expanded(
                 child: DailyCareOverviewSection(
                   selectedPet: widget.selectedPet,
+                  initialTab: widget.initialTab,
                 ),
               ),
             ],

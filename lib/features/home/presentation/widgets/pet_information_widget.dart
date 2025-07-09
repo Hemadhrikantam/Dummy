@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 class PetInformationWidget extends StatelessWidget {
   const PetInformationWidget({super.key, required this.dashboardPetDetails});
   final DashboardPetDetails? dashboardPetDetails;
+
   @override
   Widget build(BuildContext context) {
     return CustomCard(
@@ -26,23 +27,26 @@ class PetInformationWidget extends StatelessWidget {
           CustomCard(
             child: Row(
               children: [
-                __InfoValue(
-                  image: ImageResources.weight,
-                  title: AppText.name,
-                  value: dashboardPetDetails?.petName??'',
+                Expanded(
+                  child: __InfoValue(
+                    image: ImageResources.weight,
+                    title: AppText.name,
+                    value: dashboardPetDetails?.petName ?? '',
+                  ),
                 ),
-                Flexible(
-                  flex: 2,
+                Expanded(
                   child: __InfoValue(
                     image: ImageResources.breed,
                     title: AppText.breed,
-                    value: dashboardPetDetails?.breed.breed??"",
+                    value: dashboardPetDetails?.breed.breed ?? "",
                   ),
                 ),
-                __InfoValue(
-                  image: ImageResources.age,
-                  title: AppText.age,
-                  value: calculateAge(dashboardPetDetails?.dob??''),
+                Expanded(
+                  child: __InfoValue(
+                    image: ImageResources.age,
+                    title: AppText.age,
+                    value: calculateAge(dashboardPetDetails?.dob ?? ''),
+                  ),
                 ),
               ],
             ),
@@ -51,20 +55,26 @@ class PetInformationWidget extends StatelessWidget {
           CustomCard(
             child: Row(
               children: [
-                __InfoValue(
-                  image: ImageResources.petType,
-                  title: AppText.petType,
-                  value: dashboardPetDetails?.petType??'',
+                Expanded(
+                  child: __InfoValue(
+                    image: ImageResources.petType,
+                    title: AppText.petType,
+                    value: dashboardPetDetails?.petType ?? '',
+                  ),
                 ),
-                __InfoValue(
-                  image: ImageResources.gender,
-                  title: AppText.gender,
-                  value: 'Female',
+                Expanded(
+                  child: __InfoValue(
+                    image: ImageResources.gender,
+                    title: AppText.gender,
+                    value: 'Female',
+                  ),
                 ),
-                __InfoValue(
-                  image: ImageResources.weight,
-                  title: AppText.weight,
-                  value: '${dashboardPetDetails?.petWeight} kgs',
+                Expanded(
+                  child: __InfoValue(
+                    image: ImageResources.weight,
+                    title: AppText.weight,
+                    value: '${dashboardPetDetails?.petWeight} kgs',
+                  ),
                 ),
               ],
             ),
@@ -76,9 +86,13 @@ class PetInformationWidget extends StatelessWidget {
 }
 
 String calculateAge(String dob) {
-  final birthDate = DateTime.parse(dob);
+  final birthDate = DateTime.tryParse(dob);
+  if (birthDate == null) return '-';
   final now = DateTime.now();
-  final age = now.year - birthDate.year;
+  int age = now.year - birthDate.year;
+  if (now.month < birthDate.month || (now.month == birthDate.month && now.day < birthDate.day)) {
+    age--;
+  }
   return '$age Years';
 }
 
@@ -88,45 +102,45 @@ class __InfoValue extends StatelessWidget {
     required this.title,
     required this.value,
   });
+
   final String image;
   final String title;
   final String value;
+
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          AppAssestsImage(path: image, height: 20, width: 20),
-          Styles.gap6,
-          Flexible(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: context.textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.grey600,
-                    fontSize: 10,
-                  ),
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        AppAssestsImage(path: image, height: 20, width: 20),
+        Styles.gap6,
+        Flexible(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: context.textTheme.titleSmall?.copyWith(
+                  fontWeight: FontWeight.w500,
+                  color: AppColors.grey600,
+                  fontSize: 10,
                 ),
-                Styles.gap2,
-                Text(
-                  value,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: context.textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.stepperColor,
-                    fontSize: 16,
-                  ),
+              ),
+              Styles.gap2,
+              Text(
+                value,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: context.textTheme.titleSmall?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.stepperColor,
+                  fontSize: 16,
                 ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

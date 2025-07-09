@@ -4,10 +4,13 @@ import 'package:dummy/features/auth/presentation/pages/continue_with_phone.dart'
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_welcome_page.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
+import 'package:dummy/features/dailycare/presentation/pages/dailycare_page.dart';
+import 'package:dummy/features/dailycare/presentation/widgets/meals_tab.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/health/presentation/pages/edit_vaccination_page.dart';
+import 'package:dummy/features/health/presentation/pages/health_page.dart';
 import 'package:dummy/features/home/presentation/pages/notification_page.dart';
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/profile/presentation/pages/ngo_profile_options_page.dart';
@@ -61,20 +64,24 @@ class AppRoutes {
     PasswordResetSuccessfullPage.routeName:
         (_) => const PasswordResetSuccessfullPage(),
     SignupPage.routeName: (_) => const SignupPage(),
+
     StartScreenPage.routeName: (_) => const StartScreenPage(),
 
     //dashboard
-    DashboardPage.routeName: (_) => DashboardPage(selectedPet: DashboardPetDetails(
-                      id: 0,
-                      petName: '',
-                      dob: '',
-                      petWeight: 0,
-                      breed: Breed(id: 0, petType: '', breed: ''),
-                      personalityTag: [PersonalityTag(id: 0, personality: '')],
-                      petType: '',
-                      trackActivity: false,
-                      petImage: PetImage(id: 0, petImage: ''),
-                    ),),
+    DashboardPage.routeName:
+        (_) => DashboardPage(
+          selectedPet: DashboardPetDetails(
+            id: 0,
+            petName: '',
+            dob: '',
+            petWeight: 0,
+            breed: Breed(id: 0, petType: '', breed: ''),
+            personalityTag: [PersonalityTag(id: 0, personality: '')],
+            petType: '',
+            trackActivity: false,
+            petImage: PetImage(id: 0, petImage: ''),
+          ),
+        ),
 
     //profile
     ProfileOptionsPage.routeName: (_) => const ProfileOptionsPage(),
@@ -91,17 +98,20 @@ class AppRoutes {
     ProfilePage.routeName: (_) => const ProfilePage(),
     VetNearMePage.routeName: (_) => const VetNearMePage(),
     PremiumSubscription.routeName: (_) => const PremiumSubscription(),
-    AdoptionDashboardPage.routeName: (_) =>  AdoptionDashboardPage(selectedPet: DashboardPetDetails(
-                      id: 0,
-                      petName: '',
-                      dob: '',
-                      petWeight: 0,
-                      breed: Breed(id: 0, petType: '', breed: ''),
-                      personalityTag: [PersonalityTag(id: 0, personality: '')],
-                      petType: '',
-                      trackActivity: false,
-                      petImage: PetImage(id: 0, petImage: ''),
-                    ),),
+    AdoptionDashboardPage.routeName:
+        (_) => AdoptionDashboardPage(
+          selectedPet: DashboardPetDetails(
+            id: 0,
+            petName: '',
+            dob: '',
+            petWeight: 0,
+            breed: Breed(id: 0, petType: '', breed: ''),
+            personalityTag: [PersonalityTag(id: 0, personality: '')],
+            petType: '',
+            trackActivity: false,
+            petImage: PetImage(id: 0, petImage: ''),
+          ),
+        ),
     AllAdoptionDetailsPage.routeName: (_) => const AllAdoptionDetailsPage(),
     NgoProfileOptionsPage.routeName: (_) => const NgoProfileOptionsPage(),
     FaqPage.routeName: (_) => const FaqPage(),
@@ -111,5 +121,19 @@ class AppRoutes {
     EditVaccinationPage.routeName: (_) => const EditVaccinationPage(),
     NotificationPage.routeName: (_) => const NotificationPage(),
     HomePage.routeName: (_) => const HomePage(),
+    DailycarePage.routeName: (context) {
+      final args = ModalRoute.of(context)!.settings.arguments as Map;
+      return DailycarePage(
+        selectedPet: args['selectedPet'],
+        initialTab: args['initialTab'] ?? 'Overview',
+      );
+    },
+    HealthPage.routeName: (context) {
+      final args = ModalRoute.of(context)!.settings.arguments as Map;
+      return HealthPage(
+        selectedPet: args['selectedPet'],
+        initialTab: args['initialTab'] ?? 'Insight',
+      );
+    },
   };
 }

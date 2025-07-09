@@ -33,6 +33,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePage extends State<HomePage> {
   DashboardPetDetails? selectedPet;
+  
   int selectedIndex = 0;
 
   void _handlePetSelected(int index) {
@@ -86,7 +87,7 @@ class _HomePage extends State<HomePage> {
                       if (selectedPet != null)
                         PetInformationWidget(dashboardPetDetails: selectedPet),
                       Styles.gap15,
-                      const QuickActionsWidget(),
+                       QuickActionsWidget(selectedPet: selectedPet!,),
                       Styles.gap15,
                     
                       TipOfTheDayCard(selectedPet: selectedPet!),
