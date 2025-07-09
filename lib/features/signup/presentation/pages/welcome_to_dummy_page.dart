@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/app_text.dart';
@@ -11,8 +12,10 @@ import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
+import 'package:dummy/features/signup/presentation/bloc/register/register_bloc.dart';
 import 'package:dummy/features/signup/presentation/pages/premium/premium_page1.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/widgets/buttons/app_button.dart';
@@ -52,89 +55,110 @@ class _WelcomeToDummyPageState extends State<WelcomeToDummyPage> {
   @override
   Widget build(BuildContext context) {
     return MaterialBaseScreen(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Row(children: [const BackButtonWidget()]),
-          Styles.gap20,
-          Text(
-            AppText.welcomeToDummyPag,
-            style: context.textTheme.headlineLarge?.copyWith(
-              fontWeight: FontWeight.w700,
-              fontSize: 28,
-            ),
-          ),
-          Styles.gap12,
-          Text(AppText.yourAccountIsReady, style: context.textTheme.titleSmall),
-          Styles.gap30,
-          __ImageUploadWidget(),
-          Styles.gap50,
-          Text(
-            AppText.unlockMoreWithDummy,
-            style: context.textTheme.titleSmall?.copyWith(
-              color: AppColors.stepperColor,
-              fontWeight: FontWeight.w600,
-              fontSize: 16
-            ),
-            textAlign: TextAlign.center,
-          ),
-          Styles.gap12,
-          AppOutlinedButton(
-            name: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  AppText.explore,
+      child: BlocBuilder<RegisterBloc, RegisterState>(
+        builder: (context, state) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Row(children: [const BackButtonWidget()]),
+              Styles.gap20,
+              Text(
+                AppText.welcomeToDummyPag(state.petName.value),
+                style: context.textTheme.headlineLarge?.copyWith(
+                  fontWeight: FontWeight.w700,
+                  fontSize: 28,
+                ),
+              ),
+
+              Styles.gap12,
+              Text(
+                AppText.yourAccountIsReady(state.petName.value),
+                style: context.textTheme.titleSmall,
+              ),
+              Styles.gap30,
+              __ImageUploadWidget(state.petImage.value),
+              Styles.gap50,
+              Text(
+                AppText.unlockMoreWithDummy,
+                style: context.textTheme.titleSmall?.copyWith(
+                  color: AppColors.stepperColor,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              Styles.gap12,
+              AppOutlinedButton(
+                name: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      AppText.explore,
+                      style: context.textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.buttonTextColor,
+                      ),
+                    ),
+                    Styles.gap10,
+                    AppAssestsImage(
+                      boxFit: BoxFit.contain,
+                      path: ImageResources.dashboardLogo,
+                      height: 20,
+                      width: 50,
+                    ),
+                    Styles.gap10,
+                    SvgPicture.asset(
+                      ImageResources.premium,
+                      width: 50,
+                      fit: BoxFit.contain,
+                    ),
+                  ],
+                ),
+                onPressed: () {
+                  cancelTimer();
+                  context.pushNamed(PremiumPage1.routeName);
+                },
+              ),
+              Styles.gap50,
+              AppButton(
+                name: Text(
+                  AppText.startUsingDummy,
                   style: context.textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.w700,
                     color: AppColors.buttonTextColor,
                   ),
                 ),
-                Styles.gap10,
-                AppAssestsImage(
-                  boxFit: BoxFit.contain,
-                  path: ImageResources.dashboardLogo,
-                  height: 20,
-                  width: 50,
-                ),
-                Styles.gap10,
-                SvgPicture.asset(
-                  ImageResources.premium,
-                  width: 50,
-                  fit: BoxFit.contain,
-                ),
-              ],
-            ),
-            onPressed: () {
-              cancelTimer();
-              context.pushNamed(PremiumPage1.routeName);
-            },
-          ),
-          Styles.gap50,
-          AppButton(
-            name: Text(
-              AppText.startUsingDummy,
-              style: context.textTheme.titleSmall?.copyWith(
-                fontWeight: FontWeight.w700,
-                color: AppColors.buttonTextColor,
+                onPressed: () {
+                  cancelTimer();
+                  context.pushNamed(DashboardPage.routeName);
+                },
               ),
-            ),
-            onPressed: () {
-              cancelTimer();
-              context.pushNamed(DashboardPage.routeName);
-            },
-          ),
-        ],
+            ],
+          );
+        },
       ),
     );
   }
 }
 
 class __ImageUploadWidget extends StatelessWidget {
-  const __ImageUploadWidget();
-
+  const __ImageUploadWidget(this.url);
+  final String url;
   @override
   Widget build(BuildContext context) {
+    if (url.isEmpty) {
+      return CircleAvatar(
+        radius: 90,
+        backgroundColor: AppColors.buttonBackground,
+        child: ClipOval(
+          child: SizedBox(
+            width: 180,
+            height: 180,
+            child: AppAssestsImage(path: ImageResources.dog),
+          ),
+        ),
+      );
+    }
     return CircleAvatar(
       radius: 90,
       backgroundColor: AppColors.buttonBackground,
@@ -142,7 +166,7 @@ class __ImageUploadWidget extends StatelessWidget {
         child: SizedBox(
           width: 180,
           height: 180,
-          child: AppAssestsImage(path: ImageResources.dog),
+          child: AppFileImage(file: File(url)),
         ),
       ),
     );

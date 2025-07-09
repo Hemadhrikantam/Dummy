@@ -40,7 +40,7 @@ class VaccinesCard extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: vaccination.company,
+                      text: " ${vaccination.company}",
                       style: context.textTheme.labelMedium?.copyWith(
                         color: AppColors.stepperColor,
                       ),

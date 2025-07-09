@@ -118,9 +118,9 @@ class AppText {
   static String confirmPassword = 'Confirm Password';
   static String effortlessPetListingManagement =
       'Effortless Pet Listing & Management';
-  static String welcomeToDummyPag = 'Welcome to Doommi, [User’s Name]!';
-  static String yourAccountIsReady =
-      'Your account is ready! Let’s start caring for [Pet’s Name] with Doommi.';
+  static String welcomeToDummyPag(String name) => 'Welcome to Doommi, $name!';
+  static String yourAccountIsReady(String name) =>
+      'Your account is ready! Let’s start caring for $name with Doommi.';
   static String unlockMoreWithDummy =
       'Unlock more with Doommi Premium: Advanced Health Insights, Symptom Checker, and more!';
   static String welcomeBackToDummy = 'Welcome Back to Doommi!';
@@ -328,13 +328,15 @@ class AppText {
   static const String vetNearMe = 'Vet Near Me';
   static const String support = 'Support';
   static const String addPet = 'Add Pet';
+  static const String editPet = 'Edit Pet';
   static String username = 'Username';
   static String phoneNumber = 'Phone Number';
   static String forgetPassword = 'Forget Password';
   static String members = 'Members';
   static String clinicsNearMe = 'Clinics Near Me ';
   static String member = 'Member';
-  static String startCapturingMemo = 'Start capturing memories with Luna 🐶';
+  static String startCapturingMemo(String name) =>
+      'Start capturing memories with $name 🐶';
   static String doommiHelpsKeep = 'Doommi helps keep your buddy safe.';
   // static String letKeepSafe = 'Let’s keep [Pet Name] safe.';
   static String nolistingsyet = 'No listings yet.';
@@ -356,7 +358,7 @@ class AppText {
   static const String document = 'Document';
   static const String addDoc = 'Add Documents';
   static const String addMedia = 'Add Media';
-  static String tellUsLuna = 'Tell us about Luna’s moment!';
+  static String tellUsLuna(String name) => "Tell us about ${name}'s moment!";
   static String events = 'Events';
   static String favourites = 'Favourites';
 

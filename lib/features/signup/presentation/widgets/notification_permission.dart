@@ -32,7 +32,10 @@ class _NotificationPermissionState extends State<NotificationPermission> {
         Styles.gap12,
         Text(
           AppText.dummyCanSendYouRemainders,
-          style: context.textTheme.titleSmall?.copyWith(fontSize: 16,fontWeight: FontWeight.w400),
+          style: context.textTheme.titleSmall?.copyWith(
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+          ),
         ),
         Styles.gap30,
         Image.asset(ImageResources.notificantionImage, height: 120),
@@ -51,19 +54,41 @@ class _NotificationPermissionState extends State<NotificationPermission> {
               context: context,
               builder:
                   (ctx) => AlertDialog(
-                    title: Text(AppText.allowNotificationTitle),
+                    title: Text(
+                      AppText.allowNotificationTitle,
+                      style: TextStyle(fontWeight: FontWeight.w600),
+                    ),
                     content: Text(AppText.allowNotificationContent),
                     actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(ctx),
-                        child: Text(AppText.cancel),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pop(ctx);
-                          widget.onNext?.call();
-                        },
-                        child: Text(AppText.allow),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: AppOutlinedButton(
+                              onPressed: () => Navigator.pop(ctx),
+                              name: Text(
+                                AppText.cancel,
+                                style: TextStyle(
+                                  color: AppColors.buttonTextColor,
+                                ),
+                              ),
+                            ),
+                          ),
+                          Styles.gap10,
+                          Expanded(
+                            child: AppButton(
+                              onPressed: () {
+                                Navigator.pop(ctx);
+                                widget.onNext?.call();
+                              },
+                              name: Text(
+                                AppText.allow,
+                                style: TextStyle(
+                                  color: AppColors.buttonTextColor,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ],
                   ),

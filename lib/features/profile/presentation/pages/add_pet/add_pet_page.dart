@@ -10,12 +10,12 @@ import '../../../../../core/widgets/base_screen.dart';
 import '../../../../../core/widgets/buttons/app_button.dart';
 
 class AddPetPage extends StatelessWidget {
-  const AddPetPage({super.key});
+  const AddPetPage({super.key, this.id});
   static const routeName = '/AddPetPage';
-
-  static Route<T> route<T>() {
+  final int? id;
+  static Route<T> route<T>({int? id}) {
     return MaterialPageRoute<T>(
-      builder: (context) => const AddPetPage(),
+      builder: (context) => AddPetPage(id: id),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -23,7 +23,7 @@ class AddPetPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScaffoldTitleBaseScreen(
-      title: AppText.addPet,
+      title: id != null ? AppText.editPet : AppText.addPet,
       subTitle: '',
       onlyTitle: true,
       showImage: false,
@@ -40,7 +40,7 @@ class AddPetPage extends StatelessWidget {
               fontSize: 14,
             ),
           ),
-        ),  
+        ),
       ),
       child: const AddPetForm(),
     );
