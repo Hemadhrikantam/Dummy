@@ -1,12 +1,10 @@
 import 'package:dummy/core/constant/styles.dart';
-import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/email.dart';
 import 'package:dummy/core/models/formz/mobile.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
-import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';

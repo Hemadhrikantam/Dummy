@@ -210,7 +210,8 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                                         12,
                                         (index) => DropItemModel(
                                           id: index + 1,
-                                          value: '${index + 1}',
+                                          value:
+                                              '${(index + 1) > 9 ? index + 1 : '0${index + 1}'}',
                                         ),
                                       ),
                                       title: '',
@@ -232,7 +233,8 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                                         60,
                                         (index) => DropItemModel(
                                           id: index + 1,
-                                          value: '$index',
+                                          value:
+                                              '${(index + 1) > 9 ? index + 1 : '0${index + 1}'}',
                                         ),
                                       ),
                                       title: '',
