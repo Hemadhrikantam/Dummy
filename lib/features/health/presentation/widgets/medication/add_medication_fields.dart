@@ -23,7 +23,7 @@ import '../../../../../core/widgets/dotted_border_widget.dart';
 part 'add_medication_form.dart';
 
 class __TabletName extends StatelessWidget {
-   __TabletName();
+  __TabletName();
   final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class __TabletName extends StatelessWidget {
 }
 
 class __Company extends StatelessWidget {
-   __Company();
+  __Company();
   final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -177,7 +177,7 @@ class __RemainderState extends State<__Remainder> {
 }
 
 class __Dosage extends StatelessWidget {
-   __Dosage();
+  __Dosage();
   final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -274,7 +274,7 @@ class __Frequency extends StatelessWidget {
 }
 
 class __Notes extends StatelessWidget {
-   __Notes();
+  __Notes();
   final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -348,7 +348,7 @@ class ___MorningState extends State<__Morning> {
                         items: List.generate(12, (i) {
                           return DropItemModel(
                             id: i + 1,
-                            value: (i + 1).toString(),
+                            value: '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
                           );
                         }),
                         onChanged: (value) {
@@ -370,7 +370,7 @@ class ___MorningState extends State<__Morning> {
                         items: List.generate(60, (i) {
                           return DropItemModel(
                             id: i + 1,
-                            value: (i).toString(),
+                            value: '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
                           );
                         }),
                         onChanged: (value) {
@@ -442,7 +442,7 @@ class ___AfternoonState extends State<__Afternoon> {
                         items: List.generate(12, (i) {
                           return DropItemModel(
                             id: i + 1,
-                            value: (i + 1).toString(),
+                            value: '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
                           );
                         }),
                         onChanged: (value) {
@@ -464,7 +464,7 @@ class ___AfternoonState extends State<__Afternoon> {
                         items: List.generate(60, (i) {
                           return DropItemModel(
                             id: i + 1,
-                            value: (i).toString(),
+                            value: '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
                           );
                         }),
                         onChanged: (value) {
@@ -536,7 +536,7 @@ class ___NightState extends State<__Night> {
                         items: List.generate(12, (i) {
                           return DropItemModel(
                             id: i + 1,
-                            value: (i + 1).toString(),
+                            value: '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
                           );
                         }),
                         onChanged: (value) {
@@ -558,7 +558,7 @@ class ___NightState extends State<__Night> {
                         items: List.generate(60, (i) {
                           return DropItemModel(
                             id: i + 1,
-                            value: (i).toString(),
+                            value: '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
                           );
                         }),
                         onChanged: (value) {

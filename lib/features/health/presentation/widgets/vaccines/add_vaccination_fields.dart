@@ -279,8 +279,10 @@ class __Time extends StatelessWidget {
                 selectedItem: state.reminderHour.value,
                 items: List.generate(
                   12,
-                  (index) =>
-                      DropItemModel(id: index + 1, value: '${index + 1}'),
+                  (index) => DropItemModel(
+                    id: index + 1,
+                    value: '${(index + 1) > 9 ? index + 1 : '0${index + 1}'}',
+                  ),
                 ),
                 title: '',
                 label: 'HH',
@@ -299,7 +301,10 @@ class __Time extends StatelessWidget {
                 selectedItem: state.reminderMin.value,
                 items: List.generate(
                   60,
-                  (index) => DropItemModel(id: index + 1, value: '$index'),
+                  (index) => DropItemModel(
+                    id: index + 1,
+                    value: '${(index + 1) > 9 ? index + 1 : '0${index + 1}'}',
+                  ),
                 ),
                 title: '',
                 label: 'MM',

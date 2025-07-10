@@ -89,7 +89,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     final payload = RegisterAccountPayload(
       petName: state.petName.value,
       petType: state.petType.name,
-      dob: AppUtil.formatDate(DateTime.parse(state.dob.value)) ?? "",
+      dob: AppUtil.formatDate(DateTime.parse(state.dob.value)),
       breed: state.breed.value!.id,
       petWeight: int.parse(state.weight.value),
       petImage: imageId,

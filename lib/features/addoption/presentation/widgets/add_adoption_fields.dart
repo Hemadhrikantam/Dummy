@@ -59,7 +59,12 @@ class __Age extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomDropdownSearch(
       title: AppText.age,
-      items: [],
+      items: List.generate(20, (index) {
+        return DropItemModel(
+          id: index + 1,
+          value: '${(index + 1) > 9 ? index + 1 : '0${index + 1}'}',
+        );
+      }),
       onChanged: (value) {},
       label: AppText.select,
     );

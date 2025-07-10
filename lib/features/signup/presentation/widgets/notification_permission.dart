@@ -2,6 +2,7 @@ import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
@@ -17,6 +18,21 @@ class NotificationPermission extends StatefulWidget {
 }
 
 class _NotificationPermissionState extends State<NotificationPermission> {
+  Future<void> showLocation() async {
+    await showDialog(
+      context: context,
+      builder:
+          (ctx) => LocationDialog(
+            onNext: () {
+              widget.onNext?.call();
+            },
+            onCancel: () {
+              ctx.pop();
+            },
+          ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -53,47 +69,16 @@ class _NotificationPermissionState extends State<NotificationPermission> {
             await showDialog(
               context: context,
               builder:
-                  (ctx) => AlertDialog(
-                    title: Text(
-                      AppText.allowNotificationTitle,
-                      style: TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                    content: Text(AppText.allowNotificationContent),
-                    actions: [
-                      Row(
-                        children: [
-                          Expanded(
-                            child: AppOutlinedButton(
-                              onPressed: () => Navigator.pop(ctx),
-                              name: Text(
-                                AppText.cancel,
-                                style: TextStyle(
-                                  color: AppColors.buttonTextColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Styles.gap10,
-                          Expanded(
-                            child: AppButton(
-                              onPressed: () {
-                                Navigator.pop(ctx);
-                                widget.onNext?.call();
-                              },
-                              name: Text(
-                                AppText.allow,
-                                style: TextStyle(
-                                  color: AppColors.buttonTextColor,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ],
+                  (ctx) => NotificationDialog(
+                    onNext: () {
+                      showLocation();
+                    },
+                    onCancel: () {
+                      ctx.pop();
+                      showLocation();
+                    },
                   ),
             );
-            // context.pushNamed(JoinDummy1Page.routeName);
           },
         ),
         Styles.gap12,
@@ -111,6 +96,102 @@ class _NotificationPermissionState extends State<NotificationPermission> {
         ),
         Styles.gap40,
         InfoCard(title: AppText.ownerLovedRemainder),
+      ],
+    );
+  }
+}
+
+class NotificationDialog extends StatelessWidget {
+  const NotificationDialog({
+    super.key,
+    required this.onNext,
+    required this.onCancel,
+  });
+  final Function() onNext;
+  final Function() onCancel;
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text(
+        AppText.allowNotificationTitle,
+        style: TextStyle(fontWeight: FontWeight.w600),
+      ),
+      content: Text(AppText.allowNotificationContent),
+      actions: [
+        Row(
+          children: [
+            Expanded(
+              child: AppOutlinedButton(
+                onPressed: () => onCancel,
+                name: Text(
+                  AppText.cancel,
+                  style: TextStyle(color: AppColors.buttonTextColor),
+                ),
+              ),
+            ),
+            Styles.gap10,
+            Expanded(
+              child: AppButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  onNext.call();
+                },
+                name: Text(
+                  AppText.allow,
+                  style: TextStyle(color: AppColors.buttonTextColor),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class LocationDialog extends StatelessWidget {
+  const LocationDialog({
+    super.key,
+    required this.onNext,
+    required this.onCancel,
+  });
+  final Function() onNext;
+  final Function() onCancel;
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: Text(
+        AppText.allowLocationTitle,
+        style: TextStyle(fontWeight: FontWeight.w600),
+      ),
+      content: Text(AppText.allowLocationContent),
+      actions: [
+        Row(
+          children: [
+            Expanded(
+              child: AppOutlinedButton(
+                onPressed: () => onCancel,
+                name: Text(
+                  AppText.cancel,
+                  style: TextStyle(color: AppColors.buttonTextColor),
+                ),
+              ),
+            ),
+            Styles.gap10,
+            Expanded(
+              child: AppButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                  onNext.call();
+                },
+                name: Text(
+                  AppText.allow,
+                  style: TextStyle(color: AppColors.buttonTextColor),
+                ),
+              ),
+            ),
+          ],
+        ),
       ],
     );
   }

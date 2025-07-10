@@ -30,8 +30,11 @@ class AppText {
 
   //Notification
   static String allowNotificationTitle = "Allow Notifications";
+  static String allowLocationTitle = "Allow Location";
   static String allowNotificationContent =
       "Do you want Doommi to send you reminders?";
+  static String allowLocationContent =
+      "Do you want Doommi to get your location?";
   static String cancel = "Cancel";
   static String cancelPlan = "Cancel Plan";
   static String enterPhoneNumber = "Enter Phone Number";
