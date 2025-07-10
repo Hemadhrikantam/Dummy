@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/file_picker.dart';
 import 'package:dummy/features/signup/presentation/bloc/register/register_bloc.dart';
@@ -37,6 +38,7 @@ class AddPetForm extends StatelessWidget {
                   children: [
                     Styles.gap10,
                     __PetName(),
+                    __PetGender(),
                     __Age(),
                     __PetType(),
                     __Breed(),

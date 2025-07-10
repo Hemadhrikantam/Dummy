@@ -127,4 +127,11 @@ class InjectionBloc {
       editDateUsecases: getIt<UpdateMedicationDateUsecases>(),
     );
   }
+  static AddAdoptionBloc get addAdoptionBloc {
+    return AddAdoptionBloc(
+      submitPetAdoptionUsecase: getIt<SubmitPetAdoptionUsecases>(),
+      dogBreedUsecases: getIt<DogBreedUsecases>(),
+      catBreedUsecases: getIt<CatBreedUsecases>(),
+    );
+  }
 }

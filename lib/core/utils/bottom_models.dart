@@ -7,6 +7,7 @@ import 'package:dummy/features/addoption/presentation/widgets/add_adoption_succe
 import 'package:dummy/features/auth/presentation/widgets/otp_success_bottom_sheet_content.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/add/add_expenses_form.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/add/add_meal_form.dart';
+import 'package:dummy/features/health/domain/entities/vaccination.dart';
 import 'package:dummy/features/health/presentation/widgets/vaccines/vaccination_filter_bottom_sheet.dart';
 import 'package:dummy/features/health/presentation/widgets/vaccines/vaccination_reminder_bottom_sheet.dart';
 import 'package:dummy/features/health/presentation/widgets/vaccines/veccination_delete_bottom_sheet_content.dart';
@@ -124,14 +125,20 @@ class BottomModels {
     );
   }
 
-  static Future<T?> vaccinationReminderSheet<T>(BuildContext context) {
+  static Future<T?> vaccinationReminderSheet<T>(
+    BuildContext context,
+    PetVaccination vaccination,
+  ) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: backgroundColor,
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return VaccinationReminderBottomSheet();
+        return BlocProvider(
+          create: (context) => InjectionBloc.vaccinationFormBloc,
+          child: VaccinationReminderBottomSheet(vaccination: vaccination),
+        );
       },
     );
   }
@@ -444,7 +451,10 @@ class BottomModels {
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return AddAdoptionForm();
+        return BlocProvider(
+          create: (context) => InjectionBloc.addAdoptionBloc,
+          child: AddAdoptionForm(),
+        );
       },
     );
   }

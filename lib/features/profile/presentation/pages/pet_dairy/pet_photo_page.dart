@@ -53,8 +53,8 @@ class PetPhotoCardPage extends StatelessWidget {
                       ),
                     ),
                     padding: const EdgeInsets.all(12),
-                    child: const Text(
-                      "This is pic captured in a beach, he's running",
+                    child:  Text(
+                      media.media,
                       style: TextStyle(color: Colors.white),
                     ),
                   ),

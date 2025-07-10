@@ -4,8 +4,11 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:dummy/core/utils/type_def.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/service/app_http_service.dart' show AppHttp;
 import 'package:dummy/service/local_storage_service.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../api/storage_key.dart';
 import '../constant/app_text.dart';
@@ -259,13 +262,16 @@ class AppHttpImpl extends AppHttp {
     }
   }
 
-  Future<Options?> _headerWithToken() async {
+  Future<Options?> _headerWithToken({bool petId = false}) async {
     final token = await _storage.read(StorageKey.token);
     if (token != null) {
       return Options(
         headers: {
           'Authorization': 'Bearer $token',
           'Content-Type': 'application/json',
+          if (petId)
+            'petId':
+                currentContext.read<DashboardBloc>().state.selectedPet?.id ?? 0,
         },
       );
     }

@@ -2,15 +2,23 @@ import 'package:equatable/equatable.dart';
 
 class PetVaccination extends Equatable {
   final int id;
-  final bool reminder;
   final String vaccinationName;
   final String company;
-  final String dateAdministered;
-  final String dueDate;
+  final bool isGiven;
+  final DateTime dateAdministered;
+  final DateTime dueDate;
+  final String note;
+  final String reminderTime;
+  final String media;
+  final int frequency;
 
   const PetVaccination({
+    required this.isGiven,
+    required this.note,
+    required this.reminderTime,
+    required this.media,
+    required this.frequency,
     required this.id,
-    required this.reminder,
     required this.vaccinationName,
     required this.company,
     required this.dateAdministered,
@@ -20,10 +28,14 @@ class PetVaccination extends Equatable {
   @override
   List<Object?> get props => [
     id,
-    reminder,
     vaccinationName,
     company,
+    isGiven,
     dateAdministered,
     dueDate,
+    note,
+    reminderTime,
+    media,
+    frequency,
   ];
 }

@@ -15,7 +15,7 @@ import '../../bloc/vaccinations/vaccinations_bloc.dart';
 import 'vaccines_card.dart';
 
 class VaccinesList extends StatelessWidget {
-  const VaccinesList({super.key, });
+  const VaccinesList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class VaccinesList extends StatelessWidget {
                   buttonName: AppText.addFirstVaccination,
                 )
                 : AppCustomListViewBuilder(
-                  itemCount: 10,
+                  itemCount: items.length,
                   isExpand: false,
                   shrinkWrap: true,
                   physics: NeverScrollableScrollPhysics(),

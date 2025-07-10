@@ -3,6 +3,10 @@ import 'package:dummy/core/services/http_service_impl.dart';
 import 'package:dummy/core/services/local_storage_impl.dart';
 import 'package:dummy/core/services/navigation_service.dart';
 import 'package:dummy/core/utils/custom_interceptors.dart';
+import 'package:dummy/features/addoption/data/datasources/pet_adoption_datasource.dart';
+import 'package:dummy/features/addoption/domain/repositories/pet_adoption_repository.dart';
+import 'package:dummy/features/addoption/domain/usecases/submit_pet_adoption_form.dart';
+import 'package:dummy/features/addoption/presentation/bloc/add_adoption/add_adoption_bloc.dart';
 import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/send_otp_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
@@ -61,6 +65,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get_it/get_it.dart';
 
+import '../features/addoption/data/datasources/pet_adoption_datasource_impl.dart';
+import '../features/addoption/data/repositories/pet_adoption_repository_impl.dart';
 import '../features/auth/data/datasources/auth_datasource.dart';
 import '../features/auth/data/datasources/auth_datasource_impl.dart';
 import '../features/auth/data/repositories/auth_repository_impl.dart';
@@ -105,6 +111,7 @@ part 'injection_profile.dart';
 part 'injection_dashboard.dart';
 part 'injection_daily_care.dart';
 part 'injection_health.dart';
+part 'injection_adoption.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -118,5 +125,6 @@ class Injection {
     await __dashboardDependencies();
     await __dailyCareDependencies();
     await __healthDependencies();
+    await __adoptionDependencies();
   }
 }

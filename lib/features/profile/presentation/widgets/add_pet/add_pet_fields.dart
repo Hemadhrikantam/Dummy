@@ -20,7 +20,27 @@ class __Age extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomDropdownSearch(
       title: AppText.age,
-      items: [],
+      items: List.generate(
+        20,
+        (i) => DropItemModel(id: i, value: i.toString()),
+      ),
+      onChanged: (value) {},
+      label: AppText.select,
+    );
+  }
+}
+
+class __PetGender extends StatelessWidget {
+  const __PetGender();
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomDropdownSearch(
+      title: AppText.gender,
+      items: [
+        DropItemModel(id: 1, value: 'Male'),
+        DropItemModel(id: 2, value: 'Female'),
+      ],
       onChanged: (value) {},
       label: AppText.select,
     );
@@ -151,7 +171,7 @@ class ___UploadImage extends State<__UploadImage> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () async {
-        final images = await customFilePicker(context); 
+        final images = await customFilePicker(context);
         if (images.isNotEmpty) {
           setState(() {
             _image = XFile(images.first);
@@ -162,16 +182,17 @@ class ___UploadImage extends State<__UploadImage> {
         radius: 100,
         backgroundColor: AppColors.buttonBackground,
         backgroundImage: _image != null ? FileImage(File(_image!.path)) : null,
-        child: _image == null
-            ? Text(
-                AppText.upload,
-                style: context.textTheme.titleMedium?.copyWith(
-                  color: AppColors.buttonTextColor,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 14,
-                ),
-              )
-            : null,
+        child:
+            _image == null
+                ? Text(
+                  AppText.upload,
+                  style: context.textTheme.titleMedium?.copyWith(
+                    color: AppColors.buttonTextColor,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 14,
+                  ),
+                )
+                : null,
       ),
     );
   }

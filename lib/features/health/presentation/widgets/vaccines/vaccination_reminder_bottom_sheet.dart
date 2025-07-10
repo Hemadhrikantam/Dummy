@@ -1,15 +1,20 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/custom_dropdown.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/health/domain/entities/vaccination.dart';
+import 'package:dummy/features/health/presentation/bloc/vaccination_form/vaccination_form_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/app_graber.dart';
 
 class VaccinationReminderBottomSheet extends StatefulWidget {
-  const VaccinationReminderBottomSheet({super.key});
-
+  const VaccinationReminderBottomSheet({super.key, required this.vaccination});
+  final PetVaccination vaccination;
   @override
   State<VaccinationReminderBottomSheet> createState() =>
       _VaccinationReminderBottomSheet();
@@ -17,6 +22,15 @@ class VaccinationReminderBottomSheet extends StatefulWidget {
 
 class _VaccinationReminderBottomSheet
     extends State<VaccinationReminderBottomSheet> {
+  @override
+  void initState() {
+    final petId = context.read<DashboardBloc>().state.selectedPet?.id;
+    context.read<VaccinationFormBloc>().add(
+      VaccinationFormEvent.init(petId ?? 0),
+    );
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,7 +42,7 @@ class _VaccinationReminderBottomSheet
           Styles.gap6,
           AppGraber(),
           Styles.gap16,
-          __Reminder(),
+          __Reminder(widget.vaccination),
           Styles.gap25,
           Row(
             children: [
@@ -47,7 +61,7 @@ class _VaccinationReminderBottomSheet
               ),
             ],
           ),
-          Styles.gap10
+          Styles.gap10,
         ],
       ),
     );
@@ -55,8 +69,8 @@ class _VaccinationReminderBottomSheet
 }
 
 class __Reminder extends StatelessWidget {
-  const __Reminder();
-
+  const __Reminder(this.vaccination);
+  final PetVaccination vaccination;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -78,11 +92,22 @@ class __Reminder extends StatelessWidget {
             ),
             Styles.gap10,
             Expanded(
-              child: CustomDropdownSearch(
-                title: '',
-                items: [],
-                onChanged: (value) {},
-                label: AppText.select,
+              child: BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
+                builder: (context, state) {
+                  return CustomDropdownSearch(
+                    items: state.reminderTimezones,
+                    selectedItem: state.reminderTimezone.value,
+                    onChanged: (value) {
+                      if (value != null) {
+                        context.read<VaccinationFormBloc>().add(
+                          VaccinationFormEvent.reminderTimezone(value),
+                        );
+                      }
+                    },
+                    title: '',
+                    label: 'IST',
+                  );
+                },
               ),
             ),
           ],
@@ -100,17 +125,22 @@ class __Tablets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: CustomDropdownSearch(
-            title: '',
-            items: [],
-            onChanged: (value) {},
-            label: AppText.select,
-          ),
-        ),
-      ],
+    return BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
+      builder: (context, state) {
+        return CustomDropdownSearch(
+          items: state.reminderBefores,
+          selectedItem: state.reminderBefore.value,
+          onChanged: (value) {
+            if (value != null) {
+              context.read<VaccinationFormBloc>().add(
+                VaccinationFormEvent.reminderBefore(value),
+              );
+            }
+          },
+          title: '',
+          label: 'One Day before the due date',
+        );
+      },
     );
   }
 }
@@ -120,35 +150,70 @@ class __Time extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Expanded(
-          child: CustomDropdownSearch(
-            title: '',
-            items: [],
-            onChanged: (value) {},
-            label: 'HH',
-          ),
-        ),
-        Styles.gap10,
-        Expanded(
-          child: CustomDropdownSearch(
-            title: '',
-            items: [],
-            onChanged: (value) {},
-            label: 'MM',
-          ),
-        ),
-        Styles.gap10,
-        Expanded(
-          child: CustomDropdownSearch(
-            title: '',
-            items: [],
-            onChanged: (value) {},
-            label: 'AM',
-          ),
-        ),
-      ],
+    return BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
+      builder: (context, state) {
+        return Row(
+          children: [
+            Expanded(
+              child: CustomDropdownSearch(
+                selectedItem: state.reminderHour.value,
+                items: List.generate(
+                  12,
+                  (index) =>
+                      DropItemModel(id: index + 1, value: '${index + 1}'),
+                ),
+                title: '',
+                label: 'HH',
+                onChanged: (v) {
+                  if (v != null) {
+                    context.read<VaccinationFormBloc>().add(
+                      VaccinationFormEvent.reminderHour(v),
+                    );
+                  }
+                },
+              ),
+            ),
+            Styles.gap10,
+            Expanded(
+              child: CustomDropdownSearch(
+                selectedItem: state.reminderMin.value,
+                items: List.generate(
+                  60,
+                  (index) => DropItemModel(id: index + 1, value: '$index'),
+                ),
+                title: '',
+                label: 'MM',
+                onChanged: (v) {
+                  if (v != null) {
+                    context.read<VaccinationFormBloc>().add(
+                      VaccinationFormEvent.reminderMin(v),
+                    );
+                  }
+                },
+              ),
+            ),
+            Styles.gap10,
+            Expanded(
+              child: CustomDropdownSearch(
+                selectedItem: state.reminderAmPm.value,
+                items: [
+                  DropItemModel(id: 1, value: 'AM'),
+                  DropItemModel(id: 2, value: 'PM'),
+                ],
+                title: '',
+                label: 'PM',
+                onChanged: (v) {
+                  if (v != null) {
+                    context.read<VaccinationFormBloc>().add(
+                      VaccinationFormEvent.reminderAmPm(v),
+                    );
+                  }
+                },
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

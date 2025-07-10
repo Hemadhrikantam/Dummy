@@ -3,8 +3,10 @@ import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
+import 'package:dummy/features/addoption/presentation/bloc/add_adoption/add_adoption_bloc.dart';
 import 'package:dummy/features/health/presentation/widgets/success_animation_wrap.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/image_resources.dart';
 import '../../../../core/constant/styles.dart';
@@ -29,8 +31,8 @@ class AddAdoptionSuccessBottomSheetContent extends StatelessWidget {
               Styles.gap6,
               AppGraber(),
               Styles.gap16,
-              AppAssestsImage(path:
-                ImageResources.addAdoption,
+              AppAssestsImage(
+                path: ImageResources.addAdoption,
                 height: context.height * .1,
                 boxFit: BoxFit.contain,
               ),
@@ -58,24 +60,29 @@ class AddAdoptionSuccessBottomSheetContent extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: AppButton(
-                      onPressed: () {
-                        context.pop();
+                    child: BlocListener<AddAdoptionBloc, AddAdoptionState>(
+                      listener: (context, state) {
+                        // TODO: implement listener
                       },
-                      showShadow: false,
-                      borderColor: AppColors.grey500,
-                      backgroundColor: AppColors.white,
-                      name: RichText(
-                        textAlign: TextAlign.center,
-                        text: TextSpan(
-                          text: AppText.viewMyListings,
-                          style: context.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.buttonTextColor,
-                            letterSpacing: -.5,
-                            fontSize: 14,
+                      child: AppButton(
+                        onPressed: () {
+                          context.pop();
+                          context.pop();
+                        },
+                        showShadow: false,
+                        borderColor: AppColors.grey500,
+                        backgroundColor: AppColors.white,
+                        name: RichText(
+                          textAlign: TextAlign.center,
+                          text: TextSpan(
+                            text: AppText.viewMyListings,
+                            style: context.textTheme.titleSmall?.copyWith(
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.buttonTextColor,
+                              letterSpacing: -.5,
+                              fontSize: 14,
+                            ),
                           ),
-                         
                         ),
                       ),
                     ),

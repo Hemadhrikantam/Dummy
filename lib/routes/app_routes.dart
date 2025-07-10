@@ -5,7 +5,6 @@ import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dar
 import 'package:dummy/features/auth/presentation/pages/ngo_welcome_page.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
 import 'package:dummy/features/dailycare/presentation/pages/dailycare_page.dart';
-import 'package:dummy/features/dailycare/presentation/widgets/meals_tab.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
@@ -15,7 +14,6 @@ import 'package:dummy/features/home/presentation/pages/notification_page.dart';
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/profile/presentation/pages/ngo_profile_options_page.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
-import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_photo_page.dart';
 import 'package:dummy/features/profile/presentation/pages/premium_subscription.dart';
 import 'package:dummy/features/profile/presentation/pages/profile_page.dart';
 import 'package:dummy/features/profile/presentation/pages/support/faq_page.dart';

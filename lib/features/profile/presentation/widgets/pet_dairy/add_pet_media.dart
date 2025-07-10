@@ -58,7 +58,10 @@ class _AddPetMedia extends State<AddPetMedia> {
             builder: (context, state) {
               return AppTextFormField(
                 initialValue: state.value,
-                hintText: AppText.tellUsLuna,
+                hintText: AppText.tellUsLuna(
+                  context.read<DashboardBloc>().state.selectedPet?.petName ??
+                      "",
+                ),
                 borderRadius: Styles.borderRadiusCircular25,
                 onChanged: (value) {
                   context.read<MediaFormBloc>().add(

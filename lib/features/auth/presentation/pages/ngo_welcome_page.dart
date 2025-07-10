@@ -35,7 +35,7 @@ class _NgoWelcomePage extends State<NgoWelcomePage> {
           Row(children: [BackButtonWidget()]),
           Styles.gap20,
           Text(
-            AppText.welcomeToDummyPag,
+            AppText.welcomeToDummyPag(""),
             style: context.textTheme.headlineLarge?.copyWith(
               fontWeight: FontWeight.w900,
               fontSize: 24,

@@ -32,7 +32,7 @@ class _VaccinesTabState extends State<VaccinesTab> {
   @override
   void initState() {
     Future.delayed(Duration.zero, () {
-      // refresh();
+      refresh();
     });
     super.initState();
   }
