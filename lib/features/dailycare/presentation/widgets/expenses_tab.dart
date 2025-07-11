@@ -20,7 +20,7 @@ import '../../../health/presentation/widgets/empty_list_page.dart';
 import '../bloc/expenses/expenses_bloc.dart';
 
 class ExpensesTab extends StatefulWidget {
-    final DashboardPetDetails selectedPet;
+  final DashboardPetDetails selectedPet;
   const ExpensesTab({super.key, required this.selectedPet});
 
   @override
@@ -48,6 +48,8 @@ class _ExpensesTabState extends State<ExpensesTab> {
     );
 
     return RefreshIndicator.adaptive(
+      color: AppColors.stepperColor,
+      backgroundColor: AppColors.white,
       onRefresh: () async {
         context.read<ExpensesBloc>().add(ExpensesEvent.expenses(_selectedDay));
       },

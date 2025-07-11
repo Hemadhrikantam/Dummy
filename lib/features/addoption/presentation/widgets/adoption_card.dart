@@ -1,11 +1,11 @@
 import 'package:dummy/core/constant/app_colors.dart';
-import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
+import 'package:dummy/features/addoption/domain/entities/adoption.dart';
 import 'package:dummy/features/addoption/presentation/pages/adoption_details_page.dart';
 import 'package:dummy/features/addoption/presentation/pages/all_adoption_details_page.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +13,8 @@ import 'package:flutter/material.dart';
 import '../../../../core/widgets/app_custom_chip.dart';
 
 class AdoptionCard extends StatelessWidget {
-  const AdoptionCard({super.key, required this.isAllPet});
+  const AdoptionCard({super.key, required this.isAllPet,  this.adoption});
+  final Adoption? adoption;
 final bool isAllPet;
   @override
   Widget build(BuildContext context) {
@@ -21,10 +22,10 @@ final bool isAllPet;
       onTap: () {
         if(isAllPet){
 
-        context.push(AllAdoptionDetailsPage.route());
+        context.push(AllAdoptionDetailsPage.route(adoption));
         }else{
 
-        context.push(AdoptionDetailsPage.route());
+        context.push(AdoptionDetailsPage.route(adoption));
         }
       },
       padding: Styles.edgeInsetsAll06,
@@ -33,12 +34,12 @@ final bool isAllPet;
         children: [
           Row(
             children: [
-              AppAssestsImage(
+              AppNetworkImage(
                 borderRadius: Styles.borderRadiusCircular12,
                 height: context.height * .17,
                 width: context.width * .3,
                 boxFit: BoxFit.fitWidth,
-                path: ImageResources.dogImage,
+                url: adoption?.petImage??'',
               ),
               Styles.gap15,
               Column(
@@ -47,7 +48,7 @@ final bool isAllPet;
                 children: [
                   // Styles.gap10,
                   Text(
-                    'Max',
+                    adoption?.name??'',
                     style: context.textTheme.titleMedium?.copyWith(
                       color: AppColors.stepperColor,
                       fontWeight: FontWeight.w600,
@@ -55,9 +56,9 @@ final bool isAllPet;
                     ),
                   ),
                   Styles.gap10,
-                  TextValueWidget(text: 'Breed & age', value: 'Pomerian, 3 Y'),
+                  TextValueWidget(text: 'Breed & age', value: 'German ${adoption?.age??''}'),
                   Styles.gap10,
-                  TextValueWidget(text: 'Location', value: 'Bengaluru'),
+                  TextValueWidget(text: 'Location', value: adoption?.address??''),
                   Styles.gap4,
                 ],
               ),
@@ -67,10 +68,10 @@ final bool isAllPet;
             right: 0,
             top: 0,
             child: AppCustomChipWidget(
-              backgroundColor: AppColors.backGroundGreen,
-              textColor: AppColors.greenText,
+              backgroundColor:(adoption?.isAdopted ??false)? AppColors.brown.withOpacity(0.2) : AppColors.backGroundGreen,
+              textColor:(adoption?.isAdopted ??false)? AppColors.brown: AppColors.greenText ,
               subTitle: '',
-              title: 'Available',
+              title: (adoption?.isAdopted ??false)?'Adopted' : 'Available',
               padding: Styles.edgeInsetsAll06 + Styles.edgeInsetsOnlyW10,
             ),
           ),

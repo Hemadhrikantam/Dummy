@@ -44,6 +44,8 @@ class _MedicationsTabState extends State<MedicationsTab> {
     return Stack(
       children: [
         RefreshIndicator.adaptive(
+          color: AppColors.stepperColor,
+          backgroundColor: AppColors.white,
           onRefresh: () async {
             refresh();
           },

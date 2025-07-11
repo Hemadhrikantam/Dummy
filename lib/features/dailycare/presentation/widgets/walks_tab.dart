@@ -60,6 +60,8 @@ class _WalksTabState extends State<WalksTab> {
     );
 
     return RefreshIndicator.adaptive(
+      color: AppColors.stepperColor,
+      backgroundColor: AppColors.white,
       onRefresh: () async {
         context.read<WalksBloc>().add(WalksEvent.walks(_selectedDay));
       },

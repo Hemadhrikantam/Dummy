@@ -74,7 +74,8 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
                             children: [
                               __Name(),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 crossAxisAlignment: CrossAxisAlignment.end,
                                 children: [
                                   Expanded(child: __Years()),
@@ -84,7 +85,7 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
                               ),
 
                               __PetType(),
-                              __Breed(),
+                               __Breed(),
                               Styles.gap10,
                               __Address(),
                               Styles.gap10,
@@ -104,14 +105,19 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
                       BlocBuilder<AddAdoptionBloc, AddAdoptionState>(
                         builder: (context, state) {
                           return SaveCancelWidget(
-                            onPressed:state.adoptionValidation? () {
-                              context.read<AddAdoptionBloc>().add(
-                                AddAdoptionEvent.submit(),
-                              );
-                            } : (){
-                              LogUtility.info('state :${state}');
-                              AppAlert.showToast(message: 'Enter the Required Fields');
-                            },
+                            onPressed:
+                                state.adoptionValidation
+                                    ? () {
+                                      context.read<AddAdoptionBloc>().add(
+                                        AddAdoptionEvent.submit(),
+                                      );
+                                    }
+                                    : () {
+                                      LogUtility.info('state :${state}');
+                                      AppAlert.showToast(
+                                        message: 'Enter the Required Fields',
+                                      );
+                                    },
                           );
                         },
                       ),

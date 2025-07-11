@@ -134,4 +134,11 @@ class InjectionBloc {
       catBreedUsecases: getIt<CatBreedUsecases>(),
     );
   }
+
+    static AdoptionBloc get adoptionBloc {
+    return AdoptionBloc(
+      adoptionUsecases: getIt<AdoptionUsecases>(),
+
+    );
+  }
 }

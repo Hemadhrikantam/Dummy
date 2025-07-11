@@ -2,6 +2,7 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
+import 'package:dummy/features/addoption/domain/entities/adoption.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/widgets/base_screen.dart';
@@ -10,12 +11,14 @@ import '../../../../core/widgets/buttons/app_text_button.dart';
 import '../widgets/adoption_details_card.dart';
 
 class AdoptionDetailsPage extends StatelessWidget {
-  const AdoptionDetailsPage({super.key});
+  const AdoptionDetailsPage({super.key, this.adoption});
   static const routeName = '/MedicationDetailsPage';
+    final Adoption? adoption;
 
-  static Route<T> route<T>() {
+
+  static Route<T> route<T>(Adoption? adoption) {
     return MaterialPageRoute<T>(
-      builder: (context) => const AdoptionDetailsPage(),
+      builder: (context) => AdoptionDetailsPage(adoption: adoption),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -75,7 +78,7 @@ class AdoptionDetailsPage extends StatelessWidget {
       ),
       child: ListView(
         padding: Styles.edgeInsetsOnlyH00,
-        children: [AdoptionDetailsCard(isAllPet:false), Styles.gap80],
+        children: [AdoptionDetailsCard(isAllPet:false, adoption: adoption,), Styles.gap80],
       ),
     );
   }

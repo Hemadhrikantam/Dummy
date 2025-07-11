@@ -1,10 +1,10 @@
 import 'package:dummy/core/constant/app_colors.dart';
-import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
+import 'package:dummy/features/addoption/domain/entities/adoption.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/constant/app_text.dart';
@@ -14,8 +14,9 @@ import '../../../../core/widgets/buttons/app_icon_button.dart';
 import 'adoption_card.dart';
 
 class AdoptionDetailsCard extends StatefulWidget {
-  const AdoptionDetailsCard({super.key, required this.isAllPet});
+  const AdoptionDetailsCard({super.key, required this.isAllPet, required this.adoption});
   final bool isAllPet;
+  final Adoption? adoption;
   @override
   State<AdoptionDetailsCard> createState() => _AdoptionDetailsCardState();
 }
@@ -32,9 +33,9 @@ class _AdoptionDetailsCardState extends State<AdoptionDetailsCard> {
         children: [
           Stack(
             children: [
-              AppAssestsImage(
+              AppNetworkImage(
                 height: context.height * .4,
-                path: ImageResources.dogImage,
+                url: widget.adoption?.petImage??'',
               ),
               Positioned(
                 bottom: 0,
@@ -75,7 +76,7 @@ class _AdoptionDetailsCardState extends State<AdoptionDetailsCard> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Max',
+                widget.adoption?.name??'',
                 style: context.textTheme.titleMedium?.copyWith(
                   color: AppColors.stepperColor,
                   fontWeight: FontWeight.w700,
@@ -94,16 +95,16 @@ class _AdoptionDetailsCardState extends State<AdoptionDetailsCard> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextValueWidget(text: 'Breed & Age', value: 'Pomerian, 3 Y'),
-              TextValueWidget(text: 'Location', value: 'Bengaluru'),
+              TextValueWidget(text: 'Breed & Age', value: 'Pomerian, ${widget.adoption?.age??''} Y'),
+              TextValueWidget(text: 'Location', value: widget.adoption?.address??''),
             ],
           ),
           Styles.gap30,
-          TextValueWidget(text: 'Description', value: 'Pomerian, 3 Y'),
+          TextValueWidget(text: 'Description', value: widget.adoption?.description??''),
           Styles.gap30,
-          TextValueWidget(text: 'Contact', value: '+91 9897564567'),
+          TextValueWidget(text: 'Contact', value: widget.adoption?.phone??''),
           Styles.gap30,
-          TextValueWidget(text: 'Email', value: 'sparrow@gmail.com'),
+          TextValueWidget(text: 'Email', value: widget.adoption?.email??''),
           Styles.gap30,
           if(!widget.isAllPet)
           Column(

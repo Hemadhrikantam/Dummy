@@ -20,7 +20,7 @@ import '../../../health/presentation/widgets/empty_list_page.dart';
 import '../bloc/groomings/groomings_bloc.dart';
 
 class GroomingTab extends StatefulWidget {
-    final DashboardPetDetails selectedPet;
+  final DashboardPetDetails selectedPet;
   const GroomingTab({super.key, required this.selectedPet});
 
   @override
@@ -48,6 +48,8 @@ class _GroomingTabState extends State<GroomingTab> {
     );
 
     return RefreshIndicator.adaptive(
+      color: AppColors.stepperColor,
+      backgroundColor: AppColors.white,
       onRefresh: () async {
         context.read<GroomingsBloc>().add(
           GroomingsEvent.groomings(_selectedDay),

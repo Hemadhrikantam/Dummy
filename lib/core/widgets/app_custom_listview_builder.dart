@@ -1,3 +1,4 @@
+import 'package:dummy/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
 
 import '../constant/styles.dart';
@@ -31,6 +32,8 @@ class AppCustomListViewBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final builder = RefreshIndicator.adaptive(
+      color: AppColors.stepperColor,
+      backgroundColor: AppColors.white,
       onRefresh: onRefresh ?? () async {},
       child: separatorBuilder != null
           ? ListView.separated(

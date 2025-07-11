@@ -17,9 +17,13 @@ import '../../pages/add_vaccination_page.dart';
 import 'vaccines_list.dart';
 
 class VaccinesTab extends StatefulWidget {
-   final String initialTab;
-    final DashboardPetDetails selectedPet;
-  const VaccinesTab({super.key, this.initialTab = 'Insight', required this.selectedPet, });
+  final String initialTab;
+  final DashboardPetDetails selectedPet;
+  const VaccinesTab({
+    super.key,
+    this.initialTab = 'Insight',
+    required this.selectedPet,
+  });
 
   @override
   State<VaccinesTab> createState() => _VaccinesTabState();
@@ -48,6 +52,8 @@ class _VaccinesTabState extends State<VaccinesTab> {
     return Stack(
       children: [
         RefreshIndicator.adaptive(
+          color: AppColors.stepperColor,
+          backgroundColor: AppColors.white,
           onRefresh: () async {
             refresh();
           },

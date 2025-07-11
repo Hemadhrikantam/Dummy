@@ -49,6 +49,8 @@ class _MealsTabState extends State<MealsTab> {
     );
 
     return RefreshIndicator.adaptive(
+      color: AppColors.stepperColor,
+      backgroundColor: AppColors.white,
       onRefresh: () async {
         context.read<MealsBloc>().add(MealsEvent.meals(_selectedDay));
       },
