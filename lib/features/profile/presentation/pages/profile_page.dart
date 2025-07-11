@@ -4,6 +4,7 @@ import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/services/share_service.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
@@ -58,109 +59,7 @@ class _ProfilePage extends State<ProfilePage> {
                     ],
                   ),
                   Styles.gap50,
-                  Stack(
-                    alignment: Alignment.center,
-                    children: [
-                      AspectRatio(
-                        aspectRatio: 354 / 527,
-                        child: AppAssestsImage(
-                          path: ImageResources.profileBackground,
-                          boxFit: BoxFit.contain,
-                        ),
-                      ),
-                      Positioned(
-                        top: 20,
-                        child: Column(
-                          children: [
-                            Text(
-                              state.selectedPet?.petName ?? "",
-                              style: TextStyle(
-                                fontSize: 48,
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.stepperColor,
-                              ),
-                            ),
-                            _ProfileImage(
-                              state.selectedPet?.petImage.petImage ?? "",
-                            ),
-                          ],
-                        ),
-                      ),
-                      Positioned(
-                        bottom: 15,
-                        child: SizedBox(
-                          width: MediaQuery.of(context).size.width * .8,
-                          child: Column(
-                            children: [
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Flexible(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Breed",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                            color: AppColors.grey700,
-                                          ),
-                                        ),
-                                        Text(
-                                          state.selectedPet?.breed.breed ??
-                                              "",
-                                          style: TextStyle(
-                                            overflow: TextOverflow.ellipsis,
-                                            fontSize: 24,
-                                            fontWeight: FontWeight.w700,
-                                            color: AppColors.stepperColor,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                  Flexible(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Age",
-                                          style: TextStyle(
-                                            fontSize: 16,
-                                            fontWeight: FontWeight.w500,
-                                            color: AppColors.grey700,
-                                          ),
-                                        ),
-                                        Text(
-                                          "${DateTime.now().difference(DateTime.parse(state.selectedPet?.dob ?? "")).inDays ~/ 365} Years",
-                                          style: TextStyle(
-                                            fontSize: 24,
-                                            fontWeight: FontWeight.w700,
-                                            color: AppColors.stepperColor,
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              Styles.gap65,
-                              AppAssestsImage(
-                                path: ImageResources.dashboardLogo,
-                                width: 120,
-                                boxFit: BoxFit.contain,
-                                height: 40,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
+                  _ProfileCard(state: state),
                   Styles.gap30,
                   AppButton(
                     backgroundColor: AppColors.white,
@@ -187,7 +86,12 @@ class _ProfilePage extends State<ProfilePage> {
                         color: AppColors.buttonTextColor,
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      ShareService.shareWidgetAsImage(
+                        context,
+                        _ProfileCard(state: state),
+                      );
+                    },
                   ),
                   Styles.gap50,
                 ],
@@ -196,6 +100,111 @@ class _ProfilePage extends State<ProfilePage> {
           ),
         ),
       ),
+    );
+  }
+}
+
+class _ProfileCard extends StatelessWidget {
+  const _ProfileCard({required this.state});
+  final DashboardState state;
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        AspectRatio(
+          aspectRatio: 354 / 527,
+          child: AppAssestsImage(
+            path: ImageResources.profileBackground,
+            boxFit: BoxFit.contain,
+          ),
+        ),
+        Positioned(
+          top: 20,
+          child: Column(
+            children: [
+              Text(
+                state.selectedPet?.petName ?? "",
+                style: TextStyle(
+                  fontSize: 48,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.stepperColor,
+                ),
+              ),
+              _ProfileImage(state.selectedPet?.petImage.petImage ?? ""),
+            ],
+          ),
+        ),
+        Positioned(
+          bottom: 15,
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width * .8,
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Flexible(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Breed",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.grey700,
+                            ),
+                          ),
+                          Text(
+                            state.selectedPet?.breed.breed ?? "",
+                            style: TextStyle(
+                              overflow: TextOverflow.ellipsis,
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.stepperColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Flexible(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Age",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.grey700,
+                            ),
+                          ),
+                          Text(
+                            "${DateTime.now().difference(DateTime.parse(state.selectedPet?.dob ?? "")).inDays ~/ 365} Years",
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.stepperColor,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+                Styles.gap65,
+                AppAssestsImage(
+                  path: ImageResources.dashboardLogo,
+                  width: 120,
+                  boxFit: BoxFit.contain,
+                  height: 40,
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
