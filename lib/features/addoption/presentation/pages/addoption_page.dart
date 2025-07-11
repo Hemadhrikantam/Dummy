@@ -1,4 +1,5 @@
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/features/addoption/presentation/bloc/adoption/adoption_bloc.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +27,13 @@ class AddoptionPage extends StatefulWidget {
 class _AddoptionPage extends State<AddoptionPage> {
   String selectedTab = 'My Listing';
   final tabs = ['My Listing', 'All Pets'];
-
+  @override
+  void initState() {
+    Future.delayed(Duration.zero, (){
+      context.read<AdoptionBloc>().add(AdoptionEvent.adoptions());
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DashboardBloc, DashboardState>(

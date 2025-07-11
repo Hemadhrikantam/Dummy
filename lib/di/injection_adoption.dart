@@ -15,7 +15,9 @@ Future<void> __adoptionDependencies() async {
 
   // adoption Usecase
   final submitAdoption = SubmitPetAdoptionUsecases(getIt<PetAdoptionRepository>());
+  final adoptions = AdoptionUsecases(getIt<PetAdoptionRepository>());
 
   //   //
   getIt.registerLazySingleton<SubmitPetAdoptionUsecases>(() => submitAdoption);
+  getIt.registerLazySingleton<AdoptionUsecases>(() => adoptions);
 }

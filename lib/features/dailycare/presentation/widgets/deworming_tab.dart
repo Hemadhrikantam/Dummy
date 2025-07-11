@@ -20,7 +20,7 @@ import '../../../health/presentation/widgets/empty_list_page.dart';
 import '../bloc/dewormings/dewormings_bloc.dart';
 
 class DewormingTab extends StatefulWidget {
-    final DashboardPetDetails selectedPet;
+  final DashboardPetDetails selectedPet;
   const DewormingTab({super.key, required this.selectedPet});
 
   @override
@@ -50,6 +50,8 @@ class _DewormingTabState extends State<DewormingTab> {
     );
 
     return RefreshIndicator.adaptive(
+      color: AppColors.stepperColor,
+      backgroundColor: AppColors.white,
       onRefresh: () async {
         context.read<DewormingsBloc>().add(
           DewormingsEvent.dewormings(_selectedDay),

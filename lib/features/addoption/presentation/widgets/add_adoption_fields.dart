@@ -220,8 +220,10 @@ class __Breed extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AddAdoptionBloc, AddAdoptionState>(
       builder: (context, state) {
-        final isDog = state.petType.value?.value.toLowerCase() == 'dog';
-        final isCat = state.petType.value?.value.toLowerCase() == 'cat';
+        final petType = state.petType.value?.value.toLowerCase();
+        final isDog = petType == 'dog';
+        final isCat = petType == 'cat';
+
         return CustomDropdownSearch(
           title: AppText.breed,
           items:
@@ -231,10 +233,13 @@ class __Breed extends StatelessWidget {
                   ? state.dogBreeds
                   : [],
           onChanged: (value) {
+         
+            
             context.read<AddAdoptionBloc>().add(AddAdoptionEvent.breed(value!));
           },
           label: AppText.select,
           isMandatory: true,
+          
         );
       },
     );
