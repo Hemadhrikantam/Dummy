@@ -1,6 +1,7 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/services/share_service.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -53,7 +54,7 @@ class PetPhotoCardPage extends StatelessWidget {
                       ),
                     ),
                     padding: const EdgeInsets.all(12),
-                    child:  Text(
+                    child: Text(
                       media.media,
                       style: TextStyle(color: Colors.white),
                     ),
@@ -110,7 +111,15 @@ class PetPhotoCardPage extends StatelessWidget {
                     children: [
                       SvgPicture.asset(ImageResources.heartWhite, width: 30),
                       Styles.gap10,
-                      SvgPicture.asset(ImageResources.share, width: 30),
+                      GestureDetector(
+                        onTap: () {
+                          ShareService.shareByUrl(media.media);
+                        },
+                        child: SvgPicture.asset(
+                          ImageResources.share,
+                          width: 30,
+                        ),
+                      ),
                       Styles.gap10,
                       SvgPicture.asset(ImageResources.editWhite, width: 30),
                       Styles.gap10,
