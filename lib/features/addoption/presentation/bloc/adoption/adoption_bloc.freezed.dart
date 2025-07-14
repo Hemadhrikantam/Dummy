@@ -88,12 +88,12 @@ $AdoptionStateCopyWith<AdoptionState> get copyWith => _$AdoptionStateCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AdoptionState&&const DeepCollectionEquality().equals(other.adoptionStatus, adoptionStatus)&&const DeepCollectionEquality().equals(other.adoptions, adoptions));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AdoptionState&&(identical(other.adoptionStatus, adoptionStatus) || other.adoptionStatus == adoptionStatus)&&const DeepCollectionEquality().equals(other.adoptions, adoptions));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(adoptionStatus),const DeepCollectionEquality().hash(adoptions));
+int get hashCode => Object.hash(runtimeType,adoptionStatus,const DeepCollectionEquality().hash(adoptions));
 
 @override
 String toString() {
@@ -125,9 +125,9 @@ class _$AdoptionStateCopyWithImpl<$Res>
 
 /// Create a copy of AdoptionState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? adoptionStatus = freezed,Object? adoptions = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? adoptionStatus = null,Object? adoptions = null,}) {
   return _then(_self.copyWith(
-adoptionStatus: freezed == adoptionStatus ? _self.adoptionStatus : adoptionStatus // ignore: cast_nullable_to_non_nullable
+adoptionStatus: null == adoptionStatus ? _self.adoptionStatus : adoptionStatus // ignore: cast_nullable_to_non_nullable
 as Status,adoptions: null == adoptions ? _self.adoptions : adoptions // ignore: cast_nullable_to_non_nullable
 as List<Adoption>,
   ));
@@ -162,12 +162,12 @@ _$AdoptionStateCopyWith<_AdoptionState> get copyWith => __$AdoptionStateCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AdoptionState&&const DeepCollectionEquality().equals(other.adoptionStatus, adoptionStatus)&&const DeepCollectionEquality().equals(other._adoptions, _adoptions));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AdoptionState&&(identical(other.adoptionStatus, adoptionStatus) || other.adoptionStatus == adoptionStatus)&&const DeepCollectionEquality().equals(other._adoptions, _adoptions));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(adoptionStatus),const DeepCollectionEquality().hash(_adoptions));
+int get hashCode => Object.hash(runtimeType,adoptionStatus,const DeepCollectionEquality().hash(_adoptions));
 
 @override
 String toString() {
@@ -199,9 +199,9 @@ class __$AdoptionStateCopyWithImpl<$Res>
 
 /// Create a copy of AdoptionState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? adoptionStatus = freezed,Object? adoptions = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? adoptionStatus = null,Object? adoptions = null,}) {
   return _then(_AdoptionState(
-adoptionStatus: freezed == adoptionStatus ? _self.adoptionStatus : adoptionStatus // ignore: cast_nullable_to_non_nullable
+adoptionStatus: null == adoptionStatus ? _self.adoptionStatus : adoptionStatus // ignore: cast_nullable_to_non_nullable
 as Status,adoptions: null == adoptions ? _self._adoptions : adoptions // ignore: cast_nullable_to_non_nullable
 as List<Adoption>,
   ));

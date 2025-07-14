@@ -23,7 +23,7 @@ class PetAdoptionDatasourceImpl extends PetAdoptionDatasource {
     final formData = FormData.fromMap(payload.toMap());
 
     final response = await http.post(
-      path: api.adoptPet, 
+      path: api.adoptPet,
       data: formData,
       options: Options(contentType: 'multipart/form-data'),
     );
@@ -35,14 +35,64 @@ class PetAdoptionDatasourceImpl extends PetAdoptionDatasource {
       (success) async {
         try {
           final data = success.data;
-          final statusCode = (data is Map)
-              ? data['statusCode'] as int? ?? success.statusCode
-              : success.statusCode;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
 
           if (statusCode <= 201) {
             return Right(
               SuccessMessage(
-                message: data['message'] as String? ?? 'Pet submitted successfully',
+                message:
+                    data['message'] as String? ?? 'Pet submitted successfully',
+              ),
+            );
+          }
+
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? 'Something went wrong',
+            ),
+          );
+        } catch (_) {
+          return Left(ErrorMessage(message: 'Something went wrong'));
+        }
+      },
+    );
+  }
+
+  @override
+  AppSuccessResponse editPetAdoption({
+    required Payload payload,
+    required int id,
+  }) async {
+    LogUtility.warning('Payload: ${payload.toMap()}');
+
+    final formData = FormData.fromMap(payload.toMap());
+
+    final response = await http.put(
+      path: api.adoptPet + '$id',
+      data: formData,
+      options: Options(contentType: 'multipart/form-data'),
+    );
+
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message:
+                    data['message'] as String? ?? 'Pet submitted successfully',
               ),
             );
           }
@@ -91,5 +141,33 @@ class PetAdoptionDatasourceImpl extends PetAdoptionDatasource {
       },
     );
   }
-  }
 
+  @override
+  AppTypeResponse<AdoptionModel> adoption({required int id}) async {
+    final response = await http.get(path: '${api.adoptPet}$id');
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 200) {
+            return Right(AdoptionModel.fromMap(data as JsonMap));
+          }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+}

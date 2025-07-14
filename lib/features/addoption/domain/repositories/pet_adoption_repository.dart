@@ -6,5 +6,10 @@ abstract class PetAdoptionRepository {
   PetAdoptionRepository();
 
   AppSuccessResponse submitPetAdoption({required Payload payload});
+  AppSuccessResponse editPetAdoption({
+    required Payload payload,
+    required int id,
+  });
   AppTypeResponse<List<Adoption>> adoptions();
+  AppTypeResponse<Adoption> adoption({required int id});
 }

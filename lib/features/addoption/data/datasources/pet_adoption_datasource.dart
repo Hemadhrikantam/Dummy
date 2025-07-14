@@ -6,6 +6,10 @@ abstract class PetAdoptionDatasource {
   PetAdoptionDatasource();
 
   AppSuccessResponse submitPetAdoption({required Payload payload});
+  AppSuccessResponse editPetAdoption({
+    required Payload payload,
+    required int id,
+  });
   AppTypeResponse<List<AdoptionModel>> adoptions();
-
+  AppTypeResponse<AdoptionModel> adoption({required int id});
 }

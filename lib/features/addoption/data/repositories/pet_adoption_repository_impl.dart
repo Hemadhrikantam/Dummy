@@ -16,6 +16,19 @@ class PetAdoptionRepositoryImpl extends PetAdoptionRepository {
 
   @override
   AppTypeResponse<List<Adoption>> adoptions() {
-   return datasource.adoptions();
+    return datasource.adoptions();
+  }
+
+  @override
+  AppSuccessResponse editPetAdoption({
+    required Payload payload,
+    required int id,
+  }) {
+    return datasource.editPetAdoption(payload: payload, id: id);
+  }
+
+  @override
+  AppTypeResponse<Adoption> adoption({required int id}) {
+    return datasource.adoption(id: id);
   }
 }

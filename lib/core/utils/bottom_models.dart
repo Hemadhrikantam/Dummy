@@ -444,14 +444,14 @@ class BottomModels {
   }
 
   //adoption
-  static Future<T?> addAdoptionBottomSheet<T>(BuildContext context) {
+  static Future<T?> addAdoptionBottomSheet<T>(BuildContext context, {int? id}) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: backgroundColor,
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return AddAdoptionForm();
+        return AddAdoptionForm(id: id);
       },
     );
   }

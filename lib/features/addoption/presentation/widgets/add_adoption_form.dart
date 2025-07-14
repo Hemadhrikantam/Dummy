@@ -23,8 +23,8 @@ import '../../../dailycare/presentation/widgets/save_cancel_widget.dart';
 part 'add_adoption_fields.dart';
 
 class AddAdoptionForm extends StatefulWidget {
-  const AddAdoptionForm({super.key});
-
+  const AddAdoptionForm({super.key, this.id});
+  final int? id;
   @override
   State<AddAdoptionForm> createState() => _AddAdoptionFormState();
 }
@@ -33,7 +33,9 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 0), () {
-      context.read<AddAdoptionBloc>().add(AddAdoptionEvent.initialization());
+      context.read<AddAdoptionBloc>().add(
+        AddAdoptionEvent.initialization(id: widget.id),
+      );
     });
     super.initState();
   }
@@ -61,7 +63,9 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
                       AppGraber(),
                       Styles.gap15,
                       Text(
-                        AppText.addAdoptionQuery,
+                        widget.id != null
+                            ? AppText.editAdoptionQuery
+                            : AppText.addAdoptionQuery,
                         style: context.textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -85,7 +89,7 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
                               ),
 
                               __PetType(),
-                               __Breed(),
+                              __Breed(),
                               Styles.gap10,
                               __Address(),
                               Styles.gap10,
@@ -109,7 +113,7 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
                                 state.adoptionValidation
                                     ? () {
                                       context.read<AddAdoptionBloc>().add(
-                                        AddAdoptionEvent.submit(),
+                                        AddAdoptionEvent.submit(id: widget.id),
                                       );
                                     }
                                     : () {
