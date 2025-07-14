@@ -451,10 +451,7 @@ class BottomModels {
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return BlocProvider(
-          create: (context) => InjectionBloc.addAdoptionBloc,
-          child: AddAdoptionForm(),
-        );
+        return AddAdoptionForm();
       },
     );
   }

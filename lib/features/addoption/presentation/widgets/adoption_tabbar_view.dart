@@ -9,7 +9,6 @@ import 'package:dummy/features/addoption/presentation/bloc/adoption/adoption_blo
 import 'package:dummy/features/health/presentation/widgets/empty_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'adoption_card.dart';
 
 class AdoptiontabbarView extends StatelessWidget {
@@ -30,16 +29,22 @@ class AdoptiontabbarView extends StatelessWidget {
               },
               buttonName: AppText.addPetAdoption,
             )
-            : CustomCard(
+            :  CustomCard(
               borderColor: AppColors.transparent,
               backgroundColor: AppColors.background,
               child: AppCustomListViewBuilder(
+                onRefresh: () async {
+                  context.read<AdoptionBloc>().add(AdoptionEvent.adoptions());
+                },
                 itemCount: item.length,
                 isExpand: false,
                 shrinkWrap: true,
                 separatorBuilder: (context, i) => Styles.gap10,
                 itemBuilder: (BuildContext context, int i) {
-                  return AdoptionCard(isAllPet: tab == 'All Pets', adoption: item[i],);
+                  return AdoptionCard(
+                    isAllPet: tab == 'All Pets',
+                    adoption: item[i],
+                  );
                 },
               ),
             );

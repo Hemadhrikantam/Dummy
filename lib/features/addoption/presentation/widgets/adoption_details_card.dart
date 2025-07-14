@@ -34,7 +34,8 @@ class _AdoptionDetailsCardState extends State<AdoptionDetailsCard> {
           Stack(
             children: [
               AppNetworkImage(
-                height: context.height * .4,
+                height: context.height * .3,
+                width: context.width ,
                 url: widget.adoption?.petImage??'',
               ),
               Positioned(
