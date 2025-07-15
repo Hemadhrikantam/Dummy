@@ -13,8 +13,7 @@ import '../widgets/adoption_details_card.dart';
 class AdoptionDetailsPage extends StatelessWidget {
   const AdoptionDetailsPage({super.key, this.adoption});
   static const routeName = '/MedicationDetailsPage';
-    final Adoption? adoption;
-
+  final Adoption? adoption;
 
   static Route<T> route<T>(Adoption? adoption) {
     return MaterialPageRoute<T>(
@@ -61,6 +60,12 @@ class AdoptionDetailsPage extends StatelessWidget {
             Styles.gap10,
             Expanded(
               child: AppButton(
+                onPressed: () {
+                  BottomModels.addAdoptionBottomSheet(
+                    context,
+                    id: adoption?.id,
+                  );
+                },
                 name: Center(
                   child: Text(
                     AppText.edit,
@@ -78,7 +83,10 @@ class AdoptionDetailsPage extends StatelessWidget {
       ),
       child: ListView(
         padding: Styles.edgeInsetsOnlyH00,
-        children: [AdoptionDetailsCard(isAllPet:false, adoption: adoption,), Styles.gap80],
+        children: [
+          AdoptionDetailsCard(isAllPet: false, adoption: adoption),
+          Styles.gap80,
+        ],
       ),
     );
   }

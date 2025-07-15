@@ -383,6 +383,7 @@ class AppText {
 
   //adoption
   static String addAdoptionQuery = 'Add Adoption Query';
+  static String editAdoptionQuery = 'Edit Adoption Query';
   static String name = 'Name';
   static String address = 'Address';
   static String phone = 'Phone';

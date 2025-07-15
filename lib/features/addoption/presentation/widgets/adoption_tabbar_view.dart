@@ -18,6 +18,9 @@ class AdoptiontabbarView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AdoptionBloc, AdoptionState>(
       builder: (context, state) {
+        if (tab == 'All Pets' && state.adoptions.isEmpty) {
+          context.read<AdoptionBloc>().add(AdoptionEvent.adoptions());
+        }
         final item = state.adoptions;
         return item.isEmpty
             ? EmptyListPage(

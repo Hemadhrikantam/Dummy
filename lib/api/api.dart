@@ -26,6 +26,9 @@ String catbreeds = '$__api/pets/cat-breeds/';
 String dogbreeds = '$__api/pets/dog-breeds/';
 String pets = '$__privateBase/pets/';
 String adoptPet = '$__privateBase/adoption/pet-to-adopt/';
+String allPets = '$__privateBase/adoption/all-pets-to-adopt/';
+String petTypes = '$__privateBase/pets/pet-types/';
+
 
 //daily care
 String meals(DateTime? date) {

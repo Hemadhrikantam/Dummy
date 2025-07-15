@@ -127,18 +127,21 @@ class InjectionBloc {
       editDateUsecases: getIt<UpdateMedicationDateUsecases>(),
     );
   }
+
   static AddAdoptionBloc get addAdoptionBloc {
     return AddAdoptionBloc(
       submitPetAdoptionUsecase: getIt<SubmitPetAdoptionUsecases>(),
+      editPetAdoptionUsecases: getIt<EditPetAdoptionUsecases>(),
       dogBreedUsecases: getIt<DogBreedUsecases>(),
       catBreedUsecases: getIt<CatBreedUsecases>(),
+      adoptionDetailsUsecases: getIt<AdoptionDetailsUsecases>(),
+      petTypesUsecases: getIt<PetTypesUsecases>(),
     );
   }
 
-    static AdoptionBloc get adoptionBloc {
-    return AdoptionBloc(
-      adoptionUsecases: getIt<AdoptionUsecases>(),
-
+  static AdoptionBloc get adoptionBloc {
+    return AdoptionBloc(adoptionUsecases: getIt<AdoptionUsecases>(),
+    allPetsUsecases: getIt<AllPetsUsecases>(),
     );
   }
 }

@@ -23,8 +23,8 @@ import '../../../dailycare/presentation/widgets/save_cancel_widget.dart';
 part 'add_adoption_fields.dart';
 
 class AddAdoptionForm extends StatefulWidget {
-  const AddAdoptionForm({super.key});
-
+  const AddAdoptionForm({super.key, this.id});
+  final int? id;
   @override
   State<AddAdoptionForm> createState() => _AddAdoptionFormState();
 }
@@ -33,7 +33,9 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 0), () {
-      context.read<AddAdoptionBloc>().add(AddAdoptionEvent.initialization());
+      context.read<AddAdoptionBloc>().add(
+        AddAdoptionEvent.initialization(id: widget.id),
+      );
     });
     super.initState();
   }
@@ -57,57 +59,80 @@ Widget build(BuildContext context) {
             child: ListView(
               controller: scrollController,
               children: [
-                Styles.gap6,
-                AppGraber(),
-                Styles.gap30,
-                Text(
-                  AppText.addAdoptionQuery,
-                  style: context.textTheme.titleLarge?.copyWith(
-                    fontWeight: FontWeight.bold,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.79,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Styles.gap6,
+                      AppGraber(),
+                      Styles.gap15,
+                      Text(
+                        widget.id != null
+                            ? AppText.editAdoptionQuery
+                            : AppText.addAdoptionQuery,
+                        style: context.textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Styles.gap15,
+                      Expanded(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              __Name(),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.end,
+                                children: [
+                                  Expanded(child: __Years()),
+                                  Styles.gap10,
+                                  Expanded(child: __Months()),
+                                ],
+                              ),
+
+                              __PetType(),
+                              __Breed(),
+                              Styles.gap10,
+                              __Address(),
+                              Styles.gap10,
+                              __Phone(),
+                              Styles.gap10,
+                              __Email(),
+                              Styles.gap10,
+                              __Description(),
+                              Styles.gap10,
+                              __Media(),
+                              Styles.gap30,
+                            ],
+                          ),
+                        ),
+                      ),
+                      Styles.gap10,
+                      BlocBuilder<AddAdoptionBloc, AddAdoptionState>(
+                        builder: (context, state) {
+                          return SaveCancelWidget(
+                            onPressed:
+                                state.adoptionValidation
+                                    ? () {
+                                      context.read<AddAdoptionBloc>().add(
+                                        AddAdoptionEvent.submit(id: widget.id),
+                                      );
+                                    }
+                                    : () {
+                                      LogUtility.info('state :${state}');
+                                      AppAlert.showToast(
+                                        message: 'Enter the Required Fields',
+                                      );
+                                    },
+                          );
+                        },
+                      ),
+                    ],
                   ),
                 ),
-                Styles.gap15,
-                __Name(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Expanded(child: __Years()),
-                    Styles.gap10,
-                    Expanded(child: __Months()),
-                  ],
-                ),
-                __PetType(),
-                __Breed(),
-                Styles.gap10,
-                __Address(),
-                Styles.gap10,
-                __Phone(),
-                Styles.gap10,
-                __Email(),
-                Styles.gap10,
-                __Description(),
-                Styles.gap10,
-                __Media(),
-                Styles.gap30,
-                BlocBuilder<AddAdoptionBloc, AddAdoptionState>(
-                  builder: (context, state) {
-                    return SaveCancelWidget(
-                      onPressed: state.adoptionValidation
-                          ? () {
-                              context.read<AddAdoptionBloc>().add(
-                                    AddAdoptionEvent.submit(),
-                                  );
-                            }
-                          : () {
-                              LogUtility.info('state :$state');
-                              AppAlert.showToast(
-                                  message: 'Enter the Required Fields');
-                            },
-                    );
-                  },
-                ),
-                Styles.gap20,
               ],
             ),
           );

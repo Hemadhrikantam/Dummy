@@ -11,6 +11,7 @@ class __Name extends StatelessWidget {
       },
       builder: (context, state) {
         return AppTextFormField(
+          initialValue: state.value,
           hintText: AppText.enter,
           errorText: state.isPure ? null : state.error,
           onChanged: (value) {
@@ -35,6 +36,7 @@ class __Address extends StatelessWidget {
       },
       builder: (context, state) {
         return AppTextFormField(
+          initialValue: state.value,
           hintText: AppText.enter,
           errorText: state.isPure ? null : state.error,
           onChanged: (value) {
@@ -61,6 +63,7 @@ class __Phone extends StatelessWidget {
       },
       builder: (context, state) {
         return AppTextFormField(
+          initialValue: state.value,
           keyboardType: TextInputType.phone,
           hintText: AppText.enter,
           errorText: state.isPure ? null : state.error,
@@ -86,6 +89,7 @@ class __Email extends StatelessWidget {
       },
       builder: (context, state) {
         return AppTextFormField(
+          initialValue: state.value,
           hintText: AppText.enter,
           onChanged: (value) {
             context.read<AddAdoptionBloc>().add(AddAdoptionEvent.email(value));
@@ -132,6 +136,7 @@ class __Years extends StatelessWidget {
         ];
 
         return CustomDropdownSearch(
+          selectedItem: state.value,
           title: AppText.age,
           items: years,
           onChanged: (value) {
@@ -170,6 +175,7 @@ class __Months extends StatelessWidget {
           DropItemModel(id: 12, value: '12'),
         ];
         return CustomDropdownSearch(
+          selectedItem: state.value,
           title: '  ',
           items: months,
           onChanged: (value) {
@@ -197,6 +203,7 @@ class __PetType extends StatelessWidget {
           DropItemModel(id: 5, value: 'Hamster'),
         ];
         return CustomDropdownSearch(
+          selectedItem: state.petType.value,
           title: AppText.petType,
           errorText: state.breed.isPure ? null : state.breed.error,
           items: petTypes,
@@ -225,6 +232,7 @@ class __Breed extends StatelessWidget {
         final isCat = petType == 'cat';
 
         return CustomDropdownSearch(
+          selectedItem: state.breed.value,
           title: AppText.breed,
           items:
               isCat
@@ -233,13 +241,10 @@ class __Breed extends StatelessWidget {
                   ? state.dogBreeds
                   : [],
           onChanged: (value) {
-         
-            
             context.read<AddAdoptionBloc>().add(AddAdoptionEvent.breed(value!));
           },
           label: AppText.select,
           isMandatory: true,
-          
         );
       },
     );
@@ -257,6 +262,7 @@ class __Description extends StatelessWidget {
       },
       builder: (context, state) {
         return AppTextFormField(
+          initialValue: state.value,
           hintText: AppText.enter,
           borderRadius: Styles.borderRadiusCircular25,
           onChanged: (value) {

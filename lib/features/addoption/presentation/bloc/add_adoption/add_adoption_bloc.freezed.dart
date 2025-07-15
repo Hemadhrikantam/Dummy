@@ -738,65 +738,133 @@ as String,
 
 
 class _Submit implements AddAdoptionEvent {
-  const _Submit();
+  const _Submit({this.id});
   
 
+ final  int? id;
 
-
+/// Create a copy of AddAdoptionEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SubmitCopyWith<_Submit> get copyWith => __$SubmitCopyWithImpl<_Submit>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Submit);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Submit&&(identical(other.id, id) || other.id == id));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,id);
 
 @override
 String toString() {
-  return 'AddAdoptionEvent.submit()';
+  return 'AddAdoptionEvent.submit(id: $id)';
 }
 
 
 }
 
+/// @nodoc
+abstract mixin class _$SubmitCopyWith<$Res> implements $AddAdoptionEventCopyWith<$Res> {
+  factory _$SubmitCopyWith(_Submit value, $Res Function(_Submit) _then) = __$SubmitCopyWithImpl;
+@useResult
+$Res call({
+ int? id
+});
 
 
+
+
+}
+/// @nodoc
+class __$SubmitCopyWithImpl<$Res>
+    implements _$SubmitCopyWith<$Res> {
+  __$SubmitCopyWithImpl(this._self, this._then);
+
+  final _Submit _self;
+  final $Res Function(_Submit) _then;
+
+/// Create a copy of AddAdoptionEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? id = freezed,}) {
+  return _then(_Submit(
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+
+}
 
 /// @nodoc
 
 
 class _Initialization implements AddAdoptionEvent {
-  const _Initialization();
+  const _Initialization({this.id});
   
 
+ final  int? id;
 
-
+/// Create a copy of AddAdoptionEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$InitializationCopyWith<_Initialization> get copyWith => __$InitializationCopyWithImpl<_Initialization>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initialization);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initialization&&(identical(other.id, id) || other.id == id));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,id);
 
 @override
 String toString() {
-  return 'AddAdoptionEvent.initialization()';
+  return 'AddAdoptionEvent.initialization(id: $id)';
 }
 
 
 }
 
+/// @nodoc
+abstract mixin class _$InitializationCopyWith<$Res> implements $AddAdoptionEventCopyWith<$Res> {
+  factory _$InitializationCopyWith(_Initialization value, $Res Function(_Initialization) _then) = __$InitializationCopyWithImpl;
+@useResult
+$Res call({
+ int? id
+});
 
 
+
+
+}
+/// @nodoc
+class __$InitializationCopyWithImpl<$Res>
+    implements _$InitializationCopyWith<$Res> {
+  __$InitializationCopyWithImpl(this._self, this._then);
+
+  final _Initialization _self;
+  final $Res Function(_Initialization) _then;
+
+/// Create a copy of AddAdoptionEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? id = freezed,}) {
+  return _then(_Initialization(
+id: freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int?,
+  ));
+}
+
+
+}
 
 /// @nodoc
 mixin _$AddAdoptionState {

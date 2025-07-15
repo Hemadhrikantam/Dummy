@@ -10,6 +10,9 @@ import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/adoption/pet_adoption_payload.dart';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/addoption/domain/usecases/adoption_details_usecases.dart';
+import 'package:dummy/features/addoption/domain/usecases/edit_pet_adoption_usecases.dart';
+import 'package:dummy/features/addoption/domain/usecases/pet_types_usecases.dart';
 import 'package:dummy/features/addoption/domain/usecases/submit_pet_adoption_form.dart';
 import 'package:dummy/features/signup/domain/usecases/cat_breed_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/dog_breed_usecases.dart';
@@ -28,9 +31,15 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
     required SubmitPetAdoptionUsecases submitPetAdoptionUsecase,
     required CatBreedUsecases catBreedUsecases,
     required DogBreedUsecases dogBreedUsecases,
+    required AdoptionDetailsUsecases adoptionDetailsUsecases,
+    required EditPetAdoptionUsecases editPetAdoptionUsecases,
+    required PetTypesUsecases petTypesUsecases,
   }) : __submitPetAdoptionUsecase = submitPetAdoptionUsecase,
        __catBreeds = catBreedUsecases,
        __dogBreeds = dogBreedUsecases,
+       __editPetAdoptionUsecase = editPetAdoptionUsecases,
+       __adoptionDetailsUsecases = adoptionDetailsUsecases,
+       __petTypes = petTypesUsecases,
        super(AddAdoptionState()) {
     on<_Name>(__name);
     on<_Year>(__year);
@@ -46,8 +55,11 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
     on<_Initialization>(_initialization);
   }
   final SubmitPetAdoptionUsecases __submitPetAdoptionUsecase;
+  final EditPetAdoptionUsecases __editPetAdoptionUsecase;
+  final AdoptionDetailsUsecases __adoptionDetailsUsecases;
   final CatBreedUsecases __catBreeds;
   final DogBreedUsecases __dogBreeds;
+  final PetTypesUsecases __petTypes;
 
   Future<void> _initialization(
     _Initialization event,
@@ -56,6 +68,8 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
     emit(state.copyWith(addAdoptionStatus: Status.loading));
     final catBreeds = await _catBreeds();
     final dogBreeds = await _dogBreeds();
+        final petTypes = await _petTypes();
+
     emit(
       state.copyWith(
         catBreeds: catBreeds,
@@ -63,6 +77,37 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
         addAdoptionStatus: Status.success,
       ),
     );
+    if (event.id != null) {
+      final result = await __adoptionDetailsUsecases(id: event.id!);
+      result.fold((l) {}, (r) async {
+
+        final List<DropItem> breeds =
+            r.petType == 'Dog'
+                ? dogBreeds
+                : r.petType == 'Cat'
+                ? catBreeds
+                : [];
+        emit(
+          state.copyWith(
+            name: NotEmpty.dirty(value: r.name),
+            address: NotEmpty.dirty(value: r.address),
+            description: NotEmpty.dirty(value: r.description),
+            url: NotEmpty.dirty(value: r.petImage),
+            phone: MobileNo.dirty(value: r.phone),
+            email: Email.dirty(value: r.email),
+            year: DropdownValue.dirty(
+              DropItemModel(id: r.age.toInt(), value: r.age.toInt().toString()),
+            ),
+            petType: DropdownValue.dirty(
+              petTypes.firstWhere((e) => e.value == r.petType),
+            ),
+            breed: DropdownValue.dirty(
+              breeds.firstWhere((e) => e.id == r.petBreed),
+            ),
+          ),
+        );
+      });
+    }
   }
 
   void __name(_Name event, Emitter<AddAdoptionState> emit) {
@@ -232,20 +277,23 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
     final payload = PetAdoptionPayload(
       name: state.name.value,
       year: state.year.value?.value ?? '',
-      petType: state.petType.value?.value??'',
+      petType: state.petType.value?.value ?? '',
       address: state.address.value,
-      phone: state.phone.value??'',
-      email: state.email.value??'',
+      phone: state.phone.value ?? '',
+      email: state.email.value ?? '',
       description: state.description.value,
       isAdopted: false,
-      petBreed: state.breed.value?.id??0,
+      petBreed: state.breed.value?.id ?? 0,
       petImage: await MultipartFile.fromFile(
         state.url.value,
         filename: state.url.value.split('/').last,
       ),
     );
 
-    final result = await __submitPetAdoptionUsecase(payload);
+    final result =
+        event.id != null
+            ? await __editPetAdoptionUsecase(payload, event.id!)
+            : await __submitPetAdoptionUsecase(payload);
     result.fold((error) => emit(state.copyWith(submitStatus: Status.error)), (
       success,
     ) {
@@ -263,4 +311,10 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
     final result = await __dogBreeds();
     return result.fold((l) => [], (r) => r);
   }
+
+  Future<List<DropItem>> _petTypes() async {
+  final result = await __petTypes();
+  return result.fold((l) => [], (r) => r);
+}
+
 }

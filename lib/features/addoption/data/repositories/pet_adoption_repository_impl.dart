@@ -1,3 +1,4 @@
+import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/payload/payload.dart';
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/addoption/data/datasources/pet_adoption_datasource.dart';
@@ -16,6 +17,29 @@ class PetAdoptionRepositoryImpl extends PetAdoptionRepository {
 
   @override
   AppTypeResponse<List<Adoption>> adoptions() {
-   return datasource.adoptions();
+    return datasource.adoptions();
+  }
+
+  @override
+  AppSuccessResponse editPetAdoption({
+    required Payload payload,
+    required int id,
+  }) {
+    return datasource.editPetAdoption(payload: payload, id: id);
+  }
+
+  @override
+  AppTypeResponse<Adoption> adoption({required int id}) {
+    return datasource.adoption(id: id);
+  }
+
+  @override
+  AppTypeResponse<List<DropItem>> petTypes() {
+    return datasource.petTypes();
+  }
+  
+  @override
+  AppTypeResponse<List<Adoption>> allPets() {
+    return datasource.allPets();
   }
 }

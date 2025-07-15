@@ -75,9 +75,41 @@ String toString() {
 
 
 /// @nodoc
+
+
+class _AllPets implements AdoptionEvent {
+  const _AllPets();
+  
+
+
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AllPets);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'AdoptionEvent.allPets()';
+}
+
+
+}
+
+
+
+
+/// @nodoc
 mixin _$AdoptionState {
 
- Status get adoptionStatus; List<Adoption> get adoptions;
+ Status get adoptionStatus; List<Adoption> get adoptions; List<Adoption> get allPets;
 /// Create a copy of AdoptionState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -88,16 +120,16 @@ $AdoptionStateCopyWith<AdoptionState> get copyWith => _$AdoptionStateCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AdoptionState&&const DeepCollectionEquality().equals(other.adoptionStatus, adoptionStatus)&&const DeepCollectionEquality().equals(other.adoptions, adoptions));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AdoptionState&&(identical(other.adoptionStatus, adoptionStatus) || other.adoptionStatus == adoptionStatus)&&const DeepCollectionEquality().equals(other.adoptions, adoptions)&&const DeepCollectionEquality().equals(other.allPets, allPets));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(adoptionStatus),const DeepCollectionEquality().hash(adoptions));
+int get hashCode => Object.hash(runtimeType,adoptionStatus,const DeepCollectionEquality().hash(adoptions),const DeepCollectionEquality().hash(allPets));
 
 @override
 String toString() {
-  return 'AdoptionState(adoptionStatus: $adoptionStatus, adoptions: $adoptions)';
+  return 'AdoptionState(adoptionStatus: $adoptionStatus, adoptions: $adoptions, allPets: $allPets)';
 }
 
 
@@ -108,7 +140,7 @@ abstract mixin class $AdoptionStateCopyWith<$Res>  {
   factory $AdoptionStateCopyWith(AdoptionState value, $Res Function(AdoptionState) _then) = _$AdoptionStateCopyWithImpl;
 @useResult
 $Res call({
- Status adoptionStatus, List<Adoption> adoptions
+ Status adoptionStatus, List<Adoption> adoptions, List<Adoption> allPets
 });
 
 
@@ -125,10 +157,11 @@ class _$AdoptionStateCopyWithImpl<$Res>
 
 /// Create a copy of AdoptionState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? adoptionStatus = freezed,Object? adoptions = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? adoptionStatus = null,Object? adoptions = null,Object? allPets = null,}) {
   return _then(_self.copyWith(
-adoptionStatus: freezed == adoptionStatus ? _self.adoptionStatus : adoptionStatus // ignore: cast_nullable_to_non_nullable
+adoptionStatus: null == adoptionStatus ? _self.adoptionStatus : adoptionStatus // ignore: cast_nullable_to_non_nullable
 as Status,adoptions: null == adoptions ? _self.adoptions : adoptions // ignore: cast_nullable_to_non_nullable
+as List<Adoption>,allPets: null == allPets ? _self.allPets : allPets // ignore: cast_nullable_to_non_nullable
 as List<Adoption>,
   ));
 }
@@ -140,7 +173,7 @@ as List<Adoption>,
 
 
 class _AdoptionState implements AdoptionState {
-  const _AdoptionState({this.adoptionStatus = Status.init, final  List<Adoption> adoptions = const []}): _adoptions = adoptions;
+  const _AdoptionState({this.adoptionStatus = Status.init, final  List<Adoption> adoptions = const [], final  List<Adoption> allPets = const []}): _adoptions = adoptions,_allPets = allPets;
   
 
 @override@JsonKey() final  Status adoptionStatus;
@@ -149,6 +182,13 @@ class _AdoptionState implements AdoptionState {
   if (_adoptions is EqualUnmodifiableListView) return _adoptions;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_adoptions);
+}
+
+ final  List<Adoption> _allPets;
+@override@JsonKey() List<Adoption> get allPets {
+  if (_allPets is EqualUnmodifiableListView) return _allPets;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_allPets);
 }
 
 
@@ -162,16 +202,16 @@ _$AdoptionStateCopyWith<_AdoptionState> get copyWith => __$AdoptionStateCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AdoptionState&&const DeepCollectionEquality().equals(other.adoptionStatus, adoptionStatus)&&const DeepCollectionEquality().equals(other._adoptions, _adoptions));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AdoptionState&&(identical(other.adoptionStatus, adoptionStatus) || other.adoptionStatus == adoptionStatus)&&const DeepCollectionEquality().equals(other._adoptions, _adoptions)&&const DeepCollectionEquality().equals(other._allPets, _allPets));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(adoptionStatus),const DeepCollectionEquality().hash(_adoptions));
+int get hashCode => Object.hash(runtimeType,adoptionStatus,const DeepCollectionEquality().hash(_adoptions),const DeepCollectionEquality().hash(_allPets));
 
 @override
 String toString() {
-  return 'AdoptionState(adoptionStatus: $adoptionStatus, adoptions: $adoptions)';
+  return 'AdoptionState(adoptionStatus: $adoptionStatus, adoptions: $adoptions, allPets: $allPets)';
 }
 
 
@@ -182,7 +222,7 @@ abstract mixin class _$AdoptionStateCopyWith<$Res> implements $AdoptionStateCopy
   factory _$AdoptionStateCopyWith(_AdoptionState value, $Res Function(_AdoptionState) _then) = __$AdoptionStateCopyWithImpl;
 @override @useResult
 $Res call({
- Status adoptionStatus, List<Adoption> adoptions
+ Status adoptionStatus, List<Adoption> adoptions, List<Adoption> allPets
 });
 
 
@@ -199,10 +239,11 @@ class __$AdoptionStateCopyWithImpl<$Res>
 
 /// Create a copy of AdoptionState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? adoptionStatus = freezed,Object? adoptions = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? adoptionStatus = null,Object? adoptions = null,Object? allPets = null,}) {
   return _then(_AdoptionState(
-adoptionStatus: freezed == adoptionStatus ? _self.adoptionStatus : adoptionStatus // ignore: cast_nullable_to_non_nullable
+adoptionStatus: null == adoptionStatus ? _self.adoptionStatus : adoptionStatus // ignore: cast_nullable_to_non_nullable
 as Status,adoptions: null == adoptions ? _self._adoptions : adoptions // ignore: cast_nullable_to_non_nullable
+as List<Adoption>,allPets: null == allPets ? _self._allPets : allPets // ignore: cast_nullable_to_non_nullable
 as List<Adoption>,
   ));
 }
