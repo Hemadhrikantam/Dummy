@@ -447,7 +447,7 @@ class BottomModels {
   static Future<T?> addAdoptionBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
-      backgroundColor: backgroundColor,
+      backgroundColor: AppColors.transparent,
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
