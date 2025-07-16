@@ -1,6 +1,6 @@
 import 'package:dummy/core/utils/app_utils.dart';
 
-const String __dev = 'http://13.233.100.253';
+const String __dev = 'http://13.201.93.238';
 
 const String __privateBase = '$__dev/api';
 const String __publicBase = '$__dev';

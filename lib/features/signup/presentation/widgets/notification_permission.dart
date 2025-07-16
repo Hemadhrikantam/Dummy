@@ -4,10 +4,13 @@ import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/services/location_service.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/info_card.dart';
+import 'package:dummy/features/signup/presentation/bloc/register/register_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NotificationPermission extends StatefulWidget {
   const NotificationPermission({super.key, this.onNext});
@@ -75,7 +78,6 @@ class _NotificationPermissionState extends State<NotificationPermission> {
                     },
                     onCancel: () {
                       ctx.pop();
-                      showLocation();
                     },
                   ),
             );
@@ -122,7 +124,7 @@ class NotificationDialog extends StatelessWidget {
           children: [
             Expanded(
               child: AppOutlinedButton(
-                onPressed: () => onCancel,
+                onPressed: () => onCancel(),
                 name: Text(
                   AppText.cancel,
                   style: TextStyle(color: AppColors.buttonTextColor),
@@ -170,7 +172,7 @@ class LocationDialog extends StatelessWidget {
           children: [
             Expanded(
               child: AppOutlinedButton(
-                onPressed: () => onCancel,
+                onPressed: () => onCancel(),
                 name: Text(
                   AppText.cancel,
                   style: TextStyle(color: AppColors.buttonTextColor),
@@ -180,9 +182,33 @@ class LocationDialog extends StatelessWidget {
             Styles.gap10,
             Expanded(
               child: AppButton(
-                onPressed: () {
-                  Navigator.pop(context);
+                onPressed: () async {
+                  
+                  try {
+                    final locationService = LocationService();
+                    final locationData =
+                        await locationService.getCurrentLocation();
+
+                    if (locationData != null) {
+                      print("Latitude: ${locationData.latitude}");
+                      print("Longitude: ${locationData.longitude}");
+
+                      context.read<RegisterBloc>().add(
+                        RegisterEvent.setLocation(
+                          latitude: locationData.latitude??0,
+                          longitude: locationData.longitude??0,
+                        ),
+                      );
+                    } else {
+                      print("Location data is null");
+                    }
+                      Navigator.pop(context);
                   onNext.call();
+                  } catch (e) {
+                    print("Location error: $e");
+                    Navigator.pop(context);
+                  }
+
                 },
                 name: Text(
                   AppText.allow,

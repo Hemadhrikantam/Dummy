@@ -5,6 +5,7 @@ import 'package:dummy/core/enum/breed.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
+import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
@@ -155,6 +156,22 @@ class _PetInfoState extends State<PetInfo> {
                   },
                 ),
                 Styles.gap20,
+                CustomDropdownSearch(
+                  title: AppText.gender,
+                  isMandatory: true,
+                  items: [
+                    DropItemModel(id: 1, value: 'Male'),
+                    DropItemModel(id: 2, value: 'Female'),
+                  ],
+                  onChanged: (value) {
+                    context.read<RegisterBloc>().add(
+                      RegisterEvent.petGender(value!),
+                    );
+                  },
+                  label: AppText.select,
+                ),
+                Styles.gap20,
+
                 CustomMultiDropdownSearch(
                   items: state.personalityTags,
                   title: AppText.personalitytags,
@@ -218,14 +235,16 @@ class _PetInfoState extends State<PetInfo> {
                       state.dob.isValid &&
                               state.breed.isValid &&
                               state.selectedPersonalityTags.isNotEmpty &&
-                              state.weight.isValid
+                              state.weight.isValid &&
+                              state.gender.isValid
                           ? AppColors.buttonBackground
                           : AppColors.grey,
                   onPressed:
                       state.dob.isValid &&
                               state.breed.isValid &&
                               state.selectedPersonalityTags.isNotEmpty &&
-                              state.weight.isValid
+                              state.weight.isValid &&
+                              state.gender.isValid
                           ? () {
                             widget.onNext?.call();
                           }

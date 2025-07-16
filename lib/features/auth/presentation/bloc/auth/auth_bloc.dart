@@ -143,6 +143,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         petImage: 1,
         breed: 0,
         personalityTag: [],
+        gender: '', latitude: 0, longitude: 0,
       ),
     );
     result.fold(

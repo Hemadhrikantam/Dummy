@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
 import 'package:dummy/core/enum/breed.dart';
 import 'package:dummy/core/models/drop_item.dart';
@@ -42,6 +44,8 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     on<_WeightUnit>(__weightUnit);
     on<_Weight>(__weight);
     on<_CreatePet>(__createPet);
+    on<_PetGender>(__petGender);
+    on<_SetLocation>(__setLocation);
   }
 
   final CatBreedUsecases __catBreedUsecases;
@@ -92,9 +96,12 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       dob: AppUtil.formatDate(DateTime.parse(state.dob.value)),
       breed: state.breed.value!.id,
       petWeight: int.parse(state.weight.value),
+      gender: state.gender.value?.value??'',
       petImage: imageId,
       personalityTag:
           state.selectedPersonalityTags.map((e) => e.value!.id).toList(),
+      latitude: state.latitude??0,
+      longitude: state.longitude??0,
     );
     final result = await __createPetUsecases(payload: payload);
 
@@ -168,5 +175,13 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   Future<List<DropItem>> __personalityTags() async {
     final result = await __personalityTagUsecases();
     return result.fold((error) => [], (success) => success);
+  }
+void __petGender(_PetGender event, Emitter<RegisterState> emit) {
+ final gender = DropdownValue.dirty(event.petGender);
+ emit(state.copyWith(gender: gender));
+}
+
+  void __setLocation(_SetLocation event, Emitter<RegisterState> emit) {
+    emit(state.copyWith(latitude: event.latitude, longitude: event.longitude));
   }
 }

@@ -12,6 +12,9 @@ class RegisterAccountPayload extends Equatable implements Payload {
     required this.petImage,
     required this.breed,
     required this.personalityTag,
+    required this.gender,
+    required this.latitude, 
+    required this.longitude,
   });
 
   final String petName;
@@ -20,7 +23,10 @@ class RegisterAccountPayload extends Equatable implements Payload {
   final int petWeight;
   final int petImage;
   final int breed;
+  final String gender;
   final List<int> personalityTag;
+  final double latitude;
+  final double longitude;
 
   @override
   List<Object?> get props => [
@@ -31,6 +37,9 @@ class RegisterAccountPayload extends Equatable implements Payload {
     petImage,
     breed,
     personalityTag,
+    gender,
+    latitude,
+    longitude,
   ];
 
   @override
@@ -41,6 +50,9 @@ class RegisterAccountPayload extends Equatable implements Payload {
     'pet_weight': petWeight,
     'pet_image': petImage,
     'breed': breed,
+    'gender' : gender,
     'personality_tag': personalityTag,
+    'latitude':latitude,
+    'longitude':longitude,
   };
 }

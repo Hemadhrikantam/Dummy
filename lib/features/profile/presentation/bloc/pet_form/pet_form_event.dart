@@ -13,4 +13,6 @@ class PetFormEvent with _$PetFormEvent {
   const factory PetFormEvent.RemovePersonalityTag(DropItem value) = _RemovePersonalityTag;
   const factory PetFormEvent.imagePath(String value) = _ImagePath;
 
+
+
 }

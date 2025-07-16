@@ -37,11 +37,14 @@ class __PetGender extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomDropdownSearch(
       title: AppText.gender,
+      isMandatory: true,
       items: [
         DropItemModel(id: 1, value: 'Male'),
         DropItemModel(id: 2, value: 'Female'),
       ],
-      onChanged: (value) {},
+      onChanged: (value) {
+        context.read<RegisterBloc>().add(RegisterEvent.petGender(value!));
+      },
       label: AppText.select,
     );
   }

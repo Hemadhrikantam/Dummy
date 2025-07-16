@@ -11,16 +11,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'adoption_card.dart';
 
-class AdoptiontabbarView extends StatelessWidget {
+class AdoptiontabbarView extends StatefulWidget {
   const AdoptiontabbarView({super.key, required this.tab});
   final String tab;
+
+  @override
+  State<AdoptiontabbarView> createState() => _AdoptiontabbarViewState();
+}
+
+class _AdoptiontabbarViewState extends State<AdoptiontabbarView> {
+  bool _hasLoaded = false;
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    if (!_hasLoaded && widget.tab == 'All Pets') {
+      context.read<AdoptionBloc>().add(AdoptionEvent.adoptions());
+      _hasLoaded = true;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AdoptionBloc, AdoptionState>(
       builder: (context, state) {
-        if (tab == 'All Pets' && state.adoptions.isEmpty) {
-          context.read<AdoptionBloc>().add(AdoptionEvent.adoptions());
-        }
         final item = state.adoptions;
         return item.isEmpty
             ? EmptyListPage(
@@ -32,7 +45,7 @@ class AdoptiontabbarView extends StatelessWidget {
               },
               buttonName: AppText.addPetAdoption,
             )
-            :  CustomCard(
+            : CustomCard(
               borderColor: AppColors.transparent,
               backgroundColor: AppColors.background,
               child: AppCustomListViewBuilder(
@@ -45,7 +58,7 @@ class AdoptiontabbarView extends StatelessWidget {
                 separatorBuilder: (context, i) => Styles.gap10,
                 itemBuilder: (BuildContext context, int i) {
                   return AdoptionCard(
-                    isAllPet: tab == 'All Pets',
+                    isAllPet: widget.tab == 'All Pets',
                     adoption: item[i],
                   );
                 },

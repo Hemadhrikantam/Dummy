@@ -16,5 +16,9 @@ abstract class RegisterState with _$RegisterState {
     @Default([]) final List<DropdownValue> selectedPersonalityTags,
     @Default(NotEmpty.pure()) final NotEmpty weightUnit,
     @Default(NotEmpty.pure()) final NotEmpty weight,
+    final double? latitude,
+    final double? longitude,
+
+    @Default(DropdownValue.pure()) final DropdownValue gender,
   }) = _RegisterState;
 }

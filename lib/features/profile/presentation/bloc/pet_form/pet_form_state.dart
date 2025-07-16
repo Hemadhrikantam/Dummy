@@ -16,6 +16,7 @@ abstract class PetFormState with _$PetFormState {
     @Default([]) final List<DropItem> catbreeds,
     @Default([]) final List<DropItem> dogbreeds,
     @Default([]) final List<DropItem> personalityTags,
+    
     }) = _PetFormState;
 }
 
