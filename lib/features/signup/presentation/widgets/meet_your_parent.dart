@@ -37,7 +37,7 @@ class MeetYourParent extends StatelessWidget {
                   headerText: AppText.petsName,
                   controller: nameController..text = state.value,
                   isMandatory: true,
-                  hintText: '...',
+                  hintText: 'Enter Pet Name',
                   onChanged: (value) {
                     context.read<RegisterBloc>().add(
                       RegisterEvent.petName(value),

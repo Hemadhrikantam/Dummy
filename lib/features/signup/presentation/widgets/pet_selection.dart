@@ -95,7 +95,6 @@ class _PetSelectionState extends State<PetSelection> {
           builder: (context, state) {
             return InfoCard(
               title: AppText.petTypeInfo(
-                state.petName.value,
                 state.petType.name,
                 state.petType == PetType.Cat
                     ? PetType.Dog.name

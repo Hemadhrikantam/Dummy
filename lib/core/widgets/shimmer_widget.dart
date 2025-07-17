@@ -79,18 +79,20 @@ class DashboardShimmer extends StatelessWidget {
             ),
             itemCount: 6,
             itemBuilder: (context, index) {
-              return Column(
-                children: [
-                  const SizedBox(height: 8),
-                  FadeShimmer(
-                    height: 90,
-                    width: 100,
-                    radius: 15,
-                    highlightColor: Colors.grey.shade200,
-                    baseColor: Colors.grey.shade300,
-                    fadeTheme: FadeTheme.light,
-                  ),
-                ],
+              return SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const SizedBox(height: 8),
+                    FadeShimmer(
+                      height: 90,
+                      width: 100,
+                      radius: 15,
+                      highlightColor: Colors.grey.shade200,
+                      baseColor: Colors.grey.shade300,
+                      fadeTheme: FadeTheme.light,
+                    ),
+                  ],
+                ),
               );
             },
           ),

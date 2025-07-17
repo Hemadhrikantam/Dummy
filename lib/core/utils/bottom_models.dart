@@ -428,7 +428,7 @@ class BottomModels {
     );
   }
 
-  static Future<T?> addPetMediaBottomSheet<T>(BuildContext context) {
+  static Future<T?> addPetMediaBottomSheet<T>(BuildContext context, {int? id}) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: backgroundColor,
@@ -437,7 +437,7 @@ class BottomModels {
       builder: (BuildContext context) {
         return BlocProvider(
           create: (context) => InjectionBloc.mediaFormBloc,
-          child: AddPetMedia(),
+          child: AddPetMedia(id: id),
         );
       },
     );

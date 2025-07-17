@@ -19,8 +19,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/widgets/custom_dropdown.dart';
 
 class AddPetMedia extends StatefulWidget {
-  const AddPetMedia({super.key});
-
+  const AddPetMedia({super.key, this.id});
+  final int? id;
   @override
   State<StatefulWidget> createState() => _AddPetMedia();
 }
@@ -45,7 +45,7 @@ class _AddPetMedia extends State<AddPetMedia> {
           AppGraber(),
           Styles.gap10,
           Text(
-            AppText.addMedia,
+            widget.id == null ? AppText.addMedia : AppText.editMedia,
             style: context.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
             ),

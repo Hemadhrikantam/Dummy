@@ -29,21 +29,12 @@ class SaveCancelWidget extends StatelessWidget {
         ),
         Styles.gap10,
         Expanded(
-          child: BlocBuilder<AddAdoptionBloc, AddAdoptionState>(
-            builder: (context, state) {
-              return AppButton(
-                name:
-                    state.addAdoptionStatus.loading
-                        ? LoadingWidget.circularProgressIndicatorCenter
-                        : Text(AppText.save, style: Styles.buttonStyle),
+          child: AppButton(
+            name: Text(AppText.save, style: Styles.buttonStyle),
 
-                backgroundColor:
-                    state.adoptionValidation
-                        ? AppColors.buttonBackground
-                        : AppColors.grey300,
-                onPressed: onPressed,
-              );
-            },
+            backgroundColor: AppColors.buttonBackground,
+
+            onPressed: onPressed,
           ),
         ),
       ],

@@ -20,7 +20,11 @@ class PetImageWidget extends StatelessWidget {
             child: CircleAvatar(
               radius: 70,
               backgroundColor: AppColors.buttonBackground,
-              child: AppNetworkImage(url: state.selectedPet!.petImage.petImage),
+              child: AppNetworkImage(
+                url: state.selectedPet!.petImage.petImage,
+                width: 140,
+                height: 140,
+              ),
             ),
           );
         }

@@ -71,8 +71,8 @@ class AppText {
   static String whatTypeOfPet = "What Type of Pet Do You Have?";
   static String dog = "Dog";
   static String cat = "Cat";
-  static String petTypeInfo(String name, String a, String b) =>
-      "$name was a $a, but we love ${b}s too—tell us about your pet!";
+  static String petTypeInfo(String a, String b) =>
+      "Doommi was a $a, but we love ${b}s too—tell us about your pet!";
 
   static String uploadPetPhoto =
       'Upload a photo to make their profile special!';
@@ -361,6 +361,7 @@ class AppText {
   static const String document = 'Document';
   static const String addDoc = 'Add Documents';
   static const String addMedia = 'Add Media';
+  static const String editMedia = 'Edit Media';
   static String tellUsLuna(String name) => "Tell us about ${name}'s moment!";
   static String events = 'Events';
   static String favourites = 'Favourites';

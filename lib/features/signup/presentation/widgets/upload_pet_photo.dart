@@ -113,7 +113,7 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
                 ),
               ),
               onPressed: () async {
-                if (selectedImage != null) {
+                if (state.petImage.isValid) {
                   final images = await customFilePicker(context);
                   if (images.isNotEmpty) {
                     context.read<RegisterBloc>().add(

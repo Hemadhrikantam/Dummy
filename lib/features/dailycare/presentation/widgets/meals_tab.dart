@@ -23,7 +23,6 @@ class MealsTab extends StatefulWidget {
   final DashboardPetDetails selectedPet;
   const MealsTab({super.key, required this.selectedPet});
 
-
   @override
   State<MealsTab> createState() => _MealsTabState();
 }
@@ -43,9 +42,14 @@ class _MealsTabState extends State<MealsTab> {
   Widget build(BuildContext context) {
     final now = DateTime.now();
     _selectedDay = DateTime.now();
-    final nextFiveDays = List.generate(
-      6,
-      (index) => now.add(Duration(days: index)),
+    final firstDayOfMonth = DateTime(now.year, now.month, 1);
+    final nextMonth = DateTime(now.year, now.month + 1, 1);
+    final totalDaysInMonth = nextMonth.difference(firstDayOfMonth).inDays;
+
+    // Generate list of all days
+    final daysInCurrentMonth = List.generate(
+      totalDaysInMonth,
+      (index) => DateTime(now.year, now.month, index + 1),
     );
 
     return RefreshIndicator.adaptive(
@@ -57,7 +61,7 @@ class _MealsTabState extends State<MealsTab> {
       child: ListView(
         children: [
           DaySelector(
-            days: nextFiveDays,
+            days: daysInCurrentMonth,
             initialDate: now,
             onDaySelected: (day) {
               setState(() {

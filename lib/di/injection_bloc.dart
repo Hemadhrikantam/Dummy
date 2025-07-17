@@ -22,6 +22,16 @@ class InjectionBloc {
     );
   }
 
+  static PetFormBloc get petFormBloc {
+    return PetFormBloc(
+      petImageUsecases: getIt<PetImageUsecases>(),
+      createPetUsecases: getIt<CreatePetUsecases>(),
+      catBreedUsecases: getIt<CatBreedUsecases>(),
+      dogBreedUsecases: getIt<DogBreedUsecases>(),
+      personalityTagUsecases: getIt<PersonalityTagUsecases>(),
+    );
+  }
+
   static PetDairyBloc get petDairyBloc {
     return PetDairyBloc(
       documentsUsecases: getIt<DocumentsUsecases>(),
@@ -140,8 +150,9 @@ class InjectionBloc {
   }
 
   static AdoptionBloc get adoptionBloc {
-    return AdoptionBloc(adoptionUsecases: getIt<AdoptionUsecases>(),
-    allPetsUsecases: getIt<AllPetsUsecases>(),
+    return AdoptionBloc(
+      adoptionUsecases: getIt<AdoptionUsecases>(),
+      allPetsUsecases: getIt<AllPetsUsecases>(),
     );
   }
 }

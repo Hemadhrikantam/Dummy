@@ -63,7 +63,13 @@ class _PetInfoState extends State<PetInfo> {
             height: 300,
             child: WeightPickerBody(
               weight: weight,
-              onSave: (value) {
+              onSave: (value, unit) {
+                context.read<RegisterBloc>().add(
+                  RegisterEvent.weight(value.toString()),
+                );
+                context.read<RegisterBloc>().add(
+                  RegisterEvent.weightUnit(unit),
+                );
                 setState(() {
                   weight = value;
                 });
@@ -270,7 +276,7 @@ class WeightPickerBody extends StatefulWidget {
   });
 
   final int weight;
-  final Function(int) onSave;
+  final Function(int, String) onSave;
 
   @override
   State<WeightPickerBody> createState() => _WeightPickerBodyState();
@@ -427,13 +433,8 @@ class _WeightPickerBodyState extends State<WeightPickerBody> {
               Expanded(
                 child: AppButton(
                   onPressed: () {
-                    widget.onSave(weight);
-                    context.read<RegisterBloc>().add(
-                      RegisterEvent.weight(weight.toString()),
-                    );
-                    context.read<RegisterBloc>().add(
-                      RegisterEvent.weightUnit(selectedUnit),
-                    );
+                    widget.onSave(weight, selectedUnit);
+
                     Navigator.pop(context);
                   },
                   name: Text(

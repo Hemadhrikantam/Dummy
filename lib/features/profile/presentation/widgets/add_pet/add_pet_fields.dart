@@ -1,14 +1,25 @@
 part of 'add_pet_form.dart';
 
 class __PetName extends StatelessWidget {
-  const __PetName();
-
+  __PetName();
+  final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return AppTextFormField(
-      hintText: AppText.enter,
-      onChanged: (value) {},
-      headerText: AppText.petsName,
+    return BlocSelector<PetFormBloc, PetFormState, NotEmpty>(
+      selector: (state) {
+        return state.petName;
+      },
+      builder: (context, state) {
+        return AppTextFormField(
+          headerText: AppText.petsName,
+          controller: controller..text = state.value,
+          isMandatory: true,
+          hintText: 'Enter Pet Name',
+          onChanged: (value) {
+            context.read<PetFormBloc>().add(PetFormEvent.petName(value));
+          },
+        );
+      },
     );
   }
 }
@@ -18,14 +29,42 @@ class __Age extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomDropdownSearch(
-      title: AppText.age,
-      items: List.generate(
-        20,
-        (i) => DropItemModel(id: i, value: i.toString()),
-      ),
-      onChanged: (value) {},
-      label: AppText.select,
+    return BlocBuilder<PetFormBloc, PetFormState>(
+      builder: (context, state) {
+        return Column(
+          children: [
+            AppCustomDateField(
+              headerText: AppText.dateOfBirth,
+              selectedDate: DateTime.tryParse(state.dob.value),
+              isMandatory: true,
+              maxDate: DateTime(
+                DateTime.now().year,
+                DateTime.now().month,
+                DateTime.now().day,
+              ),
+              suffixIcon: Iconsax.calendar,
+              onChange: (date) {
+                context.read<PetFormBloc>().add(
+                  PetFormEvent.dob(date.toString()),
+                );
+              },
+            ),
+            if (state.dob.isValid) Styles.gap4,
+            if (state.dob.isValid)
+              Text(
+                AppUtil.calculateAge(
+                  AppUtil.formatDateToMMDDYYYY(
+                    DateTime.tryParse(state.dob.value)!,
+                  ),
+                ),
+                style: TextStyle(
+                  color: AppColors.stepperColor,
+                  fontWeight: FontWeight.w700,
+                ),
+              ),
+          ],
+        );
+      },
     );
   }
 }
@@ -43,7 +82,7 @@ class __PetGender extends StatelessWidget {
         DropItemModel(id: 2, value: 'Female'),
       ],
       onChanged: (value) {
-        context.read<RegisterBloc>().add(RegisterEvent.petGender(value!));
+        context.read<PetFormBloc>().add(PetFormEvent.petGender(value!));
       },
       label: AppText.select,
     );
@@ -55,11 +94,28 @@ class __PetType extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomDropdownSearch(
-      title: AppText.petType,
-      items: [],
-      onChanged: (value) {},
-      label: AppText.select,
+    return BlocBuilder<PetFormBloc, PetFormState>(
+      builder: (context, state) {
+        return CustomDropdownSearch(
+          title: AppText.petType,
+          selectedItem:
+              state.petType == PetType.Cat
+                  ? DropItemModel(id: 1, value: 'Cat')
+                  : DropItemModel(id: 2, value: 'Dog'),
+          items: [
+            DropItemModel(id: 1, value: 'Cat'),
+            DropItemModel(id: 2, value: 'Dog'),
+          ],
+          onChanged: (value) {
+            context.read<PetFormBloc>().add(
+              PetFormEvent.petType(
+                value?.value == "Cat" ? PetType.Cat : PetType.Dog,
+              ),
+            );
+          },
+          label: AppText.select,
+        );
+      },
     );
   }
 }
@@ -69,11 +125,21 @@ class __Breed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomDropdownSearch(
-      title: AppText.breed,
-      items: [],
-      onChanged: (value) {},
-      label: AppText.select,
+    return BlocBuilder<PetFormBloc, PetFormState>(
+      builder: (context, state) {
+        return CustomDropdownSearch(
+          items:
+              state.petType == PetType.Cat ? state.catbreeds : state.dogbreeds,
+          selectedItem: state.breed.value,
+          isMandatory: true,
+          title: AppText.breed,
+          onChanged: (value) {
+            if (value != null) {
+              context.read<PetFormBloc>().add(PetFormEvent.breed(value));
+            }
+          },
+        );
+      },
     );
   }
 }
@@ -83,11 +149,56 @@ class __Weight extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomDropdownSearch(
-      title: AppText.weight,
-      items: [],
-      onChanged: (value) {},
-      label: AppText.select,
+    return BlocBuilder<PetFormBloc, PetFormState>(
+      builder: (context, state) {
+        return AppTextFormField(
+          controller: TextEditingController(
+            text:
+                state.weight.isPure
+                    ? ''
+                    : '${state.weight.value} ${state.weightUnit.value}',
+          ),
+          headerText: AppText.weight,
+          isMandatory: true,
+          hintText: 'Select',
+          onTap: () {
+            showModalBottomSheet(
+              context: context,
+              backgroundColor: Colors.white,
+              isScrollControlled: true,
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+              ),
+              builder: (_) {
+                return Padding(
+                  padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).viewInsets.bottom,
+                  ),
+                  child: SizedBox(
+                    height: 300,
+                    child: WeightPickerBody(
+                      weight: int.parse(
+                        state.weight.value.isEmpty ? "0" : state.weight.value,
+                      ),
+                      onSave: (value, unit) {
+                        context.read<PetFormBloc>().add(
+                          PetFormEvent.weight(value.toString()),
+                        );
+                        context.read<PetFormBloc>().add(
+                          PetFormEvent.weightUnit(unit),
+                        );
+                      },
+                    ),
+                  ),
+                );
+              },
+            );
+          },
+          readOnly: true,
+          suffixIconColor: Colors.grey.shade700,
+          suffixIcon: Icons.keyboard_arrow_down,
+        );
+      },
     );
   }
 }
@@ -97,24 +208,44 @@ class __PersonalityTags extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CustomDropdownSearch(
-          title: AppText.personalitytags,
-          items: [],
-          onChanged: (value) {},
-          label: AppText.select,
-        ),
-        // Row(
-        //   children: [
-        //     PersonalityTagCard(),
-        //     Styles.gap10,
-        //     PersonalityTagCard(),
-        //     Styles.gap10,
-        //     PersonalityTagCard(),
-        //   ],
-        // ),
-      ],
+    return BlocBuilder<PetFormBloc, PetFormState>(
+      builder: (context, state) {
+        return Column(
+          children: [
+            CustomMultiDropdownSearch(
+              items: state.personalityTags,
+              title: AppText.personalitytags,
+              isMandatory: true,
+              onChanged: (p0) {
+                context.read<PetFormBloc>().add(PetFormEvent.addTag(p0));
+              },
+            ),
+            if (state.selectedPersonalityTags.isNotEmpty)
+              SizedBox(
+                height: context.height * .065,
+                child: AppCustomListViewBuilder(
+                  isExpand: false,
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  itemCount: state.selectedPersonalityTags.length,
+                  separatorBuilder: (context, i) => Styles.gap10,
+                  itemBuilder: (context, index) {
+                    final items = state.selectedPersonalityTags;
+                    final ind = state.selectedPersonalityTags.indexWhere(
+                      (e) => e.value?.id == items[index].value?.id,
+                    );
+                    return PersonalityTagCard(
+                      index: ind,
+                      tag:
+                          state.selectedPersonalityTags[index].value?.value ??
+                          '',
+                    );
+                  },
+                ),
+              ),
+          ],
+        );
+      },
     );
   }
 }
@@ -142,7 +273,7 @@ class PersonalityTagCard extends StatelessWidget {
           Styles.gap10,
           GestureDetector(
             onTap: () {
-              context.read<RegisterBloc>().add(RegisterEvent.removeTag(index));
+              context.read<PetFormBloc>().add(PetFormEvent.removeTag(index));
             },
             child: CircleAvatar(
               radius: 9,
@@ -176,6 +307,7 @@ class ___UploadImage extends State<__UploadImage> {
       onTap: () async {
         final images = await customFilePicker(context);
         if (images.isNotEmpty) {
+          context.read<PetFormBloc>().add(PetFormEvent.petImage(images.first));
           setState(() {
             _image = XFile(images.first);
           });

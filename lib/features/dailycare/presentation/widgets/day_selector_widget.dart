@@ -23,14 +23,51 @@ class DaySelector extends StatefulWidget {
 
 class _DaySelectorState extends State<DaySelector> {
   late DateTime _selectedDate;
+  late ScrollController _scrollController;
+
   DateTime today = DateTime.now();
   final Color _selectedColor = AppColors.buttonBackground;
   final Color _unselectedColor = Colors.grey.shade100;
 
   final double _itemWidth = 50;
-  // final double _itemHeight = 65.0;
-  final double _borderRadius = 8.0;
   final double _itemGap = 9.0;
+  final double _borderRadius = 8.0;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedDate = widget.initialDate ?? widget.days.first;
+    _scrollController = ScrollController();
+
+    // Auto scroll to initial date
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _scrollToInitialDate();
+    });
+  }
+
+  void _scrollToInitialDate() {
+    final index = widget.days.indexWhere(
+      (day) =>
+          day.year == _selectedDate.year &&
+          day.month == _selectedDate.month &&
+          day.day == _selectedDate.day,
+    );
+
+    if (index != -1) {
+      final offset = index * (_itemWidth + _itemGap * 2);
+      _scrollController.animateTo(
+        offset,
+        duration: Duration(milliseconds: 500),
+        curve: Curves.easeOut,
+      );
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   Widget _defaultDayBuilder(DateTime day, bool isSelected) {
     final backgroundColor = isSelected ? _selectedColor : _unselectedColor;
@@ -38,6 +75,7 @@ class _DaySelectorState extends State<DaySelector> {
         day.year == today.year &&
         day.month == today.month &&
         day.day == today.day;
+
     return SizedBox(
       width: _itemWidth,
       child: CustomCard(
@@ -65,7 +103,6 @@ class _DaySelectorState extends State<DaySelector> {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            // Styles.gap4,
             Text(
               '${day.day}',
               style: GoogleFonts.instrumentSans(
@@ -85,14 +122,9 @@ class _DaySelectorState extends State<DaySelector> {
   }
 
   @override
-  void initState() {
-    super.initState();
-    _selectedDate = widget.initialDate ?? widget.days.first;
-  }
-
-  @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      controller: _scrollController, // <-- Added controller here
       scrollDirection: Axis.horizontal,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: _itemGap),
@@ -111,6 +143,7 @@ class _DaySelectorState extends State<DaySelector> {
                       setState(() {
                         _selectedDate = day;
                         widget.onDaySelected?.call(day);
+                        _scrollToInitialDate();
                       });
                     },
                     child: _defaultDayBuilder(day, isSelected),

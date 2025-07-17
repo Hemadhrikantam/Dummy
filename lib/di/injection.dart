@@ -62,6 +62,7 @@ import 'package:dummy/features/profile/domain/usecases/medias_usecases.dart';
 import 'package:dummy/features/profile/presentation/bloc/document_form/document_form_bloc.dart';
 import 'package:dummy/features/profile/presentation/bloc/media_form/media_form_bloc.dart';
 import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
+import 'package:dummy/features/profile/presentation/bloc/pet_form/pet_form_bloc.dart';
 import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/pet_image_usecases.dart';
 import 'package:dummy/service/app_http_service.dart';
