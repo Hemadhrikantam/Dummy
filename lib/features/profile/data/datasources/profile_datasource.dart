@@ -8,8 +8,10 @@ abstract class ProfileDatasource {
   ProfileDatasource();
   AppTypeResponse<List<DocumentsModel>> documents();
   AppSuccessResponse addMedia({required Payload payload});
+  AppSuccessResponse editMedia({required int id, required Payload payload});
   AppSuccessResponse addDocument({required Payload payload});
 
   AppTypeResponse<List<DropItemModel>> eventFields();
   AppTypeResponse<List<MediaModel>> medias();
+  AppTypeResponse<MediaModel> getMedia({required int id});
 }

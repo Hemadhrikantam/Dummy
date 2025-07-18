@@ -33,4 +33,14 @@ class ProfileRepositoryImpl extends ProfileRepository {
   AppTypeResponse<List<MediaModel>> medias() {
     return datasource.medias();
   }
+
+  @override
+  AppTypeResponse<MediaModel> getMedia({required int id}) {
+    return datasource.getMedia(id: id);
+  }
+
+  @override
+  AppSuccessResponse editMedia({required int id, required Payload payload}) {
+    return datasource.editMedia(id: id, payload: payload);
+  }
 }

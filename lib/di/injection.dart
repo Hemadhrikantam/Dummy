@@ -57,7 +57,9 @@ import 'package:dummy/features/profile/domain/repositories/profile_repository.da
 import 'package:dummy/features/profile/domain/usecases/add_document_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/add_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/documents_usecases.dart';
+import 'package:dummy/features/profile/domain/usecases/edit_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/event_fields_usecases.dart';
+import 'package:dummy/features/profile/domain/usecases/get_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/medias_usecases.dart';
 import 'package:dummy/features/profile/presentation/bloc/document_form/document_form_bloc.dart';
 import 'package:dummy/features/profile/presentation/bloc/media_form/media_form_bloc.dart';

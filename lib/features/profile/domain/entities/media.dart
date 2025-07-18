@@ -1,9 +1,17 @@
 import 'package:equatable/equatable.dart';
 
 class Media extends Equatable {
-  const Media({required this.id, required this.media});
+  const Media({
+    required this.description,
+    required this.event,
+    required this.id,
+    required this.media,
+  });
   final int id;
   final String media;
+  final String description;
+  final String event;
+
   @override
-  List<Object?> get props => [id, media];
+  List<Object?> get props => [id, media, event, description];
 }

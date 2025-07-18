@@ -11,4 +11,6 @@ abstract class ProfileRepository {
   AppSuccessResponse addMedia({required Payload payload});
   AppSuccessResponse addDocument({required Payload payload});
   AppTypeResponse<List<Media>> medias();
+  AppTypeResponse<Media> getMedia({required int id});
+  AppSuccessResponse editMedia({required int id, required Payload payload});
 }

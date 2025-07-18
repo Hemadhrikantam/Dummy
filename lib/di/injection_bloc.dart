@@ -44,6 +44,8 @@ class InjectionBloc {
     return MediaFormBloc(
       addMediaUsecases: getIt<AddMediaUsecases>(),
       eventFieldsUsecases: getIt<EventFieldsUsecases>(),
+      editMediaUsecases: getIt<EditMediaUsecases>(),
+      getMediaUsecases: getIt<GetMediaUsecases>(),
     );
   }
 

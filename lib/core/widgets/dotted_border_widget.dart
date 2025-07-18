@@ -30,10 +30,26 @@ class _DottedBorderWidget extends State<DottedBorderWidget> {
   List<XFile> selectedImages = [];
   @override
   void initState() {
-    setState(() {
-      selectedImages = widget.paths.map((path) => XFile(path)).toList();
-    });
+    selectedImages = widget.paths.map((path) => XFile(path)).toList();
     super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant DottedBorderWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.paths != widget.paths) {
+      setState(() {
+        selectedImages = widget.paths.map((path) => XFile(path)).toList();
+      });
+    }
+  }
+
+  Widget _buildImage(String path) {
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+      return Image.network(path, height: 40, width: 40, fit: BoxFit.cover);
+    } else {
+      return Image.file(File(path), height: 40, width: 40, fit: BoxFit.cover);
+    }
   }
 
   get path => null;
@@ -97,7 +113,8 @@ class _DottedBorderWidget extends State<DottedBorderWidget> {
               ),
               child: Row(
                 children: [
-                  Image.file(File(i.path), height: 40, width: 40),
+                  _buildImage(i.path),
+                  // Image.file(File(i.path), height: 40, width: 40),
                   Styles.gap10,
                   Expanded(
                     child: Text(
