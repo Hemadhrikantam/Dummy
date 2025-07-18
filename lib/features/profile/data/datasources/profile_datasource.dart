@@ -10,8 +10,13 @@ abstract class ProfileDatasource {
   AppSuccessResponse addMedia({required Payload payload});
   AppSuccessResponse editMedia({required int id, required Payload payload});
   AppSuccessResponse addDocument({required Payload payload});
+  AppSuccessResponse updateFavroute({
+    required int mediaId,
+    required bool isFavroute,
+  });
 
   AppTypeResponse<List<DropItemModel>> eventFields();
   AppTypeResponse<List<MediaModel>> medias();
+  AppTypeResponse<List<MediaModel>> favoriteMedias();
   AppTypeResponse<MediaModel> getMedia({required int id});
 }

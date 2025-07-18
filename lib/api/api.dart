@@ -18,6 +18,7 @@ String personalityTags = '$__publicBase/pets/personality-tags/';
 String petDairyEvent = '$__privateBase/pet-diary/event-fields/';
 String petDairyMedia = '$__privateBase/pet-diary/media-files/';
 String petDairyDocuments = '$__privateBase/pet-diary/documents/';
+String petDairyfavourites = '$__privateBase/pet-diary/media-favourites/';
 //
 String petcreate = '$__api/pets/create/';
 String petImage = '$__api/pets/pet-image/';
@@ -28,7 +29,6 @@ String pets = '$__privateBase/pets/';
 String adoptPet = '$__privateBase/adoption/pet-to-adopt/';
 String allPets = '$__privateBase/adoption/all-pets-to-adopt/';
 String petTypes = '$__privateBase/pets/pet-types/';
-
 
 //daily care
 String meals(DateTime? date) {
@@ -102,4 +102,6 @@ String vaccination(String? key, String? fromDate, String? toDate) {
     return '$__api/medication/vaccinations/';
   }
 }
-String medicationServing(int id, String date) => '$__api/medication/medication-serving/?medication=$id&date=$date';
+
+String medicationServing(int id, String date) =>
+    '$__api/medication/medication-serving/?medication=$id&date=$date';

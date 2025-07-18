@@ -7,6 +7,7 @@ class MediaModel extends Media {
     required super.media,
     required super.description,
     required super.event,
+    required super.isFavourite,
   });
   factory MediaModel.fromMap(JsonMap map) {
     return MediaModel(
@@ -14,6 +15,7 @@ class MediaModel extends Media {
       media: map['media'] as String? ?? '',
       description: map['description'] as String? ?? '',
       event: map['event_title'] as String? ?? '',
+      isFavourite: map['is_favourite'] as bool? ?? false,
     );
   }
 }

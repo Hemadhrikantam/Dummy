@@ -37,6 +37,8 @@ class InjectionBloc {
       documentsUsecases: getIt<DocumentsUsecases>(),
       eventFieldsUsecases: getIt<EventFieldsUsecases>(),
       mediasUsecases: getIt<MediasUsecases>(),
+      editMediaFavrouteUsecases: getIt<EditMediaFavrouteUsecases>(),
+      favoriteMediasUsecases: getIt<FavoriteMediasUsecases>(),
     );
   }
 

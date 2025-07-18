@@ -12,5 +12,10 @@ abstract class ProfileRepository {
   AppSuccessResponse addDocument({required Payload payload});
   AppTypeResponse<List<Media>> medias();
   AppTypeResponse<Media> getMedia({required int id});
+  AppTypeResponse<List<Media>> favoriteMedias();
   AppSuccessResponse editMedia({required int id, required Payload payload});
+  AppSuccessResponse updateFavroute({
+    required int mediaId,
+    required bool isFavroute,
+  });
 }

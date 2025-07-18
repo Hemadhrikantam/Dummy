@@ -268,4 +268,78 @@ class ProfileDatasourceImpl extends ProfileDatasource {
       },
     );
   }
+
+  @override
+  AppSuccessResponse updateFavroute({
+    required int mediaId,
+    required bool isFavroute,
+  }) async {
+    final formData = FormData.fromMap({"is_favourite": isFavroute});
+    final response = await http.put(
+      path: '${api.petDairyfavourites}$mediaId/',
+      data: formData,
+      options: Options(contentType: 'multipart/form-data'),
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message: data['message'] as String? ?? 'Added successfully',
+              ),
+            );
+          }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<List<MediaModel>> favoriteMedias() async {
+    final response = await http.get(path: api.petDairyfavourites);
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 200) {
+            final item = <MediaModel>[];
+            for (final dropList in data as List? ?? []) {
+              item.add(MediaModel.fromMap(dropList as JsonMap));
+            }
+            return Right(item);
+          }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
 }
