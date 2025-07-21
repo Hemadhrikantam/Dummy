@@ -28,124 +28,162 @@ class AddPetMedia extends StatefulWidget {
 class _AddPetMedia extends State<AddPetMedia> {
   @override
   void initState() {
-    final petId = context.read<DashboardBloc>().state.selectedPet?.id;
-    context.read<MediaFormBloc>().add(MediaFormEvent.init(petId ?? 0, null));
+    Future.delayed(Duration(seconds: 0), () {
+      final petId = context.read<DashboardBloc>().state.selectedPet?.id;
+      context.read<MediaFormBloc>().add(
+        MediaFormEvent.init(petId ?? 0, widget.id),
+      );
+    });
     super.initState();
   }
 
+  final notesController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: Styles.edgeInsetsOnlyW15,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Styles.gap4,
-          AppGraber(),
-          Styles.gap10,
-          Text(
-            widget.id == null ? AppText.addMedia : AppText.editMedia,
-            style: context.textTheme.titleLarge?.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Styles.gap20,
-          BlocSelector<MediaFormBloc, MediaFormState, NotEmpty>(
-            selector: (state) {
-              return state.notes;
-            },
-            builder: (context, state) {
-              return AppTextFormField(
-                initialValue: state.value,
-                hintText: AppText.tellUsLuna(
-                  context.read<DashboardBloc>().state.selectedPet?.petName ??
-                      "",
+      child: BlocBuilder<MediaFormBloc, MediaFormState>(
+        builder: (context, state) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Styles.gap4,
+              AppGraber(),
+              Styles.gap10,
+              Text(
+                widget.id == null ? AppText.addMedia : AppText.editMedia,
+                style: context.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
                 ),
-                borderRadius: Styles.borderRadiusCircular25,
-                onChanged: (value) {
-                  context.read<MediaFormBloc>().add(
-                    MediaFormEvent.notes(value),
+              ),
+              Styles.gap20,
+              BlocSelector<MediaFormBloc, MediaFormState, NotEmpty>(
+                selector: (state) {
+                  return state.notes;
+                },
+                builder: (context, state) {
+                  return AppTextFormField(
+                    // initialValue: state.value,
+                    controller: notesController..text = state.value,
+                    hintText: AppText.tellUsLuna(
+                      context
+                              .read<DashboardBloc>()
+                              .state
+                              .selectedPet
+                              ?.petName ??
+                          "",
+                    ),
+                    borderRadius: Styles.borderRadiusCircular25,
+                    onChanged: (value) {
+                      context.read<MediaFormBloc>().add(
+                        MediaFormEvent.notes(value),
+                      );
+                    },
+                    maxLines: 6,
+                    heigth: 140,
+                    headerText: AppText.notes,
                   );
                 },
-                maxLines: 6,
-                heigth: 140,
-                headerText: AppText.notes,
-              );
-            },
-          ),
+              ),
 
-          Styles.gap10,
-          BlocBuilder<PetDairyBloc, PetDairyState>(
-            builder: (context, state) {
-              return CustomDropdownSearch(
-                items: state.eventFields,
-                title: AppText.events,
-                onChanged: (item) {
-                  context.read<PetDairyBloc>().add(
-                    PetDairyEvent.eventId(
-                      DropItemModel(id: item?.id ?? 0, value: ''),
-                    ),
-                  );
-                  if (item != null) {
-                    context.read<MediaFormBloc>().add(
-                      MediaFormEvent.event(item),
+              Styles.gap10,
+              _Events(),
+              Styles.gap20,
+
+              Text(
+                AppText.media,
+                style: context.textTheme.titleSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Styles.gap10,
+              _Media(),
+              Styles.gap30,
+              BlocConsumer<MediaFormBloc, MediaFormState>(
+                listener: (context, state) {
+                  if (state.submitStatus.success) {
+                    context.read<PetDairyBloc>().add(
+                      PetDairyEvent.initialization(),
                     );
+                    context.pop();
                   }
                 },
-              );
-            },
-          ),
-          Styles.gap20,
-
-          Text(
-            AppText.media,
-            style: context.textTheme.titleSmall?.copyWith(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          Styles.gap10,
-          BlocSelector<MediaFormBloc, MediaFormState, NotEmpty>(
-            selector: (state) {
-              return state.url;
-            },
-            builder: (context, state) {
-              return DottedBorderWidget(
-                paths: state.value.isEmpty ? [] : [state.value],
-                onAdd: (v) {
-                  context.read<MediaFormBloc>().add(MediaFormEvent.url(v));
+                builder: (context, state) {
+                  return SaveCancelWidget(
+                    onPressed:
+                        state.validation
+                            ? () {
+                              context.read<MediaFormBloc>().add(
+                                MediaFormEvent.submit(widget.id),
+                              );
+                            }
+                            : () => AppAlert.showToast(
+                              message: 'Provide Required Fields',
+                            ),
+                  );
                 },
-              );
-            },
-          ),
-          Styles.gap30,
-          BlocConsumer<MediaFormBloc, MediaFormState>(
-            listener: (context, state) {
-              if (state.submitStatus.success) {
-                context.read<PetDairyBloc>().add(
-                  PetDairyEvent.initialization(),
-                );
-                context.pop();
-              }
-            },
-            builder: (context, state) {
-              return SaveCancelWidget(
-                onPressed:
-                    state.validation
-                        ? () {
-                          context.read<MediaFormBloc>().add(
-                            const MediaFormEvent.submit(null),
-                          );
-                        }
-                        : () => AppAlert.showToast(
-                          message: 'Provide Required Fields',
-                        ),
-              );
-            },
-          ),
-          Styles.gap10,
-        ],
+              ),
+              Styles.gap10,
+            ],
+          );
+        },
       ),
+    );
+  }
+}
+
+class _Events extends StatefulWidget {
+  const _Events();
+
+  @override
+  State<_Events> createState() => __EventsState();
+}
+
+class __EventsState extends State<_Events> {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<MediaFormBloc, MediaFormState>(
+      builder: (context, state) {
+        return CustomDropdownSearch(
+          items: state.events,
+          selectedItem: state.event.value,
+          title: AppText.events,
+          onChanged: (item) {
+            context.read<PetDairyBloc>().add(
+              PetDairyEvent.eventId(
+                DropItemModel(id: item?.id ?? 0, value: ''),
+              ),
+            );
+            if (item != null) {
+              context.read<MediaFormBloc>().add(MediaFormEvent.event(item));
+            }
+          },
+        );
+      },
+    );
+  }
+}
+
+class _Media extends StatefulWidget {
+  const _Media();
+
+  @override
+  State<_Media> createState() => __MediaState();
+}
+
+class __MediaState extends State<_Media> {
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<MediaFormBloc, MediaFormState>(
+      builder: (context, state) {
+        return DottedBorderWidget(
+          paths: state.url.value.isEmpty ? [] : [state.url.value],
+          onAdd: (v) {
+            context.read<MediaFormBloc>().add(MediaFormEvent.url(v));
+          },
+        );
+      },
     );
   }
 }

@@ -1,11 +1,15 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/services/share_service.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
+import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:iconsax/iconsax.dart';
 
 class PetPhotoCardPage extends StatelessWidget {
   const PetPhotoCardPage({super.key, required this.media});
@@ -110,7 +114,28 @@ class PetPhotoCardPage extends StatelessWidget {
                   bottom: 100,
                   child: Column(
                     children: [
-                      SvgPicture.asset(ImageResources.heartWhite, width: 30),
+                      GestureDetector(
+                        onTap: () {
+                          context.read<PetDairyBloc>().add(
+                            PetDairyEvent.updateMediaFavroute(
+                              media.id,
+                              !media.isFavourite,
+                            ),
+                          );
+                          context.pop();
+                        },
+                        child:
+                            media.isFavourite
+                                ? Icon(
+                                  Iconsax.heart5,
+                                  color: AppColors.textRed,
+                                  size: 30,
+                                )
+                                : SvgPicture.asset(
+                                  ImageResources.heartWhite,
+                                  width: 30,
+                                ),
+                      ),
                       Styles.gap10,
                       GestureDetector(
                         onTap: () {

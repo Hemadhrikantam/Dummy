@@ -141,9 +141,77 @@ as DropItem,
 }
 
 /// @nodoc
+
+
+class _UpdateMediaFavroute implements PetDairyEvent {
+  const _UpdateMediaFavroute(this.id, this.value);
+  
+
+ final  int id;
+ final  bool value;
+
+/// Create a copy of PetDairyEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$UpdateMediaFavrouteCopyWith<_UpdateMediaFavroute> get copyWith => __$UpdateMediaFavrouteCopyWithImpl<_UpdateMediaFavroute>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UpdateMediaFavroute&&(identical(other.id, id) || other.id == id)&&(identical(other.value, value) || other.value == value));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,id,value);
+
+@override
+String toString() {
+  return 'PetDairyEvent.updateMediaFavroute(id: $id, value: $value)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$UpdateMediaFavrouteCopyWith<$Res> implements $PetDairyEventCopyWith<$Res> {
+  factory _$UpdateMediaFavrouteCopyWith(_UpdateMediaFavroute value, $Res Function(_UpdateMediaFavroute) _then) = __$UpdateMediaFavrouteCopyWithImpl;
+@useResult
+$Res call({
+ int id, bool value
+});
+
+
+
+
+}
+/// @nodoc
+class __$UpdateMediaFavrouteCopyWithImpl<$Res>
+    implements _$UpdateMediaFavrouteCopyWith<$Res> {
+  __$UpdateMediaFavrouteCopyWithImpl(this._self, this._then);
+
+  final _UpdateMediaFavroute _self;
+  final $Res Function(_UpdateMediaFavroute) _then;
+
+/// Create a copy of PetDairyEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? id = null,Object? value = null,}) {
+  return _then(_UpdateMediaFavroute(
+null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
+}
+
+/// @nodoc
 mixin _$PetDairyState {
 
- Status get initStatus; List<DropItem> get eventFields; List<Media> get medias; List<Documents> get documents; DropdownValue get eventId;
+ Status get initStatus; List<DropItem> get eventFields; List<Media> get medias; List<Media> get favoriteMedias; List<Documents> get documents; DropdownValue get eventId;
 /// Create a copy of PetDairyState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -154,16 +222,16 @@ $PetDairyStateCopyWith<PetDairyState> get copyWith => _$PetDairyStateCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PetDairyState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&const DeepCollectionEquality().equals(other.eventFields, eventFields)&&const DeepCollectionEquality().equals(other.medias, medias)&&const DeepCollectionEquality().equals(other.documents, documents)&&(identical(other.eventId, eventId) || other.eventId == eventId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PetDairyState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&const DeepCollectionEquality().equals(other.eventFields, eventFields)&&const DeepCollectionEquality().equals(other.medias, medias)&&const DeepCollectionEquality().equals(other.favoriteMedias, favoriteMedias)&&const DeepCollectionEquality().equals(other.documents, documents)&&(identical(other.eventId, eventId) || other.eventId == eventId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,initStatus,const DeepCollectionEquality().hash(eventFields),const DeepCollectionEquality().hash(medias),const DeepCollectionEquality().hash(documents),eventId);
+int get hashCode => Object.hash(runtimeType,initStatus,const DeepCollectionEquality().hash(eventFields),const DeepCollectionEquality().hash(medias),const DeepCollectionEquality().hash(favoriteMedias),const DeepCollectionEquality().hash(documents),eventId);
 
 @override
 String toString() {
-  return 'PetDairyState(initStatus: $initStatus, eventFields: $eventFields, medias: $medias, documents: $documents, eventId: $eventId)';
+  return 'PetDairyState(initStatus: $initStatus, eventFields: $eventFields, medias: $medias, favoriteMedias: $favoriteMedias, documents: $documents, eventId: $eventId)';
 }
 
 
@@ -174,7 +242,7 @@ abstract mixin class $PetDairyStateCopyWith<$Res>  {
   factory $PetDairyStateCopyWith(PetDairyState value, $Res Function(PetDairyState) _then) = _$PetDairyStateCopyWithImpl;
 @useResult
 $Res call({
- Status initStatus, List<DropItem> eventFields, List<Media> medias, List<Documents> documents, DropdownValue eventId
+ Status initStatus, List<DropItem> eventFields, List<Media> medias, List<Media> favoriteMedias, List<Documents> documents, DropdownValue eventId
 });
 
 
@@ -191,11 +259,12 @@ class _$PetDairyStateCopyWithImpl<$Res>
 
 /// Create a copy of PetDairyState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? initStatus = null,Object? eventFields = null,Object? medias = null,Object? documents = null,Object? eventId = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? initStatus = null,Object? eventFields = null,Object? medias = null,Object? favoriteMedias = null,Object? documents = null,Object? eventId = null,}) {
   return _then(_self.copyWith(
 initStatus: null == initStatus ? _self.initStatus : initStatus // ignore: cast_nullable_to_non_nullable
 as Status,eventFields: null == eventFields ? _self.eventFields : eventFields // ignore: cast_nullable_to_non_nullable
 as List<DropItem>,medias: null == medias ? _self.medias : medias // ignore: cast_nullable_to_non_nullable
+as List<Media>,favoriteMedias: null == favoriteMedias ? _self.favoriteMedias : favoriteMedias // ignore: cast_nullable_to_non_nullable
 as List<Media>,documents: null == documents ? _self.documents : documents // ignore: cast_nullable_to_non_nullable
 as List<Documents>,eventId: null == eventId ? _self.eventId : eventId // ignore: cast_nullable_to_non_nullable
 as DropdownValue,
@@ -209,7 +278,7 @@ as DropdownValue,
 
 
 class _PetDairyState implements PetDairyState {
-  const _PetDairyState({this.initStatus = Status.init, final  List<DropItem> eventFields = const [], final  List<Media> medias = const [], final  List<Documents> documents = const [], this.eventId = const DropdownValue.pure()}): _eventFields = eventFields,_medias = medias,_documents = documents;
+  const _PetDairyState({this.initStatus = Status.init, final  List<DropItem> eventFields = const [], final  List<Media> medias = const [], final  List<Media> favoriteMedias = const [], final  List<Documents> documents = const [], this.eventId = const DropdownValue.pure()}): _eventFields = eventFields,_medias = medias,_favoriteMedias = favoriteMedias,_documents = documents;
   
 
 @override@JsonKey() final  Status initStatus;
@@ -225,6 +294,13 @@ class _PetDairyState implements PetDairyState {
   if (_medias is EqualUnmodifiableListView) return _medias;
   // ignore: implicit_dynamic_type
   return EqualUnmodifiableListView(_medias);
+}
+
+ final  List<Media> _favoriteMedias;
+@override@JsonKey() List<Media> get favoriteMedias {
+  if (_favoriteMedias is EqualUnmodifiableListView) return _favoriteMedias;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_favoriteMedias);
 }
 
  final  List<Documents> _documents;
@@ -246,16 +322,16 @@ _$PetDairyStateCopyWith<_PetDairyState> get copyWith => __$PetDairyStateCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PetDairyState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&const DeepCollectionEquality().equals(other._eventFields, _eventFields)&&const DeepCollectionEquality().equals(other._medias, _medias)&&const DeepCollectionEquality().equals(other._documents, _documents)&&(identical(other.eventId, eventId) || other.eventId == eventId));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PetDairyState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&const DeepCollectionEquality().equals(other._eventFields, _eventFields)&&const DeepCollectionEquality().equals(other._medias, _medias)&&const DeepCollectionEquality().equals(other._favoriteMedias, _favoriteMedias)&&const DeepCollectionEquality().equals(other._documents, _documents)&&(identical(other.eventId, eventId) || other.eventId == eventId));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,initStatus,const DeepCollectionEquality().hash(_eventFields),const DeepCollectionEquality().hash(_medias),const DeepCollectionEquality().hash(_documents),eventId);
+int get hashCode => Object.hash(runtimeType,initStatus,const DeepCollectionEquality().hash(_eventFields),const DeepCollectionEquality().hash(_medias),const DeepCollectionEquality().hash(_favoriteMedias),const DeepCollectionEquality().hash(_documents),eventId);
 
 @override
 String toString() {
-  return 'PetDairyState(initStatus: $initStatus, eventFields: $eventFields, medias: $medias, documents: $documents, eventId: $eventId)';
+  return 'PetDairyState(initStatus: $initStatus, eventFields: $eventFields, medias: $medias, favoriteMedias: $favoriteMedias, documents: $documents, eventId: $eventId)';
 }
 
 
@@ -266,7 +342,7 @@ abstract mixin class _$PetDairyStateCopyWith<$Res> implements $PetDairyStateCopy
   factory _$PetDairyStateCopyWith(_PetDairyState value, $Res Function(_PetDairyState) _then) = __$PetDairyStateCopyWithImpl;
 @override @useResult
 $Res call({
- Status initStatus, List<DropItem> eventFields, List<Media> medias, List<Documents> documents, DropdownValue eventId
+ Status initStatus, List<DropItem> eventFields, List<Media> medias, List<Media> favoriteMedias, List<Documents> documents, DropdownValue eventId
 });
 
 
@@ -283,11 +359,12 @@ class __$PetDairyStateCopyWithImpl<$Res>
 
 /// Create a copy of PetDairyState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? initStatus = null,Object? eventFields = null,Object? medias = null,Object? documents = null,Object? eventId = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? initStatus = null,Object? eventFields = null,Object? medias = null,Object? favoriteMedias = null,Object? documents = null,Object? eventId = null,}) {
   return _then(_PetDairyState(
 initStatus: null == initStatus ? _self.initStatus : initStatus // ignore: cast_nullable_to_non_nullable
 as Status,eventFields: null == eventFields ? _self._eventFields : eventFields // ignore: cast_nullable_to_non_nullable
 as List<DropItem>,medias: null == medias ? _self._medias : medias // ignore: cast_nullable_to_non_nullable
+as List<Media>,favoriteMedias: null == favoriteMedias ? _self._favoriteMedias : favoriteMedias // ignore: cast_nullable_to_non_nullable
 as List<Media>,documents: null == documents ? _self._documents : documents // ignore: cast_nullable_to_non_nullable
 as List<Documents>,eventId: null == eventId ? _self.eventId : eventId // ignore: cast_nullable_to_non_nullable
 as DropdownValue,

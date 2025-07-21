@@ -37,6 +37,8 @@ class InjectionBloc {
       documentsUsecases: getIt<DocumentsUsecases>(),
       eventFieldsUsecases: getIt<EventFieldsUsecases>(),
       mediasUsecases: getIt<MediasUsecases>(),
+      editMediaFavrouteUsecases: getIt<EditMediaFavrouteUsecases>(),
+      favoriteMediasUsecases: getIt<FavoriteMediasUsecases>(),
     );
   }
 
@@ -44,6 +46,8 @@ class InjectionBloc {
     return MediaFormBloc(
       addMediaUsecases: getIt<AddMediaUsecases>(),
       eventFieldsUsecases: getIt<EventFieldsUsecases>(),
+      editMediaUsecases: getIt<EditMediaUsecases>(),
+      getMediaUsecases: getIt<GetMediaUsecases>(),
     );
   }
 

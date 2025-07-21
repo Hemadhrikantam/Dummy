@@ -6,6 +6,7 @@ abstract class PetDairyState with _$PetDairyState {
     @Default(Status.init) final Status initStatus,
     @Default([]) final List<DropItem> eventFields,
     @Default([]) final List<Media> medias,
+    @Default([]) final List<Media> favoriteMedias,
     @Default([]) final List<Documents> documents,
     @Default(DropdownValue.pure()) final DropdownValue eventId,
   }) = _PetDairyState;
