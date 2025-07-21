@@ -20,7 +20,7 @@ import '../../../health/presentation/widgets/empty_list_page.dart';
 import '../bloc/groomings/groomings_bloc.dart';
 
 class GroomingTab extends StatefulWidget {
-  final DashboardPetDetails selectedPet;
+  final DashboardPetDetails? selectedPet;
   const GroomingTab({super.key, required this.selectedPet});
 
   @override
@@ -102,7 +102,7 @@ class _GroomingTabState extends State<GroomingTab> {
                         titleFontSize: 24,
                         imagePath: ImageResources.tshirt,
                         title:
-                            "We don’t have ${widget.selectedPet.petName}s daily care data yet. Start logging her groomings to see a summary!",
+                            "We don’t have ${widget.selectedPet?.petName}s daily care data yet. Start logging her groomings to see a summary!",
                       ),
                     )
                     : AppCustomListViewBuilder(
@@ -128,7 +128,7 @@ class _GroomingTabState extends State<GroomingTab> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      AppText.duration,
+                                      AppText.grooming,
                                       style: context.textTheme.labelSmall
                                           ?.copyWith(
                                             fontSize: 12,
@@ -142,6 +142,18 @@ class _GroomingTabState extends State<GroomingTab> {
                                             fontSize: 16,
                                             fontWeight: FontWeight.w700,
                                           ),
+                                    ),
+                                    Padding(
+                                      padding: Styles.edgeInsetsOnlyW04,
+                                      child: SizedBox(
+                                        child: AppNetworkImage(
+                                          width: 24.0,
+                                          height: 24.0,
+                                          url: groomingItem.media,
+                                          borderRadius:
+                                              Styles.borderRadiusCircular04,
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),

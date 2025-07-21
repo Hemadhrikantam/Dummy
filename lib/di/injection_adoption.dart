@@ -27,11 +27,16 @@ Future<void> __adoptionDependencies() async {
     getIt<PetAdoptionRepository>(),
   );
 
+  final petTypesUsecases = PetTypesUsecases(
+    getIt<PetAdoptionRepository>(),
+  );
+
   //   //
   getIt.registerLazySingleton<SubmitPetAdoptionUsecases>(() => submitAdoption);
   getIt.registerLazySingleton<AdoptionUsecases>(() => adoptions);
   getIt.registerLazySingleton<AdoptionDetailsUsecases>(() => adoptionDetailsUsecases);
   getIt.registerLazySingleton<EditPetAdoptionUsecases>(() => editPetAdoptionUsecases);
   getIt.registerLazySingleton<AllPetsUsecases>(() => allPetsUsecases);
+  getIt.registerLazySingleton<PetTypesUsecases>(() => petTypesUsecases);
   
 }

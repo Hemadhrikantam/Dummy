@@ -1,16 +1,19 @@
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/features/dailycare/presentation/bloc/overview/overview_bloc.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/deworming_tab.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/expenses_tab.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/grooming_tab.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/overview_daily_header_widget.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/walks_tab.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'overview_tab.dart';
 import 'meals_tab.dart';
 
 class DailyCareOverviewSection extends StatefulWidget {
-  final DashboardPetDetails selectedPet;
+  final DashboardPetDetails? selectedPet;
   final String initialTab;
   const DailyCareOverviewSection({
     super.key,
@@ -46,6 +49,7 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
     }
     selectedTab = widget.initialTab;
     _controller = PageController(initialPage: tabs.indexOf(widget.initialTab));
+ 
   }
 
   void _scrollToSelectedTab(String tab) {
@@ -77,7 +81,11 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
   @override
   Widget build(BuildContext context) {
     final tabPages = [
-      OverviewTab(),
+      BlocBuilder<DashboardBloc, DashboardState>(
+        builder: (context, state) {
+          return OverviewTab();
+        },
+      ),
       MealsTab(selectedPet: widget.selectedPet),
       WalksTab(selectedPet: widget.selectedPet),
       GroomingTab(selectedPet: widget.selectedPet),
@@ -87,23 +95,28 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        OverviewDailyHeaderWidget(
-          tabs: tabs,
-          selectedTab: selectedTab,
-          scrollController: _tabScrollController,
-          tabKeys: _tabKeys,
-          // onScrollContextReady: (ctx) => _scrollContext = ctx,
-          onTabSelected: (tab) {
-            setState(() {
-              selectedTab = tab;
-              _controller.animateToPage(
-                tabs.indexOf(tab),
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.ease,
-              );
-            });
-            _scrollToSelectedTab(tab);
+        GestureDetector(
+          onTap: (){
+            
           },
+          child: OverviewDailyHeaderWidget(
+            tabs: tabs,
+            selectedTab: selectedTab,
+            scrollController: _tabScrollController,
+            tabKeys: _tabKeys,
+            // onScrollContextReady: (ctx) => _scrollContext = ctx,
+            onTabSelected: (tab) {
+              setState(() {
+                selectedTab = tab;
+                _controller.animateToPage(
+                  tabs.indexOf(tab),
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.ease,
+                );
+              });
+              _scrollToSelectedTab(tab);
+            },
+          ),
         ),
 
         Styles.gap10,

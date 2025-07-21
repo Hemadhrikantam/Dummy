@@ -20,7 +20,7 @@ import '../../../health/presentation/widgets/empty_list_page.dart';
 import '../bloc/walks/walks_bloc.dart';
 
 class WalksTab extends StatefulWidget {
-  final DashboardPetDetails selectedPet;
+  final DashboardPetDetails? selectedPet;
   const WalksTab({super.key, required this.selectedPet});
 
   @override
@@ -110,7 +110,7 @@ class _WalksTabState extends State<WalksTab> {
                         titleFontSize: 24,
                         imagePath: ImageResources.tshirt,
                         title:
-                            "We don’t have ${widget.selectedPet.petName} daily care data yet. Start logging her walks to see a summary!",
+                            "We don’t have ${widget.selectedPet?.petName} daily care data yet. Start logging her walks to see a summary!",
                       ),
                     )
                     : AppCustomListViewBuilder(
@@ -144,12 +144,24 @@ class _WalksTabState extends State<WalksTab> {
                                           ),
                                     ),
                                     Text(
-                                      walkItem.location,
+                                     " ${walkItem.duration} in the ${walkItem.location} ",
                                       style: context.textTheme.labelSmall
                                           ?.copyWith(
                                             fontSize: 16,
                                             fontWeight: FontWeight.w700,
                                           ),
+                                    ),
+                                    Padding(
+                                      padding: Styles.edgeInsetsOnlyW04,
+                                      child: SizedBox(
+                                        child: AppNetworkImage(
+                                          width: 24.0,
+                                          height: 24.0,
+                                          url: walkItem.media,
+                                          borderRadius:
+                                              Styles.borderRadiusCircular04,
+                                        ),
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -170,7 +182,7 @@ class _WalksTabState extends State<WalksTab> {
                                   ),
                                   Styles.gap4,
                                   Text(
-                                    walkItem.duration,
+                                    walkItem.location,
                                     style: context.textTheme.titleSmall
                                         ?.copyWith(
                                           fontSize: 12,

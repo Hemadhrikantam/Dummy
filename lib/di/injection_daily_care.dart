@@ -27,6 +27,7 @@ Future<void> __dailyCareDependencies() async {
   final groomingsUsecases = GroomingsUsecases(getIt<DailyCareRepository>());
   final expensesUsecases = ExpensesUsecases(getIt<DailyCareRepository>());
   final dewormingsUsecases = DewormingsUsecases(getIt<DailyCareRepository>());
+  final overviewUsecases = OverviewUsecases(getIt<DailyCareRepository>());
 
   //   //
   getIt.registerLazySingleton<AddMealUsecases>(() => addMealUsecases);
@@ -42,4 +43,5 @@ Future<void> __dailyCareDependencies() async {
   getIt.registerLazySingleton<GroomingsUsecases>(() => groomingsUsecases);
   getIt.registerLazySingleton<ExpensesUsecases>(() => expensesUsecases);
   getIt.registerLazySingleton<DewormingsUsecases>(() => dewormingsUsecases);
+  getIt.registerLazySingleton<OverviewUsecases>(() => overviewUsecases);
 }

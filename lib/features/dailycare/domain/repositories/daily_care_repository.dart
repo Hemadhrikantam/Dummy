@@ -1,6 +1,7 @@
 import 'package:dummy/core/payload/payload.dart';
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/dailycare/domain/entities/frequency.dart';
+import 'package:dummy/features/dailycare/domain/entities/overview.dart';
 import 'package:dummy/features/dailycare/domain/entities/remind_before.dart';
 import 'package:dummy/features/dailycare/domain/entities/timezone.dart';
 
@@ -25,4 +26,5 @@ abstract class DailyCareRepository {
   AppTypeResponse<List<PetGrooming>> groomings(DateTime? date);
   AppTypeResponse<List<PetExpense>> expenses(DateTime? date);
   AppTypeResponse<List<PetDeworming>> dewormings(DateTime? date);
+  AppTypeResponse<Overview> overview(int petId);
 }

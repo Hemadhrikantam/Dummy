@@ -18,7 +18,7 @@ class HealthStatusCard extends StatelessWidget {
     required this.selectedPet,
   });
   final bool isEmpty;
-  final DashboardPetDetails selectedPet;
+  final DashboardPetDetails? selectedPet;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
@@ -50,7 +50,7 @@ class HealthStatusCard extends StatelessWidget {
                               Styles.gap10,
                               Expanded(
                                 child: Text(
-                                  " ${selectedPet.petName} is a ${ calculateAge(selectedPet.dob)} old ${selectedPet.breed.breed}—start logging her daily care to see her health score!",
+                                  " ${selectedPet?.petName??''} is a ${ calculateAge(selectedPet?.dob??'')} old ${selectedPet?.breed??''}—start logging her daily care to see her health score!",
                                   style: context.textTheme.labelLarge?.copyWith(
                                     color: AppColors.text,
                                     fontSize: 12,
@@ -76,7 +76,7 @@ class HealthStatusCard extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        " ${selectedPet.petName} Health Status",
+                                        " ${selectedPet?.petName??''} Health Status",
                                         style: context.textTheme.labelLarge
                                             ?.copyWith(
                                               color: AppColors.grey500,

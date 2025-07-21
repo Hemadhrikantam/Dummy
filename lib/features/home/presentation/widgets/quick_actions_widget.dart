@@ -13,7 +13,7 @@ import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_pa
 import 'package:flutter/material.dart';
 
 class QuickActionsWidget extends StatelessWidget {
-   final DashboardPetDetails selectedPet;
+   final DashboardPetDetails? selectedPet;
   const QuickActionsWidget({super.key, required this.selectedPet});
 
   @override

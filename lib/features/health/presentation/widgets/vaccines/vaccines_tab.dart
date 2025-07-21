@@ -18,7 +18,7 @@ import 'vaccines_list.dart';
 
 class VaccinesTab extends StatefulWidget {
   final String initialTab;
-  final DashboardPetDetails selectedPet;
+  final DashboardPetDetails? selectedPet;
   const VaccinesTab({
     super.key,
     this.initialTab = 'Insight',

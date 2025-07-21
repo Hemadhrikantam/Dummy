@@ -14,14 +14,14 @@ import '../widgets/medication/medications_tab.dart';
 import '../widgets/vaccines/vaccines_tab.dart';
 
 class HealthPage extends StatefulWidget {
-  final DashboardPetDetails selectedPet;
+  final DashboardPetDetails? selectedPet;
     final String initialTab;
   const HealthPage({super.key, required this.selectedPet, this.initialTab='Insight'});
 
   static const routeName = '/HealthPage';
 
 
-   static Route<T> route<T>(DashboardPetDetails selectedPet) {
+   static Route<T> route<T>(DashboardPetDetails? selectedPet) {
     return MaterialPageRoute<T>(
       builder: (context) =>  HealthPage(selectedPet: selectedPet,),
       settings: const RouteSettings(name: routeName),

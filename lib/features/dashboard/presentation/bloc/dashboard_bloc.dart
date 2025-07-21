@@ -1,12 +1,10 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:dummy/api/api.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/dashboard/domain/usecases/dashboard_details_usecases.dart';
-import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'dashboard_event.dart';

@@ -20,7 +20,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../bloc/meals/meals_bloc.dart';
 
 class MealsTab extends StatefulWidget {
-  final DashboardPetDetails selectedPet;
+  final DashboardPetDetails? selectedPet;
   const MealsTab({super.key, required this.selectedPet});
 
   @override
@@ -104,7 +104,7 @@ class _MealsTabState extends State<MealsTab> {
                         titleFontSize: 24,
                         imagePath: ImageResources.tshirt,
                         title:
-                            "We don’t have ${widget.selectedPet.petName} daily care data yet. Start logging her meals to see a summary!",
+                            "We don’t have ${widget.selectedPet?.petName} daily care data yet. Start logging her meals to see a summary!",
                       ),
                     )
                     : AppCustomListViewBuilder(

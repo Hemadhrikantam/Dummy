@@ -30,6 +30,7 @@ String allPets = '$__privateBase/adoption/all-pets-to-adopt/';
 String petTypes = '$__privateBase/pets/pet-types/';
 
 
+
 //daily care
 String meals(DateTime? date) {
   if (date != null) {
@@ -74,6 +75,8 @@ String expenses(DateTime? date) {
 String frequencies = '$__api/daily-care/deworming-frequency/';
 String remindBefores = '$__api/daily-care/remind-before/';
 String timezones = '$__api/daily-care/timezone/';
+String overview(int id) => '$__privateBase/daily-care/overview/$id/';
+
 
 //health
 String medication(String? key, String? fromDate, String? toDate) {

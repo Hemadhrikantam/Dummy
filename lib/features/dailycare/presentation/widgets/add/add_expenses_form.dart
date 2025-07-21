@@ -84,7 +84,7 @@ class _AddExpensesFormState extends State<AddExpensesForm> {
                                   );
                                 },
                                 hintText: '...',
-                                headerText: AppText.category,
+                                headerText: AppText.amount,
                                 isMandatory: true,
                               );
                             },

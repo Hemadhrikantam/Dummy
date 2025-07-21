@@ -20,7 +20,7 @@ import '../../../health/presentation/widgets/empty_list_page.dart';
 import '../bloc/expenses/expenses_bloc.dart';
 
 class ExpensesTab extends StatefulWidget {
-  final DashboardPetDetails selectedPet;
+  final DashboardPetDetails? selectedPet;
   const ExpensesTab({super.key, required this.selectedPet});
 
   @override
@@ -100,7 +100,7 @@ class _ExpensesTabState extends State<ExpensesTab> {
                         titleFontSize: 24,
                         imagePath: ImageResources.tshirt,
                         title:
-                            "We don’t have ${widget.selectedPet.petName} daily care data yet. Start logging her expenses to see a summary!",
+                            "We don’t have ${widget.selectedPet?.petName??''} daily care data yet. Start logging her expenses to see a summary!",
                       ),
                     )
                     : AppCustomListViewBuilder(
@@ -141,6 +141,18 @@ class _ExpensesTabState extends State<ExpensesTab> {
                                             fontWeight: FontWeight.w700,
                                           ),
                                     ),
+                                    Padding(
+                                      padding: Styles.edgeInsetsOnlyW04,
+                                      child: SizedBox(
+                                        child: AppNetworkImage(
+                                          width: 24.0,
+                                          height: 24.0,
+                                          url: expenseItem.media,
+                                          borderRadius:
+                                              Styles.borderRadiusCircular04,
+                                        ),
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -158,7 +170,7 @@ class _ExpensesTabState extends State<ExpensesTab> {
                                         ),
                                   ),
                                   Text(
-                                    expenseItem.category,
+                                    expenseItem.notes,
                                     style: context.textTheme.titleSmall
                                         ?.copyWith(
                                           fontSize: 12,
@@ -166,6 +178,7 @@ class _ExpensesTabState extends State<ExpensesTab> {
                                           color: AppColors.buttonTextColor,
                                         ),
                                   ),
+                                  
                                 ],
                               ),
                             ],

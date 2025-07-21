@@ -14,7 +14,7 @@ class TipOfTheDayCard extends StatelessWidget {
     required this.selectedPet,
   });
  
-  final DashboardPetDetails selectedPet;
+  final DashboardPetDetails? selectedPet;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +52,7 @@ class TipOfTheDayCard extends StatelessWidget {
             child: RichText(
               textAlign: TextAlign.start,
               text: TextSpan(
-                text: "“${selectedPet.petName} due for a deworming in 3 days.”",
+                text: "“${selectedPet?.petName??''} due for a deworming in 3 days.”",
                 style: context.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.w500,
                   fontSize: 14,

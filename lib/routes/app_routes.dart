@@ -66,20 +66,7 @@ class AppRoutes {
     StartScreenPage.routeName: (_) => const StartScreenPage(),
 
     //dashboard
-    DashboardPage.routeName:
-        (_) => DashboardPage(
-          selectedPet: DashboardPetDetails(
-            id: 0,
-            petName: '',
-            dob: '',
-            petWeight: 0,
-            breed: Breed(id: 0, petType: '', breed: ''),
-            personalityTag: [PersonalityTag(id: 0, personality: '')],
-            petType: '',
-            trackActivity: false,
-            petImage: PetImage(id: 0, petImage: ''),
-          ),
-        ),
+    DashboardPage.routeName: (_) => DashboardPage(),
 
     //profile
     ProfileOptionsPage.routeName: (_) => const ProfileOptionsPage(),
@@ -124,6 +111,7 @@ class AppRoutes {
       return DailycarePage(
         selectedPet: args['selectedPet'],
         initialTab: args['initialTab'] ?? 'Overview',
+        selectedPetId: args['selectedPetId'],
       );
     },
     HealthPage.routeName: (context) {

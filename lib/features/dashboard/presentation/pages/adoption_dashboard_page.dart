@@ -16,7 +16,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 // import '../../../wag/presentation/pages/wag_page.dart';
 
 class AdoptionDashboardPage extends StatefulWidget {
-  final DashboardPetDetails selectedPet;
+  final DashboardPetDetails? selectedPet;
   AdoptionDashboardPage({super.key, required this.selectedPet});
   static const routeName = '/AdoptionDashboardPage';
 
@@ -57,7 +57,11 @@ class _AdoptionDashboardPage extends State<AdoptionDashboardPage> {
     final List<Widget> _screens = <Widget>[
       HomePage(),
       HealthPage(selectedPet: widget.selectedPet),
-      DailycarePage(selectedPet: widget.selectedPet),
+      BlocBuilder<DashboardBloc, DashboardState>(
+        builder: (context, state) {
+          return DailycarePage(selectedPet: widget.selectedPet, selectedPetId: state.selectedPet?.id??0,);
+        },
+      ),
       AddoptionPage(),
     ];
     return PopScope(

@@ -155,4 +155,11 @@ class InjectionBloc {
       allPetsUsecases: getIt<AllPetsUsecases>(),
     );
   }
+
+  static OverviewBloc get overviewBloc {
+    return OverviewBloc(
+      overviewUsecases: getIt<OverviewUsecases>(),
+    
+    );
+  }
 }
