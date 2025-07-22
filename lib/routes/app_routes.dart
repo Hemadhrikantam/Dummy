@@ -89,6 +89,7 @@ class AppRoutes {
             id: 0,
             petName: '',
             dob: '',
+            gender: ' ',
             petWeight: 0,
             breed: Breed(id: 0, petType: '', breed: ''),
             personalityTag: [PersonalityTag(id: 0, personality: '')],

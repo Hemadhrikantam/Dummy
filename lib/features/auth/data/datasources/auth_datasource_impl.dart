@@ -54,6 +54,7 @@ class AuthDatasourceImpl extends AuthDatasource {
             CurrentUserModel(
               message: response.data['message'],
               user: UserModel.fromMap(response.data['user']),
+              isPetCreated: response.data['is_pet_created'],
             ),
           );
         } else {
@@ -198,7 +199,7 @@ class AuthDatasourceImpl extends AuthDatasource {
             return Right(
               CurrentUserModel(
                 message: data['message'] as String? ?? 'Otp sent successfully',
-                user: UserModel.fromMap(data['user']),
+                user: UserModel.fromMap(data['user']), isPetCreated: data['is_pet_created']??false,
               ),
             );
           } else {

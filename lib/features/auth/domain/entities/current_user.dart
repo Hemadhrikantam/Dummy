@@ -3,14 +3,16 @@ import 'package:equatable/equatable.dart';
 class CurrentUser extends Equatable {
   final String message;
   final User user;
+  final bool isPetCreated;
 
-  const CurrentUser({
+  const CurrentUser( {
     required this.message,
     required this.user,
+    required this.isPetCreated,
   });
 
   @override
-  List<Object?> get props => [message, user];
+  List<Object?> get props => [message, user, isPetCreated];
 }
 
 class User extends Equatable {

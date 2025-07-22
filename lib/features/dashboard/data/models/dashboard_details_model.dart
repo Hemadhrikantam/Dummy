@@ -14,7 +14,8 @@ class DashboardDetailsModel extends DashboardPetDetails {
     required super.personalityTag,
     required super.petType,
     required super.trackActivity,
-    required super.petImage,
+    required super.petImage, 
+    required super.gender,
   });
 
   factory DashboardDetailsModel.fromMap(JsonMap map) {
@@ -23,6 +24,7 @@ class DashboardDetailsModel extends DashboardPetDetails {
       petName: map['pet_name'] as String? ?? '',
       petType: map['pet_type'] as String? ?? '',
       dob: map['dob'] as String? ?? '',
+      gender: map['gender'] as String? ??'',
       petWeight: (map['pet_weight'] as double?) ?? 0,
       trackActivity: map['track_activity'] as bool? ?? false,
       petImage: PetImageModel.fromMap(map['pet_image'] ?? {}),

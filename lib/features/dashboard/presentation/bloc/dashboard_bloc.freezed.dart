@@ -273,9 +273,75 @@ as String,
 }
 
 /// @nodoc
+
+
+class _SelectedPetId implements DashboardEvent {
+  const _SelectedPetId(this.selectedPetId);
+  
+
+ final  int selectedPetId;
+
+/// Create a copy of DashboardEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$SelectedPetIdCopyWith<_SelectedPetId> get copyWith => __$SelectedPetIdCopyWithImpl<_SelectedPetId>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SelectedPetId&&(identical(other.selectedPetId, selectedPetId) || other.selectedPetId == selectedPetId));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,selectedPetId);
+
+@override
+String toString() {
+  return 'DashboardEvent.selectedPetId(selectedPetId: $selectedPetId)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$SelectedPetIdCopyWith<$Res> implements $DashboardEventCopyWith<$Res> {
+  factory _$SelectedPetIdCopyWith(_SelectedPetId value, $Res Function(_SelectedPetId) _then) = __$SelectedPetIdCopyWithImpl;
+@useResult
+$Res call({
+ int selectedPetId
+});
+
+
+
+
+}
+/// @nodoc
+class __$SelectedPetIdCopyWithImpl<$Res>
+    implements _$SelectedPetIdCopyWith<$Res> {
+  __$SelectedPetIdCopyWithImpl(this._self, this._then);
+
+  final _SelectedPetId _self;
+  final $Res Function(_SelectedPetId) _then;
+
+/// Create a copy of DashboardEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? selectedPetId = null,}) {
+  return _then(_SelectedPetId(
+null == selectedPetId ? _self.selectedPetId : selectedPetId // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+/// @nodoc
 mixin _$DashboardState {
 
- Status get initStatus; String get petName; String get petImage; DashboardPetDetails? get selectedPet; List<DashboardPetDetails> get dashboardPetDetails;
+ Status get initStatus; String get petName; String get petImage; DashboardPetDetails? get selectedPet; int get selectedPetId; List<DashboardPetDetails> get dashboardPetDetails;
 /// Create a copy of DashboardState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -286,16 +352,16 @@ $DashboardStateCopyWith<DashboardState> get copyWith => _$DashboardStateCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&(identical(other.petName, petName) || other.petName == petName)&&(identical(other.petImage, petImage) || other.petImage == petImage)&&(identical(other.selectedPet, selectedPet) || other.selectedPet == selectedPet)&&const DeepCollectionEquality().equals(other.dashboardPetDetails, dashboardPetDetails));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&(identical(other.petName, petName) || other.petName == petName)&&(identical(other.petImage, petImage) || other.petImage == petImage)&&(identical(other.selectedPet, selectedPet) || other.selectedPet == selectedPet)&&(identical(other.selectedPetId, selectedPetId) || other.selectedPetId == selectedPetId)&&const DeepCollectionEquality().equals(other.dashboardPetDetails, dashboardPetDetails));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,initStatus,petName,petImage,selectedPet,const DeepCollectionEquality().hash(dashboardPetDetails));
+int get hashCode => Object.hash(runtimeType,initStatus,petName,petImage,selectedPet,selectedPetId,const DeepCollectionEquality().hash(dashboardPetDetails));
 
 @override
 String toString() {
-  return 'DashboardState(initStatus: $initStatus, petName: $petName, petImage: $petImage, selectedPet: $selectedPet, dashboardPetDetails: $dashboardPetDetails)';
+  return 'DashboardState(initStatus: $initStatus, petName: $petName, petImage: $petImage, selectedPet: $selectedPet, selectedPetId: $selectedPetId, dashboardPetDetails: $dashboardPetDetails)';
 }
 
 
@@ -306,7 +372,7 @@ abstract mixin class $DashboardStateCopyWith<$Res>  {
   factory $DashboardStateCopyWith(DashboardState value, $Res Function(DashboardState) _then) = _$DashboardStateCopyWithImpl;
 @useResult
 $Res call({
- Status initStatus, String petName, String petImage, DashboardPetDetails? selectedPet, List<DashboardPetDetails> dashboardPetDetails
+ Status initStatus, String petName, String petImage, DashboardPetDetails? selectedPet, int selectedPetId, List<DashboardPetDetails> dashboardPetDetails
 });
 
 
@@ -323,13 +389,14 @@ class _$DashboardStateCopyWithImpl<$Res>
 
 /// Create a copy of DashboardState
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? initStatus = null,Object? petName = null,Object? petImage = null,Object? selectedPet = freezed,Object? dashboardPetDetails = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? initStatus = null,Object? petName = null,Object? petImage = null,Object? selectedPet = freezed,Object? selectedPetId = null,Object? dashboardPetDetails = null,}) {
   return _then(_self.copyWith(
 initStatus: null == initStatus ? _self.initStatus : initStatus // ignore: cast_nullable_to_non_nullable
 as Status,petName: null == petName ? _self.petName : petName // ignore: cast_nullable_to_non_nullable
 as String,petImage: null == petImage ? _self.petImage : petImage // ignore: cast_nullable_to_non_nullable
 as String,selectedPet: freezed == selectedPet ? _self.selectedPet : selectedPet // ignore: cast_nullable_to_non_nullable
-as DashboardPetDetails?,dashboardPetDetails: null == dashboardPetDetails ? _self.dashboardPetDetails : dashboardPetDetails // ignore: cast_nullable_to_non_nullable
+as DashboardPetDetails?,selectedPetId: null == selectedPetId ? _self.selectedPetId : selectedPetId // ignore: cast_nullable_to_non_nullable
+as int,dashboardPetDetails: null == dashboardPetDetails ? _self.dashboardPetDetails : dashboardPetDetails // ignore: cast_nullable_to_non_nullable
 as List<DashboardPetDetails>,
   ));
 }
@@ -341,13 +408,14 @@ as List<DashboardPetDetails>,
 
 
 class _DashboardState implements DashboardState {
-  const _DashboardState({this.initStatus = Status.init, this.petName = '', this.petImage = '', this.selectedPet = null, final  List<DashboardPetDetails> dashboardPetDetails = const []}): _dashboardPetDetails = dashboardPetDetails;
+  const _DashboardState({this.initStatus = Status.init, this.petName = '', this.petImage = '', this.selectedPet = null, this.selectedPetId = 0, final  List<DashboardPetDetails> dashboardPetDetails = const []}): _dashboardPetDetails = dashboardPetDetails;
   
 
 @override@JsonKey() final  Status initStatus;
 @override@JsonKey() final  String petName;
 @override@JsonKey() final  String petImage;
 @override@JsonKey() final  DashboardPetDetails? selectedPet;
+@override@JsonKey() final  int selectedPetId;
  final  List<DashboardPetDetails> _dashboardPetDetails;
 @override@JsonKey() List<DashboardPetDetails> get dashboardPetDetails {
   if (_dashboardPetDetails is EqualUnmodifiableListView) return _dashboardPetDetails;
@@ -366,16 +434,16 @@ _$DashboardStateCopyWith<_DashboardState> get copyWith => __$DashboardStateCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&(identical(other.petName, petName) || other.petName == petName)&&(identical(other.petImage, petImage) || other.petImage == petImage)&&(identical(other.selectedPet, selectedPet) || other.selectedPet == selectedPet)&&const DeepCollectionEquality().equals(other._dashboardPetDetails, _dashboardPetDetails));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&(identical(other.petName, petName) || other.petName == petName)&&(identical(other.petImage, petImage) || other.petImage == petImage)&&(identical(other.selectedPet, selectedPet) || other.selectedPet == selectedPet)&&(identical(other.selectedPetId, selectedPetId) || other.selectedPetId == selectedPetId)&&const DeepCollectionEquality().equals(other._dashboardPetDetails, _dashboardPetDetails));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,initStatus,petName,petImage,selectedPet,const DeepCollectionEquality().hash(_dashboardPetDetails));
+int get hashCode => Object.hash(runtimeType,initStatus,petName,petImage,selectedPet,selectedPetId,const DeepCollectionEquality().hash(_dashboardPetDetails));
 
 @override
 String toString() {
-  return 'DashboardState(initStatus: $initStatus, petName: $petName, petImage: $petImage, selectedPet: $selectedPet, dashboardPetDetails: $dashboardPetDetails)';
+  return 'DashboardState(initStatus: $initStatus, petName: $petName, petImage: $petImage, selectedPet: $selectedPet, selectedPetId: $selectedPetId, dashboardPetDetails: $dashboardPetDetails)';
 }
 
 
@@ -386,7 +454,7 @@ abstract mixin class _$DashboardStateCopyWith<$Res> implements $DashboardStateCo
   factory _$DashboardStateCopyWith(_DashboardState value, $Res Function(_DashboardState) _then) = __$DashboardStateCopyWithImpl;
 @override @useResult
 $Res call({
- Status initStatus, String petName, String petImage, DashboardPetDetails? selectedPet, List<DashboardPetDetails> dashboardPetDetails
+ Status initStatus, String petName, String petImage, DashboardPetDetails? selectedPet, int selectedPetId, List<DashboardPetDetails> dashboardPetDetails
 });
 
 
@@ -403,13 +471,14 @@ class __$DashboardStateCopyWithImpl<$Res>
 
 /// Create a copy of DashboardState
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? initStatus = null,Object? petName = null,Object? petImage = null,Object? selectedPet = freezed,Object? dashboardPetDetails = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? initStatus = null,Object? petName = null,Object? petImage = null,Object? selectedPet = freezed,Object? selectedPetId = null,Object? dashboardPetDetails = null,}) {
   return _then(_DashboardState(
 initStatus: null == initStatus ? _self.initStatus : initStatus // ignore: cast_nullable_to_non_nullable
 as Status,petName: null == petName ? _self.petName : petName // ignore: cast_nullable_to_non_nullable
 as String,petImage: null == petImage ? _self.petImage : petImage // ignore: cast_nullable_to_non_nullable
 as String,selectedPet: freezed == selectedPet ? _self.selectedPet : selectedPet // ignore: cast_nullable_to_non_nullable
-as DashboardPetDetails?,dashboardPetDetails: null == dashboardPetDetails ? _self._dashboardPetDetails : dashboardPetDetails // ignore: cast_nullable_to_non_nullable
+as DashboardPetDetails?,selectedPetId: null == selectedPetId ? _self.selectedPetId : selectedPetId // ignore: cast_nullable_to_non_nullable
+as int,dashboardPetDetails: null == dashboardPetDetails ? _self._dashboardPetDetails : dashboardPetDetails // ignore: cast_nullable_to_non_nullable
 as List<DashboardPetDetails>,
   ));
 }

@@ -13,7 +13,6 @@ import 'package:dummy/features/profile/domain/usecases/medias_usecases.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../domain/entities/documents.dart';
-import '../../../domain/entities/event_fields.dart';
 
 part 'pet_dairy_event.dart';
 part 'pet_dairy_state.dart';

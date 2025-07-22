@@ -41,11 +41,11 @@ class ProfileOptionsPage extends StatelessWidget {
             children: [
               ProfileHeader(),
               Styles.gap20,
-              PetListWidget( dashboardPetDetails: state.dashboardPetDetails, onPetSelected: (int value) {  }, selectedIndex: 0,),
+              PetListWidget(dashboardPetDetails: state.dashboardPetDetails, onPetSelected: (int value) {  }, selectedIndex: 0,),
               Styles.gap20,
               Expanded(
                 child: CustomCard(
-                  child: Column(
+                  child: ListView(
                     children: [
                       Column(
                         children: List.generate(
@@ -86,8 +86,6 @@ class ProfileOptionsPage extends StatelessWidget {
                           },
                         ),
                       ),
-                      Expanded(child: Container()),
-
                       AppTextButton(
                         onPressed: () {
                           BottomModels.logoutBottomSheet(context);

@@ -333,7 +333,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
 
   @override
   AppTypeResponse<List<PetMealModel>> meals(DateTime? date) async {
-    final response = await http.get(path: api.meals(date));
+    final response = await http.get(path: api.meals(date),petId: true);
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -368,7 +368,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
 
   @override
   AppTypeResponse<List<PetWalkModel>> walks(DateTime? date) async {
-    final response = await http.get(path: api.walks(date));
+    final response = await http.get(path: api.walks(date),petId: true);
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -403,7 +403,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
 
   @override
   AppTypeResponse<List<PetGroomingModel>> groomings(DateTime? date) async {
-    final response = await http.get(path: api.groomings(date));
+    final response = await http.get(path: api.groomings(date),petId: true);
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -438,7 +438,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
 
   @override
   AppTypeResponse<List<PetExpenseModel>> expenses(DateTime? date) async {
-    final response = await http.get(path: api.expenses(date));
+    final response = await http.get(path: api.expenses(date),petId: true);
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -473,7 +473,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
 
   @override
   AppTypeResponse<List<PetDewormingModel>> dewormings(DateTime? date) async {
-    final response = await http.get(path: api.dewormings(date));
+    final response = await http.get(path: api.dewormings(date),petId: true);
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -508,7 +508,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
 
   @override
   AppTypeResponse<OverviewModel> overview(int petId) async {
-    final response = await http.get(path: api.overview(petId));
+    final response = await http.get(path: api.overview(petId),petId: true);
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));

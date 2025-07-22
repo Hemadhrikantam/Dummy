@@ -12,14 +12,15 @@ import 'package:dummy/features/health/presentation/widgets/vaccines/vaccination_
 import 'package:dummy/features/health/presentation/widgets/vaccines/vaccination_reminder_bottom_sheet.dart';
 import 'package:dummy/features/health/presentation/widgets/vaccines/veccination_delete_bottom_sheet_content.dart';
 import 'package:dummy/features/home/presentation/widgets/need_premium_bottom_sheet.dart';
+import 'package:dummy/features/profile/domain/entities/media.dart';
 import 'package:dummy/features/profile/presentation/widgets/logout_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/manage_family_members/clinic_nearme_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/member_deletion_bottom_sheet.dart';
+import 'package:dummy/features/profile/presentation/widgets/pet_dairy/share_bottom_sheet_content.dart';
 import 'package:dummy/features/profile/presentation/widgets/plan_overview_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../../features/addoption/presentation/widgets/add_adoption_form.dart';
 import '../../features/addoption/presentation/widgets/adoption_delete_bottom_sheet_content.dart';
 import '../../features/dailycare/presentation/widgets/add/add_deworming_form.dart';
@@ -512,6 +513,18 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return OtpSuccessBottomSheetContent();
+      },
+    );
+  }
+
+  static Future<T?> shareBottomSheet<T>(BuildContext context, Media media) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return ShareBottomSheetContent(media: media,);
       },
     );
   }

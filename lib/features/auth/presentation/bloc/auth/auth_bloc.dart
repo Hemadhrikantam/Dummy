@@ -106,10 +106,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   BottomModels.otpSuccessBottomSheet(currentContext);
   await Future.delayed(const Duration(seconds: 2));
-
-  if (userType == Yourself.petParent.name) {
+  if (userType == Yourself.petParent.name && (success?.isPetCreated??false)) {
+    currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
+  } 
+  else if (userType == Yourself.petParent.name) {
     currentContext.pushNamed(MeetYourPetScreen.routeName);
-  } else if (userType == Yourself.lookingAdoption.name) {
+  }
+  else if (userType == Yourself.lookingAdoption.name) {
     currentContext.pushNamedAndRemoveUntil(
       AdoptionDashboardPage.routeName,
     );

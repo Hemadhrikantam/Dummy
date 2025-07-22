@@ -4,6 +4,7 @@ import 'dart:io';
 
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -207,4 +208,16 @@ class AppUtil {
         return null;
     }
   }
+  static  void launchApp(String url) async {
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url),);
+    } else {
+      debugPrint("Could not launch $url");
+    }
+  }
+
+
+
 }
+  
+

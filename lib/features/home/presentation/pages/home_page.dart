@@ -1,6 +1,7 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/custom_header_widget.dart';
 import 'package:dummy/core/widgets/shimmer_widget.dart';
@@ -18,9 +19,10 @@ import '../widgets/tip_of_the_day_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
+
   static const routeName = '/HomePage';
 
-  static Route<T> route<T>() {
+  static Route<T> route<T>(int selectedPetId) {
     return MaterialPageRoute<T>(
       builder: (context) => const HomePage(),
       settings: const RouteSettings(name: routeName),
@@ -33,15 +35,20 @@ class HomePage extends StatefulWidget {
 
 class _HomePage extends State<HomePage> {
   DashboardPetDetails? selectedPet;
-  
+
   int selectedIndex = 0;
 
   void _handlePetSelected(int index) {
     final pet = context.read<DashboardBloc>().state.dashboardPetDetails[index];
+
     setState(() {
       selectedPet = pet;
       selectedIndex = index;
     });
+    LogUtility.info('eid  ${selectedPet?.id ?? 0}');
+    context.read<DashboardBloc>().add(
+      DashboardEvent.selectedPetId(selectedPet?.id ?? 0),
+    );
     context.read<DashboardBloc>().add(DashboardEvent.petName(pet.petName));
     context.read<DashboardBloc>().add(
       DashboardEvent.petImage(pet.petImage.petImage),
@@ -87,9 +94,12 @@ class _HomePage extends State<HomePage> {
                       if (selectedPet != null)
                         PetInformationWidget(dashboardPetDetails: selectedPet),
                       Styles.gap15,
-                       QuickActionsWidget(selectedPet: selectedPet!,),
+                      QuickActionsWidget(
+                        selectedPet: selectedPet!,
+                        selectedPetId: selectedPet?.id ?? 0,
+                      ),
                       Styles.gap15,
-                    
+
                       TipOfTheDayCard(selectedPet: selectedPet!),
 
                       Styles.gap15,

@@ -3,9 +3,11 @@ import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/services/share_service.dart';
+
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
 import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -136,17 +138,18 @@ class PetPhotoCardPage extends StatelessWidget {
                                   width: 30,
                                 ),
                       ),
-                      Styles.gap10,
+                      Styles.gap20,
                       GestureDetector(
                         onTap: () {
                           ShareService.shareByUrl(media.media);
+                          //BottomModels.shareBottomSheet(context, media);
                         },
                         child: SvgPicture.asset(
                           ImageResources.share,
                           width: 30,
                         ),
                       ),
-                      Styles.gap10,
+                      Styles.gap20,
                       GestureDetector(
                         onTap: () {
                           BottomModels.addPetMediaBottomSheet(
@@ -159,7 +162,7 @@ class PetPhotoCardPage extends StatelessWidget {
                           width: 30,
                         ),
                       ),
-                      Styles.gap10,
+                      Styles.gap20,
                       SvgPicture.asset(ImageResources.deleteWhite, width: 30),
                     ],
                   ),

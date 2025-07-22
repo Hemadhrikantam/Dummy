@@ -30,12 +30,13 @@ class AppHttpImpl extends AppHttp {
     Object? data,
     Options? options,
     bool token = true,
+    bool petId = false,
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
       late final Options? tokenHead;
       if (token) {
-        tokenHead = await _headerWithToken();
+        tokenHead = await _headerWithToken(petId: petId);
         if (tokenHead == null) {
           return Left(ErrorMessage(message: AppText.serverDown));
         }
@@ -64,12 +65,13 @@ class AppHttpImpl extends AppHttp {
     Object? data,
     Options? options,
     bool token = true,
+    bool petId = false,
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
       late final Options? tokenHead;
       if (token) {
-        tokenHead = await _headerWithToken();
+        tokenHead = await _headerWithToken(petId: petId);
         if (tokenHead == null) {
           return Left(ErrorMessage(message: AppText.sessionOut));
         }
@@ -99,12 +101,13 @@ class AppHttpImpl extends AppHttp {
     Object? data,
     Options? options,
     bool token = true,
+    bool petId = false,
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
       late final Options? tokenHead;
       if (token) {
-        tokenHead = await _headerWithToken();
+        tokenHead = await _headerWithToken(petId: petId);
         if (tokenHead == null) {
           return Left(ErrorMessage(message: AppText.sessionOut));
         }
@@ -133,12 +136,13 @@ class AppHttpImpl extends AppHttp {
     Object? data,
     Options? options,
     bool token = true,
+    bool petId = false,
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
       late final Options? tokenHead;
       if (token) {
-        tokenHead = await _headerWithToken();
+        tokenHead = await _headerWithToken(petId: petId);
         if (tokenHead == null) {
           return Left(ErrorMessage(message: AppText.sessionOut));
         }
@@ -167,12 +171,13 @@ class AppHttpImpl extends AppHttp {
     Object? data,
     Options? options,
     bool token = true,
+    bool petId = false,
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
       late final Options? tokenHead;
       if (token) {
-        tokenHead = await _headerWithToken();
+        tokenHead = await _headerWithToken(petId: petId);
         if (tokenHead == null) {
           return Left(ErrorMessage(message: AppText.sessionOut));
         }
@@ -202,12 +207,13 @@ class AppHttpImpl extends AppHttp {
     Object? data,
     Options? options,
     bool token = true,
+    bool petId = false,
     Map<String, dynamic>? queryParameters,
   }) async {
     try {
       late final Options? tokenHead;
       if (token) {
-        tokenHead = await _headerWithToken();
+        tokenHead = await _headerWithToken(petId: petId);
         if (tokenHead == null) {
           return Left(ErrorMessage(message: AppText.sessionOut));
         }
@@ -271,7 +277,7 @@ class AppHttpImpl extends AppHttp {
           'Content-Type': 'application/json',
           if (petId)
             'petId':
-                currentContext.read<DashboardBloc>().state.selectedPet?.id ?? 0,
+                currentContext.read<DashboardBloc>().state.selectedPetId,
         },
       );
     }

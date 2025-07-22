@@ -9,6 +9,7 @@ abstract class AppHttp {
     Object? data,
     Options? options,
     bool token = true,
+    bool petId = false,
     Map<String, dynamic>? queryParameters,
   });
 
@@ -17,6 +18,7 @@ abstract class AppHttp {
     Object? data,
     Options? options,
     bool token = true,
+    bool petId = false,
     Map<String, dynamic>? queryParameters,
   });
 
@@ -25,6 +27,7 @@ abstract class AppHttp {
     Object? data,
     Options? options,
     bool token = true,
+    bool petId = false,
     Map<String, dynamic>? queryParameters,
   });
 
@@ -33,6 +36,7 @@ abstract class AppHttp {
     Object? data,
     Options? options,
     bool token = true,
+    bool petId = false,
     Map<String, dynamic>? queryParameters,
   });
 
@@ -41,6 +45,7 @@ abstract class AppHttp {
     Object? data,
     Options? options,
     bool token = true,
+    bool petId = false,
     Map<String, dynamic>? queryParameters,
   });
 
@@ -49,6 +54,7 @@ abstract class AppHttp {
     Object? data,
     Options? options,
     bool token = true,
+    bool petId = false,
     Map<String, dynamic>? queryParameters,
   });
 }

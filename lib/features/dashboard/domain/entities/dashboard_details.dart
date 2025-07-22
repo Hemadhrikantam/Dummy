@@ -5,6 +5,7 @@ class DashboardPetDetails extends Equatable {
     required this.id,
     required this.petName,
     required this.dob,
+    required this.gender,
     required this.petWeight,
     required this.breed,
     required this.personalityTag,
@@ -18,6 +19,7 @@ class DashboardPetDetails extends Equatable {
   final String petName;
   final String petType;
   final String dob;
+  final String gender;
   final double petWeight;
   final bool trackActivity;
   final PetImage petImage;
@@ -32,6 +34,7 @@ class DashboardPetDetails extends Equatable {
     petName,
     petType,
     dob,
+    gender,
     petWeight,
     trackActivity,
     petImage,

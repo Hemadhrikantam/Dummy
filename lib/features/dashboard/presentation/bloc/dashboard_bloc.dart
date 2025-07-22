@@ -18,6 +18,7 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
     on<_DashboardPetDetails>(__pets);
     on<_PetName>(__petName);
     on<_PetImage>(__petImage);
+    on<_SelectedPetId>(__selectedPetId);
   }
   final DashboardDetailsUsecases __dashboardPetUsecases;
   Future<void> __pets(
@@ -59,4 +60,8 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
     emit(state.copyWith(petImage: event.petImage));
     LogUtility.info('------> state ${event.petImage}');
   }
+
+  void __selectedPetId(_SelectedPetId event, Emitter<DashboardState> emit) {
+emit(state.copyWith(selectedPetId: event.selectedPetId))  ;
+}
 }

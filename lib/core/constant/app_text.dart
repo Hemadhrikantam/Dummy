@@ -365,6 +365,19 @@ class AppText {
   static String tellUsLuna(String name) => "Tell us about ${name}'s moment!";
   static String events = 'Events';
   static String favourites = 'Favourites';
+  static String whatsapp = 'Whatsapp';
+  static String gmail = 'Gmail';
+  static String messages = 'Messages';
+  static String snapchat = 'Snapchat';
+  static String more = 'More';
+  static String launchWhatsapp = 'whatsapp://';
+  static String launchGmail = 'mailto:?subject=Check%20this%20out&body=Your%20Link';
+  static String launchMessages = 'sms:?body=Your%20Link';
+  static String launchSnapchat = 'shttps://www.snapchat.com/';
+
+
+
+  
 
   //home
   static String weight = 'Weight';

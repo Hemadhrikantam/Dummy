@@ -11,11 +11,30 @@ import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart'
 import 'package:dummy/features/health/presentation/pages/health_page.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class QuickActionsWidget extends StatelessWidget {
+import '../../../dailycare/presentation/bloc/overview/overview_bloc.dart';
+
+class QuickActionsWidget extends StatefulWidget {
    final DashboardPetDetails? selectedPet;
-  const QuickActionsWidget({super.key, required this.selectedPet});
+   final int selectedPetId;
+  const QuickActionsWidget({super.key, required this.selectedPet,required this.selectedPetId,});
 
+  @override
+  State<QuickActionsWidget> createState() => _QuickActionsWidgetState();
+}
+
+class _QuickActionsWidgetState extends State<QuickActionsWidget> {
+
+  @override
+  void initState() {
+    Future.delayed(Duration(seconds:3),(){
+      context.read<OverviewBloc>().add(
+        OverviewEvent.overview(widget.selectedPet?.id??0),
+      );
+    });
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return CustomCard(
@@ -41,8 +60,9 @@ class QuickActionsWidget extends StatelessWidget {
                   context.pushNamed(
                     DailycarePage.routeName,
                     arguments: {
-                      'selectedPet': selectedPet,
+                      'selectedPet': widget.selectedPet,
                       'initialTab': 'Meals',
+                      'selectedPetId': widget.selectedPetId,
                     },
                   );
                 },
@@ -55,8 +75,9 @@ class QuickActionsWidget extends StatelessWidget {
                   context.pushNamed(
                     HealthPage.routeName,
                     arguments: {
-                      'selectedPet': selectedPet,
+                      'selectedPet': widget.selectedPet,
                       'initialTab': 'Vaccination',
+                      'selectedPetId': widget.selectedPetId,
                     },
                   );
                 },
@@ -71,8 +92,9 @@ class QuickActionsWidget extends StatelessWidget {
                   context.pushNamed(
                     DailycarePage.routeName,
                     arguments: {
-                      'selectedPet': selectedPet,
+                      'selectedPet': widget.selectedPet,
                       'initialTab': 'Walks',
+                      'selectedPetId': widget.selectedPetId,
                     },
                   );
                 },

@@ -66,7 +66,7 @@ class PetInformationWidget extends StatelessWidget {
                   child: __InfoValue(
                     image: ImageResources.gender,
                     title: AppText.gender,
-                    value: 'Female',
+                    value: dashboardPetDetails?.gender??'',
                   ),
                 ),
                 Expanded(

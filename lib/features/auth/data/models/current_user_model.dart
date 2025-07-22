@@ -3,13 +3,16 @@ import '../../domain/entities/current_user.dart';
 class CurrentUserModel extends CurrentUser {
   const CurrentUserModel({
     required super.message,
-    required super.user,
+    required super.user, 
+    required super.isPetCreated,
   });
 
   factory CurrentUserModel.fromMap(Map<String, dynamic> map) {
     return CurrentUserModel(
       message: map['message'] ?? '',
-      user:UserModel.fromMap(map['user'] ?? {}),
+      user:UserModel.fromMap(map['user'] ?? {}), 
+      isPetCreated: map['is_pet_created'] ?? false,
+      
     );
   }
 }
