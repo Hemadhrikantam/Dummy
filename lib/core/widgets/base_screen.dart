@@ -6,7 +6,9 @@ import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:iconsax/iconsax.dart';
 
@@ -464,7 +466,24 @@ class CustomAppBarTitle extends StatelessWidget {
             ),
           ),
           if (showImage == true)
-            AppAssestsImage(path: ImageResources.dog, height: 45, width: 45),
+            BlocBuilder<DashboardBloc, DashboardState>(
+              builder: (context, state) {
+                return state.selectedPet?.petImage.petImage != null
+                    ? ClipRRect(
+                      borderRadius: Styles.borderRadiusCircular50,
+                      child: AppNetworkImage(
+                        url: state.selectedPet?.petImage.petImage ?? "",
+                        height: 45,
+                        width: 45,
+                      ),
+                    )
+                    : AppAssestsImage(
+                      path: ImageResources.dog,
+                      height: 45,
+                      width: 45,
+                    );
+              },
+            ),
         ],
       ),
     );

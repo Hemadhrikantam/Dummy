@@ -5,6 +5,7 @@ import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
+import 'package:dummy/features/profile/domain/usecases/delete_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/documents_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_media_favroute_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/event_fields_usecases.dart';
@@ -24,22 +25,26 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
     required MediasUsecases mediasUsecases,
     required FavoriteMediasUsecases favoriteMediasUsecases,
     required EventFieldsUsecases eventFieldsUsecases,
+    required DeleteMediaUsecases deleteMediaUsecases,
     required EditMediaFavrouteUsecases editMediaFavrouteUsecases,
   }) : _documentsUsecases = documentsUsecases,
        _mediasUsecases = mediasUsecases,
        _favoriteMediasUsecases = favoriteMediasUsecases,
        _eventFieldsUsecases = eventFieldsUsecases,
+       _deleteMediaUsecases = deleteMediaUsecases,
        _editMediaFavrouteUsecases = editMediaFavrouteUsecases,
        super(const PetDairyState()) {
     on<_Initialization>(_initialization);
     on<_EventId>(__eventId);
     on<_UpdateMediaFavroute>(_updateMediaFavroute);
+    on<_DeleteMedia>(__deleteMedia);
   }
 
   final DocumentsUsecases _documentsUsecases;
   final MediasUsecases _mediasUsecases;
   final FavoriteMediasUsecases _favoriteMediasUsecases;
   final EventFieldsUsecases _eventFieldsUsecases;
+  final DeleteMediaUsecases _deleteMediaUsecases;
   final EditMediaFavrouteUsecases _editMediaFavrouteUsecases;
   Future<void> _initialization(
     _Initialization event,
@@ -84,6 +89,14 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
   void __eventId(_EventId event, Emitter<PetDairyState> emit) {
     final eventId = DropdownValue.dirty(event.id);
     emit(state.copyWith(eventId: eventId));
+  }
+
+  void __deleteMedia(_DeleteMedia event, Emitter<PetDairyState> emit) {
+    _deleteMediaUsecases(id: event.id);
+    final media = state.medias.firstWhere((media) => media.id == event.id);
+    final medias = state.medias;
+    medias.remove(media);
+    emit(state.copyWith(medias: medias));
   }
 
   Future<void> _updateMediaFavroute(

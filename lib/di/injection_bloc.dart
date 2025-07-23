@@ -39,6 +39,7 @@ class InjectionBloc {
       mediasUsecases: getIt<MediasUsecases>(),
       editMediaFavrouteUsecases: getIt<EditMediaFavrouteUsecases>(),
       favoriteMediasUsecases: getIt<FavoriteMediasUsecases>(),
+      deleteMediaUsecases: getIt<DeleteMediaUsecases>(),
     );
   }
 
@@ -161,9 +162,6 @@ class InjectionBloc {
   }
 
   static OverviewBloc get overviewBloc {
-    return OverviewBloc(
-      overviewUsecases: getIt<OverviewUsecases>(),
-    
-    );
+    return OverviewBloc(overviewUsecases: getIt<OverviewUsecases>());
   }
 }

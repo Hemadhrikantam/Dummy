@@ -12,7 +12,7 @@ class PetListWidget extends StatelessWidget {
     super.key,
     required this.dashboardPetDetails,
     required this.onPetSelected,
-    required this.selectedIndex, 
+    required this.selectedIndex,
   });
 
   final List<DashboardPetDetails> dashboardPetDetails;
@@ -36,23 +36,27 @@ class PetListWidget extends StatelessWidget {
                   onTap: () => onPetSelected(i),
                   child: CustomCard(
                     padding: Styles.edgeInsetsZero,
-                    borderRadius: Styles.borderRadiusCircular10,
+                    borderRadius: Styles.borderRadiusCircular50,
                     backgroundColor:
                         isSelected ? AppColors.buttonBackground : null,
                     border: Border.all(
                       width: 2,
-                      color: isSelected
-                          ? AppColors.buttonBackground
-                          : AppColors.stepperColor,
+                      color:
+                          isSelected
+                              ? AppColors.buttonBackground
+                              : AppColors.stepperColor,
                     ),
                     child: Padding(
                       padding: Styles.edgeInsetsAll02,
-                      child: AppNetworkImage(
-                        borderRadius: Styles.borderRadiusCircular08,
-                      url: dashboardPetDetails[i].petImage.petImage,
-                      width: 64,
-                      height: 64,
-                                            ),
+                      child: ClipRRect(
+                        borderRadius: Styles.borderRadiusCircular50,
+                        child: AppNetworkImage(
+                          borderRadius: Styles.borderRadiusCircular08,
+                          url: dashboardPetDetails[i].petImage.petImage,
+                          width: 64,
+                          height: 64,
+                        ),
+                      ),
                     ),
                   ),
                 );
@@ -68,7 +72,7 @@ class PetListWidget extends StatelessWidget {
               context.push(AddPetPage.route());
             },
             padding: Styles.edgeInsetsAll16,
-            borderRadius: Styles.borderRadiusCircular08,
+            borderRadius: Styles.borderRadiusCircular50,
             backgroundColor: AppColors.stepperColor,
             child: Icon(Icons.add, color: AppColors.white, size: 31),
           ),

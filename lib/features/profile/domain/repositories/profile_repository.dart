@@ -9,6 +9,7 @@ abstract class ProfileRepository {
   AppTypeResponse<List<Documents>> documents();
   AppTypeResponse<List<DropItem>> eventFields();
   AppSuccessResponse addMedia({required Payload payload});
+  AppSuccessResponse deleteMedia({required int id});
   AppSuccessResponse addDocument({required Payload payload});
   AppTypeResponse<List<Media>> medias();
   AppTypeResponse<Media> getMedia({required int id});

@@ -57,13 +57,17 @@ class ManageFamilyMembersBottomSheetContent extends StatelessWidget {
               },
               child: Row(
                 children: [
-                  TextValueWidget(text: 'Admin', value: 'Suraj S Nair'),
+                  TextValueWidget(text: 'Collaborator', value: 'Suraj S Nair'),
                   Styles.spacer,
-                  AppIcon(icon: Iconsax.edit_25, color: AppColors.grey600),
+                  // AppIcon(icon: Iconsax.edit_25, color: AppColors.grey600),
                   Styles.gap10,
-                  AppIcon(onTap: (){
+                  AppIcon(
+                    onTap: () {
                       BottomModels.memberDeleteBottomSheet(context);
-                    },icon: Iconsax.trush_square, color: AppColors.red),
+                    },
+                    icon: Iconsax.trush_square,
+                    color: AppColors.red,
+                  ),
                 ],
               ),
             ),
@@ -74,15 +78,17 @@ class ManageFamilyMembersBottomSheetContent extends StatelessWidget {
               },
               child: Row(
                 children: [
-                  TextValueWidget(text: 'Admin', value: 'Suraj S Nair'),
+                  TextValueWidget(text: 'Collaborator', value: 'Suraj S Nair'),
                   Styles.spacer,
-                  AppIcon(icon: Iconsax.edit_25, color: AppColors.grey600),
+                  // AppIcon(icon: Iconsax.edit_25, color: AppColors.grey600),
                   Styles.gap10,
                   AppIcon(
-                    onTap: (){
+                    onTap: () {
                       BottomModels.memberDeleteBottomSheet(context);
                     },
-                    icon: Iconsax.trush_square, color: AppColors.red),
+                    icon: Iconsax.trush_square,
+                    color: AppColors.red,
+                  ),
                 ],
               ),
             ),

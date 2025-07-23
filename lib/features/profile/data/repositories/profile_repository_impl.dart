@@ -57,4 +57,9 @@ class ProfileRepositoryImpl extends ProfileRepository {
   AppTypeResponse<List<Media>> favoriteMedias() {
     return datasource.favoriteMedias();
   }
+
+  @override
+  AppSuccessResponse deleteMedia({required int id}) {
+    return datasource.deleteMedia(id: id);
+  }
 }

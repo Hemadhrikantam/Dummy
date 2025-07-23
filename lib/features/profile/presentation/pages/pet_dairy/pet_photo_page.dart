@@ -163,7 +163,18 @@ class PetPhotoCardPage extends StatelessWidget {
                         ),
                       ),
                       Styles.gap20,
-                      SvgPicture.asset(ImageResources.deleteWhite, width: 30),
+                      GestureDetector(
+                        onTap: () {
+                          context.read<PetDairyBloc>().add(
+                            PetDairyEvent.deleteMedia(media.id),
+                          );
+                          context.pop();
+                        },
+                        child: SvgPicture.asset(
+                          ImageResources.deleteWhite,
+                          width: 30,
+                        ),
+                      ),
                     ],
                   ),
                 ),

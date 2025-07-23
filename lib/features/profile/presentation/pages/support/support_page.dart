@@ -6,6 +6,7 @@ import 'package:dummy/features/profile/presentation/pages/support/privacy_policy
 import 'package:dummy/features/profile/presentation/pages/support/terms_and_condition_page.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../../core/constant/app_text.dart';
 import '../../../../../core/constant/image_resources.dart';
@@ -39,7 +40,7 @@ class SupportPage extends StatelessWidget {
               padding: EdgeInsets.only(top: 12),
               child: CustomCard(
                 borderColor: AppColors.transparent,
-                child: const Column(
+                child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     // SupportItemsWidget(
@@ -54,6 +55,15 @@ class SupportPage extends StatelessWidget {
                       subtitle: 'support@doommi.com',
                       leadingIcon: ImageResources.support,
                       trailingIcon: Iconsax.sms_tracking5,
+                      onPressed: () async {
+                        final Uri emailUri = Uri.parse(
+                          'mailto:support@doommi.com',
+                        );
+                        await launchUrl(
+                          emailUri,
+                          mode: LaunchMode.externalApplication,
+                        );
+                      },
                     ),
                   ],
                 ),
@@ -62,11 +72,11 @@ class SupportPage extends StatelessWidget {
             Styles.gap12,
             CustomCard(
               borderColor: AppColors.transparent,
-              child:  Column(
+              child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SupportItemsWidget(
-                    onPressed: (){
+                    onPressed: () {
                       context.push(FaqPage.route());
                     },
                     subtitle: AppText.faq,
@@ -76,7 +86,7 @@ class SupportPage extends StatelessWidget {
                   ),
                   Styles.gap10,
                   SupportItemsWidget(
-                    onPressed: (){
+                    onPressed: () {
                       context.push(PrivacyPolicyPage.route());
                     },
                     subtitle: 'Privacy Policy',
@@ -86,7 +96,7 @@ class SupportPage extends StatelessWidget {
                   ),
                   Styles.gap10,
                   SupportItemsWidget(
-                    onPressed: (){
+                    onPressed: () {
                       context.push(TermsAndConditionPage.route());
                     },
                     subtitle: 'Terms & Conditions',

@@ -143,6 +143,72 @@ as DropItem,
 /// @nodoc
 
 
+class _DeleteMedia implements PetDairyEvent {
+  const _DeleteMedia(this.id);
+  
+
+ final  int id;
+
+/// Create a copy of PetDairyEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$DeleteMediaCopyWith<_DeleteMedia> get copyWith => __$DeleteMediaCopyWithImpl<_DeleteMedia>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DeleteMedia&&(identical(other.id, id) || other.id == id));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,id);
+
+@override
+String toString() {
+  return 'PetDairyEvent.deleteMedia(id: $id)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$DeleteMediaCopyWith<$Res> implements $PetDairyEventCopyWith<$Res> {
+  factory _$DeleteMediaCopyWith(_DeleteMedia value, $Res Function(_DeleteMedia) _then) = __$DeleteMediaCopyWithImpl;
+@useResult
+$Res call({
+ int id
+});
+
+
+
+
+}
+/// @nodoc
+class __$DeleteMediaCopyWithImpl<$Res>
+    implements _$DeleteMediaCopyWith<$Res> {
+  __$DeleteMediaCopyWithImpl(this._self, this._then);
+
+  final _DeleteMedia _self;
+  final $Res Function(_DeleteMedia) _then;
+
+/// Create a copy of PetDairyEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? id = null,}) {
+  return _then(_DeleteMedia(
+null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
 class _UpdateMediaFavroute implements PetDairyEvent {
   const _UpdateMediaFavroute(this.id, this.value);
   

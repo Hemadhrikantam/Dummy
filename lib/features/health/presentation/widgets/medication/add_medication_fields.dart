@@ -40,7 +40,7 @@ class __TabletName extends StatelessWidget {
             );
           },
           hintText: AppText.enter,
-          headerText: AppText.tabletName,
+          headerText: AppText.name,
           isMandatory: true,
         );
       },

@@ -58,6 +58,7 @@ import 'package:dummy/features/profile/data/repositories/profile_repository_impl
 import 'package:dummy/features/profile/domain/repositories/profile_repository.dart';
 import 'package:dummy/features/profile/domain/usecases/add_document_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/add_media_usecases.dart';
+import 'package:dummy/features/profile/domain/usecases/delete_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/documents_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_media_favroute_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_media_usecases.dart';

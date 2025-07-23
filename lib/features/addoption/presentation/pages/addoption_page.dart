@@ -29,11 +29,12 @@ class _AddoptionPage extends State<AddoptionPage> {
   final tabs = ['My Listing', 'All Pets'];
   @override
   void initState() {
-    Future.delayed(Duration.zero, (){
+    Future.delayed(Duration.zero, () {
       context.read<AdoptionBloc>().add(AdoptionEvent.adoptions());
     });
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DashboardBloc, DashboardState>(
@@ -56,9 +57,9 @@ class _AddoptionPage extends State<AddoptionPage> {
               ),
               Styles.gap10,
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  FilterButton(),
+                  // FilterButton(),
                   AppButton(
                     height: 42,
                     showShadow: false,

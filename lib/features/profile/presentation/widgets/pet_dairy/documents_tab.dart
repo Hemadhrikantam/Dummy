@@ -23,7 +23,7 @@ class DocumentsTab extends StatelessWidget {
           return Padding(
             padding: Styles.edgeInsetsOnlyH00,
             child: EmptyListPage(
-              imagePath: ImageResources.petdairyPlaceholder,
+              imagePath: ImageResources.noMedia,
               subTitle: AppText.startCapturingMemo(
                 context.read<DashboardBloc>().state.selectedPet?.petName ?? "",
               ),
