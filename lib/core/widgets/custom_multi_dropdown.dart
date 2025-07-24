@@ -26,12 +26,12 @@ class CustomMultiDropdownSearch extends StatefulWidget {
   final String? errorText;
   final List<DropItem> selectedItems;
   final void Function(List<DropItem>)? onChanged;
+  final List<DropItem> items;
   final String title;
   final bool isMandatory;
   final double? fontSize;
   final Color? hintTextColor;
   final FontWeight? hintTextFontWeight;
-  final List<DropItem> items;
 
   @override
   State<CustomMultiDropdownSearch> createState() =>
@@ -61,93 +61,15 @@ class _CustomMultiDropdownSearchState extends State<CustomMultiDropdownSearch> {
       builder: (_) {
         final items = widget.items;
         LogUtility.warning(items.length.toString());
-        return SizedBox(
-          height: MediaQuery.of(context).size.height * 0.6,
-          child: Padding(
-            padding: Styles.edgeInsetsAll10,
-            child: StatefulBuilder(
-              builder: (context, setStateSheet) {
-                return Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    AppTextFormField(
-                      controller: _searchController,
-                      hintText: 'Search',
-                      onChanged: (value) {
-                        setStateSheet(() {
-                          _filteredItems =
-                              widget.items
-                                  .where(
-                                    (item) => item.value.toLowerCase().contains(
-                                      value.toLowerCase(),
-                                    ),
-                                  )
-                                  .toList();
-                        });
-                      },
-                    ),
-                    Styles.gap10,
-                    Expanded(
-                      child: ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: items.length,
-                        itemBuilder: (_, index) {
-                          final item = items[index];
-                          final isSelected = _selectedItems.contains(item);
-                          return Padding(
-                            padding: Styles.edgeInsetsAll08,
-                            child: GestureDetector(
-                              onTap: () {
-                                setStateSheet(() {
-                                  if (isSelected) {
-                                    _selectedItems.remove(item);
-                                  } else {
-                                    _selectedItems.add(item);
-                                  }
-                                });
-                              },
-                              child: Row(
-                                children: [
-                                  Text(
-                                    item.value,
-                                    style: TextStyle(fontSize: 16),
-                                  ),
-                                  const Spacer(),
-                                  if (isSelected)
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: AppColors.stepperColor,
-                                        borderRadius:
-                                            Styles.borderRadiusCircular05,
-                                      ),
-                                      padding: Styles.edgeInsetsAll02,
-                                      child: Icon(
-                                        Icons.done,
-                                        size: 20,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                ],
-                              ),
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                    SaveCancelWidget(
-                      onPressed: () {
-                        setState(() {});
-                        if (widget.onChanged != null) {
-                          widget.onChanged!(_selectedItems);
-                        }
-                        Navigator.of(context).pop();
-                      },
-                    ),
-                  ],
-                );
-              },
-            ),
-          ),
+        return _DropDownView(
+          items: items,
+          selectedItems: _selectedItems,
+          onChanged: (selected) {
+            setState(() {
+              _selectedItems = selected;
+            });
+            widget.onChanged?.call(_selectedItems);
+          },
         );
       },
     );
@@ -232,6 +154,120 @@ class _CustomMultiDropdownSearchState extends State<CustomMultiDropdownSearch> {
           ),
         const SizedBox(height: 10),
       ],
+    );
+  }
+}
+
+class _DropDownView extends StatefulWidget {
+  const _DropDownView({
+    required this.selectedItems,
+    this.onChanged,
+    required this.items,
+  });
+  final List<DropItem> selectedItems;
+  final void Function(List<DropItem>)? onChanged;
+  final List<DropItem> items;
+  @override
+  State<_DropDownView> createState() => __DropDownViewState();
+}
+
+class __DropDownViewState extends State<_DropDownView> {
+  final TextEditingController _searchController = TextEditingController();
+  List<DropItem> _filteredItems = [];
+  List<DropItem> _selectedItems = [];
+  @override
+  void initState() {
+    super.initState();
+    _filteredItems = List.from(widget.items);
+    _selectedItems = List.from(widget.selectedItems);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.6,
+      child: Padding(
+        padding: Styles.edgeInsetsAll10,
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            AppTextFormField(
+              controller: _searchController,
+              hintText: 'Search',
+              onChanged: (value) {
+                setState(() {
+                  _filteredItems =
+                      widget.items
+                          .where(
+                            (item) => item.value.toLowerCase().contains(
+                              value.toLowerCase(),
+                            ),
+                          )
+                          .toList();
+                });
+              },
+            ),
+            Styles.gap10,
+            Expanded(
+              child: ListView.builder(
+                shrinkWrap: true,
+                itemCount: _filteredItems.length,
+                itemBuilder: (_, index) {
+                  final item = _filteredItems[index];
+                  final isSelected = _selectedItems.contains(item);
+                  return Padding(
+                    padding: Styles.edgeInsetsAll08,
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          if (isSelected) {
+                            _selectedItems.remove(item);
+                          } else {
+                            _selectedItems.add(item);
+                          }
+                        });
+                      },
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              item.value,
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ),
+                          Styles.gap10,
+                          if (isSelected)
+                            Container(
+                              decoration: BoxDecoration(
+                                color: AppColors.stepperColor,
+                                borderRadius: Styles.borderRadiusCircular05,
+                              ),
+                              padding: Styles.edgeInsetsAll02,
+                              child: Icon(
+                                Icons.done,
+                                size: 20,
+                                color: Colors.white,
+                              ),
+                            ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+            SaveCancelWidget(
+              onPressed: () {
+                setState(() {});
+                if (widget.onChanged != null) {
+                  widget.onChanged!(_selectedItems);
+                }
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
