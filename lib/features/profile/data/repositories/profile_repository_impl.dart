@@ -31,7 +31,7 @@ class ProfileRepositoryImpl extends ProfileRepository {
   }
 
   @override
-  AppTypeResponse<List<MediaModel>> medias() {
+  AppTypeResponse<List<Media>> medias() {
     return datasource.medias();
   }
 

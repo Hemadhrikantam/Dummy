@@ -12,7 +12,6 @@ import 'package:dummy/features/profile/domain/usecases/event_fields_usecases.dar
 import 'package:dummy/features/profile/domain/usecases/favorite_medias_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/medias_usecases.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 import '../../../domain/entities/documents.dart';
 
 part 'pet_dairy_event.dart';

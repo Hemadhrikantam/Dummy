@@ -4,6 +4,7 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
@@ -33,6 +34,7 @@ class _MediaTabState extends State<MediaTab> {
   Widget build(BuildContext context) {
     return BlocBuilder<PetDairyBloc, PetDairyState>(
       builder: (context, state) {
+        LogUtility.info('media  ${state.medias}');
         if (state.medias.isEmpty) {
           return Padding(
             padding: Styles.edgeInsetsOnlyH00,
@@ -46,7 +48,6 @@ class _MediaTabState extends State<MediaTab> {
         }
         else if(state.initStatus.loading){
           LoadingWidget.circularProgressIndicatorCenter;
-
         }
         return Container(
           padding: Styles.edgeInsetsAll08,

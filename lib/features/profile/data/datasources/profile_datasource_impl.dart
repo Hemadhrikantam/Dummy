@@ -181,8 +181,8 @@ class ProfileDatasourceImpl extends ProfileDatasource {
                   : success.statusCode;
           if (statusCode <= 200) {
             final item = <MediaModel>[];
-            for (final dropList in data as List? ?? []) {
-              item.add(MediaModel.fromMap(dropList as JsonMap));
+            for (final media in data as List? ?? []) {
+              item.add(MediaModel.fromMap(media as JsonMap));
             }
             return Right(item);
           }

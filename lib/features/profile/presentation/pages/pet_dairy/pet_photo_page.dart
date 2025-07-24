@@ -5,6 +5,7 @@ import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/services/share_service.dart';
 
 import 'package:dummy/core/utils/bottom_models.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
 import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
 
@@ -62,7 +63,7 @@ class PetPhotoCardPage extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.all(12),
                     child: Text(
-                      media.media,
+                      media.description,
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
@@ -81,12 +82,12 @@ class PetPhotoCardPage extends StatelessWidget {
                       color: Color(0xFFFFBA59),
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: const Row(
+                    child:  Row(
                       children: [
                         Icon(Icons.cake, size: 16, color: Colors.white),
                         SizedBox(width: 4),
                         Text(
-                          "Birthday",
+                          media.event,
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
