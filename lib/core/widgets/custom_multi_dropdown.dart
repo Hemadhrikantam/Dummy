@@ -215,8 +215,13 @@ class __DropDownViewState extends State<_DropDownView> {
                 itemBuilder: (_, index) {
                   final item = _filteredItems[index];
                   final isSelected = _selectedItems.contains(item);
-                  return Padding(
-                    padding: Styles.edgeInsetsAll08,
+                  return Container(
+                    padding: Styles.edgeInsetsAll12,
+                    margin: Styles.edgeInsetsAll04,
+                    decoration: BoxDecoration(
+                      borderRadius: Styles.borderRadiusCircular08,
+                      border: Border.all(color: Colors.grey.shade300),
+                    ),
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
