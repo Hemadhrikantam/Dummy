@@ -54,10 +54,18 @@ class _WalksTabState extends State<WalksTab> {
   Widget build(BuildContext context) {
     final now = DateTime.now();
     _selectedDay = DateTime.now();
-    final nextFiveDays = List.generate(
-      6,
-      (index) => now.add(Duration(days: index)),
+    final firstDayOfMonth = DateTime(now.year, now.month, 1);
+    final nextMonth = DateTime(now.year, now.month + 1, 1);
+    final totalDaysInMonth = nextMonth.difference(firstDayOfMonth).inDays;
+    // final nextFiveDays = List.generate(
+    //   6,
+    //   (index) => now.add(Duration(days: index)),
+    // );
+    final daysInCurrentMonth = List.generate(
+      totalDaysInMonth,
+      (index) => DateTime(now.year, now.month, index + 1),
     );
+
 
     return RefreshIndicator.adaptive(
       color: AppColors.stepperColor,
@@ -68,7 +76,7 @@ class _WalksTabState extends State<WalksTab> {
       child: ListView(
         children: [
           DaySelector(
-            days: nextFiveDays,
+            days: daysInCurrentMonth,
             initialDate: now,
             onDaySelected: (day) {
               setState(() {

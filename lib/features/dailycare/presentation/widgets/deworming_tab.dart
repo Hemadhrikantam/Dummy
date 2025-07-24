@@ -44,11 +44,14 @@ class _DewormingTabState extends State<DewormingTab> {
   Widget build(BuildContext context) {
     final now = DateTime.now();
     _selectedDay = DateTime.now();
-    final nextFiveDays = List.generate(
-      6,
-      (index) => now.add(Duration(days: index)),
-    );
+    final firstDayOfMonth = DateTime(now.year, now.month, 1);
+    final nextMonth = DateTime(now.year, now.month + 1, 1);
+    final totalDaysInMonth = nextMonth.difference(firstDayOfMonth).inDays;
 
+    final daysInCurrentMonth = List.generate(
+      totalDaysInMonth,
+      (index) => DateTime(now.year, now.month, index + 1),
+    );
     return RefreshIndicator.adaptive(
       color: AppColors.stepperColor,
       backgroundColor: AppColors.white,
@@ -60,7 +63,7 @@ class _DewormingTabState extends State<DewormingTab> {
       child: ListView(
         children: [
           DaySelector(
-            days: nextFiveDays,
+            days: daysInCurrentMonth,
             initialDate: now,
             onDaySelected: (day) {
               setState(() {

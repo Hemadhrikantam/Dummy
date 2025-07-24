@@ -224,24 +224,31 @@ class __PersonalityTags extends StatelessWidget {
             if (state.selectedPersonalityTags.isNotEmpty)
               SizedBox(
                 height: context.height * .065,
-                child: AppCustomListViewBuilder(
-                  isExpand: false,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  itemCount: state.selectedPersonalityTags.length,
-                  separatorBuilder: (context, i) => Styles.gap10,
-                  itemBuilder: (context, index) {
-                    final items = state.selectedPersonalityTags;
-                    final ind = state.selectedPersonalityTags.indexWhere(
-                      (e) => e.value?.id == items[index].value?.id,
-                    );
-                    return PersonalityTagCard(
-                      index: ind,
-                      tag:
-                          state.selectedPersonalityTags[index].value?.value ??
-                          '',
-                    );
-                  },
+                child: Theme(
+                  data: ThemeData(
+                    highlightColor: AppColors.stepperColor
+                  ),
+                  child: Scrollbar(    
+                    child: AppCustomListViewBuilder(
+                      isExpand: false,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      itemCount: state.selectedPersonalityTags.length,
+                      separatorBuilder: (context, i) => Styles.gap10,
+                      itemBuilder: (context, index) {
+                        final items = state.selectedPersonalityTags;
+                        final ind = state.selectedPersonalityTags.indexWhere(
+                          (e) => e.value?.id == items[index].value?.id,
+                        );
+                        return PersonalityTagCard(
+                          index: ind,
+                          tag:
+                              state.selectedPersonalityTags[index].value?.value ??
+                              '',
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ),
           ],

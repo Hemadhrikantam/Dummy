@@ -52,28 +52,31 @@ class PetFavPage extends StatelessWidget {
                   ),
                 );
               }
-              return Container(
-                padding: Styles.edgeInsetsAll08,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: Styles.borderRadiusCircular10,
-                ),
-                child: Wrap(
-                  spacing: 10,
-                  runSpacing: 10,
-                  children: [
-                    ...state.favoriteMedias.map((m) {
-                      return GestureDetector(
-                        onTap: () {
-                          context.push(PetPhotoCardPage.route(media: m));
-                        },
-                        child: AppNetworkImage(
-                          url: m.media,
-                          width: context.width * 0.43,
-                        ),
-                      );
-                    }),
-                  ],
+              return Padding(
+                padding: Styles.edgeInsetsOnlyH15,
+                child: Container(
+                  padding: Styles.edgeInsetsAll08,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: Styles.borderRadiusCircular10,
+                  ),
+                  child: Wrap(
+                    spacing: 10,
+                    runSpacing: 10,
+                    children: [
+                      ...state.favoriteMedias.map((m) {
+                        return GestureDetector(
+                          onTap: () {
+                            context.push(PetPhotoCardPage.route(media: m));
+                          },
+                          child: AppNetworkImage(
+                            url: m.media,
+                            width: context.width * 0.43,
+                          ),
+                        );
+                      }),
+                    ],
+                  ),
                 ),
               );
             },

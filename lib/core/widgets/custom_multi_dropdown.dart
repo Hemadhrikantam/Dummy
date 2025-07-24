@@ -209,56 +209,71 @@ class __DropDownViewState extends State<_DropDownView> {
             ),
             Styles.gap10,
             Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: _filteredItems.length,
-                itemBuilder: (_, index) {
-                  final item = _filteredItems[index];
-                  final isSelected = _selectedItems.contains(item);
-                  return Container(
-                    padding: Styles.edgeInsetsAll12,
-                    margin: Styles.edgeInsetsAll04,
-                    decoration: BoxDecoration(
-                      borderRadius: Styles.borderRadiusCircular08,
-                      border: Border.all(color: Colors.grey.shade300),
-                    ),
-                    child: GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          if (isSelected) {
-                            _selectedItems.remove(item);
-                          } else {
-                            _selectedItems.add(item);
-                          }
-                        });
-                      },
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              item.value,
-                              style: TextStyle(fontSize: 16),
+              child: Theme(
+                data: ThemeData(
+                  highlightColor: AppColors.stepperColor
+                ),
+                child: Scrollbar(
+                  thickness: 7,
+                  radius: Styles.radiusCircular20,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: _filteredItems.length,
+                      itemBuilder: (_, index) {
+                        final item = _filteredItems[index];
+                        final isSelected = _selectedItems.contains(item);
+                        return Container(
+                          padding: Styles.edgeInsetsAll12,
+                          margin: Styles.edgeInsetsAll04,
+                          decoration: BoxDecoration(
+                            borderRadius: Styles.borderRadiusCircular08,
+                            border: Border.all(color: Colors.grey.shade300),
+                          ),
+                          child: GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                if (isSelected) {
+                                  _selectedItems.remove(item);
+                                } else {
+                                  _selectedItems.add(item);
+                                }
+                              });
+                            },
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: Styles.edgeInsetsAll08,
+                                    child: Text(
+                                      item.value,
+                                      style: TextStyle(fontSize: 16),
+                                    ),
+                                  ),
+                                ),
+                                Styles.gap10,
+                                if (isSelected)
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: AppColors.stepperColor,
+                                      borderRadius: Styles.borderRadiusCircular05,
+                                    ),
+                                    padding: Styles.edgeInsetsAll02,
+                                    child: Icon(
+                                      Icons.done,
+                                      size: 20,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                              ],
                             ),
                           ),
-                          Styles.gap10,
-                          if (isSelected)
-                            Container(
-                              decoration: BoxDecoration(
-                                color: AppColors.stepperColor,
-                                borderRadius: Styles.borderRadiusCircular05,
-                              ),
-                              padding: Styles.edgeInsetsAll02,
-                              child: Icon(
-                                Icons.done,
-                                size: 20,
-                                color: Colors.white,
-                              ),
-                            ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
-                  );
-                },
+                  ),
+                ),
               ),
             ),
             SaveCancelWidget(

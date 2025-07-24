@@ -70,7 +70,7 @@ class _MealsTabState extends State<MealsTab> {
               context.read<MealsBloc>().add(MealsEvent.meals(_selectedDay));
             },
           ),
-          Styles.gap10,
+          Styles.gap15,
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [

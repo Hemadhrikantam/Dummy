@@ -54,11 +54,14 @@ class _DaySelectorState extends State<DaySelector> {
     );
 
     if (index != -1) {
-      final offset = index * (_itemWidth + _itemGap * 2);
-      _scrollController.animateTo(
-        offset,
-        duration: Duration(milliseconds: 500),
-        curve: Curves.easeOut,
+    final itemExtent = _itemWidth + (_itemGap * 1.85);
+    final screenWidth = MediaQuery.of(context).size.width;
+    final targetOffset = (index * itemExtent) - (screenWidth / 2) + (_itemWidth / 5);
+      _scrollController.jumpTo(
+      targetOffset.clamp(
+        _scrollController.position.minScrollExtent,
+        _scrollController.position.maxScrollExtent,
+      ),
       );
     }
   }
