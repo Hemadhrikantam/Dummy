@@ -210,6 +210,7 @@ class __PersonalityTags extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PetFormBloc, PetFormState>(
       builder: (context, state) {
+        LogUtility.warning('Personality Tags: ${state.personalityTags.length}');
         return Column(
           children: [
             CustomMultiDropdownSearch(
