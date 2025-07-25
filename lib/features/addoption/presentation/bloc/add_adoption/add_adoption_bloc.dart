@@ -277,6 +277,7 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
     final payload = PetAdoptionPayload(
       name: state.name.value,
       year: state.year.value?.value ?? '',
+      months: state.month.value?.value ?? '',
       petType: state.petType.value?.value ?? '',
       address: state.address.value,
       phone: state.phone.value ?? '',

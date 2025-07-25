@@ -26,6 +26,8 @@ class VetNearMePage extends StatefulWidget {
 class _VetNearMePage extends State<VetNearMePage>
     with TickerProviderStateMixin {
   late TabController _tabController;
+   int selectedIndex = 0; 
+
   @override
   void initState() {
     super.initState();
@@ -47,7 +49,7 @@ class _VetNearMePage extends State<VetNearMePage>
       body: SafeArea(
         child: GoogleMapView(
           child: Container(
-            padding: EdgeInsets.all(10),
+            padding: Styles.edgeInsetsAll10,
             decoration: BoxDecoration(color: Colors.transparent),
             child: SingleChildScrollView(
               child: Column(
@@ -75,30 +77,47 @@ class _VetNearMePage extends State<VetNearMePage>
                     children: [
                       Expanded(
                         child: AppButton(
-                          backgroundColor: AppColors.stepperColor,
+                          borderColor: AppColors.stepperColor,
+                          backgroundColor: selectedIndex == 0? AppColors.stepperColor: AppColors.white,
                           name: Text(
                             "Clincs",
                             style: context.textTheme.titleSmall?.copyWith(
                               fontWeight: FontWeight.w700,
-                              color: AppColors.white,
+                              color: selectedIndex == 0
+                                  ? AppColors.white
+                                  : AppColors.text,
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              selectedIndex = 0;
+                            });
+                             BottomModels.clinicNearMeBottomSheet(context);
+                          },
                         ),
                       ),
                       Styles.gap15,
                       Expanded(
                         child: AppButton(
                           borderColor: AppColors.stepperColor,
-                          backgroundColor: AppColors.white,
+                          backgroundColor: selectedIndex == 1
+                              ? AppColors.stepperColor
+                              : AppColors.white,
                           name: Text(
                             "Stores",
                             style: context.textTheme.titleSmall?.copyWith(
                               fontWeight: FontWeight.w700,
-                              color: AppColors.text,
+                              color: selectedIndex == 1
+                                  ? AppColors.white
+                                  : AppColors.text,
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            setState(() {
+                              selectedIndex = 1;
+                            });
+                             BottomModels.storesNearMeBottomSheet(context);
+                          },
                         ),
                       ),
                     ],

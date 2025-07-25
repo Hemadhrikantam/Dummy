@@ -15,7 +15,21 @@ class AdoptionModel extends Adoption{
         description: json["description"]??'',
         petImage: json["pet_image"]??'',
         isAdopted: json["is_adopted"]??false,
-        petBreed: json["pet_breed"]?? 0,
+        petBreed: PetBreedModel.fromMap(json["pet_breed"]??{}),
     );
 
+}
+
+class PetBreedModel extends PetBreed {
+
+  const PetBreedModel ({
+    required super.id, required super.petType, required super.petBreed}
+
+  );
+
+  factory PetBreedModel.fromMap(JsonMap map) => PetBreedModel(
+    id: map['id']?? 0, 
+    petType: map['pet_type']??'',
+    petBreed: map['breed']??'',
+    );
 }

@@ -5,7 +5,6 @@ import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/services/share_service.dart';
 
 import 'package:dummy/core/utils/bottom_models.dart';
-import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
 import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
 

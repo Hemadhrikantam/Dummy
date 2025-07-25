@@ -337,6 +337,7 @@ class AppText {
   static String forgetPassword = 'Forget Password';
   static String members = 'Members';
   static String clinicsNearMe = 'Clinics Near Me ';
+  static String storesNearMe = 'Stores Near Me ';
   static String member = 'Member';
   static String startCapturingMemo(String name) =>
       'Start capturing memories with $name 🐶';
@@ -355,7 +356,7 @@ class AppText {
   static String no = 'No';
   static String yes = 'Yes';
   //pet dairy
-  static const String petDairy = 'Pet Dairy';
+  static const String petDairy = 'Pet Diary';
   static const String timeline = 'Timeline';
   static const String documents = 'Documents';
   static const String document = 'Document';

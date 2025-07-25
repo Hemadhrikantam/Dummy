@@ -11,7 +11,7 @@ class Adoption extends Equatable {
   final String description;
   final String petImage;
   final bool isAdopted;
-  final int petBreed;
+  final PetBreed petBreed;
 
   const Adoption({
     required this.id,
@@ -42,3 +42,19 @@ class Adoption extends Equatable {
     petBreed,
   ];
 }
+
+
+class PetBreed extends Equatable{
+  const PetBreed( {
+    required this.id, 
+    required this.petType, 
+    required this.petBreed,
+  });
+
+  final int id;
+  final String petType;
+  final String petBreed;
+  
+  @override
+  List<Object?> get props => [id,petType,petBreed];
+  }
