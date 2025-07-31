@@ -363,7 +363,7 @@ class AppText {
   static const String addDoc = 'Add Documents';
   static const String addMedia = 'Add Media';
   static const String editMedia = 'Edit Media';
-  static String tellUsLuna(String name) => "Tell us about ${name}'s moment!";
+  static String tellUsLuna(String name) => "Tell us about $name's moment!";
   static String events = 'Events';
   static String favourites = 'Favourites';
   static String whatsapp = 'Whatsapp';

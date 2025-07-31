@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:dummy/api/api.dart' as state;
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/enum/breed.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
@@ -15,7 +14,6 @@ import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/custom_multi_dropdown.dart';
 import 'package:dummy/core/widgets/file_picker.dart';
 import 'package:dummy/features/profile/presentation/bloc/pet_form/pet_form_bloc.dart';
-import 'package:dummy/features/signup/presentation/bloc/register/register_bloc.dart';
 import 'package:dummy/features/signup/presentation/widgets/pet_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

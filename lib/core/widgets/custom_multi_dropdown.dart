@@ -41,7 +41,7 @@ class CustomMultiDropdownSearch extends StatefulWidget {
 class _CustomMultiDropdownSearchState extends State<CustomMultiDropdownSearch> {
   List<DropItem> _selectedItems = [];
   List<DropItem> _filteredItems = [];
-  TextEditingController _searchController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {

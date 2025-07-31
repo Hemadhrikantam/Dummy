@@ -13,7 +13,6 @@ import '../../../../core/widgets/base_screen.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
 import '../../../../core/widgets/custom_header_widget.dart';
 import '../../../../core/widgets/custom_search_bar.dart';
-import '../../../../core/widgets/filter_button.dart';
 import '../../../dailycare/presentation/widgets/overview_header_widget.dart';
 import '../widgets/adoption_tabbar_view.dart';
 

@@ -122,7 +122,7 @@ Widget build(BuildContext context) {
                                       );
                                     }
                                     : () {
-                                      LogUtility.info('state :${state}');
+                                      LogUtility.info('state :$state');
                                       AppAlert.showToast(
                                         message: 'Enter the Required Fields',
                                       );

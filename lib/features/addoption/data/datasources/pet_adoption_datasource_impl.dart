@@ -72,7 +72,7 @@ class PetAdoptionDatasourceImpl extends PetAdoptionDatasource {
     final formData = FormData.fromMap(payload.toMap());
 
     final response = await http.put(
-      path: api.adoptPet + '$id',
+      path: '${api.adoptPet}$id',
       data: formData,
       options: Options(contentType: 'multipart/form-data'),
     );

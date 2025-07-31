@@ -145,7 +145,7 @@ class AuthDatasourceImpl extends AuthDatasource {
     );
     return response.fold(
       (error) {
-        LogUtility.error('${error.message}');
+        LogUtility.error(error.message);
         return Left(ErrorMessage(message: error.message));
       },
       (success) {
@@ -169,7 +169,7 @@ class AuthDatasourceImpl extends AuthDatasource {
             );
           }
         } catch (e) {
-          LogUtility.error('${e}');
+          LogUtility.error('$e');
           return Left(ErrorMessage(message: AppText.somethingWentWrong));
         }
       },
@@ -211,7 +211,7 @@ class AuthDatasourceImpl extends AuthDatasource {
             );
           }
         } catch (e) {
-          LogUtility.error('${e}');
+          LogUtility.error('$e');
           return Left(ErrorMessage(message: AppText.somethingWentWrong));
         }
       },

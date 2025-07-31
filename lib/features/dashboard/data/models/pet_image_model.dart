@@ -3,9 +3,9 @@ import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart'
 
 class PetImageModel extends PetImage {
   const PetImageModel({
-    required int id,
-    required String petImage,
-  }) : super(id: id, petImage: petImage);
+    required super.id,
+    required super.petImage,
+  });
 
   factory PetImageModel.fromMap(JsonMap map) {
     return PetImageModel(

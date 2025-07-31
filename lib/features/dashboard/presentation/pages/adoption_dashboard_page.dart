@@ -17,7 +17,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AdoptionDashboardPage extends StatefulWidget {
   final DashboardPetDetails? selectedPet;
-  AdoptionDashboardPage({super.key, required this.selectedPet});
+  const AdoptionDashboardPage({super.key, required this.selectedPet});
   static const routeName = '/AdoptionDashboardPage';
 
   static Route<T> route<T>(DashboardPetDetails selectedPet) {
@@ -54,7 +54,7 @@ class _AdoptionDashboardPage extends State<AdoptionDashboardPage> {
 
   @override
   Widget build(BuildContext context) {
-    final List<Widget> _screens = <Widget>[
+    final List<Widget> screens = <Widget>[
       HomePage(),
       HealthPage(selectedPet: widget.selectedPet),
       BlocBuilder<DashboardBloc, DashboardState>(
@@ -98,7 +98,7 @@ class _AdoptionDashboardPage extends State<AdoptionDashboardPage> {
             child: AppAssestsImage(path: ImageResources.ai2),
           ),
         ),
-        body: IndexedStack(index: selectedIndex, children: _screens),
+        body: IndexedStack(index: selectedIndex, children: screens),
       ),
     );
   }

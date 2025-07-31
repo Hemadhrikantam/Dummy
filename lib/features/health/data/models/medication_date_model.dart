@@ -3,18 +3,12 @@ import 'package:dummy/features/health/domain/entities/medication_date.dart';
 
 class MedicationDateModel extends MedicationDate {
   const MedicationDateModel({
-    required int id,
-    required DateTime date,
-    required bool morning,
-    required bool afternoon,
-    required bool night,
-  }) : super(
-          id: id,
-          date: date,
-          morning: morning,
-          afternoon: afternoon,
-          night: night,
-        );
+    required super.id,
+    required super.date,
+    required super.morning,
+    required super.afternoon,
+    required super.night,
+  });
 
   factory MedicationDateModel.fromJson(Map<String, dynamic> json) {
     return MedicationDateModel(

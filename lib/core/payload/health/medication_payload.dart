@@ -55,6 +55,7 @@ class MedicationPayload extends Equatable implements Payload {
         frequency,
       ];
 
+  @override
   JsonMap toMap() => {
         'reminder': reminder,
         'tablet_name': tabletName,

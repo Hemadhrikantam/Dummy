@@ -2,28 +2,17 @@ import '../../domain/entities/vaccination.dart';
 
 class PetVaccinationModel extends PetVaccination {
   const PetVaccinationModel({
-    required int id,
-    required String vaccinationName,
-    required String company,
-    required bool isGiven,
-    required DateTime dateAdministered,
-    required DateTime dueDate,
-    required String note,
-    required String reminderTime,
-    required String media,
-    required int frequency,
-  }) : super(
-         id: id,
-         vaccinationName: vaccinationName,
-         company: company,
-         isGiven: isGiven,
-         dateAdministered: dateAdministered,
-         dueDate: dueDate,
-         note: note,
-         reminderTime: reminderTime,
-         media: media,
-         frequency: frequency,
-       );
+    required super.id,
+    required super.vaccinationName,
+    required super.company,
+    required super.isGiven,
+    required super.dateAdministered,
+    required super.dueDate,
+    required super.note,
+    required super.reminderTime,
+    required super.media,
+    required super.frequency,
+  });
 
   factory PetVaccinationModel.fromJson(Map<String, dynamic> json) {
     return PetVaccinationModel(
