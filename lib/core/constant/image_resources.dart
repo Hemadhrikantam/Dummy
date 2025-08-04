@@ -4,6 +4,7 @@ class ImageResources {
   static const String rives = '$__assets/rives';
   static const String __icons = '$__assets/icons';
   static const String image = '$__assets/image_1.png';
+  static const String loading = '$__assets/loading.json';
 
   static const String dummy = '$images/dummy.svg';
   static const String splashScreen = '$images/splash_screen.png';
