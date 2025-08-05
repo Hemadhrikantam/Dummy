@@ -6,6 +6,8 @@ import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/core/widgets/google_map_view.dart';
+import 'package:dummy/features/profile/presentation/widgets/manage_family_members/clinic_nearme_bottom_sheet.dart';
+import 'package:dummy/features/profile/presentation/widgets/manage_family_members/stores_nearme_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 class VetNearMePage extends StatefulWidget {
@@ -26,14 +28,14 @@ class VetNearMePage extends StatefulWidget {
 class _VetNearMePage extends State<VetNearMePage>
     with TickerProviderStateMixin {
   late TabController _tabController;
-   int selectedIndex = 0; 
+  int selectedIndex = 0;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
     Future.delayed(Duration.zero, () async {
-      BottomModels.clinicNearMeBottomSheet(context);
+      // BottomModels.clinicNearMeBottomSheet(context);
     });
   }
 
@@ -46,88 +48,110 @@ class _VetNearMePage extends State<VetNearMePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: GoogleMapView(
-          child: Container(
-            padding: Styles.edgeInsetsAll10,
-            decoration: BoxDecoration(color: Colors.transparent),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Styles.gap30,
-                  Row(
-                    children: [
-                      BackButtonWidget(),
-                      Styles.gap8,
-                      Expanded(
-                        child: Text(
-                          AppText.vetNearMe,
-                          style: context.textTheme.titleSmall?.copyWith(
-                            fontSize: 22,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Styles.gap20,
-                  
-                  Row(
-                    children: [
-                      Expanded(
-                        child: AppButton(
-                          borderColor: AppColors.stepperColor,
-                          backgroundColor: selectedIndex == 0? AppColors.stepperColor: AppColors.white,
-                          name: Text(
-                            "Clincs",
+      body: Stack(
+        alignment: Alignment.bottomCenter,
+        children: [
+          GoogleMapView(
+            child: Container(
+              padding: Styles.edgeInsetsAll10,
+              decoration: BoxDecoration(color: Colors.transparent),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Styles.gap30,
+                    Row(
+                      children: [
+                        BackButtonWidget(),
+                        Styles.gap8,
+                        Expanded(
+                          child: Text(
+                            AppText.vetNearMe,
                             style: context.textTheme.titleSmall?.copyWith(
-                              fontWeight: FontWeight.w700,
-                              color: selectedIndex == 0
-                                  ? AppColors.white
-                                  : AppColors.text,
+                              fontSize: 22,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
-                          onPressed: () {
-                            setState(() {
-                              selectedIndex = 0;
-                            });
-                             BottomModels.clinicNearMeBottomSheet(context);
-                          },
                         ),
-                      ),
-                      Styles.gap15,
-                      Expanded(
-                        child: AppButton(
-                          borderColor: AppColors.stepperColor,
-                          backgroundColor: selectedIndex == 1
-                              ? AppColors.stepperColor
-                              : AppColors.white,
-                          name: Text(
-                            "Stores",
-                            style: context.textTheme.titleSmall?.copyWith(
-                              fontWeight: FontWeight.w700,
-                              color: selectedIndex == 1
-                                  ? AppColors.white
-                                  : AppColors.text,
+                      ],
+                    ),
+                    Styles.gap20,
+
+                    Row(
+                      children: [
+                        Expanded(
+                          child: AppButton(
+                            borderColor: AppColors.stepperColor,
+                            backgroundColor:
+                                selectedIndex == 0
+                                    ? AppColors.stepperColor
+                                    : AppColors.white,
+                            name: Text(
+                              "Clincs",
+                              style: context.textTheme.titleSmall?.copyWith(
+                                fontWeight: FontWeight.w700,
+                                color:
+                                    selectedIndex == 0
+                                        ? AppColors.white
+                                        : AppColors.text,
+                              ),
                             ),
+                            onPressed: () {
+                              setState(() {
+                                selectedIndex = 0;
+                              });
+                              // BottomModels.clinicNearMeBottomSheet(context);
+                            },
                           ),
-                          onPressed: () {
-                            setState(() {
-                              selectedIndex = 1;
-                            });
-                             BottomModels.storesNearMeBottomSheet(context);
-                          },
                         ),
-                      ),
-                    ],
-                  ),
-                  Styles.gap50,
-                ],
+                        Styles.gap15,
+                        Expanded(
+                          child: AppButton(
+                            borderColor: AppColors.stepperColor,
+                            backgroundColor:
+                                selectedIndex == 1
+                                    ? AppColors.stepperColor
+                                    : AppColors.white,
+                            name: Text(
+                              "Stores",
+                              style: context.textTheme.titleSmall?.copyWith(
+                                fontWeight: FontWeight.w700,
+                                color:
+                                    selectedIndex == 1
+                                        ? AppColors.white
+                                        : AppColors.text,
+                              ),
+                            ),
+                            onPressed: () {
+                              setState(() {
+                                selectedIndex = 1;
+                              });
+                              // BottomModels.storesNearMeBottomSheet(context);
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    Styles.gap50,
+                  ],
+                ),
               ),
             ),
           ),
-        ),
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
+              ),
+            ),
+            child:
+                selectedIndex == 0
+                    ? ClinicNearMeBottomSheet()
+                    : StoresNearMeBottomSheet(),
+          ),
+        ],
       ),
     );
   }

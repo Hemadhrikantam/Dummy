@@ -224,25 +224,27 @@ class VaccinationFormBloc
     final h = int.parse(state.reminderHour.value!.value);
     final m = int.parse(state.reminderMin.value!.value);
     final isPm = state.reminderAmPm.value!.value == "PM";
-    final result = await _addVaccinationUsecase(
-      payload: VaccinationPayload(
-        isGiven: state.isGiven,
-        vaccinationName: state.vaccinationName.value,
-        company: state.company.value,
-        reminderTime: '${isPm ? h + 12 : h}:$m',
-        dateAdministered: DateTime.parse(state.dateAdministered.value),
-        dueDate: DateTime.parse(state.dueDate.value),
-        note: state.note.value,
-        media: await MultipartFile.fromFile(
-          state.media.value,
-          filename: state.media.value.split('/').last,
-        ),
-        pet: state.petId,
-        frequency: state.frequency.value!.id,
-        reminderTimezone: state.reminderTimezone.value!.id,
-        reminderBefore: state.reminderBefore.value!.id,
+    final payload = VaccinationPayload(
+      isGiven: state.isGiven,
+      vaccinationName: state.vaccinationName.value,
+      company: state.company.value,
+      reminderTime: '${isPm ? h + 12 : h}:$m',
+      dateAdministered: DateTime.parse(state.dateAdministered.value),
+      dueDate: DateTime.parse(state.dueDate.value),
+      note: state.note.value,
+      media: await MultipartFile.fromFile(
+        state.media.value,
+        filename: state.media.value.split('/').last,
       ),
+      pet: state.petId,
+      frequency: state.frequency.value!.id,
+      reminderTimezone: state.reminderTimezone.value!.id,
+      reminderBefore: state.reminderBefore.value!.id,
     );
+    final result =
+        event.id != null
+            ? await _addVaccinationUsecase(payload: payload)
+            : await _addVaccinationUsecase(payload: payload);
 
     result.fold(
       (failure) => emit(state.copyWith(submitStatus: Status.error)),

@@ -35,45 +35,59 @@ class ClinicNearMeBottomSheet extends StatelessWidget {
             ),
             Styles.gap10,
             CustomCard(
-             
               child: Row(
                 children: [
-                  TextValueWidget(text: 'Clinic Name   1.5km', value: 'Jeeva Pet Clinic'),
+                  TextValueWidget(
+                    text: 'Clinic Name   1.5km',
+                    value: 'Jeeva Pet Clinic',
+                  ),
                   Styles.spacer,
-                  AppAssestsImage(path: ImageResources.map,width: 30,height: 30,boxFit: BoxFit.contain,),
-                  
-                  
+                  AppAssestsImage(
+                    path: ImageResources.map,
+                    width: 30,
+                    height: 30,
+                    boxFit: BoxFit.contain,
+                  ),
                 ],
               ),
             ),
             Styles.gap10,
-             CustomCard(
-             
+            CustomCard(
               child: Row(
                 children: [
-                  TextValueWidget(text: 'Clinic Name   1.5km', value: 'Jeeva Pet Clinic'),
+                  TextValueWidget(
+                    text: 'Clinic Name   1.5km',
+                    value: 'Jeeva Pet Clinic',
+                  ),
                   Styles.spacer,
-                  AppAssestsImage(path: ImageResources.map,width: 30,height: 30,boxFit: BoxFit.contain,),
-                  
-                  
+                  AppAssestsImage(
+                    path: ImageResources.map,
+                    width: 30,
+                    height: 30,
+                    boxFit: BoxFit.contain,
+                  ),
                 ],
               ),
             ),
             Styles.gap10,
-             CustomCard(
-             
+            CustomCard(
               child: Row(
                 children: [
-                  TextValueWidget(text: 'Clinic Name   1.5km', value: 'Jeeva Pet Clinic'),
+                  TextValueWidget(
+                    text: 'Clinic Name   1.5km',
+                    value: 'Jeeva Pet Clinic',
+                  ),
                   Styles.spacer,
-                  AppAssestsImage(path: ImageResources.map,width: 30,height: 30,boxFit: BoxFit.contain,),
-                  
-                  
+                  AppAssestsImage(
+                    path: ImageResources.map,
+                    width: 30,
+                    height: 30,
+                    boxFit: BoxFit.contain,
+                  ),
                 ],
               ),
             ),
             Styles.gap30,
-           
           ],
         );
       },

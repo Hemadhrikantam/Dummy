@@ -1,6 +1,7 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/utils/app_utils.dart';
@@ -139,6 +140,9 @@ class VaccinationSuccessContent extends StatelessWidget {
                 ),
                 Styles.gap30,
                 AppButton(
+                  onPressed: () {
+                    context.pop();
+                  },
                   name: Center(
                     child: Text(
                       AppText.goToVaccination,
@@ -155,6 +159,9 @@ class VaccinationSuccessContent extends StatelessWidget {
                   children: [
                     Expanded(
                       child: AppTextButton(
+                        onPressed: () {
+                          context.pop();
+                        },
                         backgroundColor: AppColors.white,
                         name: AppText.home,
                         borderColor: AppColors.grey500,

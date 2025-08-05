@@ -319,10 +319,12 @@ class BottomModels {
 
   static Future<T?> clinicNearMeBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
-      isScrollControlled: true,
-      backgroundColor: backgroundColor,
       context: context,
-      shape: Styles.bottomDialog,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      isDismissible: false,
+      enableDrag: false,
+      barrierColor: Colors.transparent,
       builder: (BuildContext context) {
         return ClinicNearMeBottomSheet();
       },

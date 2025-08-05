@@ -35,19 +35,19 @@ class PetListWidget extends StatelessWidget {
                 return GestureDetector(
                   onTap: () => onPetSelected(i),
                   child: CustomCard(
-                    padding: Styles.edgeInsetsZero,
+                    padding: Styles.edgeInsetsAll04,
                     borderRadius: Styles.borderRadiusCircular50,
                     backgroundColor:
                         isSelected ? AppColors.buttonBackground : null,
                     border: Border.all(
-                      width: 2,
+                      width: 4,
                       color:
                           isSelected
                               ? AppColors.buttonBackground
                               : AppColors.stepperColor,
                     ),
                     child: Padding(
-                      padding: Styles.edgeInsetsAll02,
+                      padding: Styles.edgeInsetsZero,
                       child: ClipRRect(
                         borderRadius: Styles.borderRadiusCircular50,
                         child: AppNetworkImage(
