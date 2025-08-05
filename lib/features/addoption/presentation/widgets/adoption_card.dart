@@ -13,19 +13,17 @@ import 'package:flutter/material.dart';
 import '../../../../core/widgets/app_custom_chip.dart';
 
 class AdoptionCard extends StatelessWidget {
-  const AdoptionCard({super.key, required this.isAllPet,  this.adoption});
+  const AdoptionCard({super.key, required this.isAllPet, this.adoption});
   final Adoption? adoption;
-final bool isAllPet;
+  final bool isAllPet;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
       onTap: () {
-        if(isAllPet){
-
-        context.push(AllAdoptionDetailsPage.route(adoption));
-        }else{
-
-        context.push(AdoptionDetailsPage.route(adoption));
+        if (isAllPet) {
+          context.push(AllAdoptionDetailsPage.route(adoption));
+        } else {
+          context.push(AdoptionDetailsPage.route(adoption));
         }
       },
       padding: Styles.edgeInsetsAll06,
@@ -39,7 +37,7 @@ final bool isAllPet;
                 height: context.height * .17,
                 width: context.width * .3,
                 boxFit: BoxFit.fitWidth,
-                url: adoption?.petImage??'',
+                url: adoption?.petImage ?? '',
               ),
               Styles.gap15,
               Column(
@@ -48,7 +46,7 @@ final bool isAllPet;
                 children: [
                   // Styles.gap10,
                   Text(
-                    adoption?.name??'',
+                    adoption?.name ?? '',
                     style: context.textTheme.titleMedium?.copyWith(
                       color: AppColors.stepperColor,
                       fontWeight: FontWeight.w600,
@@ -56,9 +54,16 @@ final bool isAllPet;
                     ),
                   ),
                   Styles.gap10,
-                  TextValueWidget(text: 'Breed & age', value: 'German ${adoption?.age??''}'),
+                  TextValueWidget(
+                    text: 'Breed & age',
+                    value:
+                        '${adoption?.petBreed.petBreed} ${adoption?.age ?? ''}',
+                  ),
                   Styles.gap10,
-                  TextValueWidget(text: 'Location', value: adoption?.address??''),
+                  TextValueWidget(
+                    text: 'Location',
+                    value: adoption?.address ?? '',
+                  ),
                   Styles.gap4,
                 ],
               ),
@@ -68,10 +73,16 @@ final bool isAllPet;
             right: 0,
             top: 0,
             child: AppCustomChipWidget(
-              backgroundColor:(adoption?.isAdopted ??false)? AppColors.brown.withOpacity(0.2) : AppColors.backGroundGreen,
-              textColor:(adoption?.isAdopted ??false)? AppColors.brown: AppColors.greenText ,
+              backgroundColor:
+                  (adoption?.isAdopted ?? false)
+                      ? AppColors.brown.withOpacity(0.2)
+                      : AppColors.backGroundGreen,
+              textColor:
+                  (adoption?.isAdopted ?? false)
+                      ? AppColors.brown
+                      : AppColors.greenText,
               subTitle: '',
-              title: (adoption?.isAdopted ??false)?'Adopted' : 'Available',
+              title: (adoption?.isAdopted ?? false) ? 'Adopted' : 'Available',
               padding: Styles.edgeInsetsAll06 + Styles.edgeInsetsOnlyW10,
             ),
           ),

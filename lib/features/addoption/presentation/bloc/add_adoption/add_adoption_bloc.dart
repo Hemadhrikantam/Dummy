@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:dummy/core/enum/status.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/email.dart';
 import 'package:dummy/core/models/formz/mobile.dart';
@@ -68,7 +69,7 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
     emit(state.copyWith(addAdoptionStatus: Status.loading));
     final catBreeds = await _catBreeds();
     final dogBreeds = await _dogBreeds();
-        final petTypes = await _petTypes();
+    final petTypes = await _petTypes();
 
     emit(
       state.copyWith(
@@ -80,7 +81,6 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
     if (event.id != null) {
       final result = await __adoptionDetailsUsecases(id: event.id!);
       result.fold((l) {}, (r) async {
-
         final List<DropItem> breeds =
             r.petType == 'Dog'
                 ? dogBreeds
@@ -299,6 +299,7 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
       success,
     ) {
       emit(state.copyWith(submitStatus: Status.success));
+      currentContext.pop();
       BottomModels.addAdoptionSuccessBottomSheet(currentContext);
     });
   }
@@ -314,8 +315,7 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
   }
 
   Future<List<DropItem>> _petTypes() async {
-  final result = await __petTypes();
-  return result.fold((l) => [], (r) => r);
-}
-
+    final result = await __petTypes();
+    return result.fold((l) => [], (r) => r);
+  }
 }

@@ -17,7 +17,7 @@ import '../../../../core/widgets/buttons/app_text_button.dart';
 import '../widgets/vaccines/date_list.dart';
 import '../widgets/vaccines/vaccination_details_card.dart';
 
-class VaccinationDetailsPage extends StatelessWidget {
+class VaccinationDetailsPage extends StatefulWidget {
   const VaccinationDetailsPage({super.key, required this.id});
   static const routeName = '/VaccinationDetailsPage';
   final int id;
@@ -29,6 +29,19 @@ class VaccinationDetailsPage extends StatelessWidget {
             child: VaccinationDetailsPage(id: id),
           ),
       settings: const RouteSettings(name: routeName),
+    );
+  }
+
+  @override
+  State<StatefulWidget> createState() => _VaccinationDetailsPage();
+}
+
+class _VaccinationDetailsPage extends State<VaccinationDetailsPage> {
+  @override
+  void initState() {
+    super.initState();
+    context.read<VaccinationDetailsBloc>().add(
+      VaccinationDetailsEvent.init(widget.id),
     );
   }
 
@@ -48,7 +61,7 @@ class VaccinationDetailsPage extends StatelessWidget {
                     onPressed: () {
                       BottomModels.veccinationDeleteBottomSheet(
                         context,
-                        id: id,
+                        id: widget.id,
                       );
                       // BottomModels.medicationTakingBottomSheet(context);
                     },
@@ -61,7 +74,7 @@ class VaccinationDetailsPage extends StatelessWidget {
                 Expanded(
                   child: AppButton(
                     onPressed: () {
-                      context.push(EditVaccinationPage.route(id: id));
+                      context.push(EditVaccinationPage.route(id: widget.id));
                     },
                     name: Center(
                       child: Text(
