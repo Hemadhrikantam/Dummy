@@ -126,12 +126,20 @@ class InjectionBloc {
       medicationFrequencyUsecases: getIt<MedicationFrequencyUsecases>(),
       timezonesUsecases: getIt<TimezonesUsecases>(),
       beforeUsecases: getIt<RemindBeforeUsecases>(),
+      getVaccinationUsecases: getIt<GetVaccinationUsecases>(),
+    );
+  }
+
+  static VaccinationDetailsBloc get vaccinationDetailsBloc {
+    return VaccinationDetailsBloc(
+      getVaccinationUsecases: getIt<GetVaccinationUsecases>(),
     );
   }
 
   static VaccinationsBloc get vaccinationsBloc {
     return VaccinationsBloc(
       vaccinationsUsecases: getIt<VaccinationsUsecases>(),
+      deleteVaccinationUsecases: getIt<DeleteVaccinationUsecases>(),
     );
   }
 

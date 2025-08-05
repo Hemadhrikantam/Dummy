@@ -1,16 +1,35 @@
-
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/base_screen.dart';
 import '../widgets/vaccines/vaccination_success.dart';
 
 class VaccinationSuccessPage extends StatelessWidget {
-  const VaccinationSuccessPage({super.key});
+  const VaccinationSuccessPage({
+    super.key,
+    required this.vaccinationName,
+    required this.companyName,
+    required this.dueDate,
+    required this.dateAdministered,
+  });
   static const routeName = '/VaccinationSuccessPage';
-
-  static Route<T> route<T>() {
+  final String vaccinationName;
+  final String companyName;
+  final DateTime dueDate;
+  final DateTime dateAdministered;
+  static Route<T> route<T>({
+    required String vaccinationName,
+    required String companyName,
+    required DateTime dueDate,
+    required DateTime dateAdministered,
+  }) {
     return MaterialPageRoute<T>(
-      builder: (context) => const VaccinationSuccessPage(),
+      builder:
+          (context) => VaccinationSuccessPage(
+            vaccinationName: vaccinationName,
+            companyName: companyName,
+            dueDate: dueDate,
+            dateAdministered: dateAdministered,
+          ),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -22,7 +41,12 @@ class VaccinationSuccessPage extends StatelessWidget {
       subTitle: '',
       showBackIcon: false,
       onlyTitle: true,
-      child:  const VaccinationSuccessContent()
+      child: VaccinationSuccessContent(
+        vaccinationName: vaccinationName,
+        companyName: companyName,
+        dueDate: dueDate,
+        dateAdministered: dateAdministered,
+      ),
     );
   }
 }

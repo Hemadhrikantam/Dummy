@@ -1,4 +1,3 @@
-// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -10,245 +9,494 @@ part of 'adoption_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
+
 /// @nodoc
 mixin _$AdoptionEvent {
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AdoptionEvent);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'AdoptionEvent()';
-}
-
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() adoptions,
+    required TResult Function() allPets,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? adoptions,
+    TResult? Function()? allPets,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? adoptions,
+    TResult Function()? allPets,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Adoptions value) adoptions,
+    required TResult Function(_AllPets value) allPets,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Adoptions value)? adoptions,
+    TResult? Function(_AllPets value)? allPets,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Adoptions value)? adoptions,
+    TResult Function(_AllPets value)? allPets,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-class $AdoptionEventCopyWith<$Res>  {
-$AdoptionEventCopyWith(AdoptionEvent _, $Res Function(AdoptionEvent) __);
+abstract class $AdoptionEventCopyWith<$Res> {
+  factory $AdoptionEventCopyWith(
+    AdoptionEvent value,
+    $Res Function(AdoptionEvent) then,
+  ) = _$AdoptionEventCopyWithImpl<$Res, AdoptionEvent>;
 }
 
+/// @nodoc
+class _$AdoptionEventCopyWithImpl<$Res, $Val extends AdoptionEvent>
+    implements $AdoptionEventCopyWith<$Res> {
+  _$AdoptionEventCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of AdoptionEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$AdoptionsImplCopyWith<$Res> {
+  factory _$$AdoptionsImplCopyWith(
+    _$AdoptionsImpl value,
+    $Res Function(_$AdoptionsImpl) then,
+  ) = __$$AdoptionsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$AdoptionsImplCopyWithImpl<$Res>
+    extends _$AdoptionEventCopyWithImpl<$Res, _$AdoptionsImpl>
+    implements _$$AdoptionsImplCopyWith<$Res> {
+  __$$AdoptionsImplCopyWithImpl(
+    _$AdoptionsImpl _value,
+    $Res Function(_$AdoptionsImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AdoptionEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
 
 /// @nodoc
 
+class _$AdoptionsImpl implements _Adoptions {
+  const _$AdoptionsImpl();
 
-class _Adoptions implements AdoptionEvent {
-  const _Adoptions();
-  
+  @override
+  String toString() {
+    return 'AdoptionEvent.adoptions()';
+  }
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AdoptionsImpl);
+  }
 
+  @override
+  int get hashCode => runtimeType.hashCode;
 
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() adoptions,
+    required TResult Function() allPets,
+  }) {
+    return adoptions();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? adoptions,
+    TResult? Function()? allPets,
+  }) {
+    return adoptions?.call();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? adoptions,
+    TResult Function()? allPets,
+    required TResult orElse(),
+  }) {
+    if (adoptions != null) {
+      return adoptions();
+    }
+    return orElse();
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Adoptions);
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Adoptions value) adoptions,
+    required TResult Function(_AllPets value) allPets,
+  }) {
+    return adoptions(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Adoptions value)? adoptions,
+    TResult? Function(_AllPets value)? allPets,
+  }) {
+    return adoptions?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Adoptions value)? adoptions,
+    TResult Function(_AllPets value)? allPets,
+    required TResult orElse(),
+  }) {
+    if (adoptions != null) {
+      return adoptions(this);
+    }
+    return orElse();
+  }
 }
 
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'AdoptionEvent.adoptions()';
+abstract class _Adoptions implements AdoptionEvent {
+  const factory _Adoptions() = _$AdoptionsImpl;
 }
 
-
+/// @nodoc
+abstract class _$$AllPetsImplCopyWith<$Res> {
+  factory _$$AllPetsImplCopyWith(
+    _$AllPetsImpl value,
+    $Res Function(_$AllPetsImpl) then,
+  ) = __$$AllPetsImplCopyWithImpl<$Res>;
 }
 
+/// @nodoc
+class __$$AllPetsImplCopyWithImpl<$Res>
+    extends _$AdoptionEventCopyWithImpl<$Res, _$AllPetsImpl>
+    implements _$$AllPetsImplCopyWith<$Res> {
+  __$$AllPetsImplCopyWithImpl(
+    _$AllPetsImpl _value,
+    $Res Function(_$AllPetsImpl) _then,
+  ) : super(_value, _then);
 
-
+  /// Create a copy of AdoptionEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
 
 /// @nodoc
 
+class _$AllPetsImpl implements _AllPets {
+  const _$AllPetsImpl();
 
-class _AllPets implements AdoptionEvent {
-  const _AllPets();
-  
+  @override
+  String toString() {
+    return 'AdoptionEvent.allPets()';
+  }
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$AllPetsImpl);
+  }
 
+  @override
+  int get hashCode => runtimeType.hashCode;
 
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() adoptions,
+    required TResult Function() allPets,
+  }) {
+    return allPets();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? adoptions,
+    TResult? Function()? allPets,
+  }) {
+    return allPets?.call();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? adoptions,
+    TResult Function()? allPets,
+    required TResult orElse(),
+  }) {
+    if (allPets != null) {
+      return allPets();
+    }
+    return orElse();
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AllPets);
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Adoptions value) adoptions,
+    required TResult Function(_AllPets value) allPets,
+  }) {
+    return allPets(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Adoptions value)? adoptions,
+    TResult? Function(_AllPets value)? allPets,
+  }) {
+    return allPets?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Adoptions value)? adoptions,
+    TResult Function(_AllPets value)? allPets,
+    required TResult orElse(),
+  }) {
+    if (allPets != null) {
+      return allPets(this);
+    }
+    return orElse();
+  }
 }
 
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'AdoptionEvent.allPets()';
+abstract class _AllPets implements AdoptionEvent {
+  const factory _AllPets() = _$AllPetsImpl;
 }
-
-
-}
-
-
-
 
 /// @nodoc
 mixin _$AdoptionState {
+  Status get adoptionStatus => throw _privateConstructorUsedError;
+  List<Adoption> get adoptions => throw _privateConstructorUsedError;
+  List<Adoption> get allPets => throw _privateConstructorUsedError;
 
- Status get adoptionStatus; List<Adoption> get adoptions; List<Adoption> get allPets;
-/// Create a copy of AdoptionState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$AdoptionStateCopyWith<AdoptionState> get copyWith => _$AdoptionStateCopyWithImpl<AdoptionState>(this as AdoptionState, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AdoptionState&&(identical(other.adoptionStatus, adoptionStatus) || other.adoptionStatus == adoptionStatus)&&const DeepCollectionEquality().equals(other.adoptions, adoptions)&&const DeepCollectionEquality().equals(other.allPets, allPets));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,adoptionStatus,const DeepCollectionEquality().hash(adoptions),const DeepCollectionEquality().hash(allPets));
-
-@override
-String toString() {
-  return 'AdoptionState(adoptionStatus: $adoptionStatus, adoptions: $adoptions, allPets: $allPets)';
-}
-
-
+  /// Create a copy of AdoptionState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $AdoptionStateCopyWith<AdoptionState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $AdoptionStateCopyWith<$Res>  {
-  factory $AdoptionStateCopyWith(AdoptionState value, $Res Function(AdoptionState) _then) = _$AdoptionStateCopyWithImpl;
-@useResult
-$Res call({
- Status adoptionStatus, List<Adoption> adoptions, List<Adoption> allPets
-});
-
-
-
-
+abstract class $AdoptionStateCopyWith<$Res> {
+  factory $AdoptionStateCopyWith(
+    AdoptionState value,
+    $Res Function(AdoptionState) then,
+  ) = _$AdoptionStateCopyWithImpl<$Res, AdoptionState>;
+  @useResult
+  $Res call({
+    Status adoptionStatus,
+    List<Adoption> adoptions,
+    List<Adoption> allPets,
+  });
 }
+
 /// @nodoc
-class _$AdoptionStateCopyWithImpl<$Res>
+class _$AdoptionStateCopyWithImpl<$Res, $Val extends AdoptionState>
     implements $AdoptionStateCopyWith<$Res> {
-  _$AdoptionStateCopyWithImpl(this._self, this._then);
+  _$AdoptionStateCopyWithImpl(this._value, this._then);
 
-  final AdoptionState _self;
-  final $Res Function(AdoptionState) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-/// Create a copy of AdoptionState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? adoptionStatus = null,Object? adoptions = null,Object? allPets = null,}) {
-  return _then(_self.copyWith(
-adoptionStatus: null == adoptionStatus ? _self.adoptionStatus : adoptionStatus // ignore: cast_nullable_to_non_nullable
-as Status,adoptions: null == adoptions ? _self.adoptions : adoptions // ignore: cast_nullable_to_non_nullable
-as List<Adoption>,allPets: null == allPets ? _self.allPets : allPets // ignore: cast_nullable_to_non_nullable
-as List<Adoption>,
-  ));
-}
-
-}
-
-
-/// @nodoc
-
-
-class _AdoptionState implements AdoptionState {
-  const _AdoptionState({this.adoptionStatus = Status.init, final  List<Adoption> adoptions = const [], final  List<Adoption> allPets = const []}): _adoptions = adoptions,_allPets = allPets;
-  
-
-@override@JsonKey() final  Status adoptionStatus;
- final  List<Adoption> _adoptions;
-@override@JsonKey() List<Adoption> get adoptions {
-  if (_adoptions is EqualUnmodifiableListView) return _adoptions;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_adoptions);
-}
-
- final  List<Adoption> _allPets;
-@override@JsonKey() List<Adoption> get allPets {
-  if (_allPets is EqualUnmodifiableListView) return _allPets;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_allPets);
-}
-
-
-/// Create a copy of AdoptionState
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$AdoptionStateCopyWith<_AdoptionState> get copyWith => __$AdoptionStateCopyWithImpl<_AdoptionState>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AdoptionState&&(identical(other.adoptionStatus, adoptionStatus) || other.adoptionStatus == adoptionStatus)&&const DeepCollectionEquality().equals(other._adoptions, _adoptions)&&const DeepCollectionEquality().equals(other._allPets, _allPets));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,adoptionStatus,const DeepCollectionEquality().hash(_adoptions),const DeepCollectionEquality().hash(_allPets));
-
-@override
-String toString() {
-  return 'AdoptionState(adoptionStatus: $adoptionStatus, adoptions: $adoptions, allPets: $allPets)';
-}
-
-
+  /// Create a copy of AdoptionState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? adoptionStatus = null,
+    Object? adoptions = null,
+    Object? allPets = null,
+  }) {
+    return _then(
+      _value.copyWith(
+            adoptionStatus:
+                null == adoptionStatus
+                    ? _value.adoptionStatus
+                    : adoptionStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
+            adoptions:
+                null == adoptions
+                    ? _value.adoptions
+                    : adoptions // ignore: cast_nullable_to_non_nullable
+                        as List<Adoption>,
+            allPets:
+                null == allPets
+                    ? _value.allPets
+                    : allPets // ignore: cast_nullable_to_non_nullable
+                        as List<Adoption>,
+          )
+          as $Val,
+    );
+  }
 }
 
 /// @nodoc
-abstract mixin class _$AdoptionStateCopyWith<$Res> implements $AdoptionStateCopyWith<$Res> {
-  factory _$AdoptionStateCopyWith(_AdoptionState value, $Res Function(_AdoptionState) _then) = __$AdoptionStateCopyWithImpl;
-@override @useResult
-$Res call({
- Status adoptionStatus, List<Adoption> adoptions, List<Adoption> allPets
-});
-
-
-
-
+abstract class _$$AdoptionStateImplCopyWith<$Res>
+    implements $AdoptionStateCopyWith<$Res> {
+  factory _$$AdoptionStateImplCopyWith(
+    _$AdoptionStateImpl value,
+    $Res Function(_$AdoptionStateImpl) then,
+  ) = __$$AdoptionStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    Status adoptionStatus,
+    List<Adoption> adoptions,
+    List<Adoption> allPets,
+  });
 }
+
 /// @nodoc
-class __$AdoptionStateCopyWithImpl<$Res>
-    implements _$AdoptionStateCopyWith<$Res> {
-  __$AdoptionStateCopyWithImpl(this._self, this._then);
+class __$$AdoptionStateImplCopyWithImpl<$Res>
+    extends _$AdoptionStateCopyWithImpl<$Res, _$AdoptionStateImpl>
+    implements _$$AdoptionStateImplCopyWith<$Res> {
+  __$$AdoptionStateImplCopyWithImpl(
+    _$AdoptionStateImpl _value,
+    $Res Function(_$AdoptionStateImpl) _then,
+  ) : super(_value, _then);
 
-  final _AdoptionState _self;
-  final $Res Function(_AdoptionState) _then;
-
-/// Create a copy of AdoptionState
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? adoptionStatus = null,Object? adoptions = null,Object? allPets = null,}) {
-  return _then(_AdoptionState(
-adoptionStatus: null == adoptionStatus ? _self.adoptionStatus : adoptionStatus // ignore: cast_nullable_to_non_nullable
-as Status,adoptions: null == adoptions ? _self._adoptions : adoptions // ignore: cast_nullable_to_non_nullable
-as List<Adoption>,allPets: null == allPets ? _self._allPets : allPets // ignore: cast_nullable_to_non_nullable
-as List<Adoption>,
-  ));
+  /// Create a copy of AdoptionState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? adoptionStatus = null,
+    Object? adoptions = null,
+    Object? allPets = null,
+  }) {
+    return _then(
+      _$AdoptionStateImpl(
+        adoptionStatus:
+            null == adoptionStatus
+                ? _value.adoptionStatus
+                : adoptionStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
+        adoptions:
+            null == adoptions
+                ? _value._adoptions
+                : adoptions // ignore: cast_nullable_to_non_nullable
+                    as List<Adoption>,
+        allPets:
+            null == allPets
+                ? _value._allPets
+                : allPets // ignore: cast_nullable_to_non_nullable
+                    as List<Adoption>,
+      ),
+    );
+  }
 }
 
+/// @nodoc
 
+class _$AdoptionStateImpl implements _AdoptionState {
+  const _$AdoptionStateImpl({
+    this.adoptionStatus = Status.init,
+    final List<Adoption> adoptions = const [],
+    final List<Adoption> allPets = const [],
+  }) : _adoptions = adoptions,
+       _allPets = allPets;
+
+  @override
+  @JsonKey()
+  final Status adoptionStatus;
+  final List<Adoption> _adoptions;
+  @override
+  @JsonKey()
+  List<Adoption> get adoptions {
+    if (_adoptions is EqualUnmodifiableListView) return _adoptions;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_adoptions);
+  }
+
+  final List<Adoption> _allPets;
+  @override
+  @JsonKey()
+  List<Adoption> get allPets {
+    if (_allPets is EqualUnmodifiableListView) return _allPets;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_allPets);
+  }
+
+  @override
+  String toString() {
+    return 'AdoptionState(adoptionStatus: $adoptionStatus, adoptions: $adoptions, allPets: $allPets)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AdoptionStateImpl &&
+            (identical(other.adoptionStatus, adoptionStatus) ||
+                other.adoptionStatus == adoptionStatus) &&
+            const DeepCollectionEquality().equals(
+              other._adoptions,
+              _adoptions,
+            ) &&
+            const DeepCollectionEquality().equals(other._allPets, _allPets));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    adoptionStatus,
+    const DeepCollectionEquality().hash(_adoptions),
+    const DeepCollectionEquality().hash(_allPets),
+  );
+
+  /// Create a copy of AdoptionState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AdoptionStateImplCopyWith<_$AdoptionStateImpl> get copyWith =>
+      __$$AdoptionStateImplCopyWithImpl<_$AdoptionStateImpl>(this, _$identity);
 }
 
-// dart format on
+abstract class _AdoptionState implements AdoptionState {
+  const factory _AdoptionState({
+    final Status adoptionStatus,
+    final List<Adoption> adoptions,
+    final List<Adoption> allPets,
+  }) = _$AdoptionStateImpl;
+
+  @override
+  Status get adoptionStatus;
+  @override
+  List<Adoption> get adoptions;
+  @override
+  List<Adoption> get allPets;
+
+  /// Create a copy of AdoptionState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AdoptionStateImplCopyWith<_$AdoptionStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

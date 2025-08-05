@@ -7,6 +7,7 @@ import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/features/health/presentation/widgets/success_animation_wrap.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -47,7 +48,8 @@ class MedicationSuccessContent extends StatelessWidget {
                       ),
                       children: [
                         TextSpan(
-                          text: "[Pet's Name]! ",
+                          text:
+                              "${context.read<DashboardBloc>().state.petName} ",
                           style: context.textTheme.titleLarge?.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 24,

@@ -1,4 +1,3 @@
-// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -10,480 +9,1141 @@ part of 'dashboard_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
+
 /// @nodoc
 mixin _$DashboardEvent {
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardEvent);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'DashboardEvent()';
-}
-
-
-}
-
-/// @nodoc
-class $DashboardEventCopyWith<$Res>  {
-$DashboardEventCopyWith(DashboardEvent _, $Res Function(DashboardEvent) __);
-}
-
-
-/// @nodoc
-
-
-class _DashboardPetDetails implements DashboardEvent {
-  const _DashboardPetDetails();
-  
-
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardPetDetails);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'DashboardEvent.dashboardPets()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class _SelectedPet implements DashboardEvent {
-  const _SelectedPet(this.selectedPet);
-  
-
- final  DashboardPetDetails selectedPet;
-
-/// Create a copy of DashboardEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$SelectedPetCopyWith<_SelectedPet> get copyWith => __$SelectedPetCopyWithImpl<_SelectedPet>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SelectedPet&&(identical(other.selectedPet, selectedPet) || other.selectedPet == selectedPet));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,selectedPet);
-
-@override
-String toString() {
-  return 'DashboardEvent.selectedPet(selectedPet: $selectedPet)';
-}
-
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() dashboardPets,
+    required TResult Function(DashboardPetDetails selectedPet) selectedPet,
+    required TResult Function(String petName) petName,
+    required TResult Function(String petImage) petImage,
+    required TResult Function(int selectedPetId) selectedPetId,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? dashboardPets,
+    TResult? Function(DashboardPetDetails selectedPet)? selectedPet,
+    TResult? Function(String petName)? petName,
+    TResult? Function(String petImage)? petImage,
+    TResult? Function(int selectedPetId)? selectedPetId,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? dashboardPets,
+    TResult Function(DashboardPetDetails selectedPet)? selectedPet,
+    TResult Function(String petName)? petName,
+    TResult Function(String petImage)? petImage,
+    TResult Function(int selectedPetId)? selectedPetId,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DashboardPetDetails value) dashboardPets,
+    required TResult Function(_SelectedPet value) selectedPet,
+    required TResult Function(_PetName value) petName,
+    required TResult Function(_PetImage value) petImage,
+    required TResult Function(_SelectedPetId value) selectedPetId,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DashboardPetDetails value)? dashboardPets,
+    TResult? Function(_SelectedPet value)? selectedPet,
+    TResult? Function(_PetName value)? petName,
+    TResult? Function(_PetImage value)? petImage,
+    TResult? Function(_SelectedPetId value)? selectedPetId,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DashboardPetDetails value)? dashboardPets,
+    TResult Function(_SelectedPet value)? selectedPet,
+    TResult Function(_PetName value)? petName,
+    TResult Function(_PetImage value)? petImage,
+    TResult Function(_SelectedPetId value)? selectedPetId,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class _$SelectedPetCopyWith<$Res> implements $DashboardEventCopyWith<$Res> {
-  factory _$SelectedPetCopyWith(_SelectedPet value, $Res Function(_SelectedPet) _then) = __$SelectedPetCopyWithImpl;
-@useResult
-$Res call({
- DashboardPetDetails selectedPet
-});
-
-
-
-
+abstract class $DashboardEventCopyWith<$Res> {
+  factory $DashboardEventCopyWith(
+    DashboardEvent value,
+    $Res Function(DashboardEvent) then,
+  ) = _$DashboardEventCopyWithImpl<$Res, DashboardEvent>;
 }
+
 /// @nodoc
-class __$SelectedPetCopyWithImpl<$Res>
-    implements _$SelectedPetCopyWith<$Res> {
-  __$SelectedPetCopyWithImpl(this._self, this._then);
+class _$DashboardEventCopyWithImpl<$Res, $Val extends DashboardEvent>
+    implements $DashboardEventCopyWith<$Res> {
+  _$DashboardEventCopyWithImpl(this._value, this._then);
 
-  final _SelectedPet _self;
-  final $Res Function(_SelectedPet) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-/// Create a copy of DashboardEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? selectedPet = null,}) {
-  return _then(_SelectedPet(
-null == selectedPet ? _self.selectedPet : selectedPet // ignore: cast_nullable_to_non_nullable
-as DashboardPetDetails,
-  ));
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
+/// @nodoc
+abstract class _$$DashboardPetDetailsImplCopyWith<$Res> {
+  factory _$$DashboardPetDetailsImplCopyWith(
+    _$DashboardPetDetailsImpl value,
+    $Res Function(_$DashboardPetDetailsImpl) then,
+  ) = __$$DashboardPetDetailsImplCopyWithImpl<$Res>;
+}
 
+/// @nodoc
+class __$$DashboardPetDetailsImplCopyWithImpl<$Res>
+    extends _$DashboardEventCopyWithImpl<$Res, _$DashboardPetDetailsImpl>
+    implements _$$DashboardPetDetailsImplCopyWith<$Res> {
+  __$$DashboardPetDetailsImplCopyWithImpl(
+    _$DashboardPetDetailsImpl _value,
+    $Res Function(_$DashboardPetDetailsImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
+class _$DashboardPetDetailsImpl implements _DashboardPetDetails {
+  const _$DashboardPetDetailsImpl();
 
-class _PetName implements DashboardEvent {
-  const _PetName(this.petName);
-  
+  @override
+  String toString() {
+    return 'DashboardEvent.dashboardPets()';
+  }
 
- final  String petName;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DashboardPetDetailsImpl);
+  }
 
-/// Create a copy of DashboardEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$PetNameCopyWith<_PetName> get copyWith => __$PetNameCopyWithImpl<_PetName>(this, _$identity);
+  @override
+  int get hashCode => runtimeType.hashCode;
 
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() dashboardPets,
+    required TResult Function(DashboardPetDetails selectedPet) selectedPet,
+    required TResult Function(String petName) petName,
+    required TResult Function(String petImage) petImage,
+    required TResult Function(int selectedPetId) selectedPetId,
+  }) {
+    return dashboardPets();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? dashboardPets,
+    TResult? Function(DashboardPetDetails selectedPet)? selectedPet,
+    TResult? Function(String petName)? petName,
+    TResult? Function(String petImage)? petImage,
+    TResult? Function(int selectedPetId)? selectedPetId,
+  }) {
+    return dashboardPets?.call();
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PetName&&(identical(other.petName, petName) || other.petName == petName));
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? dashboardPets,
+    TResult Function(DashboardPetDetails selectedPet)? selectedPet,
+    TResult Function(String petName)? petName,
+    TResult Function(String petImage)? petImage,
+    TResult Function(int selectedPetId)? selectedPetId,
+    required TResult orElse(),
+  }) {
+    if (dashboardPets != null) {
+      return dashboardPets();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DashboardPetDetails value) dashboardPets,
+    required TResult Function(_SelectedPet value) selectedPet,
+    required TResult Function(_PetName value) petName,
+    required TResult Function(_PetImage value) petImage,
+    required TResult Function(_SelectedPetId value) selectedPetId,
+  }) {
+    return dashboardPets(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DashboardPetDetails value)? dashboardPets,
+    TResult? Function(_SelectedPet value)? selectedPet,
+    TResult? Function(_PetName value)? petName,
+    TResult? Function(_PetImage value)? petImage,
+    TResult? Function(_SelectedPetId value)? selectedPetId,
+  }) {
+    return dashboardPets?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DashboardPetDetails value)? dashboardPets,
+    TResult Function(_SelectedPet value)? selectedPet,
+    TResult Function(_PetName value)? petName,
+    TResult Function(_PetImage value)? petImage,
+    TResult Function(_SelectedPetId value)? selectedPetId,
+    required TResult orElse(),
+  }) {
+    if (dashboardPets != null) {
+      return dashboardPets(this);
+    }
+    return orElse();
+  }
 }
 
-
-@override
-int get hashCode => Object.hash(runtimeType,petName);
-
-@override
-String toString() {
-  return 'DashboardEvent.petName(petName: $petName)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$PetNameCopyWith<$Res> implements $DashboardEventCopyWith<$Res> {
-  factory _$PetNameCopyWith(_PetName value, $Res Function(_PetName) _then) = __$PetNameCopyWithImpl;
-@useResult
-$Res call({
- String petName
-});
-
-
-
-
-}
-/// @nodoc
-class __$PetNameCopyWithImpl<$Res>
-    implements _$PetNameCopyWith<$Res> {
-  __$PetNameCopyWithImpl(this._self, this._then);
-
-  final _PetName _self;
-  final $Res Function(_PetName) _then;
-
-/// Create a copy of DashboardEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? petName = null,}) {
-  return _then(_PetName(
-null == petName ? _self.petName : petName // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _PetImage implements DashboardEvent {
-  const _PetImage(this.petImage);
-  
-
- final  String petImage;
-
-/// Create a copy of DashboardEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$PetImageCopyWith<_PetImage> get copyWith => __$PetImageCopyWithImpl<_PetImage>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PetImage&&(identical(other.petImage, petImage) || other.petImage == petImage));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,petImage);
-
-@override
-String toString() {
-  return 'DashboardEvent.petImage(petImage: $petImage)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$PetImageCopyWith<$Res> implements $DashboardEventCopyWith<$Res> {
-  factory _$PetImageCopyWith(_PetImage value, $Res Function(_PetImage) _then) = __$PetImageCopyWithImpl;
-@useResult
-$Res call({
- String petImage
-});
-
-
-
-
-}
-/// @nodoc
-class __$PetImageCopyWithImpl<$Res>
-    implements _$PetImageCopyWith<$Res> {
-  __$PetImageCopyWithImpl(this._self, this._then);
-
-  final _PetImage _self;
-  final $Res Function(_PetImage) _then;
-
-/// Create a copy of DashboardEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? petImage = null,}) {
-  return _then(_PetImage(
-null == petImage ? _self.petImage : petImage // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+abstract class _DashboardPetDetails implements DashboardEvent {
+  const factory _DashboardPetDetails() = _$DashboardPetDetailsImpl;
 }
 
 /// @nodoc
-
-
-class _SelectedPetId implements DashboardEvent {
-  const _SelectedPetId(this.selectedPetId);
-  
-
- final  int selectedPetId;
-
-/// Create a copy of DashboardEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$SelectedPetIdCopyWith<_SelectedPetId> get copyWith => __$SelectedPetIdCopyWithImpl<_SelectedPetId>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SelectedPetId&&(identical(other.selectedPetId, selectedPetId) || other.selectedPetId == selectedPetId));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,selectedPetId);
-
-@override
-String toString() {
-  return 'DashboardEvent.selectedPetId(selectedPetId: $selectedPetId)';
-}
-
-
+abstract class _$$SelectedPetImplCopyWith<$Res> {
+  factory _$$SelectedPetImplCopyWith(
+    _$SelectedPetImpl value,
+    $Res Function(_$SelectedPetImpl) then,
+  ) = __$$SelectedPetImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DashboardPetDetails selectedPet});
 }
 
 /// @nodoc
-abstract mixin class _$SelectedPetIdCopyWith<$Res> implements $DashboardEventCopyWith<$Res> {
-  factory _$SelectedPetIdCopyWith(_SelectedPetId value, $Res Function(_SelectedPetId) _then) = __$SelectedPetIdCopyWithImpl;
-@useResult
-$Res call({
- int selectedPetId
-});
+class __$$SelectedPetImplCopyWithImpl<$Res>
+    extends _$DashboardEventCopyWithImpl<$Res, _$SelectedPetImpl>
+    implements _$$SelectedPetImplCopyWith<$Res> {
+  __$$SelectedPetImplCopyWithImpl(
+    _$SelectedPetImpl _value,
+    $Res Function(_$SelectedPetImpl) _then,
+  ) : super(_value, _then);
 
-
-
-
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? selectedPet = null}) {
+    return _then(
+      _$SelectedPetImpl(
+        null == selectedPet
+            ? _value.selectedPet
+            : selectedPet // ignore: cast_nullable_to_non_nullable
+                as DashboardPetDetails,
+      ),
+    );
+  }
 }
+
 /// @nodoc
-class __$SelectedPetIdCopyWithImpl<$Res>
-    implements _$SelectedPetIdCopyWith<$Res> {
-  __$SelectedPetIdCopyWithImpl(this._self, this._then);
 
-  final _SelectedPetId _self;
-  final $Res Function(_SelectedPetId) _then;
+class _$SelectedPetImpl implements _SelectedPet {
+  const _$SelectedPetImpl(this.selectedPet);
 
-/// Create a copy of DashboardEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? selectedPetId = null,}) {
-  return _then(_SelectedPetId(
-null == selectedPetId ? _self.selectedPetId : selectedPetId // ignore: cast_nullable_to_non_nullable
-as int,
-  ));
+  @override
+  final DashboardPetDetails selectedPet;
+
+  @override
+  String toString() {
+    return 'DashboardEvent.selectedPet(selectedPet: $selectedPet)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectedPetImpl &&
+            (identical(other.selectedPet, selectedPet) ||
+                other.selectedPet == selectedPet));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, selectedPet);
+
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectedPetImplCopyWith<_$SelectedPetImpl> get copyWith =>
+      __$$SelectedPetImplCopyWithImpl<_$SelectedPetImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() dashboardPets,
+    required TResult Function(DashboardPetDetails selectedPet) selectedPet,
+    required TResult Function(String petName) petName,
+    required TResult Function(String petImage) petImage,
+    required TResult Function(int selectedPetId) selectedPetId,
+  }) {
+    return selectedPet(this.selectedPet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? dashboardPets,
+    TResult? Function(DashboardPetDetails selectedPet)? selectedPet,
+    TResult? Function(String petName)? petName,
+    TResult? Function(String petImage)? petImage,
+    TResult? Function(int selectedPetId)? selectedPetId,
+  }) {
+    return selectedPet?.call(this.selectedPet);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? dashboardPets,
+    TResult Function(DashboardPetDetails selectedPet)? selectedPet,
+    TResult Function(String petName)? petName,
+    TResult Function(String petImage)? petImage,
+    TResult Function(int selectedPetId)? selectedPetId,
+    required TResult orElse(),
+  }) {
+    if (selectedPet != null) {
+      return selectedPet(this.selectedPet);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DashboardPetDetails value) dashboardPets,
+    required TResult Function(_SelectedPet value) selectedPet,
+    required TResult Function(_PetName value) petName,
+    required TResult Function(_PetImage value) petImage,
+    required TResult Function(_SelectedPetId value) selectedPetId,
+  }) {
+    return selectedPet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DashboardPetDetails value)? dashboardPets,
+    TResult? Function(_SelectedPet value)? selectedPet,
+    TResult? Function(_PetName value)? petName,
+    TResult? Function(_PetImage value)? petImage,
+    TResult? Function(_SelectedPetId value)? selectedPetId,
+  }) {
+    return selectedPet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DashboardPetDetails value)? dashboardPets,
+    TResult Function(_SelectedPet value)? selectedPet,
+    TResult Function(_PetName value)? petName,
+    TResult Function(_PetImage value)? petImage,
+    TResult Function(_SelectedPetId value)? selectedPetId,
+    required TResult orElse(),
+  }) {
+    if (selectedPet != null) {
+      return selectedPet(this);
+    }
+    return orElse();
+  }
 }
 
+abstract class _SelectedPet implements DashboardEvent {
+  const factory _SelectedPet(final DashboardPetDetails selectedPet) =
+      _$SelectedPetImpl;
 
+  DashboardPetDetails get selectedPet;
+
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SelectedPetImplCopyWith<_$SelectedPetImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PetNameImplCopyWith<$Res> {
+  factory _$$PetNameImplCopyWith(
+    _$PetNameImpl value,
+    $Res Function(_$PetNameImpl) then,
+  ) = __$$PetNameImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String petName});
+}
+
+/// @nodoc
+class __$$PetNameImplCopyWithImpl<$Res>
+    extends _$DashboardEventCopyWithImpl<$Res, _$PetNameImpl>
+    implements _$$PetNameImplCopyWith<$Res> {
+  __$$PetNameImplCopyWithImpl(
+    _$PetNameImpl _value,
+    $Res Function(_$PetNameImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? petName = null}) {
+    return _then(
+      _$PetNameImpl(
+        null == petName
+            ? _value.petName
+            : petName // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$PetNameImpl implements _PetName {
+  const _$PetNameImpl(this.petName);
+
+  @override
+  final String petName;
+
+  @override
+  String toString() {
+    return 'DashboardEvent.petName(petName: $petName)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PetNameImpl &&
+            (identical(other.petName, petName) || other.petName == petName));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, petName);
+
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PetNameImplCopyWith<_$PetNameImpl> get copyWith =>
+      __$$PetNameImplCopyWithImpl<_$PetNameImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() dashboardPets,
+    required TResult Function(DashboardPetDetails selectedPet) selectedPet,
+    required TResult Function(String petName) petName,
+    required TResult Function(String petImage) petImage,
+    required TResult Function(int selectedPetId) selectedPetId,
+  }) {
+    return petName(this.petName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? dashboardPets,
+    TResult? Function(DashboardPetDetails selectedPet)? selectedPet,
+    TResult? Function(String petName)? petName,
+    TResult? Function(String petImage)? petImage,
+    TResult? Function(int selectedPetId)? selectedPetId,
+  }) {
+    return petName?.call(this.petName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? dashboardPets,
+    TResult Function(DashboardPetDetails selectedPet)? selectedPet,
+    TResult Function(String petName)? petName,
+    TResult Function(String petImage)? petImage,
+    TResult Function(int selectedPetId)? selectedPetId,
+    required TResult orElse(),
+  }) {
+    if (petName != null) {
+      return petName(this.petName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DashboardPetDetails value) dashboardPets,
+    required TResult Function(_SelectedPet value) selectedPet,
+    required TResult Function(_PetName value) petName,
+    required TResult Function(_PetImage value) petImage,
+    required TResult Function(_SelectedPetId value) selectedPetId,
+  }) {
+    return petName(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DashboardPetDetails value)? dashboardPets,
+    TResult? Function(_SelectedPet value)? selectedPet,
+    TResult? Function(_PetName value)? petName,
+    TResult? Function(_PetImage value)? petImage,
+    TResult? Function(_SelectedPetId value)? selectedPetId,
+  }) {
+    return petName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DashboardPetDetails value)? dashboardPets,
+    TResult Function(_SelectedPet value)? selectedPet,
+    TResult Function(_PetName value)? petName,
+    TResult Function(_PetImage value)? petImage,
+    TResult Function(_SelectedPetId value)? selectedPetId,
+    required TResult orElse(),
+  }) {
+    if (petName != null) {
+      return petName(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PetName implements DashboardEvent {
+  const factory _PetName(final String petName) = _$PetNameImpl;
+
+  String get petName;
+
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PetNameImplCopyWith<_$PetNameImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PetImageImplCopyWith<$Res> {
+  factory _$$PetImageImplCopyWith(
+    _$PetImageImpl value,
+    $Res Function(_$PetImageImpl) then,
+  ) = __$$PetImageImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String petImage});
+}
+
+/// @nodoc
+class __$$PetImageImplCopyWithImpl<$Res>
+    extends _$DashboardEventCopyWithImpl<$Res, _$PetImageImpl>
+    implements _$$PetImageImplCopyWith<$Res> {
+  __$$PetImageImplCopyWithImpl(
+    _$PetImageImpl _value,
+    $Res Function(_$PetImageImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? petImage = null}) {
+    return _then(
+      _$PetImageImpl(
+        null == petImage
+            ? _value.petImage
+            : petImage // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$PetImageImpl implements _PetImage {
+  const _$PetImageImpl(this.petImage);
+
+  @override
+  final String petImage;
+
+  @override
+  String toString() {
+    return 'DashboardEvent.petImage(petImage: $petImage)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PetImageImpl &&
+            (identical(other.petImage, petImage) ||
+                other.petImage == petImage));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, petImage);
+
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PetImageImplCopyWith<_$PetImageImpl> get copyWith =>
+      __$$PetImageImplCopyWithImpl<_$PetImageImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() dashboardPets,
+    required TResult Function(DashboardPetDetails selectedPet) selectedPet,
+    required TResult Function(String petName) petName,
+    required TResult Function(String petImage) petImage,
+    required TResult Function(int selectedPetId) selectedPetId,
+  }) {
+    return petImage(this.petImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? dashboardPets,
+    TResult? Function(DashboardPetDetails selectedPet)? selectedPet,
+    TResult? Function(String petName)? petName,
+    TResult? Function(String petImage)? petImage,
+    TResult? Function(int selectedPetId)? selectedPetId,
+  }) {
+    return petImage?.call(this.petImage);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? dashboardPets,
+    TResult Function(DashboardPetDetails selectedPet)? selectedPet,
+    TResult Function(String petName)? petName,
+    TResult Function(String petImage)? petImage,
+    TResult Function(int selectedPetId)? selectedPetId,
+    required TResult orElse(),
+  }) {
+    if (petImage != null) {
+      return petImage(this.petImage);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DashboardPetDetails value) dashboardPets,
+    required TResult Function(_SelectedPet value) selectedPet,
+    required TResult Function(_PetName value) petName,
+    required TResult Function(_PetImage value) petImage,
+    required TResult Function(_SelectedPetId value) selectedPetId,
+  }) {
+    return petImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DashboardPetDetails value)? dashboardPets,
+    TResult? Function(_SelectedPet value)? selectedPet,
+    TResult? Function(_PetName value)? petName,
+    TResult? Function(_PetImage value)? petImage,
+    TResult? Function(_SelectedPetId value)? selectedPetId,
+  }) {
+    return petImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DashboardPetDetails value)? dashboardPets,
+    TResult Function(_SelectedPet value)? selectedPet,
+    TResult Function(_PetName value)? petName,
+    TResult Function(_PetImage value)? petImage,
+    TResult Function(_SelectedPetId value)? selectedPetId,
+    required TResult orElse(),
+  }) {
+    if (petImage != null) {
+      return petImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PetImage implements DashboardEvent {
+  const factory _PetImage(final String petImage) = _$PetImageImpl;
+
+  String get petImage;
+
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PetImageImplCopyWith<_$PetImageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SelectedPetIdImplCopyWith<$Res> {
+  factory _$$SelectedPetIdImplCopyWith(
+    _$SelectedPetIdImpl value,
+    $Res Function(_$SelectedPetIdImpl) then,
+  ) = __$$SelectedPetIdImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int selectedPetId});
+}
+
+/// @nodoc
+class __$$SelectedPetIdImplCopyWithImpl<$Res>
+    extends _$DashboardEventCopyWithImpl<$Res, _$SelectedPetIdImpl>
+    implements _$$SelectedPetIdImplCopyWith<$Res> {
+  __$$SelectedPetIdImplCopyWithImpl(
+    _$SelectedPetIdImpl _value,
+    $Res Function(_$SelectedPetIdImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? selectedPetId = null}) {
+    return _then(
+      _$SelectedPetIdImpl(
+        null == selectedPetId
+            ? _value.selectedPetId
+            : selectedPetId // ignore: cast_nullable_to_non_nullable
+                as int,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$SelectedPetIdImpl implements _SelectedPetId {
+  const _$SelectedPetIdImpl(this.selectedPetId);
+
+  @override
+  final int selectedPetId;
+
+  @override
+  String toString() {
+    return 'DashboardEvent.selectedPetId(selectedPetId: $selectedPetId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SelectedPetIdImpl &&
+            (identical(other.selectedPetId, selectedPetId) ||
+                other.selectedPetId == selectedPetId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, selectedPetId);
+
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SelectedPetIdImplCopyWith<_$SelectedPetIdImpl> get copyWith =>
+      __$$SelectedPetIdImplCopyWithImpl<_$SelectedPetIdImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() dashboardPets,
+    required TResult Function(DashboardPetDetails selectedPet) selectedPet,
+    required TResult Function(String petName) petName,
+    required TResult Function(String petImage) petImage,
+    required TResult Function(int selectedPetId) selectedPetId,
+  }) {
+    return selectedPetId(this.selectedPetId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? dashboardPets,
+    TResult? Function(DashboardPetDetails selectedPet)? selectedPet,
+    TResult? Function(String petName)? petName,
+    TResult? Function(String petImage)? petImage,
+    TResult? Function(int selectedPetId)? selectedPetId,
+  }) {
+    return selectedPetId?.call(this.selectedPetId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? dashboardPets,
+    TResult Function(DashboardPetDetails selectedPet)? selectedPet,
+    TResult Function(String petName)? petName,
+    TResult Function(String petImage)? petImage,
+    TResult Function(int selectedPetId)? selectedPetId,
+    required TResult orElse(),
+  }) {
+    if (selectedPetId != null) {
+      return selectedPetId(this.selectedPetId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_DashboardPetDetails value) dashboardPets,
+    required TResult Function(_SelectedPet value) selectedPet,
+    required TResult Function(_PetName value) petName,
+    required TResult Function(_PetImage value) petImage,
+    required TResult Function(_SelectedPetId value) selectedPetId,
+  }) {
+    return selectedPetId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_DashboardPetDetails value)? dashboardPets,
+    TResult? Function(_SelectedPet value)? selectedPet,
+    TResult? Function(_PetName value)? petName,
+    TResult? Function(_PetImage value)? petImage,
+    TResult? Function(_SelectedPetId value)? selectedPetId,
+  }) {
+    return selectedPetId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_DashboardPetDetails value)? dashboardPets,
+    TResult Function(_SelectedPet value)? selectedPet,
+    TResult Function(_PetName value)? petName,
+    TResult Function(_PetImage value)? petImage,
+    TResult Function(_SelectedPetId value)? selectedPetId,
+    required TResult orElse(),
+  }) {
+    if (selectedPetId != null) {
+      return selectedPetId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SelectedPetId implements DashboardEvent {
+  const factory _SelectedPetId(final int selectedPetId) = _$SelectedPetIdImpl;
+
+  int get selectedPetId;
+
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SelectedPetIdImplCopyWith<_$SelectedPetIdImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$DashboardState {
+  Status get initStatus => throw _privateConstructorUsedError;
+  String get petName => throw _privateConstructorUsedError;
+  String get petImage => throw _privateConstructorUsedError;
+  DashboardPetDetails? get selectedPet => throw _privateConstructorUsedError;
+  int get selectedPetId => throw _privateConstructorUsedError;
+  List<DashboardPetDetails> get dashboardPetDetails =>
+      throw _privateConstructorUsedError;
 
- Status get initStatus; String get petName; String get petImage; DashboardPetDetails? get selectedPet; int get selectedPetId; List<DashboardPetDetails> get dashboardPetDetails;
-/// Create a copy of DashboardState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$DashboardStateCopyWith<DashboardState> get copyWith => _$DashboardStateCopyWithImpl<DashboardState>(this as DashboardState, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DashboardState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&(identical(other.petName, petName) || other.petName == petName)&&(identical(other.petImage, petImage) || other.petImage == petImage)&&(identical(other.selectedPet, selectedPet) || other.selectedPet == selectedPet)&&(identical(other.selectedPetId, selectedPetId) || other.selectedPetId == selectedPetId)&&const DeepCollectionEquality().equals(other.dashboardPetDetails, dashboardPetDetails));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,initStatus,petName,petImage,selectedPet,selectedPetId,const DeepCollectionEquality().hash(dashboardPetDetails));
-
-@override
-String toString() {
-  return 'DashboardState(initStatus: $initStatus, petName: $petName, petImage: $petImage, selectedPet: $selectedPet, selectedPetId: $selectedPetId, dashboardPetDetails: $dashboardPetDetails)';
-}
-
-
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $DashboardStateCopyWith<DashboardState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $DashboardStateCopyWith<$Res>  {
-  factory $DashboardStateCopyWith(DashboardState value, $Res Function(DashboardState) _then) = _$DashboardStateCopyWithImpl;
-@useResult
-$Res call({
- Status initStatus, String petName, String petImage, DashboardPetDetails? selectedPet, int selectedPetId, List<DashboardPetDetails> dashboardPetDetails
-});
-
-
-
-
+abstract class $DashboardStateCopyWith<$Res> {
+  factory $DashboardStateCopyWith(
+    DashboardState value,
+    $Res Function(DashboardState) then,
+  ) = _$DashboardStateCopyWithImpl<$Res, DashboardState>;
+  @useResult
+  $Res call({
+    Status initStatus,
+    String petName,
+    String petImage,
+    DashboardPetDetails? selectedPet,
+    int selectedPetId,
+    List<DashboardPetDetails> dashboardPetDetails,
+  });
 }
+
 /// @nodoc
-class _$DashboardStateCopyWithImpl<$Res>
+class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
     implements $DashboardStateCopyWith<$Res> {
-  _$DashboardStateCopyWithImpl(this._self, this._then);
+  _$DashboardStateCopyWithImpl(this._value, this._then);
 
-  final DashboardState _self;
-  final $Res Function(DashboardState) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-/// Create a copy of DashboardState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? initStatus = null,Object? petName = null,Object? petImage = null,Object? selectedPet = freezed,Object? selectedPetId = null,Object? dashboardPetDetails = null,}) {
-  return _then(_self.copyWith(
-initStatus: null == initStatus ? _self.initStatus : initStatus // ignore: cast_nullable_to_non_nullable
-as Status,petName: null == petName ? _self.petName : petName // ignore: cast_nullable_to_non_nullable
-as String,petImage: null == petImage ? _self.petImage : petImage // ignore: cast_nullable_to_non_nullable
-as String,selectedPet: freezed == selectedPet ? _self.selectedPet : selectedPet // ignore: cast_nullable_to_non_nullable
-as DashboardPetDetails?,selectedPetId: null == selectedPetId ? _self.selectedPetId : selectedPetId // ignore: cast_nullable_to_non_nullable
-as int,dashboardPetDetails: null == dashboardPetDetails ? _self.dashboardPetDetails : dashboardPetDetails // ignore: cast_nullable_to_non_nullable
-as List<DashboardPetDetails>,
-  ));
-}
-
-}
-
-
-/// @nodoc
-
-
-class _DashboardState implements DashboardState {
-  const _DashboardState({this.initStatus = Status.init, this.petName = '', this.petImage = '', this.selectedPet = null, this.selectedPetId = 0, final  List<DashboardPetDetails> dashboardPetDetails = const []}): _dashboardPetDetails = dashboardPetDetails;
-  
-
-@override@JsonKey() final  Status initStatus;
-@override@JsonKey() final  String petName;
-@override@JsonKey() final  String petImage;
-@override@JsonKey() final  DashboardPetDetails? selectedPet;
-@override@JsonKey() final  int selectedPetId;
- final  List<DashboardPetDetails> _dashboardPetDetails;
-@override@JsonKey() List<DashboardPetDetails> get dashboardPetDetails {
-  if (_dashboardPetDetails is EqualUnmodifiableListView) return _dashboardPetDetails;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_dashboardPetDetails);
-}
-
-
-/// Create a copy of DashboardState
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$DashboardStateCopyWith<_DashboardState> get copyWith => __$DashboardStateCopyWithImpl<_DashboardState>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DashboardState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&(identical(other.petName, petName) || other.petName == petName)&&(identical(other.petImage, petImage) || other.petImage == petImage)&&(identical(other.selectedPet, selectedPet) || other.selectedPet == selectedPet)&&(identical(other.selectedPetId, selectedPetId) || other.selectedPetId == selectedPetId)&&const DeepCollectionEquality().equals(other._dashboardPetDetails, _dashboardPetDetails));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,initStatus,petName,petImage,selectedPet,selectedPetId,const DeepCollectionEquality().hash(_dashboardPetDetails));
-
-@override
-String toString() {
-  return 'DashboardState(initStatus: $initStatus, petName: $petName, petImage: $petImage, selectedPet: $selectedPet, selectedPetId: $selectedPetId, dashboardPetDetails: $dashboardPetDetails)';
-}
-
-
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? initStatus = null,
+    Object? petName = null,
+    Object? petImage = null,
+    Object? selectedPet = freezed,
+    Object? selectedPetId = null,
+    Object? dashboardPetDetails = null,
+  }) {
+    return _then(
+      _value.copyWith(
+            initStatus:
+                null == initStatus
+                    ? _value.initStatus
+                    : initStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
+            petName:
+                null == petName
+                    ? _value.petName
+                    : petName // ignore: cast_nullable_to_non_nullable
+                        as String,
+            petImage:
+                null == petImage
+                    ? _value.petImage
+                    : petImage // ignore: cast_nullable_to_non_nullable
+                        as String,
+            selectedPet:
+                freezed == selectedPet
+                    ? _value.selectedPet
+                    : selectedPet // ignore: cast_nullable_to_non_nullable
+                        as DashboardPetDetails?,
+            selectedPetId:
+                null == selectedPetId
+                    ? _value.selectedPetId
+                    : selectedPetId // ignore: cast_nullable_to_non_nullable
+                        as int,
+            dashboardPetDetails:
+                null == dashboardPetDetails
+                    ? _value.dashboardPetDetails
+                    : dashboardPetDetails // ignore: cast_nullable_to_non_nullable
+                        as List<DashboardPetDetails>,
+          )
+          as $Val,
+    );
+  }
 }
 
 /// @nodoc
-abstract mixin class _$DashboardStateCopyWith<$Res> implements $DashboardStateCopyWith<$Res> {
-  factory _$DashboardStateCopyWith(_DashboardState value, $Res Function(_DashboardState) _then) = __$DashboardStateCopyWithImpl;
-@override @useResult
-$Res call({
- Status initStatus, String petName, String petImage, DashboardPetDetails? selectedPet, int selectedPetId, List<DashboardPetDetails> dashboardPetDetails
-});
-
-
-
-
+abstract class _$$DashboardStateImplCopyWith<$Res>
+    implements $DashboardStateCopyWith<$Res> {
+  factory _$$DashboardStateImplCopyWith(
+    _$DashboardStateImpl value,
+    $Res Function(_$DashboardStateImpl) then,
+  ) = __$$DashboardStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    Status initStatus,
+    String petName,
+    String petImage,
+    DashboardPetDetails? selectedPet,
+    int selectedPetId,
+    List<DashboardPetDetails> dashboardPetDetails,
+  });
 }
+
 /// @nodoc
-class __$DashboardStateCopyWithImpl<$Res>
-    implements _$DashboardStateCopyWith<$Res> {
-  __$DashboardStateCopyWithImpl(this._self, this._then);
+class __$$DashboardStateImplCopyWithImpl<$Res>
+    extends _$DashboardStateCopyWithImpl<$Res, _$DashboardStateImpl>
+    implements _$$DashboardStateImplCopyWith<$Res> {
+  __$$DashboardStateImplCopyWithImpl(
+    _$DashboardStateImpl _value,
+    $Res Function(_$DashboardStateImpl) _then,
+  ) : super(_value, _then);
 
-  final _DashboardState _self;
-  final $Res Function(_DashboardState) _then;
-
-/// Create a copy of DashboardState
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? initStatus = null,Object? petName = null,Object? petImage = null,Object? selectedPet = freezed,Object? selectedPetId = null,Object? dashboardPetDetails = null,}) {
-  return _then(_DashboardState(
-initStatus: null == initStatus ? _self.initStatus : initStatus // ignore: cast_nullable_to_non_nullable
-as Status,petName: null == petName ? _self.petName : petName // ignore: cast_nullable_to_non_nullable
-as String,petImage: null == petImage ? _self.petImage : petImage // ignore: cast_nullable_to_non_nullable
-as String,selectedPet: freezed == selectedPet ? _self.selectedPet : selectedPet // ignore: cast_nullable_to_non_nullable
-as DashboardPetDetails?,selectedPetId: null == selectedPetId ? _self.selectedPetId : selectedPetId // ignore: cast_nullable_to_non_nullable
-as int,dashboardPetDetails: null == dashboardPetDetails ? _self._dashboardPetDetails : dashboardPetDetails // ignore: cast_nullable_to_non_nullable
-as List<DashboardPetDetails>,
-  ));
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? initStatus = null,
+    Object? petName = null,
+    Object? petImage = null,
+    Object? selectedPet = freezed,
+    Object? selectedPetId = null,
+    Object? dashboardPetDetails = null,
+  }) {
+    return _then(
+      _$DashboardStateImpl(
+        initStatus:
+            null == initStatus
+                ? _value.initStatus
+                : initStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
+        petName:
+            null == petName
+                ? _value.petName
+                : petName // ignore: cast_nullable_to_non_nullable
+                    as String,
+        petImage:
+            null == petImage
+                ? _value.petImage
+                : petImage // ignore: cast_nullable_to_non_nullable
+                    as String,
+        selectedPet:
+            freezed == selectedPet
+                ? _value.selectedPet
+                : selectedPet // ignore: cast_nullable_to_non_nullable
+                    as DashboardPetDetails?,
+        selectedPetId:
+            null == selectedPetId
+                ? _value.selectedPetId
+                : selectedPetId // ignore: cast_nullable_to_non_nullable
+                    as int,
+        dashboardPetDetails:
+            null == dashboardPetDetails
+                ? _value._dashboardPetDetails
+                : dashboardPetDetails // ignore: cast_nullable_to_non_nullable
+                    as List<DashboardPetDetails>,
+      ),
+    );
+  }
 }
 
+/// @nodoc
 
+class _$DashboardStateImpl implements _DashboardState {
+  const _$DashboardStateImpl({
+    this.initStatus = Status.init,
+    this.petName = '',
+    this.petImage = '',
+    this.selectedPet = null,
+    this.selectedPetId = 0,
+    final List<DashboardPetDetails> dashboardPetDetails = const [],
+  }) : _dashboardPetDetails = dashboardPetDetails;
+
+  @override
+  @JsonKey()
+  final Status initStatus;
+  @override
+  @JsonKey()
+  final String petName;
+  @override
+  @JsonKey()
+  final String petImage;
+  @override
+  @JsonKey()
+  final DashboardPetDetails? selectedPet;
+  @override
+  @JsonKey()
+  final int selectedPetId;
+  final List<DashboardPetDetails> _dashboardPetDetails;
+  @override
+  @JsonKey()
+  List<DashboardPetDetails> get dashboardPetDetails {
+    if (_dashboardPetDetails is EqualUnmodifiableListView)
+      return _dashboardPetDetails;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_dashboardPetDetails);
+  }
+
+  @override
+  String toString() {
+    return 'DashboardState(initStatus: $initStatus, petName: $petName, petImage: $petImage, selectedPet: $selectedPet, selectedPetId: $selectedPetId, dashboardPetDetails: $dashboardPetDetails)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DashboardStateImpl &&
+            (identical(other.initStatus, initStatus) ||
+                other.initStatus == initStatus) &&
+            (identical(other.petName, petName) || other.petName == petName) &&
+            (identical(other.petImage, petImage) ||
+                other.petImage == petImage) &&
+            (identical(other.selectedPet, selectedPet) ||
+                other.selectedPet == selectedPet) &&
+            (identical(other.selectedPetId, selectedPetId) ||
+                other.selectedPetId == selectedPetId) &&
+            const DeepCollectionEquality().equals(
+              other._dashboardPetDetails,
+              _dashboardPetDetails,
+            ));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    initStatus,
+    petName,
+    petImage,
+    selectedPet,
+    selectedPetId,
+    const DeepCollectionEquality().hash(_dashboardPetDetails),
+  );
+
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DashboardStateImplCopyWith<_$DashboardStateImpl> get copyWith =>
+      __$$DashboardStateImplCopyWithImpl<_$DashboardStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
-// dart format on
+abstract class _DashboardState implements DashboardState {
+  const factory _DashboardState({
+    final Status initStatus,
+    final String petName,
+    final String petImage,
+    final DashboardPetDetails? selectedPet,
+    final int selectedPetId,
+    final List<DashboardPetDetails> dashboardPetDetails,
+  }) = _$DashboardStateImpl;
+
+  @override
+  Status get initStatus;
+  @override
+  String get petName;
+  @override
+  String get petImage;
+  @override
+  DashboardPetDetails? get selectedPet;
+  @override
+  int get selectedPetId;
+  @override
+  List<DashboardPetDetails> get dashboardPetDetails;
+
+  /// Create a copy of DashboardState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DashboardStateImplCopyWith<_$DashboardStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

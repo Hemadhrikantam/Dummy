@@ -330,10 +330,13 @@ class HealthDatasourceImpl extends HealthDatasource {
       },
     );
   }
-  
+
   @override
-  AppSuccessResponse updateMedicationDate({required int id, required MedicationDateModel payload}) async {
-     LogUtility.warning(payload.toJson().toString());
+  AppSuccessResponse updateMedicationDate({
+    required int id,
+    required MedicationDateModel payload,
+  }) async {
+    LogUtility.warning(payload.toJson().toString());
     final formData = FormData.fromMap(payload.toJson());
     final response = await http.put(
       path: api.medicationServing(id, AppUtil.formatDate(payload.date)),
@@ -360,6 +363,107 @@ class HealthDatasourceImpl extends HealthDatasource {
               ),
             );
           }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<PetVaccinationModel> getVaccination({required int id}) async {
+    final response = await http.get(
+      path: '${api.vaccination(null, null, null)}$id/',
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            final item = PetVaccinationModel.fromJson(data);
+            return Right(item);
+          }
+
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppSuccessResponse deleteMedication({required int id}) async {
+    final response = await http.delete(
+      path: '${api.medication(null, null, null)}$id/',
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(message: 'Vaccination deleted successfully'),
+            );
+          }
+
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppSuccessResponse deleteVaccination({required int id}) async {
+    final response = await http.delete(
+      path: '${api.vaccination(null, null, null)}$id/',
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(message: 'Medication deleted successfully'),
+            );
+          }
+
           return Left(
             ErrorMessage(
               message: data['message'] as String? ?? AppText.somethingWentWrong,

@@ -1,4 +1,3 @@
-// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -10,1055 +9,3381 @@ part of 'deworming_form_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
+
 /// @nodoc
 mixin _$DewormingFormEvent {
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DewormingFormEvent);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'DewormingFormEvent()';
-}
-
-
-}
-
-/// @nodoc
-class $DewormingFormEventCopyWith<$Res>  {
-$DewormingFormEventCopyWith(DewormingFormEvent _, $Res Function(DewormingFormEvent) __);
-}
-
-
-/// @nodoc
-
-
-class _Init implements DewormingFormEvent {
-  const _Init(this.petId);
-  
-
- final  int petId;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$InitCopyWith<_Init> get copyWith => __$InitCopyWithImpl<_Init>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Init&&(identical(other.petId, petId) || other.petId == petId));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,petId);
-
-@override
-String toString() {
-  return 'DewormingFormEvent.init(petId: $petId)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$InitCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
-  factory _$InitCopyWith(_Init value, $Res Function(_Init) _then) = __$InitCopyWithImpl;
-@useResult
-$Res call({
- int petId
-});
-
-
-
-
-}
-/// @nodoc
-class __$InitCopyWithImpl<$Res>
-    implements _$InitCopyWith<$Res> {
-  __$InitCopyWithImpl(this._self, this._then);
-
-  final _Init _self;
-  final $Res Function(_Init) _then;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? petId = null,}) {
-  return _then(_Init(
-null == petId ? _self.petId : petId // ignore: cast_nullable_to_non_nullable
-as int,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _Date implements DewormingFormEvent {
-  const _Date(this.value);
-  
-
- final  String value;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$DateCopyWith<_Date> get copyWith => __$DateCopyWithImpl<_Date>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Date&&(identical(other.value, value) || other.value == value));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,value);
-
-@override
-String toString() {
-  return 'DewormingFormEvent.date(value: $value)';
-}
-
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(String value) productName,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function() submit,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(String value)? productName,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function()? submit,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(String value)? productName,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_ProductName value) productName,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_ProductName value)? productName,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_ProductName value)? productName,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class _$DateCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
-  factory _$DateCopyWith(_Date value, $Res Function(_Date) _then) = __$DateCopyWithImpl;
-@useResult
-$Res call({
- String value
-});
-
-
-
-
+abstract class $DewormingFormEventCopyWith<$Res> {
+  factory $DewormingFormEventCopyWith(
+    DewormingFormEvent value,
+    $Res Function(DewormingFormEvent) then,
+  ) = _$DewormingFormEventCopyWithImpl<$Res, DewormingFormEvent>;
 }
+
 /// @nodoc
-class __$DateCopyWithImpl<$Res>
-    implements _$DateCopyWith<$Res> {
-  __$DateCopyWithImpl(this._self, this._then);
+class _$DewormingFormEventCopyWithImpl<$Res, $Val extends DewormingFormEvent>
+    implements $DewormingFormEventCopyWith<$Res> {
+  _$DewormingFormEventCopyWithImpl(this._value, this._then);
 
-  final _Date _self;
-  final $Res Function(_Date) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_Date(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
+/// @nodoc
+abstract class _$$InitImplCopyWith<$Res> {
+  factory _$$InitImplCopyWith(
+    _$InitImpl value,
+    $Res Function(_$InitImpl) then,
+  ) = __$$InitImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int petId});
+}
 
+/// @nodoc
+class __$$InitImplCopyWithImpl<$Res>
+    extends _$DewormingFormEventCopyWithImpl<$Res, _$InitImpl>
+    implements _$$InitImplCopyWith<$Res> {
+  __$$InitImplCopyWithImpl(_$InitImpl _value, $Res Function(_$InitImpl) _then)
+    : super(_value, _then);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? petId = null}) {
+    return _then(
+      _$InitImpl(
+        null == petId
+            ? _value.petId
+            : petId // ignore: cast_nullable_to_non_nullable
+                as int,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
+class _$InitImpl implements _Init {
+  const _$InitImpl(this.petId);
 
-class _ProductName implements DewormingFormEvent {
-  const _ProductName(this.value);
-  
+  @override
+  final int petId;
 
- final  String value;
+  @override
+  String toString() {
+    return 'DewormingFormEvent.init(petId: $petId)';
+  }
 
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$ProductNameCopyWith<_ProductName> get copyWith => __$ProductNameCopyWithImpl<_ProductName>(this, _$identity);
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InitImpl &&
+            (identical(other.petId, petId) || other.petId == petId));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, petId);
 
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InitImplCopyWith<_$InitImpl> get copyWith =>
+      __$$InitImplCopyWithImpl<_$InitImpl>(this, _$identity);
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ProductName&&(identical(other.value, value) || other.value == value));
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(String value) productName,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function() submit,
+  }) {
+    return init(petId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(String value)? productName,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function()? submit,
+  }) {
+    return init?.call(petId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(String value)? productName,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (init != null) {
+      return init(petId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_ProductName value) productName,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return init(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_ProductName value)? productName,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return init?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_ProductName value)? productName,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (init != null) {
+      return init(this);
+    }
+    return orElse();
+  }
 }
 
+abstract class _Init implements DewormingFormEvent {
+  const factory _Init(final int petId) = _$InitImpl;
 
-@override
-int get hashCode => Object.hash(runtimeType,value);
+  int get petId;
 
-@override
-String toString() {
-  return 'DewormingFormEvent.productName(value: $value)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$ProductNameCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
-  factory _$ProductNameCopyWith(_ProductName value, $Res Function(_ProductName) _then) = __$ProductNameCopyWithImpl;
-@useResult
-$Res call({
- String value
-});
-
-
-
-
-}
-/// @nodoc
-class __$ProductNameCopyWithImpl<$Res>
-    implements _$ProductNameCopyWith<$Res> {
-  __$ProductNameCopyWithImpl(this._self, this._then);
-
-  final _ProductName _self;
-  final $Res Function(_ProductName) _then;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_ProductName(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _DueDate implements DewormingFormEvent {
-  const _DueDate(this.value);
-  
-
- final  String value;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$DueDateCopyWith<_DueDate> get copyWith => __$DueDateCopyWithImpl<_DueDate>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DueDate&&(identical(other.value, value) || other.value == value));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,value);
-
-@override
-String toString() {
-  return 'DewormingFormEvent.dueDate(value: $value)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$DueDateCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
-  factory _$DueDateCopyWith(_DueDate value, $Res Function(_DueDate) _then) = __$DueDateCopyWithImpl;
-@useResult
-$Res call({
- String value
-});
-
-
-
-
-}
-/// @nodoc
-class __$DueDateCopyWithImpl<$Res>
-    implements _$DueDateCopyWith<$Res> {
-  __$DueDateCopyWithImpl(this._self, this._then);
-
-  final _DueDate _self;
-  final $Res Function(_DueDate) _then;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_DueDate(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _Notes implements DewormingFormEvent {
-  const _Notes(this.value);
-  
-
- final  String value;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$NotesCopyWith<_Notes> get copyWith => __$NotesCopyWithImpl<_Notes>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Notes&&(identical(other.value, value) || other.value == value));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,value);
-
-@override
-String toString() {
-  return 'DewormingFormEvent.notes(value: $value)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$NotesCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
-  factory _$NotesCopyWith(_Notes value, $Res Function(_Notes) _then) = __$NotesCopyWithImpl;
-@useResult
-$Res call({
- String value
-});
-
-
-
-
-}
-/// @nodoc
-class __$NotesCopyWithImpl<$Res>
-    implements _$NotesCopyWith<$Res> {
-  __$NotesCopyWithImpl(this._self, this._then);
-
-  final _Notes _self;
-  final $Res Function(_Notes) _then;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_Notes(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$InitImplCopyWith<_$InitImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-
-
-class _Media implements DewormingFormEvent {
-  const _Media(this.value);
-  
-
- final  String value;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$MediaCopyWith<_Media> get copyWith => __$MediaCopyWithImpl<_Media>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Media&&(identical(other.value, value) || other.value == value));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,value);
-
-@override
-String toString() {
-  return 'DewormingFormEvent.media(value: $value)';
-}
-
-
+abstract class _$$DateImplCopyWith<$Res> {
+  factory _$$DateImplCopyWith(
+    _$DateImpl value,
+    $Res Function(_$DateImpl) then,
+  ) = __$$DateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
 }
 
 /// @nodoc
-abstract mixin class _$MediaCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
-  factory _$MediaCopyWith(_Media value, $Res Function(_Media) _then) = __$MediaCopyWithImpl;
-@useResult
-$Res call({
- String value
-});
+class __$$DateImplCopyWithImpl<$Res>
+    extends _$DewormingFormEventCopyWithImpl<$Res, _$DateImpl>
+    implements _$$DateImplCopyWith<$Res> {
+  __$$DateImplCopyWithImpl(_$DateImpl _value, $Res Function(_$DateImpl) _then)
+    : super(_value, _then);
 
-
-
-
-}
-/// @nodoc
-class __$MediaCopyWithImpl<$Res>
-    implements _$MediaCopyWith<$Res> {
-  __$MediaCopyWithImpl(this._self, this._then);
-
-  final _Media _self;
-  final $Res Function(_Media) _then;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_Media(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$DateImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
+class _$DateImpl implements _Date {
+  const _$DateImpl(this.value);
 
-class _Frequency implements DewormingFormEvent {
-  const _Frequency(this.value);
-  
+  @override
+  final String value;
 
- final  DropItem value;
+  @override
+  String toString() {
+    return 'DewormingFormEvent.date(value: $value)';
+  }
 
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$FrequencyCopyWith<_Frequency> get copyWith => __$FrequencyCopyWithImpl<_Frequency>(this, _$identity);
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DateImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
 
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DateImplCopyWith<_$DateImpl> get copyWith =>
+      __$$DateImplCopyWithImpl<_$DateImpl>(this, _$identity);
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Frequency&&(identical(other.value, value) || other.value == value));
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(String value) productName,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function() submit,
+  }) {
+    return date(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(String value)? productName,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function()? submit,
+  }) {
+    return date?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(String value)? productName,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (date != null) {
+      return date(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_ProductName value) productName,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return date(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_ProductName value)? productName,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return date?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_ProductName value)? productName,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (date != null) {
+      return date(this);
+    }
+    return orElse();
+  }
 }
 
+abstract class _Date implements DewormingFormEvent {
+  const factory _Date(final String value) = _$DateImpl;
 
-@override
-int get hashCode => Object.hash(runtimeType,value);
+  String get value;
 
-@override
-String toString() {
-  return 'DewormingFormEvent.frequency(value: $value)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$FrequencyCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
-  factory _$FrequencyCopyWith(_Frequency value, $Res Function(_Frequency) _then) = __$FrequencyCopyWithImpl;
-@useResult
-$Res call({
- DropItem value
-});
-
-
-
-
-}
-/// @nodoc
-class __$FrequencyCopyWithImpl<$Res>
-    implements _$FrequencyCopyWith<$Res> {
-  __$FrequencyCopyWithImpl(this._self, this._then);
-
-  final _Frequency _self;
-  final $Res Function(_Frequency) _then;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_Frequency(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as DropItem,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _ReminderTimezone implements DewormingFormEvent {
-  const _ReminderTimezone(this.value);
-  
-
- final  DropItem value;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$ReminderTimezoneCopyWith<_ReminderTimezone> get copyWith => __$ReminderTimezoneCopyWithImpl<_ReminderTimezone>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReminderTimezone&&(identical(other.value, value) || other.value == value));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,value);
-
-@override
-String toString() {
-  return 'DewormingFormEvent.reminderTimezone(value: $value)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$ReminderTimezoneCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
-  factory _$ReminderTimezoneCopyWith(_ReminderTimezone value, $Res Function(_ReminderTimezone) _then) = __$ReminderTimezoneCopyWithImpl;
-@useResult
-$Res call({
- DropItem value
-});
-
-
-
-
-}
-/// @nodoc
-class __$ReminderTimezoneCopyWithImpl<$Res>
-    implements _$ReminderTimezoneCopyWith<$Res> {
-  __$ReminderTimezoneCopyWithImpl(this._self, this._then);
-
-  final _ReminderTimezone _self;
-  final $Res Function(_ReminderTimezone) _then;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_ReminderTimezone(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as DropItem,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _ReminderBefore implements DewormingFormEvent {
-  const _ReminderBefore(this.value);
-  
-
- final  DropItem value;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$ReminderBeforeCopyWith<_ReminderBefore> get copyWith => __$ReminderBeforeCopyWithImpl<_ReminderBefore>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReminderBefore&&(identical(other.value, value) || other.value == value));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,value);
-
-@override
-String toString() {
-  return 'DewormingFormEvent.reminderBefore(value: $value)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$ReminderBeforeCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
-  factory _$ReminderBeforeCopyWith(_ReminderBefore value, $Res Function(_ReminderBefore) _then) = __$ReminderBeforeCopyWithImpl;
-@useResult
-$Res call({
- DropItem value
-});
-
-
-
-
-}
-/// @nodoc
-class __$ReminderBeforeCopyWithImpl<$Res>
-    implements _$ReminderBeforeCopyWith<$Res> {
-  __$ReminderBeforeCopyWithImpl(this._self, this._then);
-
-  final _ReminderBefore _self;
-  final $Res Function(_ReminderBefore) _then;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_ReminderBefore(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as DropItem,
-  ));
-}
-
-
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DateImplCopyWith<_$DateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-
-
-class _ReminderHour implements DewormingFormEvent {
-  const _ReminderHour(this.value);
-  
-
- final  DropItem value;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$ReminderHourCopyWith<_ReminderHour> get copyWith => __$ReminderHourCopyWithImpl<_ReminderHour>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReminderHour&&(identical(other.value, value) || other.value == value));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,value);
-
-@override
-String toString() {
-  return 'DewormingFormEvent.reminderHour(value: $value)';
-}
-
-
+abstract class _$$ProductNameImplCopyWith<$Res> {
+  factory _$$ProductNameImplCopyWith(
+    _$ProductNameImpl value,
+    $Res Function(_$ProductNameImpl) then,
+  ) = __$$ProductNameImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
 }
 
 /// @nodoc
-abstract mixin class _$ReminderHourCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
-  factory _$ReminderHourCopyWith(_ReminderHour value, $Res Function(_ReminderHour) _then) = __$ReminderHourCopyWithImpl;
-@useResult
-$Res call({
- DropItem value
-});
+class __$$ProductNameImplCopyWithImpl<$Res>
+    extends _$DewormingFormEventCopyWithImpl<$Res, _$ProductNameImpl>
+    implements _$$ProductNameImplCopyWith<$Res> {
+  __$$ProductNameImplCopyWithImpl(
+    _$ProductNameImpl _value,
+    $Res Function(_$ProductNameImpl) _then,
+  ) : super(_value, _then);
 
-
-
-
-}
-/// @nodoc
-class __$ReminderHourCopyWithImpl<$Res>
-    implements _$ReminderHourCopyWith<$Res> {
-  __$ReminderHourCopyWithImpl(this._self, this._then);
-
-  final _ReminderHour _self;
-  final $Res Function(_ReminderHour) _then;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_ReminderHour(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as DropItem,
-  ));
-}
-
-
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$ProductNameImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
+class _$ProductNameImpl implements _ProductName {
+  const _$ProductNameImpl(this.value);
 
-class _ReminderMin implements DewormingFormEvent {
-  const _ReminderMin(this.value);
-  
+  @override
+  final String value;
 
- final  DropItem value;
+  @override
+  String toString() {
+    return 'DewormingFormEvent.productName(value: $value)';
+  }
 
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$ReminderMinCopyWith<_ReminderMin> get copyWith => __$ReminderMinCopyWithImpl<_ReminderMin>(this, _$identity);
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ProductNameImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
 
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ProductNameImplCopyWith<_$ProductNameImpl> get copyWith =>
+      __$$ProductNameImplCopyWithImpl<_$ProductNameImpl>(this, _$identity);
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReminderMin&&(identical(other.value, value) || other.value == value));
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(String value) productName,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function() submit,
+  }) {
+    return productName(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(String value)? productName,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function()? submit,
+  }) {
+    return productName?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(String value)? productName,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (productName != null) {
+      return productName(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_ProductName value) productName,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return productName(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_ProductName value)? productName,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return productName?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_ProductName value)? productName,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (productName != null) {
+      return productName(this);
+    }
+    return orElse();
+  }
 }
 
+abstract class _ProductName implements DewormingFormEvent {
+  const factory _ProductName(final String value) = _$ProductNameImpl;
 
-@override
-int get hashCode => Object.hash(runtimeType,value);
+  String get value;
 
-@override
-String toString() {
-  return 'DewormingFormEvent.reminderMin(value: $value)';
-}
-
-
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ProductNameImplCopyWith<_$ProductNameImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class _$ReminderMinCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
-  factory _$ReminderMinCopyWith(_ReminderMin value, $Res Function(_ReminderMin) _then) = __$ReminderMinCopyWithImpl;
-@useResult
-$Res call({
- DropItem value
-});
-
-
-
-
-}
-/// @nodoc
-class __$ReminderMinCopyWithImpl<$Res>
-    implements _$ReminderMinCopyWith<$Res> {
-  __$ReminderMinCopyWithImpl(this._self, this._then);
-
-  final _ReminderMin _self;
-  final $Res Function(_ReminderMin) _then;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_ReminderMin(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as DropItem,
-  ));
-}
-
-
+abstract class _$$DueDateImplCopyWith<$Res> {
+  factory _$$DueDateImplCopyWith(
+    _$DueDateImpl value,
+    $Res Function(_$DueDateImpl) then,
+  ) = __$$DueDateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
 }
 
 /// @nodoc
+class __$$DueDateImplCopyWithImpl<$Res>
+    extends _$DewormingFormEventCopyWithImpl<$Res, _$DueDateImpl>
+    implements _$$DueDateImplCopyWith<$Res> {
+  __$$DueDateImplCopyWithImpl(
+    _$DueDateImpl _value,
+    $Res Function(_$DueDateImpl) _then,
+  ) : super(_value, _then);
 
-
-class _ReminderAmPm implements DewormingFormEvent {
-  const _ReminderAmPm(this.value);
-  
-
- final  DropItem value;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$ReminderAmPmCopyWith<_ReminderAmPm> get copyWith => __$ReminderAmPmCopyWithImpl<_ReminderAmPm>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ReminderAmPm&&(identical(other.value, value) || other.value == value));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,value);
-
-@override
-String toString() {
-  return 'DewormingFormEvent.reminderAmPm(value: $value)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$ReminderAmPmCopyWith<$Res> implements $DewormingFormEventCopyWith<$Res> {
-  factory _$ReminderAmPmCopyWith(_ReminderAmPm value, $Res Function(_ReminderAmPm) _then) = __$ReminderAmPmCopyWithImpl;
-@useResult
-$Res call({
- DropItem value
-});
-
-
-
-
-}
-/// @nodoc
-class __$ReminderAmPmCopyWithImpl<$Res>
-    implements _$ReminderAmPmCopyWith<$Res> {
-  __$ReminderAmPmCopyWithImpl(this._self, this._then);
-
-  final _ReminderAmPm _self;
-  final $Res Function(_ReminderAmPm) _then;
-
-/// Create a copy of DewormingFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_ReminderAmPm(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as DropItem,
-  ));
-}
-
-
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$DueDateImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
+class _$DueDateImpl implements _DueDate {
+  const _$DueDateImpl(this.value);
 
-class _Submit implements DewormingFormEvent {
-  const _Submit();
-  
+  @override
+  final String value;
 
+  @override
+  String toString() {
+    return 'DewormingFormEvent.dueDate(value: $value)';
+  }
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DueDateImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
 
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DueDateImplCopyWith<_$DueDateImpl> get copyWith =>
+      __$$DueDateImplCopyWithImpl<_$DueDateImpl>(this, _$identity);
 
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(String value) productName,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function() submit,
+  }) {
+    return dueDate(value);
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Submit);
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(String value)? productName,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function()? submit,
+  }) {
+    return dueDate?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(String value)? productName,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (dueDate != null) {
+      return dueDate(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_ProductName value) productName,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return dueDate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_ProductName value)? productName,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return dueDate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_ProductName value)? productName,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (dueDate != null) {
+      return dueDate(this);
+    }
+    return orElse();
+  }
 }
 
+abstract class _DueDate implements DewormingFormEvent {
+  const factory _DueDate(final String value) = _$DueDateImpl;
 
-@override
-int get hashCode => runtimeType.hashCode;
+  String get value;
 
-@override
-String toString() {
-  return 'DewormingFormEvent.submit()';
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DueDateImplCopyWith<_$DueDateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-
+/// @nodoc
+abstract class _$$NotesImplCopyWith<$Res> {
+  factory _$$NotesImplCopyWith(
+    _$NotesImpl value,
+    $Res Function(_$NotesImpl) then,
+  ) = __$$NotesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
 }
 
+/// @nodoc
+class __$$NotesImplCopyWithImpl<$Res>
+    extends _$DewormingFormEventCopyWithImpl<$Res, _$NotesImpl>
+    implements _$$NotesImplCopyWith<$Res> {
+  __$$NotesImplCopyWithImpl(
+    _$NotesImpl _value,
+    $Res Function(_$NotesImpl) _then,
+  ) : super(_value, _then);
 
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$NotesImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
 
+/// @nodoc
+
+class _$NotesImpl implements _Notes {
+  const _$NotesImpl(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'DewormingFormEvent.notes(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NotesImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NotesImplCopyWith<_$NotesImpl> get copyWith =>
+      __$$NotesImplCopyWithImpl<_$NotesImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(String value) productName,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function() submit,
+  }) {
+    return notes(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(String value)? productName,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function()? submit,
+  }) {
+    return notes?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(String value)? productName,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (notes != null) {
+      return notes(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_ProductName value) productName,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return notes(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_ProductName value)? productName,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return notes?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_ProductName value)? productName,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (notes != null) {
+      return notes(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Notes implements DewormingFormEvent {
+  const factory _Notes(final String value) = _$NotesImpl;
+
+  String get value;
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$NotesImplCopyWith<_$NotesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MediaImplCopyWith<$Res> {
+  factory _$$MediaImplCopyWith(
+    _$MediaImpl value,
+    $Res Function(_$MediaImpl) then,
+  ) = __$$MediaImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$MediaImplCopyWithImpl<$Res>
+    extends _$DewormingFormEventCopyWithImpl<$Res, _$MediaImpl>
+    implements _$$MediaImplCopyWith<$Res> {
+  __$$MediaImplCopyWithImpl(
+    _$MediaImpl _value,
+    $Res Function(_$MediaImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$MediaImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$MediaImpl implements _Media {
+  const _$MediaImpl(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'DewormingFormEvent.media(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MediaImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MediaImplCopyWith<_$MediaImpl> get copyWith =>
+      __$$MediaImplCopyWithImpl<_$MediaImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(String value) productName,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function() submit,
+  }) {
+    return media(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(String value)? productName,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function()? submit,
+  }) {
+    return media?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(String value)? productName,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (media != null) {
+      return media(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_ProductName value) productName,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return media(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_ProductName value)? productName,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return media?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_ProductName value)? productName,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (media != null) {
+      return media(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Media implements DewormingFormEvent {
+  const factory _Media(final String value) = _$MediaImpl;
+
+  String get value;
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MediaImplCopyWith<_$MediaImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FrequencyImplCopyWith<$Res> {
+  factory _$$FrequencyImplCopyWith(
+    _$FrequencyImpl value,
+    $Res Function(_$FrequencyImpl) then,
+  ) = __$$FrequencyImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DropItem value});
+}
+
+/// @nodoc
+class __$$FrequencyImplCopyWithImpl<$Res>
+    extends _$DewormingFormEventCopyWithImpl<$Res, _$FrequencyImpl>
+    implements _$$FrequencyImplCopyWith<$Res> {
+  __$$FrequencyImplCopyWithImpl(
+    _$FrequencyImpl _value,
+    $Res Function(_$FrequencyImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$FrequencyImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as DropItem,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$FrequencyImpl implements _Frequency {
+  const _$FrequencyImpl(this.value);
+
+  @override
+  final DropItem value;
+
+  @override
+  String toString() {
+    return 'DewormingFormEvent.frequency(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FrequencyImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FrequencyImplCopyWith<_$FrequencyImpl> get copyWith =>
+      __$$FrequencyImplCopyWithImpl<_$FrequencyImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(String value) productName,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function() submit,
+  }) {
+    return frequency(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(String value)? productName,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function()? submit,
+  }) {
+    return frequency?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(String value)? productName,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (frequency != null) {
+      return frequency(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_ProductName value) productName,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return frequency(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_ProductName value)? productName,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return frequency?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_ProductName value)? productName,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (frequency != null) {
+      return frequency(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Frequency implements DewormingFormEvent {
+  const factory _Frequency(final DropItem value) = _$FrequencyImpl;
+
+  DropItem get value;
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FrequencyImplCopyWith<_$FrequencyImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ReminderTimezoneImplCopyWith<$Res> {
+  factory _$$ReminderTimezoneImplCopyWith(
+    _$ReminderTimezoneImpl value,
+    $Res Function(_$ReminderTimezoneImpl) then,
+  ) = __$$ReminderTimezoneImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DropItem value});
+}
+
+/// @nodoc
+class __$$ReminderTimezoneImplCopyWithImpl<$Res>
+    extends _$DewormingFormEventCopyWithImpl<$Res, _$ReminderTimezoneImpl>
+    implements _$$ReminderTimezoneImplCopyWith<$Res> {
+  __$$ReminderTimezoneImplCopyWithImpl(
+    _$ReminderTimezoneImpl _value,
+    $Res Function(_$ReminderTimezoneImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$ReminderTimezoneImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as DropItem,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$ReminderTimezoneImpl implements _ReminderTimezone {
+  const _$ReminderTimezoneImpl(this.value);
+
+  @override
+  final DropItem value;
+
+  @override
+  String toString() {
+    return 'DewormingFormEvent.reminderTimezone(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReminderTimezoneImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReminderTimezoneImplCopyWith<_$ReminderTimezoneImpl> get copyWith =>
+      __$$ReminderTimezoneImplCopyWithImpl<_$ReminderTimezoneImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(String value) productName,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function() submit,
+  }) {
+    return reminderTimezone(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(String value)? productName,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function()? submit,
+  }) {
+    return reminderTimezone?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(String value)? productName,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (reminderTimezone != null) {
+      return reminderTimezone(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_ProductName value) productName,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return reminderTimezone(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_ProductName value)? productName,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return reminderTimezone?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_ProductName value)? productName,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (reminderTimezone != null) {
+      return reminderTimezone(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReminderTimezone implements DewormingFormEvent {
+  const factory _ReminderTimezone(final DropItem value) =
+      _$ReminderTimezoneImpl;
+
+  DropItem get value;
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ReminderTimezoneImplCopyWith<_$ReminderTimezoneImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ReminderBeforeImplCopyWith<$Res> {
+  factory _$$ReminderBeforeImplCopyWith(
+    _$ReminderBeforeImpl value,
+    $Res Function(_$ReminderBeforeImpl) then,
+  ) = __$$ReminderBeforeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DropItem value});
+}
+
+/// @nodoc
+class __$$ReminderBeforeImplCopyWithImpl<$Res>
+    extends _$DewormingFormEventCopyWithImpl<$Res, _$ReminderBeforeImpl>
+    implements _$$ReminderBeforeImplCopyWith<$Res> {
+  __$$ReminderBeforeImplCopyWithImpl(
+    _$ReminderBeforeImpl _value,
+    $Res Function(_$ReminderBeforeImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$ReminderBeforeImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as DropItem,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$ReminderBeforeImpl implements _ReminderBefore {
+  const _$ReminderBeforeImpl(this.value);
+
+  @override
+  final DropItem value;
+
+  @override
+  String toString() {
+    return 'DewormingFormEvent.reminderBefore(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReminderBeforeImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReminderBeforeImplCopyWith<_$ReminderBeforeImpl> get copyWith =>
+      __$$ReminderBeforeImplCopyWithImpl<_$ReminderBeforeImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(String value) productName,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function() submit,
+  }) {
+    return reminderBefore(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(String value)? productName,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function()? submit,
+  }) {
+    return reminderBefore?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(String value)? productName,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (reminderBefore != null) {
+      return reminderBefore(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_ProductName value) productName,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return reminderBefore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_ProductName value)? productName,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return reminderBefore?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_ProductName value)? productName,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (reminderBefore != null) {
+      return reminderBefore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReminderBefore implements DewormingFormEvent {
+  const factory _ReminderBefore(final DropItem value) = _$ReminderBeforeImpl;
+
+  DropItem get value;
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ReminderBeforeImplCopyWith<_$ReminderBeforeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ReminderHourImplCopyWith<$Res> {
+  factory _$$ReminderHourImplCopyWith(
+    _$ReminderHourImpl value,
+    $Res Function(_$ReminderHourImpl) then,
+  ) = __$$ReminderHourImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DropItem value});
+}
+
+/// @nodoc
+class __$$ReminderHourImplCopyWithImpl<$Res>
+    extends _$DewormingFormEventCopyWithImpl<$Res, _$ReminderHourImpl>
+    implements _$$ReminderHourImplCopyWith<$Res> {
+  __$$ReminderHourImplCopyWithImpl(
+    _$ReminderHourImpl _value,
+    $Res Function(_$ReminderHourImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$ReminderHourImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as DropItem,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$ReminderHourImpl implements _ReminderHour {
+  const _$ReminderHourImpl(this.value);
+
+  @override
+  final DropItem value;
+
+  @override
+  String toString() {
+    return 'DewormingFormEvent.reminderHour(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReminderHourImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReminderHourImplCopyWith<_$ReminderHourImpl> get copyWith =>
+      __$$ReminderHourImplCopyWithImpl<_$ReminderHourImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(String value) productName,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function() submit,
+  }) {
+    return reminderHour(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(String value)? productName,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function()? submit,
+  }) {
+    return reminderHour?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(String value)? productName,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (reminderHour != null) {
+      return reminderHour(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_ProductName value) productName,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return reminderHour(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_ProductName value)? productName,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return reminderHour?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_ProductName value)? productName,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (reminderHour != null) {
+      return reminderHour(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReminderHour implements DewormingFormEvent {
+  const factory _ReminderHour(final DropItem value) = _$ReminderHourImpl;
+
+  DropItem get value;
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ReminderHourImplCopyWith<_$ReminderHourImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ReminderMinImplCopyWith<$Res> {
+  factory _$$ReminderMinImplCopyWith(
+    _$ReminderMinImpl value,
+    $Res Function(_$ReminderMinImpl) then,
+  ) = __$$ReminderMinImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DropItem value});
+}
+
+/// @nodoc
+class __$$ReminderMinImplCopyWithImpl<$Res>
+    extends _$DewormingFormEventCopyWithImpl<$Res, _$ReminderMinImpl>
+    implements _$$ReminderMinImplCopyWith<$Res> {
+  __$$ReminderMinImplCopyWithImpl(
+    _$ReminderMinImpl _value,
+    $Res Function(_$ReminderMinImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$ReminderMinImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as DropItem,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$ReminderMinImpl implements _ReminderMin {
+  const _$ReminderMinImpl(this.value);
+
+  @override
+  final DropItem value;
+
+  @override
+  String toString() {
+    return 'DewormingFormEvent.reminderMin(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReminderMinImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReminderMinImplCopyWith<_$ReminderMinImpl> get copyWith =>
+      __$$ReminderMinImplCopyWithImpl<_$ReminderMinImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(String value) productName,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function() submit,
+  }) {
+    return reminderMin(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(String value)? productName,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function()? submit,
+  }) {
+    return reminderMin?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(String value)? productName,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (reminderMin != null) {
+      return reminderMin(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_ProductName value) productName,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return reminderMin(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_ProductName value)? productName,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return reminderMin?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_ProductName value)? productName,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (reminderMin != null) {
+      return reminderMin(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReminderMin implements DewormingFormEvent {
+  const factory _ReminderMin(final DropItem value) = _$ReminderMinImpl;
+
+  DropItem get value;
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ReminderMinImplCopyWith<_$ReminderMinImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ReminderAmPmImplCopyWith<$Res> {
+  factory _$$ReminderAmPmImplCopyWith(
+    _$ReminderAmPmImpl value,
+    $Res Function(_$ReminderAmPmImpl) then,
+  ) = __$$ReminderAmPmImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DropItem value});
+}
+
+/// @nodoc
+class __$$ReminderAmPmImplCopyWithImpl<$Res>
+    extends _$DewormingFormEventCopyWithImpl<$Res, _$ReminderAmPmImpl>
+    implements _$$ReminderAmPmImplCopyWith<$Res> {
+  __$$ReminderAmPmImplCopyWithImpl(
+    _$ReminderAmPmImpl _value,
+    $Res Function(_$ReminderAmPmImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$ReminderAmPmImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as DropItem,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$ReminderAmPmImpl implements _ReminderAmPm {
+  const _$ReminderAmPmImpl(this.value);
+
+  @override
+  final DropItem value;
+
+  @override
+  String toString() {
+    return 'DewormingFormEvent.reminderAmPm(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ReminderAmPmImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ReminderAmPmImplCopyWith<_$ReminderAmPmImpl> get copyWith =>
+      __$$ReminderAmPmImplCopyWithImpl<_$ReminderAmPmImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(String value) productName,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function() submit,
+  }) {
+    return reminderAmPm(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(String value)? productName,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function()? submit,
+  }) {
+    return reminderAmPm?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(String value)? productName,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (reminderAmPm != null) {
+      return reminderAmPm(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_ProductName value) productName,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return reminderAmPm(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_ProductName value)? productName,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return reminderAmPm?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_ProductName value)? productName,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (reminderAmPm != null) {
+      return reminderAmPm(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ReminderAmPm implements DewormingFormEvent {
+  const factory _ReminderAmPm(final DropItem value) = _$ReminderAmPmImpl;
+
+  DropItem get value;
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ReminderAmPmImplCopyWith<_$ReminderAmPmImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SubmitImplCopyWith<$Res> {
+  factory _$$SubmitImplCopyWith(
+    _$SubmitImpl value,
+    $Res Function(_$SubmitImpl) then,
+  ) = __$$SubmitImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SubmitImplCopyWithImpl<$Res>
+    extends _$DewormingFormEventCopyWithImpl<$Res, _$SubmitImpl>
+    implements _$$SubmitImplCopyWith<$Res> {
+  __$$SubmitImplCopyWithImpl(
+    _$SubmitImpl _value,
+    $Res Function(_$SubmitImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DewormingFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SubmitImpl implements _Submit {
+  const _$SubmitImpl();
+
+  @override
+  String toString() {
+    return 'DewormingFormEvent.submit()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SubmitImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(String value) productName,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function() submit,
+  }) {
+    return submit();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(String value)? productName,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function()? submit,
+  }) {
+    return submit?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(String value)? productName,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (submit != null) {
+      return submit();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_ProductName value) productName,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return submit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_ProductName value)? productName,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return submit?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_ProductName value)? productName,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (submit != null) {
+      return submit(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Submit implements DewormingFormEvent {
+  const factory _Submit() = _$SubmitImpl;
+}
 
 /// @nodoc
 mixin _$DewormingFormState {
+  Status get submitStatus => throw _privateConstructorUsedError; // Form fields
+  NotEmpty get date => throw _privateConstructorUsedError;
+  NotEmpty get productName => throw _privateConstructorUsedError;
+  NotEmpty get dueDate => throw _privateConstructorUsedError;
+  DropdownValue get reminderHour => throw _privateConstructorUsedError;
+  DropdownValue get reminderMin => throw _privateConstructorUsedError;
+  DropdownValue get reminderAmPm => throw _privateConstructorUsedError;
+  NotEmpty get notes => throw _privateConstructorUsedError;
+  NotEmpty get media => throw _privateConstructorUsedError;
+  DropdownValue get frequency => throw _privateConstructorUsedError;
+  DropdownValue get reminderTimezone => throw _privateConstructorUsedError;
+  DropdownValue get reminderBefore => throw _privateConstructorUsedError;
+  List<DropItem> get frequencies => throw _privateConstructorUsedError;
+  List<DropItem> get reminderTimezones => throw _privateConstructorUsedError;
+  List<DropItem> get reminderBefores => throw _privateConstructorUsedError;
+  bool get validation => throw _privateConstructorUsedError;
+  int get petId => throw _privateConstructorUsedError;
 
- Status get submitStatus;// Form fields
- NotEmpty get date; NotEmpty get productName; NotEmpty get dueDate; DropdownValue get reminderHour; DropdownValue get reminderMin; DropdownValue get reminderAmPm; NotEmpty get notes; NotEmpty get media; DropdownValue get frequency; DropdownValue get reminderTimezone; DropdownValue get reminderBefore; List<DropItem> get frequencies; List<DropItem> get reminderTimezones; List<DropItem> get reminderBefores; bool get validation; int get petId;
-/// Create a copy of DewormingFormState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$DewormingFormStateCopyWith<DewormingFormState> get copyWith => _$DewormingFormStateCopyWithImpl<DewormingFormState>(this as DewormingFormState, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DewormingFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&(identical(other.date, date) || other.date == date)&&(identical(other.productName, productName) || other.productName == productName)&&(identical(other.dueDate, dueDate) || other.dueDate == dueDate)&&(identical(other.reminderHour, reminderHour) || other.reminderHour == reminderHour)&&(identical(other.reminderMin, reminderMin) || other.reminderMin == reminderMin)&&(identical(other.reminderAmPm, reminderAmPm) || other.reminderAmPm == reminderAmPm)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.media, media) || other.media == media)&&(identical(other.frequency, frequency) || other.frequency == frequency)&&(identical(other.reminderTimezone, reminderTimezone) || other.reminderTimezone == reminderTimezone)&&(identical(other.reminderBefore, reminderBefore) || other.reminderBefore == reminderBefore)&&const DeepCollectionEquality().equals(other.frequencies, frequencies)&&const DeepCollectionEquality().equals(other.reminderTimezones, reminderTimezones)&&const DeepCollectionEquality().equals(other.reminderBefores, reminderBefores)&&(identical(other.validation, validation) || other.validation == validation)&&(identical(other.petId, petId) || other.petId == petId));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,submitStatus,date,productName,dueDate,reminderHour,reminderMin,reminderAmPm,notes,media,frequency,reminderTimezone,reminderBefore,const DeepCollectionEquality().hash(frequencies),const DeepCollectionEquality().hash(reminderTimezones),const DeepCollectionEquality().hash(reminderBefores),validation,petId);
-
-@override
-String toString() {
-  return 'DewormingFormState(submitStatus: $submitStatus, date: $date, productName: $productName, dueDate: $dueDate, reminderHour: $reminderHour, reminderMin: $reminderMin, reminderAmPm: $reminderAmPm, notes: $notes, media: $media, frequency: $frequency, reminderTimezone: $reminderTimezone, reminderBefore: $reminderBefore, frequencies: $frequencies, reminderTimezones: $reminderTimezones, reminderBefores: $reminderBefores, validation: $validation, petId: $petId)';
-}
-
-
+  /// Create a copy of DewormingFormState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $DewormingFormStateCopyWith<DewormingFormState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $DewormingFormStateCopyWith<$Res>  {
-  factory $DewormingFormStateCopyWith(DewormingFormState value, $Res Function(DewormingFormState) _then) = _$DewormingFormStateCopyWithImpl;
-@useResult
-$Res call({
- Status submitStatus, NotEmpty date, NotEmpty productName, NotEmpty dueDate, DropdownValue reminderHour, DropdownValue reminderMin, DropdownValue reminderAmPm, NotEmpty notes, NotEmpty media, DropdownValue frequency, DropdownValue reminderTimezone, DropdownValue reminderBefore, List<DropItem> frequencies, List<DropItem> reminderTimezones, List<DropItem> reminderBefores, bool validation, int petId
-});
-
-
-
-
+abstract class $DewormingFormStateCopyWith<$Res> {
+  factory $DewormingFormStateCopyWith(
+    DewormingFormState value,
+    $Res Function(DewormingFormState) then,
+  ) = _$DewormingFormStateCopyWithImpl<$Res, DewormingFormState>;
+  @useResult
+  $Res call({
+    Status submitStatus,
+    NotEmpty date,
+    NotEmpty productName,
+    NotEmpty dueDate,
+    DropdownValue reminderHour,
+    DropdownValue reminderMin,
+    DropdownValue reminderAmPm,
+    NotEmpty notes,
+    NotEmpty media,
+    DropdownValue frequency,
+    DropdownValue reminderTimezone,
+    DropdownValue reminderBefore,
+    List<DropItem> frequencies,
+    List<DropItem> reminderTimezones,
+    List<DropItem> reminderBefores,
+    bool validation,
+    int petId,
+  });
 }
+
 /// @nodoc
-class _$DewormingFormStateCopyWithImpl<$Res>
+class _$DewormingFormStateCopyWithImpl<$Res, $Val extends DewormingFormState>
     implements $DewormingFormStateCopyWith<$Res> {
-  _$DewormingFormStateCopyWithImpl(this._self, this._then);
+  _$DewormingFormStateCopyWithImpl(this._value, this._then);
 
-  final DewormingFormState _self;
-  final $Res Function(DewormingFormState) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-/// Create a copy of DewormingFormState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? submitStatus = null,Object? date = null,Object? productName = null,Object? dueDate = null,Object? reminderHour = null,Object? reminderMin = null,Object? reminderAmPm = null,Object? notes = null,Object? media = null,Object? frequency = null,Object? reminderTimezone = null,Object? reminderBefore = null,Object? frequencies = null,Object? reminderTimezones = null,Object? reminderBefores = null,Object? validation = null,Object? petId = null,}) {
-  return _then(_self.copyWith(
-submitStatus: null == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
-as Status,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as NotEmpty,productName: null == productName ? _self.productName : productName // ignore: cast_nullable_to_non_nullable
-as NotEmpty,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
-as NotEmpty,reminderHour: null == reminderHour ? _self.reminderHour : reminderHour // ignore: cast_nullable_to_non_nullable
-as DropdownValue,reminderMin: null == reminderMin ? _self.reminderMin : reminderMin // ignore: cast_nullable_to_non_nullable
-as DropdownValue,reminderAmPm: null == reminderAmPm ? _self.reminderAmPm : reminderAmPm // ignore: cast_nullable_to_non_nullable
-as DropdownValue,notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
-as NotEmpty,media: null == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
-as NotEmpty,frequency: null == frequency ? _self.frequency : frequency // ignore: cast_nullable_to_non_nullable
-as DropdownValue,reminderTimezone: null == reminderTimezone ? _self.reminderTimezone : reminderTimezone // ignore: cast_nullable_to_non_nullable
-as DropdownValue,reminderBefore: null == reminderBefore ? _self.reminderBefore : reminderBefore // ignore: cast_nullable_to_non_nullable
-as DropdownValue,frequencies: null == frequencies ? _self.frequencies : frequencies // ignore: cast_nullable_to_non_nullable
-as List<DropItem>,reminderTimezones: null == reminderTimezones ? _self.reminderTimezones : reminderTimezones // ignore: cast_nullable_to_non_nullable
-as List<DropItem>,reminderBefores: null == reminderBefores ? _self.reminderBefores : reminderBefores // ignore: cast_nullable_to_non_nullable
-as List<DropItem>,validation: null == validation ? _self.validation : validation // ignore: cast_nullable_to_non_nullable
-as bool,petId: null == petId ? _self.petId : petId // ignore: cast_nullable_to_non_nullable
-as int,
-  ));
+  /// Create a copy of DewormingFormState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? submitStatus = null,
+    Object? date = null,
+    Object? productName = null,
+    Object? dueDate = null,
+    Object? reminderHour = null,
+    Object? reminderMin = null,
+    Object? reminderAmPm = null,
+    Object? notes = null,
+    Object? media = null,
+    Object? frequency = null,
+    Object? reminderTimezone = null,
+    Object? reminderBefore = null,
+    Object? frequencies = null,
+    Object? reminderTimezones = null,
+    Object? reminderBefores = null,
+    Object? validation = null,
+    Object? petId = null,
+  }) {
+    return _then(
+      _value.copyWith(
+            submitStatus:
+                null == submitStatus
+                    ? _value.submitStatus
+                    : submitStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
+            date:
+                null == date
+                    ? _value.date
+                    : date // ignore: cast_nullable_to_non_nullable
+                        as NotEmpty,
+            productName:
+                null == productName
+                    ? _value.productName
+                    : productName // ignore: cast_nullable_to_non_nullable
+                        as NotEmpty,
+            dueDate:
+                null == dueDate
+                    ? _value.dueDate
+                    : dueDate // ignore: cast_nullable_to_non_nullable
+                        as NotEmpty,
+            reminderHour:
+                null == reminderHour
+                    ? _value.reminderHour
+                    : reminderHour // ignore: cast_nullable_to_non_nullable
+                        as DropdownValue,
+            reminderMin:
+                null == reminderMin
+                    ? _value.reminderMin
+                    : reminderMin // ignore: cast_nullable_to_non_nullable
+                        as DropdownValue,
+            reminderAmPm:
+                null == reminderAmPm
+                    ? _value.reminderAmPm
+                    : reminderAmPm // ignore: cast_nullable_to_non_nullable
+                        as DropdownValue,
+            notes:
+                null == notes
+                    ? _value.notes
+                    : notes // ignore: cast_nullable_to_non_nullable
+                        as NotEmpty,
+            media:
+                null == media
+                    ? _value.media
+                    : media // ignore: cast_nullable_to_non_nullable
+                        as NotEmpty,
+            frequency:
+                null == frequency
+                    ? _value.frequency
+                    : frequency // ignore: cast_nullable_to_non_nullable
+                        as DropdownValue,
+            reminderTimezone:
+                null == reminderTimezone
+                    ? _value.reminderTimezone
+                    : reminderTimezone // ignore: cast_nullable_to_non_nullable
+                        as DropdownValue,
+            reminderBefore:
+                null == reminderBefore
+                    ? _value.reminderBefore
+                    : reminderBefore // ignore: cast_nullable_to_non_nullable
+                        as DropdownValue,
+            frequencies:
+                null == frequencies
+                    ? _value.frequencies
+                    : frequencies // ignore: cast_nullable_to_non_nullable
+                        as List<DropItem>,
+            reminderTimezones:
+                null == reminderTimezones
+                    ? _value.reminderTimezones
+                    : reminderTimezones // ignore: cast_nullable_to_non_nullable
+                        as List<DropItem>,
+            reminderBefores:
+                null == reminderBefores
+                    ? _value.reminderBefores
+                    : reminderBefores // ignore: cast_nullable_to_non_nullable
+                        as List<DropItem>,
+            validation:
+                null == validation
+                    ? _value.validation
+                    : validation // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            petId:
+                null == petId
+                    ? _value.petId
+                    : petId // ignore: cast_nullable_to_non_nullable
+                        as int,
+          )
+          as $Val,
+    );
+  }
 }
 
+/// @nodoc
+abstract class _$$DewormingFormStateImplCopyWith<$Res>
+    implements $DewormingFormStateCopyWith<$Res> {
+  factory _$$DewormingFormStateImplCopyWith(
+    _$DewormingFormStateImpl value,
+    $Res Function(_$DewormingFormStateImpl) then,
+  ) = __$$DewormingFormStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    Status submitStatus,
+    NotEmpty date,
+    NotEmpty productName,
+    NotEmpty dueDate,
+    DropdownValue reminderHour,
+    DropdownValue reminderMin,
+    DropdownValue reminderAmPm,
+    NotEmpty notes,
+    NotEmpty media,
+    DropdownValue frequency,
+    DropdownValue reminderTimezone,
+    DropdownValue reminderBefore,
+    List<DropItem> frequencies,
+    List<DropItem> reminderTimezones,
+    List<DropItem> reminderBefores,
+    bool validation,
+    int petId,
+  });
 }
 
+/// @nodoc
+class __$$DewormingFormStateImplCopyWithImpl<$Res>
+    extends _$DewormingFormStateCopyWithImpl<$Res, _$DewormingFormStateImpl>
+    implements _$$DewormingFormStateImplCopyWith<$Res> {
+  __$$DewormingFormStateImplCopyWithImpl(
+    _$DewormingFormStateImpl _value,
+    $Res Function(_$DewormingFormStateImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DewormingFormState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? submitStatus = null,
+    Object? date = null,
+    Object? productName = null,
+    Object? dueDate = null,
+    Object? reminderHour = null,
+    Object? reminderMin = null,
+    Object? reminderAmPm = null,
+    Object? notes = null,
+    Object? media = null,
+    Object? frequency = null,
+    Object? reminderTimezone = null,
+    Object? reminderBefore = null,
+    Object? frequencies = null,
+    Object? reminderTimezones = null,
+    Object? reminderBefores = null,
+    Object? validation = null,
+    Object? petId = null,
+  }) {
+    return _then(
+      _$DewormingFormStateImpl(
+        submitStatus:
+            null == submitStatus
+                ? _value.submitStatus
+                : submitStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
+        date:
+            null == date
+                ? _value.date
+                : date // ignore: cast_nullable_to_non_nullable
+                    as NotEmpty,
+        productName:
+            null == productName
+                ? _value.productName
+                : productName // ignore: cast_nullable_to_non_nullable
+                    as NotEmpty,
+        dueDate:
+            null == dueDate
+                ? _value.dueDate
+                : dueDate // ignore: cast_nullable_to_non_nullable
+                    as NotEmpty,
+        reminderHour:
+            null == reminderHour
+                ? _value.reminderHour
+                : reminderHour // ignore: cast_nullable_to_non_nullable
+                    as DropdownValue,
+        reminderMin:
+            null == reminderMin
+                ? _value.reminderMin
+                : reminderMin // ignore: cast_nullable_to_non_nullable
+                    as DropdownValue,
+        reminderAmPm:
+            null == reminderAmPm
+                ? _value.reminderAmPm
+                : reminderAmPm // ignore: cast_nullable_to_non_nullable
+                    as DropdownValue,
+        notes:
+            null == notes
+                ? _value.notes
+                : notes // ignore: cast_nullable_to_non_nullable
+                    as NotEmpty,
+        media:
+            null == media
+                ? _value.media
+                : media // ignore: cast_nullable_to_non_nullable
+                    as NotEmpty,
+        frequency:
+            null == frequency
+                ? _value.frequency
+                : frequency // ignore: cast_nullable_to_non_nullable
+                    as DropdownValue,
+        reminderTimezone:
+            null == reminderTimezone
+                ? _value.reminderTimezone
+                : reminderTimezone // ignore: cast_nullable_to_non_nullable
+                    as DropdownValue,
+        reminderBefore:
+            null == reminderBefore
+                ? _value.reminderBefore
+                : reminderBefore // ignore: cast_nullable_to_non_nullable
+                    as DropdownValue,
+        frequencies:
+            null == frequencies
+                ? _value._frequencies
+                : frequencies // ignore: cast_nullable_to_non_nullable
+                    as List<DropItem>,
+        reminderTimezones:
+            null == reminderTimezones
+                ? _value._reminderTimezones
+                : reminderTimezones // ignore: cast_nullable_to_non_nullable
+                    as List<DropItem>,
+        reminderBefores:
+            null == reminderBefores
+                ? _value._reminderBefores
+                : reminderBefores // ignore: cast_nullable_to_non_nullable
+                    as List<DropItem>,
+        validation:
+            null == validation
+                ? _value.validation
+                : validation // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        petId:
+            null == petId
+                ? _value.petId
+                : petId // ignore: cast_nullable_to_non_nullable
+                    as int,
+      ),
+    );
+  }
+}
 
 /// @nodoc
 
+class _$DewormingFormStateImpl implements _DewormingFormState {
+  const _$DewormingFormStateImpl({
+    this.submitStatus = Status.init,
+    this.date = const NotEmpty.pure(),
+    this.productName = const NotEmpty.pure(),
+    this.dueDate = const NotEmpty.pure(),
+    this.reminderHour = const DropdownValue.pure(),
+    this.reminderMin = const DropdownValue.pure(),
+    this.reminderAmPm = const DropdownValue.pure(),
+    this.notes = const NotEmpty.pure(),
+    this.media = const NotEmpty.pure(),
+    this.frequency = const DropdownValue.pure(),
+    this.reminderTimezone = const DropdownValue.pure(),
+    this.reminderBefore = const DropdownValue.pure(),
+    final List<DropItem> frequencies = const [],
+    final List<DropItem> reminderTimezones = const [],
+    final List<DropItem> reminderBefores = const [],
+    this.validation = false,
+    this.petId = 0,
+  }) : _frequencies = frequencies,
+       _reminderTimezones = reminderTimezones,
+       _reminderBefores = reminderBefores;
 
-class _DewormingFormState implements DewormingFormState {
-  const _DewormingFormState({this.submitStatus = Status.init, this.date = const NotEmpty.pure(), this.productName = const NotEmpty.pure(), this.dueDate = const NotEmpty.pure(), this.reminderHour = const DropdownValue.pure(), this.reminderMin = const DropdownValue.pure(), this.reminderAmPm = const DropdownValue.pure(), this.notes = const NotEmpty.pure(), this.media = const NotEmpty.pure(), this.frequency = const DropdownValue.pure(), this.reminderTimezone = const DropdownValue.pure(), this.reminderBefore = const DropdownValue.pure(), final  List<DropItem> frequencies = const [], final  List<DropItem> reminderTimezones = const [], final  List<DropItem> reminderBefores = const [], this.validation = false, this.petId = 0}): _frequencies = frequencies,_reminderTimezones = reminderTimezones,_reminderBefores = reminderBefores;
-  
+  @override
+  @JsonKey()
+  final Status submitStatus;
+  // Form fields
+  @override
+  @JsonKey()
+  final NotEmpty date;
+  @override
+  @JsonKey()
+  final NotEmpty productName;
+  @override
+  @JsonKey()
+  final NotEmpty dueDate;
+  @override
+  @JsonKey()
+  final DropdownValue reminderHour;
+  @override
+  @JsonKey()
+  final DropdownValue reminderMin;
+  @override
+  @JsonKey()
+  final DropdownValue reminderAmPm;
+  @override
+  @JsonKey()
+  final NotEmpty notes;
+  @override
+  @JsonKey()
+  final NotEmpty media;
+  @override
+  @JsonKey()
+  final DropdownValue frequency;
+  @override
+  @JsonKey()
+  final DropdownValue reminderTimezone;
+  @override
+  @JsonKey()
+  final DropdownValue reminderBefore;
+  final List<DropItem> _frequencies;
+  @override
+  @JsonKey()
+  List<DropItem> get frequencies {
+    if (_frequencies is EqualUnmodifiableListView) return _frequencies;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_frequencies);
+  }
 
-@override@JsonKey() final  Status submitStatus;
-// Form fields
-@override@JsonKey() final  NotEmpty date;
-@override@JsonKey() final  NotEmpty productName;
-@override@JsonKey() final  NotEmpty dueDate;
-@override@JsonKey() final  DropdownValue reminderHour;
-@override@JsonKey() final  DropdownValue reminderMin;
-@override@JsonKey() final  DropdownValue reminderAmPm;
-@override@JsonKey() final  NotEmpty notes;
-@override@JsonKey() final  NotEmpty media;
-@override@JsonKey() final  DropdownValue frequency;
-@override@JsonKey() final  DropdownValue reminderTimezone;
-@override@JsonKey() final  DropdownValue reminderBefore;
- final  List<DropItem> _frequencies;
-@override@JsonKey() List<DropItem> get frequencies {
-  if (_frequencies is EqualUnmodifiableListView) return _frequencies;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_frequencies);
+  final List<DropItem> _reminderTimezones;
+  @override
+  @JsonKey()
+  List<DropItem> get reminderTimezones {
+    if (_reminderTimezones is EqualUnmodifiableListView)
+      return _reminderTimezones;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_reminderTimezones);
+  }
+
+  final List<DropItem> _reminderBefores;
+  @override
+  @JsonKey()
+  List<DropItem> get reminderBefores {
+    if (_reminderBefores is EqualUnmodifiableListView) return _reminderBefores;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_reminderBefores);
+  }
+
+  @override
+  @JsonKey()
+  final bool validation;
+  @override
+  @JsonKey()
+  final int petId;
+
+  @override
+  String toString() {
+    return 'DewormingFormState(submitStatus: $submitStatus, date: $date, productName: $productName, dueDate: $dueDate, reminderHour: $reminderHour, reminderMin: $reminderMin, reminderAmPm: $reminderAmPm, notes: $notes, media: $media, frequency: $frequency, reminderTimezone: $reminderTimezone, reminderBefore: $reminderBefore, frequencies: $frequencies, reminderTimezones: $reminderTimezones, reminderBefores: $reminderBefores, validation: $validation, petId: $petId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DewormingFormStateImpl &&
+            (identical(other.submitStatus, submitStatus) ||
+                other.submitStatus == submitStatus) &&
+            (identical(other.date, date) || other.date == date) &&
+            (identical(other.productName, productName) ||
+                other.productName == productName) &&
+            (identical(other.dueDate, dueDate) || other.dueDate == dueDate) &&
+            (identical(other.reminderHour, reminderHour) ||
+                other.reminderHour == reminderHour) &&
+            (identical(other.reminderMin, reminderMin) ||
+                other.reminderMin == reminderMin) &&
+            (identical(other.reminderAmPm, reminderAmPm) ||
+                other.reminderAmPm == reminderAmPm) &&
+            (identical(other.notes, notes) || other.notes == notes) &&
+            (identical(other.media, media) || other.media == media) &&
+            (identical(other.frequency, frequency) ||
+                other.frequency == frequency) &&
+            (identical(other.reminderTimezone, reminderTimezone) ||
+                other.reminderTimezone == reminderTimezone) &&
+            (identical(other.reminderBefore, reminderBefore) ||
+                other.reminderBefore == reminderBefore) &&
+            const DeepCollectionEquality().equals(
+              other._frequencies,
+              _frequencies,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._reminderTimezones,
+              _reminderTimezones,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._reminderBefores,
+              _reminderBefores,
+            ) &&
+            (identical(other.validation, validation) ||
+                other.validation == validation) &&
+            (identical(other.petId, petId) || other.petId == petId));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    submitStatus,
+    date,
+    productName,
+    dueDate,
+    reminderHour,
+    reminderMin,
+    reminderAmPm,
+    notes,
+    media,
+    frequency,
+    reminderTimezone,
+    reminderBefore,
+    const DeepCollectionEquality().hash(_frequencies),
+    const DeepCollectionEquality().hash(_reminderTimezones),
+    const DeepCollectionEquality().hash(_reminderBefores),
+    validation,
+    petId,
+  );
+
+  /// Create a copy of DewormingFormState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DewormingFormStateImplCopyWith<_$DewormingFormStateImpl> get copyWith =>
+      __$$DewormingFormStateImplCopyWithImpl<_$DewormingFormStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
- final  List<DropItem> _reminderTimezones;
-@override@JsonKey() List<DropItem> get reminderTimezones {
-  if (_reminderTimezones is EqualUnmodifiableListView) return _reminderTimezones;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_reminderTimezones);
+abstract class _DewormingFormState implements DewormingFormState {
+  const factory _DewormingFormState({
+    final Status submitStatus,
+    final NotEmpty date,
+    final NotEmpty productName,
+    final NotEmpty dueDate,
+    final DropdownValue reminderHour,
+    final DropdownValue reminderMin,
+    final DropdownValue reminderAmPm,
+    final NotEmpty notes,
+    final NotEmpty media,
+    final DropdownValue frequency,
+    final DropdownValue reminderTimezone,
+    final DropdownValue reminderBefore,
+    final List<DropItem> frequencies,
+    final List<DropItem> reminderTimezones,
+    final List<DropItem> reminderBefores,
+    final bool validation,
+    final int petId,
+  }) = _$DewormingFormStateImpl;
+
+  @override
+  Status get submitStatus; // Form fields
+  @override
+  NotEmpty get date;
+  @override
+  NotEmpty get productName;
+  @override
+  NotEmpty get dueDate;
+  @override
+  DropdownValue get reminderHour;
+  @override
+  DropdownValue get reminderMin;
+  @override
+  DropdownValue get reminderAmPm;
+  @override
+  NotEmpty get notes;
+  @override
+  NotEmpty get media;
+  @override
+  DropdownValue get frequency;
+  @override
+  DropdownValue get reminderTimezone;
+  @override
+  DropdownValue get reminderBefore;
+  @override
+  List<DropItem> get frequencies;
+  @override
+  List<DropItem> get reminderTimezones;
+  @override
+  List<DropItem> get reminderBefores;
+  @override
+  bool get validation;
+  @override
+  int get petId;
+
+  /// Create a copy of DewormingFormState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DewormingFormStateImplCopyWith<_$DewormingFormStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
-
- final  List<DropItem> _reminderBefores;
-@override@JsonKey() List<DropItem> get reminderBefores {
-  if (_reminderBefores is EqualUnmodifiableListView) return _reminderBefores;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_reminderBefores);
-}
-
-@override@JsonKey() final  bool validation;
-@override@JsonKey() final  int petId;
-
-/// Create a copy of DewormingFormState
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$DewormingFormStateCopyWith<_DewormingFormState> get copyWith => __$DewormingFormStateCopyWithImpl<_DewormingFormState>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _DewormingFormState&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&(identical(other.date, date) || other.date == date)&&(identical(other.productName, productName) || other.productName == productName)&&(identical(other.dueDate, dueDate) || other.dueDate == dueDate)&&(identical(other.reminderHour, reminderHour) || other.reminderHour == reminderHour)&&(identical(other.reminderMin, reminderMin) || other.reminderMin == reminderMin)&&(identical(other.reminderAmPm, reminderAmPm) || other.reminderAmPm == reminderAmPm)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.media, media) || other.media == media)&&(identical(other.frequency, frequency) || other.frequency == frequency)&&(identical(other.reminderTimezone, reminderTimezone) || other.reminderTimezone == reminderTimezone)&&(identical(other.reminderBefore, reminderBefore) || other.reminderBefore == reminderBefore)&&const DeepCollectionEquality().equals(other._frequencies, _frequencies)&&const DeepCollectionEquality().equals(other._reminderTimezones, _reminderTimezones)&&const DeepCollectionEquality().equals(other._reminderBefores, _reminderBefores)&&(identical(other.validation, validation) || other.validation == validation)&&(identical(other.petId, petId) || other.petId == petId));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,submitStatus,date,productName,dueDate,reminderHour,reminderMin,reminderAmPm,notes,media,frequency,reminderTimezone,reminderBefore,const DeepCollectionEquality().hash(_frequencies),const DeepCollectionEquality().hash(_reminderTimezones),const DeepCollectionEquality().hash(_reminderBefores),validation,petId);
-
-@override
-String toString() {
-  return 'DewormingFormState(submitStatus: $submitStatus, date: $date, productName: $productName, dueDate: $dueDate, reminderHour: $reminderHour, reminderMin: $reminderMin, reminderAmPm: $reminderAmPm, notes: $notes, media: $media, frequency: $frequency, reminderTimezone: $reminderTimezone, reminderBefore: $reminderBefore, frequencies: $frequencies, reminderTimezones: $reminderTimezones, reminderBefores: $reminderBefores, validation: $validation, petId: $petId)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$DewormingFormStateCopyWith<$Res> implements $DewormingFormStateCopyWith<$Res> {
-  factory _$DewormingFormStateCopyWith(_DewormingFormState value, $Res Function(_DewormingFormState) _then) = __$DewormingFormStateCopyWithImpl;
-@override @useResult
-$Res call({
- Status submitStatus, NotEmpty date, NotEmpty productName, NotEmpty dueDate, DropdownValue reminderHour, DropdownValue reminderMin, DropdownValue reminderAmPm, NotEmpty notes, NotEmpty media, DropdownValue frequency, DropdownValue reminderTimezone, DropdownValue reminderBefore, List<DropItem> frequencies, List<DropItem> reminderTimezones, List<DropItem> reminderBefores, bool validation, int petId
-});
-
-
-
-
-}
-/// @nodoc
-class __$DewormingFormStateCopyWithImpl<$Res>
-    implements _$DewormingFormStateCopyWith<$Res> {
-  __$DewormingFormStateCopyWithImpl(this._self, this._then);
-
-  final _DewormingFormState _self;
-  final $Res Function(_DewormingFormState) _then;
-
-/// Create a copy of DewormingFormState
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? submitStatus = null,Object? date = null,Object? productName = null,Object? dueDate = null,Object? reminderHour = null,Object? reminderMin = null,Object? reminderAmPm = null,Object? notes = null,Object? media = null,Object? frequency = null,Object? reminderTimezone = null,Object? reminderBefore = null,Object? frequencies = null,Object? reminderTimezones = null,Object? reminderBefores = null,Object? validation = null,Object? petId = null,}) {
-  return _then(_DewormingFormState(
-submitStatus: null == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
-as Status,date: null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as NotEmpty,productName: null == productName ? _self.productName : productName // ignore: cast_nullable_to_non_nullable
-as NotEmpty,dueDate: null == dueDate ? _self.dueDate : dueDate // ignore: cast_nullable_to_non_nullable
-as NotEmpty,reminderHour: null == reminderHour ? _self.reminderHour : reminderHour // ignore: cast_nullable_to_non_nullable
-as DropdownValue,reminderMin: null == reminderMin ? _self.reminderMin : reminderMin // ignore: cast_nullable_to_non_nullable
-as DropdownValue,reminderAmPm: null == reminderAmPm ? _self.reminderAmPm : reminderAmPm // ignore: cast_nullable_to_non_nullable
-as DropdownValue,notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
-as NotEmpty,media: null == media ? _self.media : media // ignore: cast_nullable_to_non_nullable
-as NotEmpty,frequency: null == frequency ? _self.frequency : frequency // ignore: cast_nullable_to_non_nullable
-as DropdownValue,reminderTimezone: null == reminderTimezone ? _self.reminderTimezone : reminderTimezone // ignore: cast_nullable_to_non_nullable
-as DropdownValue,reminderBefore: null == reminderBefore ? _self.reminderBefore : reminderBefore // ignore: cast_nullable_to_non_nullable
-as DropdownValue,frequencies: null == frequencies ? _self._frequencies : frequencies // ignore: cast_nullable_to_non_nullable
-as List<DropItem>,reminderTimezones: null == reminderTimezones ? _self._reminderTimezones : reminderTimezones // ignore: cast_nullable_to_non_nullable
-as List<DropItem>,reminderBefores: null == reminderBefores ? _self._reminderBefores : reminderBefores // ignore: cast_nullable_to_non_nullable
-as List<DropItem>,validation: null == validation ? _self.validation : validation // ignore: cast_nullable_to_non_nullable
-as bool,petId: null == petId ? _self.petId : petId // ignore: cast_nullable_to_non_nullable
-as int,
-  ));
-}
-
-
-}
-
-// dart format on

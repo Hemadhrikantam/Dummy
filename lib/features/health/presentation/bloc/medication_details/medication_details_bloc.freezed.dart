@@ -1,4 +1,3 @@
-// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -10,376 +9,754 @@ part of 'medication_details_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
+
 /// @nodoc
 mixin _$MedicationDetailsEvent {
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MedicationDetailsEvent);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'MedicationDetailsEvent()';
-}
-
-
-}
-
-/// @nodoc
-class $MedicationDetailsEventCopyWith<$Res>  {
-$MedicationDetailsEventCopyWith(MedicationDetailsEvent _, $Res Function(MedicationDetailsEvent) __);
-}
-
-
-/// @nodoc
-
-
-class _Init implements MedicationDetailsEvent {
-  const _Init(this.id);
-  
-
- final  int id;
-
-/// Create a copy of MedicationDetailsEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$InitCopyWith<_Init> get copyWith => __$InitCopyWithImpl<_Init>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Init&&(identical(other.id, id) || other.id == id));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,id);
-
-@override
-String toString() {
-  return 'MedicationDetailsEvent.init(id: $id)';
-}
-
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int id) init,
+    required TResult Function(DateTime date) getDate,
+    required TResult Function(MedicationDate value) updateDate,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int id)? init,
+    TResult? Function(DateTime date)? getDate,
+    TResult? Function(MedicationDate value)? updateDate,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? init,
+    TResult Function(DateTime date)? getDate,
+    TResult Function(MedicationDate value)? updateDate,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_GetDate value) getDate,
+    required TResult Function(_UpdateDate value) updateDate,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_GetDate value)? getDate,
+    TResult? Function(_UpdateDate value)? updateDate,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_GetDate value)? getDate,
+    TResult Function(_UpdateDate value)? updateDate,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class _$InitCopyWith<$Res> implements $MedicationDetailsEventCopyWith<$Res> {
-  factory _$InitCopyWith(_Init value, $Res Function(_Init) _then) = __$InitCopyWithImpl;
-@useResult
-$Res call({
- int id
-});
-
-
-
-
-}
-/// @nodoc
-class __$InitCopyWithImpl<$Res>
-    implements _$InitCopyWith<$Res> {
-  __$InitCopyWithImpl(this._self, this._then);
-
-  final _Init _self;
-  final $Res Function(_Init) _then;
-
-/// Create a copy of MedicationDetailsEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? id = null,}) {
-  return _then(_Init(
-null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,
-  ));
-}
-
-
+abstract class $MedicationDetailsEventCopyWith<$Res> {
+  factory $MedicationDetailsEventCopyWith(
+    MedicationDetailsEvent value,
+    $Res Function(MedicationDetailsEvent) then,
+  ) = _$MedicationDetailsEventCopyWithImpl<$Res, MedicationDetailsEvent>;
 }
 
 /// @nodoc
+class _$MedicationDetailsEventCopyWithImpl<
+  $Res,
+  $Val extends MedicationDetailsEvent
+>
+    implements $MedicationDetailsEventCopyWith<$Res> {
+  _$MedicationDetailsEventCopyWithImpl(this._value, this._then);
 
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-class _GetDate implements MedicationDetailsEvent {
-  const _GetDate(this.date);
-  
-
- final  DateTime date;
-
-/// Create a copy of MedicationDetailsEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$GetDateCopyWith<_GetDate> get copyWith => __$GetDateCopyWithImpl<_GetDate>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetDate&&(identical(other.date, date) || other.date == date));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,date);
-
-@override
-String toString() {
-  return 'MedicationDetailsEvent.getDate(date: $date)';
-}
-
-
+  /// Create a copy of MedicationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract mixin class _$GetDateCopyWith<$Res> implements $MedicationDetailsEventCopyWith<$Res> {
-  factory _$GetDateCopyWith(_GetDate value, $Res Function(_GetDate) _then) = __$GetDateCopyWithImpl;
-@useResult
-$Res call({
- DateTime date
-});
-
-
-
-
+abstract class _$$InitImplCopyWith<$Res> {
+  factory _$$InitImplCopyWith(
+    _$InitImpl value,
+    $Res Function(_$InitImpl) then,
+  ) = __$$InitImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id});
 }
+
 /// @nodoc
-class __$GetDateCopyWithImpl<$Res>
-    implements _$GetDateCopyWith<$Res> {
-  __$GetDateCopyWithImpl(this._self, this._then);
+class __$$InitImplCopyWithImpl<$Res>
+    extends _$MedicationDetailsEventCopyWithImpl<$Res, _$InitImpl>
+    implements _$$InitImplCopyWith<$Res> {
+  __$$InitImplCopyWithImpl(_$InitImpl _value, $Res Function(_$InitImpl) _then)
+    : super(_value, _then);
 
-  final _GetDate _self;
-  final $Res Function(_GetDate) _then;
-
-/// Create a copy of MedicationDetailsEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? date = null,}) {
-  return _then(_GetDate(
-null == date ? _self.date : date // ignore: cast_nullable_to_non_nullable
-as DateTime,
-  ));
-}
-
-
+  /// Create a copy of MedicationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? id = null}) {
+    return _then(
+      _$InitImpl(
+        null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
+class _$InitImpl implements _Init {
+  const _$InitImpl(this.id);
 
-class _UpdateDate implements MedicationDetailsEvent {
-  const _UpdateDate(this.value);
-  
+  @override
+  final int id;
 
- final  MedicationDate value;
+  @override
+  String toString() {
+    return 'MedicationDetailsEvent.init(id: $id)';
+  }
 
-/// Create a copy of MedicationDetailsEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$UpdateDateCopyWith<_UpdateDate> get copyWith => __$UpdateDateCopyWithImpl<_UpdateDate>(this, _$identity);
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InitImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
 
+  /// Create a copy of MedicationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InitImplCopyWith<_$InitImpl> get copyWith =>
+      __$$InitImplCopyWithImpl<_$InitImpl>(this, _$identity);
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UpdateDate&&(identical(other.value, value) || other.value == value));
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int id) init,
+    required TResult Function(DateTime date) getDate,
+    required TResult Function(MedicationDate value) updateDate,
+  }) {
+    return init(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int id)? init,
+    TResult? Function(DateTime date)? getDate,
+    TResult? Function(MedicationDate value)? updateDate,
+  }) {
+    return init?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? init,
+    TResult Function(DateTime date)? getDate,
+    TResult Function(MedicationDate value)? updateDate,
+    required TResult orElse(),
+  }) {
+    if (init != null) {
+      return init(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_GetDate value) getDate,
+    required TResult Function(_UpdateDate value) updateDate,
+  }) {
+    return init(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_GetDate value)? getDate,
+    TResult? Function(_UpdateDate value)? updateDate,
+  }) {
+    return init?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_GetDate value)? getDate,
+    TResult Function(_UpdateDate value)? updateDate,
+    required TResult orElse(),
+  }) {
+    if (init != null) {
+      return init(this);
+    }
+    return orElse();
+  }
 }
 
+abstract class _Init implements MedicationDetailsEvent {
+  const factory _Init(final int id) = _$InitImpl;
 
-@override
-int get hashCode => Object.hash(runtimeType,value);
+  int get id;
 
-@override
-String toString() {
-  return 'MedicationDetailsEvent.updateDate(value: $value)';
-}
-
-
+  /// Create a copy of MedicationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$InitImplCopyWith<_$InitImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class _$UpdateDateCopyWith<$Res> implements $MedicationDetailsEventCopyWith<$Res> {
-  factory _$UpdateDateCopyWith(_UpdateDate value, $Res Function(_UpdateDate) _then) = __$UpdateDateCopyWithImpl;
-@useResult
-$Res call({
- MedicationDate value
-});
-
-
-
-
+abstract class _$$GetDateImplCopyWith<$Res> {
+  factory _$$GetDateImplCopyWith(
+    _$GetDateImpl value,
+    $Res Function(_$GetDateImpl) then,
+  ) = __$$GetDateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DateTime date});
 }
+
 /// @nodoc
-class __$UpdateDateCopyWithImpl<$Res>
-    implements _$UpdateDateCopyWith<$Res> {
-  __$UpdateDateCopyWithImpl(this._self, this._then);
+class __$$GetDateImplCopyWithImpl<$Res>
+    extends _$MedicationDetailsEventCopyWithImpl<$Res, _$GetDateImpl>
+    implements _$$GetDateImplCopyWith<$Res> {
+  __$$GetDateImplCopyWithImpl(
+    _$GetDateImpl _value,
+    $Res Function(_$GetDateImpl) _then,
+  ) : super(_value, _then);
 
-  final _UpdateDate _self;
-  final $Res Function(_UpdateDate) _then;
-
-/// Create a copy of MedicationDetailsEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_UpdateDate(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as MedicationDate,
-  ));
+  /// Create a copy of MedicationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? date = null}) {
+    return _then(
+      _$GetDateImpl(
+        null == date
+            ? _value.date
+            : date // ignore: cast_nullable_to_non_nullable
+                as DateTime,
+      ),
+    );
+  }
 }
 
+/// @nodoc
 
+class _$GetDateImpl implements _GetDate {
+  const _$GetDateImpl(this.date);
+
+  @override
+  final DateTime date;
+
+  @override
+  String toString() {
+    return 'MedicationDetailsEvent.getDate(date: $date)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetDateImpl &&
+            (identical(other.date, date) || other.date == date));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, date);
+
+  /// Create a copy of MedicationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetDateImplCopyWith<_$GetDateImpl> get copyWith =>
+      __$$GetDateImplCopyWithImpl<_$GetDateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int id) init,
+    required TResult Function(DateTime date) getDate,
+    required TResult Function(MedicationDate value) updateDate,
+  }) {
+    return getDate(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int id)? init,
+    TResult? Function(DateTime date)? getDate,
+    TResult? Function(MedicationDate value)? updateDate,
+  }) {
+    return getDate?.call(date);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? init,
+    TResult Function(DateTime date)? getDate,
+    TResult Function(MedicationDate value)? updateDate,
+    required TResult orElse(),
+  }) {
+    if (getDate != null) {
+      return getDate(date);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_GetDate value) getDate,
+    required TResult Function(_UpdateDate value) updateDate,
+  }) {
+    return getDate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_GetDate value)? getDate,
+    TResult? Function(_UpdateDate value)? updateDate,
+  }) {
+    return getDate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_GetDate value)? getDate,
+    TResult Function(_UpdateDate value)? updateDate,
+    required TResult orElse(),
+  }) {
+    if (getDate != null) {
+      return getDate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetDate implements MedicationDetailsEvent {
+  const factory _GetDate(final DateTime date) = _$GetDateImpl;
+
+  DateTime get date;
+
+  /// Create a copy of MedicationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetDateImplCopyWith<_$GetDateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateDateImplCopyWith<$Res> {
+  factory _$$UpdateDateImplCopyWith(
+    _$UpdateDateImpl value,
+    $Res Function(_$UpdateDateImpl) then,
+  ) = __$$UpdateDateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MedicationDate value});
+}
+
+/// @nodoc
+class __$$UpdateDateImplCopyWithImpl<$Res>
+    extends _$MedicationDetailsEventCopyWithImpl<$Res, _$UpdateDateImpl>
+    implements _$$UpdateDateImplCopyWith<$Res> {
+  __$$UpdateDateImplCopyWithImpl(
+    _$UpdateDateImpl _value,
+    $Res Function(_$UpdateDateImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MedicationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$UpdateDateImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as MedicationDate,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$UpdateDateImpl implements _UpdateDate {
+  const _$UpdateDateImpl(this.value);
+
+  @override
+  final MedicationDate value;
+
+  @override
+  String toString() {
+    return 'MedicationDetailsEvent.updateDate(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateDateImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of MedicationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateDateImplCopyWith<_$UpdateDateImpl> get copyWith =>
+      __$$UpdateDateImplCopyWithImpl<_$UpdateDateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int id) init,
+    required TResult Function(DateTime date) getDate,
+    required TResult Function(MedicationDate value) updateDate,
+  }) {
+    return updateDate(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int id)? init,
+    TResult? Function(DateTime date)? getDate,
+    TResult? Function(MedicationDate value)? updateDate,
+  }) {
+    return updateDate?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int id)? init,
+    TResult Function(DateTime date)? getDate,
+    TResult Function(MedicationDate value)? updateDate,
+    required TResult orElse(),
+  }) {
+    if (updateDate != null) {
+      return updateDate(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_GetDate value) getDate,
+    required TResult Function(_UpdateDate value) updateDate,
+  }) {
+    return updateDate(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_GetDate value)? getDate,
+    TResult? Function(_UpdateDate value)? updateDate,
+  }) {
+    return updateDate?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_GetDate value)? getDate,
+    TResult Function(_UpdateDate value)? updateDate,
+    required TResult orElse(),
+  }) {
+    if (updateDate != null) {
+      return updateDate(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateDate implements MedicationDetailsEvent {
+  const factory _UpdateDate(final MedicationDate value) = _$UpdateDateImpl;
+
+  MedicationDate get value;
+
+  /// Create a copy of MedicationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateDateImplCopyWith<_$UpdateDateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$MedicationDetailsState {
+  Status get initStatus => throw _privateConstructorUsedError;
+  PetMedication? get medication => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
+  List<MedicationDate> get dates => throw _privateConstructorUsedError;
 
- Status get initStatus; PetMedication? get medication; int get id; List<MedicationDate> get dates;
-/// Create a copy of MedicationDetailsState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$MedicationDetailsStateCopyWith<MedicationDetailsState> get copyWith => _$MedicationDetailsStateCopyWithImpl<MedicationDetailsState>(this as MedicationDetailsState, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MedicationDetailsState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&(identical(other.medication, medication) || other.medication == medication)&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other.dates, dates));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,initStatus,medication,id,const DeepCollectionEquality().hash(dates));
-
-@override
-String toString() {
-  return 'MedicationDetailsState(initStatus: $initStatus, medication: $medication, id: $id, dates: $dates)';
-}
-
-
+  /// Create a copy of MedicationDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $MedicationDetailsStateCopyWith<MedicationDetailsState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $MedicationDetailsStateCopyWith<$Res>  {
-  factory $MedicationDetailsStateCopyWith(MedicationDetailsState value, $Res Function(MedicationDetailsState) _then) = _$MedicationDetailsStateCopyWithImpl;
-@useResult
-$Res call({
- Status initStatus, PetMedication? medication, int id, List<MedicationDate> dates
-});
-
-
-
-
+abstract class $MedicationDetailsStateCopyWith<$Res> {
+  factory $MedicationDetailsStateCopyWith(
+    MedicationDetailsState value,
+    $Res Function(MedicationDetailsState) then,
+  ) = _$MedicationDetailsStateCopyWithImpl<$Res, MedicationDetailsState>;
+  @useResult
+  $Res call({
+    Status initStatus,
+    PetMedication? medication,
+    int id,
+    List<MedicationDate> dates,
+  });
 }
+
 /// @nodoc
-class _$MedicationDetailsStateCopyWithImpl<$Res>
+class _$MedicationDetailsStateCopyWithImpl<
+  $Res,
+  $Val extends MedicationDetailsState
+>
     implements $MedicationDetailsStateCopyWith<$Res> {
-  _$MedicationDetailsStateCopyWithImpl(this._self, this._then);
+  _$MedicationDetailsStateCopyWithImpl(this._value, this._then);
 
-  final MedicationDetailsState _self;
-  final $Res Function(MedicationDetailsState) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-/// Create a copy of MedicationDetailsState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? initStatus = null,Object? medication = freezed,Object? id = null,Object? dates = null,}) {
-  return _then(_self.copyWith(
-initStatus: null == initStatus ? _self.initStatus : initStatus // ignore: cast_nullable_to_non_nullable
-as Status,medication: freezed == medication ? _self.medication : medication // ignore: cast_nullable_to_non_nullable
-as PetMedication?,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,dates: null == dates ? _self.dates : dates // ignore: cast_nullable_to_non_nullable
-as List<MedicationDate>,
-  ));
-}
-
-}
-
-
-/// @nodoc
-
-
-class _MedicationDetailsState implements MedicationDetailsState {
-  const _MedicationDetailsState({this.initStatus = Status.init, this.medication = null, this.id = 0, final  List<MedicationDate> dates = const []}): _dates = dates;
-  
-
-@override@JsonKey() final  Status initStatus;
-@override@JsonKey() final  PetMedication? medication;
-@override@JsonKey() final  int id;
- final  List<MedicationDate> _dates;
-@override@JsonKey() List<MedicationDate> get dates {
-  if (_dates is EqualUnmodifiableListView) return _dates;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_dates);
-}
-
-
-/// Create a copy of MedicationDetailsState
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$MedicationDetailsStateCopyWith<_MedicationDetailsState> get copyWith => __$MedicationDetailsStateCopyWithImpl<_MedicationDetailsState>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MedicationDetailsState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&(identical(other.medication, medication) || other.medication == medication)&&(identical(other.id, id) || other.id == id)&&const DeepCollectionEquality().equals(other._dates, _dates));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,initStatus,medication,id,const DeepCollectionEquality().hash(_dates));
-
-@override
-String toString() {
-  return 'MedicationDetailsState(initStatus: $initStatus, medication: $medication, id: $id, dates: $dates)';
-}
-
-
+  /// Create a copy of MedicationDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? initStatus = null,
+    Object? medication = freezed,
+    Object? id = null,
+    Object? dates = null,
+  }) {
+    return _then(
+      _value.copyWith(
+            initStatus:
+                null == initStatus
+                    ? _value.initStatus
+                    : initStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
+            medication:
+                freezed == medication
+                    ? _value.medication
+                    : medication // ignore: cast_nullable_to_non_nullable
+                        as PetMedication?,
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as int,
+            dates:
+                null == dates
+                    ? _value.dates
+                    : dates // ignore: cast_nullable_to_non_nullable
+                        as List<MedicationDate>,
+          )
+          as $Val,
+    );
+  }
 }
 
 /// @nodoc
-abstract mixin class _$MedicationDetailsStateCopyWith<$Res> implements $MedicationDetailsStateCopyWith<$Res> {
-  factory _$MedicationDetailsStateCopyWith(_MedicationDetailsState value, $Res Function(_MedicationDetailsState) _then) = __$MedicationDetailsStateCopyWithImpl;
-@override @useResult
-$Res call({
- Status initStatus, PetMedication? medication, int id, List<MedicationDate> dates
-});
-
-
-
-
+abstract class _$$MedicationDetailsStateImplCopyWith<$Res>
+    implements $MedicationDetailsStateCopyWith<$Res> {
+  factory _$$MedicationDetailsStateImplCopyWith(
+    _$MedicationDetailsStateImpl value,
+    $Res Function(_$MedicationDetailsStateImpl) then,
+  ) = __$$MedicationDetailsStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    Status initStatus,
+    PetMedication? medication,
+    int id,
+    List<MedicationDate> dates,
+  });
 }
+
 /// @nodoc
-class __$MedicationDetailsStateCopyWithImpl<$Res>
-    implements _$MedicationDetailsStateCopyWith<$Res> {
-  __$MedicationDetailsStateCopyWithImpl(this._self, this._then);
+class __$$MedicationDetailsStateImplCopyWithImpl<$Res>
+    extends
+        _$MedicationDetailsStateCopyWithImpl<$Res, _$MedicationDetailsStateImpl>
+    implements _$$MedicationDetailsStateImplCopyWith<$Res> {
+  __$$MedicationDetailsStateImplCopyWithImpl(
+    _$MedicationDetailsStateImpl _value,
+    $Res Function(_$MedicationDetailsStateImpl) _then,
+  ) : super(_value, _then);
 
-  final _MedicationDetailsState _self;
-  final $Res Function(_MedicationDetailsState) _then;
-
-/// Create a copy of MedicationDetailsState
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? initStatus = null,Object? medication = freezed,Object? id = null,Object? dates = null,}) {
-  return _then(_MedicationDetailsState(
-initStatus: null == initStatus ? _self.initStatus : initStatus // ignore: cast_nullable_to_non_nullable
-as Status,medication: freezed == medication ? _self.medication : medication // ignore: cast_nullable_to_non_nullable
-as PetMedication?,id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int,dates: null == dates ? _self._dates : dates // ignore: cast_nullable_to_non_nullable
-as List<MedicationDate>,
-  ));
+  /// Create a copy of MedicationDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? initStatus = null,
+    Object? medication = freezed,
+    Object? id = null,
+    Object? dates = null,
+  }) {
+    return _then(
+      _$MedicationDetailsStateImpl(
+        initStatus:
+            null == initStatus
+                ? _value.initStatus
+                : initStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
+        medication:
+            freezed == medication
+                ? _value.medication
+                : medication // ignore: cast_nullable_to_non_nullable
+                    as PetMedication?,
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as int,
+        dates:
+            null == dates
+                ? _value._dates
+                : dates // ignore: cast_nullable_to_non_nullable
+                    as List<MedicationDate>,
+      ),
+    );
+  }
 }
 
+/// @nodoc
 
+class _$MedicationDetailsStateImpl implements _MedicationDetailsState {
+  const _$MedicationDetailsStateImpl({
+    this.initStatus = Status.init,
+    this.medication = null,
+    this.id = 0,
+    final List<MedicationDate> dates = const [],
+  }) : _dates = dates;
+
+  @override
+  @JsonKey()
+  final Status initStatus;
+  @override
+  @JsonKey()
+  final PetMedication? medication;
+  @override
+  @JsonKey()
+  final int id;
+  final List<MedicationDate> _dates;
+  @override
+  @JsonKey()
+  List<MedicationDate> get dates {
+    if (_dates is EqualUnmodifiableListView) return _dates;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_dates);
+  }
+
+  @override
+  String toString() {
+    return 'MedicationDetailsState(initStatus: $initStatus, medication: $medication, id: $id, dates: $dates)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MedicationDetailsStateImpl &&
+            (identical(other.initStatus, initStatus) ||
+                other.initStatus == initStatus) &&
+            (identical(other.medication, medication) ||
+                other.medication == medication) &&
+            (identical(other.id, id) || other.id == id) &&
+            const DeepCollectionEquality().equals(other._dates, _dates));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    initStatus,
+    medication,
+    id,
+    const DeepCollectionEquality().hash(_dates),
+  );
+
+  /// Create a copy of MedicationDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MedicationDetailsStateImplCopyWith<_$MedicationDetailsStateImpl>
+  get copyWith =>
+      __$$MedicationDetailsStateImplCopyWithImpl<_$MedicationDetailsStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
-// dart format on
+abstract class _MedicationDetailsState implements MedicationDetailsState {
+  const factory _MedicationDetailsState({
+    final Status initStatus,
+    final PetMedication? medication,
+    final int id,
+    final List<MedicationDate> dates,
+  }) = _$MedicationDetailsStateImpl;
+
+  @override
+  Status get initStatus;
+  @override
+  PetMedication? get medication;
+  @override
+  int get id;
+  @override
+  List<MedicationDate> get dates;
+
+  /// Create a copy of MedicationDetailsState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MedicationDetailsStateImplCopyWith<_$MedicationDetailsStateImpl>
+  get copyWith => throw _privateConstructorUsedError;
+}

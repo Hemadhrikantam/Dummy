@@ -11,6 +11,8 @@ abstract class HealthRepository {
   const HealthRepository();
   AppSuccessResponse addMedication({required Payload payload});
   AppTypeResponse<List<Frequency>> medicationFrequencies();
+  AppSuccessResponse deleteVaccination({required int id});
+  AppSuccessResponse deleteMedication({required int id});
   AppTypeResponse<List<PetMedication>> medications(
     String? key,
     String? fromDate,
@@ -21,7 +23,11 @@ abstract class HealthRepository {
     required int id,
   });
   AppTypeResponse<PetMedication> getMedication({required int id});
-  AppSuccessResponse updateMedicationDate({required int id, required MedicationDateModel payload});
+  AppTypeResponse<PetVaccination> getVaccination({required int id});
+  AppSuccessResponse updateMedicationDate({
+    required int id,
+    required MedicationDateModel payload,
+  });
   AppSuccessResponse addVaccination({required Payload payload});
   AppTypeResponse<List<PetVaccination>> vaccinations(
     String? key,

@@ -60,12 +60,33 @@ class HealthRepositoryImpl extends HealthRepository {
   }
 
   @override
-  AppTypeResponse<MedicationDate> getMedicationDate({required int id, required DateTime date}) {
+  AppTypeResponse<MedicationDate> getMedicationDate({
+    required int id,
+    required DateTime date,
+  }) {
     return _healthDatasource.getMedicationDate(id: id, date: date);
   }
 
   @override
-  AppSuccessResponse updateMedicationDate({required int id, required MedicationDateModel payload}) {
+  AppSuccessResponse updateMedicationDate({
+    required int id,
+    required MedicationDateModel payload,
+  }) {
     return _healthDatasource.updateMedicationDate(id: id, payload: payload);
+  }
+
+  @override
+  AppTypeResponse<PetVaccination> getVaccination({required int id}) {
+    return _healthDatasource.getVaccination(id: id);
+  }
+
+  @override
+  AppSuccessResponse deleteMedication({required int id}) {
+    return _healthDatasource.deleteMedication(id: id);
+  }
+
+  @override
+  AppSuccessResponse deleteVaccination({required int id}) {
+    return _healthDatasource.deleteVaccination(id: id);
   }
 }

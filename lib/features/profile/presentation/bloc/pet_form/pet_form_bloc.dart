@@ -50,6 +50,7 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
   final PersonalityTagUsecases __personalityTagUsecases;
   final CreatePetUsecases __createPetUsecases;
   final PetImageUsecases __petImageUsecases;
+
   Future<void> __initialization(_Init event, Emitter<PetFormState> emit) async {
     emit(state.copyWith(initStatus: Status.loading));
     final catBreeds = await __catBreeds();

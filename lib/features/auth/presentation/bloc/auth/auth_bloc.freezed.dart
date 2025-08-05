@@ -1,4 +1,3 @@
-// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -10,953 +9,3649 @@ part of 'auth_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
+
 /// @nodoc
 mixin _$AuthEvent {
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthEvent);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'AuthEvent()';
-}
-
-
-}
-
-/// @nodoc
-class $AuthEventCopyWith<$Res>  {
-$AuthEventCopyWith(AuthEvent _, $Res Function(AuthEvent) __);
-}
-
-
-/// @nodoc
-
-
-class _Init implements AuthEvent {
-  const _Init();
-  
-
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Init);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'AuthEvent.init()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class _Initialisation implements AuthEvent {
-  const _Initialisation();
-  
-
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Initialisation);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'AuthEvent.initialisation()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class _Email implements AuthEvent {
-  const _Email(this.email);
-  
-
- final  String email;
-
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$EmailCopyWith<_Email> get copyWith => __$EmailCopyWithImpl<_Email>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Email&&(identical(other.email, email) || other.email == email));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,email);
-
-@override
-String toString() {
-  return 'AuthEvent.email(email: $email)';
-}
-
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class _$EmailCopyWith<$Res> implements $AuthEventCopyWith<$Res> {
-  factory _$EmailCopyWith(_Email value, $Res Function(_Email) _then) = __$EmailCopyWithImpl;
-@useResult
-$Res call({
- String email
-});
-
-
-
-
+abstract class $AuthEventCopyWith<$Res> {
+  factory $AuthEventCopyWith(AuthEvent value, $Res Function(AuthEvent) then) =
+      _$AuthEventCopyWithImpl<$Res, AuthEvent>;
 }
+
 /// @nodoc
-class __$EmailCopyWithImpl<$Res>
-    implements _$EmailCopyWith<$Res> {
-  __$EmailCopyWithImpl(this._self, this._then);
+class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
+    implements $AuthEventCopyWith<$Res> {
+  _$AuthEventCopyWithImpl(this._value, this._then);
 
-  final _Email _self;
-  final $Res Function(_Email) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? email = null,}) {
-  return _then(_Email(
-null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
+/// @nodoc
+abstract class _$$InitImplCopyWith<$Res> {
+  factory _$$InitImplCopyWith(
+    _$InitImpl value,
+    $Res Function(_$InitImpl) then,
+  ) = __$$InitImplCopyWithImpl<$Res>;
+}
 
+/// @nodoc
+class __$$InitImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$InitImpl>
+    implements _$$InitImplCopyWith<$Res> {
+  __$$InitImplCopyWithImpl(_$InitImpl _value, $Res Function(_$InitImpl) _then)
+    : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
+class _$InitImpl implements _Init {
+  const _$InitImpl();
 
-class _Phone implements AuthEvent {
-  const _Phone(this.phone);
-  
+  @override
+  String toString() {
+    return 'AuthEvent.init()';
+  }
 
- final  String phone;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitImpl);
+  }
 
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$PhoneCopyWith<_Phone> get copyWith => __$PhoneCopyWithImpl<_Phone>(this, _$identity);
+  @override
+  int get hashCode => runtimeType.hashCode;
 
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return init();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return init?.call();
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Phone&&(identical(other.phone, phone) || other.phone == phone));
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (init != null) {
+      return init();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return init(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return init?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (init != null) {
+      return init(this);
+    }
+    return orElse();
+  }
 }
 
-
-@override
-int get hashCode => Object.hash(runtimeType,phone);
-
-@override
-String toString() {
-  return 'AuthEvent.phone(phone: $phone)';
-}
-
-
+abstract class _Init implements AuthEvent {
+  const factory _Init() = _$InitImpl;
 }
 
 /// @nodoc
-abstract mixin class _$PhoneCopyWith<$Res> implements $AuthEventCopyWith<$Res> {
-  factory _$PhoneCopyWith(_Phone value, $Res Function(_Phone) _then) = __$PhoneCopyWithImpl;
-@useResult
-$Res call({
- String phone
-});
-
-
-
-
-}
-/// @nodoc
-class __$PhoneCopyWithImpl<$Res>
-    implements _$PhoneCopyWith<$Res> {
-  __$PhoneCopyWithImpl(this._self, this._then);
-
-  final _Phone _self;
-  final $Res Function(_Phone) _then;
-
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? phone = null,}) {
-  return _then(_Phone(
-null == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+abstract class _$$InitialisationImplCopyWith<$Res> {
+  factory _$$InitialisationImplCopyWith(
+    _$InitialisationImpl value,
+    $Res Function(_$InitialisationImpl) then,
+  ) = __$$InitialisationImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
+class __$$InitialisationImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$InitialisationImpl>
+    implements _$$InitialisationImplCopyWith<$Res> {
+  __$$InitialisationImplCopyWithImpl(
+    _$InitialisationImpl _value,
+    $Res Function(_$InitialisationImpl) _then,
+  ) : super(_value, _then);
 
-
-class _Otp implements AuthEvent {
-  const _Otp(this.otp);
-  
-
- final  String otp;
-
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$OtpCopyWith<_Otp> get copyWith => __$OtpCopyWithImpl<_Otp>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Otp&&(identical(other.otp, otp) || other.otp == otp));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,otp);
-
-@override
-String toString() {
-  return 'AuthEvent.otp(otp: $otp)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$OtpCopyWith<$Res> implements $AuthEventCopyWith<$Res> {
-  factory _$OtpCopyWith(_Otp value, $Res Function(_Otp) _then) = __$OtpCopyWithImpl;
-@useResult
-$Res call({
- String otp
-});
-
-
-
-
-}
-/// @nodoc
-class __$OtpCopyWithImpl<$Res>
-    implements _$OtpCopyWith<$Res> {
-  __$OtpCopyWithImpl(this._self, this._then);
-
-  final _Otp _self;
-  final $Res Function(_Otp) _then;
-
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? otp = null,}) {
-  return _then(_Otp(
-null == otp ? _self.otp : otp // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _Password implements AuthEvent {
-  const _Password(this.password);
-  
-
- final  String password;
-
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$PasswordCopyWith<_Password> get copyWith => __$PasswordCopyWithImpl<_Password>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Password&&(identical(other.password, password) || other.password == password));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,password);
-
-@override
-String toString() {
-  return 'AuthEvent.password(password: $password)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$PasswordCopyWith<$Res> implements $AuthEventCopyWith<$Res> {
-  factory _$PasswordCopyWith(_Password value, $Res Function(_Password) _then) = __$PasswordCopyWithImpl;
-@useResult
-$Res call({
- String password
-});
-
-
-
-
-}
-/// @nodoc
-class __$PasswordCopyWithImpl<$Res>
-    implements _$PasswordCopyWith<$Res> {
-  __$PasswordCopyWithImpl(this._self, this._then);
-
-  final _Password _self;
-  final $Res Function(_Password) _then;
-
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? password = null,}) {
-  return _then(_Password(
-null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
+class _$InitialisationImpl implements _Initialisation {
+  const _$InitialisationImpl();
 
-class _ConfirmPassword implements AuthEvent {
-  const _ConfirmPassword(this.confirmPassword);
-  
+  @override
+  String toString() {
+    return 'AuthEvent.initialisation()';
+  }
 
- final  String confirmPassword;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitialisationImpl);
+  }
 
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$ConfirmPasswordCopyWith<_ConfirmPassword> get copyWith => __$ConfirmPasswordCopyWithImpl<_ConfirmPassword>(this, _$identity);
+  @override
+  int get hashCode => runtimeType.hashCode;
 
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return initialisation();
+  }
 
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return initialisation?.call();
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ConfirmPassword&&(identical(other.confirmPassword, confirmPassword) || other.confirmPassword == confirmPassword));
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (initialisation != null) {
+      return initialisation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return initialisation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return initialisation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (initialisation != null) {
+      return initialisation(this);
+    }
+    return orElse();
+  }
 }
 
-
-@override
-int get hashCode => Object.hash(runtimeType,confirmPassword);
-
-@override
-String toString() {
-  return 'AuthEvent.confirmPassword(confirmPassword: $confirmPassword)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$ConfirmPasswordCopyWith<$Res> implements $AuthEventCopyWith<$Res> {
-  factory _$ConfirmPasswordCopyWith(_ConfirmPassword value, $Res Function(_ConfirmPassword) _then) = __$ConfirmPasswordCopyWithImpl;
-@useResult
-$Res call({
- String confirmPassword
-});
-
-
-
-
-}
-/// @nodoc
-class __$ConfirmPasswordCopyWithImpl<$Res>
-    implements _$ConfirmPasswordCopyWith<$Res> {
-  __$ConfirmPasswordCopyWithImpl(this._self, this._then);
-
-  final _ConfirmPassword _self;
-  final $Res Function(_ConfirmPassword) _then;
-
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? confirmPassword = null,}) {
-  return _then(_ConfirmPassword(
-null == confirmPassword ? _self.confirmPassword : confirmPassword // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _Name implements AuthEvent {
-  const _Name(this.name);
-  
-
- final  String name;
-
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$NameCopyWith<_Name> get copyWith => __$NameCopyWithImpl<_Name>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Name&&(identical(other.name, name) || other.name == name));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,name);
-
-@override
-String toString() {
-  return 'AuthEvent.name(name: $name)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$NameCopyWith<$Res> implements $AuthEventCopyWith<$Res> {
-  factory _$NameCopyWith(_Name value, $Res Function(_Name) _then) = __$NameCopyWithImpl;
-@useResult
-$Res call({
- String name
-});
-
-
-
-
-}
-/// @nodoc
-class __$NameCopyWithImpl<$Res>
-    implements _$NameCopyWith<$Res> {
-  __$NameCopyWithImpl(this._self, this._then);
-
-  final _Name _self;
-  final $Res Function(_Name) _then;
-
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? name = null,}) {
-  return _then(_Name(
-null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _Login implements AuthEvent {
-  const _Login();
-  
-
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Login);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'AuthEvent.login()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class _SendOtp implements AuthEvent {
-  const _SendOtp();
-  
-
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SendOtp);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'AuthEvent.sendOtp()';
-}
-
-
-}
-
-
-
-
-/// @nodoc
-
-
-class _Register implements AuthEvent {
-  const _Register(this.phone, this.userType);
-  
-
- final  String phone;
- final  String userType;
-
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$RegisterCopyWith<_Register> get copyWith => __$RegisterCopyWithImpl<_Register>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Register&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.userType, userType) || other.userType == userType));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,phone,userType);
-
-@override
-String toString() {
-  return 'AuthEvent.registerUser(phone: $phone, userType: $userType)';
-}
-
-
+abstract class _Initialisation implements AuthEvent {
+  const factory _Initialisation() = _$InitialisationImpl;
 }
 
 /// @nodoc
-abstract mixin class _$RegisterCopyWith<$Res> implements $AuthEventCopyWith<$Res> {
-  factory _$RegisterCopyWith(_Register value, $Res Function(_Register) _then) = __$RegisterCopyWithImpl;
-@useResult
-$Res call({
- String phone, String userType
-});
-
-
-
-
+abstract class _$$EmailImplCopyWith<$Res> {
+  factory _$$EmailImplCopyWith(
+    _$EmailImpl value,
+    $Res Function(_$EmailImpl) then,
+  ) = __$$EmailImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String email});
 }
+
 /// @nodoc
-class __$RegisterCopyWithImpl<$Res>
-    implements _$RegisterCopyWith<$Res> {
-  __$RegisterCopyWithImpl(this._self, this._then);
+class __$$EmailImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$EmailImpl>
+    implements _$$EmailImplCopyWith<$Res> {
+  __$$EmailImplCopyWithImpl(
+    _$EmailImpl _value,
+    $Res Function(_$EmailImpl) _then,
+  ) : super(_value, _then);
 
-  final _Register _self;
-  final $Res Function(_Register) _then;
-
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? phone = null,Object? userType = null,}) {
-  return _then(_Register(
-null == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
-as String,null == userType ? _self.userType : userType // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? email = null}) {
+    return _then(
+      _$EmailImpl(
+        null == email
+            ? _value.email
+            : email // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
+class _$EmailImpl implements _Email {
+  const _$EmailImpl(this.email);
 
-class _Signup implements AuthEvent {
-  const _Signup();
-  
+  @override
+  final String email;
 
+  @override
+  String toString() {
+    return 'AuthEvent.email(email: $email)';
+  }
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EmailImpl &&
+            (identical(other.email, email) || other.email == email));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, email);
 
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EmailImplCopyWith<_$EmailImpl> get copyWith =>
+      __$$EmailImplCopyWithImpl<_$EmailImpl>(this, _$identity);
 
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return email(this.email);
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Signup);
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return email?.call(this.email);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (email != null) {
+      return email(this.email);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return email(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return email?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (email != null) {
+      return email(this);
+    }
+    return orElse();
+  }
 }
 
+abstract class _Email implements AuthEvent {
+  const factory _Email(final String email) = _$EmailImpl;
 
-@override
-int get hashCode => runtimeType.hashCode;
+  String get email;
 
-@override
-String toString() {
-  return 'AuthEvent.signup()';
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EmailImplCopyWith<_$EmailImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-
+/// @nodoc
+abstract class _$$PhoneImplCopyWith<$Res> {
+  factory _$$PhoneImplCopyWith(
+    _$PhoneImpl value,
+    $Res Function(_$PhoneImpl) then,
+  ) = __$$PhoneImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String phone});
 }
 
+/// @nodoc
+class __$$PhoneImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$PhoneImpl>
+    implements _$$PhoneImplCopyWith<$Res> {
+  __$$PhoneImplCopyWithImpl(
+    _$PhoneImpl _value,
+    $Res Function(_$PhoneImpl) _then,
+  ) : super(_value, _then);
 
-
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? phone = null}) {
+    return _then(
+      _$PhoneImpl(
+        null == phone
+            ? _value.phone
+            : phone // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
 
 /// @nodoc
 
+class _$PhoneImpl implements _Phone {
+  const _$PhoneImpl(this.phone);
 
-class _CheckUser implements AuthEvent {
-  const _CheckUser();
-  
+  @override
+  final String phone;
 
+  @override
+  String toString() {
+    return 'AuthEvent.phone(phone: $phone)';
+  }
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PhoneImpl &&
+            (identical(other.phone, phone) || other.phone == phone));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, phone);
 
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PhoneImplCopyWith<_$PhoneImpl> get copyWith =>
+      __$$PhoneImplCopyWithImpl<_$PhoneImpl>(this, _$identity);
 
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return phone(this.phone);
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CheckUser);
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return phone?.call(this.phone);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (phone != null) {
+      return phone(this.phone);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return phone(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return phone?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (phone != null) {
+      return phone(this);
+    }
+    return orElse();
+  }
 }
 
+abstract class _Phone implements AuthEvent {
+  const factory _Phone(final String phone) = _$PhoneImpl;
 
-@override
-int get hashCode => runtimeType.hashCode;
+  String get phone;
 
-@override
-String toString() {
-  return 'AuthEvent.checkUser()';
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PhoneImplCopyWith<_$PhoneImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-
+/// @nodoc
+abstract class _$$OtpImplCopyWith<$Res> {
+  factory _$$OtpImplCopyWith(_$OtpImpl value, $Res Function(_$OtpImpl) then) =
+      __$$OtpImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String otp});
 }
 
+/// @nodoc
+class __$$OtpImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$OtpImpl>
+    implements _$$OtpImplCopyWith<$Res> {
+  __$$OtpImplCopyWithImpl(_$OtpImpl _value, $Res Function(_$OtpImpl) _then)
+    : super(_value, _then);
 
-
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? otp = null}) {
+    return _then(
+      _$OtpImpl(
+        null == otp
+            ? _value.otp
+            : otp // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
 
 /// @nodoc
 
+class _$OtpImpl implements _Otp {
+  const _$OtpImpl(this.otp);
 
-class _Logout implements AuthEvent {
-  const _Logout();
-  
+  @override
+  final String otp;
 
+  @override
+  String toString() {
+    return 'AuthEvent.otp(otp: $otp)';
+  }
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OtpImpl &&
+            (identical(other.otp, otp) || other.otp == otp));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, otp);
 
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OtpImplCopyWith<_$OtpImpl> get copyWith =>
+      __$$OtpImplCopyWithImpl<_$OtpImpl>(this, _$identity);
 
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return otp(this.otp);
+  }
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Logout);
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return otp?.call(this.otp);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (otp != null) {
+      return otp(this.otp);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return otp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return otp?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (otp != null) {
+      return otp(this);
+    }
+    return orElse();
+  }
 }
 
+abstract class _Otp implements AuthEvent {
+  const factory _Otp(final String otp) = _$OtpImpl;
 
-@override
-int get hashCode => runtimeType.hashCode;
+  String get otp;
 
-@override
-String toString() {
-  return 'AuthEvent.logout()';
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$OtpImplCopyWith<_$OtpImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
-
+/// @nodoc
+abstract class _$$PasswordImplCopyWith<$Res> {
+  factory _$$PasswordImplCopyWith(
+    _$PasswordImpl value,
+    $Res Function(_$PasswordImpl) then,
+  ) = __$$PasswordImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String password});
 }
 
+/// @nodoc
+class __$$PasswordImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$PasswordImpl>
+    implements _$$PasswordImplCopyWith<$Res> {
+  __$$PasswordImplCopyWithImpl(
+    _$PasswordImpl _value,
+    $Res Function(_$PasswordImpl) _then,
+  ) : super(_value, _then);
 
-
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? password = null}) {
+    return _then(
+      _$PasswordImpl(
+        null == password
+            ? _value.password
+            : password // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
 
 /// @nodoc
 
+class _$PasswordImpl implements _Password {
+  const _$PasswordImpl(this.password);
 
-class _Yourself implements AuthEvent {
-  const _Yourself(this.value);
-  
+  @override
+  final String password;
 
- final  Yourself value;
+  @override
+  String toString() {
+    return 'AuthEvent.password(password: $password)';
+  }
 
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$YourselfCopyWith<_Yourself> get copyWith => __$YourselfCopyWithImpl<_Yourself>(this, _$identity);
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PasswordImpl &&
+            (identical(other.password, password) ||
+                other.password == password));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, password);
 
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PasswordImplCopyWith<_$PasswordImpl> get copyWith =>
+      __$$PasswordImplCopyWithImpl<_$PasswordImpl>(this, _$identity);
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Yourself&&(identical(other.value, value) || other.value == value));
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return password(this.password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return password?.call(this.password);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (password != null) {
+      return password(this.password);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return password(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return password?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (password != null) {
+      return password(this);
+    }
+    return orElse();
+  }
 }
 
+abstract class _Password implements AuthEvent {
+  const factory _Password(final String password) = _$PasswordImpl;
 
-@override
-int get hashCode => Object.hash(runtimeType,value);
+  String get password;
 
-@override
-String toString() {
-  return 'AuthEvent.yourself(value: $value)';
-}
-
-
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PasswordImplCopyWith<_$PasswordImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class _$YourselfCopyWith<$Res> implements $AuthEventCopyWith<$Res> {
-  factory _$YourselfCopyWith(_Yourself value, $Res Function(_Yourself) _then) = __$YourselfCopyWithImpl;
-@useResult
-$Res call({
- Yourself value
-});
-
-
-
-
+abstract class _$$ConfirmPasswordImplCopyWith<$Res> {
+  factory _$$ConfirmPasswordImplCopyWith(
+    _$ConfirmPasswordImpl value,
+    $Res Function(_$ConfirmPasswordImpl) then,
+  ) = __$$ConfirmPasswordImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String confirmPassword});
 }
+
 /// @nodoc
-class __$YourselfCopyWithImpl<$Res>
-    implements _$YourselfCopyWith<$Res> {
-  __$YourselfCopyWithImpl(this._self, this._then);
+class __$$ConfirmPasswordImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$ConfirmPasswordImpl>
+    implements _$$ConfirmPasswordImplCopyWith<$Res> {
+  __$$ConfirmPasswordImplCopyWithImpl(
+    _$ConfirmPasswordImpl _value,
+    $Res Function(_$ConfirmPasswordImpl) _then,
+  ) : super(_value, _then);
 
-  final _Yourself _self;
-  final $Res Function(_Yourself) _then;
-
-/// Create a copy of AuthEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_Yourself(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as Yourself,
-  ));
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? confirmPassword = null}) {
+    return _then(
+      _$ConfirmPasswordImpl(
+        null == confirmPassword
+            ? _value.confirmPassword
+            : confirmPassword // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
 }
 
+/// @nodoc
 
+class _$ConfirmPasswordImpl implements _ConfirmPassword {
+  const _$ConfirmPasswordImpl(this.confirmPassword);
+
+  @override
+  final String confirmPassword;
+
+  @override
+  String toString() {
+    return 'AuthEvent.confirmPassword(confirmPassword: $confirmPassword)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ConfirmPasswordImpl &&
+            (identical(other.confirmPassword, confirmPassword) ||
+                other.confirmPassword == confirmPassword));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, confirmPassword);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ConfirmPasswordImplCopyWith<_$ConfirmPasswordImpl> get copyWith =>
+      __$$ConfirmPasswordImplCopyWithImpl<_$ConfirmPasswordImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return confirmPassword(this.confirmPassword);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return confirmPassword?.call(this.confirmPassword);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (confirmPassword != null) {
+      return confirmPassword(this.confirmPassword);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return confirmPassword(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return confirmPassword?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (confirmPassword != null) {
+      return confirmPassword(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ConfirmPassword implements AuthEvent {
+  const factory _ConfirmPassword(final String confirmPassword) =
+      _$ConfirmPasswordImpl;
+
+  String get confirmPassword;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ConfirmPasswordImplCopyWith<_$ConfirmPasswordImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NameImplCopyWith<$Res> {
+  factory _$$NameImplCopyWith(
+    _$NameImpl value,
+    $Res Function(_$NameImpl) then,
+  ) = __$$NameImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String name});
+}
+
+/// @nodoc
+class __$$NameImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$NameImpl>
+    implements _$$NameImplCopyWith<$Res> {
+  __$$NameImplCopyWithImpl(_$NameImpl _value, $Res Function(_$NameImpl) _then)
+    : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? name = null}) {
+    return _then(
+      _$NameImpl(
+        null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$NameImpl implements _Name {
+  const _$NameImpl(this.name);
+
+  @override
+  final String name;
+
+  @override
+  String toString() {
+    return 'AuthEvent.name(name: $name)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NameImpl &&
+            (identical(other.name, name) || other.name == name));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, name);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NameImplCopyWith<_$NameImpl> get copyWith =>
+      __$$NameImplCopyWithImpl<_$NameImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return name(this.name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return name?.call(this.name);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (name != null) {
+      return name(this.name);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return name(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return name?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (name != null) {
+      return name(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Name implements AuthEvent {
+  const factory _Name(final String name) = _$NameImpl;
+
+  String get name;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$NameImplCopyWith<_$NameImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoginImplCopyWith<$Res> {
+  factory _$$LoginImplCopyWith(
+    _$LoginImpl value,
+    $Res Function(_$LoginImpl) then,
+  ) = __$$LoginImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoginImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$LoginImpl>
+    implements _$$LoginImplCopyWith<$Res> {
+  __$$LoginImplCopyWithImpl(
+    _$LoginImpl _value,
+    $Res Function(_$LoginImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoginImpl implements _Login {
+  const _$LoginImpl();
+
+  @override
+  String toString() {
+    return 'AuthEvent.login()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoginImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return login();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return login?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (login != null) {
+      return login();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return login(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return login?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (login != null) {
+      return login(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Login implements AuthEvent {
+  const factory _Login() = _$LoginImpl;
+}
+
+/// @nodoc
+abstract class _$$SendOtpImplCopyWith<$Res> {
+  factory _$$SendOtpImplCopyWith(
+    _$SendOtpImpl value,
+    $Res Function(_$SendOtpImpl) then,
+  ) = __$$SendOtpImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SendOtpImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$SendOtpImpl>
+    implements _$$SendOtpImplCopyWith<$Res> {
+  __$$SendOtpImplCopyWithImpl(
+    _$SendOtpImpl _value,
+    $Res Function(_$SendOtpImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SendOtpImpl implements _SendOtp {
+  const _$SendOtpImpl();
+
+  @override
+  String toString() {
+    return 'AuthEvent.sendOtp()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SendOtpImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return sendOtp();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return sendOtp?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (sendOtp != null) {
+      return sendOtp();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return sendOtp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return sendOtp?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (sendOtp != null) {
+      return sendOtp(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SendOtp implements AuthEvent {
+  const factory _SendOtp() = _$SendOtpImpl;
+}
+
+/// @nodoc
+abstract class _$$RegisterImplCopyWith<$Res> {
+  factory _$$RegisterImplCopyWith(
+    _$RegisterImpl value,
+    $Res Function(_$RegisterImpl) then,
+  ) = __$$RegisterImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String phone, String userType});
+}
+
+/// @nodoc
+class __$$RegisterImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$RegisterImpl>
+    implements _$$RegisterImplCopyWith<$Res> {
+  __$$RegisterImplCopyWithImpl(
+    _$RegisterImpl _value,
+    $Res Function(_$RegisterImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? phone = null, Object? userType = null}) {
+    return _then(
+      _$RegisterImpl(
+        null == phone
+            ? _value.phone
+            : phone // ignore: cast_nullable_to_non_nullable
+                as String,
+        null == userType
+            ? _value.userType
+            : userType // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$RegisterImpl implements _Register {
+  const _$RegisterImpl(this.phone, this.userType);
+
+  @override
+  final String phone;
+  @override
+  final String userType;
+
+  @override
+  String toString() {
+    return 'AuthEvent.registerUser(phone: $phone, userType: $userType)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RegisterImpl &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.userType, userType) ||
+                other.userType == userType));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, phone, userType);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RegisterImplCopyWith<_$RegisterImpl> get copyWith =>
+      __$$RegisterImplCopyWithImpl<_$RegisterImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return registerUser(this.phone, userType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return registerUser?.call(this.phone, userType);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (registerUser != null) {
+      return registerUser(this.phone, userType);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return registerUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return registerUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (registerUser != null) {
+      return registerUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Register implements AuthEvent {
+  const factory _Register(final String phone, final String userType) =
+      _$RegisterImpl;
+
+  String get phone;
+  String get userType;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$RegisterImplCopyWith<_$RegisterImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SignupImplCopyWith<$Res> {
+  factory _$$SignupImplCopyWith(
+    _$SignupImpl value,
+    $Res Function(_$SignupImpl) then,
+  ) = __$$SignupImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$SignupImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$SignupImpl>
+    implements _$$SignupImplCopyWith<$Res> {
+  __$$SignupImplCopyWithImpl(
+    _$SignupImpl _value,
+    $Res Function(_$SignupImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$SignupImpl implements _Signup {
+  const _$SignupImpl();
+
+  @override
+  String toString() {
+    return 'AuthEvent.signup()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$SignupImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return signup();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return signup?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (signup != null) {
+      return signup();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return signup(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return signup?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (signup != null) {
+      return signup(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Signup implements AuthEvent {
+  const factory _Signup() = _$SignupImpl;
+}
+
+/// @nodoc
+abstract class _$$CheckUserImplCopyWith<$Res> {
+  factory _$$CheckUserImplCopyWith(
+    _$CheckUserImpl value,
+    $Res Function(_$CheckUserImpl) then,
+  ) = __$$CheckUserImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CheckUserImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$CheckUserImpl>
+    implements _$$CheckUserImplCopyWith<$Res> {
+  __$$CheckUserImplCopyWithImpl(
+    _$CheckUserImpl _value,
+    $Res Function(_$CheckUserImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$CheckUserImpl implements _CheckUser {
+  const _$CheckUserImpl();
+
+  @override
+  String toString() {
+    return 'AuthEvent.checkUser()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CheckUserImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return checkUser();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return checkUser?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (checkUser != null) {
+      return checkUser();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return checkUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return checkUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (checkUser != null) {
+      return checkUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CheckUser implements AuthEvent {
+  const factory _CheckUser() = _$CheckUserImpl;
+}
+
+/// @nodoc
+abstract class _$$LogoutImplCopyWith<$Res> {
+  factory _$$LogoutImplCopyWith(
+    _$LogoutImpl value,
+    $Res Function(_$LogoutImpl) then,
+  ) = __$$LogoutImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LogoutImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$LogoutImpl>
+    implements _$$LogoutImplCopyWith<$Res> {
+  __$$LogoutImplCopyWithImpl(
+    _$LogoutImpl _value,
+    $Res Function(_$LogoutImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LogoutImpl implements _Logout {
+  const _$LogoutImpl();
+
+  @override
+  String toString() {
+    return 'AuthEvent.logout()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LogoutImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return logout();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return logout?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return logout(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return logout?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (logout != null) {
+      return logout(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Logout implements AuthEvent {
+  const factory _Logout() = _$LogoutImpl;
+}
+
+/// @nodoc
+abstract class _$$YourselfImplCopyWith<$Res> {
+  factory _$$YourselfImplCopyWith(
+    _$YourselfImpl value,
+    $Res Function(_$YourselfImpl) then,
+  ) = __$$YourselfImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Yourself value});
+}
+
+/// @nodoc
+class __$$YourselfImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$YourselfImpl>
+    implements _$$YourselfImplCopyWith<$Res> {
+  __$$YourselfImplCopyWithImpl(
+    _$YourselfImpl _value,
+    $Res Function(_$YourselfImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$YourselfImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as Yourself,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$YourselfImpl implements _Yourself {
+  const _$YourselfImpl(this.value);
+
+  @override
+  final Yourself value;
+
+  @override
+  String toString() {
+    return 'AuthEvent.yourself(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$YourselfImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$YourselfImplCopyWith<_$YourselfImpl> get copyWith =>
+      __$$YourselfImplCopyWithImpl<_$YourselfImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return yourself(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return yourself?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (yourself != null) {
+      return yourself(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return yourself(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return yourself?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (yourself != null) {
+      return yourself(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Yourself implements AuthEvent {
+  const factory _Yourself(final Yourself value) = _$YourselfImpl;
+
+  Yourself get value;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$YourselfImplCopyWith<_$YourselfImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$AuthState {
+  NotEmpty get email => throw _privateConstructorUsedError;
+  Password get password => throw _privateConstructorUsedError;
+  NotEmpty get name => throw _privateConstructorUsedError;
+  MobileNo get phone => throw _privateConstructorUsedError;
+  OTP get otp => throw _privateConstructorUsedError;
+  Password get confirmPassword => throw _privateConstructorUsedError;
+  CurrentUser? get user => throw _privateConstructorUsedError;
+  Status get loginStatus => throw _privateConstructorUsedError;
+  Status get sendOtpStatus => throw _privateConstructorUsedError;
+  bool get loginValidation => throw _privateConstructorUsedError;
+  Status get signupStatus => throw _privateConstructorUsedError;
+  bool get signupValidation => throw _privateConstructorUsedError;
+  Yourself get yourself => throw _privateConstructorUsedError;
 
- NotEmpty get email; Password get password; NotEmpty get name; MobileNo get phone; OTP get otp; Password get confirmPassword; CurrentUser? get user; Status get loginStatus; Status get sendOtpStatus; bool get loginValidation; Status get signupStatus; bool get signupValidation; Yourself get yourself;
-/// Create a copy of AuthState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$AuthStateCopyWith<AuthState> get copyWith => _$AuthStateCopyWithImpl<AuthState>(this as AuthState, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AuthState&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.name, name) || other.name == name)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.otp, otp) || other.otp == otp)&&(identical(other.confirmPassword, confirmPassword) || other.confirmPassword == confirmPassword)&&(identical(other.user, user) || other.user == user)&&(identical(other.loginStatus, loginStatus) || other.loginStatus == loginStatus)&&(identical(other.sendOtpStatus, sendOtpStatus) || other.sendOtpStatus == sendOtpStatus)&&(identical(other.loginValidation, loginValidation) || other.loginValidation == loginValidation)&&(identical(other.signupStatus, signupStatus) || other.signupStatus == signupStatus)&&(identical(other.signupValidation, signupValidation) || other.signupValidation == signupValidation)&&(identical(other.yourself, yourself) || other.yourself == yourself));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,email,password,name,phone,otp,confirmPassword,user,loginStatus,sendOtpStatus,loginValidation,signupStatus,signupValidation,yourself);
-
-@override
-String toString() {
-  return 'AuthState(email: $email, password: $password, name: $name, phone: $phone, otp: $otp, confirmPassword: $confirmPassword, user: $user, loginStatus: $loginStatus, sendOtpStatus: $sendOtpStatus, loginValidation: $loginValidation, signupStatus: $signupStatus, signupValidation: $signupValidation, yourself: $yourself)';
-}
-
-
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $AuthStateCopyWith<AuthState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $AuthStateCopyWith<$Res>  {
-  factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) _then) = _$AuthStateCopyWithImpl;
-@useResult
-$Res call({
- NotEmpty email, Password password, NotEmpty name, MobileNo phone, OTP otp, Password confirmPassword, CurrentUser? user, Status loginStatus, Status sendOtpStatus, bool loginValidation, Status signupStatus, bool signupValidation, Yourself yourself
-});
-
-
-
-
+abstract class $AuthStateCopyWith<$Res> {
+  factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
+      _$AuthStateCopyWithImpl<$Res, AuthState>;
+  @useResult
+  $Res call({
+    NotEmpty email,
+    Password password,
+    NotEmpty name,
+    MobileNo phone,
+    OTP otp,
+    Password confirmPassword,
+    CurrentUser? user,
+    Status loginStatus,
+    Status sendOtpStatus,
+    bool loginValidation,
+    Status signupStatus,
+    bool signupValidation,
+    Yourself yourself,
+  });
 }
+
 /// @nodoc
-class _$AuthStateCopyWithImpl<$Res>
+class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     implements $AuthStateCopyWith<$Res> {
-  _$AuthStateCopyWithImpl(this._self, this._then);
+  _$AuthStateCopyWithImpl(this._value, this._then);
 
-  final AuthState _self;
-  final $Res Function(AuthState) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-/// Create a copy of AuthState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? email = null,Object? password = null,Object? name = null,Object? phone = null,Object? otp = null,Object? confirmPassword = null,Object? user = freezed,Object? loginStatus = null,Object? sendOtpStatus = null,Object? loginValidation = null,Object? signupStatus = null,Object? signupValidation = null,Object? yourself = null,}) {
-  return _then(_self.copyWith(
-email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
-as NotEmpty,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
-as Password,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as NotEmpty,phone: null == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
-as MobileNo,otp: null == otp ? _self.otp : otp // ignore: cast_nullable_to_non_nullable
-as OTP,confirmPassword: null == confirmPassword ? _self.confirmPassword : confirmPassword // ignore: cast_nullable_to_non_nullable
-as Password,user: freezed == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
-as CurrentUser?,loginStatus: null == loginStatus ? _self.loginStatus : loginStatus // ignore: cast_nullable_to_non_nullable
-as Status,sendOtpStatus: null == sendOtpStatus ? _self.sendOtpStatus : sendOtpStatus // ignore: cast_nullable_to_non_nullable
-as Status,loginValidation: null == loginValidation ? _self.loginValidation : loginValidation // ignore: cast_nullable_to_non_nullable
-as bool,signupStatus: null == signupStatus ? _self.signupStatus : signupStatus // ignore: cast_nullable_to_non_nullable
-as Status,signupValidation: null == signupValidation ? _self.signupValidation : signupValidation // ignore: cast_nullable_to_non_nullable
-as bool,yourself: null == yourself ? _self.yourself : yourself // ignore: cast_nullable_to_non_nullable
-as Yourself,
-  ));
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+    Object? name = null,
+    Object? phone = null,
+    Object? otp = null,
+    Object? confirmPassword = null,
+    Object? user = freezed,
+    Object? loginStatus = null,
+    Object? sendOtpStatus = null,
+    Object? loginValidation = null,
+    Object? signupStatus = null,
+    Object? signupValidation = null,
+    Object? yourself = null,
+  }) {
+    return _then(
+      _value.copyWith(
+            email:
+                null == email
+                    ? _value.email
+                    : email // ignore: cast_nullable_to_non_nullable
+                        as NotEmpty,
+            password:
+                null == password
+                    ? _value.password
+                    : password // ignore: cast_nullable_to_non_nullable
+                        as Password,
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as NotEmpty,
+            phone:
+                null == phone
+                    ? _value.phone
+                    : phone // ignore: cast_nullable_to_non_nullable
+                        as MobileNo,
+            otp:
+                null == otp
+                    ? _value.otp
+                    : otp // ignore: cast_nullable_to_non_nullable
+                        as OTP,
+            confirmPassword:
+                null == confirmPassword
+                    ? _value.confirmPassword
+                    : confirmPassword // ignore: cast_nullable_to_non_nullable
+                        as Password,
+            user:
+                freezed == user
+                    ? _value.user
+                    : user // ignore: cast_nullable_to_non_nullable
+                        as CurrentUser?,
+            loginStatus:
+                null == loginStatus
+                    ? _value.loginStatus
+                    : loginStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
+            sendOtpStatus:
+                null == sendOtpStatus
+                    ? _value.sendOtpStatus
+                    : sendOtpStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
+            loginValidation:
+                null == loginValidation
+                    ? _value.loginValidation
+                    : loginValidation // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            signupStatus:
+                null == signupStatus
+                    ? _value.signupStatus
+                    : signupStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
+            signupValidation:
+                null == signupValidation
+                    ? _value.signupValidation
+                    : signupValidation // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            yourself:
+                null == yourself
+                    ? _value.yourself
+                    : yourself // ignore: cast_nullable_to_non_nullable
+                        as Yourself,
+          )
+          as $Val,
+    );
+  }
 }
 
+/// @nodoc
+abstract class _$$AuthStateImplCopyWith<$Res>
+    implements $AuthStateCopyWith<$Res> {
+  factory _$$AuthStateImplCopyWith(
+    _$AuthStateImpl value,
+    $Res Function(_$AuthStateImpl) then,
+  ) = __$$AuthStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    NotEmpty email,
+    Password password,
+    NotEmpty name,
+    MobileNo phone,
+    OTP otp,
+    Password confirmPassword,
+    CurrentUser? user,
+    Status loginStatus,
+    Status sendOtpStatus,
+    bool loginValidation,
+    Status signupStatus,
+    bool signupValidation,
+    Yourself yourself,
+  });
 }
 
+/// @nodoc
+class __$$AuthStateImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$AuthStateImpl>
+    implements _$$AuthStateImplCopyWith<$Res> {
+  __$$AuthStateImplCopyWithImpl(
+    _$AuthStateImpl _value,
+    $Res Function(_$AuthStateImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? email = null,
+    Object? password = null,
+    Object? name = null,
+    Object? phone = null,
+    Object? otp = null,
+    Object? confirmPassword = null,
+    Object? user = freezed,
+    Object? loginStatus = null,
+    Object? sendOtpStatus = null,
+    Object? loginValidation = null,
+    Object? signupStatus = null,
+    Object? signupValidation = null,
+    Object? yourself = null,
+  }) {
+    return _then(
+      _$AuthStateImpl(
+        email:
+            null == email
+                ? _value.email
+                : email // ignore: cast_nullable_to_non_nullable
+                    as NotEmpty,
+        password:
+            null == password
+                ? _value.password
+                : password // ignore: cast_nullable_to_non_nullable
+                    as Password,
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as NotEmpty,
+        phone:
+            null == phone
+                ? _value.phone
+                : phone // ignore: cast_nullable_to_non_nullable
+                    as MobileNo,
+        otp:
+            null == otp
+                ? _value.otp
+                : otp // ignore: cast_nullable_to_non_nullable
+                    as OTP,
+        confirmPassword:
+            null == confirmPassword
+                ? _value.confirmPassword
+                : confirmPassword // ignore: cast_nullable_to_non_nullable
+                    as Password,
+        user:
+            freezed == user
+                ? _value.user
+                : user // ignore: cast_nullable_to_non_nullable
+                    as CurrentUser?,
+        loginStatus:
+            null == loginStatus
+                ? _value.loginStatus
+                : loginStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
+        sendOtpStatus:
+            null == sendOtpStatus
+                ? _value.sendOtpStatus
+                : sendOtpStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
+        loginValidation:
+            null == loginValidation
+                ? _value.loginValidation
+                : loginValidation // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        signupStatus:
+            null == signupStatus
+                ? _value.signupStatus
+                : signupStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
+        signupValidation:
+            null == signupValidation
+                ? _value.signupValidation
+                : signupValidation // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        yourself:
+            null == yourself
+                ? _value.yourself
+                : yourself // ignore: cast_nullable_to_non_nullable
+                    as Yourself,
+      ),
+    );
+  }
+}
 
 /// @nodoc
 
+class _$AuthStateImpl implements _AuthState {
+  const _$AuthStateImpl({
+    this.email = const NotEmpty.pure(),
+    this.password = const Password.pure(),
+    this.name = const NotEmpty.pure(),
+    this.phone = const MobileNo.pure(),
+    this.otp = const OTP.pure(),
+    this.confirmPassword = const Password.pure(),
+    this.user = null,
+    this.loginStatus = Status.init,
+    this.sendOtpStatus = Status.init,
+    this.loginValidation = false,
+    this.signupStatus = Status.init,
+    this.signupValidation = false,
+    this.yourself = Yourself.petParent,
+  });
 
-class _AuthState implements AuthState {
-  const _AuthState({this.email = const NotEmpty.pure(), this.password = const Password.pure(), this.name = const NotEmpty.pure(), this.phone = const MobileNo.pure(), this.otp = const OTP.pure(), this.confirmPassword = const Password.pure(), this.user = null, this.loginStatus = Status.init, this.sendOtpStatus = Status.init, this.loginValidation = false, this.signupStatus = Status.init, this.signupValidation = false, this.yourself = Yourself.petParent});
-  
+  @override
+  @JsonKey()
+  final NotEmpty email;
+  @override
+  @JsonKey()
+  final Password password;
+  @override
+  @JsonKey()
+  final NotEmpty name;
+  @override
+  @JsonKey()
+  final MobileNo phone;
+  @override
+  @JsonKey()
+  final OTP otp;
+  @override
+  @JsonKey()
+  final Password confirmPassword;
+  @override
+  @JsonKey()
+  final CurrentUser? user;
+  @override
+  @JsonKey()
+  final Status loginStatus;
+  @override
+  @JsonKey()
+  final Status sendOtpStatus;
+  @override
+  @JsonKey()
+  final bool loginValidation;
+  @override
+  @JsonKey()
+  final Status signupStatus;
+  @override
+  @JsonKey()
+  final bool signupValidation;
+  @override
+  @JsonKey()
+  final Yourself yourself;
 
-@override@JsonKey() final  NotEmpty email;
-@override@JsonKey() final  Password password;
-@override@JsonKey() final  NotEmpty name;
-@override@JsonKey() final  MobileNo phone;
-@override@JsonKey() final  OTP otp;
-@override@JsonKey() final  Password confirmPassword;
-@override@JsonKey() final  CurrentUser? user;
-@override@JsonKey() final  Status loginStatus;
-@override@JsonKey() final  Status sendOtpStatus;
-@override@JsonKey() final  bool loginValidation;
-@override@JsonKey() final  Status signupStatus;
-@override@JsonKey() final  bool signupValidation;
-@override@JsonKey() final  Yourself yourself;
+  @override
+  String toString() {
+    return 'AuthState(email: $email, password: $password, name: $name, phone: $phone, otp: $otp, confirmPassword: $confirmPassword, user: $user, loginStatus: $loginStatus, sendOtpStatus: $sendOtpStatus, loginValidation: $loginValidation, signupStatus: $signupStatus, signupValidation: $signupValidation, yourself: $yourself)';
+  }
 
-/// Create a copy of AuthState
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$AuthStateCopyWith<_AuthState> get copyWith => __$AuthStateCopyWithImpl<_AuthState>(this, _$identity);
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AuthStateImpl &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.password, password) ||
+                other.password == password) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.phone, phone) || other.phone == phone) &&
+            (identical(other.otp, otp) || other.otp == otp) &&
+            (identical(other.confirmPassword, confirmPassword) ||
+                other.confirmPassword == confirmPassword) &&
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.loginStatus, loginStatus) ||
+                other.loginStatus == loginStatus) &&
+            (identical(other.sendOtpStatus, sendOtpStatus) ||
+                other.sendOtpStatus == sendOtpStatus) &&
+            (identical(other.loginValidation, loginValidation) ||
+                other.loginValidation == loginValidation) &&
+            (identical(other.signupStatus, signupStatus) ||
+                other.signupStatus == signupStatus) &&
+            (identical(other.signupValidation, signupValidation) ||
+                other.signupValidation == signupValidation) &&
+            (identical(other.yourself, yourself) ||
+                other.yourself == yourself));
+  }
 
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    email,
+    password,
+    name,
+    phone,
+    otp,
+    confirmPassword,
+    user,
+    loginStatus,
+    sendOtpStatus,
+    loginValidation,
+    signupStatus,
+    signupValidation,
+    yourself,
+  );
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AuthState&&(identical(other.email, email) || other.email == email)&&(identical(other.password, password) || other.password == password)&&(identical(other.name, name) || other.name == name)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.otp, otp) || other.otp == otp)&&(identical(other.confirmPassword, confirmPassword) || other.confirmPassword == confirmPassword)&&(identical(other.user, user) || other.user == user)&&(identical(other.loginStatus, loginStatus) || other.loginStatus == loginStatus)&&(identical(other.sendOtpStatus, sendOtpStatus) || other.sendOtpStatus == sendOtpStatus)&&(identical(other.loginValidation, loginValidation) || other.loginValidation == loginValidation)&&(identical(other.signupStatus, signupStatus) || other.signupStatus == signupStatus)&&(identical(other.signupValidation, signupValidation) || other.signupValidation == signupValidation)&&(identical(other.yourself, yourself) || other.yourself == yourself));
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AuthStateImplCopyWith<_$AuthStateImpl> get copyWith =>
+      __$$AuthStateImplCopyWithImpl<_$AuthStateImpl>(this, _$identity);
 }
 
+abstract class _AuthState implements AuthState {
+  const factory _AuthState({
+    final NotEmpty email,
+    final Password password,
+    final NotEmpty name,
+    final MobileNo phone,
+    final OTP otp,
+    final Password confirmPassword,
+    final CurrentUser? user,
+    final Status loginStatus,
+    final Status sendOtpStatus,
+    final bool loginValidation,
+    final Status signupStatus,
+    final bool signupValidation,
+    final Yourself yourself,
+  }) = _$AuthStateImpl;
 
-@override
-int get hashCode => Object.hash(runtimeType,email,password,name,phone,otp,confirmPassword,user,loginStatus,sendOtpStatus,loginValidation,signupStatus,signupValidation,yourself);
+  @override
+  NotEmpty get email;
+  @override
+  Password get password;
+  @override
+  NotEmpty get name;
+  @override
+  MobileNo get phone;
+  @override
+  OTP get otp;
+  @override
+  Password get confirmPassword;
+  @override
+  CurrentUser? get user;
+  @override
+  Status get loginStatus;
+  @override
+  Status get sendOtpStatus;
+  @override
+  bool get loginValidation;
+  @override
+  Status get signupStatus;
+  @override
+  bool get signupValidation;
+  @override
+  Yourself get yourself;
 
-@override
-String toString() {
-  return 'AuthState(email: $email, password: $password, name: $name, phone: $phone, otp: $otp, confirmPassword: $confirmPassword, user: $user, loginStatus: $loginStatus, sendOtpStatus: $sendOtpStatus, loginValidation: $loginValidation, signupStatus: $signupStatus, signupValidation: $signupValidation, yourself: $yourself)';
+  /// Create a copy of AuthState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AuthStateImplCopyWith<_$AuthStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
-
-
-}
-
-/// @nodoc
-abstract mixin class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
-  factory _$AuthStateCopyWith(_AuthState value, $Res Function(_AuthState) _then) = __$AuthStateCopyWithImpl;
-@override @useResult
-$Res call({
- NotEmpty email, Password password, NotEmpty name, MobileNo phone, OTP otp, Password confirmPassword, CurrentUser? user, Status loginStatus, Status sendOtpStatus, bool loginValidation, Status signupStatus, bool signupValidation, Yourself yourself
-});
-
-
-
-
-}
-/// @nodoc
-class __$AuthStateCopyWithImpl<$Res>
-    implements _$AuthStateCopyWith<$Res> {
-  __$AuthStateCopyWithImpl(this._self, this._then);
-
-  final _AuthState _self;
-  final $Res Function(_AuthState) _then;
-
-/// Create a copy of AuthState
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? email = null,Object? password = null,Object? name = null,Object? phone = null,Object? otp = null,Object? confirmPassword = null,Object? user = freezed,Object? loginStatus = null,Object? sendOtpStatus = null,Object? loginValidation = null,Object? signupStatus = null,Object? signupValidation = null,Object? yourself = null,}) {
-  return _then(_AuthState(
-email: null == email ? _self.email : email // ignore: cast_nullable_to_non_nullable
-as NotEmpty,password: null == password ? _self.password : password // ignore: cast_nullable_to_non_nullable
-as Password,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
-as NotEmpty,phone: null == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
-as MobileNo,otp: null == otp ? _self.otp : otp // ignore: cast_nullable_to_non_nullable
-as OTP,confirmPassword: null == confirmPassword ? _self.confirmPassword : confirmPassword // ignore: cast_nullable_to_non_nullable
-as Password,user: freezed == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
-as CurrentUser?,loginStatus: null == loginStatus ? _self.loginStatus : loginStatus // ignore: cast_nullable_to_non_nullable
-as Status,sendOtpStatus: null == sendOtpStatus ? _self.sendOtpStatus : sendOtpStatus // ignore: cast_nullable_to_non_nullable
-as Status,loginValidation: null == loginValidation ? _self.loginValidation : loginValidation // ignore: cast_nullable_to_non_nullable
-as bool,signupStatus: null == signupStatus ? _self.signupStatus : signupStatus // ignore: cast_nullable_to_non_nullable
-as Status,signupValidation: null == signupValidation ? _self.signupValidation : signupValidation // ignore: cast_nullable_to_non_nullable
-as bool,yourself: null == yourself ? _self.yourself : yourself // ignore: cast_nullable_to_non_nullable
-as Yourself,
-  ));
-}
-
-
-}
-
-// dart format on

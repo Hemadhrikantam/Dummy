@@ -24,10 +24,6 @@ class _VaccinationReminderBottomSheet
     extends State<VaccinationReminderBottomSheet> {
   @override
   void initState() {
-    final petId = context.read<DashboardBloc>().state.selectedPet?.id;
-    context.read<VaccinationFormBloc>().add(
-      VaccinationFormEvent.init(petId ?? 0),
-    );
     super.initState();
   }
 

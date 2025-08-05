@@ -1,4 +1,5 @@
 import 'package:dummy/core/enum/status.dart';
+import 'package:dummy/features/health/domain/usecases/delete_vaccination_usecases.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -12,14 +13,18 @@ part 'vaccinations_state.dart';
 part 'vaccinations_bloc.freezed.dart';
 
 class VaccinationsBloc extends Bloc<VaccinationsEvent, VaccinationsState> {
-  VaccinationsBloc({required VaccinationsUsecases vaccinationsUsecases})
-    : _vaccinationsUsecases = vaccinationsUsecases,
-      super(VaccinationsState()) {
+  VaccinationsBloc({
+    required VaccinationsUsecases vaccinationsUsecases,
+    required DeleteVaccinationUsecases deleteVaccinationUsecases,
+  }) : _vaccinationsUsecases = vaccinationsUsecases,
+       _deleteVaccinationUsecases = deleteVaccinationUsecases,
+       super(VaccinationsState()) {
     on<_Vaccinations>(__vaccinations);
     on<_Filter>(__filter);
+    on<_Delete>(__delete);
   }
   final VaccinationsUsecases _vaccinationsUsecases;
-
+  final DeleteVaccinationUsecases _deleteVaccinationUsecases;
   Future<void> __vaccinations(
     _Vaccinations event,
     Emitter<VaccinationsState> emit,
@@ -50,5 +55,20 @@ class VaccinationsBloc extends Bloc<VaccinationsEvent, VaccinationsState> {
     final dateAdministered = NotEmpty.dirty(value: event.dateAdministered);
     final dueDate = NotEmpty.dirty(value: event.dueDate);
     emit(state.copyWith(dateAdministered: dateAdministered, dueDate: dueDate));
+  }
+
+  Future<void> __delete(_Delete event, emit) async {
+    await _deleteVaccinationUsecases(id: event.id).then((response) {
+      if (response.isRight()) {
+        emit(
+          state.copyWith(
+            vaccinations:
+                state.vaccinations
+                    .where((vaccination) => vaccination.id != event.id)
+                    .toList(),
+          ),
+        );
+      }
+    });
   }
 }

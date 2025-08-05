@@ -46,7 +46,16 @@ class AddVaccinationPage extends StatelessWidget {
                 VaccinationsEvent.vaccinations(null),
               );
               context.pop();
-              context.push(VaccinationSuccessPage.route());
+              context.push(
+                VaccinationSuccessPage.route(
+                  vaccinationName: state.vaccinationName.value,
+                  companyName: state.company.value,
+                  dueDate: DateTime.parse(state.dueDate.value),
+                  dateAdministered: DateTime.parse(
+                    state.dateAdministered.value,
+                  ),
+                ),
+              );
             }
           },
           builder: (context, state) {

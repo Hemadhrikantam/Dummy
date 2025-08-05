@@ -2,16 +2,23 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/health/presentation/bloc/vaccinations/vaccinations_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/constant/app_colors.dart';
 import '../../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/buttons/app_text_button.dart';
 
 class VeccinationDeleteBottomSheetContent extends StatelessWidget {
-  const VeccinationDeleteBottomSheetContent({super.key, this.onTap});
+  const VeccinationDeleteBottomSheetContent({
+    super.key,
+    this.onTap,
+    required this.id,
+  });
   final VoidCallback? onTap;
-
+  final int id;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,7 +47,8 @@ class VeccinationDeleteBottomSheetContent extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: "[Pet's Name]'s ",
+                      text:
+                          " ${context.read<DashboardBloc>().state.selectedPet?.petName ?? ""}'s ",
                       style: context.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
@@ -75,6 +83,10 @@ class VeccinationDeleteBottomSheetContent extends StatelessWidget {
                   Expanded(
                     child: AppTextButton(
                       onPressed: () {
+                        context.read<VaccinationsBloc>().add(
+                          VaccinationsEvent.delete(id),
+                        );
+                        context.pop();
                         context.pop();
                         BottomModels.medicationDeleteSuccessBottomSheet(
                           context,

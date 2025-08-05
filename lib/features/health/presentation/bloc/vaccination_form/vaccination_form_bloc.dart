@@ -5,6 +5,7 @@ import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/features/dailycare/domain/entities/frequency.dart';
+import 'package:dummy/features/health/domain/usecases/get_vaccination_usecases.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -27,10 +28,12 @@ class VaccinationFormBloc
     required MedicationFrequencyUsecases medicationFrequencyUsecases,
     required TimezonesUsecases timezonesUsecases,
     required RemindBeforeUsecases beforeUsecases,
+    required GetVaccinationUsecases getVaccinationUsecases,
   }) : _addVaccinationUsecase = addVaccinationUsecases,
        _medicationFrequencyUsecases = medicationFrequencyUsecases,
        _timezonesUsecases = timezonesUsecases,
        _beforeUsecases = beforeUsecases,
+       _getVaccinationUsecase = getVaccinationUsecases,
        super(const VaccinationFormState()) {
     on<_Init>(_onInit);
     on<_IsGiven>(_onIsGiven);
@@ -53,7 +56,7 @@ class VaccinationFormBloc
   final MedicationFrequencyUsecases _medicationFrequencyUsecases;
   final TimezonesUsecases _timezonesUsecases;
   final RemindBeforeUsecases _beforeUsecases;
-
+  final GetVaccinationUsecases _getVaccinationUsecase;
   Future<void> _onInit(_Init event, Emitter<VaccinationFormState> emit) async {
     emit(state.copyWith(initStatus: Status.loading));
     final frequencies = List<Frequency>.from(
@@ -67,7 +70,6 @@ class VaccinationFormBloc
     );
     emit(
       state.copyWith(
-        initStatus: Status.success,
         petId: event.petId,
         frequencies:
             frequencies
@@ -83,6 +85,47 @@ class VaccinationFormBloc
             }).toList(),
       ),
     );
+    if (event.id != null) {
+      final result = await _getVaccinationUsecase(id: event.id!);
+      result.fold((failure) => emit(state.copyWith(initStatus: Status.error)), (
+        vaccination,
+      ) {
+        final reminderTime = vaccination.reminderTime.split(':');
+        final reminderHour = int.parse(reminderTime[0]) % 12;
+        final reminderMin = int.parse(reminderTime[1]);
+        final isPm = int.parse(reminderTime[0]) >= 12;
+        emit(
+          state.copyWith(
+            vaccinationName: NotEmpty.dirty(value: vaccination.vaccinationName),
+            company: NotEmpty.dirty(value: vaccination.company),
+            dateAdministered: NotEmpty.dirty(
+              value: vaccination.dateAdministered.toIso8601String(),
+            ),
+            dueDate: NotEmpty.dirty(
+              value: vaccination.dueDate.toIso8601String(),
+            ),
+            note: NotEmpty.dirty(value: vaccination.note),
+            media: NotEmpty.dirty(value: vaccination.media),
+            isGiven: vaccination.isGiven,
+            frequency: DropdownValue.dirty(
+              state.frequencies.firstWhere(
+                (e) => e.id == vaccination.frequency,
+              ),
+            ),
+            reminderHour: DropdownValue.dirty(
+              DropItemModel(id: reminderHour, value: reminderHour.toString()),
+            ),
+            reminderMin: DropdownValue.dirty(
+              DropItemModel(id: reminderMin, value: reminderMin.toString()),
+            ),
+            reminderAmPm: DropdownValue.dirty(
+              DropItemModel(id: isPm ? 2 : 1, value: isPm ? 'PM' : 'AM'),
+            ),
+          ),
+        );
+      });
+    }
+    emit(state.copyWith(initStatus: Status.success));
   }
 
   void _onIsGiven(_IsGiven event, Emitter<VaccinationFormState> emit) {

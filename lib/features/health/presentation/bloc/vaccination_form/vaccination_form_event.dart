@@ -2,7 +2,7 @@ part of 'vaccination_form_bloc.dart';
 
 @freezed
 class VaccinationFormEvent with _$VaccinationFormEvent {
-  const factory VaccinationFormEvent.init(int petId) = _Init;
+  const factory VaccinationFormEvent.init(int petId, int? id) = _Init;
   const factory VaccinationFormEvent.isGiven(bool value) = _IsGiven;
   const factory VaccinationFormEvent.vaccinationName(String value) =
       _VaccinationName;
@@ -23,5 +23,5 @@ class VaccinationFormEvent with _$VaccinationFormEvent {
   const factory VaccinationFormEvent.reminderMin(DropItem value) = _ReminderMin;
   const factory VaccinationFormEvent.reminderAmPm(DropItem value) =
       _ReminderAmPm;
-  const factory VaccinationFormEvent.submit() = _Submit;
+  const factory VaccinationFormEvent.submit({int? id}) = _Submit;
 }

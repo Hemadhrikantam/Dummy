@@ -1,4 +1,3 @@
-// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -10,522 +9,1216 @@ part of 'media_form_bloc.dart';
 // FreezedGenerator
 // **************************************************************************
 
-// dart format off
 T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
+
 /// @nodoc
 mixin _$MediaFormEvent {
-
-
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MediaFormEvent);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString() {
-  return 'MediaFormEvent()';
-}
-
-
-}
-
-/// @nodoc
-class $MediaFormEventCopyWith<$Res>  {
-$MediaFormEventCopyWith(MediaFormEvent _, $Res Function(MediaFormEvent) __);
-}
-
-
-/// @nodoc
-
-
-class _Init implements MediaFormEvent {
-  const _Init(this.petId, this.id);
-  
-
- final  int petId;
- final  int? id;
-
-/// Create a copy of MediaFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$InitCopyWith<_Init> get copyWith => __$InitCopyWithImpl<_Init>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Init&&(identical(other.petId, petId) || other.petId == petId)&&(identical(other.id, id) || other.id == id));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,petId,id);
-
-@override
-String toString() {
-  return 'MediaFormEvent.init(petId: $petId, id: $id)';
-}
-
-
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId, int? id) init,
+    required TResult Function(int? id) submit,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) url,
+    required TResult Function(DropItem value) event,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId, int? id)? init,
+    TResult? Function(int? id)? submit,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? url,
+    TResult? Function(DropItem value)? event,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId, int? id)? init,
+    TResult Function(int? id)? submit,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? url,
+    TResult Function(DropItem value)? event,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Submit value) submit,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Url value) url,
+    required TResult Function(_Event value) event,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Url value)? url,
+    TResult? Function(_Event value)? event,
+  }) => throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Submit value)? submit,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Url value)? url,
+    TResult Function(_Event value)? event,
+    required TResult orElse(),
+  }) => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class _$InitCopyWith<$Res> implements $MediaFormEventCopyWith<$Res> {
-  factory _$InitCopyWith(_Init value, $Res Function(_Init) _then) = __$InitCopyWithImpl;
-@useResult
-$Res call({
- int petId, int? id
-});
-
-
-
-
-}
-/// @nodoc
-class __$InitCopyWithImpl<$Res>
-    implements _$InitCopyWith<$Res> {
-  __$InitCopyWithImpl(this._self, this._then);
-
-  final _Init _self;
-  final $Res Function(_Init) _then;
-
-/// Create a copy of MediaFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? petId = null,Object? id = freezed,}) {
-  return _then(_Init(
-null == petId ? _self.petId : petId // ignore: cast_nullable_to_non_nullable
-as int,freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int?,
-  ));
-}
-
-
+abstract class $MediaFormEventCopyWith<$Res> {
+  factory $MediaFormEventCopyWith(
+    MediaFormEvent value,
+    $Res Function(MediaFormEvent) then,
+  ) = _$MediaFormEventCopyWithImpl<$Res, MediaFormEvent>;
 }
 
 /// @nodoc
+class _$MediaFormEventCopyWithImpl<$Res, $Val extends MediaFormEvent>
+    implements $MediaFormEventCopyWith<$Res> {
+  _$MediaFormEventCopyWithImpl(this._value, this._then);
 
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-class _Submit implements MediaFormEvent {
-  const _Submit(this.id);
-  
-
- final  int? id;
-
-/// Create a copy of MediaFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$SubmitCopyWith<_Submit> get copyWith => __$SubmitCopyWithImpl<_Submit>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Submit&&(identical(other.id, id) || other.id == id));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,id);
-
-@override
-String toString() {
-  return 'MediaFormEvent.submit(id: $id)';
-}
-
-
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract mixin class _$SubmitCopyWith<$Res> implements $MediaFormEventCopyWith<$Res> {
-  factory _$SubmitCopyWith(_Submit value, $Res Function(_Submit) _then) = __$SubmitCopyWithImpl;
-@useResult
-$Res call({
- int? id
-});
-
-
-
-
+abstract class _$$InitImplCopyWith<$Res> {
+  factory _$$InitImplCopyWith(
+    _$InitImpl value,
+    $Res Function(_$InitImpl) then,
+  ) = __$$InitImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int petId, int? id});
 }
+
 /// @nodoc
-class __$SubmitCopyWithImpl<$Res>
-    implements _$SubmitCopyWith<$Res> {
-  __$SubmitCopyWithImpl(this._self, this._then);
+class __$$InitImplCopyWithImpl<$Res>
+    extends _$MediaFormEventCopyWithImpl<$Res, _$InitImpl>
+    implements _$$InitImplCopyWith<$Res> {
+  __$$InitImplCopyWithImpl(_$InitImpl _value, $Res Function(_$InitImpl) _then)
+    : super(_value, _then);
 
-  final _Submit _self;
-  final $Res Function(_Submit) _then;
-
-/// Create a copy of MediaFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? id = freezed,}) {
-  return _then(_Submit(
-freezed == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as int?,
-  ));
-}
-
-
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? petId = null, Object? id = freezed}) {
+    return _then(
+      _$InitImpl(
+        null == petId
+            ? _value.petId
+            : petId // ignore: cast_nullable_to_non_nullable
+                as int,
+        freezed == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int?,
+      ),
+    );
+  }
 }
 
 /// @nodoc
 
+class _$InitImpl implements _Init {
+  const _$InitImpl(this.petId, this.id);
 
-class _Notes implements MediaFormEvent {
-  const _Notes(this.value);
-  
+  @override
+  final int petId;
+  @override
+  final int? id;
 
- final  String value;
+  @override
+  String toString() {
+    return 'MediaFormEvent.init(petId: $petId, id: $id)';
+  }
 
-/// Create a copy of MediaFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$NotesCopyWith<_Notes> get copyWith => __$NotesCopyWithImpl<_Notes>(this, _$identity);
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InitImpl &&
+            (identical(other.petId, petId) || other.petId == petId) &&
+            (identical(other.id, id) || other.id == id));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, petId, id);
 
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InitImplCopyWith<_$InitImpl> get copyWith =>
+      __$$InitImplCopyWithImpl<_$InitImpl>(this, _$identity);
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Notes&&(identical(other.value, value) || other.value == value));
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId, int? id) init,
+    required TResult Function(int? id) submit,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) url,
+    required TResult Function(DropItem value) event,
+  }) {
+    return init(petId, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId, int? id)? init,
+    TResult? Function(int? id)? submit,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? url,
+    TResult? Function(DropItem value)? event,
+  }) {
+    return init?.call(petId, id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId, int? id)? init,
+    TResult Function(int? id)? submit,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? url,
+    TResult Function(DropItem value)? event,
+    required TResult orElse(),
+  }) {
+    if (init != null) {
+      return init(petId, id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Submit value) submit,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Url value) url,
+    required TResult Function(_Event value) event,
+  }) {
+    return init(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Url value)? url,
+    TResult? Function(_Event value)? event,
+  }) {
+    return init?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Submit value)? submit,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Url value)? url,
+    TResult Function(_Event value)? event,
+    required TResult orElse(),
+  }) {
+    if (init != null) {
+      return init(this);
+    }
+    return orElse();
+  }
 }
 
+abstract class _Init implements MediaFormEvent {
+  const factory _Init(final int petId, final int? id) = _$InitImpl;
 
-@override
-int get hashCode => Object.hash(runtimeType,value);
+  int get petId;
+  int? get id;
 
-@override
-String toString() {
-  return 'MediaFormEvent.notes(value: $value)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$NotesCopyWith<$Res> implements $MediaFormEventCopyWith<$Res> {
-  factory _$NotesCopyWith(_Notes value, $Res Function(_Notes) _then) = __$NotesCopyWithImpl;
-@useResult
-$Res call({
- String value
-});
-
-
-
-
-}
-/// @nodoc
-class __$NotesCopyWithImpl<$Res>
-    implements _$NotesCopyWith<$Res> {
-  __$NotesCopyWithImpl(this._self, this._then);
-
-  final _Notes _self;
-  final $Res Function(_Notes) _then;
-
-/// Create a copy of MediaFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_Notes(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _Url implements MediaFormEvent {
-  const _Url(this.value);
-  
-
- final  String value;
-
-/// Create a copy of MediaFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$UrlCopyWith<_Url> get copyWith => __$UrlCopyWithImpl<_Url>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Url&&(identical(other.value, value) || other.value == value));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,value);
-
-@override
-String toString() {
-  return 'MediaFormEvent.url(value: $value)';
-}
-
-
-}
-
-/// @nodoc
-abstract mixin class _$UrlCopyWith<$Res> implements $MediaFormEventCopyWith<$Res> {
-  factory _$UrlCopyWith(_Url value, $Res Function(_Url) _then) = __$UrlCopyWithImpl;
-@useResult
-$Res call({
- String value
-});
-
-
-
-
-}
-/// @nodoc
-class __$UrlCopyWithImpl<$Res>
-    implements _$UrlCopyWith<$Res> {
-  __$UrlCopyWithImpl(this._self, this._then);
-
-  final _Url _self;
-  final $Res Function(_Url) _then;
-
-/// Create a copy of MediaFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_Url(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$InitImplCopyWith<_$InitImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-
-
-class _Event implements MediaFormEvent {
-  const _Event(this.value);
-  
-
- final  DropItem value;
-
-/// Create a copy of MediaFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$EventCopyWith<_Event> get copyWith => __$EventCopyWithImpl<_Event>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Event&&(identical(other.value, value) || other.value == value));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,value);
-
-@override
-String toString() {
-  return 'MediaFormEvent.event(value: $value)';
-}
-
-
+abstract class _$$SubmitImplCopyWith<$Res> {
+  factory _$$SubmitImplCopyWith(
+    _$SubmitImpl value,
+    $Res Function(_$SubmitImpl) then,
+  ) = __$$SubmitImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int? id});
 }
 
 /// @nodoc
-abstract mixin class _$EventCopyWith<$Res> implements $MediaFormEventCopyWith<$Res> {
-  factory _$EventCopyWith(_Event value, $Res Function(_Event) _then) = __$EventCopyWithImpl;
-@useResult
-$Res call({
- DropItem value
-});
+class __$$SubmitImplCopyWithImpl<$Res>
+    extends _$MediaFormEventCopyWithImpl<$Res, _$SubmitImpl>
+    implements _$$SubmitImplCopyWith<$Res> {
+  __$$SubmitImplCopyWithImpl(
+    _$SubmitImpl _value,
+    $Res Function(_$SubmitImpl) _then,
+  ) : super(_value, _then);
 
-
-
-
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? id = freezed}) {
+    return _then(
+      _$SubmitImpl(
+        freezed == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int?,
+      ),
+    );
+  }
 }
+
 /// @nodoc
-class __$EventCopyWithImpl<$Res>
-    implements _$EventCopyWith<$Res> {
-  __$EventCopyWithImpl(this._self, this._then);
 
-  final _Event _self;
-  final $Res Function(_Event) _then;
+class _$SubmitImpl implements _Submit {
+  const _$SubmitImpl(this.id);
 
-/// Create a copy of MediaFormEvent
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? value = null,}) {
-  return _then(_Event(
-null == value ? _self.value : value // ignore: cast_nullable_to_non_nullable
-as DropItem,
-  ));
+  @override
+  final int? id;
+
+  @override
+  String toString() {
+    return 'MediaFormEvent.submit(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SubmitImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SubmitImplCopyWith<_$SubmitImpl> get copyWith =>
+      __$$SubmitImplCopyWithImpl<_$SubmitImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId, int? id) init,
+    required TResult Function(int? id) submit,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) url,
+    required TResult Function(DropItem value) event,
+  }) {
+    return submit(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId, int? id)? init,
+    TResult? Function(int? id)? submit,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? url,
+    TResult? Function(DropItem value)? event,
+  }) {
+    return submit?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId, int? id)? init,
+    TResult Function(int? id)? submit,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? url,
+    TResult Function(DropItem value)? event,
+    required TResult orElse(),
+  }) {
+    if (submit != null) {
+      return submit(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Submit value) submit,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Url value) url,
+    required TResult Function(_Event value) event,
+  }) {
+    return submit(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Url value)? url,
+    TResult? Function(_Event value)? event,
+  }) {
+    return submit?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Submit value)? submit,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Url value)? url,
+    TResult Function(_Event value)? event,
+    required TResult orElse(),
+  }) {
+    if (submit != null) {
+      return submit(this);
+    }
+    return orElse();
+  }
 }
 
+abstract class _Submit implements MediaFormEvent {
+  const factory _Submit(final int? id) = _$SubmitImpl;
 
+  int? get id;
+
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SubmitImplCopyWith<_$SubmitImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NotesImplCopyWith<$Res> {
+  factory _$$NotesImplCopyWith(
+    _$NotesImpl value,
+    $Res Function(_$NotesImpl) then,
+  ) = __$$NotesImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$NotesImplCopyWithImpl<$Res>
+    extends _$MediaFormEventCopyWithImpl<$Res, _$NotesImpl>
+    implements _$$NotesImplCopyWith<$Res> {
+  __$$NotesImplCopyWithImpl(
+    _$NotesImpl _value,
+    $Res Function(_$NotesImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$NotesImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$NotesImpl implements _Notes {
+  const _$NotesImpl(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'MediaFormEvent.notes(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NotesImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NotesImplCopyWith<_$NotesImpl> get copyWith =>
+      __$$NotesImplCopyWithImpl<_$NotesImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId, int? id) init,
+    required TResult Function(int? id) submit,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) url,
+    required TResult Function(DropItem value) event,
+  }) {
+    return notes(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId, int? id)? init,
+    TResult? Function(int? id)? submit,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? url,
+    TResult? Function(DropItem value)? event,
+  }) {
+    return notes?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId, int? id)? init,
+    TResult Function(int? id)? submit,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? url,
+    TResult Function(DropItem value)? event,
+    required TResult orElse(),
+  }) {
+    if (notes != null) {
+      return notes(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Submit value) submit,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Url value) url,
+    required TResult Function(_Event value) event,
+  }) {
+    return notes(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Url value)? url,
+    TResult? Function(_Event value)? event,
+  }) {
+    return notes?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Submit value)? submit,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Url value)? url,
+    TResult Function(_Event value)? event,
+    required TResult orElse(),
+  }) {
+    if (notes != null) {
+      return notes(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Notes implements MediaFormEvent {
+  const factory _Notes(final String value) = _$NotesImpl;
+
+  String get value;
+
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$NotesImplCopyWith<_$NotesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UrlImplCopyWith<$Res> {
+  factory _$$UrlImplCopyWith(_$UrlImpl value, $Res Function(_$UrlImpl) then) =
+      __$$UrlImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$UrlImplCopyWithImpl<$Res>
+    extends _$MediaFormEventCopyWithImpl<$Res, _$UrlImpl>
+    implements _$$UrlImplCopyWith<$Res> {
+  __$$UrlImplCopyWithImpl(_$UrlImpl _value, $Res Function(_$UrlImpl) _then)
+    : super(_value, _then);
+
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$UrlImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$UrlImpl implements _Url {
+  const _$UrlImpl(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString() {
+    return 'MediaFormEvent.url(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UrlImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UrlImplCopyWith<_$UrlImpl> get copyWith =>
+      __$$UrlImplCopyWithImpl<_$UrlImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId, int? id) init,
+    required TResult Function(int? id) submit,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) url,
+    required TResult Function(DropItem value) event,
+  }) {
+    return url(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId, int? id)? init,
+    TResult? Function(int? id)? submit,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? url,
+    TResult? Function(DropItem value)? event,
+  }) {
+    return url?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId, int? id)? init,
+    TResult Function(int? id)? submit,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? url,
+    TResult Function(DropItem value)? event,
+    required TResult orElse(),
+  }) {
+    if (url != null) {
+      return url(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Submit value) submit,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Url value) url,
+    required TResult Function(_Event value) event,
+  }) {
+    return url(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Url value)? url,
+    TResult? Function(_Event value)? event,
+  }) {
+    return url?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Submit value)? submit,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Url value)? url,
+    TResult Function(_Event value)? event,
+    required TResult orElse(),
+  }) {
+    if (url != null) {
+      return url(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Url implements MediaFormEvent {
+  const factory _Url(final String value) = _$UrlImpl;
+
+  String get value;
+
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UrlImplCopyWith<_$UrlImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EventImplCopyWith<$Res> {
+  factory _$$EventImplCopyWith(
+    _$EventImpl value,
+    $Res Function(_$EventImpl) then,
+  ) = __$$EventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DropItem value});
+}
+
+/// @nodoc
+class __$$EventImplCopyWithImpl<$Res>
+    extends _$MediaFormEventCopyWithImpl<$Res, _$EventImpl>
+    implements _$$EventImplCopyWith<$Res> {
+  __$$EventImplCopyWithImpl(
+    _$EventImpl _value,
+    $Res Function(_$EventImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$EventImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as DropItem,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$EventImpl implements _Event {
+  const _$EventImpl(this.value);
+
+  @override
+  final DropItem value;
+
+  @override
+  String toString() {
+    return 'MediaFormEvent.event(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EventImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EventImplCopyWith<_$EventImpl> get copyWith =>
+      __$$EventImplCopyWithImpl<_$EventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int petId, int? id) init,
+    required TResult Function(int? id) submit,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) url,
+    required TResult Function(DropItem value) event,
+  }) {
+    return event(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int petId, int? id)? init,
+    TResult? Function(int? id)? submit,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? url,
+    TResult? Function(DropItem value)? event,
+  }) {
+    return event?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int petId, int? id)? init,
+    TResult Function(int? id)? submit,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? url,
+    TResult Function(DropItem value)? event,
+    required TResult orElse(),
+  }) {
+    if (event != null) {
+      return event(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Submit value) submit,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Url value) url,
+    required TResult Function(_Event value) event,
+  }) {
+    return event(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Url value)? url,
+    TResult? Function(_Event value)? event,
+  }) {
+    return event?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Submit value)? submit,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Url value)? url,
+    TResult Function(_Event value)? event,
+    required TResult orElse(),
+  }) {
+    if (event != null) {
+      return event(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Event implements MediaFormEvent {
+  const factory _Event(final DropItem value) = _$EventImpl;
+
+  DropItem get value;
+
+  /// Create a copy of MediaFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$EventImplCopyWith<_$EventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$MediaFormState {
+  Status get initStatus => throw _privateConstructorUsedError;
+  Status get submitStatus => throw _privateConstructorUsedError;
+  NotEmpty get notes => throw _privateConstructorUsedError;
+  NotEmpty get url => throw _privateConstructorUsedError;
+  DropdownValue get event => throw _privateConstructorUsedError;
+  List<DropItem> get events => throw _privateConstructorUsedError;
+  bool get validation => throw _privateConstructorUsedError;
+  int get petId => throw _privateConstructorUsedError;
 
- Status get initStatus; Status get submitStatus; NotEmpty get notes; NotEmpty get url; DropdownValue get event; List<DropItem> get events; bool get validation; int get petId;
-/// Create a copy of MediaFormState
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-$MediaFormStateCopyWith<MediaFormState> get copyWith => _$MediaFormStateCopyWithImpl<MediaFormState>(this as MediaFormState, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MediaFormState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.url, url) || other.url == url)&&(identical(other.event, event) || other.event == event)&&const DeepCollectionEquality().equals(other.events, events)&&(identical(other.validation, validation) || other.validation == validation)&&(identical(other.petId, petId) || other.petId == petId));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,initStatus,submitStatus,notes,url,event,const DeepCollectionEquality().hash(events),validation,petId);
-
-@override
-String toString() {
-  return 'MediaFormState(initStatus: $initStatus, submitStatus: $submitStatus, notes: $notes, url: $url, event: $event, events: $events, validation: $validation, petId: $petId)';
-}
-
-
+  /// Create a copy of MediaFormState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $MediaFormStateCopyWith<MediaFormState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract mixin class $MediaFormStateCopyWith<$Res>  {
-  factory $MediaFormStateCopyWith(MediaFormState value, $Res Function(MediaFormState) _then) = _$MediaFormStateCopyWithImpl;
-@useResult
-$Res call({
- Status initStatus, Status submitStatus, NotEmpty notes, NotEmpty url, DropdownValue event, List<DropItem> events, bool validation, int petId
-});
-
-
-
-
+abstract class $MediaFormStateCopyWith<$Res> {
+  factory $MediaFormStateCopyWith(
+    MediaFormState value,
+    $Res Function(MediaFormState) then,
+  ) = _$MediaFormStateCopyWithImpl<$Res, MediaFormState>;
+  @useResult
+  $Res call({
+    Status initStatus,
+    Status submitStatus,
+    NotEmpty notes,
+    NotEmpty url,
+    DropdownValue event,
+    List<DropItem> events,
+    bool validation,
+    int petId,
+  });
 }
+
 /// @nodoc
-class _$MediaFormStateCopyWithImpl<$Res>
+class _$MediaFormStateCopyWithImpl<$Res, $Val extends MediaFormState>
     implements $MediaFormStateCopyWith<$Res> {
-  _$MediaFormStateCopyWithImpl(this._self, this._then);
+  _$MediaFormStateCopyWithImpl(this._value, this._then);
 
-  final MediaFormState _self;
-  final $Res Function(MediaFormState) _then;
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
-/// Create a copy of MediaFormState
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? initStatus = null,Object? submitStatus = null,Object? notes = null,Object? url = null,Object? event = null,Object? events = null,Object? validation = null,Object? petId = null,}) {
-  return _then(_self.copyWith(
-initStatus: null == initStatus ? _self.initStatus : initStatus // ignore: cast_nullable_to_non_nullable
-as Status,submitStatus: null == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
-as Status,notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
-as NotEmpty,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
-as NotEmpty,event: null == event ? _self.event : event // ignore: cast_nullable_to_non_nullable
-as DropdownValue,events: null == events ? _self.events : events // ignore: cast_nullable_to_non_nullable
-as List<DropItem>,validation: null == validation ? _self.validation : validation // ignore: cast_nullable_to_non_nullable
-as bool,petId: null == petId ? _self.petId : petId // ignore: cast_nullable_to_non_nullable
-as int,
-  ));
-}
-
-}
-
-
-/// @nodoc
-
-
-class _MediaFormState implements MediaFormState {
-  const _MediaFormState({this.initStatus = Status.init, this.submitStatus = Status.init, this.notes = const NotEmpty.pure(), this.url = const NotEmpty.pure(), this.event = const DropdownValue.pure(), final  List<DropItem> events = const [], this.validation = false, this.petId = 0}): _events = events;
-  
-
-@override@JsonKey() final  Status initStatus;
-@override@JsonKey() final  Status submitStatus;
-@override@JsonKey() final  NotEmpty notes;
-@override@JsonKey() final  NotEmpty url;
-@override@JsonKey() final  DropdownValue event;
- final  List<DropItem> _events;
-@override@JsonKey() List<DropItem> get events {
-  if (_events is EqualUnmodifiableListView) return _events;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_events);
-}
-
-@override@JsonKey() final  bool validation;
-@override@JsonKey() final  int petId;
-
-/// Create a copy of MediaFormState
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-@pragma('vm:prefer-inline')
-_$MediaFormStateCopyWith<_MediaFormState> get copyWith => __$MediaFormStateCopyWithImpl<_MediaFormState>(this, _$identity);
-
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _MediaFormState&&(identical(other.initStatus, initStatus) || other.initStatus == initStatus)&&(identical(other.submitStatus, submitStatus) || other.submitStatus == submitStatus)&&(identical(other.notes, notes) || other.notes == notes)&&(identical(other.url, url) || other.url == url)&&(identical(other.event, event) || other.event == event)&&const DeepCollectionEquality().equals(other._events, _events)&&(identical(other.validation, validation) || other.validation == validation)&&(identical(other.petId, petId) || other.petId == petId));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,initStatus,submitStatus,notes,url,event,const DeepCollectionEquality().hash(_events),validation,petId);
-
-@override
-String toString() {
-  return 'MediaFormState(initStatus: $initStatus, submitStatus: $submitStatus, notes: $notes, url: $url, event: $event, events: $events, validation: $validation, petId: $petId)';
-}
-
-
+  /// Create a copy of MediaFormState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? initStatus = null,
+    Object? submitStatus = null,
+    Object? notes = null,
+    Object? url = null,
+    Object? event = null,
+    Object? events = null,
+    Object? validation = null,
+    Object? petId = null,
+  }) {
+    return _then(
+      _value.copyWith(
+            initStatus:
+                null == initStatus
+                    ? _value.initStatus
+                    : initStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
+            submitStatus:
+                null == submitStatus
+                    ? _value.submitStatus
+                    : submitStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
+            notes:
+                null == notes
+                    ? _value.notes
+                    : notes // ignore: cast_nullable_to_non_nullable
+                        as NotEmpty,
+            url:
+                null == url
+                    ? _value.url
+                    : url // ignore: cast_nullable_to_non_nullable
+                        as NotEmpty,
+            event:
+                null == event
+                    ? _value.event
+                    : event // ignore: cast_nullable_to_non_nullable
+                        as DropdownValue,
+            events:
+                null == events
+                    ? _value.events
+                    : events // ignore: cast_nullable_to_non_nullable
+                        as List<DropItem>,
+            validation:
+                null == validation
+                    ? _value.validation
+                    : validation // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            petId:
+                null == petId
+                    ? _value.petId
+                    : petId // ignore: cast_nullable_to_non_nullable
+                        as int,
+          )
+          as $Val,
+    );
+  }
 }
 
 /// @nodoc
-abstract mixin class _$MediaFormStateCopyWith<$Res> implements $MediaFormStateCopyWith<$Res> {
-  factory _$MediaFormStateCopyWith(_MediaFormState value, $Res Function(_MediaFormState) _then) = __$MediaFormStateCopyWithImpl;
-@override @useResult
-$Res call({
- Status initStatus, Status submitStatus, NotEmpty notes, NotEmpty url, DropdownValue event, List<DropItem> events, bool validation, int petId
-});
-
-
-
-
+abstract class _$$MediaFormStateImplCopyWith<$Res>
+    implements $MediaFormStateCopyWith<$Res> {
+  factory _$$MediaFormStateImplCopyWith(
+    _$MediaFormStateImpl value,
+    $Res Function(_$MediaFormStateImpl) then,
+  ) = __$$MediaFormStateImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({
+    Status initStatus,
+    Status submitStatus,
+    NotEmpty notes,
+    NotEmpty url,
+    DropdownValue event,
+    List<DropItem> events,
+    bool validation,
+    int petId,
+  });
 }
+
 /// @nodoc
-class __$MediaFormStateCopyWithImpl<$Res>
-    implements _$MediaFormStateCopyWith<$Res> {
-  __$MediaFormStateCopyWithImpl(this._self, this._then);
+class __$$MediaFormStateImplCopyWithImpl<$Res>
+    extends _$MediaFormStateCopyWithImpl<$Res, _$MediaFormStateImpl>
+    implements _$$MediaFormStateImplCopyWith<$Res> {
+  __$$MediaFormStateImplCopyWithImpl(
+    _$MediaFormStateImpl _value,
+    $Res Function(_$MediaFormStateImpl) _then,
+  ) : super(_value, _then);
 
-  final _MediaFormState _self;
-  final $Res Function(_MediaFormState) _then;
-
-/// Create a copy of MediaFormState
-/// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? initStatus = null,Object? submitStatus = null,Object? notes = null,Object? url = null,Object? event = null,Object? events = null,Object? validation = null,Object? petId = null,}) {
-  return _then(_MediaFormState(
-initStatus: null == initStatus ? _self.initStatus : initStatus // ignore: cast_nullable_to_non_nullable
-as Status,submitStatus: null == submitStatus ? _self.submitStatus : submitStatus // ignore: cast_nullable_to_non_nullable
-as Status,notes: null == notes ? _self.notes : notes // ignore: cast_nullable_to_non_nullable
-as NotEmpty,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
-as NotEmpty,event: null == event ? _self.event : event // ignore: cast_nullable_to_non_nullable
-as DropdownValue,events: null == events ? _self._events : events // ignore: cast_nullable_to_non_nullable
-as List<DropItem>,validation: null == validation ? _self.validation : validation // ignore: cast_nullable_to_non_nullable
-as bool,petId: null == petId ? _self.petId : petId // ignore: cast_nullable_to_non_nullable
-as int,
-  ));
+  /// Create a copy of MediaFormState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? initStatus = null,
+    Object? submitStatus = null,
+    Object? notes = null,
+    Object? url = null,
+    Object? event = null,
+    Object? events = null,
+    Object? validation = null,
+    Object? petId = null,
+  }) {
+    return _then(
+      _$MediaFormStateImpl(
+        initStatus:
+            null == initStatus
+                ? _value.initStatus
+                : initStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
+        submitStatus:
+            null == submitStatus
+                ? _value.submitStatus
+                : submitStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
+        notes:
+            null == notes
+                ? _value.notes
+                : notes // ignore: cast_nullable_to_non_nullable
+                    as NotEmpty,
+        url:
+            null == url
+                ? _value.url
+                : url // ignore: cast_nullable_to_non_nullable
+                    as NotEmpty,
+        event:
+            null == event
+                ? _value.event
+                : event // ignore: cast_nullable_to_non_nullable
+                    as DropdownValue,
+        events:
+            null == events
+                ? _value._events
+                : events // ignore: cast_nullable_to_non_nullable
+                    as List<DropItem>,
+        validation:
+            null == validation
+                ? _value.validation
+                : validation // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        petId:
+            null == petId
+                ? _value.petId
+                : petId // ignore: cast_nullable_to_non_nullable
+                    as int,
+      ),
+    );
+  }
 }
 
+/// @nodoc
 
+class _$MediaFormStateImpl implements _MediaFormState {
+  const _$MediaFormStateImpl({
+    this.initStatus = Status.init,
+    this.submitStatus = Status.init,
+    this.notes = const NotEmpty.pure(),
+    this.url = const NotEmpty.pure(),
+    this.event = const DropdownValue.pure(),
+    final List<DropItem> events = const [],
+    this.validation = false,
+    this.petId = 0,
+  }) : _events = events;
+
+  @override
+  @JsonKey()
+  final Status initStatus;
+  @override
+  @JsonKey()
+  final Status submitStatus;
+  @override
+  @JsonKey()
+  final NotEmpty notes;
+  @override
+  @JsonKey()
+  final NotEmpty url;
+  @override
+  @JsonKey()
+  final DropdownValue event;
+  final List<DropItem> _events;
+  @override
+  @JsonKey()
+  List<DropItem> get events {
+    if (_events is EqualUnmodifiableListView) return _events;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_events);
+  }
+
+  @override
+  @JsonKey()
+  final bool validation;
+  @override
+  @JsonKey()
+  final int petId;
+
+  @override
+  String toString() {
+    return 'MediaFormState(initStatus: $initStatus, submitStatus: $submitStatus, notes: $notes, url: $url, event: $event, events: $events, validation: $validation, petId: $petId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MediaFormStateImpl &&
+            (identical(other.initStatus, initStatus) ||
+                other.initStatus == initStatus) &&
+            (identical(other.submitStatus, submitStatus) ||
+                other.submitStatus == submitStatus) &&
+            (identical(other.notes, notes) || other.notes == notes) &&
+            (identical(other.url, url) || other.url == url) &&
+            (identical(other.event, event) || other.event == event) &&
+            const DeepCollectionEquality().equals(other._events, _events) &&
+            (identical(other.validation, validation) ||
+                other.validation == validation) &&
+            (identical(other.petId, petId) || other.petId == petId));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+    runtimeType,
+    initStatus,
+    submitStatus,
+    notes,
+    url,
+    event,
+    const DeepCollectionEquality().hash(_events),
+    validation,
+    petId,
+  );
+
+  /// Create a copy of MediaFormState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MediaFormStateImplCopyWith<_$MediaFormStateImpl> get copyWith =>
+      __$$MediaFormStateImplCopyWithImpl<_$MediaFormStateImpl>(
+        this,
+        _$identity,
+      );
 }
 
-// dart format on
+abstract class _MediaFormState implements MediaFormState {
+  const factory _MediaFormState({
+    final Status initStatus,
+    final Status submitStatus,
+    final NotEmpty notes,
+    final NotEmpty url,
+    final DropdownValue event,
+    final List<DropItem> events,
+    final bool validation,
+    final int petId,
+  }) = _$MediaFormStateImpl;
+
+  @override
+  Status get initStatus;
+  @override
+  Status get submitStatus;
+  @override
+  NotEmpty get notes;
+  @override
+  NotEmpty get url;
+  @override
+  DropdownValue get event;
+  @override
+  List<DropItem> get events;
+  @override
+  bool get validation;
+  @override
+  int get petId;
+
+  /// Create a copy of MediaFormState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MediaFormStateImplCopyWith<_$MediaFormStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

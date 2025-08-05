@@ -302,14 +302,17 @@ class BottomModels {
     );
   }
 
-  static Future<T?> veccinationDeleteBottomSheet<T>(BuildContext context) {
+  static Future<T?> veccinationDeleteBottomSheet<T>(
+    BuildContext context, {
+    required int id,
+  }) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: backgroundColor,
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return VeccinationDeleteBottomSheetContent();
+        return VeccinationDeleteBottomSheetContent(id: id);
       },
     );
   }
@@ -537,7 +540,7 @@ class BottomModels {
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return ShareBottomSheetContent(media: media,);
+        return ShareBottomSheetContent(media: media);
       },
     );
   }

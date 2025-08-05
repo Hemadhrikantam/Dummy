@@ -103,8 +103,6 @@ class AppRoutes {
     FaqPage.routeName: (_) => const FaqPage(),
     PrivacyPolicyPage.routeName: (_) => const PrivacyPolicyPage(),
     TermsAndConditionPage.routeName: (_) => const TermsAndConditionPage(),
-    // EditMedicationPage.routeName: (_) =>  EditMedicationPage.route(),
-    EditVaccinationPage.routeName: (_) => const EditVaccinationPage(),
     NotificationPage.routeName: (_) => const NotificationPage(),
     HomePage.routeName: (_) => const HomePage(),
     DailycarePage.routeName: (context) {

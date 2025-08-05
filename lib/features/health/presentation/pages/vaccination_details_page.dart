@@ -3,9 +3,12 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/health/presentation/bloc/vaccination_details/vaccination_details_bloc.dart';
 import 'package:dummy/features/health/presentation/pages/edit_vaccination_page.dart';
 import 'package:dummy/features/profile/presentation/widgets/bottom_action_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/widgets/base_screen.dart';
@@ -15,75 +18,86 @@ import '../widgets/vaccines/date_list.dart';
 import '../widgets/vaccines/vaccination_details_card.dart';
 
 class VaccinationDetailsPage extends StatelessWidget {
-  const VaccinationDetailsPage({super.key});
+  const VaccinationDetailsPage({super.key, required this.id});
   static const routeName = '/VaccinationDetailsPage';
-
-  static Route<T> route<T>() {
+  final int id;
+  static Route<T> route<T>({required int id}) {
     return MaterialPageRoute<T>(
-      builder: (context) => const VaccinationDetailsPage(),
+      builder:
+          (context) => BlocProvider(
+            create: (context) => InjectionBloc.vaccinationDetailsBloc,
+            child: VaccinationDetailsPage(id: id),
+          ),
       settings: const RouteSettings(name: routeName),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return ScaffoldTitleBaseScreen(
-      title: AppText.details,
-      subTitle: '',
-      onlyTitle: true,
-      bottom: BottomActionButton(
-        child: Row(
-          children: [
-            Expanded(
-              child: AppTextButton(
-                onPressed: () {
-                  BottomModels.veccinationDeleteBottomSheet(context);
-                  // BottomModels.medicationTakingBottomSheet(context);
-                },
-                backgroundColor: AppColors.white,
-                name: AppText.delete,
-                textColor: AppColors.red,
-              ),
-            ),
-            Styles.gap10,
-            Expanded(
-              child: AppButton(
-                  onPressed: (){
-                  context.push(EditVaccinationPage.route());
-                },
-                name: Center(
-                  child: Text(
-                    AppText.edit,
-                    style: context.textTheme.titleMedium?.copyWith(
-                      color: AppColors.buttonTextColor,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 14,
+    return BlocBuilder<VaccinationDetailsBloc, VaccinationDetailsState>(
+      builder: (context, state) {
+        return ScaffoldTitleBaseScreen(
+          title: AppText.details,
+          subTitle: '',
+          onlyTitle: true,
+          bottom: BottomActionButton(
+            child: Row(
+              children: [
+                Expanded(
+                  child: AppTextButton(
+                    onPressed: () {
+                      BottomModels.veccinationDeleteBottomSheet(
+                        context,
+                        id: id,
+                      );
+                      // BottomModels.medicationTakingBottomSheet(context);
+                    },
+                    backgroundColor: AppColors.white,
+                    name: AppText.delete,
+                    textColor: AppColors.red,
+                  ),
+                ),
+                Styles.gap10,
+                Expanded(
+                  child: AppButton(
+                    onPressed: () {
+                      context.push(EditVaccinationPage.route(id: id));
+                    },
+                    name: Center(
+                      child: Text(
+                        AppText.edit,
+                        style: context.textTheme.titleMedium?.copyWith(
+                          color: AppColors.buttonTextColor,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 14,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ),
-          ],
-        ),
-      ),
-      child: ListView(
-        padding: Styles.edgeInsetsOnlyW08,
-        children: [
-          VaccinationDetailsCard(),
-          Styles.gap15,
-          Text(
-            AppText.vaccinations,
-            style: context.textTheme.titleLarge?.copyWith(
-              fontWeight: FontWeight.bold,
-              fontSize: 22,
+              ],
             ),
           ),
-          DateList(),
-          Styles.gap20,
-          Styles.gap20,
-          Styles.gap20,
-        ],
-      ),
+          child: ListView(
+            padding: Styles.edgeInsetsOnlyW08,
+            children: [
+              VaccinationDetailsCard(),
+              Styles.gap15,
+              Text(
+                AppText.vaccinations,
+                style: context.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 22,
+                ),
+              ),
+              DateList(),
+              Styles.gap20,
+              Styles.gap20,
+              Styles.gap20,
+            ],
+          ),
+        );
+      },
     );
   }
 }

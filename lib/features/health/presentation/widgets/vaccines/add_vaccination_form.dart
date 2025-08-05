@@ -1,8 +1,8 @@
 part of 'add_vaccination_fields.dart';
 
 class AddVaccinationForm extends StatefulWidget {
-  const AddVaccinationForm({super.key});
-
+  const AddVaccinationForm({super.key, this.id});
+  final int? id;
   @override
   State<AddVaccinationForm> createState() => _AddVaccinationFormState();
 }
@@ -12,7 +12,7 @@ class _AddVaccinationFormState extends State<AddVaccinationForm> {
   void initState() {
     final petId = context.read<DashboardBloc>().state.selectedPet?.id;
     context.read<VaccinationFormBloc>().add(
-      VaccinationFormEvent.init(petId ?? 0),
+      VaccinationFormEvent.init(petId ?? 0, widget.id),
     );
     super.initState();
   }

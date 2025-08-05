@@ -14,11 +14,17 @@ abstract class HealthDatasource {
     required int id,
   });
   AppTypeResponse<PetMedicationModel> getMedication({required int id});
+  AppTypeResponse<PetVaccinationModel> getVaccination({required int id});
+  AppSuccessResponse deleteVaccination({required int id});
+  AppSuccessResponse deleteMedication({required int id});
   AppTypeResponse<MedicationDateModel> getMedicationDate({
     required int id,
     required DateTime date,
   });
-  AppSuccessResponse updateMedicationDate({required int id, required MedicationDateModel payload});
+  AppSuccessResponse updateMedicationDate({
+    required int id,
+    required MedicationDateModel payload,
+  });
   AppTypeResponse<List<FrequencyModel>> medicationFrequencies();
   AppTypeResponse<List<PetMedicationModel>> medications(
     String? key,
