@@ -39,7 +39,7 @@ class MemberDeleteBottomSheet extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: "[ Name] ",
+                      text: " Suraj S Nair ",
                       style: context.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,

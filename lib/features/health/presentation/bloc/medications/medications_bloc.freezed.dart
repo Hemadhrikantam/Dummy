@@ -21,18 +21,21 @@ mixin _$MedicationsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String? key) medications,
+    required TResult Function(int id) delete,
     required TResult Function(String startDate, String endDate) filter,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String? key)? medications,
+    TResult? Function(int id)? delete,
     TResult? Function(String startDate, String endDate)? filter,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String? key)? medications,
+    TResult Function(int id)? delete,
     TResult Function(String startDate, String endDate)? filter,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -40,18 +43,21 @@ mixin _$MedicationsEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_Medications value) medications,
+    required TResult Function(_Delete value) delete,
     required TResult Function(_Filter value) filter,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_Medications value)? medications,
+    TResult? Function(_Delete value)? delete,
     TResult? Function(_Filter value)? filter,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Medications value)? medications,
+    TResult Function(_Delete value)? delete,
     TResult Function(_Filter value)? filter,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -122,6 +128,7 @@ class _$InitImpl implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String? key) medications,
+    required TResult Function(int id) delete,
     required TResult Function(String startDate, String endDate) filter,
   }) {
     return init();
@@ -132,6 +139,7 @@ class _$InitImpl implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String? key)? medications,
+    TResult? Function(int id)? delete,
     TResult? Function(String startDate, String endDate)? filter,
   }) {
     return init?.call();
@@ -142,6 +150,7 @@ class _$InitImpl implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String? key)? medications,
+    TResult Function(int id)? delete,
     TResult Function(String startDate, String endDate)? filter,
     required TResult orElse(),
   }) {
@@ -156,6 +165,7 @@ class _$InitImpl implements _Init {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_Medications value) medications,
+    required TResult Function(_Delete value) delete,
     required TResult Function(_Filter value) filter,
   }) {
     return init(this);
@@ -166,6 +176,7 @@ class _$InitImpl implements _Init {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_Medications value)? medications,
+    TResult? Function(_Delete value)? delete,
     TResult? Function(_Filter value)? filter,
   }) {
     return init?.call(this);
@@ -176,6 +187,7 @@ class _$InitImpl implements _Init {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Medications value)? medications,
+    TResult Function(_Delete value)? delete,
     TResult Function(_Filter value)? filter,
     required TResult orElse(),
   }) {
@@ -262,6 +274,7 @@ class _$MedicationsImpl implements _Medications {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String? key) medications,
+    required TResult Function(int id) delete,
     required TResult Function(String startDate, String endDate) filter,
   }) {
     return medications(key);
@@ -272,6 +285,7 @@ class _$MedicationsImpl implements _Medications {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String? key)? medications,
+    TResult? Function(int id)? delete,
     TResult? Function(String startDate, String endDate)? filter,
   }) {
     return medications?.call(key);
@@ -282,6 +296,7 @@ class _$MedicationsImpl implements _Medications {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String? key)? medications,
+    TResult Function(int id)? delete,
     TResult Function(String startDate, String endDate)? filter,
     required TResult orElse(),
   }) {
@@ -296,6 +311,7 @@ class _$MedicationsImpl implements _Medications {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_Medications value) medications,
+    required TResult Function(_Delete value) delete,
     required TResult Function(_Filter value) filter,
   }) {
     return medications(this);
@@ -306,6 +322,7 @@ class _$MedicationsImpl implements _Medications {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_Medications value)? medications,
+    TResult? Function(_Delete value)? delete,
     TResult? Function(_Filter value)? filter,
   }) {
     return medications?.call(this);
@@ -316,6 +333,7 @@ class _$MedicationsImpl implements _Medications {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Medications value)? medications,
+    TResult Function(_Delete value)? delete,
     TResult Function(_Filter value)? filter,
     required TResult orElse(),
   }) {
@@ -335,6 +353,160 @@ abstract class _Medications implements MedicationsEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$MedicationsImplCopyWith<_$MedicationsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeleteImplCopyWith<$Res> {
+  factory _$$DeleteImplCopyWith(
+    _$DeleteImpl value,
+    $Res Function(_$DeleteImpl) then,
+  ) = __$$DeleteImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$$DeleteImplCopyWithImpl<$Res>
+    extends _$MedicationsEventCopyWithImpl<$Res, _$DeleteImpl>
+    implements _$$DeleteImplCopyWith<$Res> {
+  __$$DeleteImplCopyWithImpl(
+    _$DeleteImpl _value,
+    $Res Function(_$DeleteImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MedicationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? id = null}) {
+    return _then(
+      _$DeleteImpl(
+        null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as int,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$DeleteImpl implements _Delete {
+  const _$DeleteImpl(this.id);
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'MedicationsEvent.delete(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeleteImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of MedicationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
+      __$$DeleteImplCopyWithImpl<_$DeleteImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String? key) medications,
+    required TResult Function(int id) delete,
+    required TResult Function(String startDate, String endDate) filter,
+  }) {
+    return delete(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String? key)? medications,
+    TResult? Function(int id)? delete,
+    TResult? Function(String startDate, String endDate)? filter,
+  }) {
+    return delete?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(String? key)? medications,
+    TResult Function(int id)? delete,
+    TResult Function(String startDate, String endDate)? filter,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Medications value) medications,
+    required TResult Function(_Delete value) delete,
+    required TResult Function(_Filter value) filter,
+  }) {
+    return delete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Medications value)? medications,
+    TResult? Function(_Delete value)? delete,
+    TResult? Function(_Filter value)? filter,
+  }) {
+    return delete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Medications value)? medications,
+    TResult Function(_Delete value)? delete,
+    TResult Function(_Filter value)? filter,
+    required TResult orElse(),
+  }) {
+    if (delete != null) {
+      return delete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Delete implements MedicationsEvent {
+  const factory _Delete(final int id) = _$DeleteImpl;
+
+  int get id;
+
+  /// Create a copy of MedicationsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeleteImplCopyWith<_$DeleteImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -418,6 +590,7 @@ class _$FilterImpl implements _Filter {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function(String? key) medications,
+    required TResult Function(int id) delete,
     required TResult Function(String startDate, String endDate) filter,
   }) {
     return filter(startDate, endDate);
@@ -428,6 +601,7 @@ class _$FilterImpl implements _Filter {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String? key)? medications,
+    TResult? Function(int id)? delete,
     TResult? Function(String startDate, String endDate)? filter,
   }) {
     return filter?.call(startDate, endDate);
@@ -438,6 +612,7 @@ class _$FilterImpl implements _Filter {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String? key)? medications,
+    TResult Function(int id)? delete,
     TResult Function(String startDate, String endDate)? filter,
     required TResult orElse(),
   }) {
@@ -452,6 +627,7 @@ class _$FilterImpl implements _Filter {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_Medications value) medications,
+    required TResult Function(_Delete value) delete,
     required TResult Function(_Filter value) filter,
   }) {
     return filter(this);
@@ -462,6 +638,7 @@ class _$FilterImpl implements _Filter {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_Medications value)? medications,
+    TResult? Function(_Delete value)? delete,
     TResult? Function(_Filter value)? filter,
   }) {
     return filter?.call(this);
@@ -472,6 +649,7 @@ class _$FilterImpl implements _Filter {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_Medications value)? medications,
+    TResult Function(_Delete value)? delete,
     TResult Function(_Filter value)? filter,
     required TResult orElse(),
   }) {

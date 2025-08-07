@@ -33,7 +33,7 @@ class MedicationSuccessContent extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   AppAssestsImage(
-                    path: ImageResources.medsIcon,
+                    path: ImageResources.bathIcon,
                     height: context.height * .1,
                     boxFit: BoxFit.contain,
                   ),

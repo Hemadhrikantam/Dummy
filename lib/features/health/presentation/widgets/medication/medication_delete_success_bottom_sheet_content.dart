@@ -7,9 +7,26 @@ import '../../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/buttons/app_icon_button.dart';
 import '../../../../../core/widgets/buttons/app_text_button.dart';
 
-class MedicationDeleteSuccessBottomSheetContent extends StatelessWidget {
+class MedicationDeleteSuccessBottomSheetContent extends StatefulWidget {
   const MedicationDeleteSuccessBottomSheetContent({super.key, this.onTap});
   final VoidCallback? onTap;
+  @override
+  State<MedicationDeleteSuccessBottomSheetContent> createState() =>
+      _MedicationDeleteSuccessBottomSheetContentState();
+}
+
+class _MedicationDeleteSuccessBottomSheetContentState
+    extends State<MedicationDeleteSuccessBottomSheetContent> {
+  @override
+  initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 2), () {
+      if (mounted) {
+        Navigator.of(context).pop();
+        Navigator.of(context).pop();
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,22 +56,22 @@ class MedicationDeleteSuccessBottomSheetContent extends StatelessWidget {
             ],
           ),
           Styles.gap10,
-          Row(
-            children: [
-              Expanded(
-                child: AppTextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  borderColor: AppColors.grey500,
-                  backgroundColor: AppColors.white,
-                  textColor: AppColors.buttonTextColor,
-                  radius: 50,
-                  name: AppText.undo,
-                ),
-              ),
-            ],
-          ),
+          // Row(
+          //   children: [
+          //     Expanded(
+          //       child: AppTextButton(
+          //         onPressed: () {
+          //           Navigator.of(context).pop();
+          //         },
+          //         borderColor: AppColors.grey500,
+          //         backgroundColor: AppColors.white,
+          //         textColor: AppColors.buttonTextColor,
+          //         radius: 50,
+          //         name: AppText.undo,
+          //       ),
+          //     ),
+          //   ],
+          // ),
         ],
       ),
     );

@@ -2,15 +2,23 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/health/presentation/bloc/medications/medications_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/constant/app_colors.dart';
 import '../../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/buttons/app_text_button.dart';
 
 class MedicationDeleteBottomSheetContent extends StatelessWidget {
-  const MedicationDeleteBottomSheetContent({super.key, this.onTap});
+  const MedicationDeleteBottomSheetContent({
+    super.key,
+    this.onTap,
+    required this.id,
+  });
   final VoidCallback? onTap;
+  final int id;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +48,8 @@ class MedicationDeleteBottomSheetContent extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: "[Pet's Name]'s ",
+                      text:
+                          "${context.read<DashboardBloc>().state.selectedPet?.petName}'s ",
                       style: context.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
@@ -75,6 +84,9 @@ class MedicationDeleteBottomSheetContent extends StatelessWidget {
                   Expanded(
                     child: AppTextButton(
                       onPressed: () {
+                        context.read<MedicationsBloc>().add(
+                          MedicationsEvent.delete(id),
+                        );
                         context.pop();
                         BottomModels.medicationDeleteSuccessBottomSheet(
                           context,

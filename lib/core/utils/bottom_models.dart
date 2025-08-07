@@ -290,14 +290,17 @@ class BottomModels {
   }
 
   //medications
-  static Future<T?> medicationDeleteBottomSheet<T>(BuildContext context) {
+  static Future<T?> medicationDeleteBottomSheet<T>(
+    BuildContext context,
+    int id,
+  ) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: backgroundColor,
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return MedicationDeleteBottomSheetContent();
+        return MedicationDeleteBottomSheetContent(id: id);
       },
     );
   }

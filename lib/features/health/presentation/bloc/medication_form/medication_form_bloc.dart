@@ -5,6 +5,7 @@ import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/health/medication_payload.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/features/dailycare/domain/entities/frequency.dart';
 import 'package:dummy/features/health/domain/usecases/add_medication_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/edit_medication_usecases.dart';
@@ -78,12 +79,55 @@ class MedicationFormBloc
     if (event.id != null) {
       final result = await _getMedicationUsecases(id: event.id!);
       result.fold((l) {}, (r) {
+        LogUtility.info('Medication details: $r');
+        final mTime = r.morningTime.split(':');
+        final mHour = int.parse(mTime[0]) % 12;
+        final mMin = int.parse(mTime[1]);
+        final aTime = r.afternoonTime.split(':');
+        final aHour = int.parse(aTime[0]) % 12;
+        final aMin = int.parse(aTime[1]);
+        final nTime = r.nightTime.split(':');
+        final nHour = int.parse(nTime[0]) % 12;
+        final nMin = int.parse(nTime[1]);
         emit(
           state.copyWith(
             tabletName: NotEmpty.dirty(value: r.tabletName),
             company: NotEmpty.dirty(value: r.company),
             startDate: NotEmpty.dirty(value: r.startDate.toString()),
             endDate: NotEmpty.dirty(value: r.endDate.toString()),
+            dosageUnit: DropdownValue.dirty(
+              state.dosageUnits.firstWhere(
+                (e) => e.value.toLowerCase() == r.dosageUnit.toLowerCase(),
+              ),
+            ),
+            frequency: DropdownValue.dirty(
+              state.frequencies.firstWhere((e) => e.id == r.frequency),
+            ),
+            note: NotEmpty.dirty(value: r.note),
+            dosage: NotEmpty.dirty(value: r.dosage.toString()),
+            media: NotEmpty.dirty(value: r.media),
+            morningTimeHour: DropdownValue.dirty(
+              DropItemModel(id: mHour, value: mHour.toString()),
+            ),
+            morningTimeMin: DropdownValue.dirty(
+              DropItemModel(id: mMin, value: mMin.toString()),
+            ),
+            morningTimeEnable: r.morningTime.isNotEmpty,
+            afternoonTimeEnable: r.afternoonTime.isNotEmpty,
+            nightTimeEnable: r.nightTime.isNotEmpty,
+            nightTimeHour: DropdownValue.dirty(
+              DropItemModel(id: nHour, value: nHour.toString()),
+            ),
+            nightTimeMin: DropdownValue.dirty(
+              DropItemModel(id: nMin, value: nMin.toString()),
+            ),
+
+            afternoonTimeHour: DropdownValue.dirty(
+              DropItemModel(id: aHour, value: aHour.toString()),
+            ),
+            afternoonTimeMin: DropdownValue.dirty(
+              DropItemModel(id: aMin, value: aMin.toString()),
+            ),
             reminder: r.reminder,
           ),
         );

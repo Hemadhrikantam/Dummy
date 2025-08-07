@@ -85,7 +85,7 @@ class _AddPetPage extends State<AddPetPage> {
               );
             },
           ),
-          child: const AddPetForm(),
+          child: AddPetForm(petId: widget.id),
         );
       },
     );

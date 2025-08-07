@@ -79,6 +79,7 @@ class ImageResources {
   //Health
   static const String heartIcon = '$__icons/heart_icon.png';
   static const String medsIcon = '$__icons/meds_icon.png';
+  static const String bathIcon = '$__icons/Bath.png';
   static const String petFood = '$__icons/pet_food.svg';
   static const String addAdoption = '$__icons/add_adoption.png';
   static const String nailsIcon = '$__icons/nails_icon.png';

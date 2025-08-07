@@ -3,6 +3,7 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_text_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
@@ -41,7 +42,32 @@ class ProfileOptionsPage extends StatelessWidget {
             children: [
               ProfileHeader(),
               Styles.gap20,
-              PetListWidget(dashboardPetDetails: state.dashboardPetDetails, onPetSelected: (int value) {  }, selectedIndex: 0,),
+              PetListWidget(
+                dashboardPetDetails: state.dashboardPetDetails,
+                onPetSelected: (int index) {
+                  final pet =
+                      context
+                          .read<DashboardBloc>()
+                          .state
+                          .dashboardPetDetails[index];
+                  context.read<DashboardBloc>().add(
+                    DashboardEvent.selectedPetId(pet.id),
+                  );
+                  context.read<DashboardBloc>().add(
+                    DashboardEvent.selectedPet(pet),
+                  );
+                  context.read<DashboardBloc>().add(
+                    DashboardEvent.petName(pet.petName),
+                  );
+                  context.read<DashboardBloc>().add(
+                    DashboardEvent.petImage(pet.petImage.petImage),
+                  );
+                },
+                selectedIndex:
+                    state.selectedPet == null
+                        ? 0
+                        : state.dashboardPetDetails.indexOf(state.selectedPet!),
+              ),
               Styles.gap20,
               Expanded(
                 child: CustomCard(

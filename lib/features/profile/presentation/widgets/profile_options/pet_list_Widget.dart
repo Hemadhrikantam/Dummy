@@ -38,13 +38,15 @@ class PetListWidget extends StatelessWidget {
                     padding: Styles.edgeInsetsAll04,
                     borderRadius: Styles.borderRadiusCircular50,
                     backgroundColor:
-                        isSelected ? AppColors.buttonBackground : null,
+                        isSelected
+                            ? AppColors.buttonBackground
+                            : Colors.transparent,
                     border: Border.all(
                       width: 4,
                       color:
                           isSelected
-                              ? AppColors.buttonBackground
-                              : AppColors.stepperColor,
+                              ? AppColors.stepperColor
+                              : Colors.transparent,
                     ),
                     child: Padding(
                       padding: Styles.edgeInsetsZero,

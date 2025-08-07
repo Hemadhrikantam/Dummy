@@ -33,7 +33,8 @@ class __TabletName extends StatelessWidget {
       },
       builder: (context, state) {
         return AppTextFormField(
-          initialValue: state.value,
+          // initialValue: state.value,
+          controller: controller..text = state.value,
           onChanged: (value) {
             context.read<MedicationFormBloc>().add(
               MedicationFormEvent.tabletName(value),
@@ -59,7 +60,8 @@ class __Company extends StatelessWidget {
       },
       builder: (context, state) {
         return AppTextFormField(
-          initialValue: state.value,
+          // initialValue: state.value,
+          controller: controller..text = state.value,
           onChanged: (value) {
             context.read<MedicationFormBloc>().add(
               MedicationFormEvent.company(value),
@@ -199,7 +201,8 @@ class __Dosage extends StatelessWidget {
                 },
                 builder: (context, state) {
                   return AppTextFormField(
-                    initialValue: state.value,
+                    // initialValue: state.value,
+                    controller: controller..text = state.value,
                     onChanged: (value) {
                       context.read<MedicationFormBloc>().add(
                         MedicationFormEvent.dosage(value),
@@ -231,6 +234,7 @@ class __Tablets extends StatelessWidget {
       child: BlocBuilder<MedicationFormBloc, MedicationFormState>(
         builder: (context, state) {
           return CustomDropdownSearch(
+            selectedItem: state.dosageUnit.value,
             title: '',
             items: state.dosageUnits,
             onChanged: (value) {
@@ -257,6 +261,7 @@ class __Frequency extends StatelessWidget {
       builder: (context, state) {
         return CustomDropdownSearch(
           title: AppText.frequency,
+          selectedItem: state.frequency.value,
           items: state.frequencies,
           onChanged: (value) {
             if (value != null) {
@@ -281,7 +286,8 @@ class __Notes extends StatelessWidget {
     return BlocBuilder<MedicationFormBloc, MedicationFormState>(
       builder: (context, state) {
         return AppTextFormField(
-          initialValue: state.note.value,
+          // initialValue: state.note.value,
+          controller: controller..text = state.note.value,
           onChanged: (value) {
             context.read<MedicationFormBloc>().add(
               MedicationFormEvent.note(value),

@@ -6,11 +6,15 @@ import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/register_account_payload.dart';
 import 'package:dummy/core/utils/app_utils.dart';
+import 'package:dummy/core/utils/log_utility.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/features/signup/domain/usecases/cat_breed_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/dog_breed_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/personality_tag_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/pet_image_usecases.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -65,6 +69,40 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
         personalityTags: personalityTags,
       ),
     );
+    if (event.id != null) {
+      final success = currentContext
+          .read<DashboardBloc>()
+          .state
+          .dashboardPetDetails
+          .firstWhere((pet) => pet.id == event.id);
+      final breeds =
+          success.petType.toLowerCase() == "cat"
+              ? state.catbreeds
+              : state.dogbreeds;
+      emit(
+        state.copyWith(
+          petName: NotEmpty.dirty(value: success.petName),
+          petType:
+              success.petType.toLowerCase() == "cat"
+                  ? PetType.Cat
+                  : PetType.Dog,
+          dob: NotEmpty.dirty(value: success.dob),
+          breed: DropdownValue.dirty(
+            breeds.firstWhere((b) => b.value == success.breed.breed),
+          ),
+          petImage: NotEmpty.dirty(value: success.petImage.petImage),
+          selectedPersonalityTags:
+              success.personalityTag
+                  .map(
+                    (e) => DropdownValue.dirty(
+                      DropItemModel(id: e.id, value: e.personality),
+                    ),
+                  )
+                  .toList(),
+          weight: NotEmpty.dirty(value: success.petWeight.toString()),
+        ),
+      );
+    }
     emit(state.copyWith(validation: state.validationX));
   }
 

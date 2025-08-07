@@ -41,7 +41,7 @@ class ManageFamilyMembersBottomSheetContent extends StatelessWidget {
             Styles.gap10,
             CustomCard(
               onTap: () {
-                BottomModels.familyMemberRoleBottomSheet(context);
+                //BottomModels.familyMemberRoleBottomSheet(context);
               },
               child: Row(
                 children: [
@@ -53,7 +53,7 @@ class ManageFamilyMembersBottomSheetContent extends StatelessWidget {
             Styles.gap10,
             CustomCard(
               onTap: () {
-                BottomModels.familyMemberRoleBottomSheet(context);
+                //BottomModels.familyMemberRoleBottomSheet(context);
               },
               child: Row(
                 children: [
@@ -74,7 +74,7 @@ class ManageFamilyMembersBottomSheetContent extends StatelessWidget {
             Styles.gap10,
             CustomCard(
               onTap: () {
-                BottomModels.familyMemberRoleBottomSheet(context);
+                //BottomModels.familyMemberRoleBottomSheet(context);
               },
               child: Row(
                 children: [

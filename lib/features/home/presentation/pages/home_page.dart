@@ -49,6 +49,7 @@ class _HomePage extends State<HomePage> {
     context.read<DashboardBloc>().add(
       DashboardEvent.selectedPetId(selectedPet?.id ?? 0),
     );
+    context.read<DashboardBloc>().add(DashboardEvent.selectedPet(pet));
     context.read<DashboardBloc>().add(DashboardEvent.petName(pet.petName));
     context.read<DashboardBloc>().add(
       DashboardEvent.petImage(pet.petImage.petImage),
@@ -89,7 +90,12 @@ class _HomePage extends State<HomePage> {
                       PetListHomeWidget(
                         dashboardPetDetails: petList,
                         onPetSelected: _handlePetSelected,
-                        selectedIndex: selectedIndex,
+                        selectedIndex:
+                            state.selectedPet == null
+                                ? selectedIndex
+                                : state.dashboardPetDetails.indexOf(
+                                  state.selectedPet!,
+                                ),
                       ),
                       if (selectedPet != null)
                         PetInformationWidget(dashboardPetDetails: selectedPet),

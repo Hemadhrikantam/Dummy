@@ -45,6 +45,7 @@ import 'package:dummy/features/health/data/datasources/health_datasource_impl.da
 import 'package:dummy/features/health/data/repositories/health_repository_impl.dart';
 import 'package:dummy/features/health/domain/repositories/health_repository.dart';
 import 'package:dummy/features/health/domain/usecases/add_medication_usecases.dart';
+import 'package:dummy/features/health/domain/usecases/delete_medication_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/delete_vaccination_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/edit_medication_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/get_medication_date_usecases.dart';

@@ -39,7 +39,7 @@ class VaccinationSuccessContent extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 AppAssestsImage(
-                  path: ImageResources.medsIcon,
+                  path: ImageResources.bathIcon,
                   height: context.height * .1,
                   boxFit: BoxFit.contain,
                 ),
@@ -190,7 +190,7 @@ class VaccinationSuccessContent extends StatelessWidget {
               Styles.gap10,
               Expanded(
                 child: RichText(
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.left,
                   text: TextSpan(
                     text: AppText.dummyWouldBeProudOfYouForKeeping,
                     style: context.textTheme.titleMedium?.copyWith(

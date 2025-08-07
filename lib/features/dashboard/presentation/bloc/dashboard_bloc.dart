@@ -19,6 +19,7 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
     on<_PetName>(__petName);
     on<_PetImage>(__petImage);
     on<_SelectedPetId>(__selectedPetId);
+    on<_SelectedPet>(__selectedPet);
   }
   final DashboardDetailsUsecases __dashboardPetUsecases;
   Future<void> __pets(
@@ -38,10 +39,7 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
             dashboardPetDetails: success,
             petImage: success.first.petImage.petImage,
             petName: success.first.petName,
-            selectedPet:
-                success.isNotEmpty
-                    ? success.first
-                    : null
+            selectedPet: success.isNotEmpty ? success.first : null,
           ),
         );
       },
@@ -49,10 +47,10 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
   }
 
   void __petName(_PetName event, Emitter<DashboardState> emit) {
-        LogUtility.info('------> event ${event.petName}');
+    LogUtility.info('------> event ${event.petName}');
 
     emit(state.copyWith(petName: event.petName));
-        LogUtility.info('------> state ${event.petName}');
+    LogUtility.info('------> state ${event.petName}');
   }
 
   void __petImage(_PetImage event, Emitter<DashboardState> emit) {
@@ -62,6 +60,22 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
   }
 
   void __selectedPetId(_SelectedPetId event, Emitter<DashboardState> emit) {
-emit(state.copyWith(selectedPetId: event.selectedPetId))  ;
-}
+    emit(state.copyWith(selectedPetId: event.selectedPetId));
+    emit(
+      state.copyWith(
+        selectedPet: state.dashboardPetDetails.firstWhere(
+          (pet) => pet.id == event.selectedPetId,
+        ),
+      ),
+    );
+  }
+
+  void __selectedPet(_SelectedPet event, Emitter<DashboardState> emit) {
+    emit(
+      state.copyWith(
+        selectedPet: event.selectedPet,
+        selectedPetId: event.selectedPet.id,
+      ),
+    );
+  }
 }

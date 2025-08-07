@@ -57,7 +57,7 @@ class _MedicationDetailsPage extends State<MedicationDetailsPage> {
             Expanded(
               child: AppTextButton(
                 onPressed: () {
-                  BottomModels.medicationDeleteBottomSheet(context);
+                  BottomModels.medicationDeleteBottomSheet(context, widget.id);
                 },
                 backgroundColor: AppColors.white,
                 name: AppText.delete,

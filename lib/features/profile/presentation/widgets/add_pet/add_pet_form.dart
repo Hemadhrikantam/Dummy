@@ -28,8 +28,19 @@ import '../../../../../core/widgets/custom_dropdown.dart';
 
 part 'add_pet_fields.dart';
 
-class AddPetForm extends StatelessWidget {
-  const AddPetForm({super.key});
+class AddPetForm extends StatefulWidget {
+  const AddPetForm({super.key, this.petId});
+  final int? petId;
+  @override
+  State<AddPetForm> createState() => _AddPetForm();
+}
+
+class _AddPetForm extends State<AddPetForm> {
+  @override
+  void initState() {
+    context.read<PetFormBloc>().add(PetFormEvent.init(widget.petId));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
