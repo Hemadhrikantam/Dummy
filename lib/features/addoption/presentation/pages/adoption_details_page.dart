@@ -84,7 +84,10 @@ class AdoptionDetailsPage extends StatelessWidget {
       child: ListView(
         padding: Styles.edgeInsetsOnlyH00,
         children: [
-          AdoptionDetailsCard(isAllPet: false, adoption: adoption),
+          Padding(
+            padding: Styles.edgeInsetsOnlyH15,
+            child: AdoptionDetailsCard(isAllPet: false, adoption: adoption),
+          ),
           Styles.gap80,
         ],
       ),
