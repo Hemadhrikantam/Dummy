@@ -88,7 +88,10 @@ class _MedicationDetailsPage extends State<MedicationDetailsPage> {
       child: ListView(
         padding: Styles.edgeInsetsOnlyH00,
         children: [
-          MedicationDetailsCard(),
+          Padding(
+            padding: Styles.edgeInsetsOnlyH15,
+            child: MedicationDetailsCard(),
+          ),
           Styles.gap15,
           Text(
             AppText.medications,

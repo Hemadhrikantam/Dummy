@@ -94,7 +94,10 @@ class _VaccinationDetailsPage extends State<VaccinationDetailsPage> {
           child: ListView(
             padding: Styles.edgeInsetsOnlyW08,
             children: [
-              VaccinationDetailsCard(),
+              Padding(
+                padding: Styles.edgeInsetsOnlyH15,
+                child: VaccinationDetailsCard(),
+              ),
               Styles.gap15,
               Text(
                 AppText.vaccinations,

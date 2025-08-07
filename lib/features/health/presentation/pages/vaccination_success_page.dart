@@ -1,3 +1,4 @@
+import 'package:dummy/core/constant/styles.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/base_screen.dart';
@@ -41,11 +42,14 @@ class VaccinationSuccessPage extends StatelessWidget {
       subTitle: '',
       showBackIcon: false,
       onlyTitle: true,
-      child: VaccinationSuccessContent(
-        vaccinationName: vaccinationName,
-        companyName: companyName,
-        dueDate: dueDate,
-        dateAdministered: dateAdministered,
+      child: Padding(
+        padding: Styles.edgeInsetsOnlyH15,
+        child: VaccinationSuccessContent(
+          vaccinationName: vaccinationName,
+          companyName: companyName,
+          dueDate: dueDate,
+          dateAdministered: dateAdministered,
+        ),
       ),
     );
   }

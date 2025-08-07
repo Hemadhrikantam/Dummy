@@ -79,7 +79,7 @@ class VaccinationSuccessContent extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          '${vaccinationName}  ',
+                          '$vaccinationName  ',
                           style: context.textTheme.titleLarge?.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 20,
@@ -87,7 +87,7 @@ class VaccinationSuccessContent extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '$companyName',
+                          companyName,
                           style: context.textTheme.labelMedium?.copyWith(
                             color: AppColors.stepperColor,
                           ),

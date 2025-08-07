@@ -8,7 +8,6 @@ import 'package:dummy/features/dailycare/presentation/pages/dailycare_page.dart'
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
-import 'package:dummy/features/health/presentation/pages/edit_vaccination_page.dart';
 import 'package:dummy/features/health/presentation/pages/health_page.dart';
 import 'package:dummy/features/home/presentation/pages/notification_page.dart';
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';

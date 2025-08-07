@@ -1,4 +1,5 @@
 
+import 'package:dummy/core/constant/styles.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../core/widgets/base_screen.dart';
@@ -22,7 +23,10 @@ class MedicationSuccessPage extends StatelessWidget {
       subTitle: '',
       showBackIcon: false,
       onlyTitle: true,
-      child:  MedicationSuccessContent(),
+      child:  Padding(
+        padding: Styles.edgeInsetsOnlyH15,
+        child: MedicationSuccessContent(),
+      ),
     );
   }
 }
