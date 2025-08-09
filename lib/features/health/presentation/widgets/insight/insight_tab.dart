@@ -1,6 +1,7 @@
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
+import 'package:dummy/core/widgets/animated_row_column.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/health/presentation/widgets/goldern_container.dart';
@@ -18,21 +19,21 @@ import 'predictive_alerts_section.dart';
 import 'recommendations_section.dart';
 
 class InsightTab extends StatelessWidget {
-   final DashboardPetDetails? selectedPet;
+  final DashboardPetDetails? selectedPet;
   const InsightTab({super.key, required this.selectedPet});
 
   @override
   Widget build(BuildContext context) {
     final empty = false;
     return Padding(
-      padding: Styles.edgeInsetsOnlyT20+Styles.edgeInsetsOnlyB20,
+      padding: Styles.edgeInsetsOnlyT20 + Styles.edgeInsetsOnlyB20,
       child: CustomCard(
         borderColor: AppColors.white,
         child: Container(
           decoration: BoxDecoration(
             image: DecorationImage(image: AssetImage(ImageResources.mdipaw)),
           ),
-          child: ListView(
+          child: AnimatedListView(
             children: [
               HealthStatusCard(isEmpty: empty, selectedPet: selectedPet),
               Styles.gap20,
@@ -53,8 +54,8 @@ class InsightTab extends StatelessWidget {
                         Expanded(
                           child: Text(
                             empty
-                                ? "Track ${selectedPet?.petName??''}’s daily care to unlock more insights!"
-                                : '${selectedPet?.petName??''} has had 10 walks this month—great job keeping her active!',
+                                ? "Track ${selectedPet?.petName ?? ''}’s daily care to unlock more insights!"
+                                : '${selectedPet?.petName ?? ''} has had 10 walks this month—great job keeping her active!',
 
                             style: context.textTheme.titleMedium?.copyWith(
                               color: AppColors.stepperColor,
@@ -90,7 +91,7 @@ class InsightTab extends StatelessWidget {
                     ),
                     Styles.gap20,
                     Text(
-                     '${selectedPet?.petName??''} has had 10 walks this month—great job keeping her active!',
+                      '${selectedPet?.petName ?? ''} has had 10 walks this month—great job keeping her active!',
 
                       style: context.textTheme.titleMedium?.copyWith(
                         color: AppColors.stepperColor,
@@ -176,7 +177,7 @@ class InsightTab extends StatelessWidget {
                                   gradient: AppColors.blackAndWhite,
                                 ),
                                 child: Text(
-                                  '${selectedPet?.petName??''} seems happiest at the beach based on your recent photos!',
+                                  '${selectedPet?.petName ?? ''} seems happiest at the beach based on your recent photos!',
 
                                   style: context.textTheme.bodySmall?.copyWith(
                                     color: AppColors.white,
@@ -196,7 +197,6 @@ class InsightTab extends StatelessWidget {
               RecommendationsSection(),
               Styles.gap20,
               LearnSections(),
-
             ],
           ),
         ),

@@ -4,6 +4,7 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/utils/log_utility.dart';
+import 'package:dummy/core/widgets/animated_row_column.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_text_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
@@ -71,7 +72,7 @@ class ProfileOptionsPage extends StatelessWidget {
               Styles.gap20,
               Expanded(
                 child: CustomCard(
-                  child: ListView(
+                  child: AnimatedListView(
                     children: [
                       Column(
                         children: List.generate(

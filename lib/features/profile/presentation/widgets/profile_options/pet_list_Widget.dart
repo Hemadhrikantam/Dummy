@@ -22,7 +22,7 @@ class PetListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 68,
+      height: 72,
       child: Row(
         children: [
           Expanded(
@@ -53,7 +53,7 @@ class PetListWidget extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: Styles.borderRadiusCircular50,
                         child: AppNetworkImage(
-                          borderRadius: Styles.borderRadiusCircular08,
+                          borderRadius: Styles.borderRadiusCircular50,
                           url: dashboardPetDetails[i].petImage.petImage,
                           width: 64,
                           height: 64,

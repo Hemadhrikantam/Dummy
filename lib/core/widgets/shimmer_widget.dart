@@ -131,3 +131,17 @@ class DashboardShimmer extends StatelessWidget {
     );
   }
 }
+
+class ImageLoadingShimmer extends StatelessWidget {
+  const ImageLoadingShimmer({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FadeShimmer(
+      height: 60,
+      width: 60,
+      radius: 12,
+      fadeTheme: FadeTheme.light,
+    );
+  }
+}

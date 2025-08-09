@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dummy/core/widgets/shimmer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:rive/rive.dart' hide Image;
@@ -65,6 +66,7 @@ class AppAssestsImage extends StatelessWidget {
     );
   }
 }
+
 class AppAssetsRive extends StatelessWidget {
   const AppAssetsRive({
     required this.path,
@@ -211,9 +213,7 @@ class AppNetworkImage extends StatelessWidget {
         memCacheHeight: cachedHeight,
         memCacheWidth: cachedHeight,
         progressIndicatorBuilder: (_, value, DownloadProgress progress) {
-          return const Center(
-            child: CircularProgressIndicator(color: AppColors.stepperColor),
-          );
+          return const Center(child: ImageLoadingShimmer());
         },
         errorWidget: (_, value, data) {
           return Styles.sizedBox;

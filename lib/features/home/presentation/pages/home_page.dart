@@ -2,14 +2,17 @@ import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/utils/log_utility.dart';
+import 'package:dummy/core/widgets/animated_row_column.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/custom_header_widget.dart';
 import 'package:dummy/core/widgets/shimmer_widget.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
+import 'package:dummy/features/home/presentation/widgets/animation_config.dart';
 import 'package:dummy/features/home/presentation/widgets/near_you_card.dart'
     show NearYouCard;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 import '../../../dashboard/presentation/bloc/dashboard_bloc.dart';
 import '../widgets/pet_information_widget.dart';
@@ -83,7 +86,7 @@ class _HomePage extends State<HomePage> {
           child:
               state.initStatus.loading || petList.isEmpty
                   ? const DashboardShimmer()
-                  : ListView(
+                  : AnimatedListView(
                     children: [
                       CustomHeaderWidget(petImage: state.petImage),
                       Styles.gap15,
@@ -97,13 +100,16 @@ class _HomePage extends State<HomePage> {
                                   state.selectedPet!,
                                 ),
                       ),
+
                       if (selectedPet != null)
                         PetInformationWidget(dashboardPetDetails: selectedPet),
+
                       Styles.gap15,
                       QuickActionsWidget(
                         selectedPet: selectedPet!,
                         selectedPetId: selectedPet?.id ?? 0,
                       ),
+
                       Styles.gap15,
 
                       TipOfTheDayCard(selectedPet: selectedPet!),

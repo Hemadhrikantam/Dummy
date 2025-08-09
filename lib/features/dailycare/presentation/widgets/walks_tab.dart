@@ -5,6 +5,7 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
+import 'package:dummy/core/widgets/animated_row_column.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
@@ -66,14 +67,13 @@ class _WalksTabState extends State<WalksTab> {
       (index) => DateTime(now.year, now.month, index + 1),
     );
 
-
     return RefreshIndicator.adaptive(
       color: AppColors.stepperColor,
       backgroundColor: AppColors.white,
       onRefresh: () async {
         context.read<WalksBloc>().add(WalksEvent.walks(_selectedDay));
       },
-      child: ListView(
+      child: AnimatedListView(
         children: [
           DaySelector(
             days: daysInCurrentMonth,
@@ -152,7 +152,7 @@ class _WalksTabState extends State<WalksTab> {
                                           ),
                                     ),
                                     Text(
-                                     " ${walkItem.duration} in the ${walkItem.location} ",
+                                      " ${walkItem.duration} in the ${walkItem.location} ",
                                       style: context.textTheme.labelSmall
                                           ?.copyWith(
                                             fontSize: 16,
