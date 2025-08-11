@@ -47,7 +47,8 @@ class OverviewCard extends StatelessWidget {
                   subtitle,
                   style: context.textTheme.titleSmall?.copyWith(
                     fontWeight: FontWeight.w700,
-                    fontSize: 16,
+                    fontSize: 15,
+                    overflow: TextOverflow.ellipsis
                   ),
                 ),
               ],

@@ -1,4 +1,5 @@
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/features/dailycare/presentation/bloc/overview/overview_bloc.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/deworming_tab.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/expenses_tab.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/grooming_tab.dart';
@@ -80,9 +81,9 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
   @override
   Widget build(BuildContext context) {
     final tabPages = [
-      BlocBuilder<DashboardBloc, DashboardState>(
+      BlocBuilder<OverviewBloc, OverviewState>(
         builder: (context, state) {
-          return OverviewTab();
+          return OverviewTab(overview: state.overview,);
         },
       ),
       MealsTab(selectedPet: widget.selectedPet),

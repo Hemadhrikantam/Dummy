@@ -3,6 +3,7 @@ import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/widgets/animated_row_column.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
+import 'package:dummy/features/dailycare/domain/entities/overview.dart';
 import 'package:dummy/features/dailycare/presentation/bloc/overview/overview_bloc.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/overview_card_widget.dart';
 import 'package:dummy/features/health/presentation/widgets/empty_list_page.dart';
@@ -10,8 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OverviewTab extends StatefulWidget {
-  const OverviewTab({super.key});
-
+  const OverviewTab({super.key, required this.overview});
+  final Overview ?overview;
   @override
   State<OverviewTab> createState() => _OverviewTabState();
 }
@@ -19,7 +20,7 @@ class OverviewTab extends StatefulWidget {
 class _OverviewTabState extends State<OverviewTab> {
   @override
   Widget build(BuildContext context) {
-    if (false) {
+    if (widget.overview==null) {
       return Padding(
         padding: Styles.edgeInsetsOnlyH20,
         child: EmptyListPage(
@@ -42,55 +43,39 @@ class _OverviewTabState extends State<OverviewTab> {
                       OverviewCard(
                         iconPath: ImageResources.mealsicon,
                         title: AppText.meals,
-                        subtitle: state.overview?.meals ?? '',
+                        subtitle: widget.overview?.meals ?? '',
                         onTap: () {},
                       ),
                       Styles.gap10,
                       OverviewCard(
                         iconPath: ImageResources.walksicon,
                         title: AppText.walks,
-                        subtitle: state.overview?.walks ?? '',
+                        subtitle: widget.overview?.walks ?? '',
                         onTap: () {},
                       ),
                       Styles.gap10,
                       OverviewCard(
                         iconPath: ImageResources.groomingicon,
                         title: AppText.grooming,
-                        subtitle: state.overview?.grooming ?? '',
+                        subtitle: widget.overview?.grooming ?? '',
                         onTap: () {},
                       ),
                       Styles.gap10,
                       OverviewCard(
                         iconPath: ImageResources.dewormingicon,
                         title: AppText.deworming,
-                        subtitle: state.overview?.deworming ?? '',
+                        subtitle: widget.overview?.deworming ?? '',
                         onTap: () {},
                       ),
                       Styles.gap10,
                       OverviewCard(
                         iconPath: ImageResources.expensesicon,
                         title: AppText.expenses,
-                        subtitle: state.overview?.expenses ?? '',
+                        subtitle: widget.overview?.expenses ?? '',
                         onTap: () {},
                       ),
                     ],
                   ),
-
-                  // AppCustomListViewBuilder(
-                  //   physics: NeverScrollableScrollPhysics(),
-                  //   isExpand: false,
-                  //   shrinkWrap: true,
-                  //   separatorBuilder: (context, i) => Styles.gap10,
-                  //   itemCount: 6,
-                  //   itemBuilder: (context, i) {
-                  //     return OverviewCard(
-                  //       iconPath: ImageResources.mealsicon,
-                  //       title: AppText.meals,
-                  //       subtitle: AppText.fiveloggedtoday,
-                  //       onTap: () {},
-                  //     );
-                  //   },
-                  // ),
                 );
               },
             ),
