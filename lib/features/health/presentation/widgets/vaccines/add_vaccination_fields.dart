@@ -302,8 +302,8 @@ class __Time extends StatelessWidget {
                 items: List.generate(
                   60,
                   (index) => DropItemModel(
-                    id: index + 1,
-                    value: '${(index + 1) > 9 ? index + 1 : '0${index + 1}'}',
+                    id: index,
+                    value: '${(index) > 9 ? index : '0${index}'}',
                   ),
                 ),
                 title: '',

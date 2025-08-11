@@ -160,6 +160,9 @@ class VaccinationSuccessContent extends StatelessWidget {
                     Expanded(
                       child: AppTextButton(
                         onPressed: () {
+                          context.read<DashboardBloc>().add(
+                            DashboardEvent.changePage(0),
+                          );
                           context.pop();
                         },
                         backgroundColor: AppColors.white,
@@ -195,6 +198,7 @@ class VaccinationSuccessContent extends StatelessWidget {
                     text: AppText.dummyWouldBeProudOfYouForKeeping,
                     style: context.textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w500,
+                      fontStyle: FontStyle.italic,
                       fontSize: 16,
                       color: AppColors.buttonTextColor,
                     ),
@@ -203,6 +207,7 @@ class VaccinationSuccessContent extends StatelessWidget {
                         text: "${context.read<DashboardBloc>().state.petName} ",
                         style: context.textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.w500,
+                          fontStyle: FontStyle.italic,
                           fontSize: 16,
                           color: AppColors.buttonTextColor,
                         ),
@@ -211,6 +216,7 @@ class VaccinationSuccessContent extends StatelessWidget {
                         text: AppText.healthy,
                         style: context.textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.w500,
+                          fontStyle: FontStyle.italic,
                           fontSize: 16,
                           color: AppColors.buttonTextColor,
                         ),

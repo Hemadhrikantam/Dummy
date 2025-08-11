@@ -69,33 +69,34 @@ class PetPhotoCardPage extends StatelessWidget {
                 ),
 
                 // Top buttons (tag and close)
-                Positioned(
-                  top: 16,
-                  left: 16,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 12,
-                      vertical: 6,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Color(0xFFFFBA59),
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child:  Row(
-                      children: [
-                        Icon(Icons.cake, size: 16, color: Colors.white),
-                        SizedBox(width: 4),
-                        Text(
-                          media.event,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
+                if (media.event.isNotEmpty)
+                  Positioned(
+                    top: 16,
+                    left: 16,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 12,
+                        vertical: 6,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Color(0xFFFFBA59),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Row(
+                        children: [
+                          // Icon(Icons.cake, size: 16, color: Colors.white),
+                          // SizedBox(width: 4),
+                          Text(
+                            media.event,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
                 Positioned(
                   top: 16,
                   right: 16,
@@ -165,10 +166,10 @@ class PetPhotoCardPage extends StatelessWidget {
                       Styles.gap20,
                       GestureDetector(
                         onTap: () {
-                          context.read<PetDairyBloc>().add(
-                            PetDairyEvent.deleteMedia(media.id),
+                          BottomModels.mediaDeleteBottomSheet(
+                            context,
+                            media.id,
                           );
-                          context.pop();
                         },
                         child: SvgPicture.asset(
                           ImageResources.deleteWhite,

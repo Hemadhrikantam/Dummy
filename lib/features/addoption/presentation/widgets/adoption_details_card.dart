@@ -14,7 +14,11 @@ import '../../../../core/widgets/buttons/app_icon_button.dart';
 import 'adoption_card.dart';
 
 class AdoptionDetailsCard extends StatefulWidget {
-  const AdoptionDetailsCard({super.key, required this.isAllPet, required this.adoption});
+  const AdoptionDetailsCard({
+    super.key,
+    required this.isAllPet,
+    required this.adoption,
+  });
   final bool isAllPet;
   final Adoption? adoption;
   @override
@@ -35,8 +39,8 @@ class _AdoptionDetailsCardState extends State<AdoptionDetailsCard> {
             children: [
               AppNetworkImage(
                 height: context.height * .3,
-                width: context.width ,
-                url: widget.adoption?.petImage??'',
+                width: context.width,
+                url: widget.adoption?.petImage ?? '',
               ),
               Positioned(
                 bottom: 0,
@@ -77,7 +81,7 @@ class _AdoptionDetailsCardState extends State<AdoptionDetailsCard> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                widget.adoption?.name??'',
+                widget.adoption?.name ?? '',
                 style: context.textTheme.titleMedium?.copyWith(
                   color: AppColors.stepperColor,
                   fontWeight: FontWeight.w700,
@@ -86,9 +90,9 @@ class _AdoptionDetailsCardState extends State<AdoptionDetailsCard> {
               ),
               AppCustomChipWidget(
                 backgroundColor: AppColors.backGroundGreen,
-                textColor: AppColors.greenText,
+                textColor: isChecked ? AppColors.orenge : AppColors.greenText,
                 subTitle: '',
-                title: 'Available',
+                title: isChecked ? 'Unavailable' : 'Available',
               ),
             ],
           ),
@@ -96,34 +100,43 @@ class _AdoptionDetailsCardState extends State<AdoptionDetailsCard> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              TextValueWidget(text: 'Breed & Age', value: 'Pomerian, ${widget.adoption?.age??''} Y'),
-              TextValueWidget(text: 'Location', value: widget.adoption?.address??''),
-            ],
-          ),
-          Styles.gap30,
-          TextValueWidget(text: 'Description', value: widget.adoption?.description??''),
-          Styles.gap30,
-          TextValueWidget(text: 'Contact', value: widget.adoption?.phone??''),
-          Styles.gap30,
-          TextValueWidget(text: 'Email', value: widget.adoption?.email??''),
-          Styles.gap30,
-          if(!widget.isAllPet)
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Styles.gap10,
-              CustomCheckBox(
-                isChecked: isChecked,
-                fontSize: 20,
-                label: AppText.markAsAdopted,
-                onChanged: (value) {
-                  setState(() {
-                    isChecked = !isChecked;
-                  });
-                },
+              TextValueWidget(
+                text: 'Breed & Age',
+                value: 'Pomerian, ${widget.adoption?.age ?? ''} Y',
+              ),
+              TextValueWidget(
+                text: 'Location',
+                value: widget.adoption?.address ?? '',
               ),
             ],
           ),
+          Styles.gap30,
+          TextValueWidget(
+            text: 'Description',
+            value: widget.adoption?.description ?? '',
+          ),
+          Styles.gap30,
+          TextValueWidget(text: 'Contact', value: widget.adoption?.phone ?? ''),
+          Styles.gap30,
+          TextValueWidget(text: 'Email', value: widget.adoption?.email ?? ''),
+          Styles.gap30,
+          if (!widget.isAllPet)
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Styles.gap10,
+                CustomCheckBox(
+                  isChecked: isChecked,
+                  fontSize: 22,
+                  label: AppText.markAsAdopted,
+                  onChanged: (value) {
+                    setState(() {
+                      isChecked = !isChecked;
+                    });
+                  },
+                ),
+              ],
+            ),
         ],
       ),
     );

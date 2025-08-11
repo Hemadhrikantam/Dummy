@@ -70,7 +70,7 @@ class EditVaccinationPage extends StatelessWidget {
                         message: 'Provide Required Fields',
                       ),
               name: Text(
-                AppText.editVaccination,
+                AppText.save,
                 style: context.textTheme.titleMedium?.copyWith(
                   color: AppColors.buttonTextColor,
                   fontWeight: FontWeight.w700,

@@ -474,7 +474,7 @@ class CustomAppBarTitle extends StatelessWidget {
                       child: AppNetworkImage(
                         url: state.selectedPet?.petImage.petImage ?? "",
                         height: 45,
-                        width: 45,
+                        width: 40,
                       ),
                     )
                     : AppAssestsImage(

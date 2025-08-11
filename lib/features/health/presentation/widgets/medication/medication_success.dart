@@ -91,6 +91,12 @@ class MedicationSuccessContent extends StatelessWidget {
                     children: [
                       Expanded(
                         child: AppTextButton(
+                          onPressed: () {
+                            context.read<DashboardBloc>().add(
+                              DashboardEvent.changePage(0),
+                            );
+                            context.pop();
+                          },
                           backgroundColor: AppColors.white,
                           name: AppText.home,
                           borderColor: AppColors.grey500,

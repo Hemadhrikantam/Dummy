@@ -8,6 +8,7 @@ abstract class DashboardState with _$DashboardState {
     @Default('') final String petImage,
     @Default(null) final DashboardPetDetails? selectedPet,
     @Default(0) final int selectedPetId,
+    @Default(0) final int pageIndex,
     @Default([]) final List<DashboardPetDetails> dashboardPetDetails,
   }) = _DashboardState;
 }

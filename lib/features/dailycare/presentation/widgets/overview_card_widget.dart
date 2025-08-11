@@ -21,39 +21,41 @@ class OverviewCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: CustomCard(
-        padding: Styles.edgeInsetsAll10,
-        borderRadius: Styles.borderRadiusCircular08,
-        child: Row(
-          children: [
-            AppAssestsImage(path: iconPath, height: 40, width: 37),
-            Styles.gap10,
-            Styles.gap2,
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: context.textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.w500,
-                    fontSize: 12,
-                    color: AppColors.grey500
+    return Padding(
+      padding: Styles.edgeInsetsOnlyH06,
+      child: GestureDetector(
+        onTap: onTap,
+        child: CustomCard(
+          padding: Styles.edgeInsetsAll10,
+          borderRadius: Styles.borderRadiusCircular08,
+          child: Row(
+            children: [
+              AppAssestsImage(path: iconPath, height: 40, width: 37),
+              Styles.gap10,
+              Styles.gap2,
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: context.textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12,
+                      color: AppColors.grey500,
+                    ),
                   ),
-                ),
-                Styles.gap4,
-                Text(
-                  subtitle,
-                  style: context.textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.w700,
-                    fontSize: 15,
-                    overflow: TextOverflow.ellipsis
+                  Styles.gap4,
+                  Text(
+                    subtitle,
+                    style: context.textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 16,
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

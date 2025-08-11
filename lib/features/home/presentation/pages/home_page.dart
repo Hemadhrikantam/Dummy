@@ -38,7 +38,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePage extends State<HomePage> {
   DashboardPetDetails? selectedPet;
-
+  final AnimatedListController _controller = AnimatedListController();
+  final ScrollController _scrollController = ScrollController();
   int selectedIndex = 0;
 
   void _handlePetSelected(int index) {
@@ -48,6 +49,12 @@ class _HomePage extends State<HomePage> {
       selectedPet = pet;
       selectedIndex = index;
     });
+    _scrollController.animateTo(
+      0,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeOut,
+    );
+    _controller.replay();
     LogUtility.info('eid  ${selectedPet?.id ?? 0}');
     context.read<DashboardBloc>().add(
       DashboardEvent.selectedPetId(selectedPet?.id ?? 0),
@@ -87,6 +94,8 @@ class _HomePage extends State<HomePage> {
               state.initStatus.loading || petList.isEmpty
                   ? const DashboardShimmer()
                   : AnimatedListView(
+                    controller: _controller,
+                    scrollController: _scrollController,
                     children: [
                       CustomHeaderWidget(petImage: state.petImage),
                       Styles.gap15,

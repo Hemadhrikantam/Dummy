@@ -36,6 +36,7 @@ class AppText {
   static String allowLocationContent =
       "Do you want Doommi to get your location?";
   static String cancel = "Cancel";
+  static String reset = "Reset";
   static String cancelPlan = "Cancel Plan";
   static String enterPhoneNumber = "Enter Phone Number";
   static String petPhotoUploadedContent = 'Looking good! Let’s move forward.';
@@ -372,13 +373,10 @@ class AppText {
   static String snapchat = 'Snapchat';
   static String more = 'More';
   static String launchWhatsapp = 'whatsapp://';
-  static String launchGmail = 'mailto:?subject=Check%20this%20out&body=Your%20Link';
+  static String launchGmail =
+      'mailto:?subject=Check%20this%20out&body=Your%20Link';
   static String launchMessages = 'sms:?body=Your%20Link';
   static String launchSnapchat = 'shttps://www.snapchat.com/';
-
-
-
-  
 
   //home
   static String weight = 'Weight';

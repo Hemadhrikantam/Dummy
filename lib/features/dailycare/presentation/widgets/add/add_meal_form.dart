@@ -93,7 +93,7 @@ class _AddMealFormState extends State<AddMealForm> {
                                 initialValue: state.value,
                                 isMandatory: true,
                                 headerText: AppText.mealType,
-                                hintText: '...',
+                                hintText: 'chicken meal',
                                 onChanged: (value) {
                                   context.read<MealFormBloc>().add(
                                     MealFormEvent.mealType(value),

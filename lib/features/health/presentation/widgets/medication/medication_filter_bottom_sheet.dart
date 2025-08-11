@@ -275,23 +275,45 @@ class _MedicationFilterBottomSheet extends State<MedicationFilterBottomSheet> {
             },
           ),
           Styles.gap30,
-          BlocBuilder<MedicationsBloc, MedicationsState>(
-            builder: (context, state) {
-              return AppButton(
-                onPressed:
-                    (_dobController.text.isNotEmpty &&
-                                _dobController1.text.isNotEmpty) ||
-                            (state.startDate.isValid && state.endDate.isValid)
-                        ? () {
-                          widget.onSaved(
-                            _dobController.text,
-                            _dobController1.text,
-                          );
-                        }
-                        : () {},
-                name: Text(AppText.save, style: Styles.buttonStyle),
-              );
-            },
+          Row(
+            children: [
+              Expanded(
+                child: AppOutlinedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  name: Text(
+                    AppText.reset,
+                    style: context.textTheme.titleSmall?.copyWith(
+                      fontWeight: FontWeight.w700,
+                      color: AppColors.buttonTextColor,
+                    ),
+                  ),
+                ),
+              ),
+              Styles.gap10,
+              Expanded(
+                child: BlocBuilder<MedicationsBloc, MedicationsState>(
+                  builder: (context, state) {
+                    return AppButton(
+                      onPressed:
+                          (_dobController.text.isNotEmpty &&
+                                      _dobController1.text.isNotEmpty) ||
+                                  (state.startDate.isValid &&
+                                      state.endDate.isValid)
+                              ? () {
+                                widget.onSaved(
+                                  _dobController.text,
+                                  _dobController1.text,
+                                );
+                              }
+                              : () {},
+                      name: Text(AppText.save, style: Styles.buttonStyle),
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
           Styles.gap10,
         ],

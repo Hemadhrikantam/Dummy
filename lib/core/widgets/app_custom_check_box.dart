@@ -33,7 +33,7 @@ class CustomCheckBox extends StatelessWidget {
               label,
               style: context.textTheme.bodyMedium?.copyWith(
                 fontSize: fontSize ?? 14,
-                fontWeight: FontWeight.bold,
+                fontWeight: FontWeight.w600,
               ),
               softWrap: true,
             ),

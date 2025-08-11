@@ -25,7 +25,7 @@ class EditMedicationPage extends StatelessWidget {
       builder:
           (context) => BlocProvider(
             create: (context) => InjectionBloc.medicationFormBloc,
-            child:  EditMedicationPage(id: id,),
+            child: EditMedicationPage(id: id),
           ),
       settings: const RouteSettings(name: routeName),
     );
@@ -49,17 +49,18 @@ class EditMedicationPage extends StatelessWidget {
           },
           builder: (context, state) {
             return AppButton(
-              onPressed: state.validation
+              onPressed:
+                  state.validation
                       ? () {
                         context.read<MedicationFormBloc>().add(
-                           MedicationFormEvent.submit(id),
+                          MedicationFormEvent.submit(id),
                         );
                       }
                       : () => AppAlert.showToast(
                         message: 'Provide Required Fields',
                       ),
               name: Text(
-                AppText.editMedications,
+                AppText.save,
                 style: context.textTheme.titleMedium?.copyWith(
                   color: AppColors.buttonTextColor,
                   fontWeight: FontWeight.w700,
@@ -72,7 +73,7 @@ class EditMedicationPage extends StatelessWidget {
       ),
       child: Padding(
         padding: Styles.edgeInsetsOnlyH10,
-        child:  AddMedicationForm(id: id,),
+        child: AddMedicationForm(id: id),
       ),
     );
   }

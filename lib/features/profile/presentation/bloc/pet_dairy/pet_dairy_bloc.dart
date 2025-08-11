@@ -35,6 +35,7 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
        super(const PetDairyState()) {
     on<_Initialization>(_initialization);
     on<_EventId>(__eventId);
+    on<_LoadMedias>(__loadMedias);
     on<_UpdateMediaFavroute>(_updateMediaFavroute);
     on<_DeleteMedia>(__deleteMedia);
   }
@@ -90,12 +91,20 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
     emit(state.copyWith(eventId: eventId));
   }
 
+  Future<void> __loadMedias(
+    _LoadMedias event,
+    Emitter<PetDairyState> emit,
+  ) async {
+    final list = await _medias();
+    emit(state.copyWith(medias: list));
+  }
+
   void __deleteMedia(_DeleteMedia event, Emitter<PetDairyState> emit) {
-    _deleteMediaUsecases(id: event.id);
     final media = state.medias.firstWhere((media) => media.id == event.id);
-    final medias = state.medias;
+    final medias = [...state.medias];
     medias.remove(media);
     emit(state.copyWith(medias: medias));
+    _deleteMediaUsecases(id: event.id);
   }
 
   Future<void> _updateMediaFavroute(

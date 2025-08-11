@@ -16,6 +16,7 @@ import 'package:dummy/features/profile/domain/entities/media.dart';
 import 'package:dummy/features/profile/presentation/widgets/logout_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/manage_family_members/clinic_nearme_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/manage_family_members/stores_nearme_bottom_sheet.dart';
+import 'package:dummy/features/profile/presentation/widgets/media_deletion_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/member_deletion_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/pet_dairy/share_bottom_sheet_content.dart';
 import 'package:dummy/features/profile/presentation/widgets/plan_overview_bottom_sheet.dart';
@@ -354,6 +355,18 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return MemberDeleteBottomSheet();
+      },
+    );
+  }
+
+  static Future<T?> mediaDeleteBottomSheet<T>(BuildContext context, int id) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return MediaDeletionBottomSheet(id: id);
       },
     );
   }
