@@ -8,6 +8,7 @@ import 'package:dummy/core/services/location_service.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/info_card.dart';
+import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/signup/presentation/bloc/register/register_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -73,7 +74,8 @@ class _NotificationPermissionState extends State<NotificationPermission> {
               context: context,
               builder:
                   (ctx) => NotificationDialog(
-                    onNext: () {
+                    onNext: () async {
+                      await Injection.notificationService.init();
                       showLocation();
                     },
                     onCancel: () {
@@ -183,7 +185,6 @@ class LocationDialog extends StatelessWidget {
             Expanded(
               child: AppButton(
                 onPressed: () async {
-                  
                   try {
                     final locationService = LocationService();
                     final locationData =
@@ -195,20 +196,19 @@ class LocationDialog extends StatelessWidget {
 
                       context.read<RegisterBloc>().add(
                         RegisterEvent.setLocation(
-                          latitude: locationData.latitude??0,
-                          longitude: locationData.longitude??0,
+                          latitude: locationData.latitude ?? 0,
+                          longitude: locationData.longitude ?? 0,
                         ),
                       );
                     } else {
                       print("Location data is null");
                     }
-                      Navigator.pop(context);
-                  onNext.call();
+                    Navigator.pop(context);
+                    onNext.call();
                   } catch (e) {
                     print("Location error: $e");
                     Navigator.pop(context);
                   }
-
                 },
                 name: Text(
                   AppText.allow,

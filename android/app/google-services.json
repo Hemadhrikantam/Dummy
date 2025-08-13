@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1076960233898",
+    "project_id": "doommi",
+    "storage_bucket": "doommi.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076960233898:android:ca76966aa22ea4870143d3",
+        "android_client_info": {
+          "package_name": "com.example.dummy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy8C_XNhKv99Kc_qNX9ru2YRxkZ6mZ980"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

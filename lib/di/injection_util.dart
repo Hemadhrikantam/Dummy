@@ -1,6 +1,5 @@
 part of 'injection.dart';
 
-
 Future<void> _initServicesAndUtils() async {
   // Route
   final navigationService = NavigationService();
@@ -8,7 +7,8 @@ Future<void> _initServicesAndUtils() async {
 
   // Local Storage
   getIt.registerSingleton<LocalStorage>(
-      const LocalStorageImpl(FlutterSecureStorage()));
+    const LocalStorageImpl(FlutterSecureStorage()),
+  );
 
   // REST API Call
   final dio = Dio();
@@ -18,5 +18,12 @@ Future<void> _initServicesAndUtils() async {
   final appHttp = AppHttpImpl(getIt<Dio>(), getIt<LocalStorage>());
   getIt.registerLazySingleton<AppHttp>(() => appHttp);
 
+  getIt.registerLazySingleton<FirebaseMessaging>(
+    () => FirebaseMessaging.instance,
+  );
+
+  getIt.registerLazySingleton<NotificationService>(
+    () => NotificationService(getIt<FirebaseMessaging>()),
+  );
   //
 }

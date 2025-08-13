@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:dummy/core/services/firebase_notification.dart';
 import 'package:dummy/core/services/http_service_impl.dart';
 import 'package:dummy/core/services/local_storage_impl.dart';
 import 'package:dummy/core/services/navigation_service.dart';
@@ -78,6 +79,7 @@ import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/pet_image_usecases.dart';
 import 'package:dummy/service/app_http_service.dart';
 import 'package:dummy/service/local_storage_service.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -134,6 +136,8 @@ part 'injection_adoption.dart';
 final GetIt getIt = GetIt.instance;
 
 class Injection {
+  static NotificationService get notificationService =>
+      getIt<NotificationService>();
   static Future<void> init() async {
     await _initServicesAndUtils();
     await _initSystemSettings();

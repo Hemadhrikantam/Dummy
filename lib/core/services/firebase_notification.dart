@@ -12,6 +12,7 @@ class NotificationService {
   NotificationService(this._firebaseMessaging);
 
   Future<void> init() async {
+    LogUtility.warning('Initializing Firebase Messaging');
     if (!kIsWeb && _firebaseMessaging != null) {
       LogUtility.warning('Initializing Firebase Messaging');
       await _firebaseMessaging.requestPermission(
