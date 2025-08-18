@@ -22,6 +22,10 @@ abstract class HealthRepository {
     required Payload payload,
     required int id,
   });
+  AppSuccessResponse editVaccination({
+    required Payload payload,
+    required int id,
+  });
   AppTypeResponse<PetMedication> getMedication({required int id});
   AppTypeResponse<PetVaccination> getVaccination({required int id});
   AppSuccessResponse updateMedicationDate({

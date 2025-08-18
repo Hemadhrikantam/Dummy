@@ -74,17 +74,22 @@ class __PetGender extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomDropdownSearch(
-      title: AppText.gender,
-      isMandatory: true,
-      items: [
-        DropItemModel(id: 1, value: 'Male'),
-        DropItemModel(id: 2, value: 'Female'),
-      ],
-      onChanged: (value) {
-        context.read<PetFormBloc>().add(PetFormEvent.petGender(value!));
+    return BlocBuilder<PetFormBloc, PetFormState>(
+      builder: (context, state) {
+        return CustomDropdownSearch(
+          title: AppText.gender,
+          isMandatory: true,
+          selectedItem: state.gender.value,
+          items: [
+            DropItemModel(id: 1, value: 'Male'),
+            DropItemModel(id: 2, value: 'Female'),
+          ],
+          onChanged: (value) {
+            context.read<PetFormBloc>().add(PetFormEvent.petGender(value!));
+          },
+          label: AppText.select,
+        );
       },
-      label: AppText.select,
     );
   }
 }
@@ -225,10 +230,8 @@ class __PersonalityTags extends StatelessWidget {
               SizedBox(
                 height: context.height * .065,
                 child: Theme(
-                  data: ThemeData(
-                    highlightColor: AppColors.stepperColor
-                  ),
-                  child: Scrollbar(    
+                  data: ThemeData(highlightColor: AppColors.stepperColor),
+                  child: Scrollbar(
                     child: AppCustomListViewBuilder(
                       isExpand: false,
                       shrinkWrap: true,
@@ -243,7 +246,10 @@ class __PersonalityTags extends StatelessWidget {
                         return PersonalityTagCard(
                           index: ind,
                           tag:
-                              state.selectedPersonalityTags[index].value?.value ??
+                              state
+                                  .selectedPersonalityTags[index]
+                                  .value
+                                  ?.value ??
                               '',
                         );
                       },

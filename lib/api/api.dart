@@ -14,6 +14,7 @@ String login = '$__publicBase/user/login/';
 String registerAccount = '$__publicBase/account/register/';
 String catBreeds = '$__publicBase/pets/cat-breeds/';
 String dogBreeds = '$__publicBase/pets/dog-breeds/';
+String editPet = '$__privateBase/pets/edit/';
 String personalityTags = '$__publicBase/pets/personality-tags/';
 String petDairyEvent = '$__privateBase/pet-diary/event-fields/';
 String petDairyMedia = '$__privateBase/pet-diary/media-files/';
@@ -29,7 +30,6 @@ String pets = '$__privateBase/pets/';
 String adoptPet = '$__privateBase/adoption/pet-to-adopt/';
 String allPets = '$__privateBase/adoption/all-pets-to-adopt/';
 String petTypes = '$__privateBase/pets/pet-types/';
-
 
 //daily care
 String meals(DateTime? date) {
@@ -76,7 +76,6 @@ String frequencies = '$__api/daily-care/deworming-frequency/';
 String remindBefores = '$__api/daily-care/remind-before/';
 String timezones = '$__api/daily-care/timezone/';
 String overview(int id) => '$__privateBase/daily-care/overview/$id/';
-
 
 //health
 String medication(String? key, String? fromDate, String? toDate) {

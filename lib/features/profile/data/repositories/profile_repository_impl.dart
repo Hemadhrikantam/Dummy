@@ -62,4 +62,9 @@ class ProfileRepositoryImpl extends ProfileRepository {
   AppSuccessResponse deleteMedia({required int id}) {
     return datasource.deleteMedia(id: id);
   }
+
+  @override
+  AppSuccessResponse editPet({required int id, required Payload payload}) {
+    return datasource.editPet(id: id, payload: payload);
+  }
 }

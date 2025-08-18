@@ -378,4 +378,43 @@ class ProfileDatasourceImpl extends ProfileDatasource {
       },
     );
   }
+
+  @override
+  AppSuccessResponse editPet({
+    required int id,
+    required Payload payload,
+  }) async {
+    final response = await http.put(
+      path: api.editPet + '$id/',
+      data: payload.toMap(),
+    );
+    return response.fold(
+      (error) {
+        LogUtility.error('Error: ${error.message}');
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(message: data['message'] as String? ?? ""),
+            );
+          }
+
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
 }

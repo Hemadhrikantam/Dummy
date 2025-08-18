@@ -270,7 +270,7 @@ class MedicationFormBloc
       reminder: state.reminder,
       tabletName: state.tabletName.value,
       company: state.company.value,
-      dosage: int.parse(state.dosage.value),
+      dosage: double.parse(state.dosage.value).toInt(),
       dosageUnit:
           state.dosageUnit.value!.value.contains("Tablets") ? "tablets" : '',
       morningTime:

@@ -89,4 +89,12 @@ class HealthRepositoryImpl extends HealthRepository {
   AppSuccessResponse deleteVaccination({required int id}) {
     return _healthDatasource.deleteVaccination(id: id);
   }
+
+  @override
+  AppSuccessResponse editVaccination({
+    required Payload payload,
+    required int id,
+  }) {
+    return _healthDatasource.editVaccination(payload: payload, id: id);
+  }
 }

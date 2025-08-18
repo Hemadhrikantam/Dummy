@@ -113,6 +113,7 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
   ) async {
     await _editMediaFavrouteUsecases(id: event.id, isFavroute: event.value);
     final favoriteMedias = await _favMedias();
-    emit(state.copyWith(favoriteMedias: favoriteMedias));
+    final medias = await _medias();
+    emit(state.copyWith(favoriteMedias: favoriteMedias, medias: medias));
   }
 }

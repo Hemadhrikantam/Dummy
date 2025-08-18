@@ -6,9 +6,9 @@ import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/register_account_payload.dart';
 import 'package:dummy/core/utils/app_utils.dart';
-import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/profile/domain/usecases/edit_pet_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/cat_breed_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/dog_breed_usecases.dart';
@@ -29,11 +29,13 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
     required PersonalityTagUsecases personalityTagUsecases,
     required CreatePetUsecases createPetUsecases,
     required PetImageUsecases petImageUsecases,
+    required EditPetUsecases editPetUsecases,
   }) : __catBreedUsecases = catBreedUsecases,
        __dogBreedUsecases = dogBreedUsecases,
        __personalityTagUsecases = personalityTagUsecases,
        __createPetUsecases = createPetUsecases,
        __petImageUsecases = petImageUsecases,
+       __editPetUsecases = editPetUsecases,
        super(PetFormState()) {
     on<_Init>(__initialization);
     on<_PetName>(__petName);
@@ -50,6 +52,7 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
   }
 
   final CatBreedUsecases __catBreedUsecases;
+  final EditPetUsecases __editPetUsecases;
   final DogBreedUsecases __dogBreedUsecases;
   final PersonalityTagUsecases __personalityTagUsecases;
   final CreatePetUsecases __createPetUsecases;
@@ -99,6 +102,12 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
                     ),
                   )
                   .toList(),
+          gender: DropdownValue.dirty(
+            DropItemModel(
+              id: success.gender == 'Male' ? 1 : 2,
+              value: success.gender,
+            ),
+          ),
           weight: NotEmpty.dirty(value: success.petWeight.toString()),
         ),
       );
@@ -126,7 +135,7 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
       petType: state.petType.name,
       dob: AppUtil.formatDate(DateTime.parse(state.dob.value)),
       breed: state.breed.value!.id,
-      petWeight: int.parse(state.weight.value),
+      petWeight: double.parse(state.weight.value).toInt(),
       gender: state.gender.value?.value ?? '',
       petImage: imageId,
       personalityTag:
@@ -134,7 +143,10 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
       latitude: 0,
       longitude: 0,
     );
-    final result = await __createPetUsecases(payload: payload);
+    final result =
+        event.id == null
+            ? await __createPetUsecases(payload: payload)
+            : await __editPetUsecases(id: event.id!, payload: payload);
 
     result.fold((error) => emit(state.copyWith(submitStatus: Status.error)), (
       success,

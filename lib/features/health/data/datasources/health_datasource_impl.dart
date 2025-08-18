@@ -475,4 +475,47 @@ class HealthDatasourceImpl extends HealthDatasource {
       },
     );
   }
+
+  @override
+  AppSuccessResponse editVaccination({
+    required Payload payload,
+    required int id,
+  }) async {
+    LogUtility.warning(payload.toMap().toString());
+    final formData = FormData.fromMap(payload.toMap());
+    final response = await http.put(
+      path: api.vaccination(null, null, null) + '$id/',
+      data: formData,
+      options: Options(contentType: 'multipart/form-data'),
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message:
+                    data['message'] as String? ?? 'Meal added successfully',
+              ),
+            );
+          }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
 }

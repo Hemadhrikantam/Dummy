@@ -13,6 +13,10 @@ abstract class HealthDatasource {
     required Payload payload,
     required int id,
   });
+  AppSuccessResponse editVaccination({
+    required Payload payload,
+    required int id,
+  });
   AppTypeResponse<PetMedicationModel> getMedication({required int id});
   AppTypeResponse<PetVaccinationModel> getVaccination({required int id});
   AppSuccessResponse deleteVaccination({required int id});

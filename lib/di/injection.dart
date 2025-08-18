@@ -49,6 +49,7 @@ import 'package:dummy/features/health/domain/usecases/add_medication_usecases.da
 import 'package:dummy/features/health/domain/usecases/delete_medication_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/delete_vaccination_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/edit_medication_usecases.dart';
+import 'package:dummy/features/health/domain/usecases/edit_vaccination_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/get_medication_date_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/get_medication_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/get_vaccination_usecases.dart';
@@ -57,6 +58,7 @@ import 'package:dummy/features/health/domain/usecases/update_medication_date_use
 import 'package:dummy/features/health/presentation/bloc/medication_details/medication_details_bloc.dart';
 import 'package:dummy/features/health/presentation/bloc/medication_form/medication_form_bloc.dart';
 import 'package:dummy/features/health/presentation/bloc/vaccination_details/vaccination_details_bloc.dart';
+import 'package:dummy/features/health/presentation/pages/edit_vaccination_page.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource_impl.dart';
 import 'package:dummy/features/profile/data/repositories/profile_repository_impl.dart';
@@ -67,6 +69,7 @@ import 'package:dummy/features/profile/domain/usecases/delete_media_usecases.dar
 import 'package:dummy/features/profile/domain/usecases/documents_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_media_favroute_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_media_usecases.dart';
+import 'package:dummy/features/profile/domain/usecases/edit_pet_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/event_fields_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/favorite_medias_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/get_media_usecases.dart';

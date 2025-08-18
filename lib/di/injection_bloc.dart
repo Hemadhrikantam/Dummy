@@ -29,6 +29,7 @@ class InjectionBloc {
       catBreedUsecases: getIt<CatBreedUsecases>(),
       dogBreedUsecases: getIt<DogBreedUsecases>(),
       personalityTagUsecases: getIt<PersonalityTagUsecases>(),
+      editPetUsecases: getIt<EditPetUsecases>(),
     );
   }
 
@@ -130,6 +131,7 @@ class InjectionBloc {
       timezonesUsecases: getIt<TimezonesUsecases>(),
       beforeUsecases: getIt<RemindBeforeUsecases>(),
       getVaccinationUsecases: getIt<GetVaccinationUsecases>(),
+      editVaccinationUsecases: getIt<EditVaccinationUsecases>(),
     );
   }
 

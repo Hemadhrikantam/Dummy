@@ -5,6 +5,7 @@ import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/features/dailycare/domain/entities/frequency.dart';
+import 'package:dummy/features/health/domain/usecases/edit_vaccination_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/get_vaccination_usecases.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -27,12 +28,14 @@ class VaccinationFormBloc
     required AddVaccinationUsecases addVaccinationUsecases,
     required MedicationFrequencyUsecases medicationFrequencyUsecases,
     required TimezonesUsecases timezonesUsecases,
+    required EditVaccinationUsecases editVaccinationUsecases,
     required RemindBeforeUsecases beforeUsecases,
     required GetVaccinationUsecases getVaccinationUsecases,
   }) : _addVaccinationUsecase = addVaccinationUsecases,
        _medicationFrequencyUsecases = medicationFrequencyUsecases,
        _timezonesUsecases = timezonesUsecases,
        _beforeUsecases = beforeUsecases,
+       _editVaccinationUsecase = editVaccinationUsecases,
        _getVaccinationUsecase = getVaccinationUsecases,
        super(const VaccinationFormState()) {
     on<_Init>(_onInit);
@@ -57,6 +60,7 @@ class VaccinationFormBloc
   final TimezonesUsecases _timezonesUsecases;
   final RemindBeforeUsecases _beforeUsecases;
   final GetVaccinationUsecases _getVaccinationUsecase;
+  final EditVaccinationUsecases _editVaccinationUsecase;
   Future<void> _onInit(_Init event, Emitter<VaccinationFormState> emit) async {
     emit(state.copyWith(initStatus: Status.loading));
     final frequencies = List<Frequency>.from(
@@ -243,7 +247,7 @@ class VaccinationFormBloc
     );
     final result =
         event.id != null
-            ? await _addVaccinationUsecase(payload: payload)
+            ? await _editVaccinationUsecase(payload: payload, id: event.id!)
             : await _addVaccinationUsecase(payload: payload);
 
     result.fold(
