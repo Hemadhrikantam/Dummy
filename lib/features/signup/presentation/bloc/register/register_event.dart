@@ -15,7 +15,8 @@ class RegisterEvent with _$RegisterEvent {
   const factory RegisterEvent.removeTag(int index) = _RemoveTag;
   const factory RegisterEvent.createPet() = _CreatePet;
   const factory RegisterEvent.petGender(DropItem petGender) = _PetGender;
-  const factory RegisterEvent.setLocation({required double latitude ,required double longitude}) = _SetLocation;
-
-
+  const factory RegisterEvent.setLocation({
+    required double latitude,
+    required double longitude,
+  }) = _SetLocation;
 }

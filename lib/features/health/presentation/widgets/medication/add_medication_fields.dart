@@ -22,56 +22,151 @@ import '../../../../../core/widgets/dotted_border_widget.dart';
 
 part 'add_medication_form.dart';
 
-class __TabletName extends StatelessWidget {
-  __TabletName();
-  final controller = TextEditingController();
+class __TabletName extends StatefulWidget {
+  const __TabletName({Key? key}) : super(key: key);
+
+  @override
+  State<__TabletName> createState() => _TabletNameState();
+}
+
+class _TabletNameState extends State<__TabletName> {
+  late TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    final initialValue =
+        context.read<MedicationFormBloc>().state.tabletName.value;
+    _controller = TextEditingController(text: initialValue);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<MedicationFormBloc, MedicationFormState, NotEmpty>(
-      selector: (state) {
-        return state.tabletName;
+    return BlocListener<MedicationFormBloc, MedicationFormState>(
+      listenWhen:
+          (previous, current) =>
+              previous.tabletName.value != current.tabletName.value,
+      listener: (context, state) {
+        if (_controller.text != state.tabletName.value) {
+          _controller.text = state.tabletName.value;
+        }
       },
-      builder: (context, state) {
-        return AppTextFormField(
-          // initialValue: state.value,
-          controller: controller..text = state.value,
-          onChanged: (value) {
-            context.read<MedicationFormBloc>().add(
-              MedicationFormEvent.tabletName(value),
-            );
-          },
-          hintText: AppText.enter,
-          headerText: AppText.name,
-          isMandatory: true,
-        );
-      },
+      child: AppTextFormField(
+        controller: _controller,
+        onChanged: (value) {
+          context.read<MedicationFormBloc>().add(
+            MedicationFormEvent.tabletName(value),
+          );
+        },
+        hintText: AppText.enter,
+        headerText: AppText.name,
+        isMandatory: true,
+      ),
     );
   }
 }
 
-class __Company extends StatelessWidget {
-  __Company();
+class __Company extends StatefulWidget {
+  const __Company({Key? key}) : super(key: key);
+
+  @override
+  State<__Company> createState() => _CompanyState();
+}
+
+class _CompanyState extends State<__Company> {
+  late TextEditingController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    final initialValue = context.read<MedicationFormBloc>().state.company.value;
+    _controller = TextEditingController(text: initialValue);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocListener<MedicationFormBloc, MedicationFormState>(
+      listenWhen:
+          (previous, current) =>
+              previous.company.value != current.company.value,
+      listener: (context, state) {
+        if (_controller.text != state.company.value) {
+          _controller.text = state.company.value;
+        }
+      },
+      child: AppTextFormField(
+        controller: _controller,
+        onChanged: (value) {
+          context.read<MedicationFormBloc>().add(
+            MedicationFormEvent.company(value),
+          );
+        },
+        hintText: AppText.enter,
+        headerText: AppText.company,
+        isMandatory: true,
+      ),
+    );
+  }
+}
+
+class __Dosage extends StatelessWidget {
+  __Dosage();
   final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<MedicationFormBloc, MedicationFormState, NotEmpty>(
-      selector: (state) {
-        return state.company;
-      },
-      builder: (context, state) {
-        return AppTextFormField(
-          // initialValue: state.value,
-          controller: controller..text = state.value,
-          onChanged: (value) {
-            context.read<MedicationFormBloc>().add(
-              MedicationFormEvent.company(value),
-            );
-          },
-          hintText: AppText.enter,
-          headerText: AppText.company,
-          isMandatory: true,
-        );
-      },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // MandatoryFieldWidget(labelText: AppText.dosage, required: false),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Expanded(
+              child: BlocConsumer<MedicationFormBloc, MedicationFormState>(
+                listenWhen:
+                    (previous, current) =>
+                        previous.dosage.value != current.dosage.value,
+                listener: (context, state) {
+                  controller.text = state.dosage.value;
+                },
+                buildWhen:
+                    (previous, current) =>
+                        previous.dosage.value != current.dosage.value,
+                builder: (context, state) {
+                  return AppTextFormField(
+                    controller: controller,
+                    onChanged: (value) {
+                      context.read<MedicationFormBloc>().add(
+                        MedicationFormEvent.dosage(value),
+                      );
+                    },
+                    keyboardType: const TextInputType.numberWithOptions(
+                      decimal: true,
+                    ),
+                    hintText: AppText.enter,
+                    headerText: AppText.dosage,
+                    isMandatory: true,
+                  );
+                },
+              ),
+            ),
+            Styles.gap10,
+            __Tablets(),
+          ],
+        ),
+      ],
     );
   }
 }
@@ -172,53 +267,6 @@ class __RemainderState extends State<__Remainder> {
               },
             );
           },
-        ),
-      ],
-    );
-  }
-}
-
-class __Dosage extends StatelessWidget {
-  __Dosage();
-  final controller = TextEditingController();
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // MandatoryFieldWidget(labelText: AppText.dosage, required: false),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Expanded(
-              child: BlocSelector<
-                MedicationFormBloc,
-                MedicationFormState,
-                NotEmpty
-              >(
-                selector: (state) {
-                  return state.dosage;
-                },
-                builder: (context, state) {
-                  return AppTextFormField(
-                    // initialValue: state.value,
-                    controller: controller..text = state.value,
-                    onChanged: (value) {
-                      context.read<MedicationFormBloc>().add(
-                        MedicationFormEvent.dosage(value),
-                      );
-                    },
-                    keyboardType: TextInputType.numberWithOptions(),
-                    hintText: AppText.enter,
-                    headerText: AppText.dosage,
-                    isMandatory: true,
-                  );
-                },
-              ),
-            ),
-            Styles.gap10,
-            __Tablets(),
-          ],
         ),
       ],
     );

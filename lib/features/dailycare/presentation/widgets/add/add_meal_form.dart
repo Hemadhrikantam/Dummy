@@ -157,7 +157,7 @@ class _AddMealFormState extends State<AddMealForm> {
                     listener: (context, state) {
                       if (state.submitStatus.success) {
                         context.read<MealsBloc>().add(
-                          MealsEvent.meals(DateTime.now()),
+                          MealsEvent.meals(DateTime.parse(state.date.value)),
                         );
                         context.pop();
                         BottomModels.addMealSuccessBottomSheet(context);

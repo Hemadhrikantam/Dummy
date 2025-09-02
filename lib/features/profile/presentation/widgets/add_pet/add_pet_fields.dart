@@ -5,21 +5,23 @@ class __PetName extends StatelessWidget {
   final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<PetFormBloc, PetFormState, NotEmpty>(
-      selector: (state) {
-        return state.petName;
-      },
-      builder: (context, state) {
-        return AppTextFormField(
-          headerText: AppText.petsName,
-          controller: controller..text = state.value,
-          isMandatory: true,
-          hintText: 'Enter Pet Name',
-          onChanged: (value) {
-            context.read<PetFormBloc>().add(PetFormEvent.petName(value));
-          },
+    return BlocListener<PetFormBloc, PetFormState>(
+      listenWhen: (previous, current) => previous.petName != current.petName,
+      listener: (context, state) {
+        controller.text = state.petName.value;
+        controller.selection = TextSelection.fromPosition(
+          TextPosition(offset: controller.text.length),
         );
       },
+      child: AppTextFormField(
+        headerText: AppText.petsName,
+        controller: controller,
+        isMandatory: true,
+        hintText: 'Enter Pet Name',
+        onChanged: (value) {
+          context.read<PetFormBloc>().add(PetFormEvent.petName(value));
+        },
+      ),
     );
   }
 }

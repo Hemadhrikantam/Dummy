@@ -12,6 +12,7 @@ import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dar
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
 import 'package:dummy/features/auth/presentation/pages/pet_type_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
+import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -78,62 +79,58 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(state.copyWith(loginValidation: false, loginStatus: Status.init));
   }
 
- Future<void> __login(_Login event, Emitter<AuthState> emit) async {
-  emit(state.copyWith(loginStatus: Status.loading));
+  Future<void> __login(_Login event, Emitter<AuthState> emit) async {
+    emit(state.copyWith(loginStatus: Status.loading));
 
-  final result = await __loginUserUsecases(
-    login: LoginModel(
-      phone: state.phone.value ?? '',
-      otp: state.otp.value ?? '',
-    ),
-  );
-
-  // Check if failure
-  if (result.isLeft()) {
-    final error = result.fold((l) => l, (r) => null);
-    AppAlert.showToast(message: error?.message ?? 'Something went wrong');
-    emit(state.copyWith(loginStatus: Status.failure));
-    return;
-  }
-
-  // Success
-  final success = result.fold((l) => null, (r) => r);
-  emit(state.copyWith(loginStatus: Status.init));
-
-  final userType = success?.user.userType ?? '';
-  final prefs = await SharedPreferences.getInstance();
-  await prefs.setString('userType', userType);
-
-  BottomModels.otpSuccessBottomSheet(currentContext);
-  await Future.delayed(const Duration(seconds: 2));
-  if (userType == Yourself.petParent.name && (success?.isPetCreated??false)) {
-    currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
-  } 
-  else if (userType == Yourself.petParent.name) {
-    currentContext.pushNamed(MeetYourPetScreen.routeName);
-  }
-  else if (userType == Yourself.lookingAdoption.name) {
-    currentContext.pushNamedAndRemoveUntil(
-      AdoptionDashboardPage.routeName,
-    );
-  } else if (userType == Yourself.ngo.name) {
-    currentContext.pushNamed(NgoRegistrationPage.routeName);
-  } else {
-    currentContext.pushNamed(DashboardPage.routeName);
-  }
-
-  if (!emit.isDone) {
-    emit(
-      state.copyWith(
-        loginStatus: Status.success,
-        user: success,
-        email: NotEmpty.pure(),
-        password: Password.pure(),
+    final result = await __loginUserUsecases(
+      login: LoginModel(
+        phone: state.phone.value ?? '',
+        otp: state.otp.value ?? '',
       ),
     );
-  }
-}
 
+    // Check if failure
+    if (result.isLeft()) {
+      final error = result.fold((l) => l, (r) => null);
+      AppAlert.showToast(message: error?.message ?? 'Something went wrong');
+      emit(state.copyWith(loginStatus: Status.failure));
+      return;
+    }
+
+    // Success
+    final success = result.fold((l) => null, (r) => r);
+    emit(state.copyWith(loginStatus: Status.init));
+
+    final userType = success?.user.userType ?? '';
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('userType', userType);
+
+    BottomModels.otpSuccessBottomSheet(currentContext);
+    await Future.delayed(const Duration(seconds: 2));
+    if (userType == Yourself.petParent.name &&
+        (success?.isPetCreated ?? false)) {
+      currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
+    } else if (userType == Yourself.petParent.name) {
+      currentContext.pushNamed(MeetYourPetScreen.routeName);
+    } else if (userType == Yourself.lookingAdoption.name) {
+      currentContext.pushNamedAndRemoveUntil(AdoptionDashboardPage.routeName);
+    } else if (userType == Yourself.ngo.name) {
+      currentContext.pushNamed(NgoRegistrationPage.routeName);
+    } else {
+      currentContext.pushNamed(DashboardPage.routeName);
+    }
+
+    if (!emit.isDone) {
+      emit(
+        state.copyWith(
+          loginStatus: Status.success,
+          user: success,
+          email: NotEmpty.pure(),
+          password: Password.pure(),
+        ),
+      );
+    }
+  }
 
   Future<void> __signup(_Signup event, Emitter<AuthState> emit) async {
     emit(state.copyWith(signupStatus: Status.loading));
@@ -146,7 +143,9 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         petImage: 1,
         breed: 0,
         personalityTag: [],
-        gender: '', latitude: 0, longitude: 0,
+        gender: '',
+        latitude: 0,
+        longitude: 0,
       ),
     );
     result.fold(
@@ -185,13 +184,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         final prefs = await SharedPreferences.getInstance();
         final storedUserType = prefs.getString('userType');
         if (storedUserType == Yourself.petParent.name) {
-          currentContext.pushNamed(DashboardPage.routeName);
+          currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
         } else if (storedUserType == Yourself.lookingAdoption.name) {
           currentContext.pushNamedAndRemoveUntil(
             AdoptionDashboardPage.routeName,
           );
         } else if (storedUserType == Yourself.ngo.name) {
-          currentContext.pushNamed(NgoRegistrationPage.routeName);
+          currentContext.pushAndRemoveUntil(NgoHomePage.route());
         } else {
           currentContext.pushNamed(StartYourPetsJourney.routeName);
         }

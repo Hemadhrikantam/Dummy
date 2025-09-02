@@ -163,6 +163,7 @@ class _PetInfoState extends State<PetInfo> {
                 Styles.gap20,
                 CustomDropdownSearch(
                   title: AppText.gender,
+                  selectedItem: state.gender.value,
                   isMandatory: true,
                   items: [
                     DropItemModel(id: 1, value: 'Male'),
