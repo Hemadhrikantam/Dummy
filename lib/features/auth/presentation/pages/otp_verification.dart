@@ -3,6 +3,7 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
@@ -13,6 +14,8 @@ import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:async';
+
+import '../../../../core/utils/bottom_models.dart';
 
 class OtpVerification extends StatefulWidget {
   const OtpVerification({super.key});
@@ -65,24 +68,34 @@ class _OtpVerification extends State<OtpVerification> {
           _OTPInput(),
           Styles.gap40,
 
-          BlocBuilder<AuthBloc, AuthState>(
-            builder: (context, state) {
-              return state.loginStatus.loading
-                  ? LoadingWidget.circularProgressIndicatorCenter
-                  : AppButton(
-                    name: Text(
-                      AppText.continueBtn,
-                      style: context.textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 14,
-                        color: AppColors.buttonTextColor,
-                      ),
-                    ),
-                    onPressed: () {
-                      context.read<AuthBloc>().add(AuthEvent.login());
-                    },
-                  );
+          BlocListener<AuthBloc, AuthState>(
+            listener: (context, state) async {
+              if (state.loginStatus.success) {
+                BottomModels.otpSuccessBottomSheet(context);
+                await Future.delayed(const Duration(milliseconds: 1800));
+                context.pop();
+              }
             },
+            child: BlocBuilder<AuthBloc, AuthState>(
+              builder: (context, state) {
+                return state.loginStatus.loading
+                    ? LoadingWidget.circularProgressIndicatorCenter
+                    : AppButton(
+                      name: Text(
+                        AppText.continueBtn,
+                        style: context.textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 14,
+                          color: AppColors.buttonTextColor,
+                        ),
+                      ),
+                      onPressed: () {
+                        context.read<AuthBloc>().add(AuthEvent.login());
+                        FocusManager.instance.primaryFocus?.unfocus();
+                      },
+                    );
+              },
+            ),
           ),
           Styles.gap16,
           // Row(
@@ -250,7 +263,7 @@ class _ResendTimerTextState extends State<ResendTimerText> {
               style: context.textTheme.bodyMedium?.copyWith(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
-                color:  AppColors.stepperColor,
+                color: AppColors.stepperColor,
               ),
             ),
             Text(
@@ -267,7 +280,7 @@ class _ResendTimerTextState extends State<ResendTimerText> {
               style: context.textTheme.bodyMedium?.copyWith(
                 fontWeight: FontWeight.bold,
                 fontSize: 18,
-                color: AppColors.stepperColor
+                color: AppColors.stepperColor,
               ),
             ),
           ),

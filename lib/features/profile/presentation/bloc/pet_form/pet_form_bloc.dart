@@ -60,31 +60,27 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
 
   Future<void> __initialization(_Init event, Emitter<PetFormState> emit) async {
     emit(state.copyWith(initStatus: Status.loading));
+
     final catBreeds = await __catBreeds();
     final dogBreeds = await __dogBreeds();
     final personalityTags = await __personalityTags();
 
-    emit(
-      state.copyWith(
-        initStatus: Status.success,
-        catbreeds: catBreeds,
-        dogbreeds: dogBreeds,
-        personalityTags: personalityTags,
-      ),
-    );
     if (event.id != null) {
       final success = currentContext
           .read<DashboardBloc>()
           .state
           .dashboardPetDetails
           .firstWhere((pet) => pet.id == event.id);
+
       final breeds =
-          success.petType.toLowerCase() == "cat"
-              ? state.catbreeds
-              : state.dogbreeds;
+          success.petType.toLowerCase() == "cat" ? catBreeds : dogBreeds;
+
       emit(
         state.copyWith(
-          petName: NotEmpty.dirty(value: success.petName),
+          initStatus: Status.success,
+          catbreeds: catBreeds,
+          dogbreeds: dogBreeds,
+          personalityTags: personalityTags,
           petType:
               success.petType.toLowerCase() == "cat"
                   ? PetType.Cat
@@ -109,9 +105,20 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
             ),
           ),
           weight: NotEmpty.dirty(value: success.petWeight.toString()),
+          petName: NotEmpty.dirty(value: success.petName),
+        ),
+      );
+    } else {
+      emit(
+        state.copyWith(
+          initStatus: Status.success,
+          catbreeds: catBreeds,
+          dogbreeds: dogBreeds,
+          personalityTags: personalityTags,
         ),
       );
     }
+
     emit(state.copyWith(validation: state.validationX));
   }
 

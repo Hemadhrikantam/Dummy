@@ -29,7 +29,7 @@ class PetInformationWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: __InfoValue(
-                    image: ImageResources.weight,
+                    image: ImageResources.pet,
                     title: AppText.name,
                     value: dashboardPetDetails?.petName ?? '',
                   ),

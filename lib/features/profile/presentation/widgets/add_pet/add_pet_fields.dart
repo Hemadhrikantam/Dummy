@@ -5,23 +5,21 @@ class __PetName extends StatelessWidget {
   final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return BlocListener<PetFormBloc, PetFormState>(
-      listenWhen: (previous, current) => previous.petName != current.petName,
-      listener: (context, state) {
-        controller.text = state.petName.value;
-        controller.selection = TextSelection.fromPosition(
-          TextPosition(offset: controller.text.length),
+    return BlocSelector<PetFormBloc, PetFormState, NotEmpty>(
+      selector: (state) {
+        return state.petName;
+      },
+      builder: (context, state) {
+        return AppTextFormField(
+          headerText: AppText.petsName,
+          initialValue: state.value,
+          isMandatory: true,
+          hintText: 'Enter Pet Name',
+          onChanged: (value) {
+            context.read<PetFormBloc>().add(PetFormEvent.petName(value));
+          },
         );
       },
-      child: AppTextFormField(
-        headerText: AppText.petsName,
-        controller: controller,
-        isMandatory: true,
-        hintText: 'Enter Pet Name',
-        onChanged: (value) {
-          context.read<PetFormBloc>().add(PetFormEvent.petName(value));
-        },
-      ),
     );
   }
 }
@@ -173,28 +171,34 @@ class __Weight extends StatelessWidget {
               context: context,
               backgroundColor: Colors.white,
               isScrollControlled: true,
+              enableDrag: true,
               shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
               ),
-              builder: (_) {
-                return Padding(
-                  padding: EdgeInsets.only(
-                    bottom: MediaQuery.of(context).viewInsets.bottom,
-                  ),
-                  child: SizedBox(
-                    height: 300,
-                    child: WeightPickerBody(
-                      weight: int.parse(
-                        state.weight.value.isEmpty ? "0" : state.weight.value,
+              builder: (context) {
+                return SizedBox(
+                  height:
+                      MediaQuery.of(context).viewInsets.bottom > 0 ? 600 : 300,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).viewInsets.bottom,
+                    ),
+                    child: SingleChildScrollView(
+                      child: WeightPickerBody(
+                        weight: int.parse(
+                          state.weight.value.isEmpty
+                              ? "0"
+                              : state.weight.value.split('.').first,
+                        ),
+                        onSave: (value, unit) {
+                          context.read<PetFormBloc>().add(
+                            PetFormEvent.weight(value.toString()),
+                          );
+                          context.read<PetFormBloc>().add(
+                            PetFormEvent.weightUnit(unit),
+                          );
+                        },
                       ),
-                      onSave: (value, unit) {
-                        context.read<PetFormBloc>().add(
-                          PetFormEvent.weight(value.toString()),
-                        );
-                        context.read<PetFormBloc>().add(
-                          PetFormEvent.weightUnit(unit),
-                        );
-                      },
                     ),
                   ),
                 );

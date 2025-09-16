@@ -58,8 +58,7 @@ class _PetInfoState extends State<PetInfo> {
           padding: EdgeInsets.only(
             bottom: MediaQuery.of(context).viewInsets.bottom,
           ),
-          child: SizedBox(
-            height: 300,
+          child: SingleChildScrollView(
             child: WeightPickerBody(
               weight: weight,
               onSave: (value, unit) {
@@ -340,7 +339,8 @@ class _WeightPickerBodyState extends State<WeightPickerBody> {
           ),
         ),
         Styles.gap10,
-        Expanded(
+        SizedBox(
+          height: 120,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -382,6 +382,14 @@ class _WeightPickerBodyState extends State<WeightPickerBody> {
                     isCollapsed: true,
                     contentPadding: EdgeInsets.zero,
                   ),
+                  onChanged: (value) {
+                    final parsed = int.tryParse(value);
+                    if (parsed != null && parsed >= 0) {
+                      _updateWeight(parsed);
+                    } else {
+                      _weightController.text = weight.toString();
+                    }
+                  },
                   onSubmitted: (value) {
                     final parsed = int.tryParse(value);
                     if (parsed != null && parsed >= 0) {
@@ -433,6 +441,7 @@ class _WeightPickerBodyState extends State<WeightPickerBody> {
               Expanded(
                 child: AppButton(
                   onPressed: () {
+                    print(weight);
                     widget.onSave(weight, selectedUnit);
 
                     Navigator.pop(context);

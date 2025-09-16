@@ -10,17 +10,31 @@ import 'package:dummy/features/health/presentation/widgets/empty_list_page.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../dashboard/domain/entities/dashboard_details.dart';
+
 class OverviewTab extends StatefulWidget {
-  const OverviewTab({super.key, required this.overview});
-  final Overview ?overview;
+  const OverviewTab({super.key, required this.overview, this.selectedPet});
+  final Overview? overview;
+  final DashboardPetDetails? selectedPet;
+
   @override
   State<OverviewTab> createState() => _OverviewTabState();
 }
 
 class _OverviewTabState extends State<OverviewTab> {
   @override
+  void initState() {
+    Future.delayed(Duration.zero, () {
+      context.read<OverviewBloc>().add(
+        OverviewEvent.overview(widget.selectedPet?.id ?? 0),
+      );
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    if (widget.overview==null) {
+    if (widget.overview == null) {
       return Padding(
         padding: Styles.edgeInsetsOnlyH20,
         child: EmptyListPage(
@@ -43,35 +57,35 @@ class _OverviewTabState extends State<OverviewTab> {
                       OverviewCard(
                         iconPath: ImageResources.mealsicon,
                         title: AppText.meals,
-                        subtitle: widget.overview?.meals ?? '',
+                        subtitle: state.overview?.meals ?? '',
                         onTap: () {},
                       ),
                       Styles.gap10,
                       OverviewCard(
                         iconPath: ImageResources.walksicon,
                         title: AppText.walks,
-                        subtitle: widget.overview?.walks ?? '',
+                        subtitle: state.overview?.walks ?? '',
                         onTap: () {},
                       ),
                       Styles.gap10,
                       OverviewCard(
                         iconPath: ImageResources.groomingicon,
                         title: AppText.grooming,
-                        subtitle: widget.overview?.grooming ?? '',
+                        subtitle: state.overview?.grooming ?? '',
                         onTap: () {},
                       ),
                       Styles.gap10,
                       OverviewCard(
                         iconPath: ImageResources.dewormingicon,
                         title: AppText.deworming,
-                        subtitle: widget.overview?.deworming ?? '',
+                        subtitle: state.overview?.deworming ?? '',
                         onTap: () {},
                       ),
                       Styles.gap10,
                       OverviewCard(
                         iconPath: ImageResources.expensesicon,
                         title: AppText.expenses,
-                        subtitle: widget.overview?.expenses ?? '',
+                        subtitle: state.overview?.expenses ?? '',
                         onTap: () {},
                       ),
                     ],

@@ -9,17 +9,17 @@
 //   }
 // }
 
-
 class LoginModel {
   final String phone;
   final String otp;
 
   LoginModel({required this.phone, required this.otp});
 
-  Map<String,dynamic>toMap(){
-    return {
-      'phone': phone,
-      'otp':otp,
-    };
+  factory LoginModel.fromMap(Map<String, dynamic> map) {
+    return LoginModel(phone: map['phone'] ?? '', otp: map['otp'] ?? '');
+  }
+
+  Map<String, dynamic> toMap() {
+    return {'phone': phone, 'otp': otp};
   }
 }

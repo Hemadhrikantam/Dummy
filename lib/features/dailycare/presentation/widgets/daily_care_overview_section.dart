@@ -49,7 +49,6 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
     }
     selectedTab = widget.initialTab;
     _controller = PageController(initialPage: tabs.indexOf(widget.initialTab));
- 
   }
 
   void _scrollToSelectedTab(String tab) {
@@ -83,7 +82,10 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
     final tabPages = [
       BlocBuilder<OverviewBloc, OverviewState>(
         builder: (context, state) {
-          return OverviewTab(overview: state.overview,);
+          return OverviewTab(
+            overview: state.overview,
+            selectedPet: widget.selectedPet,
+          );
         },
       ),
       MealsTab(selectedPet: widget.selectedPet),
@@ -96,9 +98,7 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         GestureDetector(
-          onTap: (){
-            
-          },
+          onTap: () {},
           child: OverviewDailyHeaderWidget(
             tabs: tabs,
             selectedTab: selectedTab,

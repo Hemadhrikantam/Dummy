@@ -69,13 +69,14 @@ class AddAdoptionSuccessBottomSheetContent extends StatelessWidget {
                         builder: (context, state) {
                           return AppButton(
                             onPressed: () {
-                              LogUtility.info('status ${state.submitStatus.success}');
+                              LogUtility.info(
+                                'status ${state.submitStatus.success}',
+                              );
                               if (state.submitStatus.success) {
                                 context.read<AdoptionBloc>().add(
                                   AdoptionEvent.adoptions(),
                                 );
                               }
-                              context.pop();
                               context.pop();
                             },
                             showShadow: false,

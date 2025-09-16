@@ -75,13 +75,13 @@ class AuthDatasourceImpl extends AuthDatasource {
   }
 
   @override
-  AppTypeResponse<CurrentUserModel> currentUser() async {
+  AppTypeResponse<LoginModel> currentUser() async {
     try {
       final userInfo = await storage.read(StorageKey.userInfo);
       LogUtility.info('userInfo: $userInfo');
       if (userInfo != null) {
         final data = json.decode(userInfo as String);
-        return Right(CurrentUserModel.fromMap(data as JsonMap));
+        return Right(LoginModel.fromMap(data as JsonMap));
       }
     } catch (e) {
       return const Left(ErrorMessage(message: 'Session EXP'));
@@ -199,7 +199,8 @@ class AuthDatasourceImpl extends AuthDatasource {
             return Right(
               CurrentUserModel(
                 message: data['message'] as String? ?? 'Otp sent successfully',
-                user: UserModel.fromMap(data['user']), isPetCreated: data['is_pet_created']??false,
+                user: UserModel.fromMap(data['user']),
+                isPetCreated: data['is_pet_created'] ?? false,
               ),
             );
           } else {

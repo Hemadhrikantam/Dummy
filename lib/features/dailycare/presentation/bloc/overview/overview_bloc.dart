@@ -16,19 +16,18 @@ class OverviewBloc extends Bloc<OverviewEvent, OverviewState> {
   OverviewBloc({required OverviewUsecases overviewUsecases})
     : _overviewUsecases = overviewUsecases,
       super((OverviewState())) {
-      on<_Overview>(__overview);
+    on<_Overview>(__overview);
   }
   final OverviewUsecases _overviewUsecases;
 
-  FutureOr<void> __overview(event, Emitter<OverviewState> emit) async{
+  FutureOr<void> __overview(event, Emitter<OverviewState> emit) async {
     emit(state.copyWith(initStatus: Status.loading));
     LogUtility.info('petid ${event.petId}');
     final result = await _overviewUsecases(event.petId);
     result.fold(
       (failure) => emit(state.copyWith(initStatus: Status.error)),
-      (success) => emit(state.copyWith(initStatus: Status.success,overview: success)),
+      (success) =>
+          emit(state.copyWith(initStatus: Status.success, overview: success)),
     );
-
-
   }
 }

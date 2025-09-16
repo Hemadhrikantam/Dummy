@@ -17,7 +17,7 @@ class AuthRepositoryImpl extends AuthRepository {
   }
 
   @override
-  AppTypeResponse<CurrentUser> currentUser() {
+  AppTypeResponse<LoginModel> currentUser() {
     return _authDatasource.currentUser();
   }
 

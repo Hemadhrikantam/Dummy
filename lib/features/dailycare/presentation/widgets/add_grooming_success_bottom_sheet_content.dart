@@ -5,6 +5,7 @@ import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/features/health/presentation/widgets/success_animation_wrap.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/image_resources.dart';
@@ -12,6 +13,7 @@ import '../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/app_assets_image.dart';
 import '../../../../core/widgets/app_graber.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
+import '../../../dashboard/presentation/bloc/dashboard_bloc.dart';
 
 class AddGroomingSuccessBottomSheetContent extends StatelessWidget {
   const AddGroomingSuccessBottomSheetContent({super.key, this.onTap});
@@ -45,24 +47,28 @@ class AddGroomingSuccessBottomSheetContent extends StatelessWidget {
                 ),
               ),
               Styles.gap10,
-              RichText(
-                textAlign: TextAlign.center,
-                text: TextSpan(
-                  text: AppText.dummyAlwaysLookedHisBest,
-                  style: context.textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: "[Pet's Name] shining!",
+              BlocBuilder<DashboardBloc, DashboardState>(
+                builder: (context, state) {
+                  return RichText(
+                    textAlign: TextAlign.center,
+                    text: TextSpan(
+                      text: AppText.dummyAlwaysLookedHisBest,
                       style: context.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
                       ),
+                      children: [
+                        TextSpan(
+                          text: "[Pet's Name] shining!",
+                          style: context.textTheme.titleSmall?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  );
+                },
               ),
               Styles.gap15,
               Row(

@@ -14,7 +14,7 @@ abstract class AuthDatasource {
   });
 
   AppTypeResponse<CurrentUserModel> login({required LoginModel login});
-  AppTypeResponse<CurrentUserModel> currentUser();
+  AppTypeResponse<LoginModel> currentUser();
   AppSuccessResponse registerAccount({
     required RegisterAccountPayload registerAccount,
   });

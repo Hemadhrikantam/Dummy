@@ -4,7 +4,6 @@ import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/models/formz/mobile.dart';
 import 'package:dummy/core/models/formz/otp.dart';
 import 'package:dummy/core/payload/register_account_payload.dart';
-import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/features/auth/domain/usecases/register_account_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
@@ -12,7 +11,6 @@ import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dar
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
 import 'package:dummy/features/auth/presentation/pages/pet_type_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
-import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -105,7 +103,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString('userType', userType);
 
-    BottomModels.otpSuccessBottomSheet(currentContext);
+    emit(state.copyWith(loginStatus: Status.success));
     await Future.delayed(const Duration(seconds: 2));
     if (userType == Yourself.petParent.name &&
         (success?.isPetCreated ?? false)) {
@@ -117,13 +115,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     } else if (userType == Yourself.ngo.name) {
       currentContext.pushNamed(NgoRegistrationPage.routeName);
     } else {
-      currentContext.pushNamed(DashboardPage.routeName);
+      currentContext.pushNamed(StartYourPetsJourney.routeName);
     }
 
     if (!emit.isDone) {
       emit(
         state.copyWith(
-          loginStatus: Status.success,
+          loginStatus: Status.init,
           user: success,
           email: NotEmpty.pure(),
           password: Password.pure(),
@@ -180,20 +178,33 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         currentContext.pushNamedAndRemoveUntil(StartYourPetsJourney.routeName);
       },
       (success) async {
-        emit(state.copyWith(user: success));
-        final prefs = await SharedPreferences.getInstance();
-        final storedUserType = prefs.getString('userType');
-        if (storedUserType == Yourself.petParent.name) {
-          currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
-        } else if (storedUserType == Yourself.lookingAdoption.name) {
-          currentContext.pushNamedAndRemoveUntil(
-            AdoptionDashboardPage.routeName,
-          );
-        } else if (storedUserType == Yourself.ngo.name) {
-          currentContext.pushAndRemoveUntil(NgoHomePage.route());
-        } else {
-          currentContext.pushNamed(StartYourPetsJourney.routeName);
-        }
+        emit(
+          state.copyWith(
+            phone: MobileNo.dirty(value: success?.phone.toString() ?? ''),
+            otp: OTP.dirty(value: success?.otp.toString() ?? ''),
+          ),
+        );
+        add(_Login());
+        // final prefs = await SharedPreferences.getInstance();
+        // final storedUserType = prefs.getString('userType');
+        // print('check user - $success');
+        // print(
+        //   '-------------------------$storedUserType-----------------------------',
+        // );
+        // if (storedUserType == Yourself.petParent.name &&
+        //     (success?.isPetCreated ?? false)) {
+        //   currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
+        // } else if (storedUserType == Yourself.petParent.name) {
+        //   currentContext.pushNamed(MeetYourPetScreen.routeName);
+        // } else if (storedUserType == Yourself.lookingAdoption.name) {
+        //   currentContext.pushNamedAndRemoveUntil(
+        //     AdoptionDashboardPage.routeName,
+        //   );
+        // } else if (storedUserType == Yourself.ngo.name) {
+        //   currentContext.pushAndRemoveUntil(NgoHomePage.route());
+        // } else {
+        //   currentContext.pushNamed(StartYourPetsJourney.routeName);
+        // }
       },
     );
   }
