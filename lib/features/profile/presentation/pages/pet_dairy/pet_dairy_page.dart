@@ -105,8 +105,10 @@ class _PetDairyPageState extends State<PetDairyPage>
             onPressed: () {
               if (_tabController.index == 1) {
                 BottomModels.addPetMediaBottomSheet(context);
-              } else {
+              } else if (_tabController.index == 2) {
                 BottomModels.addPetDocumentsBottomSheet(context);
+              } else {
+                BottomModels.addTimelineBottomSheet(context);
               }
             },
           ),

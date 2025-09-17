@@ -121,9 +121,29 @@ class _CompanyState extends State<__Company> {
   }
 }
 
-class __Dosage extends StatelessWidget {
-  __Dosage();
-  final controller = TextEditingController();
+class __Dosage extends StatefulWidget {
+  const __Dosage();
+
+  @override
+  State<__Dosage> createState() => __DosageState();
+}
+
+class __DosageState extends State<__Dosage> {
+  late TextEditingController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    final initialValue = context.read<MedicationFormBloc>().state.company.value;
+    controller = TextEditingController(text: initialValue);
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -401,8 +421,11 @@ class ___MorningState extends State<__Morning> {
                         selectedItem: state.morningTimeHour.value,
                         items: List.generate(12, (i) {
                           return DropItemModel(
-                            id: i + 1,
-                            value: '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
+                            id: i == 11 ? 00 : i + 1,
+                            value:
+                                i == 11
+                                    ? '00'
+                                    : '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
                           );
                         }),
                         onChanged: (value) {
@@ -423,8 +446,11 @@ class ___MorningState extends State<__Morning> {
                         selectedItem: state.morningTimeMin.value,
                         items: List.generate(60, (i) {
                           return DropItemModel(
-                            id: i + 1,
-                            value: '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
+                            id: i == 59 ? 00 : i + 1,
+                            value:
+                                i == 59
+                                    ? '00'
+                                    : '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
                           );
                         }),
                         onChanged: (value) {
@@ -495,8 +521,11 @@ class ___AfternoonState extends State<__Afternoon> {
                         selectedItem: state.afternoonTimeHour.value,
                         items: List.generate(12, (i) {
                           return DropItemModel(
-                            id: i + 1,
-                            value: '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
+                            id: i == 11 ? 00 : i + 1,
+                            value:
+                                i == 11
+                                    ? "00"
+                                    : '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
                           );
                         }),
                         onChanged: (value) {
@@ -517,8 +546,11 @@ class ___AfternoonState extends State<__Afternoon> {
                         selectedItem: state.afternoonTimeMin.value,
                         items: List.generate(60, (i) {
                           return DropItemModel(
-                            id: i + 1,
-                            value: '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
+                            id: i == 59 ? 00 : i + 1,
+                            value:
+                                i == 59
+                                    ? '00'
+                                    : '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
                           );
                         }),
                         onChanged: (value) {
@@ -589,8 +621,11 @@ class ___NightState extends State<__Night> {
                         selectedItem: state.nightTimeHour.value,
                         items: List.generate(12, (i) {
                           return DropItemModel(
-                            id: i + 1,
-                            value: '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
+                            id: i == 11 ? 00 : i + 1,
+                            value:
+                                i == 11
+                                    ? '00'
+                                    : '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
                           );
                         }),
                         onChanged: (value) {
@@ -611,8 +646,11 @@ class ___NightState extends State<__Night> {
                         selectedItem: state.nightTimeMin.value,
                         items: List.generate(60, (i) {
                           return DropItemModel(
-                            id: i + 1,
-                            value: '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
+                            id: i == 59 ? 00 : i + 1,
+                            value:
+                                i == 59
+                                    ? '00'
+                                    : '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
                           );
                         }),
                         onChanged: (value) {

@@ -2569,6 +2569,7 @@ mixin _$PetFormState {
   NotEmpty get dob => throw _privateConstructorUsedError;
   DropdownValue get gender => throw _privateConstructorUsedError;
   NotEmpty get petImage => throw _privateConstructorUsedError;
+  int get petImageId => throw _privateConstructorUsedError;
   DropdownValue get breed => throw _privateConstructorUsedError;
   List<DropdownValue> get selectedPersonalityTags =>
       throw _privateConstructorUsedError;
@@ -2601,6 +2602,7 @@ abstract class $PetFormStateCopyWith<$Res> {
     NotEmpty dob,
     DropdownValue gender,
     NotEmpty petImage,
+    int petImageId,
     DropdownValue breed,
     List<DropdownValue> selectedPersonalityTags,
     NotEmpty weightUnit,
@@ -2634,6 +2636,7 @@ class _$PetFormStateCopyWithImpl<$Res, $Val extends PetFormState>
     Object? dob = null,
     Object? gender = null,
     Object? petImage = null,
+    Object? petImageId = null,
     Object? breed = null,
     Object? selectedPersonalityTags = null,
     Object? weightUnit = null,
@@ -2684,6 +2687,11 @@ class _$PetFormStateCopyWithImpl<$Res, $Val extends PetFormState>
                     ? _value.petImage
                     : petImage // ignore: cast_nullable_to_non_nullable
                         as NotEmpty,
+            petImageId:
+                null == petImageId
+                    ? _value.petImageId
+                    : petImageId // ignore: cast_nullable_to_non_nullable
+                        as int,
             breed:
                 null == breed
                     ? _value.breed
@@ -2743,6 +2751,7 @@ abstract class _$$PetFormStateImplCopyWith<$Res>
     NotEmpty dob,
     DropdownValue gender,
     NotEmpty petImage,
+    int petImageId,
     DropdownValue breed,
     List<DropdownValue> selectedPersonalityTags,
     NotEmpty weightUnit,
@@ -2775,6 +2784,7 @@ class __$$PetFormStateImplCopyWithImpl<$Res>
     Object? dob = null,
     Object? gender = null,
     Object? petImage = null,
+    Object? petImageId = null,
     Object? breed = null,
     Object? selectedPersonalityTags = null,
     Object? weightUnit = null,
@@ -2825,6 +2835,11 @@ class __$$PetFormStateImplCopyWithImpl<$Res>
                 ? _value.petImage
                 : petImage // ignore: cast_nullable_to_non_nullable
                     as NotEmpty,
+        petImageId:
+            null == petImageId
+                ? _value.petImageId
+                : petImageId // ignore: cast_nullable_to_non_nullable
+                    as int,
         breed:
             null == breed
                 ? _value.breed
@@ -2877,6 +2892,7 @@ class _$PetFormStateImpl implements _PetFormState {
     this.dob = const NotEmpty.pure(),
     this.gender = const DropdownValue.pure(),
     this.petImage = const NotEmpty.pure(),
+    this.petImageId = 0,
     this.breed = const DropdownValue.pure(),
     final List<DropdownValue> selectedPersonalityTags = const [],
     this.weightUnit = const NotEmpty.pure(),
@@ -2913,6 +2929,9 @@ class _$PetFormStateImpl implements _PetFormState {
   @override
   @JsonKey()
   final NotEmpty petImage;
+  @override
+  @JsonKey()
+  final int petImageId;
   @override
   @JsonKey()
   final DropdownValue breed;
@@ -2963,7 +2982,7 @@ class _$PetFormStateImpl implements _PetFormState {
 
   @override
   String toString() {
-    return 'PetFormState(initStatus: $initStatus, submitStatus: $submitStatus, validation: $validation, petName: $petName, petType: $petType, dob: $dob, gender: $gender, petImage: $petImage, breed: $breed, selectedPersonalityTags: $selectedPersonalityTags, weightUnit: $weightUnit, weight: $weight, catbreeds: $catbreeds, dogbreeds: $dogbreeds, personalityTags: $personalityTags)';
+    return 'PetFormState(initStatus: $initStatus, submitStatus: $submitStatus, validation: $validation, petName: $petName, petType: $petType, dob: $dob, gender: $gender, petImage: $petImage, petImageId: $petImageId, breed: $breed, selectedPersonalityTags: $selectedPersonalityTags, weightUnit: $weightUnit, weight: $weight, catbreeds: $catbreeds, dogbreeds: $dogbreeds, personalityTags: $personalityTags)';
   }
 
   @override
@@ -2983,6 +3002,8 @@ class _$PetFormStateImpl implements _PetFormState {
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.petImage, petImage) ||
                 other.petImage == petImage) &&
+            (identical(other.petImageId, petImageId) ||
+                other.petImageId == petImageId) &&
             (identical(other.breed, breed) || other.breed == breed) &&
             const DeepCollectionEquality().equals(
               other._selectedPersonalityTags,
@@ -3016,6 +3037,7 @@ class _$PetFormStateImpl implements _PetFormState {
     dob,
     gender,
     petImage,
+    petImageId,
     breed,
     const DeepCollectionEquality().hash(_selectedPersonalityTags),
     weightUnit,
@@ -3044,6 +3066,7 @@ abstract class _PetFormState implements PetFormState {
     final NotEmpty dob,
     final DropdownValue gender,
     final NotEmpty petImage,
+    final int petImageId,
     final DropdownValue breed,
     final List<DropdownValue> selectedPersonalityTags,
     final NotEmpty weightUnit,
@@ -3069,6 +3092,8 @@ abstract class _PetFormState implements PetFormState {
   DropdownValue get gender;
   @override
   NotEmpty get petImage;
+  @override
+  int get petImageId;
   @override
   DropdownValue get breed;
   @override

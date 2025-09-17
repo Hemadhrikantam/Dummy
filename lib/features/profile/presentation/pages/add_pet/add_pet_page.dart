@@ -3,7 +3,6 @@ import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/toast_message.dart';
-import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/features/profile/presentation/bloc/pet_form/pet_form_bloc.dart';
@@ -61,33 +60,29 @@ class _AddPetPage extends State<AddPetPage> {
               }
             },
             builder: (context, state) {
-              return state.initStatus.loading
-                  ? Material(
-                    child: LoadingWidget.circularProgressIndicatorCenter,
-                  )
-                  : BottomActionButton(
-                    child: AppButton(
-                      onPressed:
-                          state.validation
-                              ? () {
-                                context.read<PetFormBloc>().add(
-                                  PetFormEvent.submit(widget.id),
-                                );
-                              }
-                              : () => AppAlert.showToast(
-                                message: 'Provide Required Fields',
-                              ),
+              return BottomActionButton(
+                child: AppButton(
+                  onPressed:
+                      state.validation
+                          ? () {
+                            context.read<PetFormBloc>().add(
+                              PetFormEvent.submit(widget.id),
+                            );
+                          }
+                          : () => AppAlert.showToast(
+                            message: 'Provide Required Fields',
+                          ),
 
-                      name: Text(
-                        AppText.save,
-                        style: context.textTheme.titleMedium?.copyWith(
-                          color: AppColors.buttonTextColor,
-                          fontWeight: FontWeight.w700,
-                          fontSize: 14,
-                        ),
-                      ),
+                  name: Text(
+                    AppText.save,
+                    style: context.textTheme.titleMedium?.copyWith(
+                      color: AppColors.buttonTextColor,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14,
                     ),
-                  );
+                  ),
+                ),
+              );
             },
           ),
           child: AddPetForm(petId: widget.id),

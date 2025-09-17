@@ -71,6 +71,7 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
           .state
           .dashboardPetDetails
           .firstWhere((pet) => pet.id == event.id);
+      print(success);
 
       final breeds =
           success.petType.toLowerCase() == "cat" ? catBreeds : dogBreeds;
@@ -90,6 +91,7 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
             breeds.firstWhere((b) => b.value == success.breed.breed),
           ),
           petImage: NotEmpty.dirty(value: success.petImage.petImage),
+          petImageId: success.petImage.id,
           selectedPersonalityTags:
               success.personalityTag
                   .map(
@@ -125,7 +127,9 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
   Future<void> __submit(_Submit event, Emitter<PetFormState> emit) async {
     emit(state.copyWith(submitStatus: Status.loading));
     var imageId = 0;
-    if (state.petImage.isValid) {
+    if (state.petImageId > 0) {
+      imageId = state.petImageId;
+    } else if (state.petImage.isValid) {
       final result = await __petImageUsecases(path: state.petImage.value);
       result.fold(
         (error) {

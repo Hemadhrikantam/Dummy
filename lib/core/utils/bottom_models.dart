@@ -44,6 +44,7 @@ import '../../features/profile/presentation/widgets/manage_family_members/family
 import '../../features/profile/presentation/widgets/manage_family_members/manage_family_members_bottom_sheet_content.dart';
 import '../../features/profile/presentation/widgets/pet_dairy/add_pet_documents.dart';
 import '../../features/profile/presentation/widgets/pet_dairy/add_pet_media.dart';
+import '../../features/profile/presentation/widgets/pet_dairy/add_timeline.dart';
 import '../widgets/image_picker_container.dart';
 
 class BottomModels {
@@ -448,6 +449,21 @@ class BottomModels {
   }
 
   //pet dairy
+  static Future<T?> addTimelineBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return BlocProvider(
+          create: (context) => InjectionBloc.documentFormBloc,
+          child: AddTimeline(),
+        );
+      },
+    );
+  }
+
   static Future<T?> addPetDocumentsBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,

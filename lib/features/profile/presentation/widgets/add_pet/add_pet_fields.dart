@@ -10,6 +10,7 @@ class __PetName extends StatelessWidget {
         return state.petName;
       },
       builder: (context, state) {
+        print(state.value);
         return AppTextFormField(
           headerText: AppText.petsName,
           initialValue: state.value,
@@ -320,35 +321,50 @@ class __UploadImage extends StatefulWidget {
 
 class ___UploadImage extends State<__UploadImage> {
   XFile? _image;
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () async {
-        final images = await customFilePicker(context);
-        if (images.isNotEmpty) {
-          context.read<PetFormBloc>().add(PetFormEvent.petImage(images.first));
-          setState(() {
-            _image = XFile(images.first);
-          });
-        }
+    return BlocBuilder<PetFormBloc, PetFormState>(
+      builder: (context, state) {
+        return GestureDetector(
+          onTap: () async {
+            final images = await customFilePicker(context);
+            if (images.isNotEmpty) {
+              context.read<PetFormBloc>().add(
+                PetFormEvent.petImage(images.first),
+              );
+              setState(() {
+                _image = XFile(images.first);
+              });
+            }
+          },
+          child: CircleAvatar(
+            radius: 100,
+            backgroundColor: AppColors.buttonBackground,
+            backgroundImage:
+                _image != null
+                    ? FileImage(File(_image!.path))
+                    : state.petImageId > 0
+                    ? NetworkImage(state.petImage.value)
+                    : null,
+            child:
+                _image == null && state.petImageId == 0
+                    ? Text(
+                      AppText.upload,
+                      style: context.textTheme.titleMedium?.copyWith(
+                        color: AppColors.buttonTextColor,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
+                      ),
+                    )
+                    : null,
+          ),
+        );
       },
-      child: CircleAvatar(
-        radius: 100,
-        backgroundColor: AppColors.buttonBackground,
-        backgroundImage: _image != null ? FileImage(File(_image!.path)) : null,
-        child:
-            _image == null
-                ? Text(
-                  AppText.upload,
-                  style: context.textTheme.titleMedium?.copyWith(
-                    color: AppColors.buttonTextColor,
-                    fontWeight: FontWeight.w700,
-                    fontSize: 14,
-                  ),
-                )
-                : null,
-      ),
     );
   }
 }

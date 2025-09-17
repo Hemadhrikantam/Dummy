@@ -12,6 +12,7 @@ abstract class PetFormState with _$PetFormState {
     @Default(NotEmpty.pure()) final NotEmpty dob,
     @Default(DropdownValue.pure()) final DropdownValue gender,
     @Default(NotEmpty.pure()) final NotEmpty petImage,
+    @Default(0) final int petImageId,
     @Default(DropdownValue.pure()) final DropdownValue breed,
     @Default([]) final List<DropdownValue> selectedPersonalityTags,
     @Default(NotEmpty.pure()) final NotEmpty weightUnit,
