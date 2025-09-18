@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import '../../../../../core/constant/app_colors.dart';
 import '../../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/buttons/app_icon_button.dart';
-import '../../../../../core/widgets/buttons/app_text_button.dart';
 
 class MedicationDeleteSuccessBottomSheetContent extends StatefulWidget {
   const MedicationDeleteSuccessBottomSheetContent({super.key, this.onTap});

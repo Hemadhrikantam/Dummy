@@ -6,7 +6,6 @@ import 'package:dummy/features/dailycare/presentation/widgets/grooming_tab.dart'
 import 'package:dummy/features/dailycare/presentation/widgets/overview_daily_header_widget.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/walks_tab.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'overview_tab.dart';

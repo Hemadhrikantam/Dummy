@@ -5,7 +5,6 @@ import 'package:dummy/core/widgets/shimmer_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:rive/rive.dart' hide Image;
-import '../constant/app_colors.dart';
 import '../constant/styles.dart';
 
 class AppAssestsImage extends StatelessWidget {
