@@ -13,14 +13,14 @@ abstract class PetFormState with _$PetFormState {
     @Default(DropdownValue.pure()) final DropdownValue gender,
     @Default(NotEmpty.pure()) final NotEmpty petImage,
     @Default(0) final int petImageId,
-    @Default(DropdownValue.pure()) final DropdownValue breed,
-    @Default([]) final List<DropdownValue> selectedPersonalityTags,
+    @Default(DropdownStringValue.pure()) final DropdownStringValue breed,
+    @Default([]) final List<DropdownStringValue> selectedPersonalityTags,
     @Default(NotEmpty.pure()) final NotEmpty weightUnit,
     @Default(NotEmpty.pure()) final NotEmpty weight,
     //
-    @Default([]) final List<DropItem> catbreeds,
-    @Default([]) final List<DropItem> dogbreeds,
-    @Default([]) final List<DropItem> personalityTags,
+    @Default([]) final List<DropStringItem> catbreeds,
+    @Default([]) final List<DropStringItem> dogbreeds,
+    @Default([]) final List<DropStringItem> personalityTags,
   }) = _PetFormState;
 }
 

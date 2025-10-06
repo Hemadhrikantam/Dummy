@@ -25,5 +25,6 @@ Future<void> _initServicesAndUtils() async {
   getIt.registerLazySingleton<NotificationService>(
     () => NotificationService(getIt<FirebaseMessaging>()),
   );
+  getIt.registerLazySingleton<FirebaseOtp>(() => FirebaseOtp());
   //
 }

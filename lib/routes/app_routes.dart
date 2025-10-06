@@ -19,6 +19,8 @@ import 'package:dummy/features/profile/presentation/pages/support/faq_page.dart'
 import 'package:dummy/features/profile/presentation/pages/support/privacy_policy_page.dart';
 import 'package:dummy/features/profile/presentation/pages/support/terms_and_condition_page.dart';
 import 'package:dummy/features/profile/presentation/pages/vet_near_me_page.dart';
+import 'package:dummy/features/signup/domain/entities/breed.dart';
+import 'package:dummy/features/signup/domain/entities/personality_tag.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy1_page.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy2_page.dart'
     show JoinDummy2Page;
@@ -90,8 +92,8 @@ class AppRoutes {
             dob: '',
             gender: ' ',
             petWeight: 0,
-            breed: Breed(id: 0, petType: '', breed: ''),
-            personalityTag: [PersonalityTag(id: 0, personality: '')],
+            breed: Breed(id: '', name: '', type: ''),
+            personalityTag: [PersonalityTag(id: '', name: '', petType: '')],
             petType: '',
             trackActivity: false,
             petImage: PetImage(id: 0, petImage: ''),

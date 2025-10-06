@@ -196,6 +196,7 @@ class AppText {
   //daily care
   // .... put daily care related const text
   static String overview = 'Overview';
+  static String otpSuccess = 'Otp Send Success';
   static String meals = 'Meals';
   static String meal = 'Meal';
   static String fiveloggedtoday = '5 logged today';

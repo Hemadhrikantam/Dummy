@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:dummy/core/services/firebase_notification.dart';
+import 'package:dummy/core/services/firebase_otp.dart';
 import 'package:dummy/core/services/http_service_impl.dart';
 import 'package:dummy/core/services/local_storage_impl.dart';
 import 'package:dummy/core/services/navigation_service.dart';
@@ -141,6 +142,8 @@ final GetIt getIt = GetIt.instance;
 class Injection {
   static NotificationService get notificationService =>
       getIt<NotificationService>();
+  static FirebaseOtp get firebaseOtp => getIt<FirebaseOtp>();
+
   static Future<void> init() async {
     await _initServicesAndUtils();
     await _initSystemSettings();

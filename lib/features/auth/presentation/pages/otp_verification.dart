@@ -5,12 +5,14 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
+import 'package:dummy/features/auth/presentation/pages/pet_type_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'dart:async';
@@ -74,6 +76,7 @@ class _OtpVerification extends State<OtpVerification> {
                 BottomModels.otpSuccessBottomSheet(context);
                 await Future.delayed(const Duration(milliseconds: 1800));
                 context.pop();
+                context.pushNamed(PetTypePage.routeName);
               }
             },
             child: BlocBuilder<AuthBloc, AuthState>(
@@ -90,8 +93,14 @@ class _OtpVerification extends State<OtpVerification> {
                         ),
                       ),
                       onPressed: () {
-                        context.read<AuthBloc>().add(AuthEvent.login());
                         FocusManager.instance.primaryFocus?.unfocus();
+                        if (state.otp.isValid) {
+                          context.read<AuthBloc>().add(AuthEvent.login());
+                        } else {
+                          AppAlert.showToast(
+                            message: AppText.enter4DigitVerificationCode,
+                          );
+                        }
                       },
                     );
               },

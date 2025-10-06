@@ -13,3 +13,15 @@ class DropdownValue extends FormzInput<DropItem?, String> {
 
   bool get others => value?.value.toLowerCase() == 'others';
 }
+
+class DropdownStringValue extends FormzInput<DropStringItem?, String> {
+  const DropdownStringValue.pure() : super.pure(null);
+  const DropdownStringValue.dirty(DropStringItem super.value) : super.dirty();
+
+  @override
+  String? validator(DropStringItem? value) {
+    return TextFieldValidation.dropDown(value?.value);
+  }
+
+  bool get others => value?.value.toLowerCase() == 'others';
+}

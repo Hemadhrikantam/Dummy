@@ -157,7 +157,7 @@ class _ProfileCard extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            state.selectedPet?.breed.breed ?? "",
+                            state.selectedPet?.breed.name ?? "",
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(

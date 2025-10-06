@@ -38,7 +38,7 @@ class PetInformationWidget extends StatelessWidget {
                   child: __InfoValue(
                     image: ImageResources.breed,
                     title: AppText.breed,
-                    value: dashboardPetDetails?.breed.breed ?? "",
+                    value: dashboardPetDetails?.breed.name ?? "",
                   ),
                 ),
                 Expanded(
@@ -66,7 +66,7 @@ class PetInformationWidget extends StatelessWidget {
                   child: __InfoValue(
                     image: ImageResources.gender,
                     title: AppText.gender,
-                    value: dashboardPetDetails?.gender??'',
+                    value: dashboardPetDetails?.gender ?? '',
                   ),
                 ),
                 Expanded(
@@ -90,7 +90,8 @@ String calculateAge(String dob) {
   if (birthDate == null) return '-';
   final now = DateTime.now();
   int age = now.year - birthDate.year;
-  if (now.month < birthDate.month || (now.month == birthDate.month && now.day < birthDate.day)) {
+  if (now.month < birthDate.month ||
+      (now.month == birthDate.month && now.day < birthDate.day)) {
     age--;
   }
   return '$age Years';

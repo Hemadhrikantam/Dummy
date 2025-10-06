@@ -4,6 +4,7 @@ import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/toast_message.dart';
 
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
@@ -71,7 +72,13 @@ class _ContinueWithPhone extends State<ContinueWithPhone> {
                           ),
                         ),
                         onPressed: () {
-                          context.read<AuthBloc>().add(AuthEvent.sendOtp());
+                          if (state.phone.isValid) {
+                            context.read<AuthBloc>().add(AuthEvent.sendOtp());
+                          } else {
+                            AppAlert.showToast(
+                              message: AppText.enterPhoneNumber,
+                            );
+                          }
                           // LogUtility.info('${state.phone.value}');
                         },
                       );

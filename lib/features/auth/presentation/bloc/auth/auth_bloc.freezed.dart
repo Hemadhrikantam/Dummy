@@ -3217,6 +3217,7 @@ mixin _$AuthState {
   NotEmpty get email => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   NotEmpty get name => throw _privateConstructorUsedError;
+  NotEmpty get verificationId => throw _privateConstructorUsedError;
   MobileNo get phone => throw _privateConstructorUsedError;
   OTP get otp => throw _privateConstructorUsedError;
   Password get confirmPassword => throw _privateConstructorUsedError;
@@ -3227,6 +3228,7 @@ mixin _$AuthState {
   Status get signupStatus => throw _privateConstructorUsedError;
   bool get signupValidation => throw _privateConstructorUsedError;
   Yourself get yourself => throw _privateConstructorUsedError;
+  EnumModel? get enums => throw _privateConstructorUsedError;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.
@@ -3244,6 +3246,7 @@ abstract class $AuthStateCopyWith<$Res> {
     NotEmpty email,
     Password password,
     NotEmpty name,
+    NotEmpty verificationId,
     MobileNo phone,
     OTP otp,
     Password confirmPassword,
@@ -3254,6 +3257,7 @@ abstract class $AuthStateCopyWith<$Res> {
     Status signupStatus,
     bool signupValidation,
     Yourself yourself,
+    EnumModel? enums,
   });
 }
 
@@ -3275,6 +3279,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? email = null,
     Object? password = null,
     Object? name = null,
+    Object? verificationId = null,
     Object? phone = null,
     Object? otp = null,
     Object? confirmPassword = null,
@@ -3285,6 +3290,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? signupStatus = null,
     Object? signupValidation = null,
     Object? yourself = null,
+    Object? enums = freezed,
   }) {
     return _then(
       _value.copyWith(
@@ -3302,6 +3308,11 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
                 null == name
                     ? _value.name
                     : name // ignore: cast_nullable_to_non_nullable
+                        as NotEmpty,
+            verificationId:
+                null == verificationId
+                    ? _value.verificationId
+                    : verificationId // ignore: cast_nullable_to_non_nullable
                         as NotEmpty,
             phone:
                 null == phone
@@ -3353,6 +3364,11 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
                     ? _value.yourself
                     : yourself // ignore: cast_nullable_to_non_nullable
                         as Yourself,
+            enums:
+                freezed == enums
+                    ? _value.enums
+                    : enums // ignore: cast_nullable_to_non_nullable
+                        as EnumModel?,
           )
           as $Val,
     );
@@ -3372,6 +3388,7 @@ abstract class _$$AuthStateImplCopyWith<$Res>
     NotEmpty email,
     Password password,
     NotEmpty name,
+    NotEmpty verificationId,
     MobileNo phone,
     OTP otp,
     Password confirmPassword,
@@ -3382,6 +3399,7 @@ abstract class _$$AuthStateImplCopyWith<$Res>
     Status signupStatus,
     bool signupValidation,
     Yourself yourself,
+    EnumModel? enums,
   });
 }
 
@@ -3402,6 +3420,7 @@ class __$$AuthStateImplCopyWithImpl<$Res>
     Object? email = null,
     Object? password = null,
     Object? name = null,
+    Object? verificationId = null,
     Object? phone = null,
     Object? otp = null,
     Object? confirmPassword = null,
@@ -3412,6 +3431,7 @@ class __$$AuthStateImplCopyWithImpl<$Res>
     Object? signupStatus = null,
     Object? signupValidation = null,
     Object? yourself = null,
+    Object? enums = freezed,
   }) {
     return _then(
       _$AuthStateImpl(
@@ -3429,6 +3449,11 @@ class __$$AuthStateImplCopyWithImpl<$Res>
             null == name
                 ? _value.name
                 : name // ignore: cast_nullable_to_non_nullable
+                    as NotEmpty,
+        verificationId:
+            null == verificationId
+                ? _value.verificationId
+                : verificationId // ignore: cast_nullable_to_non_nullable
                     as NotEmpty,
         phone:
             null == phone
@@ -3480,6 +3505,11 @@ class __$$AuthStateImplCopyWithImpl<$Res>
                 ? _value.yourself
                 : yourself // ignore: cast_nullable_to_non_nullable
                     as Yourself,
+        enums:
+            freezed == enums
+                ? _value.enums
+                : enums // ignore: cast_nullable_to_non_nullable
+                    as EnumModel?,
       ),
     );
   }
@@ -3492,6 +3522,7 @@ class _$AuthStateImpl implements _AuthState {
     this.email = const NotEmpty.pure(),
     this.password = const Password.pure(),
     this.name = const NotEmpty.pure(),
+    this.verificationId = const NotEmpty.pure(),
     this.phone = const MobileNo.pure(),
     this.otp = const OTP.pure(),
     this.confirmPassword = const Password.pure(),
@@ -3501,7 +3532,8 @@ class _$AuthStateImpl implements _AuthState {
     this.loginValidation = false,
     this.signupStatus = Status.init,
     this.signupValidation = false,
-    this.yourself = Yourself.petParent,
+    this.yourself = Yourself.pet_parent,
+    this.enums = null,
   });
 
   @override
@@ -3513,6 +3545,9 @@ class _$AuthStateImpl implements _AuthState {
   @override
   @JsonKey()
   final NotEmpty name;
+  @override
+  @JsonKey()
+  final NotEmpty verificationId;
   @override
   @JsonKey()
   final MobileNo phone;
@@ -3543,10 +3578,13 @@ class _$AuthStateImpl implements _AuthState {
   @override
   @JsonKey()
   final Yourself yourself;
+  @override
+  @JsonKey()
+  final EnumModel? enums;
 
   @override
   String toString() {
-    return 'AuthState(email: $email, password: $password, name: $name, phone: $phone, otp: $otp, confirmPassword: $confirmPassword, user: $user, loginStatus: $loginStatus, sendOtpStatus: $sendOtpStatus, loginValidation: $loginValidation, signupStatus: $signupStatus, signupValidation: $signupValidation, yourself: $yourself)';
+    return 'AuthState(email: $email, password: $password, name: $name, verificationId: $verificationId, phone: $phone, otp: $otp, confirmPassword: $confirmPassword, user: $user, loginStatus: $loginStatus, sendOtpStatus: $sendOtpStatus, loginValidation: $loginValidation, signupStatus: $signupStatus, signupValidation: $signupValidation, yourself: $yourself, enums: $enums)';
   }
 
   @override
@@ -3558,6 +3596,8 @@ class _$AuthStateImpl implements _AuthState {
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.name, name) || other.name == name) &&
+            (identical(other.verificationId, verificationId) ||
+                other.verificationId == verificationId) &&
             (identical(other.phone, phone) || other.phone == phone) &&
             (identical(other.otp, otp) || other.otp == otp) &&
             (identical(other.confirmPassword, confirmPassword) ||
@@ -3574,7 +3614,8 @@ class _$AuthStateImpl implements _AuthState {
             (identical(other.signupValidation, signupValidation) ||
                 other.signupValidation == signupValidation) &&
             (identical(other.yourself, yourself) ||
-                other.yourself == yourself));
+                other.yourself == yourself) &&
+            (identical(other.enums, enums) || other.enums == enums));
   }
 
   @override
@@ -3583,6 +3624,7 @@ class _$AuthStateImpl implements _AuthState {
     email,
     password,
     name,
+    verificationId,
     phone,
     otp,
     confirmPassword,
@@ -3593,6 +3635,7 @@ class _$AuthStateImpl implements _AuthState {
     signupStatus,
     signupValidation,
     yourself,
+    enums,
   );
 
   /// Create a copy of AuthState
@@ -3609,6 +3652,7 @@ abstract class _AuthState implements AuthState {
     final NotEmpty email,
     final Password password,
     final NotEmpty name,
+    final NotEmpty verificationId,
     final MobileNo phone,
     final OTP otp,
     final Password confirmPassword,
@@ -3619,6 +3663,7 @@ abstract class _AuthState implements AuthState {
     final Status signupStatus,
     final bool signupValidation,
     final Yourself yourself,
+    final EnumModel? enums,
   }) = _$AuthStateImpl;
 
   @override
@@ -3627,6 +3672,8 @@ abstract class _AuthState implements AuthState {
   Password get password;
   @override
   NotEmpty get name;
+  @override
+  NotEmpty get verificationId;
   @override
   MobileNo get phone;
   @override
@@ -3647,6 +3694,8 @@ abstract class _AuthState implements AuthState {
   bool get signupValidation;
   @override
   Yourself get yourself;
+  @override
+  EnumModel? get enums;
 
   /// Create a copy of AuthState
   /// with the given fields replaced by the non-null parameter values.

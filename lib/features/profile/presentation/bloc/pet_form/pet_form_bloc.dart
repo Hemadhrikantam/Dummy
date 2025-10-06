@@ -65,59 +65,59 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
     final personalityTags = await __personalityTags();
 
     if (event.id != null) {
-      final success = currentContext
-          .read<DashboardBloc>()
-          .state
-          .dashboardPetDetails
-          .firstWhere((pet) => pet.id == event.id);
-      print(success);
+      // final success = currentContext
+      //     .read<DashboardBloc>()
+      //     .state
+      //     .dashboardPetDetails
+      //     .firstWhere((pet) => pet.id == event.id);
+      // print(success);
 
-      final breeds =
-          success.petType.toLowerCase() == "cat" ? catBreeds : dogBreeds;
+      // final breeds =
+      //     success.petType.toLowerCase() == "cat" ? catBreeds : dogBreeds;
 
-      emit(
-        state.copyWith(
-          initStatus: Status.success,
-          catbreeds: catBreeds,
-          dogbreeds: dogBreeds,
-          personalityTags: personalityTags,
-          petType:
-              success.petType.toLowerCase() == "cat"
-                  ? PetType.Cat
-                  : PetType.Dog,
-          dob: NotEmpty.dirty(value: success.dob),
-          breed: DropdownValue.dirty(
-            breeds.firstWhere((b) => b.value == success.breed.breed),
-          ),
-          petImage: NotEmpty.dirty(value: success.petImage.petImage),
-          petImageId: success.petImage.id,
-          selectedPersonalityTags:
-              success.personalityTag
-                  .map(
-                    (e) => DropdownValue.dirty(
-                      DropItemModel(id: e.id, value: e.personality),
-                    ),
-                  )
-                  .toList(),
-          gender: DropdownValue.dirty(
-            DropItemModel(
-              id: success.gender == 'Male' ? 1 : 2,
-              value: success.gender,
-            ),
-          ),
-          weight: NotEmpty.dirty(value: success.petWeight.toString()),
-          petName: NotEmpty.dirty(value: success.petName),
-        ),
-      );
+      // emit(
+      //   state.copyWith(
+      //     initStatus: Status.success,
+      //     catbreeds: catBreeds,
+      //     dogbreeds: dogBreeds,
+      //     personalityTags: personalityTags,
+      //     petType:
+      //         success.petType.toLowerCase() == "cat"
+      //             ? PetType.Cat
+      //             : PetType.Dog,
+      //     dob: NotEmpty.dirty(value: success.dob),
+      //     breed: DropdownStringValue.dirty(
+      //       breeds.firstWhere((b) => b.value == success.breed.name),
+      //     ),
+      //     petImage: NotEmpty.dirty(value: success.petImage.petImage),
+      //     petImageId: success.petImage.id,
+      //     selectedPersonalityTags:
+      //         success.personalityTag
+      //             .map(
+      //               (e) => DropdownStringValue.dirty(
+      //                 DropStringItemModel(id: e.id, value: e.name),
+      //               ),
+      //             )
+      //             .toList(),
+      //     gender: DropdownValue.dirty(
+      //       DropItemModel(
+      //         id: success.gender == 'Male' ? 1 : 2,
+      //         value: success.gender,
+      //       ),
+      //     ),
+      //     weight: NotEmpty.dirty(value: success.petWeight.toString()),
+      //     petName: NotEmpty.dirty(value: success.petName),
+      //   ),
+      // );
     } else {
-      emit(
-        state.copyWith(
-          initStatus: Status.success,
-          catbreeds: catBreeds,
-          dogbreeds: dogBreeds,
-          personalityTags: personalityTags,
-        ),
-      );
+      // emit(
+      //   state.copyWith(
+      //     initStatus: Status.success,
+      //     catbreeds: catBreeds,
+      //     dogbreeds: dogBreeds,
+      //     personalityTags: personalityTags,
+      //   ),
+      // );
     }
 
     emit(state.copyWith(validation: state.validationX));
@@ -140,29 +140,29 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
         },
       );
     }
-    final payload = RegisterAccountPayload(
-      petName: state.petName.value,
-      petType: state.petType.name,
-      dob: AppUtil.formatDate(DateTime.parse(state.dob.value)),
-      breed: state.breed.value!.id,
-      petWeight: double.parse(state.weight.value).toInt(),
-      gender: state.gender.value?.value ?? '',
-      petImage: imageId,
-      personalityTag:
-          state.selectedPersonalityTags.map((e) => e.value!.id).toList(),
-      latitude: 0,
-      longitude: 0,
-    );
-    final result =
-        event.id == null
-            ? await __createPetUsecases(payload: payload)
-            : await __editPetUsecases(id: event.id!, payload: payload);
+    // final payload = RegisterAccountPayload(
+    //   petName: state.petName.value,
+    //   petType: state.petType.name,
+    //   dob: AppUtil.formatDate(DateTime.parse(state.dob.value)),
+    //   breed: state.breed.value!.id,
+    //   petWeight: double.parse(state.weight.value).toInt(),
+    //   gender: state.gender.value?.value ?? '',
+    //   petImage: imageId,
+    //   personalityTag:
+    //       state.selectedPersonalityTags.map((e) => e.value!.id).toList(),
+    //   latitude: 0,
+    //   longitude: 0,
+    // );
+    // final result =
+    //     event.id == null
+    //         ? await __createPetUsecases(payload: payload)
+    //         : await __editPetUsecases(id: event.id!, payload: payload);
 
-    result.fold((error) => emit(state.copyWith(submitStatus: Status.error)), (
-      success,
-    ) async {
-      emit(state.copyWith(submitStatus: Status.success));
-    });
+    // result.fold((error) => emit(state.copyWith(submitStatus: Status.error)), (
+    //   success,
+    // ) async {
+    //   emit(state.copyWith(submitStatus: Status.success));
+    // });
   }
 
   void __petName(_PetName event, Emitter<PetFormState> emit) {
@@ -188,23 +188,24 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
   }
 
   void __breed(_Breed event, emit) {
-    final breed = DropdownValue.dirty(event.breed);
+    final breed = DropdownStringValue.dirty(event.breed);
     emit(state.copyWith(breed: breed));
     emit(state.copyWith(validation: state.validationX));
   }
 
   void __addTag(_AddTag event, Emitter<PetFormState> emit) {
-    List<DropdownValue> updatedTags = [];
+    List<DropdownStringValue> updatedTags = [];
     for (var e in event.value) {
-      updatedTags.add(DropdownValue.dirty(e));
+      updatedTags.add(DropdownStringValue.dirty(e));
     }
     emit(state.copyWith(selectedPersonalityTags: updatedTags));
     emit(state.copyWith(validation: state.validationX));
   }
 
   void __removeTag(_RemoveTag event, Emitter<PetFormState> emit) {
-    final updatedTags = List<DropdownValue>.from(state.selectedPersonalityTags)
-      ..removeAt(event.index);
+    final updatedTags = List<DropdownStringValue>.from(
+      state.selectedPersonalityTags,
+    )..removeAt(event.index);
 
     emit(state.copyWith(selectedPersonalityTags: updatedTags));
     emit(state.copyWith(validation: state.validationX));

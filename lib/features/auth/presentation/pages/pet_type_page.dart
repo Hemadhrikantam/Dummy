@@ -65,7 +65,7 @@ class _PetTypePage extends State<PetTypePage> {
                 onSelected: (value) {
                   if (value == "Pet Parent?") {
                     context.read<AuthBloc>().add(
-                      const AuthEvent.yourself(Yourself.petParent),
+                      const AuthEvent.yourself(Yourself.pet_parent),
                     );
                   } else if (value == "Looking to adopt only?") {
                     context.read<AuthBloc>().add(

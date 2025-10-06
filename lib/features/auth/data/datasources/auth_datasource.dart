@@ -1,4 +1,5 @@
 import 'package:dummy/features/auth/data/models/send_otp_model.dart';
+import 'package:dummy/features/signup/data/models/enum_model.dart';
 
 import '../../../../core/models/login_model.dart';
 import '../../../../core/payload/register_account_payload.dart';
@@ -14,6 +15,7 @@ abstract class AuthDatasource {
   });
 
   AppTypeResponse<CurrentUserModel> login({required LoginModel login});
+  AppTypeResponse<EnumModel> enums();
   AppTypeResponse<LoginModel> currentUser();
   AppSuccessResponse registerAccount({
     required RegisterAccountPayload registerAccount,

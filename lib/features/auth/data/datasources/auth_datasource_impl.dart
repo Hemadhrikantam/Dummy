@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
 import 'package:dummy/features/auth/data/models/send_otp_model.dart';
+import 'package:dummy/features/signup/data/models/enum_model.dart';
 
 import '../../../../api/api.dart' as api;
 import '../../../../api/storage_key.dart';
@@ -182,8 +183,8 @@ class AuthDatasourceImpl extends AuthDatasource {
     required String userType,
   }) async {
     final response = await http.post(
-      path: api.register,
-      data: {"phone": phone, "user_type": userType},
+      path: api.login,
+      data: {"mobile_number": phone, "account_type": userType},
       token: false,
     );
     return response.fold(
@@ -195,14 +196,46 @@ class AuthDatasourceImpl extends AuthDatasource {
           final statusCode =
               (success.data['statusCode'] as int?) ?? success.statusCode;
           final data = success.data;
-          if (statusCode <= 201) {
+          LogUtility.warning(data.toString());
+          if (statusCode <= 201 && data['status'] == 'success') {
             return Right(
               CurrentUserModel(
-                message: data['message'] as String? ?? 'Otp sent successfully',
-                user: UserModel.fromMap(data['user']),
-                isPetCreated: data['is_pet_created'] ?? false,
+                message: data['message'] as String? ?? '',
+                user: UserModel.fromMap(data['data']),
+                isPetCreated: !(data['data']['requiresOnboarding'] ?? true),
               ),
             );
+          } else {
+            return Left(
+              ErrorMessage(
+                message:
+                    data['message'] as String? ?? AppText.somethingWentWrong,
+              ),
+            );
+          }
+        } catch (e) {
+          LogUtility.error('$e');
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<EnumModel> enums() async {
+    final response = await http.get(path: api.enums, token: false);
+    return response.fold(
+      (error) {
+        LogUtility.error(error.message);
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) {
+        try {
+          final statusCode =
+              (success.data['statusCode'] as int?) ?? success.statusCode;
+          final data = success.data;
+          if (statusCode <= 201) {
+            return Right(EnumModel.fromJson(data));
           } else {
             return Left(
               ErrorMessage(

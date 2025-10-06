@@ -133,7 +133,7 @@ class __Breed extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PetFormBloc, PetFormState>(
       builder: (context, state) {
-        return CustomDropdownSearch(
+        return CustomStringDropdownSearch(
           items:
               state.petType == PetType.Cat ? state.catbreeds : state.dogbreeds,
           selectedItem: state.breed.value,
@@ -225,7 +225,7 @@ class __PersonalityTags extends StatelessWidget {
         LogUtility.warning('Personality Tags: ${state.personalityTags.length}');
         return Column(
           children: [
-            CustomMultiDropdownSearch(
+            CustomStringMultiDropdownSearch(
               items: state.personalityTags,
               title: AppText.personalitytags,
               isMandatory: true,

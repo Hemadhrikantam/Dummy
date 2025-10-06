@@ -6,6 +6,7 @@ abstract class AuthState with _$AuthState {
     @Default(NotEmpty.pure()) final NotEmpty email,
     @Default(Password.pure()) final Password password,
     @Default(NotEmpty.pure()) final NotEmpty name,
+    @Default(NotEmpty.pure()) final NotEmpty verificationId,
     @Default(MobileNo.pure()) final MobileNo phone,
     @Default(OTP.pure()) final OTP otp,
     @Default(Password.pure()) final Password confirmPassword,
@@ -15,6 +16,7 @@ abstract class AuthState with _$AuthState {
     @Default(false) final bool loginValidation,
     @Default(Status.init) final Status signupStatus,
     @Default(false) final bool signupValidation,
-    @Default(Yourself.petParent) Yourself yourself,
+    @Default(Yourself.pet_parent) Yourself yourself,
+    @Default(null) EnumModel? enums,
   }) = _AuthState;
 }
