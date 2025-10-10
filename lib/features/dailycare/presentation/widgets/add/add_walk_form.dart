@@ -30,7 +30,7 @@ class _AddWalkFormState extends State<AddWalkForm> {
   @override
   void initState() {
     final petId = context.read<DashboardBloc>().state.selectedPet?.id;
-    context.read<WalkFormBloc>().add(WalkFormEvent.init(petId ?? 0));
+    context.read<WalkFormBloc>().add(WalkFormEvent.init(petId ?? ''));
     super.initState();
   }
 

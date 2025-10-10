@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:dummy/api/storage_key.dart';
 import 'package:dummy/core/error/app_success.dart';
 import 'package:dummy/core/payload/payload.dart';
 import 'package:dummy/features/signup/data/models/pet_image_model.dart';
@@ -139,6 +142,7 @@ class SignupDatasourceImpl extends SignupDatasource {
     final response = await http.post(
       path: api.petcreate,
       data: payload.toMap(),
+      token: false,
     );
     return response.fold(
       (error) {
@@ -153,6 +157,14 @@ class SignupDatasourceImpl extends SignupDatasource {
                   ? data['statusCode'] as int? ?? success.statusCode
                   : success.statusCode;
           if (statusCode <= 201) {
+            if (data['data']['accessToken'] != null) {
+              var item = SecureStorageItem(
+                key: StorageKey.token,
+                value: data['data']['accessToken'],
+              );
+
+              await storage.write(item);
+            }
             return Right(
               SuccessMessage(message: data['message'] as String? ?? ""),
             );

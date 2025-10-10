@@ -84,21 +84,7 @@ class AppRoutes {
     ProfilePage.routeName: (_) => const ProfilePage(),
     VetNearMePage.routeName: (_) => const VetNearMePage(),
     PremiumSubscription.routeName: (_) => const PremiumSubscription(),
-    AdoptionDashboardPage.routeName:
-        (_) => AdoptionDashboardPage(
-          selectedPet: DashboardPetDetails(
-            id: 0,
-            petName: '',
-            dob: '',
-            gender: ' ',
-            petWeight: 0,
-            breed: Breed(id: '', name: '', type: ''),
-            personalityTag: [PersonalityTag(id: '', name: '', petType: '')],
-            petType: '',
-            trackActivity: false,
-            petImage: PetImage(id: 0, petImage: ''),
-          ),
-        ),
+    AdoptionDashboardPage.routeName: (_) => AdoptionDashboardPage(),
     AllAdoptionDetailsPage.routeName: (_) => const AllAdoptionDetailsPage(),
     NgoProfileOptionsPage.routeName: (_) => const NgoProfileOptionsPage(),
     FaqPage.routeName: (_) => const FaqPage(),

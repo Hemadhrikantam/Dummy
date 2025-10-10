@@ -32,7 +32,7 @@ part 'add_pet_fields.dart';
 
 class AddPetForm extends StatefulWidget {
   const AddPetForm({super.key, this.petId});
-  final int? petId;
+  final String? petId;
   @override
   State<AddPetForm> createState() => _AddPetForm();
 }

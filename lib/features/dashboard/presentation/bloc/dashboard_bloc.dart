@@ -38,8 +38,8 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
           state.copyWith(
             initStatus: Status.success,
             dashboardPetDetails: success,
-            petImage: success.isNotEmpty ? success.first.petImage.petImage : '',
-            petName: success.isNotEmpty ? success.first.petName : '',
+            petImage: success.isNotEmpty ? success.first.imageUrl ?? '' : '',
+            petName: success.isNotEmpty ? success.first.name : '',
             selectedPet: success.isNotEmpty ? success.first : null,
           ),
         );

@@ -1,38 +1,38 @@
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
-import 'package:dummy/features/dashboard/data/models/pet_image_model.dart';
-import 'package:dummy/features/signup/domain/entities/breed.dart';
-import 'package:dummy/features/signup/domain/entities/personality_tag.dart';
 
 class DashboardDetailsModel extends DashboardPetDetails {
   const DashboardDetailsModel({
     required super.id,
-    required super.petName,
+    required super.name,
+    required super.type,
+    required super.breedId,
+    required super.breedName,
     required super.dob,
-    required super.petWeight,
-    required super.breed,
-    required super.personalityTag,
-    required super.petType,
-    required super.trackActivity,
-    required super.petImage,
-    required super.gender,
+    required super.weightValue,
+    required super.weightUnit,
+    super.imageUrl,
+    required super.createdAt,
+    required super.updatedAt,
+    required super.personalityTags,
   });
 
   factory DashboardDetailsModel.fromMap(JsonMap map) {
     return DashboardDetailsModel(
-      id: map['id'] as int? ?? 0,
-      petName: map['pet_name'] as String? ?? '',
-      petType: map['pet_type'] as String? ?? '',
+      id: map['id'] as String? ?? '',
+      name: map['name'] as String? ?? '',
+      type: map['type'] as String? ?? '',
+      breedId: map['breed_id'] as String? ?? '',
+      breedName: map['breed_name'] as String? ?? '',
       dob: map['dob'] as String? ?? '',
-      gender: map['gender'] as String? ?? '',
-      petWeight: (map['pet_weight'] as double?) ?? 0,
-      trackActivity: map['track_activity'] as bool? ?? false,
-      petImage: PetImageModel.fromMap(map['pet_image'] ?? {}),
-      breed: Breed.fromJson(map['breed'] ?? {}),
-      personalityTag:
-          (map['personality_tag'] as List<dynamic>? ?? [])
-              .map((e) => PersonalityTag.fromJson(e))
-              .toList(),
+      weightValue: map['weight_value'] as String? ?? '',
+      weightUnit: map['weight_unit'] as String? ?? '',
+      imageUrl: map['image_url'] as String?,
+      createdAt: map['created_at'] as String? ?? '',
+      updatedAt: map['updated_at'] as String? ?? '',
+      personalityTags: (map['personality_tags'] as List<dynamic>? ?? [])
+          .map((e) => e.toString())
+          .toList(),
     );
   }
 }

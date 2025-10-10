@@ -468,11 +468,11 @@ class CustomAppBarTitle extends StatelessWidget {
           if (showImage == true)
             BlocBuilder<DashboardBloc, DashboardState>(
               builder: (context, state) {
-                return state.selectedPet?.petImage.petImage != null
+                return state.selectedPet?.imageUrl != null
                     ? ClipRRect(
                       borderRadius: Styles.borderRadiusCircular50,
                       child: AppNetworkImage(
-                        url: state.selectedPet?.petImage.petImage ?? "",
+                        url: state.selectedPet?.imageUrl ?? "",
                         height: 45,
                         width: 40,
                       ),

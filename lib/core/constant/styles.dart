@@ -155,6 +155,7 @@ class Styles {
   static const edgeInsetsOnlyH30 = EdgeInsets.symmetric(vertical: 30);
 
   // Padding Horizontal
+  static const edgeInsetsOnlyW02 = EdgeInsets.symmetric(horizontal: 02);
   static const edgeInsetsOnlyW04 = EdgeInsets.symmetric(horizontal: 04);
   static const edgeInsetsOnlyW06 = EdgeInsets.symmetric(horizontal: 06);
   static const edgeInsetsOnlyW08 = EdgeInsets.symmetric(horizontal: 08);

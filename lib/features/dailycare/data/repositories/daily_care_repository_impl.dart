@@ -83,8 +83,7 @@ class DailyCareRepositoryImpl extends DailyCareRepository {
   }
 
   @override
-  AppTypeResponse<Overview> overview(int petId) {
+  AppTypeResponse<Overview> overview(String petId) {
     return _careDatasource.overview(petId);
   }
-  
 }

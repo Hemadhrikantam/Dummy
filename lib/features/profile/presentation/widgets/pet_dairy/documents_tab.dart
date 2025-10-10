@@ -25,7 +25,7 @@ class DocumentsTab extends StatelessWidget {
             child: EmptyListPage(
               imagePath: ImageResources.noMedia,
               subTitle: AppText.startCapturingMemo(
-                context.read<DashboardBloc>().state.selectedPet?.petName ?? "",
+                context.read<DashboardBloc>().state.selectedPet?.name ?? "",
               ),
             ),
           );

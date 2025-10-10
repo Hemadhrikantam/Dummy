@@ -54,7 +54,7 @@ class PetListWidget extends StatelessWidget {
                         borderRadius: Styles.borderRadiusCircular50,
                         child: AppNetworkImage(
                           borderRadius: Styles.borderRadiusCircular50,
-                          url: dashboardPetDetails[i].petImage.petImage,
+                          url: dashboardPetDetails[i].imageUrl ?? '',
                           width: 64,
                           height: 64,
                         ),

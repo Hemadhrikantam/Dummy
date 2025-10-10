@@ -41,12 +41,11 @@ class _MediaTabState extends State<MediaTab> {
             child: EmptyListPage(
               imagePath: ImageResources.noMedia,
               subTitle: AppText.startCapturingMemo(
-                context.read<DashboardBloc>().state.selectedPet?.petName ?? "",
+                context.read<DashboardBloc>().state.selectedPet?.name ?? "",
               ),
             ),
           );
-        }
-        else if(state.initStatus.loading){
+        } else if (state.initStatus.loading) {
           LoadingWidget.circularProgressIndicatorCenter;
         }
         return Container(

@@ -26,45 +26,48 @@ class PetListHomeWidget extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child:  ListView.separated(
+            child: ListView.separated(
               scrollDirection: Axis.horizontal,
               itemCount: dashboardPetDetails.length,
               separatorBuilder: (_, __) => Styles.gap6,
               itemBuilder: (context, i) {
                 final isSelected = i == selectedIndex;
-              return GestureDetector(
-                onTap: () => onPetSelected(i),
-                child: Container(
-                  decoration: isSelected
-                      ? BoxDecoration(
-                          color: AppColors.buttonBackground,
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Styles.radiusCircular60,
-                            topRight: Styles.radiusCircular60,
-                          ),
-                        )
-                      : null,
-                  padding: Styles.edgeInsetsActivities + const EdgeInsets.only(top: 8),
-                  child: SizedBox(
-                    width: 50,
-                    height: 50,
-                    child: CustomCard(
-                      padding: Styles.edgeInsetsAll02,
-                      borderRadius: Styles.borderRadiusCircular40,
-                      border: Border.all(width: 2, color: AppColors.white),
-                      child: ClipRRect(
+                return GestureDetector(
+                  onTap: () => onPetSelected(i),
+                  child: Container(
+                    decoration:
+                        isSelected
+                            ? BoxDecoration(
+                              color: AppColors.buttonBackground,
+                              borderRadius: const BorderRadius.only(
+                                topLeft: Styles.radiusCircular60,
+                                topRight: Styles.radiusCircular60,
+                              ),
+                            )
+                            : null,
+                    padding:
+                        Styles.edgeInsetsActivities +
+                        const EdgeInsets.only(top: 8),
+                    child: SizedBox(
+                      width: 50,
+                      height: 50,
+                      child: CustomCard(
+                        padding: Styles.edgeInsetsAll02,
                         borderRadius: Styles.borderRadiusCircular40,
-                        child: AppNetworkImage(
-                          url: dashboardPetDetails[i].petImage.petImage,
-                          width: 50,
+                        border: Border.all(width: 2, color: AppColors.white),
+                        child: ClipRRect(
                           borderRadius: Styles.borderRadiusCircular40,
+                          child: AppNetworkImage(
+                            url: dashboardPetDetails[i].imageUrl ?? '',
+                            width: 50,
+                            borderRadius: Styles.borderRadiusCircular40,
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              );
-            },
+                );
+              },
             ),
           ),
           Styles.gap10,

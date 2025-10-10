@@ -17,7 +17,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AdoptionDashboardPage extends StatefulWidget {
   final DashboardPetDetails? selectedPet;
-  const AdoptionDashboardPage({super.key, required this.selectedPet});
+  const AdoptionDashboardPage({super.key, this.selectedPet});
   static const routeName = '/AdoptionDashboardPage';
 
   static Route<T> route<T>(DashboardPetDetails selectedPet) {
@@ -59,7 +59,10 @@ class _AdoptionDashboardPage extends State<AdoptionDashboardPage> {
       HealthPage(selectedPet: widget.selectedPet),
       BlocBuilder<DashboardBloc, DashboardState>(
         builder: (context, state) {
-          return DailycarePage(selectedPet: widget.selectedPet, selectedPetId: state.selectedPet?.id??0,);
+          return DailycarePage(
+            selectedPet: widget.selectedPet,
+            selectedPetId: state.selectedPet?.id ?? '',
+          );
         },
       ),
       AddoptionPage(),

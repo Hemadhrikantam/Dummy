@@ -2,8 +2,8 @@ part of 'pet_form_bloc.dart';
 
 @freezed
 class PetFormEvent with _$PetFormEvent {
-  const factory PetFormEvent.init(int? id) = _Init;
-  const factory PetFormEvent.submit(int? id) = _Submit;
+  const factory PetFormEvent.init(String? id) = _Init;
+  const factory PetFormEvent.submit(String? id) = _Submit;
   const factory PetFormEvent.petName(String name) = _PetName;
   const factory PetFormEvent.petImage(String value) = _PetImage;
   const factory PetFormEvent.petType(PetType value) = _PetType;

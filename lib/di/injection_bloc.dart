@@ -9,6 +9,7 @@ class InjectionBloc {
       logoutUsecases: getIt<LogoutUsecases>(),
       registerAccountUsecases: getIt<RegisterAccountUsecases>(),
       registerUserUsecases: getIt<RegisterUserUsecases>(),
+      enumsUsecases: getIt<EnumsUsecases>(),
     );
   }
 
@@ -16,9 +17,6 @@ class InjectionBloc {
     return RegisterBloc(
       petImageUsecases: getIt<PetImageUsecases>(),
       createPetUsecases: getIt<CreatePetUsecases>(),
-      catBreedUsecases: getIt<CatBreedUsecases>(),
-      dogBreedUsecases: getIt<DogBreedUsecases>(),
-      personalityTagUsecases: getIt<PersonalityTagUsecases>(),
     );
   }
 

@@ -60,7 +60,7 @@ class AddMealSuccessBottomSheetContent extends StatelessWidget {
                       children: [
                         TextSpan(
                           text:
-                              "${state.dashboardPetDetails[0].petName} well-fed!",
+                              "${state.dashboardPetDetails[0].name} well-fed!",
                           style: context.textTheme.titleSmall?.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -98,7 +98,7 @@ class AddMealSuccessBottomSheetContent extends StatelessWidget {
                               children: [
                                 TextSpan(
                                   text:
-                                      " ${state.dashboardPetDetails[0].petName}'s meal!",
+                                      " ${state.dashboardPetDetails[0].name}'s meal!",
                                   style: context.textTheme.titleSmall?.copyWith(
                                     fontWeight: FontWeight.w700,
                                     color: AppColors.buttonTextColor,

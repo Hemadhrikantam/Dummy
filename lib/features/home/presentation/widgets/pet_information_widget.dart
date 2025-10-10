@@ -31,14 +31,14 @@ class PetInformationWidget extends StatelessWidget {
                   child: __InfoValue(
                     image: ImageResources.pet,
                     title: AppText.name,
-                    value: dashboardPetDetails?.petName ?? '',
+                    value: dashboardPetDetails?.name ?? '',
                   ),
                 ),
                 Expanded(
                   child: __InfoValue(
                     image: ImageResources.breed,
                     title: AppText.breed,
-                    value: dashboardPetDetails?.breed.name ?? "",
+                    value: dashboardPetDetails?.breedName ?? '',
                   ),
                 ),
                 Expanded(
@@ -59,21 +59,21 @@ class PetInformationWidget extends StatelessWidget {
                   child: __InfoValue(
                     image: ImageResources.petType,
                     title: AppText.petType,
-                    value: dashboardPetDetails?.petType ?? '',
+                    value: dashboardPetDetails?.type ?? '',
                   ),
                 ),
-                Expanded(
-                  child: __InfoValue(
-                    image: ImageResources.gender,
-                    title: AppText.gender,
-                    value: dashboardPetDetails?.gender ?? '',
-                  ),
-                ),
+                // Expanded(
+                //   child: __InfoValue(
+                //     image: ImageResources.gender,
+                //     title: AppText.gender,
+                //     value: dashboardPetDetails?.gender ?? '',
+                //   ),
+                // ),
                 Expanded(
                   child: __InfoValue(
                     image: ImageResources.weight,
                     title: AppText.weight,
-                    value: '${dashboardPetDetails?.petWeight} kgs',
+                    value: '${dashboardPetDetails?.weightValue} ${dashboardPetDetails?.weightUnit ?? ''}',
                   ),
                 ),
               ],

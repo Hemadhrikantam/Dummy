@@ -104,7 +104,7 @@ class _ExpensesTabState extends State<ExpensesTab> {
                         titleFontSize: 24,
                         imagePath: ImageResources.tshirt,
                         title:
-                            "We don’t have ${widget.selectedPet?.petName ?? ''} daily care data yet. Start logging her expenses to see a summary!",
+                            "We don’t have ${widget.selectedPet?.name ?? ''} daily care data yet. Start logging her expenses to see a summary!",
                       ),
                     )
                     : AppCustomListViewBuilder(

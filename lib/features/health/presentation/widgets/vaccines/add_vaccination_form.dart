@@ -12,7 +12,7 @@ class _AddVaccinationFormState extends State<AddVaccinationForm> {
   void initState() {
     final petId = context.read<DashboardBloc>().state.selectedPet?.id;
     context.read<VaccinationFormBloc>().add(
-      VaccinationFormEvent.init(petId ?? 0, widget.id),
+      VaccinationFormEvent.init(petId ?? '', widget.id),
     );
     super.initState();
   }

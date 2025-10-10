@@ -59,7 +59,7 @@ class AddDewormingSuccessBottomSheetContent extends StatelessWidget {
                       ),
                       children: [
                         TextSpan(
-                          text: " ${state.dashboardPetDetails[0].petName} too!",
+                          text: " ${state.dashboardPetDetails[0].name} too!",
                           style: context.textTheme.titleSmall?.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,

@@ -26,7 +26,7 @@ abstract class VaccinationFormState with _$VaccinationFormState {
     @Default([]) List<DropItem> reminderBefores,
 
     @Default(false) bool validation,
-    @Default(0) int petId,
+    @Default('') String petId,
   }) = _VaccinationFormState;
 }
 

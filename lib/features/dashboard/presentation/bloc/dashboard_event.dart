@@ -8,6 +8,6 @@ class DashboardEvent with _$DashboardEvent {
   const factory DashboardEvent.petName(String petName) = _PetName;
   const factory DashboardEvent.petImage(String petImage) = _PetImage;
   const factory DashboardEvent.changePage(int index) = _ChangePage;
-  const factory DashboardEvent.selectedPetId(int selectedPetId) =
+  const factory DashboardEvent.selectedPetId(String selectedPetId) =
       _SelectedPetId;
 }

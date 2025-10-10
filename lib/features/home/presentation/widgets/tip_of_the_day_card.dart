@@ -9,11 +9,8 @@ import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart'
 import 'package:flutter/material.dart';
 
 class TipOfTheDayCard extends StatelessWidget {
-  const TipOfTheDayCard({
-    super.key,
-    required this.selectedPet,
-  });
- 
+  const TipOfTheDayCard({super.key, required this.selectedPet});
+
   final DashboardPetDetails? selectedPet;
 
   @override
@@ -52,7 +49,8 @@ class TipOfTheDayCard extends StatelessWidget {
             child: RichText(
               textAlign: TextAlign.start,
               text: TextSpan(
-                text: "“${selectedPet?.petName??''} due for a deworming in 3 days.”",
+                text:
+                    "“${selectedPet?.name ?? ''} due for a deworming in 3 days.”",
                 style: context.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.w500,
                   fontSize: 14,

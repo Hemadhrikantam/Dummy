@@ -11,7 +11,7 @@ class MediaPayload extends Equatable implements Payload {
     required this.media,
   });
 
-  final int pet_id;
+  final String pet_id;
   final int event_id;
   final MultipartFile media;
   final String description;

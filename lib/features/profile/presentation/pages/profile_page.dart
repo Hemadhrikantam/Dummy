@@ -124,14 +124,14 @@ class _ProfileCard extends StatelessWidget {
           child: Column(
             children: [
               Text(
-                state.selectedPet?.petName ?? "",
+                state.selectedPet?.name ?? "",
                 style: TextStyle(
                   fontSize: 48,
                   fontWeight: FontWeight.w700,
                   color: AppColors.stepperColor,
                 ),
               ),
-              _ProfileImage(state.selectedPet?.petImage.petImage ?? ""),
+              _ProfileImage(state.selectedPet?.imageUrl ?? ""),
             ],
           ),
         ),
@@ -157,7 +157,7 @@ class _ProfileCard extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            state.selectedPet?.breed.name ?? "",
+                            state.selectedPet?.breedName ?? "",
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(

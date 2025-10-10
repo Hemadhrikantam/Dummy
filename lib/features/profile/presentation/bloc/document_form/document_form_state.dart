@@ -9,7 +9,7 @@ abstract class DocumentFormState with _$DocumentFormState {
     @Default(NotEmpty.pure()) NotEmpty url,
 
     @Default(false) bool validation,
-    @Default(0) int petId,
+    @Default('') String petId,
   }) = _DocumentFormState;
 }
 

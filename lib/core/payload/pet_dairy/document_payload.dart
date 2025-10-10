@@ -6,7 +6,7 @@ import '../payload.dart';
 class DocumentPayload extends Equatable implements Payload {
   const DocumentPayload({required this.pet, required this.media});
 
-  final int pet;
+  final String pet;
   final MultipartFile media;
   @override
   List<Object?> get props => [media, pet];

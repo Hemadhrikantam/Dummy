@@ -20,7 +20,7 @@ class _AddTimeline extends State<AddTimeline> {
   void initState() {
     final petId = context.read<DashboardBloc>().state.selectedPet?.id;
     context.read<DocumentFormBloc>().add(
-      DocumentFormEvent.init(petId ?? 0, null),
+      DocumentFormEvent.init(petId ?? '', null),
     );
     super.initState();
   }

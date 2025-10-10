@@ -9,7 +9,7 @@ abstract class GroomingFormState with _$GroomingFormState {
     @Default(NotEmpty.pure()) NotEmpty notes,
     @Default(NotEmpty.pure()) NotEmpty media,
     @Default(false) bool validation,
-    @Default(0) int petId,
+    @Default('') String petId,
   }) = _GroomingFormState;
 }
 

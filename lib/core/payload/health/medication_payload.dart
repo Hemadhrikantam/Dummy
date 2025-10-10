@@ -34,7 +34,7 @@ class MedicationPayload extends Equatable implements Payload {
   final DateTime endDate;
   final String note;
   final MultipartFile media;
-  final int pet;
+  final String pet;
   final int frequency;
 
   @override

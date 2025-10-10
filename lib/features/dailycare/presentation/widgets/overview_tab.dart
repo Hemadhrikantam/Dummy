@@ -26,7 +26,7 @@ class _OverviewTabState extends State<OverviewTab> {
   void initState() {
     Future.delayed(Duration.zero, () {
       context.read<OverviewBloc>().add(
-        OverviewEvent.overview(widget.selectedPet?.id ?? 0),
+        OverviewEvent.overview(widget.selectedPet?.id ?? ''),
       );
     });
     super.initState();

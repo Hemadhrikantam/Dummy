@@ -26,5 +26,5 @@ abstract class DailyCareRepository {
   AppTypeResponse<List<PetGrooming>> groomings(DateTime? date);
   AppTypeResponse<List<PetExpense>> expenses(DateTime? date);
   AppTypeResponse<List<PetDeworming>> dewormings(DateTime? date);
-  AppTypeResponse<Overview> overview(int petId);
+  AppTypeResponse<Overview> overview(String petId);
 }

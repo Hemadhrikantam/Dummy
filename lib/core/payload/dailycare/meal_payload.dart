@@ -19,7 +19,7 @@ class MealPayload extends Equatable implements Payload {
   final String mealType;
   final String notes;
   final MultipartFile media;
-  final int pet;
+  final String pet;
 
   @override
   List<Object?> get props => [date, timeOfMeal, mealType, notes, media, pet];

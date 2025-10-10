@@ -23,12 +23,12 @@ String petDairyMedia = '$__privateBase/pet-diary/media-files/';
 String petDairyDocuments = '$__privateBase/pet-diary/documents/';
 String petDairyfavourites = '$__privateBase/pet-diary/media-favourites/';
 //
-String petcreate = '$__api/pets/create/';
+String petcreate = '$__api/auth/onboarding/pet-parent';
 String petImage = '$__api/pets/pet-image/';
 String personalitytags = '$__api/pets/personality-tags/';
 String catbreeds = '$__api/pets/cat-breeds/';
 String dogbreeds = '$__api/pets/dog-breeds/';
-String pets = '$__privateBase/pets/';
+String pets = '$__api/account/pets';
 String adoptPet = '$__privateBase/adoption/pet-to-adopt/';
 String allPets = '$__privateBase/adoption/all-pets-to-adopt/';
 String petTypes = '$__privateBase/pets/pet-types/';
@@ -77,7 +77,7 @@ String expenses(DateTime? date) {
 String frequencies = '$__api/daily-care/deworming-frequency/';
 String remindBefores = '$__api/daily-care/remind-before/';
 String timezones = '$__api/daily-care/timezone/';
-String overview(int id) => '$__privateBase/daily-care/overview/$id/';
+String overview(String id) => '$__api/dailycare/overview?pet_id=$id';
 
 //health
 String medication(String? key, String? fromDate, String? toDate) {

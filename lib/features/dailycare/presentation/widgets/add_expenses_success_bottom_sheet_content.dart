@@ -60,7 +60,7 @@ class AddExpensesSuccessBottomSheetContent extends StatelessWidget {
                       children: [
                         TextSpan(
                           text:
-                              "${state.dashboardPetDetails[0].petName}'s expenses to stay on budget!",
+                              "${state.dashboardPetDetails[0].name}'s expenses to stay on budget!",
                           style: context.textTheme.titleSmall?.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,

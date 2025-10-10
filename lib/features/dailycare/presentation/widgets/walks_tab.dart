@@ -118,7 +118,7 @@ class _WalksTabState extends State<WalksTab> {
                         titleFontSize: 24,
                         imagePath: ImageResources.tshirt,
                         title:
-                            "We don’t have ${widget.selectedPet?.petName} daily care data yet. Start logging her walks to see a summary!",
+                            "We don’t have ${widget.selectedPet?.name} daily care data yet. Start logging her walks to see a summary!",
                       ),
                     )
                     : AppCustomListViewBuilder(

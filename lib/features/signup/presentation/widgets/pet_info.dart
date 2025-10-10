@@ -37,6 +37,7 @@ class _PetInfoState extends State<PetInfo> {
   String age = '';
   @override
   void initState() {
+    context.read<RegisterBloc>().add(RegisterEvent.weightUnit('Kg'));
     super.initState();
   }
 
@@ -141,7 +142,7 @@ class _PetInfoState extends State<PetInfo> {
                 Styles.gap20,
                 BlocBuilder<RegisterBloc, RegisterState>(
                   builder: (context, state) {
-                    return CustomDropdownSearch(
+                    return CustomStringDropdownSearch(
                       items:
                           state.petType == PetType.Cat
                               ? state.catBreeds
@@ -177,7 +178,7 @@ class _PetInfoState extends State<PetInfo> {
                 ),
                 Styles.gap20,
 
-                CustomMultiDropdownSearch(
+                CustomStringMultiDropdownSearch(
                   items: state.personalityTags,
                   title: AppText.personalitytags,
                   isMandatory: true,

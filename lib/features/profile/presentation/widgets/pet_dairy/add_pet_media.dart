@@ -31,7 +31,7 @@ class _AddPetMedia extends State<AddPetMedia> {
     Future.delayed(Duration(seconds: 0), () {
       final petId = context.read<DashboardBloc>().state.selectedPet?.id;
       context.read<MediaFormBloc>().add(
-        MediaFormEvent.init(petId ?? 0, widget.id),
+        MediaFormEvent.init(petId ?? '', widget.id),
       );
     });
     super.initState();
@@ -67,11 +67,7 @@ class _AddPetMedia extends State<AddPetMedia> {
                     // initialValue: state.value,
                     controller: notesController..text = state.value,
                     hintText: AppText.tellUsLuna(
-                      context
-                              .read<DashboardBloc>()
-                              .state
-                              .selectedPet
-                              ?.petName ??
+                      context.read<DashboardBloc>().state.selectedPet?.name ??
                           "",
                     ),
                     borderRadius: Styles.borderRadiusCircular25,

@@ -18,8 +18,8 @@ import '../../../../../core/widgets/buttons/app_button.dart';
 class AddPetPage extends StatefulWidget {
   const AddPetPage({super.key, this.id});
   static const routeName = '/AddPetPage';
-  final int? id;
-  static Route<T> route<T>({int? id}) {
+  final String? id;
+  static Route<T> route<T>({String? id}) {
     return MaterialPageRoute<T>(
       builder:
           (context) => BlocProvider(

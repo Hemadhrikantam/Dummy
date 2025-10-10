@@ -1,6 +1,5 @@
 part of 'expense_form_bloc.dart';
 
-
 @freezed
 abstract class ExpenseFormState with _$ExpenseFormState {
   const factory ExpenseFormState({
@@ -10,7 +9,7 @@ abstract class ExpenseFormState with _$ExpenseFormState {
     @Default(NotEmpty.pure()) NotEmpty notes,
     @Default(NotEmpty.pure()) NotEmpty media,
     @Default(false) bool validation,
-    @Default(0) int petId,
+    @Default('') String petId,
   }) = _ExpenseFormState;
 }
 

@@ -33,6 +33,8 @@ mixin _$AuthEvent {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -51,6 +53,8 @@ mixin _$AuthEvent {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +73,7 @@ mixin _$AuthEvent {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -88,6 +93,7 @@ mixin _$AuthEvent {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -106,6 +112,7 @@ mixin _$AuthEvent {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -124,6 +131,7 @@ mixin _$AuthEvent {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -204,6 +212,8 @@ class _$InitImpl implements _Init {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return init();
@@ -226,6 +236,8 @@ class _$InitImpl implements _Init {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return init?.call();
@@ -248,6 +260,7 @@ class _$InitImpl implements _Init {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -274,6 +287,7 @@ class _$InitImpl implements _Init {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return init(this);
@@ -296,6 +310,7 @@ class _$InitImpl implements _Init {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return init?.call(this);
@@ -318,6 +333,7 @@ class _$InitImpl implements _Init {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -389,6 +405,8 @@ class _$InitialisationImpl implements _Initialisation {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return initialisation();
@@ -411,6 +429,8 @@ class _$InitialisationImpl implements _Initialisation {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return initialisation?.call();
@@ -433,6 +453,7 @@ class _$InitialisationImpl implements _Initialisation {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -459,6 +480,7 @@ class _$InitialisationImpl implements _Initialisation {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return initialisation(this);
@@ -481,6 +503,7 @@ class _$InitialisationImpl implements _Initialisation {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return initialisation?.call(this);
@@ -503,6 +526,7 @@ class _$InitialisationImpl implements _Initialisation {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -601,6 +625,8 @@ class _$EmailImpl implements _Email {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return email(this.email);
@@ -623,6 +649,8 @@ class _$EmailImpl implements _Email {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return email?.call(this.email);
@@ -645,6 +673,7 @@ class _$EmailImpl implements _Email {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -671,6 +700,7 @@ class _$EmailImpl implements _Email {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return email(this);
@@ -693,6 +723,7 @@ class _$EmailImpl implements _Email {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return email?.call(this);
@@ -715,6 +746,7 @@ class _$EmailImpl implements _Email {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -821,6 +853,8 @@ class _$PhoneImpl implements _Phone {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return phone(this.phone);
@@ -843,6 +877,8 @@ class _$PhoneImpl implements _Phone {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return phone?.call(this.phone);
@@ -865,6 +901,7 @@ class _$PhoneImpl implements _Phone {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -891,6 +928,7 @@ class _$PhoneImpl implements _Phone {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return phone(this);
@@ -913,6 +951,7 @@ class _$PhoneImpl implements _Phone {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return phone?.call(this);
@@ -935,6 +974,7 @@ class _$PhoneImpl implements _Phone {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -1037,6 +1077,8 @@ class _$OtpImpl implements _Otp {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return otp(this.otp);
@@ -1059,6 +1101,8 @@ class _$OtpImpl implements _Otp {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return otp?.call(this.otp);
@@ -1081,6 +1125,7 @@ class _$OtpImpl implements _Otp {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -1107,6 +1152,7 @@ class _$OtpImpl implements _Otp {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return otp(this);
@@ -1129,6 +1175,7 @@ class _$OtpImpl implements _Otp {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return otp?.call(this);
@@ -1151,6 +1198,7 @@ class _$OtpImpl implements _Otp {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -1258,6 +1306,8 @@ class _$PasswordImpl implements _Password {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return password(this.password);
@@ -1280,6 +1330,8 @@ class _$PasswordImpl implements _Password {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return password?.call(this.password);
@@ -1302,6 +1354,7 @@ class _$PasswordImpl implements _Password {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -1328,6 +1381,7 @@ class _$PasswordImpl implements _Password {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return password(this);
@@ -1350,6 +1404,7 @@ class _$PasswordImpl implements _Password {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return password?.call(this);
@@ -1372,6 +1427,7 @@ class _$PasswordImpl implements _Password {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -1482,6 +1538,8 @@ class _$ConfirmPasswordImpl implements _ConfirmPassword {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return confirmPassword(this.confirmPassword);
@@ -1504,6 +1562,8 @@ class _$ConfirmPasswordImpl implements _ConfirmPassword {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return confirmPassword?.call(this.confirmPassword);
@@ -1526,6 +1586,7 @@ class _$ConfirmPasswordImpl implements _ConfirmPassword {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -1552,6 +1613,7 @@ class _$ConfirmPasswordImpl implements _ConfirmPassword {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return confirmPassword(this);
@@ -1574,6 +1636,7 @@ class _$ConfirmPasswordImpl implements _ConfirmPassword {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return confirmPassword?.call(this);
@@ -1596,6 +1659,7 @@ class _$ConfirmPasswordImpl implements _ConfirmPassword {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -1701,6 +1765,8 @@ class _$NameImpl implements _Name {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return name(this.name);
@@ -1723,6 +1789,8 @@ class _$NameImpl implements _Name {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return name?.call(this.name);
@@ -1745,6 +1813,7 @@ class _$NameImpl implements _Name {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -1771,6 +1840,7 @@ class _$NameImpl implements _Name {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return name(this);
@@ -1793,6 +1863,7 @@ class _$NameImpl implements _Name {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return name?.call(this);
@@ -1815,6 +1886,7 @@ class _$NameImpl implements _Name {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -1894,6 +1966,8 @@ class _$LoginImpl implements _Login {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return login();
@@ -1916,6 +1990,8 @@ class _$LoginImpl implements _Login {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return login?.call();
@@ -1938,6 +2014,7 @@ class _$LoginImpl implements _Login {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -1964,6 +2041,7 @@ class _$LoginImpl implements _Login {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return login(this);
@@ -1986,6 +2064,7 @@ class _$LoginImpl implements _Login {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return login?.call(this);
@@ -2008,6 +2087,7 @@ class _$LoginImpl implements _Login {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -2079,6 +2159,8 @@ class _$SendOtpImpl implements _SendOtp {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return sendOtp();
@@ -2101,6 +2183,8 @@ class _$SendOtpImpl implements _SendOtp {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return sendOtp?.call();
@@ -2123,6 +2207,7 @@ class _$SendOtpImpl implements _SendOtp {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -2149,6 +2234,7 @@ class _$SendOtpImpl implements _SendOtp {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return sendOtp(this);
@@ -2171,6 +2257,7 @@ class _$SendOtpImpl implements _SendOtp {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return sendOtp?.call(this);
@@ -2193,6 +2280,7 @@ class _$SendOtpImpl implements _SendOtp {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -2299,6 +2387,8 @@ class _$RegisterImpl implements _Register {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return registerUser(this.phone, userType);
@@ -2321,6 +2411,8 @@ class _$RegisterImpl implements _Register {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return registerUser?.call(this.phone, userType);
@@ -2343,6 +2435,7 @@ class _$RegisterImpl implements _Register {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -2369,6 +2462,7 @@ class _$RegisterImpl implements _Register {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return registerUser(this);
@@ -2391,6 +2485,7 @@ class _$RegisterImpl implements _Register {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return registerUser?.call(this);
@@ -2413,6 +2508,7 @@ class _$RegisterImpl implements _Register {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -2494,6 +2590,8 @@ class _$SignupImpl implements _Signup {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return signup();
@@ -2516,6 +2614,8 @@ class _$SignupImpl implements _Signup {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return signup?.call();
@@ -2538,6 +2638,7 @@ class _$SignupImpl implements _Signup {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -2564,6 +2665,7 @@ class _$SignupImpl implements _Signup {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return signup(this);
@@ -2586,6 +2688,7 @@ class _$SignupImpl implements _Signup {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return signup?.call(this);
@@ -2608,6 +2711,7 @@ class _$SignupImpl implements _Signup {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -2679,6 +2783,8 @@ class _$CheckUserImpl implements _CheckUser {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return checkUser();
@@ -2701,6 +2807,8 @@ class _$CheckUserImpl implements _CheckUser {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return checkUser?.call();
@@ -2723,6 +2831,7 @@ class _$CheckUserImpl implements _CheckUser {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -2749,6 +2858,7 @@ class _$CheckUserImpl implements _CheckUser {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return checkUser(this);
@@ -2771,6 +2881,7 @@ class _$CheckUserImpl implements _CheckUser {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return checkUser?.call(this);
@@ -2793,6 +2904,7 @@ class _$CheckUserImpl implements _CheckUser {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -2864,6 +2976,8 @@ class _$LogoutImpl implements _Logout {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return logout();
@@ -2886,6 +3000,8 @@ class _$LogoutImpl implements _Logout {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return logout?.call();
@@ -2908,6 +3024,7 @@ class _$LogoutImpl implements _Logout {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -2934,6 +3051,7 @@ class _$LogoutImpl implements _Logout {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return logout(this);
@@ -2956,6 +3074,7 @@ class _$LogoutImpl implements _Logout {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return logout?.call(this);
@@ -2978,6 +3097,7 @@ class _$LogoutImpl implements _Logout {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -2990,6 +3110,249 @@ class _$LogoutImpl implements _Logout {
 
 abstract class _Logout implements AuthEvent {
   const factory _Logout() = _$LogoutImpl;
+}
+
+/// @nodoc
+abstract class _$$UpdateSendOtpStatusImplCopyWith<$Res> {
+  factory _$$UpdateSendOtpStatusImplCopyWith(
+    _$UpdateSendOtpStatusImpl value,
+    $Res Function(_$UpdateSendOtpStatusImpl) then,
+  ) = __$$UpdateSendOtpStatusImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool success, String? verificationId});
+}
+
+/// @nodoc
+class __$$UpdateSendOtpStatusImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$UpdateSendOtpStatusImpl>
+    implements _$$UpdateSendOtpStatusImplCopyWith<$Res> {
+  __$$UpdateSendOtpStatusImplCopyWithImpl(
+    _$UpdateSendOtpStatusImpl _value,
+    $Res Function(_$UpdateSendOtpStatusImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? success = null, Object? verificationId = freezed}) {
+    return _then(
+      _$UpdateSendOtpStatusImpl(
+        null == success
+            ? _value.success
+            : success // ignore: cast_nullable_to_non_nullable
+                as bool,
+        freezed == verificationId
+            ? _value.verificationId
+            : verificationId // ignore: cast_nullable_to_non_nullable
+                as String?,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$UpdateSendOtpStatusImpl implements _UpdateSendOtpStatus {
+  const _$UpdateSendOtpStatusImpl(this.success, this.verificationId);
+
+  @override
+  final bool success;
+  @override
+  final String? verificationId;
+
+  @override
+  String toString() {
+    return 'AuthEvent.updateSendOtpStatus(success: $success, verificationId: $verificationId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateSendOtpStatusImpl &&
+            (identical(other.success, success) || other.success == success) &&
+            (identical(other.verificationId, verificationId) ||
+                other.verificationId == verificationId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, success, verificationId);
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateSendOtpStatusImplCopyWith<_$UpdateSendOtpStatusImpl> get copyWith =>
+      __$$UpdateSendOtpStatusImplCopyWithImpl<_$UpdateSendOtpStatusImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() initialisation,
+    required TResult Function(String email) email,
+    required TResult Function(String phone) phone,
+    required TResult Function(String otp) otp,
+    required TResult Function(String password) password,
+    required TResult Function(String confirmPassword) confirmPassword,
+    required TResult Function(String name) name,
+    required TResult Function() login,
+    required TResult Function() sendOtp,
+    required TResult Function(String phone, String userType) registerUser,
+    required TResult Function() signup,
+    required TResult Function() checkUser,
+    required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
+    required TResult Function(Yourself value) yourself,
+  }) {
+    return updateSendOtpStatus(success, verificationId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? initialisation,
+    TResult? Function(String email)? email,
+    TResult? Function(String phone)? phone,
+    TResult? Function(String otp)? otp,
+    TResult? Function(String password)? password,
+    TResult? Function(String confirmPassword)? confirmPassword,
+    TResult? Function(String name)? name,
+    TResult? Function()? login,
+    TResult? Function()? sendOtp,
+    TResult? Function(String phone, String userType)? registerUser,
+    TResult? Function()? signup,
+    TResult? Function()? checkUser,
+    TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
+    TResult? Function(Yourself value)? yourself,
+  }) {
+    return updateSendOtpStatus?.call(success, verificationId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? initialisation,
+    TResult Function(String email)? email,
+    TResult Function(String phone)? phone,
+    TResult Function(String otp)? otp,
+    TResult Function(String password)? password,
+    TResult Function(String confirmPassword)? confirmPassword,
+    TResult Function(String name)? name,
+    TResult Function()? login,
+    TResult Function()? sendOtp,
+    TResult Function(String phone, String userType)? registerUser,
+    TResult Function()? signup,
+    TResult Function()? checkUser,
+    TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
+    TResult Function(Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (updateSendOtpStatus != null) {
+      return updateSendOtpStatus(success, verificationId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_Email value) email,
+    required TResult Function(_Phone value) phone,
+    required TResult Function(_Otp value) otp,
+    required TResult Function(_Password value) password,
+    required TResult Function(_ConfirmPassword value) confirmPassword,
+    required TResult Function(_Name value) name,
+    required TResult Function(_Login value) login,
+    required TResult Function(_SendOtp value) sendOtp,
+    required TResult Function(_Register value) registerUser,
+    required TResult Function(_Signup value) signup,
+    required TResult Function(_CheckUser value) checkUser,
+    required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
+    required TResult Function(_Yourself value) yourself,
+  }) {
+    return updateSendOtpStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_Email value)? email,
+    TResult? Function(_Phone value)? phone,
+    TResult? Function(_Otp value)? otp,
+    TResult? Function(_Password value)? password,
+    TResult? Function(_ConfirmPassword value)? confirmPassword,
+    TResult? Function(_Name value)? name,
+    TResult? Function(_Login value)? login,
+    TResult? Function(_SendOtp value)? sendOtp,
+    TResult? Function(_Register value)? registerUser,
+    TResult? Function(_Signup value)? signup,
+    TResult? Function(_CheckUser value)? checkUser,
+    TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
+    TResult? Function(_Yourself value)? yourself,
+  }) {
+    return updateSendOtpStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_Email value)? email,
+    TResult Function(_Phone value)? phone,
+    TResult Function(_Otp value)? otp,
+    TResult Function(_Password value)? password,
+    TResult Function(_ConfirmPassword value)? confirmPassword,
+    TResult Function(_Name value)? name,
+    TResult Function(_Login value)? login,
+    TResult Function(_SendOtp value)? sendOtp,
+    TResult Function(_Register value)? registerUser,
+    TResult Function(_Signup value)? signup,
+    TResult Function(_CheckUser value)? checkUser,
+    TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
+    TResult Function(_Yourself value)? yourself,
+    required TResult orElse(),
+  }) {
+    if (updateSendOtpStatus != null) {
+      return updateSendOtpStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateSendOtpStatus implements AuthEvent {
+  const factory _UpdateSendOtpStatus(
+    final bool success,
+    final String? verificationId,
+  ) = _$UpdateSendOtpStatusImpl;
+
+  bool get success;
+  String? get verificationId;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateSendOtpStatusImplCopyWith<_$UpdateSendOtpStatusImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -3076,6 +3439,8 @@ class _$YourselfImpl implements _Yourself {
     required TResult Function() signup,
     required TResult Function() checkUser,
     required TResult Function() logout,
+    required TResult Function(bool success, String? verificationId)
+    updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
     return yourself(value);
@@ -3098,6 +3463,8 @@ class _$YourselfImpl implements _Yourself {
     TResult? Function()? signup,
     TResult? Function()? checkUser,
     TResult? Function()? logout,
+    TResult? Function(bool success, String? verificationId)?
+    updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
     return yourself?.call(value);
@@ -3120,6 +3487,7 @@ class _$YourselfImpl implements _Yourself {
     TResult Function()? signup,
     TResult Function()? checkUser,
     TResult Function()? logout,
+    TResult Function(bool success, String? verificationId)? updateSendOtpStatus,
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
@@ -3146,6 +3514,7 @@ class _$YourselfImpl implements _Yourself {
     required TResult Function(_Signup value) signup,
     required TResult Function(_CheckUser value) checkUser,
     required TResult Function(_Logout value) logout,
+    required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
     return yourself(this);
@@ -3168,6 +3537,7 @@ class _$YourselfImpl implements _Yourself {
     TResult? Function(_Signup value)? signup,
     TResult? Function(_CheckUser value)? checkUser,
     TResult? Function(_Logout value)? logout,
+    TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
     return yourself?.call(this);
@@ -3190,6 +3560,7 @@ class _$YourselfImpl implements _Yourself {
     TResult Function(_Signup value)? signup,
     TResult Function(_CheckUser value)? checkUser,
     TResult Function(_Logout value)? logout,
+    TResult Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {

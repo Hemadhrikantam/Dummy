@@ -32,7 +32,7 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
   @override
   void initState() {
     final petId = context.read<DashboardBloc>().state.selectedPet?.id;
-    context.read<DewormingFormBloc>().add(DewormingFormEvent.init(petId ?? 0));
+    context.read<DewormingFormBloc>().add(DewormingFormEvent.init(petId ?? ''));
     super.initState();
   }
 

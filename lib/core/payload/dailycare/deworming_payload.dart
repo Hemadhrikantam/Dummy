@@ -25,36 +25,36 @@ class DewormingPayload extends Equatable implements Payload {
   final String reminderTime;
   final String notes;
   final MultipartFile media;
-  final int pet;
+  final String pet;
   final int frequency;
   final int reminderTimezone;
   final int reminderBefore;
 
   @override
   List<Object?> get props => [
-        date,
-        productName,
-        dueDate,
-        reminderTime,
-        notes,
-        media,
-        pet,
-        frequency,
-        reminderTimezone,
-        reminderBefore,
-      ];
+    date,
+    productName,
+    dueDate,
+    reminderTime,
+    notes,
+    media,
+    pet,
+    frequency,
+    reminderTimezone,
+    reminderBefore,
+  ];
 
   @override
   JsonMap toMap() => {
-        'date': AppUtil.formatDate(date),
-        'product_name': productName,
-        'due_date': AppUtil.formatDate(dueDate),
-        'reminder_time': reminderTime,
-        'notes': notes,
-        'media': media,
-        'pet': pet,
-        'freequency': frequency,
-        'reminder_timezone': reminderTimezone,
-        'reminder_before': reminderBefore,
-      };
+    'date': AppUtil.formatDate(date),
+    'product_name': productName,
+    'due_date': AppUtil.formatDate(dueDate),
+    'reminder_time': reminderTime,
+    'notes': notes,
+    'media': media,
+    'pet': pet,
+    'freequency': frequency,
+    'reminder_timezone': reminderTimezone,
+    'reminder_before': reminderBefore,
+  };
 }

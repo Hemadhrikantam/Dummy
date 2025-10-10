@@ -13,7 +13,7 @@ abstract class MediaFormState with _$MediaFormState {
     @Default([]) List<DropItem> events,
 
     @Default(false) bool validation,
-    @Default(0) int petId,
+    @Default('') String petId,
   }) = _MediaFormState;
 }
 

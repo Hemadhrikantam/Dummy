@@ -19,7 +19,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$WalkFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(DropItem value) duration,
     required TResult Function(String value) location,
@@ -29,7 +29,7 @@ mixin _$WalkFormEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(DropItem value)? duration,
     TResult? Function(String value)? location,
@@ -39,7 +39,7 @@ mixin _$WalkFormEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(DropItem value)? duration,
     TResult Function(String value)? location,
@@ -110,7 +110,7 @@ abstract class _$$InitImplCopyWith<$Res> {
     $Res Function(_$InitImpl) then,
   ) = __$$InitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int petId});
+  $Res call({String petId});
 }
 
 /// @nodoc
@@ -130,7 +130,7 @@ class __$$InitImplCopyWithImpl<$Res>
         null == petId
             ? _value.petId
             : petId // ignore: cast_nullable_to_non_nullable
-                as int,
+                as String,
       ),
     );
   }
@@ -142,7 +142,7 @@ class _$InitImpl implements _Init {
   const _$InitImpl(this.petId);
 
   @override
-  final int petId;
+  final String petId;
 
   @override
   String toString() {
@@ -171,7 +171,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(DropItem value) duration,
     required TResult Function(String value) location,
@@ -185,7 +185,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(DropItem value)? duration,
     TResult? Function(String value)? location,
@@ -199,7 +199,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(DropItem value)? duration,
     TResult Function(String value)? location,
@@ -262,9 +262,9 @@ class _$InitImpl implements _Init {
 }
 
 abstract class _Init implements WalkFormEvent {
-  const factory _Init(final int petId) = _$InitImpl;
+  const factory _Init(final String petId) = _$InitImpl;
 
-  int get petId;
+  String get petId;
 
   /// Create a copy of WalkFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -341,7 +341,7 @@ class _$DateImpl implements _Date {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(DropItem value) duration,
     required TResult Function(String value) location,
@@ -355,7 +355,7 @@ class _$DateImpl implements _Date {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(DropItem value)? duration,
     TResult? Function(String value)? location,
@@ -369,7 +369,7 @@ class _$DateImpl implements _Date {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(DropItem value)? duration,
     TResult Function(String value)? location,
@@ -513,7 +513,7 @@ class _$DurationImpl implements _Duration {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(DropItem value) duration,
     required TResult Function(String value) location,
@@ -527,7 +527,7 @@ class _$DurationImpl implements _Duration {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(DropItem value)? duration,
     TResult? Function(String value)? location,
@@ -541,7 +541,7 @@ class _$DurationImpl implements _Duration {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(DropItem value)? duration,
     TResult Function(String value)? location,
@@ -685,7 +685,7 @@ class _$LocationImpl implements _Location {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(DropItem value) duration,
     required TResult Function(String value) location,
@@ -699,7 +699,7 @@ class _$LocationImpl implements _Location {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(DropItem value)? duration,
     TResult? Function(String value)? location,
@@ -713,7 +713,7 @@ class _$LocationImpl implements _Location {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(DropItem value)? duration,
     TResult Function(String value)? location,
@@ -857,7 +857,7 @@ class _$NotesImpl implements _Notes {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(DropItem value) duration,
     required TResult Function(String value) location,
@@ -871,7 +871,7 @@ class _$NotesImpl implements _Notes {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(DropItem value)? duration,
     TResult? Function(String value)? location,
@@ -885,7 +885,7 @@ class _$NotesImpl implements _Notes {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(DropItem value)? duration,
     TResult Function(String value)? location,
@@ -1029,7 +1029,7 @@ class _$MediaImpl implements _Media {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(DropItem value) duration,
     required TResult Function(String value) location,
@@ -1043,7 +1043,7 @@ class _$MediaImpl implements _Media {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(DropItem value)? duration,
     TResult? Function(String value)? location,
@@ -1057,7 +1057,7 @@ class _$MediaImpl implements _Media {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(DropItem value)? duration,
     TResult Function(String value)? location,
@@ -1174,7 +1174,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(DropItem value) duration,
     required TResult Function(String value) location,
@@ -1188,7 +1188,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(DropItem value)? duration,
     TResult? Function(String value)? location,
@@ -1202,7 +1202,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(DropItem value)? duration,
     TResult Function(String value)? location,
@@ -1277,7 +1277,7 @@ mixin _$WalkFormState {
   NotEmpty get date => throw _privateConstructorUsedError;
   NotEmpty get notes => throw _privateConstructorUsedError;
   NotEmpty get media => throw _privateConstructorUsedError;
-  int get petId => throw _privateConstructorUsedError;
+  String get petId => throw _privateConstructorUsedError;
   bool get validation => throw _privateConstructorUsedError;
 
   /// Create a copy of WalkFormState
@@ -1302,7 +1302,7 @@ abstract class $WalkFormStateCopyWith<$Res> {
     NotEmpty date,
     NotEmpty notes,
     NotEmpty media,
-    int petId,
+    String petId,
     bool validation,
   });
 }
@@ -1373,7 +1373,7 @@ class _$WalkFormStateCopyWithImpl<$Res, $Val extends WalkFormState>
                 null == petId
                     ? _value.petId
                     : petId // ignore: cast_nullable_to_non_nullable
-                        as int,
+                        as String,
             validation:
                 null == validation
                     ? _value.validation
@@ -1402,7 +1402,7 @@ abstract class _$$WalkFormStateImplCopyWith<$Res>
     NotEmpty date,
     NotEmpty notes,
     NotEmpty media,
-    int petId,
+    String petId,
     bool validation,
   });
 }
@@ -1472,7 +1472,7 @@ class __$$WalkFormStateImplCopyWithImpl<$Res>
             null == petId
                 ? _value.petId
                 : petId // ignore: cast_nullable_to_non_nullable
-                    as int,
+                    as String,
         validation:
             null == validation
                 ? _value.validation
@@ -1494,7 +1494,7 @@ class _$WalkFormStateImpl implements _WalkFormState {
     this.date = const NotEmpty.pure(),
     this.notes = const NotEmpty.pure(),
     this.media = const NotEmpty.pure(),
-    this.petId = 0,
+    this.petId = '',
     this.validation = false,
   }) : _durations = durations;
 
@@ -1527,7 +1527,7 @@ class _$WalkFormStateImpl implements _WalkFormState {
   final NotEmpty media;
   @override
   @JsonKey()
-  final int petId;
+  final String petId;
   @override
   @JsonKey()
   final bool validation;
@@ -1592,7 +1592,7 @@ abstract class _WalkFormState implements WalkFormState {
     final NotEmpty date,
     final NotEmpty notes,
     final NotEmpty media,
-    final int petId,
+    final String petId,
     final bool validation,
   }) = _$WalkFormStateImpl;
 
@@ -1611,7 +1611,7 @@ abstract class _WalkFormState implements WalkFormState {
   @override
   NotEmpty get media;
   @override
-  int get petId;
+  String get petId;
   @override
   bool get validation;
 

@@ -7,14 +7,13 @@ import 'package:dummy/features/dashboard/data/datasources/dashboard_details_data
 import 'package:dummy/features/dashboard/data/models/dashboard_details_model.dart';
 import 'package:dummy/service/app_http_service.dart';
 
-class DashboardDetailsDatasourceImpl extends DashboardDetailsDatasource{
-  DashboardDetailsDatasourceImpl({ required this.http});
-final AppHttp http;
-
+class DashboardDetailsDatasourceImpl extends DashboardDetailsDatasource {
+  DashboardDetailsDatasourceImpl({required this.http});
+  final AppHttp http;
 
   @override
-  AppTypeResponse <List<DashboardDetailsModel>> dashboardPetDetails() async{
-     final response = await http.get(path: api.pets);
+  AppTypeResponse<List<DashboardDetailsModel>> dashboardPetDetails() async {
+    final response = await http.get(path: api.pets);
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -28,7 +27,7 @@ final AppHttp http;
                   : success.statusCode;
           if (statusCode <= 201) {
             final item = <DashboardDetailsModel>[];
-            for (final documents in data as List? ?? []) {
+            for (final documents in data['data'] as List? ?? []) {
               final map = Map<String, dynamic>.from(documents as Map);
               item.add(DashboardDetailsModel.fromMap(map));
             }
@@ -46,5 +45,4 @@ final AppHttp http;
       },
     );
   }
-
 }

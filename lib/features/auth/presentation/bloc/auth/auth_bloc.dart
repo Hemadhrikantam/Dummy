@@ -1,18 +1,17 @@
 import 'dart:async';
+import 'dart:convert';
 
+import 'package:dummy/api/storage_key.dart';
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/models/formz/mobile.dart';
 import 'package:dummy/core/models/formz/otp.dart';
-import 'package:dummy/core/payload/register_account_payload.dart';
-import 'package:dummy/core/services/firebase_otp.dart';
 import 'package:dummy/core/utils/log_utility.dart';
+import 'package:dummy/features/auth/domain/usecases/enums_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_account_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
-import 'package:dummy/features/auth/presentation/pages/pet_type_page.dart';
-import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/signup/data/models/enum_model.dart';
 import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
@@ -25,7 +24,6 @@ import '../../../../../core/enum/status.dart';
 import '../../../../../core/enum/yourself.dart';
 import '../../../../../core/models/formz/not_empty.dart';
 import '../../../../../core/models/formz/password.dart';
-import '../../../../../core/models/login_model.dart';
 import '../../../../../core/utils/toast_message.dart';
 import '../../../../../di/injection.dart';
 import '../../../../dashboard/presentation/pages/dashboard_page.dart';
@@ -48,12 +46,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     required RegisterAccountUsecases registerAccountUsecases,
     required SendOtpUsecases sendOtpUsecases,
     required RegisterUserUsecases registerUserUsecases,
-  }) : __sendOtpUsecases = sendOtpUsecases,
-       __registerUserUsecases = registerUserUsecases,
-       __loginUserUsecases = loginUserUsecases,
-       __currentUserUsecases = currentUserUsecases,
+    required EnumsUsecases enumsUsecases,
+  }) : __registerUserUsecases = registerUserUsecases,
        __logoutUsecases = logoutUsecases,
-       __registerAccountUsecases = registerAccountUsecases,
+       __enumsUsecases = enumsUsecases,
        super(const AuthState()) {
     on<_Init>(__init);
     on<_Initialisation>(__initialisation);
@@ -66,13 +62,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<_SendOtp>(__sendOtp);
     on<_Otp>(__otp);
     on<_Register>(__register);
+    on<_UpdateSendOtpStatus>(__updateSendOtpStatus);
   }
-  final SendOtpUsecases __sendOtpUsecases;
+
   final RegisterUserUsecases __registerUserUsecases;
-  final LoginUserUsecases __loginUserUsecases;
-  final CurrentUserUsecases __currentUserUsecases;
+  final EnumsUsecases __enumsUsecases;
   final LogoutUsecases __logoutUsecases;
-  final RegisterAccountUsecases __registerAccountUsecases;
 
   void __init(_Init event, Emitter<AuthState> emit) {
     emit(const AuthState());
@@ -84,10 +79,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   Future<void> __login(_Login event, Emitter<AuthState> emit) async {
     // emit(state.copyWith(loginStatus: Status.loading));
-    emit(state.copyWith(loginStatus: Status.loading));
-    emit(state.copyWith(loginStatus: Status.success));
-    emit(state.copyWith(loginStatus: Status.init));
-    return;
+    // emit(state.copyWith(loginStatus: Status.loading));
+    // emit(state.copyWith(loginStatus: Status.success));
+    // emit(state.copyWith(loginStatus: Status.init));
+    // return;
     emit(state.copyWith(loginStatus: Status.loading));
     LogUtility.info("${state.phone.value}");
     try {
@@ -96,140 +91,83 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         smsCode: state.otp.value ?? '',
       );
       if (userCredential.user?.uid != null) {
+        emit(state.copyWith(loginStatus: Status.success));
+        emit(state.copyWith(loginStatus: Status.init));
       } else {
         AppAlert.showToast(message: AppText.invalidOtp);
+        emit(state.copyWith(loginStatus: Status.error));
+        emit(state.copyWith(loginStatus: Status.init));
       }
     } catch (e) {
       AppAlert.showToast(message: AppText.somethingWentWrong);
+      emit(state.copyWith(loginStatus: Status.error));
+      emit(state.copyWith(loginStatus: Status.init));
     }
-    // final result = await __loginUserUsecases(
-    //   login: LoginModel(
-    //     phone: state.phone.value ?? '',
-    //     otp: state.otp.value ?? '',
-    //   ),
-    // );
-
-    // // Check if failure
-    // if (result.isLeft()) {
-    //   final error = result.fold((l) => l, (r) => null);
-    //   AppAlert.showToast(message: error?.message ?? 'Something went wrong');
-    //   emit(state.copyWith(loginStatus: Status.failure));
-    //   return;
-    // }
-
-    // // Success
-    // final success = result.fold((l) => null, (r) => r);
-    // emit(state.copyWith(loginStatus: Status.init));
-
-    // final userType = success?.user.userType ?? '';
-    // final prefs = await SharedPreferences.getInstance();
-    // await prefs.setString('userType', userType);
-
-    // emit(state.copyWith(loginStatus: Status.success));
-    // await Future.delayed(const Duration(seconds: 2));
-    // if (userType == Yourself.petParent.name &&
-    //     (success?.isPetCreated ?? false)) {
-    //   currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
-    // } else if (userType == Yourself.petParent.name) {
-    //   currentContext.pushNamed(MeetYourPetScreen.routeName);
-    // } else if (userType == Yourself.lookingAdoption.name) {
-    //   currentContext.pushNamedAndRemoveUntil(AdoptionDashboardPage.routeName);
-    // } else if (userType == Yourself.ngo.name) {
-    //   currentContext.pushNamed(NgoRegistrationPage.routeName);
-    // } else {
-    //   currentContext.pushNamed(StartYourPetsJourney.routeName);
-    // }
-
-    // if (!emit.isDone) {
-    //   emit(
-    //     state.copyWith(
-    //       loginStatus: Status.init,
-    //       user: success,
-    //       email: NotEmpty.pure(),
-    //       password: Password.pure(),
-    //     ),
-    //   );
-    // }
   }
 
   Future<void> __signup(_Signup event, Emitter<AuthState> emit) async {
-    emit(state.copyWith(signupStatus: Status.loading));
-    final result = await __registerAccountUsecases(
-      registerAccount: RegisterAccountPayload(
-        petName: state.name.value,
-        petType: state.email.value,
-        dob: state.password.value,
-        petWeight: 0,
-        petImage: 1,
-        breed: 0,
-        personalityTag: [],
-        gender: '',
-        latitude: 0,
-        longitude: 0,
-      ),
-    );
-    result.fold(
-      (error) {
-        AppAlert.showToast(message: error.message);
-        emit(state.copyWith(signupStatus: Status.failure));
-      },
-      (success) {
-        currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
-        emit(
-          state.copyWith(
-            signupStatus: Status.success,
-            email: NotEmpty.pure(),
-            name: NotEmpty.pure(),
-            password: Password.pure(),
-            confirmPassword: Password.pure(),
-            // user: CurrentUser(
-            //   id: '',
-            //   email: state.name.value,
-            //   name: state.name.value,
-            // ),
-          ),
-        );
-      },
-    );
+    // emit(state.copyWith(signupStatus: Status.loading));
+    // final result = await __registerAccountUsecases(
+    //   registerAccount: RegisterAccountPayload(
+    //     petName: state.name.value,
+    //     petType: state.email.value,
+    //     dob: state.password.value,
+    //     petWeight: 0,
+    //     petImage: 1,
+    //     breed: 0,
+    //     personalityTag: [],
+    //     gender: '',
+    //     latitude: 0,
+    //     longitude: 0,
+    //   ),
+    // );
+    // result.fold(
+    //   (error) {
+    //     AppAlert.showToast(message: error.message);
+    //     emit(state.copyWith(signupStatus: Status.failure));
+    //   },
+    //   (success) {
+    //     currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
+    //     emit(
+    //       state.copyWith(
+    //         signupStatus: Status.success,
+    //         email: NotEmpty.pure(),
+    //         name: NotEmpty.pure(),
+    //         password: Password.pure(),
+    //         confirmPassword: Password.pure(),
+    //         // user: CurrentUser(
+    //         //   id: '',
+    //         //   email: state.name.value,
+    //         //   name: state.name.value,
+    //         // ),
+    //       ),
+    //     );
+    //   },
+    // );
   }
 
   Future<void> __checkUser(_CheckUser event, Emitter<AuthState> emit) async {
-    final result = await __currentUserUsecases();
-    final result1 = await __currentUserUsecases();
-    result.fold(
-      (error) {
-        currentContext.pushNamedAndRemoveUntil(StartYourPetsJourney.routeName);
-      },
-      (success) async {
-        emit(
-          state.copyWith(
-            phone: MobileNo.dirty(value: success?.phone.toString() ?? ''),
-            otp: OTP.dirty(value: success?.otp.toString() ?? ''),
-          ),
-        );
-        add(_Login());
-        // final prefs = await SharedPreferences.getInstance();
-        // final storedUserType = prefs.getString('userType');
-        // print('check user - $success');
-        // print(
-        //   '-------------------------$storedUserType-----------------------------',
-        // );
-        // if (storedUserType == Yourself.petParent.name &&
-        //     (success?.isPetCreated ?? false)) {
-        //   currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
-        // } else if (storedUserType == Yourself.petParent.name) {
-        //   currentContext.pushNamed(MeetYourPetScreen.routeName);
-        // } else if (storedUserType == Yourself.lookingAdoption.name) {
-        //   currentContext.pushNamedAndRemoveUntil(
-        //     AdoptionDashboardPage.routeName,
-        //   );
-        // } else if (storedUserType == Yourself.ngo.name) {
-        //   currentContext.pushAndRemoveUntil(NgoHomePage.route());
-        // } else {
-        //   currentContext.pushNamed(StartYourPetsJourney.routeName);
-        // }
-      },
-    );
+    // final result = await __currentUserUsecases();
+    final result1 = await __enumsUsecases();
+    result1.fold((error) {}, (success) async {
+      emit(state.copyWith(enums: success));
+    });
+    final raw = await Injection.appStorage.read(StorageKey.userCred);
+    if (raw == null) {
+      currentContext.pushNamedAndRemoveUntil(StartYourPetsJourney.routeName);
+    } else {
+      final auth = jsonDecode(raw.toString());
+      emit(state.copyWith(phone: MobileNo.dirty(value: auth['phone'])));
+      emit(
+        state.copyWith(
+          yourself: auth['account_type'].toString().toYourselfEnum(),
+        ),
+      );
+      add(_Register(auth['phone'], auth['account_type'].toString()));
+    }
+    // result.fold((error) {
+    //
+    // }, (success) async {});
   }
 
   Future<void> __logout(_Logout event, Emitter<AuthState> emit) async {
@@ -252,29 +190,24 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   FutureOr<void> __sendOtp(_SendOtp event, Emitter<AuthState> emit) async {
     LogUtility.info("event calling");
+    // emit(state.copyWith(sendOtpStatus: Status.loading));
+    // emit(state.copyWith(sendOtpStatus: Status.success));
+    // emit(state.copyWith(sendOtpStatus: Status.init));
+    // currentContext.push(OtpVerification.route());
+    // return;
     emit(state.copyWith(sendOtpStatus: Status.loading));
-    emit(state.copyWith(sendOtpStatus: Status.success));
-    emit(state.copyWith(sendOtpStatus: Status.init));
-    currentContext.push(OtpVerification.route());
-    return;
-    emit(state.copyWith(sendOtpStatus: Status.loading));
-    LogUtility.info("${state.phone.value}");
+
     await Injection.firebaseOtp.sendOtp(
       phoneNumber: '+91${state.phone.value}',
       onError: (e) {
-        AppAlert.showToast(message: AppText.somethingWentWrong);
-        emit(state.copyWith(sendOtpStatus: Status.failure));
-        emit(state.copyWith(sendOtpStatus: Status.init));
+        currentContext.read<AuthBloc>().add(
+          AuthEvent.updateSendOtpStatus(false, null),
+        );
       },
       codeSent: (String verificationId) {
-        AppAlert.showToast(message: AppText.otpSuccess);
-        emit(
-          state.copyWith(
-            sendOtpStatus: Status.success,
-            verificationId: NotEmpty.dirty(value: verificationId),
-          ),
+        currentContext.read<AuthBloc>().add(
+          AuthEvent.updateSendOtpStatus(true, verificationId),
         );
-        emit(state.copyWith(sendOtpStatus: Status.init));
       },
     );
     // final result = await __sendOtpUsecases(phone: state.phone.value.toString());
@@ -299,6 +232,27 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   void __otp(_Otp event, Emitter<AuthState> emit) {
     final otp = OTP.dirty(value: event.otp);
     emit(state.copyWith(otp: otp));
+  }
+
+  void __updateSendOtpStatus(
+    _UpdateSendOtpStatus event,
+    Emitter<AuthState> emit,
+  ) {
+    if (event.success) {
+      AppAlert.showToast(message: AppText.otpSuccess);
+      emit(
+        state.copyWith(
+          sendOtpStatus: Status.success,
+          verificationId: NotEmpty.dirty(value: event.verificationId!),
+        ),
+      );
+      currentContext.push(OtpVerification.route());
+      emit(state.copyWith(sendOtpStatus: Status.init));
+    } else {
+      AppAlert.showToast(message: AppText.somethingWentWrong);
+      emit(state.copyWith(sendOtpStatus: Status.failure));
+      emit(state.copyWith(sendOtpStatus: Status.init));
+    }
   }
 
   FutureOr<void> __register(_Register event, Emitter<AuthState> emit) async {

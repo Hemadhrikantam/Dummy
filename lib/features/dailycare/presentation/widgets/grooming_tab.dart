@@ -106,7 +106,7 @@ class _GroomingTabState extends State<GroomingTab> {
                         titleFontSize: 24,
                         imagePath: ImageResources.tshirt,
                         title:
-                            "We don’t have ${widget.selectedPet?.petName}s daily care data yet. Start logging her groomings to see a summary!",
+                            "We don’t have ${widget.selectedPet?.name}s daily care data yet. Start logging her groomings to see a summary!",
                       ),
                     )
                     : AppCustomListViewBuilder(

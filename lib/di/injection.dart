@@ -15,6 +15,7 @@ import 'package:dummy/features/addoption/domain/usecases/pet_types_usecases.dart
 import 'package:dummy/features/addoption/domain/usecases/submit_pet_adoption_form.dart';
 import 'package:dummy/features/addoption/presentation/bloc/add_adoption/add_adoption_bloc.dart';
 import 'package:dummy/features/addoption/presentation/bloc/adoption/adoption_bloc.dart';
+import 'package:dummy/features/auth/domain/usecases/enums_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/send_otp_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
@@ -143,6 +144,7 @@ class Injection {
   static NotificationService get notificationService =>
       getIt<NotificationService>();
   static FirebaseOtp get firebaseOtp => getIt<FirebaseOtp>();
+  static LocalStorage get appStorage => getIt<LocalStorage>();
 
   static Future<void> init() async {
     await _initServicesAndUtils();

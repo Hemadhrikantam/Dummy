@@ -5,6 +5,7 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
@@ -144,9 +145,9 @@ class _OTPInput extends StatefulWidget {
 }
 
 class _OTPInputState extends State<_OTPInput> {
-  final List<FocusNode> _focusNodes = List.generate(4, (_) => FocusNode());
+  final List<FocusNode> _focusNodes = List.generate(6, (_) => FocusNode());
   final List<TextEditingController> _controllers = List.generate(
-    4,
+    6,
     (_) => TextEditingController(),
   );
 
@@ -162,7 +163,7 @@ class _OTPInputState extends State<_OTPInput> {
   }
 
   void _handleInput(String value, int index) {
-    if (value.length == 1 && index < 3) {
+    if (value.length == 1 && index < 5) {
       FocusScope.of(context).requestFocus(_focusNodes[index + 1]);
     }
     if (value.isEmpty && index > 0) {
@@ -172,22 +173,23 @@ class _OTPInputState extends State<_OTPInput> {
       (controller) => controller.text.length == 1,
     );
 
-    if (allFilled) {
-      final otp = _controllers.map((c) => c.text).join();
-      context.read<AuthBloc>().add(AuthEvent.otp(otp));
-    }
+    // if (allFilled) {
+    final otp = _controllers.map((c) => c.text).join();
+    LogUtility.warning(otp);
+    context.read<AuthBloc>().add(AuthEvent.otp(otp));
+    // }
   }
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(4, (index) {
+      children: List.generate(6, (index) {
         return Padding(
-          padding: Styles.edgeInsetsOnlyW04,
+          padding: Styles.edgeInsetsOnlyW02,
           child: SizedBox(
-            width: 50,
-            height: 50,
+            width: 45,
+            height: 45,
             child: TextField(
               controller: _controllers[index],
               focusNode: _focusNodes[index],

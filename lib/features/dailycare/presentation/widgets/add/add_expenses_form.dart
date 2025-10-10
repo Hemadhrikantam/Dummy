@@ -30,7 +30,7 @@ class _AddExpensesFormState extends State<AddExpensesForm> {
   @override
   void initState() {
     final petId = context.read<DashboardBloc>().state.selectedPet?.id;
-    context.read<ExpenseFormBloc>().add(ExpenseFormEvent.init(petId ?? 0));
+    context.read<ExpenseFormBloc>().add(ExpenseFormEvent.init(petId ?? ''));
     super.initState();
   }
 

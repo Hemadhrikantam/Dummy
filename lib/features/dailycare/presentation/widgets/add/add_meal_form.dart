@@ -30,7 +30,7 @@ class _AddMealFormState extends State<AddMealForm> {
   @override
   void initState() {
     final petId = context.read<DashboardBloc>().state.selectedPet?.id;
-    context.read<MealFormBloc>().add(MealFormEvent.init(petId ?? 0));
+    context.read<MealFormBloc>().add(MealFormEvent.init(petId ?? ''));
     super.initState();
   }
 

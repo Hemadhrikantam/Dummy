@@ -21,7 +21,7 @@ class PetImageWidget extends StatelessWidget {
               radius: 70,
               backgroundColor: AppColors.buttonBackground,
               child: AppNetworkImage(
-                url: state.selectedPet!.petImage.petImage,
+                url: state.selectedPet!.imageUrl ?? '',
                 width: 140,
                 height: 140,
               ),

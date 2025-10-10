@@ -191,13 +191,25 @@ class AuthDatasourceImpl extends AuthDatasource {
       (error) {
         return Left(ErrorMessage(message: error.message));
       },
-      (success) {
+      (success) async {
         try {
           final statusCode =
               (success.data['statusCode'] as int?) ?? success.statusCode;
           final data = success.data;
           LogUtility.warning(data.toString());
           if (statusCode <= 201 && data['status'] == 'success') {
+            if (data['data']['accessToken'] != null) {
+              var item = SecureStorageItem(
+                key: StorageKey.token,
+                value: data['data']['accessToken'],
+              );
+              var usercred = SecureStorageItem(
+                key: StorageKey.userCred,
+                value: json.encode({'phone': phone, 'account_type': userType}),
+              );
+              await storage.write(item);
+              await storage.write(usercred);
+            }
             return Right(
               CurrentUserModel(
                 message: data['message'] as String? ?? '',

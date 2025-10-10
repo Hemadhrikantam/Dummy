@@ -50,7 +50,7 @@ class HealthStatusCard extends StatelessWidget {
                               Styles.gap10,
                               Expanded(
                                 child: Text(
-                                  " ${selectedPet?.petName??''} is a ${ calculateAge(selectedPet?.dob??'')} old ${selectedPet?.breed??''}—start logging her daily care to see her health score!",
+                                  " ${selectedPet?.name ?? ''} is a ${calculateAge(selectedPet?.dob ?? '')} old ${selectedPet?.breedName ?? ''}—start logging her daily care to see her health score!",
                                   style: context.textTheme.labelLarge?.copyWith(
                                     color: AppColors.text,
                                     fontSize: 12,
@@ -76,7 +76,7 @@ class HealthStatusCard extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        " ${selectedPet?.petName??''} Health Status",
+                                        " ${selectedPet?.name ?? ''} Health Status",
                                         style: context.textTheme.labelLarge
                                             ?.copyWith(
                                               color: AppColors.grey500,
@@ -161,5 +161,3 @@ class HealthStatusCard extends StatelessWidget {
     );
   }
 }
-
-

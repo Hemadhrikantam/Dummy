@@ -19,7 +19,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$GroomingFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(String value) groomingType,
     required TResult Function(String value) notes,
@@ -28,7 +28,7 @@ mixin _$GroomingFormEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(String value)? groomingType,
     TResult? Function(String value)? notes,
@@ -37,7 +37,7 @@ mixin _$GroomingFormEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(String value)? groomingType,
     TResult Function(String value)? notes,
@@ -104,7 +104,7 @@ abstract class _$$InitImplCopyWith<$Res> {
     $Res Function(_$InitImpl) then,
   ) = __$$InitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int petId});
+  $Res call({String petId});
 }
 
 /// @nodoc
@@ -124,7 +124,7 @@ class __$$InitImplCopyWithImpl<$Res>
         null == petId
             ? _value.petId
             : petId // ignore: cast_nullable_to_non_nullable
-                as int,
+                as String,
       ),
     );
   }
@@ -136,7 +136,7 @@ class _$InitImpl implements _Init {
   const _$InitImpl(this.petId);
 
   @override
-  final int petId;
+  final String petId;
 
   @override
   String toString() {
@@ -165,7 +165,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(String value) groomingType,
     required TResult Function(String value) notes,
@@ -178,7 +178,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(String value)? groomingType,
     TResult? Function(String value)? notes,
@@ -191,7 +191,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(String value)? groomingType,
     TResult Function(String value)? notes,
@@ -250,9 +250,9 @@ class _$InitImpl implements _Init {
 }
 
 abstract class _Init implements GroomingFormEvent {
-  const factory _Init(final int petId) = _$InitImpl;
+  const factory _Init(final String petId) = _$InitImpl;
 
-  int get petId;
+  String get petId;
 
   /// Create a copy of GroomingFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -329,7 +329,7 @@ class _$DateImpl implements _Date {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(String value) groomingType,
     required TResult Function(String value) notes,
@@ -342,7 +342,7 @@ class _$DateImpl implements _Date {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(String value)? groomingType,
     TResult? Function(String value)? notes,
@@ -355,7 +355,7 @@ class _$DateImpl implements _Date {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(String value)? groomingType,
     TResult Function(String value)? notes,
@@ -495,7 +495,7 @@ class _$GroomingTypeImpl implements _GroomingType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(String value) groomingType,
     required TResult Function(String value) notes,
@@ -508,7 +508,7 @@ class _$GroomingTypeImpl implements _GroomingType {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(String value)? groomingType,
     TResult? Function(String value)? notes,
@@ -521,7 +521,7 @@ class _$GroomingTypeImpl implements _GroomingType {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(String value)? groomingType,
     TResult Function(String value)? notes,
@@ -661,7 +661,7 @@ class _$NotesImpl implements _Notes {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(String value) groomingType,
     required TResult Function(String value) notes,
@@ -674,7 +674,7 @@ class _$NotesImpl implements _Notes {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(String value)? groomingType,
     TResult? Function(String value)? notes,
@@ -687,7 +687,7 @@ class _$NotesImpl implements _Notes {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(String value)? groomingType,
     TResult Function(String value)? notes,
@@ -827,7 +827,7 @@ class _$MediaImpl implements _Media {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(String value) groomingType,
     required TResult Function(String value) notes,
@@ -840,7 +840,7 @@ class _$MediaImpl implements _Media {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(String value)? groomingType,
     TResult? Function(String value)? notes,
@@ -853,7 +853,7 @@ class _$MediaImpl implements _Media {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(String value)? groomingType,
     TResult Function(String value)? notes,
@@ -966,7 +966,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId) init,
+    required TResult Function(String petId) init,
     required TResult Function(String value) date,
     required TResult Function(String value) groomingType,
     required TResult Function(String value) notes,
@@ -979,7 +979,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId)? init,
+    TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
     TResult? Function(String value)? groomingType,
     TResult? Function(String value)? notes,
@@ -992,7 +992,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId)? init,
+    TResult Function(String petId)? init,
     TResult Function(String value)? date,
     TResult Function(String value)? groomingType,
     TResult Function(String value)? notes,
@@ -1062,7 +1062,7 @@ mixin _$GroomingFormState {
   NotEmpty get notes => throw _privateConstructorUsedError;
   NotEmpty get media => throw _privateConstructorUsedError;
   bool get validation => throw _privateConstructorUsedError;
-  int get petId => throw _privateConstructorUsedError;
+  String get petId => throw _privateConstructorUsedError;
 
   /// Create a copy of GroomingFormState
   /// with the given fields replaced by the non-null parameter values.
@@ -1085,7 +1085,7 @@ abstract class $GroomingFormStateCopyWith<$Res> {
     NotEmpty notes,
     NotEmpty media,
     bool validation,
-    int petId,
+    String petId,
   });
 }
 
@@ -1148,7 +1148,7 @@ class _$GroomingFormStateCopyWithImpl<$Res, $Val extends GroomingFormState>
                 null == petId
                     ? _value.petId
                     : petId // ignore: cast_nullable_to_non_nullable
-                        as int,
+                        as String,
           )
           as $Val,
     );
@@ -1171,7 +1171,7 @@ abstract class _$$GroomingFormStateImplCopyWith<$Res>
     NotEmpty notes,
     NotEmpty media,
     bool validation,
-    int petId,
+    String petId,
   });
 }
 
@@ -1233,7 +1233,7 @@ class __$$GroomingFormStateImplCopyWithImpl<$Res>
             null == petId
                 ? _value.petId
                 : petId // ignore: cast_nullable_to_non_nullable
-                    as int,
+                    as String,
       ),
     );
   }
@@ -1249,7 +1249,7 @@ class _$GroomingFormStateImpl implements _GroomingFormState {
     this.notes = const NotEmpty.pure(),
     this.media = const NotEmpty.pure(),
     this.validation = false,
-    this.petId = 0,
+    this.petId = '',
   });
 
   @override
@@ -1272,7 +1272,7 @@ class _$GroomingFormStateImpl implements _GroomingFormState {
   final bool validation;
   @override
   @JsonKey()
-  final int petId;
+  final String petId;
 
   @override
   String toString() {
@@ -1328,7 +1328,7 @@ abstract class _GroomingFormState implements GroomingFormState {
     final NotEmpty notes,
     final NotEmpty media,
     final bool validation,
-    final int petId,
+    final String petId,
   }) = _$GroomingFormStateImpl;
 
   @override
@@ -1344,7 +1344,7 @@ abstract class _GroomingFormState implements GroomingFormState {
   @override
   bool get validation;
   @override
-  int get petId;
+  String get petId;
 
   /// Create a copy of GroomingFormState
   /// with the given fields replaced by the non-null parameter values.

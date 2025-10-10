@@ -1,20 +1,23 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:bloc/bloc.dart';
+import 'package:dummy/api/storage_key.dart';
 import 'package:dummy/core/enum/breed.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/register_account_payload.dart';
 import 'package:dummy/core/utils/app_utils.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/pet_image_usecases.dart';
+import 'package:dummy/service/local_storage_service.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/enum/status.dart';
 import '../../../../../core/models/formz/dropdown_model.dart';
-import '../../../domain/usecases/cat_breed_usecases.dart';
-import '../../../domain/usecases/dog_breed_usecases.dart';
-import '../../../domain/usecases/personality_tag_usecases.dart';
 
 part 'register_event.dart';
 part 'register_state.dart';
@@ -22,15 +25,9 @@ part 'register_bloc.freezed.dart';
 
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   RegisterBloc({
-    required CatBreedUsecases catBreedUsecases,
-    required DogBreedUsecases dogBreedUsecases,
-    required PersonalityTagUsecases personalityTagUsecases,
     required CreatePetUsecases createPetUsecases,
     required PetImageUsecases petImageUsecases,
-  }) : __catBreedUsecases = catBreedUsecases,
-       __dogBreedUsecases = dogBreedUsecases,
-       __personalityTagUsecases = personalityTagUsecases,
-       __createPetUsecases = createPetUsecases,
+  }) : __createPetUsecases = createPetUsecases,
        __petImageUsecases = petImageUsecases,
        super(RegisterState()) {
     on<_Initialization>(__initialization);
@@ -48,9 +45,6 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     on<_SetLocation>(__setLocation);
   }
 
-  final CatBreedUsecases __catBreedUsecases;
-  final DogBreedUsecases __dogBreedUsecases;
-  final PersonalityTagUsecases __personalityTagUsecases;
   final CreatePetUsecases __createPetUsecases;
   final PetImageUsecases __petImageUsecases;
   Future<void> __initialization(
@@ -92,22 +86,35 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     }
     final payload = RegisterAccountPayload(
       petName: state.petName.value,
-      petType: state.petType.name,
+      petType: state.petType.name.toLowerCase(),
       dob: AppUtil.formatDate(DateTime.parse(state.dob.value)),
-      breed: state.breed.value!.id,
-      petWeight: int.parse(state.weight.value),
-      gender: state.gender.value?.value ?? '',
-      petImage: imageId,
-      personalityTag:
+      breedId: state.breed.value!.id,
+      weightValue: int.parse(state.weight.value),
+      gender: (state.gender.value?.value ?? '').toLowerCase(),
+      imageFile: imageId.toString(),
+      personalityTags:
           state.selectedPersonalityTags.map((e) => e.value!.id).toList(),
-      latitude: state.latitude ?? 0,
-      longitude: state.longitude ?? 0,
+      // latitude: state.latitude ?? 0,
+      // longitude: state.longitude ?? 0,
+      mobileNumber: currentContext.read<AuthBloc>().state.phone.value ?? '',
+      weightUnit: state.weightUnit.value.toLowerCase(),
+      deviceId: '',
+      pushToken: '',
+      platform: '',
     );
     final result = await __createPetUsecases(payload: payload);
 
     result.fold((error) => emit(state.copyWith(submitStatus: Status.error)), (
       success,
     ) async {
+      var usercred = SecureStorageItem(
+        key: StorageKey.userCred,
+        value: json.encode({
+          'phone': currentContext.read<AuthBloc>().state.phone.value ?? '',
+          'account_type': currentContext.read<AuthBloc>().state.yourself.name,
+        }),
+      );
+      Injection.appStorage.write(usercred);
       emit(state.copyWith(submitStatus: Status.success));
     });
   }
@@ -132,22 +139,23 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   }
 
   void __breed(_Breed event, emit) {
-    final breed = DropdownValue.dirty(event.breed);
+    final breed = DropdownStringValue.dirty(event.breed);
     emit(state.copyWith(breed: breed));
   }
 
   void __addTag(_AddTag event, Emitter<RegisterState> emit) {
-    List<DropdownValue> updatedTags = [];
+    List<DropdownStringValue> updatedTags = [];
     for (var e in event.value) {
-      updatedTags.add(DropdownValue.dirty(e));
+      updatedTags.add(DropdownStringValue.dirty(e));
     }
 
     emit(state.copyWith(selectedPersonalityTags: updatedTags));
   }
 
   void __removeTag(_RemoveTag event, Emitter<RegisterState> emit) {
-    final updatedTags = List<DropdownValue>.from(state.selectedPersonalityTags)
-      ..removeAt(event.index);
+    final updatedTags = List<DropdownStringValue>.from(
+      state.selectedPersonalityTags,
+    )..removeAt(event.index);
 
     emit(state.copyWith(selectedPersonalityTags: updatedTags));
   }
@@ -162,19 +170,39 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     emit(state.copyWith(weight: weight));
   }
 
-  Future<List<DropItem>> __catBreeds() async {
-    final result = await __catBreedUsecases();
-    return result.fold((error) => [], (success) => success);
+  Future<List<DropStringItem>> __catBreeds() async {
+    final enums = currentContext.read<AuthBloc>().state.enums;
+    if (enums == null) {
+      return [];
+    } else {
+      final dogBreeds = enums.breeds.where((b) => b.type == 'cat').toList();
+      return dogBreeds
+          .map((b) => DropStringItemModel(id: b.id, value: b.name))
+          .toList();
+    }
   }
 
-  Future<List<DropItem>> __dogBreeds() async {
-    final result = await __dogBreedUsecases();
-    return result.fold((error) => [], (success) => success);
+  Future<List<DropStringItem>> __dogBreeds() async {
+    final enums = currentContext.read<AuthBloc>().state.enums;
+    if (enums == null) {
+      return [];
+    } else {
+      final dogBreeds = enums.breeds.where((b) => b.type == 'dog').toList();
+      return dogBreeds
+          .map((b) => DropStringItemModel(id: b.id, value: b.name))
+          .toList();
+    }
   }
 
-  Future<List<DropItem>> __personalityTags() async {
-    final result = await __personalityTagUsecases();
-    return result.fold((error) => [], (success) => success);
+  Future<List<DropStringItem>> __personalityTags() async {
+    final enums = currentContext.read<AuthBloc>().state.enums;
+    if (enums == null) {
+      return [];
+    } else {
+      return enums.personalityTags
+          .map((b) => DropStringItemModel(id: b.id, value: b.name))
+          .toList();
+    }
   }
 
   void __petGender(_PetGender event, Emitter<RegisterState> emit) {

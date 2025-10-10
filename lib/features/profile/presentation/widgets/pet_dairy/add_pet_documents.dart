@@ -26,7 +26,7 @@ class _AddPetDocuments extends State<AddPetDocuments> {
   void initState() {
     final petId = context.read<DashboardBloc>().state.selectedPet?.id;
     context.read<DocumentFormBloc>().add(
-      DocumentFormEvent.init(petId ?? 0, null),
+      DocumentFormEvent.init(petId ?? '', null),
     );
     super.initState();
   }

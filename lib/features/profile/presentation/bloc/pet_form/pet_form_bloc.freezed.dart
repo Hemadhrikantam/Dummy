@@ -19,8 +19,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PetFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
@@ -34,8 +34,8 @@ mixin _$PetFormEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
@@ -49,8 +49,8 @@ mixin _$PetFormEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
@@ -140,7 +140,7 @@ abstract class _$$InitImplCopyWith<$Res> {
     $Res Function(_$InitImpl) then,
   ) = __$$InitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int? id});
+  $Res call({String? id});
 }
 
 /// @nodoc
@@ -160,7 +160,7 @@ class __$$InitImplCopyWithImpl<$Res>
         freezed == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int?,
+                as String?,
       ),
     );
   }
@@ -172,7 +172,7 @@ class _$InitImpl implements _Init {
   const _$InitImpl(this.id);
 
   @override
-  final int? id;
+  final String? id;
 
   @override
   String toString() {
@@ -201,8 +201,8 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
@@ -220,8 +220,8 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
@@ -239,8 +239,8 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
@@ -322,9 +322,9 @@ class _$InitImpl implements _Init {
 }
 
 abstract class _Init implements PetFormEvent {
-  const factory _Init(final int? id) = _$InitImpl;
+  const factory _Init(final String? id) = _$InitImpl;
 
-  int? get id;
+  String? get id;
 
   /// Create a copy of PetFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -340,7 +340,7 @@ abstract class _$$SubmitImplCopyWith<$Res> {
     $Res Function(_$SubmitImpl) then,
   ) = __$$SubmitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int? id});
+  $Res call({String? id});
 }
 
 /// @nodoc
@@ -362,7 +362,7 @@ class __$$SubmitImplCopyWithImpl<$Res>
         freezed == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int?,
+                as String?,
       ),
     );
   }
@@ -374,7 +374,7 @@ class _$SubmitImpl implements _Submit {
   const _$SubmitImpl(this.id);
 
   @override
-  final int? id;
+  final String? id;
 
   @override
   String toString() {
@@ -403,8 +403,8 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
@@ -422,8 +422,8 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
@@ -441,8 +441,8 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
@@ -524,9 +524,9 @@ class _$SubmitImpl implements _Submit {
 }
 
 abstract class _Submit implements PetFormEvent {
-  const factory _Submit(final int? id) = _$SubmitImpl;
+  const factory _Submit(final String? id) = _$SubmitImpl;
 
-  int? get id;
+  String? get id;
 
   /// Create a copy of PetFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -605,8 +605,8 @@ class _$PetNameImpl implements _PetName {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
@@ -624,8 +624,8 @@ class _$PetNameImpl implements _PetName {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
@@ -643,8 +643,8 @@ class _$PetNameImpl implements _PetName {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
@@ -807,8 +807,8 @@ class _$PetImageImpl implements _PetImage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
@@ -826,8 +826,8 @@ class _$PetImageImpl implements _PetImage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
@@ -845,8 +845,8 @@ class _$PetImageImpl implements _PetImage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
@@ -1009,8 +1009,8 @@ class _$PetTypeImpl implements _PetType {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
@@ -1028,8 +1028,8 @@ class _$PetTypeImpl implements _PetType {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
@@ -1047,8 +1047,8 @@ class _$PetTypeImpl implements _PetType {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
@@ -1207,8 +1207,8 @@ class _$DOBImpl implements _DOB {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
@@ -1226,8 +1226,8 @@ class _$DOBImpl implements _DOB {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
@@ -1245,8 +1245,8 @@ class _$DOBImpl implements _DOB {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
@@ -1409,8 +1409,8 @@ class _$BreedImpl implements _Breed {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
@@ -1428,8 +1428,8 @@ class _$BreedImpl implements _Breed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
@@ -1447,8 +1447,8 @@ class _$BreedImpl implements _Breed {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
@@ -1617,8 +1617,8 @@ class _$AddTagImpl implements _AddTag {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
@@ -1636,8 +1636,8 @@ class _$AddTagImpl implements _AddTag {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
@@ -1655,8 +1655,8 @@ class _$AddTagImpl implements _AddTag {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
@@ -1820,8 +1820,8 @@ class _$WeightUnitImpl implements _WeightUnit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
@@ -1839,8 +1839,8 @@ class _$WeightUnitImpl implements _WeightUnit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
@@ -1858,8 +1858,8 @@ class _$WeightUnitImpl implements _WeightUnit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
@@ -2022,8 +2022,8 @@ class _$WeightImpl implements _Weight {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
@@ -2041,8 +2041,8 @@ class _$WeightImpl implements _Weight {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
@@ -2060,8 +2060,8 @@ class _$WeightImpl implements _Weight {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
@@ -2224,8 +2224,8 @@ class _$RemoveTagImpl implements _RemoveTag {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
@@ -2243,8 +2243,8 @@ class _$RemoveTagImpl implements _RemoveTag {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
@@ -2262,8 +2262,8 @@ class _$RemoveTagImpl implements _RemoveTag {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
@@ -2427,8 +2427,8 @@ class _$PetGenderImpl implements _PetGender {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
@@ -2446,8 +2446,8 @@ class _$PetGenderImpl implements _PetGender {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
@@ -2465,8 +2465,8 @@ class _$PetGenderImpl implements _PetGender {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,

@@ -19,7 +19,7 @@ class WalkPayload extends Equatable implements Payload {
   final String location;
   final String notes;
   final MultipartFile media;
-  final int pet;
+  final String pet;
 
   @override
   List<Object?> get props => [date, duration, location, notes, media, pet];

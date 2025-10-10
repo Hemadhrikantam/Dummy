@@ -48,7 +48,7 @@ class VeccinationDeleteBottomSheetContent extends StatelessWidget {
                   children: [
                     TextSpan(
                       text:
-                          " ${context.read<DashboardBloc>().state.selectedPet?.petName ?? ""}'s ",
+                          " ${context.read<DashboardBloc>().state.selectedPet?.name ?? ""}'s ",
                       style: context.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,

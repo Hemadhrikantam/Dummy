@@ -108,7 +108,7 @@ class _DewormingTabState extends State<DewormingTab> {
                         titleFontSize: 24,
                         imagePath: ImageResources.tshirt,
                         title:
-                            "We don’t have  ${widget.selectedPet?.petName ?? ''} daily care data yet. Start logging her dewormings to see a summary!",
+                            "We don’t have  ${widget.selectedPet?.name ?? ''} daily care data yet. Start logging her dewormings to see a summary!",
                       ),
                     )
                     : AppCustomListViewBuilder(

@@ -20,17 +20,17 @@ mixin _$OverviewEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(int petId) overview,
+    required TResult Function(String petId) overview,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(int petId)? overview,
+    TResult? Function(String petId)? overview,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(int petId)? overview,
+    TResult Function(String petId)? overview,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -117,7 +117,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(int petId) overview,
+    required TResult Function(String petId) overview,
   }) {
     return started();
   }
@@ -126,7 +126,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(int petId)? overview,
+    TResult? Function(String petId)? overview,
   }) {
     return started?.call();
   }
@@ -135,7 +135,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(int petId)? overview,
+    TResult Function(String petId)? overview,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -187,7 +187,7 @@ abstract class _$$OverviewImplCopyWith<$Res> {
     $Res Function(_$OverviewImpl) then,
   ) = __$$OverviewImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int petId});
+  $Res call({String petId});
 }
 
 /// @nodoc
@@ -209,7 +209,7 @@ class __$$OverviewImplCopyWithImpl<$Res>
         null == petId
             ? _value.petId
             : petId // ignore: cast_nullable_to_non_nullable
-                as int,
+                as String,
       ),
     );
   }
@@ -221,7 +221,7 @@ class _$OverviewImpl implements _Overview {
   const _$OverviewImpl(this.petId);
 
   @override
-  final int petId;
+  final String petId;
 
   @override
   String toString() {
@@ -251,7 +251,7 @@ class _$OverviewImpl implements _Overview {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(int petId) overview,
+    required TResult Function(String petId) overview,
   }) {
     return overview(petId);
   }
@@ -260,7 +260,7 @@ class _$OverviewImpl implements _Overview {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(int petId)? overview,
+    TResult? Function(String petId)? overview,
   }) {
     return overview?.call(petId);
   }
@@ -269,7 +269,7 @@ class _$OverviewImpl implements _Overview {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(int petId)? overview,
+    TResult Function(String petId)? overview,
     required TResult orElse(),
   }) {
     if (overview != null) {
@@ -311,9 +311,9 @@ class _$OverviewImpl implements _Overview {
 }
 
 abstract class _Overview implements OverviewEvent {
-  const factory _Overview(final int petId) = _$OverviewImpl;
+  const factory _Overview(final String petId) = _$OverviewImpl;
 
-  int get petId;
+  String get petId;
 
   /// Create a copy of OverviewEvent
   /// with the given fields replaced by the non-null parameter values.

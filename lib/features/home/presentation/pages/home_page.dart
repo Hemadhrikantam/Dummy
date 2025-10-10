@@ -58,12 +58,12 @@ class _HomePage extends State<HomePage> {
     _controller.replay();
     LogUtility.info('eid  ${selectedPet?.id ?? 0}');
     context.read<DashboardBloc>().add(
-      DashboardEvent.selectedPetId(selectedPet?.id ?? 0),
+      DashboardEvent.selectedPetId(selectedPet?.id ?? ''),
     );
     context.read<DashboardBloc>().add(DashboardEvent.selectedPet(pet));
-    context.read<DashboardBloc>().add(DashboardEvent.petName(pet.petName));
+    context.read<DashboardBloc>().add(DashboardEvent.petName(pet.name));
     context.read<DashboardBloc>().add(
-      DashboardEvent.petImage(pet.petImage.petImage),
+      DashboardEvent.petImage(pet.imageUrl ?? ''),
     );
   }
 
@@ -117,7 +117,7 @@ class _HomePage extends State<HomePage> {
                       Styles.gap15,
                       QuickActionsWidget(
                         selectedPet: selectedPet!,
-                        selectedPetId: selectedPet?.id ?? 0,
+                        selectedPetId: selectedPet?.id ?? '',
                       ),
 
                       Styles.gap15,

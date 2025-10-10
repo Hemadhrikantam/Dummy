@@ -19,7 +19,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MedicationFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -43,7 +43,7 @@ mixin _$MedicationFormEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -67,7 +67,7 @@ mixin _$MedicationFormEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -194,7 +194,7 @@ abstract class _$$InitImplCopyWith<$Res> {
     $Res Function(_$InitImpl) then,
   ) = __$$InitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int petId, int? id});
+  $Res call({String petId, int? id});
 }
 
 /// @nodoc
@@ -214,7 +214,7 @@ class __$$InitImplCopyWithImpl<$Res>
         null == petId
             ? _value.petId
             : petId // ignore: cast_nullable_to_non_nullable
-                as int,
+                as String,
         freezed == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
@@ -230,7 +230,7 @@ class _$InitImpl implements _Init {
   const _$InitImpl(this.petId, this.id);
 
   @override
-  final int petId;
+  final String petId;
   @override
   final int? id;
 
@@ -262,7 +262,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -290,7 +290,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -318,7 +318,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -437,9 +437,9 @@ class _$InitImpl implements _Init {
 }
 
 abstract class _Init implements MedicationFormEvent {
-  const factory _Init(final int petId, final int? id) = _$InitImpl;
+  const factory _Init(final String petId, final int? id) = _$InitImpl;
 
-  int get petId;
+  String get petId;
   int? get id;
 
   /// Create a copy of MedicationFormEvent
@@ -519,7 +519,7 @@ class _$ReminderImpl implements _Reminder {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -547,7 +547,7 @@ class _$ReminderImpl implements _Reminder {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -575,7 +575,7 @@ class _$ReminderImpl implements _Reminder {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -775,7 +775,7 @@ class _$TabletNameImpl implements _TabletName {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -803,7 +803,7 @@ class _$TabletNameImpl implements _TabletName {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -831,7 +831,7 @@ class _$TabletNameImpl implements _TabletName {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -1031,7 +1031,7 @@ class _$CompanyImpl implements _Company {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -1059,7 +1059,7 @@ class _$CompanyImpl implements _Company {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -1087,7 +1087,7 @@ class _$CompanyImpl implements _Company {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -1287,7 +1287,7 @@ class _$DosageImpl implements _Dosage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -1315,7 +1315,7 @@ class _$DosageImpl implements _Dosage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -1343,7 +1343,7 @@ class _$DosageImpl implements _Dosage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -1543,7 +1543,7 @@ class _$DosageUnitImpl implements _DosageUnit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -1571,7 +1571,7 @@ class _$DosageUnitImpl implements _DosageUnit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -1599,7 +1599,7 @@ class _$DosageUnitImpl implements _DosageUnit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -1802,7 +1802,7 @@ class _$MorningTimeHourImpl implements _MorningTimeHour {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -1830,7 +1830,7 @@ class _$MorningTimeHourImpl implements _MorningTimeHour {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -1858,7 +1858,7 @@ class _$MorningTimeHourImpl implements _MorningTimeHour {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -2061,7 +2061,7 @@ class _$MorningTimeMinImpl implements _MorningTimeMin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -2089,7 +2089,7 @@ class _$MorningTimeMinImpl implements _MorningTimeMin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -2117,7 +2117,7 @@ class _$MorningTimeMinImpl implements _MorningTimeMin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -2320,7 +2320,7 @@ class _$AfternoonTimeHourImpl implements _AfternoonTimeHour {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -2348,7 +2348,7 @@ class _$AfternoonTimeHourImpl implements _AfternoonTimeHour {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -2376,7 +2376,7 @@ class _$AfternoonTimeHourImpl implements _AfternoonTimeHour {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -2580,7 +2580,7 @@ class _$AfternoonTimeMinImpl implements _AfternoonTimeMin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -2608,7 +2608,7 @@ class _$AfternoonTimeMinImpl implements _AfternoonTimeMin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -2636,7 +2636,7 @@ class _$AfternoonTimeMinImpl implements _AfternoonTimeMin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -2837,7 +2837,7 @@ class _$NightTimeHourImpl implements _NightTimeHour {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -2865,7 +2865,7 @@ class _$NightTimeHourImpl implements _NightTimeHour {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -2893,7 +2893,7 @@ class _$NightTimeHourImpl implements _NightTimeHour {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -3093,7 +3093,7 @@ class _$NightTimeMinImpl implements _NightTimeMin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -3121,7 +3121,7 @@ class _$NightTimeMinImpl implements _NightTimeMin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -3149,7 +3149,7 @@ class _$NightTimeMinImpl implements _NightTimeMin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -3352,7 +3352,7 @@ class _$MorningTimeEnableImpl implements _MorningTimeEnable {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -3380,7 +3380,7 @@ class _$MorningTimeEnableImpl implements _MorningTimeEnable {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -3408,7 +3408,7 @@ class _$MorningTimeEnableImpl implements _MorningTimeEnable {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -3611,7 +3611,7 @@ class _$NightTimeEnableImpl implements _NightTimeEnable {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -3639,7 +3639,7 @@ class _$NightTimeEnableImpl implements _NightTimeEnable {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -3667,7 +3667,7 @@ class _$NightTimeEnableImpl implements _NightTimeEnable {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -3870,7 +3870,7 @@ class _$AfternoonTimeEnableImpl implements _AfternoonTimeEnable {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -3898,7 +3898,7 @@ class _$AfternoonTimeEnableImpl implements _AfternoonTimeEnable {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -3926,7 +3926,7 @@ class _$AfternoonTimeEnableImpl implements _AfternoonTimeEnable {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -4127,7 +4127,7 @@ class _$StartDateImpl implements _StartDate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -4155,7 +4155,7 @@ class _$StartDateImpl implements _StartDate {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -4183,7 +4183,7 @@ class _$StartDateImpl implements _StartDate {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -4383,7 +4383,7 @@ class _$EndDateImpl implements _EndDate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -4411,7 +4411,7 @@ class _$EndDateImpl implements _EndDate {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -4439,7 +4439,7 @@ class _$EndDateImpl implements _EndDate {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -4637,7 +4637,7 @@ class _$NoteImpl implements _Note {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -4665,7 +4665,7 @@ class _$NoteImpl implements _Note {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -4693,7 +4693,7 @@ class _$NoteImpl implements _Note {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -4893,7 +4893,7 @@ class _$MediaImpl implements _Media {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -4921,7 +4921,7 @@ class _$MediaImpl implements _Media {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -4949,7 +4949,7 @@ class _$MediaImpl implements _Media {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -5149,7 +5149,7 @@ class _$FrequencyImpl implements _Frequency {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -5177,7 +5177,7 @@ class _$FrequencyImpl implements _Frequency {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -5205,7 +5205,7 @@ class _$FrequencyImpl implements _Frequency {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -5405,7 +5405,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(bool value) reminder,
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
@@ -5433,7 +5433,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(bool value)? reminder,
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
@@ -5461,7 +5461,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(bool value)? reminder,
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
@@ -5617,7 +5617,7 @@ mixin _$MedicationFormState {
   List<DropItem> get dosageUnits => throw _privateConstructorUsedError;
   List<DropItem> get frequencies => throw _privateConstructorUsedError;
   bool get validation => throw _privateConstructorUsedError;
-  int get petId => throw _privateConstructorUsedError;
+  String get petId => throw _privateConstructorUsedError;
 
   /// Create a copy of MedicationFormState
   /// with the given fields replaced by the non-null parameter values.
@@ -5658,7 +5658,7 @@ abstract class $MedicationFormStateCopyWith<$Res> {
     List<DropItem> dosageUnits,
     List<DropItem> frequencies,
     bool validation,
-    int petId,
+    String petId,
   });
 }
 
@@ -5829,7 +5829,7 @@ class _$MedicationFormStateCopyWithImpl<$Res, $Val extends MedicationFormState>
                 null == petId
                     ? _value.petId
                     : petId // ignore: cast_nullable_to_non_nullable
-                        as int,
+                        as String,
           )
           as $Val,
     );
@@ -5870,7 +5870,7 @@ abstract class _$$MedicationFormStateImplCopyWith<$Res>
     List<DropItem> dosageUnits,
     List<DropItem> frequencies,
     bool validation,
-    int petId,
+    String petId,
   });
 }
 
@@ -6040,7 +6040,7 @@ class __$$MedicationFormStateImplCopyWithImpl<$Res>
             null == petId
                 ? _value.petId
                 : petId // ignore: cast_nullable_to_non_nullable
-                    as int,
+                    as String,
       ),
     );
   }
@@ -6074,7 +6074,7 @@ class _$MedicationFormStateImpl implements _MedicationFormState {
     final List<DropItem> dosageUnits = const [],
     final List<DropItem> frequencies = const [],
     this.validation = false,
-    this.petId = 0,
+    this.petId = '',
   }) : _dosageUnits = dosageUnits,
        _frequencies = frequencies;
 
@@ -6164,7 +6164,7 @@ class _$MedicationFormStateImpl implements _MedicationFormState {
   final bool validation;
   @override
   @JsonKey()
-  final int petId;
+  final String petId;
 
   @override
   String toString() {
@@ -6294,7 +6294,7 @@ abstract class _MedicationFormState implements MedicationFormState {
     final List<DropItem> dosageUnits,
     final List<DropItem> frequencies,
     final bool validation,
-    final int petId,
+    final String petId,
   }) = _$MedicationFormStateImpl;
 
   @override
@@ -6346,7 +6346,7 @@ abstract class _MedicationFormState implements MedicationFormState {
   @override
   bool get validation;
   @override
-  int get petId;
+  String get petId;
 
   /// Create a copy of MedicationFormState
   /// with the given fields replaced by the non-null parameter values.

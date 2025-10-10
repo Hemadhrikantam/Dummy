@@ -57,10 +57,10 @@ class ProfileOptionsPage extends StatelessWidget {
                     DashboardEvent.selectedPet(pet),
                   );
                   context.read<DashboardBloc>().add(
-                    DashboardEvent.petName(pet.petName),
+                    DashboardEvent.petName(pet.name),
                   );
                   context.read<DashboardBloc>().add(
-                    DashboardEvent.petImage(pet.petImage.petImage),
+                    DashboardEvent.petImage(pet.imageUrl ?? ''),
                   );
                 },
                 selectedIndex:

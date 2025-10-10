@@ -1,75 +1,47 @@
-import 'package:dummy/features/signup/domain/entities/breed.dart';
-import 'package:dummy/features/signup/domain/entities/personality_tag.dart';
 import 'package:equatable/equatable.dart';
 
 class DashboardPetDetails extends Equatable {
   const DashboardPetDetails({
     required this.id,
-    required this.petName,
+    required this.name,
+    required this.type,
+    required this.breedId,
+    required this.breedName,
     required this.dob,
-    required this.gender,
-    required this.petWeight,
-    required this.breed,
-    required this.personalityTag,
-    required this.petType,
-    required this.trackActivity,
-    required this.petImage,
+    required this.weightValue,
+    required this.weightUnit,
+    this.imageUrl,
+    required this.createdAt,
+    required this.updatedAt,
+    required this.personalityTags,
   });
 
-  final int id;
-  final String petName;
-  final String petType;
+  final String id;
+  final String name;
+  final String type;
+  final String breedId;
+  final String breedName;
   final String dob;
-  final String gender;
-  final double petWeight;
-  final bool trackActivity;
-  final PetImage petImage;
-  final Breed breed;
-  final List<PersonalityTag> personalityTag;
+  final String weightValue;
+  final String weightUnit;
+  final String? imageUrl;
+  final String createdAt;
+  final String updatedAt;
+  final List<String> personalityTags;
 
   @override
   List<Object?> get props => [
     id,
-    petName,
-    petType,
+    name,
+    type,
+    breedId,
+    breedName,
     dob,
-    gender,
-    petWeight,
-    trackActivity,
-    petImage,
-    breed,
-    personalityTag,
+    weightValue,
+    weightUnit,
+    imageUrl,
+    createdAt,
+    updatedAt,
+    personalityTags,
   ];
 }
-
-class PetImage extends Equatable {
-  const PetImage({required this.id, required this.petImage});
-
-  final int id;
-  final String petImage;
-
-  @override
-  List<Object?> get props => [id, petImage];
-}
-
-
-// class Breed extends Equatable {
-//   const Breed({required this.id, required this.petType, required this.breed});
-
-//   final int id;
-//   final String petType;
-//   final String breed;
-
-//   @override
-//   List<Object?> get props => [id, petType, breed];
-// }
-
-// class PersonalityTag extends Equatable {
-//   const PersonalityTag({required this.id, required this.personality});
-
-//   final int id;
-//   final String personality;
-
-//   @override
-//   List<Object?> get props => [id, personality];
-// }

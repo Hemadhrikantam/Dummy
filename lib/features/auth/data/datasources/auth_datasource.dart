@@ -14,8 +14,8 @@ abstract class AuthDatasource {
     required String userType,
   });
 
-  AppTypeResponse<CurrentUserModel> login({required LoginModel login});
   AppTypeResponse<EnumModel> enums();
+  AppTypeResponse<CurrentUserModel> login({required LoginModel login});
   AppTypeResponse<LoginModel> currentUser();
   AppSuccessResponse registerAccount({
     required RegisterAccountPayload registerAccount,

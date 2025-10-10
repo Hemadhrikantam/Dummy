@@ -12,7 +12,7 @@ import '../bloc/overview/overview_bloc.dart';
 
 class DailycarePage extends StatefulWidget {
   final DashboardPetDetails? selectedPet;
-  final int selectedPetId;
+  final String selectedPetId;
   final String initialTab;
   const DailycarePage({
     super.key,
@@ -22,7 +22,7 @@ class DailycarePage extends StatefulWidget {
   });
   static const routeName = '/DailyCarePage';
 
-  static Route<T> route<T>(DashboardPetDetails selectedPet, int selectedPetId) {
+  static Route<T> route<T>(DashboardPetDetails selectedPet, String selectedPetId) {
     return MaterialPageRoute<T>(
       builder:
           (context) => DailycarePage(
@@ -44,7 +44,7 @@ class _DailycarePage extends State<DailycarePage> {
       LogUtility.info('selected pet ${widget.selectedPet?.id??0}');
       LogUtility.info('selected pet id ----> ${widget.selectedPetId}');
       context.read<OverviewBloc>().add(
-        OverviewEvent.overview(widget.selectedPet?.id??0),
+        OverviewEvent.overview(widget.selectedPet?.id??''),
       );
     });
     super.initState();

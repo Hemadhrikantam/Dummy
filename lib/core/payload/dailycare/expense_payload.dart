@@ -17,7 +17,7 @@ class ExpensePayload extends Equatable implements Payload {
   final String category;
   final String notes;
   final MultipartFile media;
-  final int pet;
+  final String pet;
 
   @override
   List<Object?> get props => [date, category, notes, media, pet];

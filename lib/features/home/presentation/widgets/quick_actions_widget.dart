@@ -17,7 +17,7 @@ import '../../../dailycare/presentation/bloc/overview/overview_bloc.dart';
 
 class QuickActionsWidget extends StatefulWidget {
   final DashboardPetDetails? selectedPet;
-  final int selectedPetId;
+  final String selectedPetId;
   const QuickActionsWidget({
     super.key,
     required this.selectedPet,
@@ -33,7 +33,7 @@ class _QuickActionsWidgetState extends State<QuickActionsWidget> {
   void initState() {
     Future.delayed(Duration(seconds: 3), () {
       context.read<OverviewBloc>().add(
-        OverviewEvent.overview(widget.selectedPet?.id ?? 0),
+        OverviewEvent.overview(widget.selectedPetId),
       );
     });
     super.initState();

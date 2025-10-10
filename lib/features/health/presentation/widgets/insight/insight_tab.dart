@@ -54,8 +54,8 @@ class InsightTab extends StatelessWidget {
                         Expanded(
                           child: Text(
                             empty
-                                ? "Track ${selectedPet?.petName ?? ''}’s daily care to unlock more insights!"
-                                : '${selectedPet?.petName ?? ''} has had 10 walks this month—great job keeping her active!',
+                                ? "Track ${selectedPet?.name ?? ''}’s daily care to unlock more insights!"
+                                : '${selectedPet?.name ?? ''} has had 10 walks this month—great job keeping her active!',
 
                             style: context.textTheme.titleMedium?.copyWith(
                               color: AppColors.stepperColor,
@@ -91,7 +91,7 @@ class InsightTab extends StatelessWidget {
                     ),
                     Styles.gap20,
                     Text(
-                      '${selectedPet?.petName ?? ''} has had 10 walks this month—great job keeping her active!',
+                      '${selectedPet?.name ?? ''} has had 10 walks this month—great job keeping her active!',
 
                       style: context.textTheme.titleMedium?.copyWith(
                         color: AppColors.stepperColor,
@@ -177,7 +177,7 @@ class InsightTab extends StatelessWidget {
                                   gradient: AppColors.blackAndWhite,
                                 ),
                                 child: Text(
-                                  '${selectedPet?.petName ?? ''} seems happiest at the beach based on your recent photos!',
+                                  '${selectedPet?.name ?? ''} seems happiest at the beach based on your recent photos!',
 
                                   style: context.textTheme.bodySmall?.copyWith(
                                     color: AppColors.white,

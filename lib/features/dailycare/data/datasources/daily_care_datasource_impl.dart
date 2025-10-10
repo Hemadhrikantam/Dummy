@@ -507,7 +507,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
   }
 
   @override
-  AppTypeResponse<OverviewModel> overview(int petId) async {
+  AppTypeResponse<OverviewModel> overview(String petId) async {
     final response = await http.get(path: api.overview(petId), petId: true);
     return response.fold(
       (error) {

@@ -28,7 +28,7 @@ class VaccinationPayload extends Equatable implements Payload {
   final DateTime dueDate;
   final String note;
   final MultipartFile media;
-  final int pet;
+  final String pet;
   final int frequency;
   final int reminderTimezone;
   final int reminderBefore;
@@ -63,6 +63,5 @@ class VaccinationPayload extends Equatable implements Payload {
     'frequency': frequency,
     'reminder_timezone': reminderTimezone,
     'reminder_before': reminderBefore,
-
   };
 }

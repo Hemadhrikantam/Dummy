@@ -35,7 +35,7 @@ abstract class MedicationFormState with _$MedicationFormState {
     @Default([]) List<DropItem> frequencies,
 
     @Default(false) bool validation,
-    @Default(0) int petId,
+    @Default('') String petId,
   }) = _MedicationFormState;
 }
 

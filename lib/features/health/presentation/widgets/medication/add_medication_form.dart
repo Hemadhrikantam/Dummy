@@ -12,7 +12,7 @@ class _AddMedicationForm extends State<AddMedicationForm> {
   void initState() {
     final petId = context.read<DashboardBloc>().state.selectedPet?.id;
     context.read<MedicationFormBloc>().add(
-      MedicationFormEvent.init(petId ?? 0,widget.id),
+      MedicationFormEvent.init(petId ?? '',widget.id),
     );
     super.initState();
   }

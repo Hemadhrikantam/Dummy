@@ -28,7 +28,7 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
   @override
   void initState() {
     final petId = context.read<DashboardBloc>().state.selectedPet?.id;
-    context.read<GroomingFormBloc>().add(GroomingFormEvent.init(petId ?? 0));
+    context.read<GroomingFormBloc>().add(GroomingFormEvent.init(petId ?? ''));
     super.initState();
   }
 

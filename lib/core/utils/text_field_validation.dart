@@ -35,8 +35,8 @@ class TextFieldValidation {
   static String? otp({required String value}) {
     if (value.trim() == '') {
       return 'Don\'t leave Empty';
-    } else if (value.length != 4) {
-      return 'OTP Should be 4 Digit';
+    } else if (value.length != 6) {
+      return 'OTP Should be 6 Digit';
     }
     return null;
   }
@@ -57,7 +57,7 @@ class TextFieldValidation {
     return null;
   }
 
-    static String? notNull({required double? value}) {
+  static String? notNull({required double? value}) {
     if (value == null) {
       return 'Invalid Input';
     }
@@ -91,9 +91,7 @@ class TextFieldValidation {
   }
 
   static String? ifsc({required String? value}) {
-    final ifscCodeRegExp = RegExp(
-      r'^[A-Za-z]{4}0[A-Z0-9]{6}$',
-    );
+    final ifscCodeRegExp = RegExp(r'^[A-Za-z]{4}0[A-Z0-9]{6}$');
     if (value == null || value.isEmpty) {
       return 'IFSC code cannot be empty';
     }

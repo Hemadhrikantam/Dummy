@@ -2,7 +2,7 @@ part of 'vaccination_form_bloc.dart';
 
 @freezed
 class VaccinationFormEvent with _$VaccinationFormEvent {
-  const factory VaccinationFormEvent.init(int petId, int? id) = _Init;
+  const factory VaccinationFormEvent.init(String petId, int? id) = _Init;
   const factory VaccinationFormEvent.isGiven(bool value) = _IsGiven;
   const factory VaccinationFormEvent.vaccinationName(String value) =
       _VaccinationName;

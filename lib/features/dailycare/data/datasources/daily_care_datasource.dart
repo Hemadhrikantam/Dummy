@@ -25,5 +25,5 @@ abstract class DailyCareDatasource {
   AppTypeResponse<List<PetGroomingModel>> groomings(DateTime? date);
   AppTypeResponse<List<PetExpenseModel>> expenses(DateTime? date);
   AppTypeResponse<List<PetDewormingModel>> dewormings(DateTime? date);
-  AppTypeResponse<OverviewModel> overview(int petId);
+  AppTypeResponse<OverviewModel> overview(String petId);
 }

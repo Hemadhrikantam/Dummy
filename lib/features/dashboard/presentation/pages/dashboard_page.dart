@@ -52,7 +52,7 @@ class _DashboardPage extends State<DashboardPage> {
           LogUtility.info('dashboard pet ${state.selectedPet?.id ?? 0}');
           return DailycarePage(
             selectedPet: state.selectedPet,
-            selectedPetId: state.selectedPet?.id ?? 0,
+            selectedPetId: state.selectedPet?.id ?? '',
           );
         },
       ),

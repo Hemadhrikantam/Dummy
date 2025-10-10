@@ -19,19 +19,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DocumentFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(int? id) submit,
     required TResult Function(String value) url,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(int? id)? submit,
     TResult? Function(String value)? url,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(int? id)? submit,
     TResult Function(String value)? url,
     required TResult orElse(),
@@ -86,7 +86,7 @@ abstract class _$$InitImplCopyWith<$Res> {
     $Res Function(_$InitImpl) then,
   ) = __$$InitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int petId, int? id});
+  $Res call({String petId, int? id});
 }
 
 /// @nodoc
@@ -106,7 +106,7 @@ class __$$InitImplCopyWithImpl<$Res>
         null == petId
             ? _value.petId
             : petId // ignore: cast_nullable_to_non_nullable
-                as int,
+                as String,
         freezed == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
@@ -122,7 +122,7 @@ class _$InitImpl implements _Init {
   const _$InitImpl(this.petId, this.id);
 
   @override
-  final int petId;
+  final String petId;
   @override
   final int? id;
 
@@ -154,7 +154,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(int? id) submit,
     required TResult Function(String value) url,
   }) {
@@ -164,7 +164,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(int? id)? submit,
     TResult? Function(String value)? url,
   }) {
@@ -174,7 +174,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(int? id)? submit,
     TResult Function(String value)? url,
     required TResult orElse(),
@@ -221,9 +221,9 @@ class _$InitImpl implements _Init {
 }
 
 abstract class _Init implements DocumentFormEvent {
-  const factory _Init(final int petId, final int? id) = _$InitImpl;
+  const factory _Init(final String petId, final int? id) = _$InitImpl;
 
-  int get petId;
+  String get petId;
   int? get id;
 
   /// Create a copy of DocumentFormEvent
@@ -303,7 +303,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(int? id) submit,
     required TResult Function(String value) url,
   }) {
@@ -313,7 +313,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(int? id)? submit,
     TResult? Function(String value)? url,
   }) {
@@ -323,7 +323,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(int? id)? submit,
     TResult Function(String value)? url,
     required TResult orElse(),
@@ -447,7 +447,7 @@ class _$UrlImpl implements _Url {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(int? id) submit,
     required TResult Function(String value) url,
   }) {
@@ -457,7 +457,7 @@ class _$UrlImpl implements _Url {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(int? id)? submit,
     TResult? Function(String value)? url,
   }) {
@@ -467,7 +467,7 @@ class _$UrlImpl implements _Url {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(int? id)? submit,
     TResult Function(String value)? url,
     required TResult orElse(),
@@ -531,7 +531,7 @@ mixin _$DocumentFormState {
   Status get submitStatus => throw _privateConstructorUsedError;
   NotEmpty get url => throw _privateConstructorUsedError;
   bool get validation => throw _privateConstructorUsedError;
-  int get petId => throw _privateConstructorUsedError;
+  String get petId => throw _privateConstructorUsedError;
 
   /// Create a copy of DocumentFormState
   /// with the given fields replaced by the non-null parameter values.
@@ -552,7 +552,7 @@ abstract class $DocumentFormStateCopyWith<$Res> {
     Status submitStatus,
     NotEmpty url,
     bool validation,
-    int petId,
+    String petId,
   });
 }
 
@@ -603,7 +603,7 @@ class _$DocumentFormStateCopyWithImpl<$Res, $Val extends DocumentFormState>
                 null == petId
                     ? _value.petId
                     : petId // ignore: cast_nullable_to_non_nullable
-                        as int,
+                        as String,
           )
           as $Val,
     );
@@ -624,7 +624,7 @@ abstract class _$$DocumentFormStateImplCopyWith<$Res>
     Status submitStatus,
     NotEmpty url,
     bool validation,
-    int petId,
+    String petId,
   });
 }
 
@@ -674,7 +674,7 @@ class __$$DocumentFormStateImplCopyWithImpl<$Res>
             null == petId
                 ? _value.petId
                 : petId // ignore: cast_nullable_to_non_nullable
-                    as int,
+                    as String,
       ),
     );
   }
@@ -688,7 +688,7 @@ class _$DocumentFormStateImpl implements _DocumentFormState {
     this.submitStatus = Status.init,
     this.url = const NotEmpty.pure(),
     this.validation = false,
-    this.petId = 0,
+    this.petId = '',
   });
 
   @override
@@ -705,7 +705,7 @@ class _$DocumentFormStateImpl implements _DocumentFormState {
   final bool validation;
   @override
   @JsonKey()
-  final int petId;
+  final String petId;
 
   @override
   String toString() {
@@ -755,7 +755,7 @@ abstract class _DocumentFormState implements DocumentFormState {
     final Status submitStatus,
     final NotEmpty url,
     final bool validation,
-    final int petId,
+    final String petId,
   }) = _$DocumentFormStateImpl;
 
   @override
@@ -767,7 +767,7 @@ abstract class _DocumentFormState implements DocumentFormState {
   @override
   bool get validation;
   @override
-  int get petId;
+  String get petId;
 
   /// Create a copy of DocumentFormState
   /// with the given fields replaced by the non-null parameter values.

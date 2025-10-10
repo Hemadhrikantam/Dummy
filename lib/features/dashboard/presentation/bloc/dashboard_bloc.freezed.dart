@@ -24,7 +24,7 @@ mixin _$DashboardEvent {
     required TResult Function(String petName) petName,
     required TResult Function(String petImage) petImage,
     required TResult Function(int index) changePage,
-    required TResult Function(int selectedPetId) selectedPetId,
+    required TResult Function(String selectedPetId) selectedPetId,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -33,7 +33,7 @@ mixin _$DashboardEvent {
     TResult? Function(String petName)? petName,
     TResult? Function(String petImage)? petImage,
     TResult? Function(int index)? changePage,
-    TResult? Function(int selectedPetId)? selectedPetId,
+    TResult? Function(String selectedPetId)? selectedPetId,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -42,7 +42,7 @@ mixin _$DashboardEvent {
     TResult Function(String petName)? petName,
     TResult Function(String petImage)? petImage,
     TResult Function(int index)? changePage,
-    TResult Function(int selectedPetId)? selectedPetId,
+    TResult Function(String selectedPetId)? selectedPetId,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -146,7 +146,7 @@ class _$DashboardPetDetailsImpl implements _DashboardPetDetails {
     required TResult Function(String petName) petName,
     required TResult Function(String petImage) petImage,
     required TResult Function(int index) changePage,
-    required TResult Function(int selectedPetId) selectedPetId,
+    required TResult Function(String selectedPetId) selectedPetId,
   }) {
     return dashboardPets();
   }
@@ -159,7 +159,7 @@ class _$DashboardPetDetailsImpl implements _DashboardPetDetails {
     TResult? Function(String petName)? petName,
     TResult? Function(String petImage)? petImage,
     TResult? Function(int index)? changePage,
-    TResult? Function(int selectedPetId)? selectedPetId,
+    TResult? Function(String selectedPetId)? selectedPetId,
   }) {
     return dashboardPets?.call();
   }
@@ -172,7 +172,7 @@ class _$DashboardPetDetailsImpl implements _DashboardPetDetails {
     TResult Function(String petName)? petName,
     TResult Function(String petImage)? petImage,
     TResult Function(int index)? changePage,
-    TResult Function(int selectedPetId)? selectedPetId,
+    TResult Function(String selectedPetId)? selectedPetId,
     required TResult orElse(),
   }) {
     if (dashboardPets != null) {
@@ -305,7 +305,7 @@ class _$SelectedPetImpl implements _SelectedPet {
     required TResult Function(String petName) petName,
     required TResult Function(String petImage) petImage,
     required TResult Function(int index) changePage,
-    required TResult Function(int selectedPetId) selectedPetId,
+    required TResult Function(String selectedPetId) selectedPetId,
   }) {
     return selectedPet(this.selectedPet);
   }
@@ -318,7 +318,7 @@ class _$SelectedPetImpl implements _SelectedPet {
     TResult? Function(String petName)? petName,
     TResult? Function(String petImage)? petImage,
     TResult? Function(int index)? changePage,
-    TResult? Function(int selectedPetId)? selectedPetId,
+    TResult? Function(String selectedPetId)? selectedPetId,
   }) {
     return selectedPet?.call(this.selectedPet);
   }
@@ -331,7 +331,7 @@ class _$SelectedPetImpl implements _SelectedPet {
     TResult Function(String petName)? petName,
     TResult Function(String petImage)? petImage,
     TResult Function(int index)? changePage,
-    TResult Function(int selectedPetId)? selectedPetId,
+    TResult Function(String selectedPetId)? selectedPetId,
     required TResult orElse(),
   }) {
     if (selectedPet != null) {
@@ -472,7 +472,7 @@ class _$PetNameImpl implements _PetName {
     required TResult Function(String petName) petName,
     required TResult Function(String petImage) petImage,
     required TResult Function(int index) changePage,
-    required TResult Function(int selectedPetId) selectedPetId,
+    required TResult Function(String selectedPetId) selectedPetId,
   }) {
     return petName(this.petName);
   }
@@ -485,7 +485,7 @@ class _$PetNameImpl implements _PetName {
     TResult? Function(String petName)? petName,
     TResult? Function(String petImage)? petImage,
     TResult? Function(int index)? changePage,
-    TResult? Function(int selectedPetId)? selectedPetId,
+    TResult? Function(String selectedPetId)? selectedPetId,
   }) {
     return petName?.call(this.petName);
   }
@@ -498,7 +498,7 @@ class _$PetNameImpl implements _PetName {
     TResult Function(String petName)? petName,
     TResult Function(String petImage)? petImage,
     TResult Function(int index)? changePage,
-    TResult Function(int selectedPetId)? selectedPetId,
+    TResult Function(String selectedPetId)? selectedPetId,
     required TResult orElse(),
   }) {
     if (petName != null) {
@@ -639,7 +639,7 @@ class _$PetImageImpl implements _PetImage {
     required TResult Function(String petName) petName,
     required TResult Function(String petImage) petImage,
     required TResult Function(int index) changePage,
-    required TResult Function(int selectedPetId) selectedPetId,
+    required TResult Function(String selectedPetId) selectedPetId,
   }) {
     return petImage(this.petImage);
   }
@@ -652,7 +652,7 @@ class _$PetImageImpl implements _PetImage {
     TResult? Function(String petName)? petName,
     TResult? Function(String petImage)? petImage,
     TResult? Function(int index)? changePage,
-    TResult? Function(int selectedPetId)? selectedPetId,
+    TResult? Function(String selectedPetId)? selectedPetId,
   }) {
     return petImage?.call(this.petImage);
   }
@@ -665,7 +665,7 @@ class _$PetImageImpl implements _PetImage {
     TResult Function(String petName)? petName,
     TResult Function(String petImage)? petImage,
     TResult Function(int index)? changePage,
-    TResult Function(int selectedPetId)? selectedPetId,
+    TResult Function(String selectedPetId)? selectedPetId,
     required TResult orElse(),
   }) {
     if (petImage != null) {
@@ -805,7 +805,7 @@ class _$ChangePageImpl implements _ChangePage {
     required TResult Function(String petName) petName,
     required TResult Function(String petImage) petImage,
     required TResult Function(int index) changePage,
-    required TResult Function(int selectedPetId) selectedPetId,
+    required TResult Function(String selectedPetId) selectedPetId,
   }) {
     return changePage(index);
   }
@@ -818,7 +818,7 @@ class _$ChangePageImpl implements _ChangePage {
     TResult? Function(String petName)? petName,
     TResult? Function(String petImage)? petImage,
     TResult? Function(int index)? changePage,
-    TResult? Function(int selectedPetId)? selectedPetId,
+    TResult? Function(String selectedPetId)? selectedPetId,
   }) {
     return changePage?.call(index);
   }
@@ -831,7 +831,7 @@ class _$ChangePageImpl implements _ChangePage {
     TResult Function(String petName)? petName,
     TResult Function(String petImage)? petImage,
     TResult Function(int index)? changePage,
-    TResult Function(int selectedPetId)? selectedPetId,
+    TResult Function(String selectedPetId)? selectedPetId,
     required TResult orElse(),
   }) {
     if (changePage != null) {
@@ -903,7 +903,7 @@ abstract class _$$SelectedPetIdImplCopyWith<$Res> {
     $Res Function(_$SelectedPetIdImpl) then,
   ) = __$$SelectedPetIdImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int selectedPetId});
+  $Res call({String selectedPetId});
 }
 
 /// @nodoc
@@ -925,7 +925,7 @@ class __$$SelectedPetIdImplCopyWithImpl<$Res>
         null == selectedPetId
             ? _value.selectedPetId
             : selectedPetId // ignore: cast_nullable_to_non_nullable
-                as int,
+                as String,
       ),
     );
   }
@@ -937,7 +937,7 @@ class _$SelectedPetIdImpl implements _SelectedPetId {
   const _$SelectedPetIdImpl(this.selectedPetId);
 
   @override
-  final int selectedPetId;
+  final String selectedPetId;
 
   @override
   String toString() {
@@ -972,7 +972,7 @@ class _$SelectedPetIdImpl implements _SelectedPetId {
     required TResult Function(String petName) petName,
     required TResult Function(String petImage) petImage,
     required TResult Function(int index) changePage,
-    required TResult Function(int selectedPetId) selectedPetId,
+    required TResult Function(String selectedPetId) selectedPetId,
   }) {
     return selectedPetId(this.selectedPetId);
   }
@@ -985,7 +985,7 @@ class _$SelectedPetIdImpl implements _SelectedPetId {
     TResult? Function(String petName)? petName,
     TResult? Function(String petImage)? petImage,
     TResult? Function(int index)? changePage,
-    TResult? Function(int selectedPetId)? selectedPetId,
+    TResult? Function(String selectedPetId)? selectedPetId,
   }) {
     return selectedPetId?.call(this.selectedPetId);
   }
@@ -998,7 +998,7 @@ class _$SelectedPetIdImpl implements _SelectedPetId {
     TResult Function(String petName)? petName,
     TResult Function(String petImage)? petImage,
     TResult Function(int index)? changePage,
-    TResult Function(int selectedPetId)? selectedPetId,
+    TResult Function(String selectedPetId)? selectedPetId,
     required TResult orElse(),
   }) {
     if (selectedPetId != null) {
@@ -1052,9 +1052,10 @@ class _$SelectedPetIdImpl implements _SelectedPetId {
 }
 
 abstract class _SelectedPetId implements DashboardEvent {
-  const factory _SelectedPetId(final int selectedPetId) = _$SelectedPetIdImpl;
+  const factory _SelectedPetId(final String selectedPetId) =
+      _$SelectedPetIdImpl;
 
-  int get selectedPetId;
+  String get selectedPetId;
 
   /// Create a copy of DashboardEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1069,7 +1070,7 @@ mixin _$DashboardState {
   String get petName => throw _privateConstructorUsedError;
   String get petImage => throw _privateConstructorUsedError;
   DashboardPetDetails? get selectedPet => throw _privateConstructorUsedError;
-  int get selectedPetId => throw _privateConstructorUsedError;
+  String get selectedPetId => throw _privateConstructorUsedError;
   int get pageIndex => throw _privateConstructorUsedError;
   List<DashboardPetDetails> get dashboardPetDetails =>
       throw _privateConstructorUsedError;
@@ -1093,7 +1094,7 @@ abstract class $DashboardStateCopyWith<$Res> {
     String petName,
     String petImage,
     DashboardPetDetails? selectedPet,
-    int selectedPetId,
+    String selectedPetId,
     int pageIndex,
     List<DashboardPetDetails> dashboardPetDetails,
   });
@@ -1148,7 +1149,7 @@ class _$DashboardStateCopyWithImpl<$Res, $Val extends DashboardState>
                 null == selectedPetId
                     ? _value.selectedPetId
                     : selectedPetId // ignore: cast_nullable_to_non_nullable
-                        as int,
+                        as String,
             pageIndex:
                 null == pageIndex
                     ? _value.pageIndex
@@ -1179,7 +1180,7 @@ abstract class _$$DashboardStateImplCopyWith<$Res>
     String petName,
     String petImage,
     DashboardPetDetails? selectedPet,
-    int selectedPetId,
+    String selectedPetId,
     int pageIndex,
     List<DashboardPetDetails> dashboardPetDetails,
   });
@@ -1233,7 +1234,7 @@ class __$$DashboardStateImplCopyWithImpl<$Res>
             null == selectedPetId
                 ? _value.selectedPetId
                 : selectedPetId // ignore: cast_nullable_to_non_nullable
-                    as int,
+                    as String,
         pageIndex:
             null == pageIndex
                 ? _value.pageIndex
@@ -1257,7 +1258,7 @@ class _$DashboardStateImpl implements _DashboardState {
     this.petName = '',
     this.petImage = '',
     this.selectedPet = null,
-    this.selectedPetId = 0,
+    this.selectedPetId = '',
     this.pageIndex = 0,
     final List<DashboardPetDetails> dashboardPetDetails = const [],
   }) : _dashboardPetDetails = dashboardPetDetails;
@@ -1276,7 +1277,7 @@ class _$DashboardStateImpl implements _DashboardState {
   final DashboardPetDetails? selectedPet;
   @override
   @JsonKey()
-  final int selectedPetId;
+  final String selectedPetId;
   @override
   @JsonKey()
   final int pageIndex;
@@ -1347,7 +1348,7 @@ abstract class _DashboardState implements DashboardState {
     final String petName,
     final String petImage,
     final DashboardPetDetails? selectedPet,
-    final int selectedPetId,
+    final String selectedPetId,
     final int pageIndex,
     final List<DashboardPetDetails> dashboardPetDetails,
   }) = _$DashboardStateImpl;
@@ -1361,7 +1362,7 @@ abstract class _DashboardState implements DashboardState {
   @override
   DashboardPetDetails? get selectedPet;
   @override
-  int get selectedPetId;
+  String get selectedPetId;
   @override
   int get pageIndex;
   @override

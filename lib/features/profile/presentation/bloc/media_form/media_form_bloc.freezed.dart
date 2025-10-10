@@ -19,7 +19,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MediaFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(int? id) submit,
     required TResult Function(String value) notes,
     required TResult Function(String value) url,
@@ -27,7 +27,7 @@ mixin _$MediaFormEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(int? id)? submit,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? url,
@@ -35,7 +35,7 @@ mixin _$MediaFormEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(int? id)? submit,
     TResult Function(String value)? notes,
     TResult Function(String value)? url,
@@ -98,7 +98,7 @@ abstract class _$$InitImplCopyWith<$Res> {
     $Res Function(_$InitImpl) then,
   ) = __$$InitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int petId, int? id});
+  $Res call({String petId, int? id});
 }
 
 /// @nodoc
@@ -118,7 +118,7 @@ class __$$InitImplCopyWithImpl<$Res>
         null == petId
             ? _value.petId
             : petId // ignore: cast_nullable_to_non_nullable
-                as int,
+                as String,
         freezed == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
@@ -134,7 +134,7 @@ class _$InitImpl implements _Init {
   const _$InitImpl(this.petId, this.id);
 
   @override
-  final int petId;
+  final String petId;
   @override
   final int? id;
 
@@ -166,7 +166,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(int? id) submit,
     required TResult Function(String value) notes,
     required TResult Function(String value) url,
@@ -178,7 +178,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(int? id)? submit,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? url,
@@ -190,7 +190,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(int? id)? submit,
     TResult Function(String value)? notes,
     TResult Function(String value)? url,
@@ -245,9 +245,9 @@ class _$InitImpl implements _Init {
 }
 
 abstract class _Init implements MediaFormEvent {
-  const factory _Init(final int petId, final int? id) = _$InitImpl;
+  const factory _Init(final String petId, final int? id) = _$InitImpl;
 
-  int get petId;
+  String get petId;
   int? get id;
 
   /// Create a copy of MediaFormEvent
@@ -327,7 +327,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(int? id) submit,
     required TResult Function(String value) notes,
     required TResult Function(String value) url,
@@ -339,7 +339,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(int? id)? submit,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? url,
@@ -351,7 +351,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(int? id)? submit,
     TResult Function(String value)? notes,
     TResult Function(String value)? url,
@@ -487,7 +487,7 @@ class _$NotesImpl implements _Notes {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(int? id) submit,
     required TResult Function(String value) notes,
     required TResult Function(String value) url,
@@ -499,7 +499,7 @@ class _$NotesImpl implements _Notes {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(int? id)? submit,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? url,
@@ -511,7 +511,7 @@ class _$NotesImpl implements _Notes {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(int? id)? submit,
     TResult Function(String value)? notes,
     TResult Function(String value)? url,
@@ -643,7 +643,7 @@ class _$UrlImpl implements _Url {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(int? id) submit,
     required TResult Function(String value) notes,
     required TResult Function(String value) url,
@@ -655,7 +655,7 @@ class _$UrlImpl implements _Url {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(int? id)? submit,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? url,
@@ -667,7 +667,7 @@ class _$UrlImpl implements _Url {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(int? id)? submit,
     TResult Function(String value)? notes,
     TResult Function(String value)? url,
@@ -803,7 +803,7 @@ class _$EventImpl implements _Event {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int petId, int? id) init,
+    required TResult Function(String petId, int? id) init,
     required TResult Function(int? id) submit,
     required TResult Function(String value) notes,
     required TResult Function(String value) url,
@@ -815,7 +815,7 @@ class _$EventImpl implements _Event {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int petId, int? id)? init,
+    TResult? Function(String petId, int? id)? init,
     TResult? Function(int? id)? submit,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? url,
@@ -827,7 +827,7 @@ class _$EventImpl implements _Event {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int petId, int? id)? init,
+    TResult Function(String petId, int? id)? init,
     TResult Function(int? id)? submit,
     TResult Function(String value)? notes,
     TResult Function(String value)? url,
@@ -902,7 +902,7 @@ mixin _$MediaFormState {
   DropdownValue get event => throw _privateConstructorUsedError;
   List<DropItem> get events => throw _privateConstructorUsedError;
   bool get validation => throw _privateConstructorUsedError;
-  int get petId => throw _privateConstructorUsedError;
+  String get petId => throw _privateConstructorUsedError;
 
   /// Create a copy of MediaFormState
   /// with the given fields replaced by the non-null parameter values.
@@ -926,7 +926,7 @@ abstract class $MediaFormStateCopyWith<$Res> {
     DropdownValue event,
     List<DropItem> events,
     bool validation,
-    int petId,
+    String petId,
   });
 }
 
@@ -995,7 +995,7 @@ class _$MediaFormStateCopyWithImpl<$Res, $Val extends MediaFormState>
                 null == petId
                     ? _value.petId
                     : petId // ignore: cast_nullable_to_non_nullable
-                        as int,
+                        as String,
           )
           as $Val,
     );
@@ -1019,7 +1019,7 @@ abstract class _$$MediaFormStateImplCopyWith<$Res>
     DropdownValue event,
     List<DropItem> events,
     bool validation,
-    int petId,
+    String petId,
   });
 }
 
@@ -1087,7 +1087,7 @@ class __$$MediaFormStateImplCopyWithImpl<$Res>
             null == petId
                 ? _value.petId
                 : petId // ignore: cast_nullable_to_non_nullable
-                    as int,
+                    as String,
       ),
     );
   }
@@ -1104,7 +1104,7 @@ class _$MediaFormStateImpl implements _MediaFormState {
     this.event = const DropdownValue.pure(),
     final List<DropItem> events = const [],
     this.validation = false,
-    this.petId = 0,
+    this.petId = '',
   }) : _events = events;
 
   @override
@@ -1136,7 +1136,7 @@ class _$MediaFormStateImpl implements _MediaFormState {
   final bool validation;
   @override
   @JsonKey()
-  final int petId;
+  final String petId;
 
   @override
   String toString() {
@@ -1195,7 +1195,7 @@ abstract class _MediaFormState implements MediaFormState {
     final DropdownValue event,
     final List<DropItem> events,
     final bool validation,
-    final int petId,
+    final String petId,
   }) = _$MediaFormStateImpl;
 
   @override
@@ -1213,7 +1213,7 @@ abstract class _MediaFormState implements MediaFormState {
   @override
   bool get validation;
   @override
-  int get petId;
+  String get petId;
 
   /// Create a copy of MediaFormState
   /// with the given fields replaced by the non-null parameter values.

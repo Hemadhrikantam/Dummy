@@ -60,7 +60,7 @@ class AddWalkSuccessBottomSheetContent extends StatelessWidget {
                       children: [
                         TextSpan(
                           text:
-                              "${state.dashboardPetDetails[0].petName} for a stroll!",
+                              "${state.dashboardPetDetails[0].name} for a stroll!",
                           style: context.textTheme.titleSmall?.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -97,7 +97,7 @@ class AddWalkSuccessBottomSheetContent extends StatelessWidget {
                               children: [
                                 TextSpan(
                                   text:
-                                      " ${state.dashboardPetDetails[0].petName}'s walk!",
+                                      " ${state.dashboardPetDetails[0].name}'s walk!",
                                   style: context.textTheme.titleSmall?.copyWith(
                                     fontWeight: FontWeight.w700,
                                     color: AppColors.buttonTextColor,
