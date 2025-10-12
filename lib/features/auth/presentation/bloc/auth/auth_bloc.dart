@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dummy/api/storage_key.dart';
 import 'package:dummy/core/constant/app_text.dart';
@@ -10,6 +11,7 @@ import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/features/auth/domain/usecases/enums_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_account_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
+import 'package:dummy/features/auth/domain/usecases/register_device_usecases.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
@@ -47,12 +49,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     required SendOtpUsecases sendOtpUsecases,
     required RegisterUserUsecases registerUserUsecases,
     required EnumsUsecases enumsUsecases,
+    required RegisterDeviceUsecases registerDeviceUsecases,
   }) : __registerUserUsecases = registerUserUsecases,
        __logoutUsecases = logoutUsecases,
        __enumsUsecases = enumsUsecases,
+       __registerDeviceUsecases = registerDeviceUsecases,
        super(const AuthState()) {
     on<_Init>(__init);
-    on<_Initialisation>(__initialisation);
+    on<_UpdateFcm>(__updateFcm);
     on<_Login>(__login);
     on<_CheckUser>(__checkUser);
     on<_Logout>(__logout);
@@ -68,13 +72,31 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final RegisterUserUsecases __registerUserUsecases;
   final EnumsUsecases __enumsUsecases;
   final LogoutUsecases __logoutUsecases;
+  final RegisterDeviceUsecases __registerDeviceUsecases;
 
   void __init(_Init event, Emitter<AuthState> emit) {
     emit(const AuthState());
   }
 
-  void __initialisation(_Initialisation event, Emitter<AuthState> emit) {
+  Future<void> __updateFcm(_UpdateFcm event, Emitter<AuthState> emit) async {
     emit(state.copyWith(loginValidation: false, loginStatus: Status.init));
+    try {
+      // Attempt device registration after notification permission acceptance
+      final pushToken = await Injection.notificationService.getToken();
+      final platform = Platform.isIOS ? 'ios' : 'android';
+      final deviceId =
+          pushToken ?? DateTime.now().millisecondsSinceEpoch.toString();
+      LogUtility.info("FCM: $pushToken");
+      if (pushToken != null) {
+        await __registerDeviceUsecases(
+          deviceId: deviceId,
+          pushToken: pushToken,
+          platform: platform,
+        );
+      }
+    } catch (e) {
+      // Swallow errors to avoid disrupting init flow
+    }
   }
 
   Future<void> __login(_Login event, Emitter<AuthState> emit) async {

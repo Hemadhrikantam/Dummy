@@ -6,7 +6,7 @@ class GetMedicationUsecases {
   GetMedicationUsecases(this.repository);
   final HealthRepository repository;
 
-  AppTypeResponse<PetMedication> call({required int id}) {
+  AppTypeResponse<PetMedication> call({required String id}) {
     return repository.getMedication(id: id);
   }
 }

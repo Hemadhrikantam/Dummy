@@ -6,6 +6,7 @@ import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/register_account_payload.dart';
 import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_pet_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/cat_breed_usecases.dart';
@@ -65,59 +66,57 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
     final personalityTags = await __personalityTags();
 
     if (event.id != null) {
-      // final success = currentContext
-      //     .read<DashboardBloc>()
-      //     .state
-      //     .dashboardPetDetails
-      //     .firstWhere((pet) => pet.id == event.id);
-      // print(success);
+      final success = currentContext
+          .read<DashboardBloc>()
+          .state
+          .dashboardPetDetails
+          .firstWhere((pet) => pet.id == event.id);
+      print(success);
 
-      // final breeds =
-      //     success.petType.toLowerCase() == "cat" ? catBreeds : dogBreeds;
+      final breeds =
+          success.type.toLowerCase() == "cat" ? catBreeds : dogBreeds;
 
-      // emit(
-      //   state.copyWith(
-      //     initStatus: Status.success,
-      //     catbreeds: catBreeds,
-      //     dogbreeds: dogBreeds,
-      //     personalityTags: personalityTags,
-      //     petType:
-      //         success.petType.toLowerCase() == "cat"
-      //             ? PetType.Cat
-      //             : PetType.Dog,
-      //     dob: NotEmpty.dirty(value: success.dob),
-      //     breed: DropdownStringValue.dirty(
-      //       breeds.firstWhere((b) => b.value == success.breed.name),
-      //     ),
-      //     petImage: NotEmpty.dirty(value: success.petImage.petImage),
-      //     petImageId: success.petImage.id,
-      //     selectedPersonalityTags:
-      //         success.personalityTag
-      //             .map(
-      //               (e) => DropdownStringValue.dirty(
-      //                 DropStringItemModel(id: e.id, value: e.name),
-      //               ),
-      //             )
-      //             .toList(),
-      //     gender: DropdownValue.dirty(
-      //       DropItemModel(
-      //         id: success.gender == 'Male' ? 1 : 2,
-      //         value: success.gender,
-      //       ),
-      //     ),
-      //     weight: NotEmpty.dirty(value: success.petWeight.toString()),
-      //     petName: NotEmpty.dirty(value: success.petName),
-      //   ),
-      // );
+      emit(
+        state.copyWith(
+          initStatus: Status.success,
+          catbreeds: catBreeds,
+          dogbreeds: dogBreeds,
+          personalityTags: personalityTags,
+          petType:
+              success.type.toLowerCase() == "cat" ? PetType.Cat : PetType.Dog,
+          dob: NotEmpty.dirty(value: success.dob),
+          breed: DropdownStringValue.dirty(
+            breeds.firstWhere((b) => b.value == success.breedName),
+          ),
+          petImage: NotEmpty.dirty(value: success.imageUrl ?? ''),
+
+          selectedPersonalityTags:
+              success.personalityTags
+                  .map(
+                    (e) => DropdownStringValue.dirty(
+                      personalityTags.firstWhere((p) => p.value == e),
+                    ),
+                  )
+                  .toList(),
+          gender: DropdownValue.dirty(
+            DropItemModel(
+              id: success.gender == 'Male' ? 1 : 2,
+              value: success.gender,
+            ),
+          ),
+          weight: NotEmpty.dirty(value: success.weightValue.toString()),
+          petName: NotEmpty.dirty(value: success.name),
+        ),
+      );
     } else {
-      // emit(
-      //   state.copyWith(
-      //     initStatus: Status.success,
-      //     catbreeds: catBreeds,
-      //     dogbreeds: dogBreeds,
-      //     personalityTags: personalityTags,
-      //   ),
-      // );
+      emit(
+        state.copyWith(
+          initStatus: Status.success,
+          catbreeds: catBreeds,
+          dogbreeds: dogBreeds,
+          personalityTags: personalityTags,
+        ),
+      );
     }
 
     emit(state.copyWith(validation: state.validationX));
@@ -229,18 +228,38 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
     emit(state.copyWith(validation: state.validationX));
   }
 
-  Future<List<DropItem>> __catBreeds() async {
-    final result = await __catBreedUsecases();
-    return result.fold((error) => [], (success) => success);
+  Future<List<DropStringItem>> __catBreeds() async {
+    final enums = currentContext.read<AuthBloc>().state.enums;
+    if (enums == null) {
+      return [];
+    } else {
+      final dogBreeds = enums.breeds.where((b) => b.type == 'cat').toList();
+      return dogBreeds
+          .map((b) => DropStringItemModel(id: b.id, value: b.name))
+          .toList();
+    }
   }
 
-  Future<List<DropItem>> __dogBreeds() async {
-    final result = await __dogBreedUsecases();
-    return result.fold((error) => [], (success) => success);
+  Future<List<DropStringItem>> __dogBreeds() async {
+    final enums = currentContext.read<AuthBloc>().state.enums;
+    if (enums == null) {
+      return [];
+    } else {
+      final dogBreeds = enums.breeds.where((b) => b.type == 'dog').toList();
+      return dogBreeds
+          .map((b) => DropStringItemModel(id: b.id, value: b.name))
+          .toList();
+    }
   }
 
-  Future<List<DropItem>> __personalityTags() async {
-    final result = await __personalityTagUsecases();
-    return result.fold((error) => [], (success) => success);
+  Future<List<DropStringItem>> __personalityTags() async {
+    final enums = currentContext.read<AuthBloc>().state.enums;
+    if (enums == null) {
+      return [];
+    } else {
+      return enums.personalityTags
+          .map((b) => DropStringItemModel(id: b.id, value: b.name))
+          .toList();
+    }
   }
 }

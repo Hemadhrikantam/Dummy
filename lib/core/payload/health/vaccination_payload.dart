@@ -1,67 +1,77 @@
 import 'package:dummy/core/payload/payload.dart';
 import 'package:equatable/equatable.dart';
-import 'package:dio/dio.dart';
 import 'package:dummy/core/utils/app_utils.dart';
+
 import '../../utils/type_def.dart';
 
 class VaccinationPayload extends Equatable implements Payload {
   const VaccinationPayload({
-    required this.isGiven,
-    required this.vaccinationName,
-    required this.company,
-    required this.reminderTime,
-    required this.dateAdministered,
+    required this.petId,
+    required this.name,
+    required this.frequencyId,
     required this.dueDate,
-    required this.note,
-    required this.media,
-    required this.pet,
-    required this.frequency,
-    required this.reminderTimezone,
-    required this.reminderBefore,
+    this.status,
+    this.notes = "",
+    this.imageUrl = "",
+    this.reminderEnabled = false,
+    required this.reminderTime,
+    this.reminderTimezone = "",
   });
 
-  final bool isGiven;
-  final String vaccinationName;
-  final String company;
-  final String reminderTime;
-  final DateTime dateAdministered;
+  /// core fields
+  final String petId;
+  final String name;
+  final String frequencyId;
   final DateTime dueDate;
-  final String note;
-  final MultipartFile media;
-  final String pet;
-  final int frequency;
-  final int reminderTimezone;
-  final int reminderBefore;
+
+  /// optional status ("given") if already administered
+  final String? status;
+
+  /// misc
+  final String notes;
+  final String imageUrl;
+
+  /// reminder
+  final bool reminderEnabled;
+  final DateTime reminderTime;
+  final String reminderTimezone;
 
   @override
   List<Object?> get props => [
-    isGiven,
-    vaccinationName,
-    company,
-    reminderTime,
-    dateAdministered,
+    petId,
+    name,
+    frequencyId,
     dueDate,
-    note,
-    media,
-    pet,
-    frequency,
+    status,
+    notes,
+    imageUrl,
+    reminderEnabled,
+    reminderTime,
     reminderTimezone,
-    reminderBefore,
   ];
 
   @override
-  JsonMap toMap() => {
-    'is_given': isGiven,
-    'vaccination_name': vaccinationName,
-    'company': company,
-    'reminder_time': reminderTime,
-    'Date_administered': AppUtil.formatDate(dateAdministered),
-    'due_date': AppUtil.formatDate(dueDate),
-    'note': note,
-    'media': media,
-    'pet': pet,
-    'frequency': frequency,
-    'reminder_timezone': reminderTimezone,
-    'reminder_before': reminderBefore,
-  };
+  JsonMap toMap() {
+    final map = <String, dynamic>{
+      'pet_id': petId,
+      'name': name,
+      'frequency_id': frequencyId,
+      'due_date': AppUtil.formatDate(dueDate), // "YYYY-MM-DD"
+      'notes': notes,
+      'image_url': imageUrl,
+      'reminder': {
+        // API sample shows strings "true"/"false"; follow that exactly:
+        'enabled': reminderEnabled ? 'true' : 'false',
+        'reminder_time': AppUtil.formatDate(reminderTime),
+        'timezone': reminderTimezone,
+      },
+    };
+
+    // Only include status if provided (e.g., "given")
+    if (status != null && status!.isNotEmpty) {
+      map['status'] = status;
+    }
+
+    return map;
+  }
 }

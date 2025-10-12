@@ -19,19 +19,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MedicationDetailsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) init,
+    required TResult Function(String id) init,
     required TResult Function(DateTime date) getDate,
     required TResult Function(MedicationDate value) updateDate,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? init,
+    TResult? Function(String id)? init,
     TResult? Function(DateTime date)? getDate,
     TResult? Function(MedicationDate value)? updateDate,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? init,
+    TResult Function(String id)? init,
     TResult Function(DateTime date)? getDate,
     TResult Function(MedicationDate value)? updateDate,
     required TResult orElse(),
@@ -89,7 +89,7 @@ abstract class _$$InitImplCopyWith<$Res> {
     $Res Function(_$InitImpl) then,
   ) = __$$InitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int id});
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -109,7 +109,7 @@ class __$$InitImplCopyWithImpl<$Res>
         null == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int,
+                as String,
       ),
     );
   }
@@ -121,7 +121,7 @@ class _$InitImpl implements _Init {
   const _$InitImpl(this.id);
 
   @override
-  final int id;
+  final String id;
 
   @override
   String toString() {
@@ -150,7 +150,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) init,
+    required TResult Function(String id) init,
     required TResult Function(DateTime date) getDate,
     required TResult Function(MedicationDate value) updateDate,
   }) {
@@ -160,7 +160,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? init,
+    TResult? Function(String id)? init,
     TResult? Function(DateTime date)? getDate,
     TResult? Function(MedicationDate value)? updateDate,
   }) {
@@ -170,7 +170,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? init,
+    TResult Function(String id)? init,
     TResult Function(DateTime date)? getDate,
     TResult Function(MedicationDate value)? updateDate,
     required TResult orElse(),
@@ -217,9 +217,9 @@ class _$InitImpl implements _Init {
 }
 
 abstract class _Init implements MedicationDetailsEvent {
-  const factory _Init(final int id) = _$InitImpl;
+  const factory _Init(final String id) = _$InitImpl;
 
-  int get id;
+  String get id;
 
   /// Create a copy of MedicationDetailsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -298,7 +298,7 @@ class _$GetDateImpl implements _GetDate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) init,
+    required TResult Function(String id) init,
     required TResult Function(DateTime date) getDate,
     required TResult Function(MedicationDate value) updateDate,
   }) {
@@ -308,7 +308,7 @@ class _$GetDateImpl implements _GetDate {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? init,
+    TResult? Function(String id)? init,
     TResult? Function(DateTime date)? getDate,
     TResult? Function(MedicationDate value)? updateDate,
   }) {
@@ -318,7 +318,7 @@ class _$GetDateImpl implements _GetDate {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? init,
+    TResult Function(String id)? init,
     TResult Function(DateTime date)? getDate,
     TResult Function(MedicationDate value)? updateDate,
     required TResult orElse(),
@@ -446,7 +446,7 @@ class _$UpdateDateImpl implements _UpdateDate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) init,
+    required TResult Function(String id) init,
     required TResult Function(DateTime date) getDate,
     required TResult Function(MedicationDate value) updateDate,
   }) {
@@ -456,7 +456,7 @@ class _$UpdateDateImpl implements _UpdateDate {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? init,
+    TResult? Function(String id)? init,
     TResult? Function(DateTime date)? getDate,
     TResult? Function(MedicationDate value)? updateDate,
   }) {
@@ -466,7 +466,7 @@ class _$UpdateDateImpl implements _UpdateDate {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? init,
+    TResult Function(String id)? init,
     TResult Function(DateTime date)? getDate,
     TResult Function(MedicationDate value)? updateDate,
     required TResult orElse(),
@@ -528,7 +528,7 @@ abstract class _UpdateDate implements MedicationDetailsEvent {
 mixin _$MedicationDetailsState {
   Status get initStatus => throw _privateConstructorUsedError;
   PetMedication? get medication => throw _privateConstructorUsedError;
-  int get id => throw _privateConstructorUsedError;
+  String get id => throw _privateConstructorUsedError;
   List<MedicationDate> get dates => throw _privateConstructorUsedError;
 
   /// Create a copy of MedicationDetailsState
@@ -548,7 +548,7 @@ abstract class $MedicationDetailsStateCopyWith<$Res> {
   $Res call({
     Status initStatus,
     PetMedication? medication,
-    int id,
+    String id,
     List<MedicationDate> dates,
   });
 }
@@ -592,7 +592,7 @@ class _$MedicationDetailsStateCopyWithImpl<
                 null == id
                     ? _value.id
                     : id // ignore: cast_nullable_to_non_nullable
-                        as int,
+                        as String,
             dates:
                 null == dates
                     ? _value.dates
@@ -616,7 +616,7 @@ abstract class _$$MedicationDetailsStateImplCopyWith<$Res>
   $Res call({
     Status initStatus,
     PetMedication? medication,
-    int id,
+    String id,
     List<MedicationDate> dates,
   });
 }
@@ -657,7 +657,7 @@ class __$$MedicationDetailsStateImplCopyWithImpl<$Res>
             null == id
                 ? _value.id
                 : id // ignore: cast_nullable_to_non_nullable
-                    as int,
+                    as String,
         dates:
             null == dates
                 ? _value._dates
@@ -674,7 +674,7 @@ class _$MedicationDetailsStateImpl implements _MedicationDetailsState {
   const _$MedicationDetailsStateImpl({
     this.initStatus = Status.init,
     this.medication = null,
-    this.id = 0,
+    this.id = '',
     final List<MedicationDate> dates = const [],
   }) : _dates = dates;
 
@@ -686,7 +686,7 @@ class _$MedicationDetailsStateImpl implements _MedicationDetailsState {
   final PetMedication? medication;
   @override
   @JsonKey()
-  final int id;
+  final String id;
   final List<MedicationDate> _dates;
   @override
   @JsonKey()
@@ -740,7 +740,7 @@ abstract class _MedicationDetailsState implements MedicationDetailsState {
   const factory _MedicationDetailsState({
     final Status initStatus,
     final PetMedication? medication,
-    final int id,
+    final String id,
     final List<MedicationDate> dates,
   }) = _$MedicationDetailsStateImpl;
 
@@ -749,7 +749,7 @@ abstract class _MedicationDetailsState implements MedicationDetailsState {
   @override
   PetMedication? get medication;
   @override
-  int get id;
+  String get id;
   @override
   List<MedicationDate> get dates;
 

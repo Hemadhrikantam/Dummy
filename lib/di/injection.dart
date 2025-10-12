@@ -16,6 +16,7 @@ import 'package:dummy/features/addoption/domain/usecases/submit_pet_adoption_for
 import 'package:dummy/features/addoption/presentation/bloc/add_adoption/add_adoption_bloc.dart';
 import 'package:dummy/features/addoption/presentation/bloc/adoption/adoption_bloc.dart';
 import 'package:dummy/features/auth/domain/usecases/enums_usecases.dart';
+import 'package:dummy/features/auth/domain/usecases/register_device_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/send_otp_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
@@ -111,6 +112,8 @@ import '../features/dailycare/presentation/bloc/groomings/groomings_bloc.dart';
 import '../features/dailycare/presentation/bloc/meals/meals_bloc.dart';
 import '../features/dailycare/presentation/bloc/walks/walks_bloc.dart';
 import '../features/dashboard/domain/usecases/dashboard_details_usecases.dart';
+// import '../features/health/domain/usecases/add_vaccination_log_usecases.dart';
+// import '../features/health/domain/usecases/get_vaccination_logs_usecases.dart';
 import '../features/health/domain/usecases/add_vaccination_usecases.dart';
 import '../features/health/domain/usecases/medications_usecases.dart';
 import '../features/health/domain/usecases/vaccinations_usecases.dart';

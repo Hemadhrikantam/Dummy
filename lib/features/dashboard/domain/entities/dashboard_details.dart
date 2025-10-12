@@ -7,6 +7,7 @@ class DashboardPetDetails extends Equatable {
     required this.type,
     required this.breedId,
     required this.breedName,
+    required this.gender,
     required this.dob,
     required this.weightValue,
     required this.weightUnit,
@@ -19,6 +20,7 @@ class DashboardPetDetails extends Equatable {
   final String id;
   final String name;
   final String type;
+  final String gender;
   final String breedId;
   final String breedName;
   final String dob;
@@ -37,6 +39,7 @@ class DashboardPetDetails extends Equatable {
     breedId,
     breedName,
     dob,
+    gender,
     weightValue,
     weightUnit,
     imageUrl,

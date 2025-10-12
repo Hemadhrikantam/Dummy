@@ -18,7 +18,7 @@ class MedicationDeleteBottomSheetContent extends StatelessWidget {
     required this.id,
   });
   final VoidCallback? onTap;
-  final int id;
+  final String id;
 
   @override
   Widget build(BuildContext context) {

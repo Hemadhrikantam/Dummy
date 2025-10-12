@@ -4,7 +4,7 @@ import 'package:dummy/features/health/domain/repositories/health_repository.dart
 class DeleteMedicationUsecases {
   DeleteMedicationUsecases(this.repository);
   final HealthRepository repository;
-  AppSuccessResponse call({required int id}) {
+  AppSuccessResponse call({required String id}) {
     return repository.deleteMedication(id: id);
   }
 }

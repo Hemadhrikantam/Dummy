@@ -52,6 +52,19 @@ class AuthRepositoryImpl extends AuthRepository {
     return _authDatasource.enums();
   }
 
+  @override
+  AppSuccessResponse registerDevice({
+    required String deviceId,
+    required String pushToken,
+    required String platform,
+  }) {
+    return _authDatasource.registerDevice(
+      deviceId: deviceId,
+      pushToken: pushToken,
+      platform: platform,
+    );
+  }
+
   // @override
   // AppTypeResponse<List<AwsSignedUrlModel>> generateSignedUrl(
   //     List<String> extensions) {

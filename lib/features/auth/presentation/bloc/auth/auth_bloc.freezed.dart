@@ -20,7 +20,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -40,7 +40,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -60,7 +60,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -80,7 +80,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -99,7 +99,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -118,7 +118,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -199,7 +199,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -223,7 +223,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -247,7 +247,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -274,7 +274,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -297,7 +297,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -320,7 +320,7 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -349,20 +349,20 @@ abstract class _Init implements AuthEvent {
 }
 
 /// @nodoc
-abstract class _$$InitialisationImplCopyWith<$Res> {
-  factory _$$InitialisationImplCopyWith(
-    _$InitialisationImpl value,
-    $Res Function(_$InitialisationImpl) then,
-  ) = __$$InitialisationImplCopyWithImpl<$Res>;
+abstract class _$$UpdateFcmImplCopyWith<$Res> {
+  factory _$$UpdateFcmImplCopyWith(
+    _$UpdateFcmImpl value,
+    $Res Function(_$UpdateFcmImpl) then,
+  ) = __$$UpdateFcmImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$InitialisationImplCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$InitialisationImpl>
-    implements _$$InitialisationImplCopyWith<$Res> {
-  __$$InitialisationImplCopyWithImpl(
-    _$InitialisationImpl _value,
-    $Res Function(_$InitialisationImpl) _then,
+class __$$UpdateFcmImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$UpdateFcmImpl>
+    implements _$$UpdateFcmImplCopyWith<$Res> {
+  __$$UpdateFcmImplCopyWithImpl(
+    _$UpdateFcmImpl _value,
+    $Res Function(_$UpdateFcmImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of AuthEvent
@@ -371,18 +371,18 @@ class __$$InitialisationImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialisationImpl implements _Initialisation {
-  const _$InitialisationImpl();
+class _$UpdateFcmImpl implements _UpdateFcm {
+  const _$UpdateFcmImpl();
 
   @override
   String toString() {
-    return 'AuthEvent.initialisation()';
+    return 'AuthEvent.updateFcm()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$InitialisationImpl);
+        (other.runtimeType == runtimeType && other is _$UpdateFcmImpl);
   }
 
   @override
@@ -392,7 +392,7 @@ class _$InitialisationImpl implements _Initialisation {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -409,14 +409,14 @@ class _$InitialisationImpl implements _Initialisation {
     updateSendOtpStatus,
     required TResult Function(Yourself value) yourself,
   }) {
-    return initialisation();
+    return updateFcm();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -433,14 +433,14 @@ class _$InitialisationImpl implements _Initialisation {
     updateSendOtpStatus,
     TResult? Function(Yourself value)? yourself,
   }) {
-    return initialisation?.call();
+    return updateFcm?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -457,8 +457,8 @@ class _$InitialisationImpl implements _Initialisation {
     TResult Function(Yourself value)? yourself,
     required TResult orElse(),
   }) {
-    if (initialisation != null) {
-      return initialisation();
+    if (updateFcm != null) {
+      return updateFcm();
     }
     return orElse();
   }
@@ -467,7 +467,7 @@ class _$InitialisationImpl implements _Initialisation {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -483,14 +483,14 @@ class _$InitialisationImpl implements _Initialisation {
     required TResult Function(_UpdateSendOtpStatus value) updateSendOtpStatus,
     required TResult Function(_Yourself value) yourself,
   }) {
-    return initialisation(this);
+    return updateFcm(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -506,14 +506,14 @@ class _$InitialisationImpl implements _Initialisation {
     TResult? Function(_UpdateSendOtpStatus value)? updateSendOtpStatus,
     TResult? Function(_Yourself value)? yourself,
   }) {
-    return initialisation?.call(this);
+    return updateFcm?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -530,15 +530,15 @@ class _$InitialisationImpl implements _Initialisation {
     TResult Function(_Yourself value)? yourself,
     required TResult orElse(),
   }) {
-    if (initialisation != null) {
-      return initialisation(this);
+    if (updateFcm != null) {
+      return updateFcm(this);
     }
     return orElse();
   }
 }
 
-abstract class _Initialisation implements AuthEvent {
-  const factory _Initialisation() = _$InitialisationImpl;
+abstract class _UpdateFcm implements AuthEvent {
+  const factory _UpdateFcm() = _$UpdateFcmImpl;
 }
 
 /// @nodoc
@@ -612,7 +612,7 @@ class _$EmailImpl implements _Email {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -636,7 +636,7 @@ class _$EmailImpl implements _Email {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -660,7 +660,7 @@ class _$EmailImpl implements _Email {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -687,7 +687,7 @@ class _$EmailImpl implements _Email {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -710,7 +710,7 @@ class _$EmailImpl implements _Email {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -733,7 +733,7 @@ class _$EmailImpl implements _Email {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -840,7 +840,7 @@ class _$PhoneImpl implements _Phone {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -864,7 +864,7 @@ class _$PhoneImpl implements _Phone {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -888,7 +888,7 @@ class _$PhoneImpl implements _Phone {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -915,7 +915,7 @@ class _$PhoneImpl implements _Phone {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -938,7 +938,7 @@ class _$PhoneImpl implements _Phone {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -961,7 +961,7 @@ class _$PhoneImpl implements _Phone {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -1064,7 +1064,7 @@ class _$OtpImpl implements _Otp {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -1088,7 +1088,7 @@ class _$OtpImpl implements _Otp {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -1112,7 +1112,7 @@ class _$OtpImpl implements _Otp {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -1139,7 +1139,7 @@ class _$OtpImpl implements _Otp {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -1162,7 +1162,7 @@ class _$OtpImpl implements _Otp {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -1185,7 +1185,7 @@ class _$OtpImpl implements _Otp {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -1293,7 +1293,7 @@ class _$PasswordImpl implements _Password {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -1317,7 +1317,7 @@ class _$PasswordImpl implements _Password {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -1341,7 +1341,7 @@ class _$PasswordImpl implements _Password {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -1368,7 +1368,7 @@ class _$PasswordImpl implements _Password {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -1391,7 +1391,7 @@ class _$PasswordImpl implements _Password {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -1414,7 +1414,7 @@ class _$PasswordImpl implements _Password {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -1525,7 +1525,7 @@ class _$ConfirmPasswordImpl implements _ConfirmPassword {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -1549,7 +1549,7 @@ class _$ConfirmPasswordImpl implements _ConfirmPassword {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -1573,7 +1573,7 @@ class _$ConfirmPasswordImpl implements _ConfirmPassword {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -1600,7 +1600,7 @@ class _$ConfirmPasswordImpl implements _ConfirmPassword {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -1623,7 +1623,7 @@ class _$ConfirmPasswordImpl implements _ConfirmPassword {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -1646,7 +1646,7 @@ class _$ConfirmPasswordImpl implements _ConfirmPassword {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -1752,7 +1752,7 @@ class _$NameImpl implements _Name {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -1776,7 +1776,7 @@ class _$NameImpl implements _Name {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -1800,7 +1800,7 @@ class _$NameImpl implements _Name {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -1827,7 +1827,7 @@ class _$NameImpl implements _Name {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -1850,7 +1850,7 @@ class _$NameImpl implements _Name {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -1873,7 +1873,7 @@ class _$NameImpl implements _Name {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -1953,7 +1953,7 @@ class _$LoginImpl implements _Login {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -1977,7 +1977,7 @@ class _$LoginImpl implements _Login {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -2001,7 +2001,7 @@ class _$LoginImpl implements _Login {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -2028,7 +2028,7 @@ class _$LoginImpl implements _Login {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -2051,7 +2051,7 @@ class _$LoginImpl implements _Login {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -2074,7 +2074,7 @@ class _$LoginImpl implements _Login {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -2146,7 +2146,7 @@ class _$SendOtpImpl implements _SendOtp {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -2170,7 +2170,7 @@ class _$SendOtpImpl implements _SendOtp {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -2194,7 +2194,7 @@ class _$SendOtpImpl implements _SendOtp {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -2221,7 +2221,7 @@ class _$SendOtpImpl implements _SendOtp {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -2244,7 +2244,7 @@ class _$SendOtpImpl implements _SendOtp {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -2267,7 +2267,7 @@ class _$SendOtpImpl implements _SendOtp {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -2374,7 +2374,7 @@ class _$RegisterImpl implements _Register {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -2398,7 +2398,7 @@ class _$RegisterImpl implements _Register {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -2422,7 +2422,7 @@ class _$RegisterImpl implements _Register {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -2449,7 +2449,7 @@ class _$RegisterImpl implements _Register {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -2472,7 +2472,7 @@ class _$RegisterImpl implements _Register {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -2495,7 +2495,7 @@ class _$RegisterImpl implements _Register {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -2577,7 +2577,7 @@ class _$SignupImpl implements _Signup {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -2601,7 +2601,7 @@ class _$SignupImpl implements _Signup {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -2625,7 +2625,7 @@ class _$SignupImpl implements _Signup {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -2652,7 +2652,7 @@ class _$SignupImpl implements _Signup {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -2675,7 +2675,7 @@ class _$SignupImpl implements _Signup {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -2698,7 +2698,7 @@ class _$SignupImpl implements _Signup {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -2770,7 +2770,7 @@ class _$CheckUserImpl implements _CheckUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -2794,7 +2794,7 @@ class _$CheckUserImpl implements _CheckUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -2818,7 +2818,7 @@ class _$CheckUserImpl implements _CheckUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -2845,7 +2845,7 @@ class _$CheckUserImpl implements _CheckUser {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -2868,7 +2868,7 @@ class _$CheckUserImpl implements _CheckUser {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -2891,7 +2891,7 @@ class _$CheckUserImpl implements _CheckUser {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -2963,7 +2963,7 @@ class _$LogoutImpl implements _Logout {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -2987,7 +2987,7 @@ class _$LogoutImpl implements _Logout {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -3011,7 +3011,7 @@ class _$LogoutImpl implements _Logout {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -3038,7 +3038,7 @@ class _$LogoutImpl implements _Logout {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -3061,7 +3061,7 @@ class _$LogoutImpl implements _Logout {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -3084,7 +3084,7 @@ class _$LogoutImpl implements _Logout {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -3194,7 +3194,7 @@ class _$UpdateSendOtpStatusImpl implements _UpdateSendOtpStatus {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -3218,7 +3218,7 @@ class _$UpdateSendOtpStatusImpl implements _UpdateSendOtpStatus {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -3242,7 +3242,7 @@ class _$UpdateSendOtpStatusImpl implements _UpdateSendOtpStatus {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -3269,7 +3269,7 @@ class _$UpdateSendOtpStatusImpl implements _UpdateSendOtpStatus {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -3292,7 +3292,7 @@ class _$UpdateSendOtpStatusImpl implements _UpdateSendOtpStatus {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -3315,7 +3315,7 @@ class _$UpdateSendOtpStatusImpl implements _UpdateSendOtpStatus {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,
@@ -3426,7 +3426,7 @@ class _$YourselfImpl implements _Yourself {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
-    required TResult Function() initialisation,
+    required TResult Function() updateFcm,
     required TResult Function(String email) email,
     required TResult Function(String phone) phone,
     required TResult Function(String otp) otp,
@@ -3450,7 +3450,7 @@ class _$YourselfImpl implements _Yourself {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
-    TResult? Function()? initialisation,
+    TResult? Function()? updateFcm,
     TResult? Function(String email)? email,
     TResult? Function(String phone)? phone,
     TResult? Function(String otp)? otp,
@@ -3474,7 +3474,7 @@ class _$YourselfImpl implements _Yourself {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
-    TResult Function()? initialisation,
+    TResult Function()? updateFcm,
     TResult Function(String email)? email,
     TResult Function(String phone)? phone,
     TResult Function(String otp)? otp,
@@ -3501,7 +3501,7 @@ class _$YourselfImpl implements _Yourself {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
-    required TResult Function(_Initialisation value) initialisation,
+    required TResult Function(_UpdateFcm value) updateFcm,
     required TResult Function(_Email value) email,
     required TResult Function(_Phone value) phone,
     required TResult Function(_Otp value) otp,
@@ -3524,7 +3524,7 @@ class _$YourselfImpl implements _Yourself {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
-    TResult? Function(_Initialisation value)? initialisation,
+    TResult? Function(_UpdateFcm value)? updateFcm,
     TResult? Function(_Email value)? email,
     TResult? Function(_Phone value)? phone,
     TResult? Function(_Otp value)? otp,
@@ -3547,7 +3547,7 @@ class _$YourselfImpl implements _Yourself {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
-    TResult Function(_Initialisation value)? initialisation,
+    TResult Function(_UpdateFcm value)? updateFcm,
     TResult Function(_Email value)? email,
     TResult Function(_Phone value)? phone,
     TResult Function(_Otp value)? otp,

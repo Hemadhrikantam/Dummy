@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 
 class Overview extends Equatable {
-  final String meals;
-  final String walks;
-  final String grooming;
-  final String deworming;
-  final String expenses;
+  final int meals;
+  final int walks;
+  final int grooming;
+  final int deworming;
+  final int expenses;
 
   const Overview({
     required this.meals,

@@ -19,7 +19,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$VaccinationFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -27,17 +27,17 @@ mixin _$VaccinationFormEvent {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -45,17 +45,17 @@ mixin _$VaccinationFormEvent {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -63,13 +63,13 @@ mixin _$VaccinationFormEvent {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -161,7 +161,7 @@ abstract class _$$InitImplCopyWith<$Res> {
     $Res Function(_$InitImpl) then,
   ) = __$$InitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String petId, int? id});
+  $Res call({String petId, String? id});
 }
 
 /// @nodoc
@@ -185,7 +185,7 @@ class __$$InitImplCopyWithImpl<$Res>
         freezed == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int?,
+                as String?,
       ),
     );
   }
@@ -199,7 +199,7 @@ class _$InitImpl implements _Init {
   @override
   final String petId;
   @override
-  final int? id;
+  final String? id;
 
   @override
   String toString() {
@@ -229,7 +229,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -237,13 +237,13 @@ class _$InitImpl implements _Init {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return init(petId, id);
   }
@@ -251,7 +251,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -259,13 +259,13 @@ class _$InitImpl implements _Init {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return init?.call(petId, id);
   }
@@ -273,7 +273,7 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -281,13 +281,13 @@ class _$InitImpl implements _Init {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -368,10 +368,10 @@ class _$InitImpl implements _Init {
 }
 
 abstract class _Init implements VaccinationFormEvent {
-  const factory _Init(final String petId, final int? id) = _$InitImpl;
+  const factory _Init(final String petId, final String? id) = _$InitImpl;
 
   String get petId;
-  int? get id;
+  String? get id;
 
   /// Create a copy of VaccinationFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -450,7 +450,7 @@ class _$IsGivenImpl implements _IsGiven {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -458,13 +458,13 @@ class _$IsGivenImpl implements _IsGiven {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return isGiven(value);
   }
@@ -472,7 +472,7 @@ class _$IsGivenImpl implements _IsGiven {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -480,13 +480,13 @@ class _$IsGivenImpl implements _IsGiven {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return isGiven?.call(value);
   }
@@ -494,7 +494,7 @@ class _$IsGivenImpl implements _IsGiven {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -502,13 +502,13 @@ class _$IsGivenImpl implements _IsGiven {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (isGiven != null) {
@@ -673,7 +673,7 @@ class _$VaccinationNameImpl implements _VaccinationName {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -681,13 +681,13 @@ class _$VaccinationNameImpl implements _VaccinationName {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return vaccinationName(value);
   }
@@ -695,7 +695,7 @@ class _$VaccinationNameImpl implements _VaccinationName {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -703,13 +703,13 @@ class _$VaccinationNameImpl implements _VaccinationName {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return vaccinationName?.call(value);
   }
@@ -717,7 +717,7 @@ class _$VaccinationNameImpl implements _VaccinationName {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -725,13 +725,13 @@ class _$VaccinationNameImpl implements _VaccinationName {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (vaccinationName != null) {
@@ -893,7 +893,7 @@ class _$CompanyImpl implements _Company {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -901,13 +901,13 @@ class _$CompanyImpl implements _Company {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return company(value);
   }
@@ -915,7 +915,7 @@ class _$CompanyImpl implements _Company {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -923,13 +923,13 @@ class _$CompanyImpl implements _Company {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return company?.call(value);
   }
@@ -937,7 +937,7 @@ class _$CompanyImpl implements _Company {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -945,13 +945,13 @@ class _$CompanyImpl implements _Company {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (company != null) {
@@ -1116,7 +1116,7 @@ class _$DateAdministeredImpl implements _DateAdministered {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -1124,13 +1124,13 @@ class _$DateAdministeredImpl implements _DateAdministered {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return dateAdministered(value);
   }
@@ -1138,7 +1138,7 @@ class _$DateAdministeredImpl implements _DateAdministered {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -1146,13 +1146,13 @@ class _$DateAdministeredImpl implements _DateAdministered {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return dateAdministered?.call(value);
   }
@@ -1160,7 +1160,7 @@ class _$DateAdministeredImpl implements _DateAdministered {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -1168,13 +1168,13 @@ class _$DateAdministeredImpl implements _DateAdministered {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (dateAdministered != null) {
@@ -1336,7 +1336,7 @@ class _$DueDateImpl implements _DueDate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -1344,13 +1344,13 @@ class _$DueDateImpl implements _DueDate {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return dueDate(value);
   }
@@ -1358,7 +1358,7 @@ class _$DueDateImpl implements _DueDate {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -1366,13 +1366,13 @@ class _$DueDateImpl implements _DueDate {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return dueDate?.call(value);
   }
@@ -1380,7 +1380,7 @@ class _$DueDateImpl implements _DueDate {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -1388,13 +1388,13 @@ class _$DueDateImpl implements _DueDate {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (dueDate != null) {
@@ -1554,7 +1554,7 @@ class _$NoteImpl implements _Note {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -1562,13 +1562,13 @@ class _$NoteImpl implements _Note {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return note(value);
   }
@@ -1576,7 +1576,7 @@ class _$NoteImpl implements _Note {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -1584,13 +1584,13 @@ class _$NoteImpl implements _Note {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return note?.call(value);
   }
@@ -1598,7 +1598,7 @@ class _$NoteImpl implements _Note {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -1606,13 +1606,13 @@ class _$NoteImpl implements _Note {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (note != null) {
@@ -1774,7 +1774,7 @@ class _$MediaImpl implements _Media {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -1782,13 +1782,13 @@ class _$MediaImpl implements _Media {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return media(value);
   }
@@ -1796,7 +1796,7 @@ class _$MediaImpl implements _Media {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -1804,13 +1804,13 @@ class _$MediaImpl implements _Media {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return media?.call(value);
   }
@@ -1818,7 +1818,7 @@ class _$MediaImpl implements _Media {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -1826,13 +1826,13 @@ class _$MediaImpl implements _Media {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (media != null) {
@@ -1931,7 +1931,7 @@ abstract class _$$FrequencyImplCopyWith<$Res> {
     $Res Function(_$FrequencyImpl) then,
   ) = __$$FrequencyImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DropItem value});
+  $Res call({DropStringItem value});
 }
 
 /// @nodoc
@@ -1953,7 +1953,7 @@ class __$$FrequencyImplCopyWithImpl<$Res>
         null == value
             ? _value.value
             : value // ignore: cast_nullable_to_non_nullable
-                as DropItem,
+                as DropStringItem,
       ),
     );
   }
@@ -1965,7 +1965,7 @@ class _$FrequencyImpl implements _Frequency {
   const _$FrequencyImpl(this.value);
 
   @override
-  final DropItem value;
+  final DropStringItem value;
 
   @override
   String toString() {
@@ -1994,7 +1994,7 @@ class _$FrequencyImpl implements _Frequency {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -2002,13 +2002,13 @@ class _$FrequencyImpl implements _Frequency {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return frequency(value);
   }
@@ -2016,7 +2016,7 @@ class _$FrequencyImpl implements _Frequency {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -2024,13 +2024,13 @@ class _$FrequencyImpl implements _Frequency {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return frequency?.call(value);
   }
@@ -2038,7 +2038,7 @@ class _$FrequencyImpl implements _Frequency {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -2046,13 +2046,13 @@ class _$FrequencyImpl implements _Frequency {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (frequency != null) {
@@ -2133,9 +2133,9 @@ class _$FrequencyImpl implements _Frequency {
 }
 
 abstract class _Frequency implements VaccinationFormEvent {
-  const factory _Frequency(final DropItem value) = _$FrequencyImpl;
+  const factory _Frequency(final DropStringItem value) = _$FrequencyImpl;
 
-  DropItem get value;
+  DropStringItem get value;
 
   /// Create a copy of VaccinationFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -2217,7 +2217,7 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -2225,13 +2225,13 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return reminderTimezone(value);
   }
@@ -2239,7 +2239,7 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -2247,13 +2247,13 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return reminderTimezone?.call(value);
   }
@@ -2261,7 +2261,7 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -2269,13 +2269,13 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (reminderTimezone != null) {
@@ -2441,7 +2441,7 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -2449,13 +2449,13 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return reminderBefore(value);
   }
@@ -2463,7 +2463,7 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -2471,13 +2471,13 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return reminderBefore?.call(value);
   }
@@ -2485,7 +2485,7 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -2493,13 +2493,13 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (reminderBefore != null) {
@@ -2661,7 +2661,7 @@ class _$ReminderHourImpl implements _ReminderHour {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -2669,13 +2669,13 @@ class _$ReminderHourImpl implements _ReminderHour {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return reminderHour(value);
   }
@@ -2683,7 +2683,7 @@ class _$ReminderHourImpl implements _ReminderHour {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -2691,13 +2691,13 @@ class _$ReminderHourImpl implements _ReminderHour {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return reminderHour?.call(value);
   }
@@ -2705,7 +2705,7 @@ class _$ReminderHourImpl implements _ReminderHour {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -2713,13 +2713,13 @@ class _$ReminderHourImpl implements _ReminderHour {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (reminderHour != null) {
@@ -2881,7 +2881,7 @@ class _$ReminderMinImpl implements _ReminderMin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -2889,13 +2889,13 @@ class _$ReminderMinImpl implements _ReminderMin {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return reminderMin(value);
   }
@@ -2903,7 +2903,7 @@ class _$ReminderMinImpl implements _ReminderMin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -2911,13 +2911,13 @@ class _$ReminderMinImpl implements _ReminderMin {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return reminderMin?.call(value);
   }
@@ -2925,7 +2925,7 @@ class _$ReminderMinImpl implements _ReminderMin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -2933,13 +2933,13 @@ class _$ReminderMinImpl implements _ReminderMin {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (reminderMin != null) {
@@ -3101,7 +3101,7 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -3109,13 +3109,13 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return reminderAmPm(value);
   }
@@ -3123,7 +3123,7 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -3131,13 +3131,13 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return reminderAmPm?.call(value);
   }
@@ -3145,7 +3145,7 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -3153,13 +3153,13 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (reminderAmPm != null) {
@@ -3258,7 +3258,7 @@ abstract class _$$SubmitImplCopyWith<$Res> {
     $Res Function(_$SubmitImpl) then,
   ) = __$$SubmitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int? id});
+  $Res call({String? id});
 }
 
 /// @nodoc
@@ -3281,7 +3281,7 @@ class __$$SubmitImplCopyWithImpl<$Res>
             freezed == id
                 ? _value.id
                 : id // ignore: cast_nullable_to_non_nullable
-                    as int?,
+                    as String?,
       ),
     );
   }
@@ -3293,7 +3293,7 @@ class _$SubmitImpl implements _Submit {
   const _$SubmitImpl({this.id});
 
   @override
-  final int? id;
+  final String? id;
 
   @override
   String toString() {
@@ -3322,7 +3322,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
+    required TResult Function(String petId, String? id) init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) vaccinationName,
     required TResult Function(String value) company,
@@ -3330,13 +3330,13 @@ class _$SubmitImpl implements _Submit {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) note,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
-    required TResult Function(int? id) submit,
+    required TResult Function(String? id) submit,
   }) {
     return submit(id);
   }
@@ -3344,7 +3344,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
+    TResult? Function(String petId, String? id)? init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? vaccinationName,
     TResult? Function(String value)? company,
@@ -3352,13 +3352,13 @@ class _$SubmitImpl implements _Submit {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? note,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String? id)? submit,
   }) {
     return submit?.call(id);
   }
@@ -3366,7 +3366,7 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
+    TResult Function(String petId, String? id)? init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? vaccinationName,
     TResult Function(String value)? company,
@@ -3374,13 +3374,13 @@ class _$SubmitImpl implements _Submit {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? note,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
-    TResult Function(int? id)? submit,
+    TResult Function(String? id)? submit,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -3461,9 +3461,9 @@ class _$SubmitImpl implements _Submit {
 }
 
 abstract class _Submit implements VaccinationFormEvent {
-  const factory _Submit({final int? id}) = _$SubmitImpl;
+  const factory _Submit({final String? id}) = _$SubmitImpl;
 
-  int? get id;
+  String? get id;
 
   /// Create a copy of VaccinationFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -3486,10 +3486,10 @@ mixin _$VaccinationFormState {
   DropdownValue get reminderHour => throw _privateConstructorUsedError;
   DropdownValue get reminderMin => throw _privateConstructorUsedError;
   DropdownValue get reminderAmPm => throw _privateConstructorUsedError;
-  DropdownValue get frequency => throw _privateConstructorUsedError;
+  DropdownStringValue get frequency => throw _privateConstructorUsedError;
   DropdownValue get reminderTimezone => throw _privateConstructorUsedError;
   DropdownValue get reminderBefore => throw _privateConstructorUsedError;
-  List<DropItem> get frequencies => throw _privateConstructorUsedError;
+  List<DropStringItem> get frequencies => throw _privateConstructorUsedError;
   List<DropItem> get reminderTimezones => throw _privateConstructorUsedError;
   List<DropItem> get reminderBefores => throw _privateConstructorUsedError;
   bool get validation => throw _privateConstructorUsedError;
@@ -3522,10 +3522,10 @@ abstract class $VaccinationFormStateCopyWith<$Res> {
     DropdownValue reminderHour,
     DropdownValue reminderMin,
     DropdownValue reminderAmPm,
-    DropdownValue frequency,
+    DropdownStringValue frequency,
     DropdownValue reminderTimezone,
     DropdownValue reminderBefore,
-    List<DropItem> frequencies,
+    List<DropStringItem> frequencies,
     List<DropItem> reminderTimezones,
     List<DropItem> reminderBefores,
     bool validation,
@@ -3638,7 +3638,7 @@ class _$VaccinationFormStateCopyWithImpl<
                 null == frequency
                     ? _value.frequency
                     : frequency // ignore: cast_nullable_to_non_nullable
-                        as DropdownValue,
+                        as DropdownStringValue,
             reminderTimezone:
                 null == reminderTimezone
                     ? _value.reminderTimezone
@@ -3653,7 +3653,7 @@ class _$VaccinationFormStateCopyWithImpl<
                 null == frequencies
                     ? _value.frequencies
                     : frequencies // ignore: cast_nullable_to_non_nullable
-                        as List<DropItem>,
+                        as List<DropStringItem>,
             reminderTimezones:
                 null == reminderTimezones
                     ? _value.reminderTimezones
@@ -3702,10 +3702,10 @@ abstract class _$$VaccinationFormStateImplCopyWith<$Res>
     DropdownValue reminderHour,
     DropdownValue reminderMin,
     DropdownValue reminderAmPm,
-    DropdownValue frequency,
+    DropdownStringValue frequency,
     DropdownValue reminderTimezone,
     DropdownValue reminderBefore,
-    List<DropItem> frequencies,
+    List<DropStringItem> frequencies,
     List<DropItem> reminderTimezones,
     List<DropItem> reminderBefores,
     bool validation,
@@ -3814,7 +3814,7 @@ class __$$VaccinationFormStateImplCopyWithImpl<$Res>
             null == frequency
                 ? _value.frequency
                 : frequency // ignore: cast_nullable_to_non_nullable
-                    as DropdownValue,
+                    as DropdownStringValue,
         reminderTimezone:
             null == reminderTimezone
                 ? _value.reminderTimezone
@@ -3829,7 +3829,7 @@ class __$$VaccinationFormStateImplCopyWithImpl<$Res>
             null == frequencies
                 ? _value._frequencies
                 : frequencies // ignore: cast_nullable_to_non_nullable
-                    as List<DropItem>,
+                    as List<DropStringItem>,
         reminderTimezones:
             null == reminderTimezones
                 ? _value._reminderTimezones
@@ -3871,10 +3871,10 @@ class _$VaccinationFormStateImpl implements _VaccinationFormState {
     this.reminderHour = const DropdownValue.pure(),
     this.reminderMin = const DropdownValue.pure(),
     this.reminderAmPm = const DropdownValue.pure(),
-    this.frequency = const DropdownValue.pure(),
+    this.frequency = const DropdownStringValue.pure(),
     this.reminderTimezone = const DropdownValue.pure(),
     this.reminderBefore = const DropdownValue.pure(),
-    final List<DropItem> frequencies = const [],
+    final List<DropStringItem> frequencies = const [],
     final List<DropItem> reminderTimezones = const [],
     final List<DropItem> reminderBefores = const [],
     this.validation = false,
@@ -3921,17 +3921,17 @@ class _$VaccinationFormStateImpl implements _VaccinationFormState {
   final DropdownValue reminderAmPm;
   @override
   @JsonKey()
-  final DropdownValue frequency;
+  final DropdownStringValue frequency;
   @override
   @JsonKey()
   final DropdownValue reminderTimezone;
   @override
   @JsonKey()
   final DropdownValue reminderBefore;
-  final List<DropItem> _frequencies;
+  final List<DropStringItem> _frequencies;
   @override
   @JsonKey()
-  List<DropItem> get frequencies {
+  List<DropStringItem> get frequencies {
     if (_frequencies is EqualUnmodifiableListView) return _frequencies;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_frequencies);
@@ -4067,10 +4067,10 @@ abstract class _VaccinationFormState implements VaccinationFormState {
     final DropdownValue reminderHour,
     final DropdownValue reminderMin,
     final DropdownValue reminderAmPm,
-    final DropdownValue frequency,
+    final DropdownStringValue frequency,
     final DropdownValue reminderTimezone,
     final DropdownValue reminderBefore,
-    final List<DropItem> frequencies,
+    final List<DropStringItem> frequencies,
     final List<DropItem> reminderTimezones,
     final List<DropItem> reminderBefores,
     final bool validation,
@@ -4102,13 +4102,13 @@ abstract class _VaccinationFormState implements VaccinationFormState {
   @override
   DropdownValue get reminderAmPm;
   @override
-  DropdownValue get frequency;
+  DropdownStringValue get frequency;
   @override
   DropdownValue get reminderTimezone;
   @override
   DropdownValue get reminderBefore;
   @override
-  List<DropItem> get frequencies;
+  List<DropStringItem> get frequencies;
   @override
   List<DropItem> get reminderTimezones;
   @override

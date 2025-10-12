@@ -82,30 +82,37 @@ String overview(String id) => '$__api/dailycare/overview?pet_id=$id';
 //health
 String medication(String? key, String? fromDate, String? toDate) {
   if (key != null && fromDate != null) {
-    return '$__api/medication/?search=$key&from_date=$fromDate&to_date=$toDate';
+    return '$__api/medications/?search=$key&from_date=$fromDate&to_date=$toDate';
   } else if (key != null) {
-    return '$__api/medication/?search=$key';
+    return '$__api/medications/?search=$key';
   } else if (fromDate != null) {
-    return '$__api/medication/?from_date=$fromDate&to_date=$toDate';
+    return '$__api/medications/?from_date=$fromDate&to_date=$toDate';
   } else {
-    return '$__api/medication/';
+    return '$__api/medications/';
   }
 }
 
-String medicationItem(int id) => '$__api/medication/item/$id/';
+String medicationItem(String id) => '$__api/medications/$id/';
 String medicationFrequencies = '$__api/medication/medication-frequency/';
 
 String vaccination(String? key, String? fromDate, String? toDate) {
   if (key != null && fromDate != null) {
-    return '$__api/medication/vaccinations/?search=$key&from_date=$fromDate&to_date=$toDate';
+    return '$__api/vaccinations?search=$key&from_date=$fromDate&to_date=$toDate';
   } else if (key != null) {
-    return '$__api/medication/vaccinations/?search=$key';
+    return '$__api/vaccinations?search=$key';
   } else if (fromDate != null) {
-    return '$__api/medication/vaccinations/?from_date=$fromDate&to_date=$toDate';
+    return '$__api/vaccinations?from_date=$fromDate&to_date=$toDate';
   } else {
-    return '$__api/medication/vaccinations/';
+    return '$__api/vaccinations';
   }
 }
 
-String medicationServing(int id, String date) =>
+String vaccinationItem(String id) => '$__api/vaccinations/$id';
+String vaccinationLogs = '$__api/vaccinations/logs';
+String vaccinationLogItem(String id) => '$__api/vaccinations/logs/$id';
+
+String medicationServing(String id, String date) =>
     '$__api/medication/medication-serving/?medication=$id&date=$date';
+
+// device
+String registerDevice = '$__api/auth/device';

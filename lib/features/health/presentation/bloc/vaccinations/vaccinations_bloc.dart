@@ -1,4 +1,6 @@
 import 'package:dummy/core/enum/status.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/features/health/domain/usecases/delete_vaccination_usecases.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -31,6 +33,7 @@ class VaccinationsBloc extends Bloc<VaccinationsEvent, VaccinationsState> {
   ) async {
     emit(state.copyWith(vaccinationsStatus: Status.loading));
     final result = await _vaccinationsUsecases(
+      currentContext.read<DashboardBloc>().state.selectedPet?.id ?? '',
       event.key,
       state.dateAdministered.isValid
           ? AppUtil.convertToYYYYMMDD(state.dateAdministered.value)

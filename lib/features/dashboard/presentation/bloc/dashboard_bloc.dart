@@ -3,8 +3,11 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/utils/log_utility.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/dashboard/domain/usecases/dashboard_details_usecases.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'dashboard_event.dart';
@@ -27,6 +30,7 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
     _DashboardPetDetails event,
     Emitter<DashboardState> emit,
   ) async {
+    currentContext.read<AuthBloc>().add(AuthEvent.updateFcm());
     emit(state.copyWith(initStatus: Status.loading));
     final result = await __dashboardPetUsecases();
     result.fold(

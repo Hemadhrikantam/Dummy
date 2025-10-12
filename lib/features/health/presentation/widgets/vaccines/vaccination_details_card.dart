@@ -33,7 +33,7 @@ class VaccinationDetailsCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        state.vaccination?.vaccinationName ?? 'Rabies',
+                        state.vaccination?.name ?? 'Rabies',
                         style: context.textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.bold,
                           fontSize: 24,
@@ -42,7 +42,8 @@ class VaccinationDetailsCard extends StatelessWidget {
                       ),
                       Styles.gap4,
                       Text(
-                        state.vaccination?.company ?? 'Abhayrab',
+                        // state.vaccination?.company ??
+                        'Abhayrab',
                         style: context.textTheme.labelMedium?.copyWith(
                           color: AppColors.stepperColor,
                         ),
@@ -74,7 +75,7 @@ class VaccinationDetailsCard extends StatelessWidget {
                       ),
                       Text(
                         AppUtil.formatDateToMMDDYYYY(
-                          state.vaccination?.dateAdministered ?? DateTime.now(),
+                          state.vaccination?.createdAt ?? DateTime.now(),
                         ),
                         style: context.textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.bold,

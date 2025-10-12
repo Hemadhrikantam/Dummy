@@ -263,6 +263,53 @@ class AuthDatasourceImpl extends AuthDatasource {
       },
     );
   }
+
+  @override
+  AppSuccessResponse registerDevice({
+    required String deviceId,
+    required String pushToken,
+    required String platform,
+  }) async {
+    final response = await http.post(
+      path: api.registerDevice,
+      token: true,
+      data: {
+        'device_id': deviceId,
+        'push_token': pushToken,
+        'platform': platform,
+      },
+    );
+
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) {
+        try {
+          final statusCode =
+              (success.data['statusCode'] as int?) ?? success.statusCode;
+          final data = success.data;
+          if (statusCode != null && statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message:
+                    data['message'] as String? ?? 'Device registered successfully',
+              ),
+            );
+          } else {
+            return Left(
+              ErrorMessage(
+                message:
+                    data['message'] as String? ?? AppText.somethingWentWrong,
+              ),
+            );
+          }
+        } catch (e) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
 }
 
   

@@ -5,7 +5,7 @@ import 'package:dummy/features/health/domain/repositories/health_repository.dart
 class EditVaccinationUsecases {
   EditVaccinationUsecases(this.repository);
   final HealthRepository repository;
-  AppSuccessResponse call({required Payload payload, required int id}) {
+  AppSuccessResponse call({required Payload payload, required String id}) {
     return repository.editVaccination(payload: payload, id: id);
   }
 }

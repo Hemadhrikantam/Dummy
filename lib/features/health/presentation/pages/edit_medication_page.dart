@@ -19,8 +19,8 @@ import 'medication_success_page.dart';
 class EditMedicationPage extends StatelessWidget {
   const EditMedicationPage({super.key, required this.id});
   static const routeName = '/EditMedicationPage';
-  final int id;
-  static Route<T> route<T>(int id) {
+  final String id;
+  static Route<T> route<T>(String id) {
     return MaterialPageRoute<T>(
       builder:
           (context) => BlocProvider(

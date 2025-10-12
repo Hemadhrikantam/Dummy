@@ -17,11 +17,11 @@ abstract class VaccinationFormState with _$VaccinationFormState {
     @Default(DropdownValue.pure()) DropdownValue reminderMin,
     @Default(DropdownValue.pure()) DropdownValue reminderAmPm,
 
-    @Default(DropdownValue.pure()) DropdownValue frequency,
+    @Default(DropdownStringValue.pure()) DropdownStringValue frequency,
     @Default(DropdownValue.pure()) DropdownValue reminderTimezone,
     @Default(DropdownValue.pure()) DropdownValue reminderBefore,
 
-    @Default([]) List<DropItem> frequencies,
+    @Default([]) List<DropStringItem> frequencies,
     @Default([]) List<DropItem> reminderTimezones,
     @Default([]) List<DropItem> reminderBefores,
 
@@ -35,16 +35,16 @@ extension VaccinationFormValidation on VaccinationFormState {
     return Formz.validate([
       vaccinationName,
       company,
-      reminderHour,
-      reminderMin,
-      reminderAmPm,
+      // reminderHour,
+      // reminderMin,
+      // reminderAmPm,
       dateAdministered,
       dueDate,
       note,
-      media,
+      // media,
       frequency,
-      reminderTimezone,
-      reminderBefore,
+      // reminderTimezone,
+      // reminderBefore,
     ]);
   }
 }

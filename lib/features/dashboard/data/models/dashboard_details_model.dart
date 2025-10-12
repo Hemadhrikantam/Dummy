@@ -8,6 +8,7 @@ class DashboardDetailsModel extends DashboardPetDetails {
     required super.type,
     required super.breedId,
     required super.breedName,
+    required super.gender,
     required super.dob,
     required super.weightValue,
     required super.weightUnit,
@@ -25,14 +26,16 @@ class DashboardDetailsModel extends DashboardPetDetails {
       breedId: map['breed_id'] as String? ?? '',
       breedName: map['breed_name'] as String? ?? '',
       dob: map['dob'] as String? ?? '',
+      gender: map['gender'] as String? ?? '',
       weightValue: map['weight_value'] as String? ?? '',
       weightUnit: map['weight_unit'] as String? ?? '',
       imageUrl: map['image_url'] as String?,
       createdAt: map['created_at'] as String? ?? '',
       updatedAt: map['updated_at'] as String? ?? '',
-      personalityTags: (map['personality_tags'] as List<dynamic>? ?? [])
-          .map((e) => e.toString())
-          .toList(),
+      personalityTags:
+          (map['personality_tags'] as List<dynamic>? ?? [])
+              .map((e) => e.toString())
+              .toList(),
     );
   }
 }

@@ -3,7 +3,7 @@ part of 'auth_bloc.dart';
 @freezed
 class AuthEvent with _$AuthEvent {
   const factory AuthEvent.init() = _Init;
-  const factory AuthEvent.initialisation() = _Initialisation;
+  const factory AuthEvent.updateFcm() = _UpdateFcm;
   const factory AuthEvent.email(String email) = _Email;
   const factory AuthEvent.phone(String phone) = _Phone;
   const factory AuthEvent.otp(String otp) = _Otp;

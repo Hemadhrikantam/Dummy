@@ -13,7 +13,8 @@ class __PetName extends StatelessWidget {
         print(state.value);
         return AppTextFormField(
           headerText: AppText.petsName,
-          initialValue: state.value,
+          // initialValue: state.value,
+          controller: TextEditingController()..text = state.value,
           isMandatory: true,
           hintText: 'Enter Pet Name',
           onChanged: (value) {

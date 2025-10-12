@@ -32,7 +32,7 @@ class VaccinesCard extends StatelessWidget {
             children: [
               RichText(
                 text: TextSpan(
-                  text: vaccination.vaccinationName,
+                  text: vaccination.name,
                   style: context.textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
@@ -40,7 +40,7 @@ class VaccinesCard extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: " ${vaccination.company}",
+                      text: " ${vaccination.name}",
                       style: context.textTheme.labelMedium?.copyWith(
                         color: AppColors.stepperColor,
                       ),
@@ -86,7 +86,7 @@ class VaccinesCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    AppUtil.formatDateToMMDDYYYY(vaccination.dateAdministered),
+                    AppUtil.formatDateToMMDDYYYY(vaccination.createdAt),
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,

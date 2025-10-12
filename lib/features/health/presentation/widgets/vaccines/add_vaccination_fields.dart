@@ -142,7 +142,7 @@ class __Frequency extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
       builder: (context, state) {
-        return CustomDropdownSearch(
+        return CustomStringDropdownSearch(
           items: state.frequencies,
           selectedItem: state.frequency.value,
           onChanged: (value) {

@@ -35,7 +35,7 @@ class MedicationDetailsBloc
     final result = await _getMedicationUsecases(id: event.id);
     result.fold((l) {}, (r) {
       List<DateTime> dates = [];
-      for (int i = 0; i <= r.endDate.difference(r.startDate).inDays; i++) {
+      for (int i = 0; i <= r.endDate!.difference(r.startDate).inDays; i++) {
         dates.add(r.startDate.add(Duration(days: i)));
       }
       emit(

@@ -39,7 +39,7 @@ class MedicationsCard extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: medication.tabletName,
+                      text: medication.name.split(' ')[0],
                       style: context.textTheme.labelMedium?.copyWith(
                         color: AppColors.stepperColor,
                       ),
@@ -57,7 +57,7 @@ class MedicationsCard extends StatelessWidget {
                   ),
                   Styles.gap6,
                   CustomSwitch(
-                    value: medication.reminder,
+                    value: medication.reminder?.isEnabled ?? false,
                     onChanged: (value) {
                       // setState(() {
                       //   isChecked = !isChecked;
@@ -100,7 +100,9 @@ class MedicationsCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    AppUtil.formatDateToMMDDYYYY(medication.endDate),
+                    AppUtil.formatDateToMMDDYYYY(
+                      medication.endDate ?? DateTime.now(),
+                    ),
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,

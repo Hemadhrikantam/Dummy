@@ -20,8 +20,8 @@ import '../widgets/vaccines/vaccination_details_card.dart';
 class VaccinationDetailsPage extends StatefulWidget {
   const VaccinationDetailsPage({super.key, required this.id});
   static const routeName = '/VaccinationDetailsPage';
-  final int id;
-  static Route<T> route<T>({required int id}) {
+  final String id;
+  static Route<T> route<T>({required String id}) {
     return MaterialPageRoute<T>(
       builder:
           (context) => BlocProvider(

@@ -11,11 +11,11 @@ class OverviewModel extends Overview {
 
   factory OverviewModel.fromJson(Map<String, dynamic> json) {
     return OverviewModel(
-      meals : json['meals'] ,
-      walks: json['walks'], 
-      grooming: json['grooming'],
-      deworming: json['deworming'],
-      expenses: json['expenses'],
+      meals: json['summary']['meals']['count'],
+      walks: json['summary']['walks']['count'],
+      grooming: json['summary']['grooming']['count'],
+      deworming: json['summary']['deworming']['count'],
+      expenses: json['summary']['expenses'].length,
     );
   }
 }

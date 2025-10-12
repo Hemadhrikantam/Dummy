@@ -11,32 +11,35 @@ abstract class HealthDatasource {
   AppSuccessResponse addMedication({required Payload payload});
   AppSuccessResponse editMedication({
     required Payload payload,
-    required int id,
+    required String id,
   });
   AppSuccessResponse editVaccination({
     required Payload payload,
-    required int id,
+    required String id,
   });
-  AppTypeResponse<PetMedicationModel> getMedication({required int id});
-  AppTypeResponse<PetVaccinationModel> getVaccination({required int id});
-  AppSuccessResponse deleteVaccination({required int id});
-  AppSuccessResponse deleteMedication({required int id});
+  AppTypeResponse<PetMedicationModel> getMedication({required String id});
+  AppTypeResponse<PetVaccinationModel> getVaccination({required String id});
+  AppSuccessResponse deleteVaccination({required String id});
+  AppSuccessResponse deleteMedication({required String id});
   AppTypeResponse<MedicationDateModel> getMedicationDate({
-    required int id,
+    required String id,
     required DateTime date,
   });
   AppSuccessResponse updateMedicationDate({
-    required int id,
+    required String id,
     required MedicationDateModel payload,
   });
   AppTypeResponse<List<FrequencyModel>> medicationFrequencies();
   AppTypeResponse<List<PetMedicationModel>> medications(
+    String petId,
     String? key,
     String? fromDate,
     String? toDate,
   );
+  // Vaccination logs methods
   AppSuccessResponse addVaccination({required Payload payload});
   AppTypeResponse<List<PetVaccinationModel>> vaccinations(
+    String petId,
     String? key,
     String? fromDate,
     String? toDate,

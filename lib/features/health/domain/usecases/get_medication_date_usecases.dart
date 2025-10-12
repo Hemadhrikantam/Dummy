@@ -6,7 +6,10 @@ class GetMedicationDateUsecases {
   GetMedicationDateUsecases(this.repository);
   final HealthRepository repository;
 
-  AppTypeResponse<MedicationDate> call({required int id,required DateTime date}) {
-    return repository.getMedicationDate(id: id,date: date);
+  AppTypeResponse<MedicationDate> call({
+    required String id,
+    required DateTime date,
+  }) {
+    return repository.getMedicationDate(id: id, date: date);
   }
 }

@@ -2,7 +2,7 @@ part of 'add_medication_fields.dart';
 
 class AddMedicationForm extends StatefulWidget {
   const AddMedicationForm({super.key, this.id});
-  final int? id;
+  final String? id;
   @override
   State<StatefulWidget> createState() => _AddMedicationForm();
 }

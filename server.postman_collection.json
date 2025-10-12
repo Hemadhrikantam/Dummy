@@ -1,0 +1,3905 @@
+{
+	"info": {
+		"_postman_id": "1e78b270-73bb-401f-b7c4-2264a7ced4fd",
+		"name": "server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "48989009",
+		"_collection_link": "https://doommi.postman.co/workspace/Team-Workspace~929020b4-ea2e-4aff-873f-a9dd8eeeb97f/collection/48816331-1e78b270-73bb-401f-b7c4-2264a7ced4fd?action=share&source=collection_link&creator=48989009"
+	},
+	"item": [
+		{
+			"name": "authentication",
+			"item": [
+				{
+					"name": "/auth/check",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobile_number\" : \"8428719833\",\n    \"account_type\" : \"ngo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/check",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"check"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "signup response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mobile_number\" : \"8428719833\",\n    \"account_type\" : \"pet_parent\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auth/check",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"check"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Sep 2025 05:45:44 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "188"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"bc-EECAmsAovILlmvYiGMW7ZOvmspo\""
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"No existing account found, onboarding required\",\n    \"data\": {\n        \"mobileNumber\": \"8428719833\",\n        \"accountType\": \"pet_parent\",\n        \"requiresOnboarding\": true,\n        \"userExists\": false\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/auth/device",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"device_id\" : \"unique-id\",\n    \"push_token\" : \"TEST\",\n    \"platform\" : \"ios\" // ios/android\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/device",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"device"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/onboarding/pet-parent",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobile_number\": \"8428719832\",\n    \"gender\" : \"male\",\n    \"pet_name\": \"tobby\",\n    \"pet_type\": \"dog\",\n    \"breed_id\": \"a94d2475-f2ea-4984-ab53-d7dbb88e5d04\", //get value from /enums api\n    \"dob\": \"2020-01-01\", //iso format string\n    \"weight\": {\n        \"value\": 5,\n        \"unit\": \"kg\"\n    },\n    \"personality_tags\": [\"35cda955-bc27-4364-b21e-7ba246885a84\"], // pass uuid from /enums api\n    \"image_file\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/profile_pics/21404225-2c1c-45fa-9a42-af12af3a6be5.png\", //url from presign api\n    \"device_id\" : \"test-device\",\n    \"push_token\" : \"FCM_TOKEN_TEST\",\n    \"platform\" : \"ios\", // ios/android\n    \"latitude\" : \"13.0832\",\n    \"longitude\" : \"80.2705\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/onboarding/pet-parent",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"onboarding",
+								"pet-parent"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"mobile_number\": \"8428719833\",\n    \"pet_name\": \"tobby\",\n    \"pet_type\": \"dog\",\n    \"breed_id\": \"\", //get value from /enums api\n    \"dob\": \"2020-01-01\", //iso format string\n    \"weight\": {\n        \"value\": 5,\n        \"unit\": \"kg\"\n    },\n    \"personality_tags\": [], // pass uuid from /enums api\n    \"image_file\": \"\" //url from presign api\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auth/onboarding/pet-parent",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"onboarding",
+										"pet-parent"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1092"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"444-mqdd66+5YzAu8t8mGsWnWafpUJs\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 Sep 2025 10:24:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Pet parent onboarding completed successfully\",\n    \"data\": {\n        \"user\": {\n            \"id\": \"26c04ed0-8726-40b8-999b-8bc232ef993a\",\n            \"accountId\": \"fbcb92ac-5765-4206-8c56-facb9f3c223e\",\n            \"mobileNumber\": \"8428719833\",\n            \"isMainAccount\": false,\n            \"userName\": \"tobby's Owner\"\n        },\n        \"account\": {\n            \"id\": \"fbcb92ac-5765-4206-8c56-facb9f3c223e\",\n            \"account_name\": \"tobby's Family\",\n            \"accountType\": \"pet_parent\",\n            \"subscriptionType\": \"free\"\n        },\n        \"pet\": {\n            \"id\": \"04f0673c-52cc-4b7c-a62b-1bcc152fce6e\",\n            \"name\": \"tobby\",\n            \"type\": \"dog\",\n            \"breed_id\": null,\n            \"breed_name\": null,\n            \"dob\": \"2019-12-31T18:30:00.000Z\",\n            \"weight_value\": \"5.00\",\n            \"weight_unit\": \"kg\",\n            \"image_url\": null,\n            \"created_at\": \"2025-09-28T04:54:52.732Z\",\n            \"updated_at\": \"2025-09-28T04:54:52.732Z\",\n            \"personality_tags\": []\n        },\n        \"accessToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIyNmMwNGVkMC04NzI2LTQwYjgtOTk5Yi04YmMyMzJlZjk5M2EiLCJhY2NvdW50SWQiOiJmYmNiOTJhYy01NzY1LTQyMDYtOGM1Ni1mYWNiOWYzYzIyM2UiLCJhY2NvdW50VHlwZSI6InBldF9wYXJlbnQiLCJzdWJzY3JpcHRpb25UeXBlIjoiZnJlZSIsImlzTWFpbkFjY291bnQiOmZhbHNlLCJpYXQiOjE3NTkwNTUwOTIsImV4cCI6MTc1OTY1OTg5Mn0.RWIKdfBCQS1TeFvtAtN7SX40ahJiT8s-sWYqIf6CtGM\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/onboarding/ngo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobile_number\": \"8428719833\",\n    \"ngo_name\": \"Besant Memorial Animal Dispensary\",\n    \"contact_person_name\": \"hari\",\n    \"email\": \"\",\n    \"phone\": \"\",\n    \"pincode\":\"\",\n    \"address\": \"\",\n    \"registration_proof_file\": \"\",\n    \"logo_url\" :\"\",\n    \"latitude\":\"\",\n    \"longitude\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/onboarding/ngo",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"onboarding",
+								"ngo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "common",
+			"item": [
+				{
+					"name": "/enums",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/enums",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"enums"
+							],
+							"query": [
+								{
+									"key": "petType",
+									"value": "dog",
+									"disabled": true
+								},
+								{
+									"key": "type",
+									"value": "breeds",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "chippi",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/enums",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"enums"
+									],
+									"query": [
+										{
+											"key": "petType",
+											"value": "dog",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "breeds",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "chippi",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3905"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"f41-rMtT8btuP5nCZzgMtmRS8mM1iRU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Sep 2025 09:29:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Enums retrieved successfully\",\n    \"data\": {\n        \"breeds\": [\n            {\n                \"id\": \"6baf76b9-348f-4693-a6d5-2625c9fef89c\",\n                \"name\": \"Bakharwal Dog\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"9dd5e7ce-6eb5-4f8d-949c-85bf7bdcfbbd\",\n                \"name\": \"Beagle\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"5e814296-0070-4cd1-b801-7dc5aeb39934\",\n                \"name\": \"Bengal\",\n                \"type\": \"cat\"\n            },\n            {\n                \"id\": \"aa02530b-f0ac-4c2f-b233-4344f4091257\",\n                \"name\": \"Bombay Cat\",\n                \"type\": \"cat\"\n            },\n            {\n                \"id\": \"2fab3ceb-b246-4be9-8daa-2775e70fa521\",\n                \"name\": \"British Shorthair\",\n                \"type\": \"cat\"\n            },\n            {\n                \"id\": \"53528de5-ec16-4c91-9406-acabbb5b07a7\",\n                \"name\": \"Bulldog\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"a04de997-ab90-496a-a179-169236be7c2c\",\n                \"name\": \"Chippiparai\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"fe20484d-5514-4632-bd6b-ed37d2fe597e\",\n                \"name\": \"Doberman\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"b7c7fd9b-b3fd-41e1-a35f-ec4e11e86ce6\",\n                \"name\": \"Gaddi Kutta\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"52adcd78-1409-472c-97e8-c2a794b34ecf\",\n                \"name\": \"German Shepherd\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"a36af49e-44b6-43b0-8994-ae94117f450d\",\n                \"name\": \"Golden Retriever\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"e28756e5-a6eb-4220-9be0-1d59206cf000\",\n                \"name\": \"Himalayan Cat\",\n                \"type\": \"cat\"\n            },\n            {\n                \"id\": \"746210f7-fcb4-4a66-b213-c560040c7fdf\",\n                \"name\": \"Himalayan Sheepdog\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"223f19be-d306-4155-8884-dcbfa7801345\",\n                \"name\": \"Indian Billi (Domestic Shorthair)\",\n                \"type\": \"cat\"\n            },\n            {\n                \"id\": \"3ea9aa14-71d1-4e98-a8ea-98faeabead33\",\n                \"name\": \"Indian Pariah Dog\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"cbbeef57-50ca-4ade-9fcf-2e7977417880\",\n                \"name\": \"Kanni\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"60ca4c86-ada4-4664-94d4-e1bd8341acdf\",\n                \"name\": \"Kombai\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"52f0ba8d-e734-4009-901b-64a8ad981e4a\",\n                \"name\": \"Labrador Retriever\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"04172825-b7f8-4fc4-8ee6-a4a18fe09181\",\n                \"name\": \"Maine Coon\",\n                \"type\": \"cat\"\n            },\n            {\n                \"id\": \"d40e704c-59d9-41d1-a022-8774489e8de1\",\n                \"name\": \"Mudhol Hound\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"cabac54a-26de-40c5-a08c-a71b95afb62d\",\n                \"name\": \"Oriental Shorthair\",\n                \"type\": \"cat\"\n            },\n            {\n                \"id\": \"ef1c8339-5230-45ff-8f66-602c412bd54e\",\n                \"name\": \"Persian\",\n                \"type\": \"cat\"\n            },\n            {\n                \"id\": \"867239cf-0206-4b23-834a-5500358c95df\",\n                \"name\": \"Pug\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"68296b6e-1c05-433b-ab6e-abdaa18839b4\",\n                \"name\": \"Ragdoll\",\n                \"type\": \"cat\"\n            },\n            {\n                \"id\": \"39d473b2-4e58-43a9-a06b-831f23744f0f\",\n                \"name\": \"Rajapalayam\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"ff3ea207-0fd9-4334-a1b1-5d500eccda0f\",\n                \"name\": \"Rampur Greyhound\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"de6fab8a-0327-4d65-be67-d6964644c580\",\n                \"name\": \"Rottweiler\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"d822abc9-b644-4756-bfbc-55c206de31b5\",\n                \"name\": \"Shih Tzu\",\n                \"type\": \"dog\"\n            },\n            {\n                \"id\": \"cfd41cc5-567e-4860-973f-2c9fb458de55\",\n                \"name\": \"Siamese\",\n                \"type\": \"cat\"\n            },\n            {\n                \"id\": \"c41637e3-af6a-4c0d-9489-f35bdb629ca1\",\n                \"name\": \"Siberian Husky\",\n                \"type\": \"dog\"\n            }\n        ],\n        \"personalityTags\": [\n            {\n                \"id\": \"bf9b0429-83ca-4462-a772-ce9882ee2913\",\n                \"name\": \"Affectionate\",\n                \"pet_type\": \"cat\"\n            },\n            {\n                \"id\": \"221dcbf8-62ac-43d7-9098-52856cdb3285\",\n                \"name\": \"Calm\",\n                \"pet_type\": \"cat\"\n            },\n            {\n                \"id\": \"2bbf5cb9-d2fe-4301-b068-7e35079d040e\",\n                \"name\": \"Curious\",\n                \"pet_type\": \"cat\"\n            },\n            {\n                \"id\": \"d706c8c3-a284-4074-b9ab-f30c18c5641d\",\n                \"name\": \"Energetic\",\n                \"pet_type\": \"dog\"\n            },\n            {\n                \"id\": \"4529e6a4-2f99-478f-ad3d-1ab795b82775\",\n                \"name\": \"Friendly\",\n                \"pet_type\": \"both\"\n            },\n            {\n                \"id\": \"fc7abff0-19ce-4b1f-96d0-a2410ffba503\",\n                \"name\": \"Gentle\",\n                \"pet_type\": \"dog\"\n            },\n            {\n                \"id\": \"5379dbd5-f648-44d4-9641-74ee6461ab24\",\n                \"name\": \"Independent\",\n                \"pet_type\": \"cat\"\n            },\n            {\n                \"id\": \"e41ccc96-0eb7-4773-b97c-315c2565447f\",\n                \"name\": \"Independent\",\n                \"pet_type\": \"dog\"\n            },\n            {\n                \"id\": \"3d528f3d-5159-4b7b-bd73-39e3c969b606\",\n                \"name\": \"Intelligent\",\n                \"pet_type\": \"both\"\n            },\n            {\n                \"id\": \"fcc918ea-1b81-4667-a399-e8de4da3bf5c\",\n                \"name\": \"Loyal\",\n                \"pet_type\": \"both\"\n            },\n            {\n                \"id\": \"d5b737fd-b7b3-43de-9934-e97d5e97674c\",\n                \"name\": \"Mischievous\",\n                \"pet_type\": \"cat\"\n            },\n            {\n                \"id\": \"cbf166c8-26bf-457c-8afe-68a0c944081e\",\n                \"name\": \"Obedient\",\n                \"pet_type\": \"dog\"\n            },\n            {\n                \"id\": \"feb06827-5045-48f2-b875-8c8f400aeb5a\",\n                \"name\": \"Playful\",\n                \"pet_type\": \"both\"\n            },\n            {\n                \"id\": \"3c048263-59bd-43c7-8284-7d670fcc7635\",\n                \"name\": \"Playful\",\n                \"pet_type\": \"dog\"\n            },\n            {\n                \"id\": \"5c865cdb-397c-4bfd-9cf0-9e86f0727d21\",\n                \"name\": \"Protective\",\n                \"pet_type\": \"dog\"\n            },\n            {\n                \"id\": \"bc1bcfc6-1a2a-4a7a-b10f-98d1ee9cbcb6\",\n                \"name\": \"Shy\",\n                \"pet_type\": \"both\"\n            },\n            {\n                \"id\": \"cc92717f-fdf7-4753-b622-f3f44309e081\",\n                \"name\": \"Vocal\",\n                \"pet_type\": \"cat\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/enums",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"enums"
+									],
+									"query": [
+										{
+											"key": "petType",
+											"value": "dog",
+											"disabled": true
+										},
+										{
+											"key": "type",
+											"value": "breeds",
+											"disabled": true
+										},
+										{
+											"key": "search",
+											"value": "chippi",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "98"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"62-kCdU2cb230zSYBgPfQFxh2cD4jE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 27 Sep 2025 09:30:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Failed to retrieve enums\",\n    \"data\": null,\n    \"error\": {\n        \"code\": \"ENUMS_ERROR\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/upload/public/presign",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "// this api used for general image updation\n{\n    \"upload_type\": \"profile_pics\", // \"profile_pics\", \"ngo_registrations\", \"pet_diary_media\",\"pet_diary_documents\"\n    \"file_extension\": \"png\", //file_extension\n    \"max_size_mb\": 5 // file-size\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/upload/public/presign",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"upload",
+								"public",
+								"presign"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"upload_type\": \"profile_pics\", // \"pet_images\", \"ngo_registrations\", \"profile_pics\n    \"file_extension\": \"jpg\", //file_extension\n    \"max_size_mb\": 5 // default to 5 mb (currently)\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/upload/presign",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"upload",
+										"presign"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "804"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"324-aiJq+HrX5yDcrrCyH53rZLyhEl4\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 30 Sep 2025 06:07:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Presigned URL generated successfully\",\n    \"data\": {\n        \"uploadUrl\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/profile_pics/033066e9-f4b7-42d2-8f16-5346a72627fe.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAVFQXWXWTPFYLV4PN%2F20250930%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20250930T060720Z&X-Amz-Expires=300&X-Amz-Signature=f177d00c26d78cc70cadffc21a0dcff0153be88bb60f6e0d8daa24a4476d2bc8&X-Amz-SignedHeaders=host&x-amz-checksum-crc32=AAAAAA%3D%3D&x-amz-sdk-checksum-algorithm=CRC32&x-id=PutObject\",\n        \"finalUrl\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/profile_pics/033066e9-f4b7-42d2-8f16-5346a72627fe.jpg\",\n        \"fileKey\": \"uploads/profile_pics/033066e9-f4b7-42d2-8f16-5346a72627fe.jpg\",\n        \"maxSize\": 5242880\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/upload/presign",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "// this one used specific for pet diary module - as it requires auth\n{\n    \"upload_type\": \"daily_care\", // \"profile_pics\", \"ngo_registrations\", \"pet_diary_media\",\"pet_diary_documents\", \"daily_care\"\n    \"file_extension\": \"png\", //file_extension\n    \"max_size_mb\": 1.4 // file-size\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/upload/presign",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"upload",
+								"presign"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "accounts",
+			"item": [
+				{
+					"name": "/account [update]",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_name\" :\"\", // optional\n    \"username\":\"hari\",\n    \"email\":\"bro@gmail.com\" //optional\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\":\"hari\",\n    \"email\":\"bro@gmail.com\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/account",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"account"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "263"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"107-wJrCNcVOTt8wCnSsmh8TSqstQ1Q\""
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 28 Sep 2025 09:54:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Account updated successfully\",\n    \"data\": {\n        \"id\": \"2326459c-f9dd-4428-84e1-ecaf127212aa\",\n        \"name\": \"hari\",\n        \"account_type\": \"pet_parent\",\n        \"subscription_type\": \"free\",\n        \"created_at\": \"2025-09-27T02:38:47.757Z\",\n        \"updated_at\": \"2025-09-28T09:54:45.343Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/account/me",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account/me",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account",
+								"me"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/account/users",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobile_number\":\"9790813959\",\n    \"name\" : \"mom\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account/users",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/account/ngo/profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_NGO}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account/ngo/profile",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account",
+								"ngo",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/account/ngo/profile [update]",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_NGO}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"ngo_name\" : \"Besant Memorial Animal Dispensary\",\n    \"contact_person_name\":\"Hari\",\n    \"email\" :\"bmadts@gmail.com\",\n    \"phone\" : \"8428719811\",\n    \"pincode\" : \"600053\",\n    \"address\" : \"besant nagar\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account/ngo/profile",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account",
+								"ngo",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pet",
+			"item": [
+				{
+					"name": "/account/pets",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobile_number\" : \"8428719833\",\n    \"account_type\" : \"ngo\"\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account/pets",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account",
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/account/pets",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"tiger\",\n    \"type\" : \"dog\",\n    \"breed_id\" :\"39d473b2-4e58-43a9-a06b-831f23744f0f\",\n    \"dob\" :\"\",\n    \"weight\": {\n        \"value\":\"\",\n        \"unit\":\"\"\n    },\n    \"personality_tags\":[\"e41ccc96-0eb7-4773-b97c-315c2565447f\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account/pets",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account",
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/account/pets",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pet_id\":\"c9a5cd6c-c47f-407c-8bcf-c83c70d81b85\",\n    \"name\" : \"tiger\",\n    \"type\" : \"dog\",\n    \"breed_id\" :\"\",\n    \"dob\" :\"\",\n    \"weight\": {\n        \"value\":\"10\",\n        \"unit\":\"kg\"\n    },\n    \"personality_tags\":[\"3d528f3d-5159-4b7b-bd73-39e3c969b606\"]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account/pets",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account",
+								"pets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/pets/:petId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/account/pets/c9a5cd6c-c47f-407c-8bcf-c83c70d81b85",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"account",
+								"pets",
+								"c9a5cd6c-c47f-407c-8bcf-c83c70d81b85"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "adoption [wip]",
+			"item": [
+				{
+					"name": "/adoption/listings",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_name\" :\"\", // optional\n    \"username\":\"hari\",\n    \"email\":\"bro@gmail.com\" //optional\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/adoption/listings",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"adoption",
+								"listings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/adoption/listings",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_name\" :\"\", // optional\n    \"username\":\"hari\",\n    \"email\":\"bro@gmail.com\" //optional\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/adoption/listings",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"adoption",
+								"listings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/listings/:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_name\" :\"\", // optional\n    \"username\":\"hari\",\n    \"email\":\"bro@gmail.com\" //optional\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/adoption/listings",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"adoption",
+								"listings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/applications",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_name\" :\"\", // optional\n    \"username\":\"hari\",\n    \"email\":\"bro@gmail.com\" //optional\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/adoption/listings",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"adoption",
+								"listings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/applications",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"account_name\" :\"\", // optional\n    \"username\":\"hari\",\n    \"email\":\"bro@gmail.com\" //optional\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/adoption/listings",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"adoption",
+								"listings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "medication",
+			"item": [
+				{
+					"name": "/medications",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/medications",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medications"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/medications",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"medications"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1563"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"61b-Q1CPTforqKF/B0KsUlhlBoeAfNw\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 02 Oct 2025 11:55:00 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Medications retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"eb47387f-e012-4556-9930-0557f8918041\",\n            \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n            \"name\": \"trazodone\",\n            \"company\": null,\n            \"dosage\": \"25 mg\",\n            \"frequency_id\": \"b593dd2b-6643-487f-a1cd-19e40b25e389\",\n            \"frequency_name\": \"Weekly\",\n            \"start_date\": \"2025-10-01T18:30:00.000Z\",\n            \"end_date\": null,\n            \"notes\": \"testing\",\n            \"image_url\": null,\n            \"is_active\": true,\n            \"created_by\": \"883054b9-16f5-4a34-91dc-c2f754d8fde8\",\n            \"created_at\": \"2025-10-02T06:21:50.963Z\",\n            \"updated_at\": \"2025-10-02T06:21:50.963Z\",\n            \"timeslots\": [\n                {\n                    \"id\": \"65a0f58e-a35e-4dcd-a678-623b7bd454dd\",\n                    \"name\": \"Morning\",\n                    \"default_time\": \"08:00:00\",\n                    \"custom_time\": \"08:30:00\"\n                },\n                {\n                    \"id\": \"ddfa2e35-0a26-485b-8af1-39be08e2f4c1\",\n                    \"name\": \"Night\",\n                    \"default_time\": \"21:00:00\",\n                    \"custom_time\": null\n                }\n            ]\n        },\n        {\n            \"id\": \"04b35d22-cd11-4f0b-9c38-36b80549c95a\",\n            \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n            \"name\": \"trazodone\",\n            \"company\": null,\n            \"dosage\": \"25 mg\",\n            \"frequency_id\": \"b593dd2b-6643-487f-a1cd-19e40b25e389\",\n            \"frequency_name\": \"Weekly\",\n            \"start_date\": \"2025-10-01T18:30:00.000Z\",\n            \"end_date\": null,\n            \"notes\": \"testing\",\n            \"image_url\": null,\n            \"is_active\": true,\n            \"created_by\": \"883054b9-16f5-4a34-91dc-c2f754d8fde8\",\n            \"created_at\": \"2025-10-02T06:09:22.939Z\",\n            \"updated_at\": \"2025-10-02T06:09:22.939Z\",\n            \"timeslots\": [\n                {\n                    \"id\": \"65a0f58e-a35e-4dcd-a678-623b7bd454dd\",\n                    \"name\": \"Morning\",\n                    \"default_time\": \"08:00:00\",\n                    \"custom_time\": null\n                },\n                {\n                    \"id\": \"ddfa2e35-0a26-485b-8af1-39be08e2f4c1\",\n                    \"name\": \"Night\",\n                    \"default_time\": \"21:00:00\",\n                    \"custom_time\": null\n                }\n            ]\n        }\n    ],\n    \"pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total\": 2,\n        \"pages\": 1,\n        \"hasNextPage\": false,\n        \"hasPrevPage\": false\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/medications",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n  \"name\": \"trazodone\",\n  \"company\": \"\",\n  \"dosage\": \"25 mg\",\n  \"frequency_id\": \"b593dd2b-6643-487f-a1cd-19e40b25e389\",\n  \"start_date\": \"2025-10-02\",\n  \"end_date\": \"\",\n  \"notes\": \"testing\",\n  \"image_url\": \"\",\n  \"timeslots\": [\n    {\n      \"timeslot_id\": \"65a0f58e-a35e-4dcd-a678-623b7bd454dd\",\n      \"custom_time\": \"08:30:00\"\n    },\n    {\n      \"timeslot_id\": \"ddfa2e35-0a26-485b-8af1-39be08e2f4c1\",\n      \"custom_time\": null\n    }\n  ],\n  \"reminder\" : {\n    \"enabled\" : \"true\"\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/medications",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/medications/:id",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n  \"name\": \"trazodone-2\",\n  \"company\": \"test\",\n  \"dosage\": \"25 mg\",\n  \"start_date\": \"2025-10-02\",\n  \"end_date\": \"\",\n  \"notes\": \"\",\n  \"image_url\": \"\",\n  \"timeslots\": [\n    {\n      \"timeslot_id\": \"65a0f58e-a35e-4dcd-a678-623b7bd454dd\",\n      \"custom_time\": \"09:00:00\"\n    },\n    {\n      \"timeslot_id\": \"ddfa2e35-0a26-485b-8af1-39be08e2f4c1\",\n      \"custom_time\": null\n    }\n  ],\n  \"reminder\" : {\n    \"enabled\" : false\n  }\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/medications/4e157138-4e40-45a6-b864-25891046e612",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medications",
+								"4e157138-4e40-45a6-b864-25891046e612"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/medications/:id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/medications/04b35d22-cd11-4f0b-9c38-36b80549c95a",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medications",
+								"04b35d22-cd11-4f0b-9c38-36b80549c95a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/medications/logs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"medication_id\": \"eb47387f-e012-4556-9930-0557f8918041\",\n    \"schedule_ids\" : [\"40e5c836-4526-4550-ac02-cf7fe4dfa4e3\"],\n    \"notes\" : \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/medications/logs",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medications",
+								"logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/medications/logs/:id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"medication_id\": \"eb47387f-e012-4556-9930-0557f8918041\",\n    \"notes\" : \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/medications/logs/eb47387f-e012-4556-9930-0557f8918041",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medications",
+								"logs",
+								"eb47387f-e012-4556-9930-0557f8918041"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/medications/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/medications/04b35d22-cd11-4f0b-9c38-36b80549c95a",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"medications",
+								"04b35d22-cd11-4f0b-9c38-36b80549c95a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "vaccinations",
+			"item": [
+				{
+					"name": "/vaccinations",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pet_id\" : \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n    \"name\" : \"rabies\",\n    \"frequency_id\" : \"463bb22d-5684-4b74-8f1f-d53b02bac977\",\n    \"due_date\":\"2026-01-01\",\n    // \"status\":\"given\", // send if it was already given \n    \"notes\" : \"\",\n    \"image_url\" : \"\",\n    \"reminder\": {\n        \"enabled\":\"true\",\n        \"reminder_time\" : \"2025-01-01\",\n        \"timezone\" : \"\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/vaccinations",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"vaccinations"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/vaccinations",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"rabies-2\",\n    \"frequency_id\" : \"f76c6a8d-9448-4f7d-8029-57dcb34d0c4a\",\n    \"due_date\":\"2027-01-01\",\n    // \"status\":\"given\", // send if it was already given \n    \"notes\" : \"\",\n    \"image_url\" : \"\",\n    \"reminder\" : {\n        \"enabled\" : true,\n        \"timezone\" : \"IST\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/vaccinations/8477e576-7cc5-4d40-b2df-09ded63e17f4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"vaccinations",
+								"8477e576-7cc5-4d40-b2df-09ded63e17f4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/vaccinations",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/vaccinations?pet_id=&is_active=true&status=&search=",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"vaccinations"
+							],
+							"query": [
+								{
+									"key": "pet_id",
+									"value": ""
+								},
+								{
+									"key": "is_active",
+									"value": "true"
+								},
+								{
+									"key": "status",
+									"value": "",
+									"description": "//pending, given,missed"
+								},
+								{
+									"key": "search",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/vaccinations/:id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/vaccinations/8477e576-7cc5-4d40-b2df-09ded63e17f4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"vaccinations",
+								"8477e576-7cc5-4d40-b2df-09ded63e17f4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/vaccinations/:id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/vaccinations/8477e576-7cc5-4d40-b2df-09ded63e17f4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"vaccinations",
+								"8477e576-7cc5-4d40-b2df-09ded63e17f4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/vaccinations/logs",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vaccination_id\" : \"8477e576-7cc5-4d40-b2df-09ded63e17f4\",\n    \"notes\" : \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/vaccinations/logs",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"vaccinations",
+								"logs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/vaccinations/logs/:id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"vaccination_id\" : \"8477e576-7cc5-4d40-b2df-09ded63e17f4\",\n    \"notes\" : \"test\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/vaccinations/logs/8477e576-7cc5-4d40-b2df-09ded63e17f4",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"vaccinations",
+								"logs",
+								"8477e576-7cc5-4d40-b2df-09ded63e17f4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pet diary",
+			"item": [
+				{
+					"name": "media tab",
+					"item": [
+						{
+							"name": "/diary/media/:petId",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/diary/media/5393d0d9-b205-45aa-83c5-5b1946b5f478",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"diary",
+										"media",
+										"5393d0d9-b205-45aa-83c5-5b1946b5f478"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/diary/media",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pet_id\":\"5393d0d9-b205-45aa-83c5-5b1946b5f478\", //selected pet_id\n    \"file_url\" : \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/diary/media/d0e12e6e-afef-4a31-ae56-2a667d27e320.png\",\n    \"file_type\" : \"image\", //\"image\", \"video\"\n    \"file_size\" : \"1468006.4\", // integer/number\n    \"notes\" : \"\", // optional\n    \"event_type_id\" : \"06c87a12-dde1-4cfb-b87d-931ea1d04fb1\" // get 'id' from /enums api\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/diary/media",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"diary",
+										"media"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/diary/media/:media_id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"notes\" : \"test\", // optional\n    \"event_type_id\" : \"e9d587bc-e8ab-41d1-a991-f981a95e1bcf\" // get 'id' from /enums api\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/diary/media/6170c347-f81c-4202-a498-a11762e73f33",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"diary",
+										"media",
+										"6170c347-f81c-4202-a498-a11762e73f33"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/diary/media/:media_id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"notes\" : \"test\", // optional\n    \"event_type_id\" : \"e9d587bc-e8ab-41d1-a991-f981a95e1bcf\" // get 'id' from /enums api\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/diary/media/6170c347-f81c-4202-a498-a11762e73f33",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"diary",
+										"media",
+										"6170c347-f81c-4202-a498-a11762e73f33"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "favorites",
+					"item": [
+						{
+							"name": "/diary/media/:media_id/favorite",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/diary/media/0b9ed8d7-627d-474e-aa16-f499b1f030d7/favorite",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"diary",
+										"media",
+										"0b9ed8d7-627d-474e-aa16-f499b1f030d7",
+										"favorite"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/diary/favorites",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/diary/favorites",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"diary",
+										"favorites"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "documents tab",
+					"item": [
+						{
+							"name": "/diary/documents/:pet_id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/diary/documents/08b4f1e6-d864-4e39-9a37-b6ca88b713a5",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"diary",
+										"documents",
+										"08b4f1e6-d864-4e39-9a37-b6ca88b713a5"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/diary/documents",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pet_id\" : \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n    \"file_url\" : \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/diary/documents/c8de923d-1632-4c0c-8d5f-b8ba617c5fbe.png\",\n    \"file_name\" : \"sample report\",\n    \"file_size\" : \"1468006.4\", // pass the file_size get from /presign api 'maxSize' key\n    \"notes\":\"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/diary/documents",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"diary",
+										"documents"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/documents/:id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"file_name\" : \"sample\",\n    \"notes\":\"test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/diary/documents/2e242956-b03e-41dc-88bd-afa0e1f6568f",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"diary",
+										"documents",
+										"2e242956-b03e-41dc-88bd-afa0e1f6568f"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/documents/:id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/diary/documents/2e242956-b03e-41dc-88bd-afa0e1f6568f",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"diary",
+										"documents",
+										"2e242956-b03e-41dc-88bd-afa0e1f6568f"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "daily care",
+			"item": [
+				{
+					"name": "meals",
+					"item": [
+						{
+							"name": "/meals",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n    \"meal_date\": \"2025-10-13\", // YYYY-MM_DD (iso)\n    \"meal_time\": \"13:01\", // HH:MM (24 hours time)\n    \"meal_type_id\": \"08651e44-d63c-41ec-ab23-e90fb498c60c\", //get from /enums\n    \"notes\": \"\",\n    \"media\": [\n        {\n            \"file_url\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/daily_care/5cd1ac49-f5e4-44c0-87e4-f30fb7f2e76b.png\",\n            \"file_type\": \"image\", //image/video - default to image\n            \"file_size\": \"1468006.4\",\n            \"media_caption\": \"\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/meals",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"meals"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n    \"meal_date\": \"2025-10-13\", // YYYY-MM_DD (iso)\n    \"meal_time\": \"13:01\", // HH:MM (24 hours time)\n    \"meal_type_id\": \"08651e44-d63c-41ec-ab23-e90fb498c60c\", //get from /enums\n    \"notes\": \"\",\n    \"media\": [\n        {\n            \"file_url\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/daily_care/5cd1ac49-f5e4-44c0-87e4-f30fb7f2e76b.png\",\n            \"file_type\": \"image\", //image/video - default to image\n            \"file_size\": \"1468006.4\",\n            \"media_caption\": \"\"\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/dailycare/meals",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"dailycare",
+												"meals"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "957"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"3bd-uXCAKIbYgs7trchcrsmWfwiwOr0\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Oct 2025 05:42:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"Meal logged successfully\",\n    \"data\": {\n        \"id\": \"a10f9361-5c5f-4a9d-bcd1-9bbcb602829e\",\n        \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n        \"meal_date\": \"2025-10-12T18:30:00.000Z\",\n        \"meal_time\": \"13:01:00\",\n        \"notes\": null,\n        \"created_at\": \"2025-10-10T00:12:47.499Z\",\n        \"updated_at\": \"2025-10-10T00:12:47.499Z\",\n        \"meal_type_id\": \"08651e44-d63c-41ec-ab23-e90fb498c60c\",\n        \"meal_type_name\": \"Breakfast\",\n        \"created_by_id\": \"883054b9-16f5-4a34-91dc-c2f754d8fde8\",\n        \"media\": [\n            {\n                \"id\": \"43d30d4f-fd88-4172-a01c-85f37231526d\",\n                \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n                \"entity_type\": \"meal\",\n                \"entity_id\": \"a10f9361-5c5f-4a9d-bcd1-9bbcb602829e\",\n                \"uploaded_by\": \"883054b9-16f5-4a34-91dc-c2f754d8fde8\",\n                \"file_url\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/daily_care/5cd1ac49-f5e4-44c0-87e4-f30fb7f2e76b.png\",\n                \"file_type\": \"image\",\n                \"file_size\": \"1468006\",\n                \"media_caption\": null,\n                \"sort_order\": 0,\n                \"is_cover\": true,\n                \"is_deleted\": false,\n                \"created_at\": \"2025-10-10T00:12:47.499Z\"\n            }\n        ]\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "/meals",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/meals?pet_id=08b4f1e6-d864-4e39-9a37-b6ca88b713a5&page=1&limit=20&sort_by=date&sort_order=desc",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"meals"
+									],
+									"query": [
+										{
+											"key": "pet_id",
+											"value": "08b4f1e6-d864-4e39-9a37-b6ca88b713a5"
+										},
+										{
+											"key": "start_date",
+											"value": "2025-10-13",
+											"description": "YYYY-MM-DD",
+											"disabled": true
+										},
+										{
+											"key": "end_date",
+											"value": "2025-10-13",
+											"description": "YYYY-MM-DD",
+											"disabled": true
+										},
+										{
+											"key": "meal_type_id",
+											"value": "08651e44-d63c-41ec-ab23-e90fb498c60c",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "20"
+										},
+										{
+											"key": "sort_by",
+											"value": "date",
+											"description": "\"date\" / \"created_at"
+										},
+										{
+											"key": "sort_order",
+											"value": "desc",
+											"description": "\"asc\" / \"desc\""
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{BASE_URL}}/dailycare/meals?pet_id=08b4f1e6-d864-4e39-9a37-b6ca88b713a5&page=1&limit=20&sort_by=date&sort_order=desc",
+											"host": [
+												"{{BASE_URL}}"
+											],
+											"path": [
+												"dailycare",
+												"meals"
+											],
+											"query": [
+												{
+													"key": "pet_id",
+													"value": "08b4f1e6-d864-4e39-9a37-b6ca88b713a5"
+												},
+												{
+													"key": "start_date",
+													"value": "2025-10-13",
+													"description": "YYYY-MM-DD",
+													"disabled": true
+												},
+												{
+													"key": "end_date",
+													"value": "2025-10-13",
+													"description": "YYYY-MM-DD",
+													"disabled": true
+												},
+												{
+													"key": "meal_type_id",
+													"value": "08651e44-d63c-41ec-ab23-e90fb498c60c",
+													"disabled": true
+												},
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "limit",
+													"value": "20"
+												},
+												{
+													"key": "sort_by",
+													"value": "date",
+													"description": "\"date\" / \"created_at"
+												},
+												{
+													"key": "sort_order",
+													"value": "desc",
+													"description": "\"asc\" / \"desc\""
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": null,
+									"header": [
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Security-Policy",
+											"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+										},
+										{
+											"key": "Cross-Origin-Opener-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Cross-Origin-Resource-Policy",
+											"value": "same-origin"
+										},
+										{
+											"key": "Origin-Agent-Cluster",
+											"value": "?1"
+										},
+										{
+											"key": "Referrer-Policy",
+											"value": "no-referrer"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=31536000; includeSubDomains"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "X-DNS-Prefetch-Control",
+											"value": "off"
+										},
+										{
+											"key": "X-Download-Options",
+											"value": "noopen"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Permitted-Cross-Domain-Policies",
+											"value": "none"
+										},
+										{
+											"key": "X-XSS-Protection",
+											"value": "0"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "3236"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"ca4-M4YwQYaclU2sGiQvAhCjSgErC3w\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 10 Oct 2025 06:11:45 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"message\": \"Meals retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"a10f9361-5c5f-4a9d-bcd1-9bbcb602829e\",\n            \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n            \"meal_date\": \"2025-10-12T18:30:00.000Z\",\n            \"meal_time\": \"13:01:00\",\n            \"notes\": null,\n            \"created_at\": \"2025-10-10T00:12:47.499Z\",\n            \"updated_at\": \"2025-10-10T00:12:47.499Z\",\n            \"meal_type_id\": \"08651e44-d63c-41ec-ab23-e90fb498c60c\",\n            \"meal_type_name\": \"Breakfast\",\n            \"created_by_id\": \"883054b9-16f5-4a34-91dc-c2f754d8fde8\",\n            \"media\": [\n                {\n                    \"id\": \"43d30d4f-fd88-4172-a01c-85f37231526d\",\n                    \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n                    \"entity_type\": \"meal\",\n                    \"entity_id\": \"a10f9361-5c5f-4a9d-bcd1-9bbcb602829e\",\n                    \"uploaded_by\": \"883054b9-16f5-4a34-91dc-c2f754d8fde8\",\n                    \"file_url\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/daily_care/5cd1ac49-f5e4-44c0-87e4-f30fb7f2e76b.png\",\n                    \"file_type\": \"image\",\n                    \"file_size\": \"1468006\",\n                    \"media_caption\": null,\n                    \"sort_order\": 0,\n                    \"is_cover\": true,\n                    \"is_deleted\": false,\n                    \"created_at\": \"2025-10-10T00:12:47.499Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"3b20ee43-b69d-4ff0-9165-b8c387c19d93\",\n            \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n            \"meal_date\": \"2025-10-09T18:30:00.000Z\",\n            \"meal_time\": \"13:01:00\",\n            \"notes\": null,\n            \"created_at\": \"2025-10-09T23:28:21.589Z\",\n            \"updated_at\": \"2025-10-09T23:28:21.589Z\",\n            \"meal_type_id\": \"08651e44-d63c-41ec-ab23-e90fb498c60c\",\n            \"meal_type_name\": \"Breakfast\",\n            \"created_by_id\": \"883054b9-16f5-4a34-91dc-c2f754d8fde8\",\n            \"media\": []\n        },\n        {\n            \"id\": \"6bf11602-bb00-443f-bb26-40996fc0c765\",\n            \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n            \"meal_date\": \"2025-10-09T18:30:00.000Z\",\n            \"meal_time\": \"13:01:00\",\n            \"notes\": null,\n            \"created_at\": \"2025-10-09T23:44:18.269Z\",\n            \"updated_at\": \"2025-10-09T23:44:18.269Z\",\n            \"meal_type_id\": \"08651e44-d63c-41ec-ab23-e90fb498c60c\",\n            \"meal_type_name\": \"Breakfast\",\n            \"created_by_id\": \"883054b9-16f5-4a34-91dc-c2f754d8fde8\",\n            \"media\": [\n                {\n                    \"id\": \"cd074426-085e-4b8f-995a-252e05968167\",\n                    \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n                    \"entity_type\": \"meal\",\n                    \"entity_id\": \"6bf11602-bb00-443f-bb26-40996fc0c765\",\n                    \"uploaded_by\": \"883054b9-16f5-4a34-91dc-c2f754d8fde8\",\n                    \"file_url\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/daily_care/5cd1ac49-f5e4-44c0-87e4-f30fb7f2e76b.png\",\n                    \"file_type\": \"image\",\n                    \"file_size\": \"1468006\",\n                    \"media_caption\": null,\n                    \"sort_order\": 0,\n                    \"is_cover\": true,\n                    \"is_deleted\": false,\n                    \"created_at\": \"2025-10-09T23:44:18.269Z\"\n                }\n            ]\n        },\n        {\n            \"id\": \"a21ff188-6e30-466f-82db-0539afeb87b2\",\n            \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n            \"meal_date\": \"2025-10-09T18:30:00.000Z\",\n            \"meal_time\": \"13:01:00\",\n            \"notes\": null,\n            \"created_at\": \"2025-10-09T23:52:18.164Z\",\n            \"updated_at\": \"2025-10-09T23:52:18.164Z\",\n            \"meal_type_id\": \"08651e44-d63c-41ec-ab23-e90fb498c60c\",\n            \"meal_type_name\": \"Breakfast\",\n            \"created_by_id\": \"883054b9-16f5-4a34-91dc-c2f754d8fde8\",\n            \"media\": [\n                {\n                    \"id\": \"abed4e2d-ac10-466a-83ec-3ccd33c32487\",\n                    \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n                    \"entity_type\": \"meal\",\n                    \"entity_id\": \"a21ff188-6e30-466f-82db-0539afeb87b2\",\n                    \"uploaded_by\": \"883054b9-16f5-4a34-91dc-c2f754d8fde8\",\n                    \"file_url\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/daily_care/5cd1ac49-f5e4-44c0-87e4-f30fb7f2e76b.png\",\n                    \"file_type\": \"image\",\n                    \"file_size\": \"1468006\",\n                    \"media_caption\": null,\n                    \"sort_order\": 0,\n                    \"is_cover\": true,\n                    \"is_deleted\": false,\n                    \"created_at\": \"2025-10-09T23:52:18.164Z\"\n                }\n            ]\n        }\n    ],\n    \"pagination\": {\n        \"page\": \"1\",\n        \"limit\": \"20\",\n        \"total\": 4,\n        \"hasNextPage\": false,\n        \"hasPrevPage\": false\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "/meals/:id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/meals/a10f9361-5c5f-4a9d-bcd1-9bbcb602829e",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"meals",
+										"a10f9361-5c5f-4a9d-bcd1-9bbcb602829e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/meals/:id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/meals/a10f9361-5c5f-4a9d-bcd1-9bbcb602829e",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"meals",
+										"a10f9361-5c5f-4a9d-bcd1-9bbcb602829e"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/meals/:id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"meal_date\":\"\", // YYYY-MM-DD (iso format)\n    \"meal_time\" :\"\", //\"HH:MM\" (24 hours)\n    \"meal_type_id\" : \"fc955789-0690-41dc-bbd5-55ef9920cc26\", //get from /enums\n    \"notes\" : \"test\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/meals/a10f9361-5c5f-4a9d-bcd1-9bbcb602829e",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"meals",
+										"a10f9361-5c5f-4a9d-bcd1-9bbcb602829e"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "walks",
+					"item": [
+						{
+							"name": "/walks",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n    \"walk_date\": \"2025-10-10\", // yyyy-mm-dd\n    \"duration_minutes\": 30, // number - max 1440 -24 hours\n    \"location\": \"\",\n    \"notes\": \"\",\n    \"media\": [\n        { //note: max 2 medias allowed for now\n            \"file_url\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/daily_care/5cd1ac49-f5e4-44c0-87e4-f30fb7f2e76b.png\",\n            \"file_type\": \"image\",//image/video\n            \"file_size\": \"146800.6\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/walks",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"walks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/walks",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/walks?pet_id=08b4f1e6-d864-4e39-9a37-b6ca88b713a5&page=1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"walks"
+									],
+									"query": [
+										{
+											"key": "pet_id",
+											"value": "08b4f1e6-d864-4e39-9a37-b6ca88b713a5"
+										},
+										{
+											"key": "start_date",
+											"value": "2025-10-11",
+											"description": "YYYY-MM-DD",
+											"disabled": true
+										},
+										{
+											"key": "end_date",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "min_duration",
+											"value": "40",
+											"disabled": true
+										},
+										{
+											"key": "max_duration",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "sort_by",
+											"value": "date",
+											"description": "date / created_at ",
+											"disabled": true
+										},
+										{
+											"key": "sort_order",
+											"value": null,
+											"description": "asc / desc",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/walks/:id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/walks/c3339e49-7562-4d9c-a878-bffb1454a16d",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"walks",
+										"c3339e49-7562-4d9c-a878-bffb1454a16d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/walks/:id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/walks/c3339e49-7562-4d9c-a878-bffb1454a16d",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"walks",
+										"c3339e49-7562-4d9c-a878-bffb1454a16d"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/walks/:id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"walk_date\" : \"\",\n    \"duration_minutes\" : 10,\n    \"location\" : \"\",\n    \"notes\" : \"yo\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/walks/c3339e49-7562-4d9c-a878-bffb1454a16d",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"walks",
+										"c3339e49-7562-4d9c-a878-bffb1454a16d"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "grooming",
+					"item": [
+						{
+							"name": "/grooming",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n    \"grooming_date\": \"2025-10-10\", //YYYY-MM-DD\n    \"grooming_type_id\": \"fa3ac9ce-8b21-47b4-a74f-b885e7d2b528\", //get from /enums\n    \"notes\": \"\",\n    \"media\": [\n        {\n            \"file_url\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/daily_care/5cd1ac49-f5e4-44c0-87e4-f30fb7f2e76b.png\",\n            \"file_type\": \"image\", //image/video\n            \"file_size\": \"146800\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/grooming",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"grooming"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/grooming",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/grooming?pet_id=08b4f1e6-d864-4e39-9a37-b6ca88b713a5&page=1&limit=20",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"grooming"
+									],
+									"query": [
+										{
+											"key": "pet_id",
+											"value": "08b4f1e6-d864-4e39-9a37-b6ca88b713a5"
+										},
+										{
+											"key": "start_date",
+											"value": "2025-10-11",
+											"description": "YYYY-MM-DD",
+											"disabled": true
+										},
+										{
+											"key": "end_date",
+											"value": null,
+											"description": "YYYY-MM-DD",
+											"disabled": true
+										},
+										{
+											"key": "grooming_type_id",
+											"value": "6c2d9b7b-c19b-4cc9-8976-39b2b81c7808",
+											"description": "uuid from /enums",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "1"
+										},
+										{
+											"key": "limit",
+											"value": "20"
+										},
+										{
+											"key": "sort_by",
+											"value": null,
+											"description": "date / created_at",
+											"disabled": true
+										},
+										{
+											"key": "sort_order",
+											"value": null,
+											"description": "asc / desc",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/grooming/:id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/grooming/52d6d071-502b-4150-b886-57b2e1f2d899",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"grooming",
+										"52d6d071-502b-4150-b886-57b2e1f2d899"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/grooming/:id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/grooming/9179d466-3413-4a74-b540-380d0adc5033",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"grooming",
+										"9179d466-3413-4a74-b540-380d0adc5033"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/grooming/:id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"grooming_date\": \"2024-10-21\",\n    \"grooming_type_id\": \"\",\n    \"notes\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/grooming/9179d466-3413-4a74-b540-380d0adc5033",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"grooming",
+										"9179d466-3413-4a74-b540-380d0adc5033"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "deworming",
+					"item": [
+						{
+							"name": "/deworming",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n    \"deworming_date\": \"2025-10-15\", //YYYY-MM-DD\n    \"product_name\": \"test product\",\n    \"frequency_id\": \"10cc6dc9-6ea2-4a41-8b8e-4d7c1d1a9a13\", //required only if setting reminder\n    \"due_date\": \"2025-10-14\",\n    \"notes\": \"\",\n    \"reminder\": { //required only if setting reminder\n        \"reminder_time\": \"10:00\", //HH:MM\n        \"timezone\": \"IST\"\n    }\n    // \"media\": [ //optional\n    //     {\n    //         \"file_url\": \"\",\n    //         \"file_type\": \"\",\n    //         \"file_size\": \"\"\n    //     }\n    // ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/deworming",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"deworming"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/deworming",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/deworming?pet_id=08b4f1e6-d864-4e39-9a37-b6ca88b713a5",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"deworming"
+									],
+									"query": [
+										{
+											"key": "pet_id",
+											"value": "08b4f1e6-d864-4e39-9a37-b6ca88b713a5"
+										},
+										{
+											"key": "start_date",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "end_date",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "is_active",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "sort_by",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "sort_order",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/deworming/:id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/deworming/07466a8e-724f-4852-8b5d-8391f1f58b56",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"deworming",
+										"07466a8e-724f-4852-8b5d-8391f1f58b56"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/deworming/:id",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/deworming/07466a8e-724f-4852-8b5d-8391f1f58b56",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"deworming",
+										"07466a8e-724f-4852-8b5d-8391f1f58b56"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/deworming/:id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"deworming_date\" : \"\",\n    \"product_name\" : \"\",\n    \"frequency_id\" : \"\",\n    \"due_date\" : \"\",\n    \"notes\" : \"\",\n    \"reminder_enabled\" : true, //boolean\n    \"reminder_time\":\"\", // HH:MM\n    \"timezone\" : \"\" // IST/UTC\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/deworming/07466a8e-724f-4852-8b5d-8391f1f58b56",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"deworming",
+										"07466a8e-724f-4852-8b5d-8391f1f58b56"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "expenses",
+					"item": [
+						{
+							"name": "/expenses",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n    \"expense_date\": \"2025-10-10\", //YYYY-MM-DD\n    \"category_id\": \"0fa83880-44b8-415d-8eeb-f974f068ebb5\", //get uuid from /enums\n    \"amount\": 99.50, // number\n    \"currency\": \"inr\",\n    \"notes\": \"\",\n    \"media\": [\n        {\n            \"file_url\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/daily_care/5cd1ac49-f5e4-44c0-87e4-f30fb7f2e76b.png\",\n            \"file_type\": \"image\", //image/video\n            \"file_size\": \"1468006\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/expenses",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"expenses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/expenses",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/expenses?pet_id=08b4f1e6-d864-4e39-9a37-b6ca88b713a5",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"expenses"
+									],
+									"query": [
+										{
+											"key": "pet_id",
+											"value": "08b4f1e6-d864-4e39-9a37-b6ca88b713a5"
+										},
+										{
+											"key": "start_date",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "end_date",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "category_id",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "min_amount",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "max_amount",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "currency",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "sort_by",
+											"value": null,
+											"disabled": true
+										},
+										{
+											"key": "sort_order",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/expenses/:id",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/expenses/6882193b-d045-4bf2-9aab-1fcdd2ba18b6",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"expenses",
+										"6882193b-d045-4bf2-9aab-1fcdd2ba18b6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/expenses/:id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"expense_date\": \"2025-10-11\",\n    \"category_id\": \"0fa83880-44b8-415d-8eeb-f974f068ebb5\",\n    \"amount\": 80,\n    \"currency\": \"\",\n    \"notes\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/expenses/6882193b-d045-4bf2-9aab-1fcdd2ba18b6",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"expenses",
+										"6882193b-d045-4bf2-9aab-1fcdd2ba18b6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/expenses/:id Copy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/expenses/6882193b-d045-4bf2-9aab-1fcdd2ba18b6",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"expenses",
+										"6882193b-d045-4bf2-9aab-1fcdd2ba18b6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "media",
+					"item": [
+						{
+							"name": "/media",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pet_id\" : \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n    \"entity_type\": \"grooming\",\n    \"entity_id\": \"52d6d071-502b-4150-b886-57b2e1f2d899\",\n    \"media\": [\n        {\n            \"file_url\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/daily_care/5cd1ac49-f5e4-44c0-87e4-f30fb7f2e76b.png\",\n            \"file_type\": \"image\", //image/video\n            \"file_size\": \"146800\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/media",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"media"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/media Copy",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"pet_id\" : \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n    \"entity_type\": \"grooming\",\n    \"entity_id\": \"52d6d071-502b-4150-b886-57b2e1f2d899\",\n    \"media\": [\n        {\n            \"file_url\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/daily_care/5cd1ac49-f5e4-44c0-87e4-f30fb7f2e76b.png\",\n            \"file_type\": \"image\", //image/video\n            \"file_size\": \"146800\"\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/dailycare/media",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dailycare",
+										"media"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/overview",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/dailycare/overview?pet_id=08b4f1e6-d864-4e39-9a37-b6ca88b713a5",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"dailycare",
+								"overview"
+							],
+							"query": [
+								{
+									"key": "pet_id",
+									"value": "08b4f1e6-d864-4e39-9a37-b6ca88b713a5"
+								},
+								{
+									"key": "start_date",
+									"value": "2025-10-14",
+									"disabled": true
+								},
+								{
+									"key": "end_date",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "memories",
+			"item": [
+				{
+					"name": "/memories",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"pet_id\" : \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n    \"entity_type\" : \"walk\", // meal, walk, 9179d466-3413-4a74-b540-380d0adc5033, deworming, expense, vaccination, medication, diary_media\n    \"entity_id\":\"9179d466-3413-4a74-b540-380d0adc5033\",\n    \"title\":\"\",\n    \"description\":\"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/memories",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"memories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": ""
+		},
+		{
+			"key": "ACCESS_TOKEN_PET_PARENT",
+			"value": ""
+		},
+		{
+			"key": "ACCESS_TOKEN_NGO",
+			"value": ""
+		},
+		{
+			"key": "BASE_URL_LOCAL",
+			"value": ""
+		},
+		{
+			"value": ""
+		}
+	]
+}

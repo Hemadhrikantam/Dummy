@@ -10,6 +10,7 @@ class InjectionBloc {
       registerAccountUsecases: getIt<RegisterAccountUsecases>(),
       registerUserUsecases: getIt<RegisterUserUsecases>(),
       enumsUsecases: getIt<EnumsUsecases>(),
+      registerDeviceUsecases: getIt<RegisterDeviceUsecases>(),
     );
   }
 
@@ -136,6 +137,8 @@ class InjectionBloc {
   static VaccinationDetailsBloc get vaccinationDetailsBloc {
     return VaccinationDetailsBloc(
       getVaccinationUsecases: getIt<GetVaccinationUsecases>(),
+      // addVaccinationLogUsecases: getIt<AddVaccinationLogUsecases>(),
+      // getVaccinationLogsUsecases: getIt<GetVaccinationLogsUsecases>(),
     );
   }
 

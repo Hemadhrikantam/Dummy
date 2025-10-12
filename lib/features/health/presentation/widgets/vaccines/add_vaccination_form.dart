@@ -2,7 +2,7 @@ part of 'add_vaccination_fields.dart';
 
 class AddVaccinationForm extends StatefulWidget {
   const AddVaccinationForm({super.key, this.id});
-  final int? id;
+  final String? id;
   @override
   State<AddVaccinationForm> createState() => _AddVaccinationFormState();
 }

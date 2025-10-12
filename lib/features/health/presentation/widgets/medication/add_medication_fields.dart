@@ -327,7 +327,7 @@ class __Frequency extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<MedicationFormBloc, MedicationFormState>(
       builder: (context, state) {
-        return CustomDropdownSearch(
+        return CustomStringDropdownSearch(
           title: AppText.frequency,
           selectedItem: state.frequency.value,
           items: state.frequencies,

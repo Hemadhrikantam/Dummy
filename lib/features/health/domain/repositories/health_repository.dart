@@ -6,40 +6,46 @@ import 'package:dummy/features/health/domain/entities/medication_date.dart';
 
 import '../../../dailycare/domain/entities/frequency.dart';
 import '../entities/vaccination.dart';
+// import '../entities/vaccination_log.dart';
 
 abstract class HealthRepository {
   const HealthRepository();
   AppSuccessResponse addMedication({required Payload payload});
   AppTypeResponse<List<Frequency>> medicationFrequencies();
-  AppSuccessResponse deleteVaccination({required int id});
-  AppSuccessResponse deleteMedication({required int id});
+  AppSuccessResponse deleteVaccination({required String id});
+  AppSuccessResponse deleteMedication({required String id});
   AppTypeResponse<List<PetMedication>> medications(
+    String petId,
     String? key,
     String? fromDate,
     String? toDate,
   );
   AppSuccessResponse editMedication({
     required Payload payload,
-    required int id,
+    required String id,
   });
   AppSuccessResponse editVaccination({
     required Payload payload,
-    required int id,
+    required String id,
   });
-  AppTypeResponse<PetMedication> getMedication({required int id});
-  AppTypeResponse<PetVaccination> getVaccination({required int id});
+  AppTypeResponse<PetMedication> getMedication({required String id});
+  AppTypeResponse<PetVaccination> getVaccination({required String id});
   AppSuccessResponse updateMedicationDate({
-    required int id,
+    required String id,
     required MedicationDateModel payload,
   });
+
+  AppTypeResponse<MedicationDate> getMedicationDate({
+    required String id,
+    required DateTime date,
+  });
+
+  // Vaccination logs methods
   AppSuccessResponse addVaccination({required Payload payload});
   AppTypeResponse<List<PetVaccination>> vaccinations(
+    String petId,
     String? key,
     String? fromDate,
     String? toDate,
   );
-  AppTypeResponse<MedicationDate> getMedicationDate({
-    required int id,
-    required DateTime date,
-  });
 }

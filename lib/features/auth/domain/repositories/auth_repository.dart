@@ -22,6 +22,12 @@ abstract class AuthRepository {
     required RegisterAccountPayload registerAccount,
   });
 
+  AppSuccessResponse registerDevice({
+    required String deviceId,
+    required String pushToken,
+    required String platform,
+  });
+
   // AppTypeResponse<List<AwsSignedUrlModel>> generateSignedUrl(
   //     List<String> extensions);
   // AppSuccessResponse upload({required String fileName, required String url});

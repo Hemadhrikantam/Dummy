@@ -4,9 +4,13 @@ import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/dailycare/domain/entities/frequency.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/features/health/domain/usecases/edit_vaccination_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/get_vaccination_usecases.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -63,9 +67,8 @@ class VaccinationFormBloc
   final EditVaccinationUsecases _editVaccinationUsecase;
   Future<void> _onInit(_Init event, Emitter<VaccinationFormState> emit) async {
     emit(state.copyWith(initStatus: Status.loading));
-    final frequencies = List<Frequency>.from(
-      (await _medicationFrequencyUsecases()).fold((l) => [], (r) => r),
-    );
+    final frequencies =
+        currentContext.read<AuthBloc>().state.enums?.frequencyTypes ?? [];
     final reminderBefores = List<RemindBefore>.from(
       (await _beforeUsecases()).fold((l) => [], (r) => r),
     );
@@ -77,7 +80,7 @@ class VaccinationFormBloc
         petId: event.petId,
         frequencies:
             frequencies
-                .map((e) => DropItemModel(id: e.id, value: e.frequency))
+                .map((e) => DropStringItemModel(id: e.id, value: e.name))
                 .toList(),
         reminderTimezones:
             timezones.map((e) {
@@ -94,26 +97,26 @@ class VaccinationFormBloc
       result.fold((failure) => emit(state.copyWith(initStatus: Status.error)), (
         vaccination,
       ) {
-        final reminderTime = vaccination.reminderTime.split(':');
-        final reminderHour = int.parse(reminderTime[0]) % 12;
-        final reminderMin = int.parse(reminderTime[1]);
-        final isPm = int.parse(reminderTime[0]) >= 12;
+        // final reminderTime = vaccination.reminderDate.split(':');
+        final reminderHour = (vaccination.reminderDate?.hour ?? 0) % 12;
+        final reminderMin = (vaccination.reminderDate?.minute ?? 0);
+        final isPm = (vaccination.reminderDate?.hour ?? 0) >= 12;
         emit(
           state.copyWith(
-            vaccinationName: NotEmpty.dirty(value: vaccination.vaccinationName),
-            company: NotEmpty.dirty(value: vaccination.company),
-            dateAdministered: NotEmpty.dirty(
-              value: vaccination.dateAdministered.toIso8601String(),
-            ),
+            vaccinationName: NotEmpty.dirty(value: vaccination.name),
+            // company: NotEmpty.dirty(value: vaccination.company),
+            // dateAdministered: NotEmpty.dirty(
+            //   value: vaccination.dateAdministered.toIso8601String(),
+            // ),
             dueDate: NotEmpty.dirty(
               value: vaccination.dueDate.toIso8601String(),
             ),
-            note: NotEmpty.dirty(value: vaccination.note),
-            media: NotEmpty.dirty(value: vaccination.media),
-            isGiven: vaccination.isGiven,
-            frequency: DropdownValue.dirty(
+            note: NotEmpty.dirty(value: vaccination.notes),
+            media: NotEmpty.dirty(value: vaccination.imageUrl ?? ''),
+            isGiven: vaccination.status == 'given',
+            frequency: DropdownStringValue.dirty(
               state.frequencies.firstWhere(
-                (e) => e.id == vaccination.frequency,
+                (e) => e.id == vaccination.frequencyId,
               ),
             ),
             reminderHour: DropdownValue.dirty(
@@ -200,7 +203,7 @@ class VaccinationFormBloc
   }
 
   void _onFrequency(_Frequency event, Emitter<VaccinationFormState> emit) {
-    emit(state.copyWith(frequency: DropdownValue.dirty(event.value)));
+    emit(state.copyWith(frequency: DropdownStringValue.dirty(event.value)));
     emit(state.copyWith(validation: state.validationX));
   }
 
@@ -225,25 +228,26 @@ class VaccinationFormBloc
     Emitter<VaccinationFormState> emit,
   ) async {
     emit(state.copyWith(submitStatus: Status.loading));
-    final h = int.parse(state.reminderHour.value!.value);
-    final m = int.parse(state.reminderMin.value!.value);
-    final isPm = state.reminderAmPm.value!.value == "PM";
+    // final h = int.parse(state.reminderHour.value!.value);
+    // final m = int.parse(state.reminderMin.value!.value);
+    // final isPm = state.reminderAmPm.value!.value == "PM";
     final payload = VaccinationPayload(
-      isGiven: state.isGiven,
-      vaccinationName: state.vaccinationName.value,
-      company: state.company.value,
-      reminderTime: '${isPm ? h + 12 : h}:$m',
-      dateAdministered: DateTime.parse(state.dateAdministered.value),
+      petId: currentContext.read<DashboardBloc>().state.selectedPet?.id ?? '',
+      // isGiven: state.isGiven,
+      name: state.vaccinationName.value,
+      // company: state.company.value,
+      reminderTime: DateTime.now(),
+      // reminderTime: '${isPm ? h + 12 : h}:$m',
+      // dateAdministered: DateTime.parse(state.dateAdministered.value),
       dueDate: DateTime.parse(state.dueDate.value),
-      note: state.note.value,
-      media: await MultipartFile.fromFile(
-        state.media.value,
-        filename: state.media.value.split('/').last,
-      ),
-      pet: state.petId,
-      frequency: state.frequency.value!.id,
-      reminderTimezone: state.reminderTimezone.value!.id,
-      reminderBefore: state.reminderBefore.value!.id,
+      notes: state.note.value,
+      // media: await MultipartFile.fromFile(
+      //   state.media.value,
+      //   filename: state.media.value.split('/').last,
+      // ),
+      frequencyId: state.frequency.value?.id.toString() ?? '',
+      reminderTimezone: state.reminderTimezone.value?.id.toString() ?? '',
+      // reminderBefore: state.reminderBefore.value!.id, ,
     );
     final result =
         event.id != null

@@ -521,7 +521,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
                   ? data['statusCode'] as int? ?? success.statusCode
                   : success.statusCode;
           if (statusCode <= 201) {
-            final model = OverviewModel.fromJson(data);
+            final model = OverviewModel.fromJson(data['data']);
             return Right(model);
           }
 

@@ -25,11 +25,11 @@ class HealthDatasourceImpl extends HealthDatasource {
   @override
   AppSuccessResponse addMedication({required Payload payload}) async {
     LogUtility.warning(payload.toMap().toString());
-    final formData = FormData.fromMap(payload.toMap());
+    // final formData = FormData.fromMap(payload.toMap());
     final response = await http.post(
       path: api.medication(null, null, null),
-      data: formData,
-      options: Options(contentType: 'multipart/form-data'),
+      data: payload.toMap(),
+      // options: Options(contentType: 'multipart/form-data'),
     );
     return response.fold(
       (error) {
@@ -100,12 +100,14 @@ class HealthDatasourceImpl extends HealthDatasource {
 
   @override
   AppTypeResponse<List<PetMedicationModel>> medications(
+    String petId,
     String? key,
     String? fromDate,
     String? toDate,
   ) async {
     final response = await http.get(
-      path: api.medication(key, fromDate, toDate),
+      path: api.medication(null, null, null),
+      queryParameters: {'pet_id': petId, if (key != null) 'key': key},
     );
     return response.fold(
       (error) {
@@ -120,7 +122,7 @@ class HealthDatasourceImpl extends HealthDatasource {
                   : success.statusCode;
           if (statusCode <= 201) {
             final item = <PetMedicationModel>[];
-            for (final documents in data as List? ?? []) {
+            for (final documents in data['data'] as List? ?? []) {
               final map = Map<String, dynamic>.from(documents as Map);
               item.add(PetMedicationModel.fromJson(map));
             }
@@ -142,14 +144,14 @@ class HealthDatasourceImpl extends HealthDatasource {
   @override
   AppSuccessResponse editMedication({
     required Payload payload,
-    required int id,
+    required String id,
   }) async {
     LogUtility.warning(payload.toMap().toString());
     final formData = FormData.fromMap(payload.toMap());
     final response = await http.put(
       path: api.medicationItem(id),
-      data: formData,
-      options: Options(contentType: 'multipart/form-data'),
+      data: payload.toMap(),
+      // options: Options(contentType: 'multipart/form-data'),
     );
     return response.fold(
       (error) {
@@ -183,7 +185,9 @@ class HealthDatasourceImpl extends HealthDatasource {
   }
 
   @override
-  AppTypeResponse<PetMedicationModel> getMedication({required int id}) async {
+  AppTypeResponse<PetMedicationModel> getMedication({
+    required String id,
+  }) async {
     final response = await http.get(path: api.medicationItem(id));
     return response.fold(
       (error) {
@@ -197,7 +201,7 @@ class HealthDatasourceImpl extends HealthDatasource {
                   ? data['statusCode'] as int? ?? success.statusCode
                   : success.statusCode;
           if (statusCode <= 201) {
-            final map = Map<String, dynamic>.from(data as Map);
+            final map = Map<String, dynamic>.from(data['data'] as Map);
             return Right(PetMedicationModel.fromJson(map));
           }
 
@@ -214,90 +218,8 @@ class HealthDatasourceImpl extends HealthDatasource {
   }
 
   @override
-  AppSuccessResponse addVaccination({required Payload payload}) async {
-    LogUtility.warning(payload.toMap().toString());
-    final formData = FormData.fromMap(payload.toMap());
-    final response = await http.post(
-      path: api.vaccination(null, null, null),
-      data: formData,
-      options: Options(contentType: 'multipart/form-data'),
-    );
-    return response.fold(
-      (error) {
-        return Left(ErrorMessage(message: error.message));
-      },
-      (success) async {
-        try {
-          final data = success.data;
-          final statusCode =
-              (data is Map)
-                  ? data['statusCode'] as int? ?? success.statusCode
-                  : success.statusCode;
-          if (statusCode <= 201) {
-            return Right(
-              SuccessMessage(
-                message:
-                    data['message'] as String? ??
-                    'Vaccination added successfully',
-              ),
-            );
-          }
-          return Left(
-            ErrorMessage(
-              message: data['message'] as String? ?? AppText.somethingWentWrong,
-            ),
-          );
-        } on Exception catch (_) {
-          return Left(ErrorMessage(message: AppText.somethingWentWrong));
-        }
-      },
-    );
-  }
-
-  @override
-  AppTypeResponse<List<PetVaccinationModel>> vaccinations(
-    String? key,
-    String? fromDate,
-    String? toDate,
-  ) async {
-    final response = await http.get(
-      path: api.vaccination(key, fromDate, toDate),
-    );
-    return response.fold(
-      (error) {
-        return Left(ErrorMessage(message: error.message));
-      },
-      (success) async {
-        try {
-          final data = success.data;
-          final statusCode =
-              (data is Map)
-                  ? data['statusCode'] as int? ?? success.statusCode
-                  : success.statusCode;
-          if (statusCode <= 201) {
-            final item = <PetVaccinationModel>[];
-            for (final documents in data as List? ?? []) {
-              final map = Map<String, dynamic>.from(documents as Map);
-              item.add(PetVaccinationModel.fromJson(map));
-            }
-            return Right(item);
-          }
-
-          return Left(
-            ErrorMessage(
-              message: data['message'] as String? ?? AppText.somethingWentWrong,
-            ),
-          );
-        } on Exception catch (_) {
-          return Left(ErrorMessage(message: AppText.somethingWentWrong));
-        }
-      },
-    );
-  }
-
-  @override
   AppTypeResponse<MedicationDateModel> getMedicationDate({
-    required int id,
+    required String id,
     required DateTime date,
   }) async {
     final response = await http.get(
@@ -333,7 +255,7 @@ class HealthDatasourceImpl extends HealthDatasource {
 
   @override
   AppSuccessResponse updateMedicationDate({
-    required int id,
+    required String id,
     required MedicationDateModel payload,
   }) async {
     LogUtility.warning(payload.toJson().toString());
@@ -376,40 +298,7 @@ class HealthDatasourceImpl extends HealthDatasource {
   }
 
   @override
-  AppTypeResponse<PetVaccinationModel> getVaccination({required int id}) async {
-    final response = await http.get(
-      path: '${api.vaccination(null, null, null)}$id/',
-    );
-    return response.fold(
-      (error) {
-        return Left(ErrorMessage(message: error.message));
-      },
-      (success) async {
-        try {
-          final data = success.data;
-          final statusCode =
-              (data is Map)
-                  ? data['statusCode'] as int? ?? success.statusCode
-                  : success.statusCode;
-          if (statusCode <= 201) {
-            final item = PetVaccinationModel.fromJson(data);
-            return Right(item);
-          }
-
-          return Left(
-            ErrorMessage(
-              message: data['message'] as String? ?? AppText.somethingWentWrong,
-            ),
-          );
-        } on Exception catch (_) {
-          return Left(ErrorMessage(message: AppText.somethingWentWrong));
-        }
-      },
-    );
-  }
-
-  @override
-  AppSuccessResponse deleteMedication({required int id}) async {
+  AppSuccessResponse deleteMedication({required String id}) async {
     final response = await http.delete(
       path: '${api.medication(null, null, null)}$id/',
     );
@@ -443,9 +332,9 @@ class HealthDatasourceImpl extends HealthDatasource {
   }
 
   @override
-  AppSuccessResponse deleteVaccination({required int id}) async {
+  AppSuccessResponse deleteVaccination({required String id}) async {
     final response = await http.delete(
-      path: '${api.vaccination(null, null, null)}$id/',
+      path: '${api.vaccination(null, null, null)}/$id/',
     );
     return response.fold(
       (error) {
@@ -479,14 +368,12 @@ class HealthDatasourceImpl extends HealthDatasource {
   @override
   AppSuccessResponse editVaccination({
     required Payload payload,
-    required int id,
+    required String id,
   }) async {
     LogUtility.warning(payload.toMap().toString());
-    final formData = FormData.fromMap(payload.toMap());
     final response = await http.put(
-      path: api.vaccination(null, null, null) + '$id/',
-      data: formData,
-      options: Options(contentType: 'multipart/form-data'),
+      path: api.vaccination(null, null, null) + '/$id/',
+      data: payload.toMap(),
     );
     return response.fold(
       (error) {
@@ -506,6 +393,124 @@ class HealthDatasourceImpl extends HealthDatasource {
                     data['message'] as String? ?? 'Meal added successfully',
               ),
             );
+          }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppSuccessResponse addVaccination({required Payload payload}) async {
+    LogUtility.warning(payload.toMap().toString());
+    final response = await http.post(
+      path: api.vaccination(null, null, null),
+      data: payload.toMap(),
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message:
+                    data['message'] as String? ?? 'Meal added successfully',
+              ),
+            );
+          }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<PetVaccinationModel> getVaccination({
+    required String id,
+  }) async {
+    final response = await http.get(
+      path: '${api.vaccination(null, null, null)}/$id/',
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            final item = PetVaccinationModel.fromJson(data['data']);
+            return Right(item);
+          }
+
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<List<PetVaccinationModel>> vaccinations(
+    String petId,
+    String? key,
+    String? fromDate,
+    String? toDate,
+  ) async {
+    final response = await http.get(
+      path: api.vaccination(null, null, null),
+      queryParameters: {
+        'pet_id': petId,
+        if (key?.isNotEmpty ?? false) 'search': key,
+      },
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            final item = <PetVaccinationModel>[];
+            for (final documents in data['data'] as List? ?? []) {
+              final map = Map<String, dynamic>.from(documents as Map);
+              item.add(PetVaccinationModel.fromJson(map));
+            }
+            return Right(item);
           }
           return Left(
             ErrorMessage(

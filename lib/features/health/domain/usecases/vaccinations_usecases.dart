@@ -7,10 +7,11 @@ class VaccinationsUsecases {
   final HealthRepository repository;
 
   AppTypeResponse<List<PetVaccination>> call(
+    String petId,
     String? key,
     String? fromDate,
     String? toDate,
   ) {
-    return repository.vaccinations(key, fromDate, toDate);
+    return repository.vaccinations(petId, key, fromDate, toDate);
   }
 }

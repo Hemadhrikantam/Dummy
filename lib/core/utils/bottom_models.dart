@@ -294,7 +294,7 @@ class BottomModels {
   //medications
   static Future<T?> medicationDeleteBottomSheet<T>(
     BuildContext context,
-    int id,
+    String id,
   ) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -309,7 +309,7 @@ class BottomModels {
 
   static Future<T?> veccinationDeleteBottomSheet<T>(
     BuildContext context, {
-    required int id,
+    required String id,
   }) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,

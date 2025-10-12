@@ -11,8 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomHeaderWidget extends StatelessWidget {
-  const CustomHeaderWidget({super.key,  this.petImage});
-final String? petImage;
+  const CustomHeaderWidget({super.key, this.petImage});
+  final String? petImage;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DashboardBloc, DashboardState>(
@@ -52,12 +52,22 @@ final String? petImage;
                   onTap: () {
                     context.pushNamed(ProfileOptionsPage.routeName);
                   },
-                  child: AppNetworkImage(
-                    borderRadius: Styles.borderRadiusCircular25,
-                    url: petImage??'',
-                    height: 45,
-                    width: 45,
-                  ),
+                  child:
+                      (petImage ?? '').isEmpty || (petImage == '0')
+                          ? Container(
+                            height: 45,
+                            width: 45,
+                            decoration: BoxDecoration(
+                              color: AppColors.buttonColor,
+                              shape: BoxShape.circle,
+                            ),
+                          )
+                          : AppNetworkImage(
+                            borderRadius: Styles.borderRadiusCircular25,
+                            url: petImage ?? '',
+                            height: 45,
+                            width: 45,
+                          ),
                 ),
               ],
             ),

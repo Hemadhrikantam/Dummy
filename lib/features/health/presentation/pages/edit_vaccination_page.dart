@@ -19,8 +19,8 @@ import 'vaccination_success_page.dart';
 class EditVaccinationPage extends StatelessWidget {
   const EditVaccinationPage({super.key, required this.id});
   static const routeName = '/EditVaccinationPage';
-  final int id;
-  static Route<T> route<T>({required int id}) {
+  final String id;
+  static Route<T> route<T>({required String id}) {
     return MaterialPageRoute<T>(
       builder:
           (context) => BlocProvider(

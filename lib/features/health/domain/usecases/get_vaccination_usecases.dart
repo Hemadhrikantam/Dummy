@@ -6,7 +6,7 @@ class GetVaccinationUsecases {
   GetVaccinationUsecases(this.repository);
   final HealthRepository repository;
 
-  AppTypeResponse<PetVaccination> call({required int id}) {
+  AppTypeResponse<PetVaccination> call({required String id}) {
     return repository.getVaccination(id: id);
   }
 }

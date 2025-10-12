@@ -17,39 +17,45 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$VaccinationDetailsEvent {
-  int get id => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) init,
+    required TResult Function(String id) init,
+    required TResult Function() loadVaccinationLogs,
+    required TResult Function(String vaccinationId, String notes)
+    addVaccinationLog,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? init,
+    TResult? Function(String id)? init,
+    TResult? Function()? loadVaccinationLogs,
+    TResult? Function(String vaccinationId, String notes)? addVaccinationLog,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? init,
+    TResult Function(String id)? init,
+    TResult Function()? loadVaccinationLogs,
+    TResult Function(String vaccinationId, String notes)? addVaccinationLog,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
+    required TResult Function(_LoadVaccinationLogs value) loadVaccinationLogs,
+    required TResult Function(_AddVaccinationLog value) addVaccinationLog,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
+    TResult? Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
+    TResult? Function(_AddVaccinationLog value)? addVaccinationLog,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
+    TResult Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
+    TResult Function(_AddVaccinationLog value)? addVaccinationLog,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
-
-  /// Create a copy of VaccinationDetailsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $VaccinationDetailsEventCopyWith<VaccinationDetailsEvent> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -58,8 +64,6 @@ abstract class $VaccinationDetailsEventCopyWith<$Res> {
     VaccinationDetailsEvent value,
     $Res Function(VaccinationDetailsEvent) then,
   ) = _$VaccinationDetailsEventCopyWithImpl<$Res, VaccinationDetailsEvent>;
-  @useResult
-  $Res call({int id});
 }
 
 /// @nodoc
@@ -77,32 +81,16 @@ class _$VaccinationDetailsEventCopyWithImpl<
 
   /// Create a copy of VaccinationDetailsEvent
   /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? id = null}) {
-    return _then(
-      _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as int,
-          )
-          as $Val,
-    );
-  }
 }
 
 /// @nodoc
-abstract class _$$InitImplCopyWith<$Res>
-    implements $VaccinationDetailsEventCopyWith<$Res> {
+abstract class _$$InitImplCopyWith<$Res> {
   factory _$$InitImplCopyWith(
     _$InitImpl value,
     $Res Function(_$InitImpl) then,
   ) = __$$InitImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({int id});
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -122,7 +110,7 @@ class __$$InitImplCopyWithImpl<$Res>
         null == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int,
+                as String,
       ),
     );
   }
@@ -134,7 +122,7 @@ class _$InitImpl implements _Init {
   const _$InitImpl(this.id);
 
   @override
-  final int id;
+  final String id;
 
   @override
   String toString() {
@@ -163,7 +151,10 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int id) init,
+    required TResult Function(String id) init,
+    required TResult Function() loadVaccinationLogs,
+    required TResult Function(String vaccinationId, String notes)
+    addVaccinationLog,
   }) {
     return init(id);
   }
@@ -171,7 +162,9 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id)? init,
+    TResult? Function(String id)? init,
+    TResult? Function()? loadVaccinationLogs,
+    TResult? Function(String vaccinationId, String notes)? addVaccinationLog,
   }) {
     return init?.call(id);
   }
@@ -179,7 +172,9 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id)? init,
+    TResult Function(String id)? init,
+    TResult Function()? loadVaccinationLogs,
+    TResult Function(String vaccinationId, String notes)? addVaccinationLog,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -192,6 +187,8 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
+    required TResult Function(_LoadVaccinationLogs value) loadVaccinationLogs,
+    required TResult Function(_AddVaccinationLog value) addVaccinationLog,
   }) {
     return init(this);
   }
@@ -200,6 +197,8 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
+    TResult? Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
+    TResult? Function(_AddVaccinationLog value)? addVaccinationLog,
   }) {
     return init?.call(this);
   }
@@ -208,6 +207,8 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
+    TResult Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
+    TResult Function(_AddVaccinationLog value)? addVaccinationLog,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -218,16 +219,299 @@ class _$InitImpl implements _Init {
 }
 
 abstract class _Init implements VaccinationDetailsEvent {
-  const factory _Init(final int id) = _$InitImpl;
+  const factory _Init(final String id) = _$InitImpl;
 
-  @override
-  int get id;
+  String get id;
 
   /// Create a copy of VaccinationDetailsEvent
   /// with the given fields replaced by the non-null parameter values.
-  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$InitImplCopyWith<_$InitImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$LoadVaccinationLogsImplCopyWith<$Res> {
+  factory _$$LoadVaccinationLogsImplCopyWith(
+    _$LoadVaccinationLogsImpl value,
+    $Res Function(_$LoadVaccinationLogsImpl) then,
+  ) = __$$LoadVaccinationLogsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadVaccinationLogsImplCopyWithImpl<$Res>
+    extends
+        _$VaccinationDetailsEventCopyWithImpl<$Res, _$LoadVaccinationLogsImpl>
+    implements _$$LoadVaccinationLogsImplCopyWith<$Res> {
+  __$$LoadVaccinationLogsImplCopyWithImpl(
+    _$LoadVaccinationLogsImpl _value,
+    $Res Function(_$LoadVaccinationLogsImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of VaccinationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoadVaccinationLogsImpl implements _LoadVaccinationLogs {
+  const _$LoadVaccinationLogsImpl();
+
+  @override
+  String toString() {
+    return 'VaccinationDetailsEvent.loadVaccinationLogs()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadVaccinationLogsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) init,
+    required TResult Function() loadVaccinationLogs,
+    required TResult Function(String vaccinationId, String notes)
+    addVaccinationLog,
+  }) {
+    return loadVaccinationLogs();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? init,
+    TResult? Function()? loadVaccinationLogs,
+    TResult? Function(String vaccinationId, String notes)? addVaccinationLog,
+  }) {
+    return loadVaccinationLogs?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? init,
+    TResult Function()? loadVaccinationLogs,
+    TResult Function(String vaccinationId, String notes)? addVaccinationLog,
+    required TResult orElse(),
+  }) {
+    if (loadVaccinationLogs != null) {
+      return loadVaccinationLogs();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_LoadVaccinationLogs value) loadVaccinationLogs,
+    required TResult Function(_AddVaccinationLog value) addVaccinationLog,
+  }) {
+    return loadVaccinationLogs(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
+    TResult? Function(_AddVaccinationLog value)? addVaccinationLog,
+  }) {
+    return loadVaccinationLogs?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
+    TResult Function(_AddVaccinationLog value)? addVaccinationLog,
+    required TResult orElse(),
+  }) {
+    if (loadVaccinationLogs != null) {
+      return loadVaccinationLogs(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadVaccinationLogs implements VaccinationDetailsEvent {
+  const factory _LoadVaccinationLogs() = _$LoadVaccinationLogsImpl;
+}
+
+/// @nodoc
+abstract class _$$AddVaccinationLogImplCopyWith<$Res> {
+  factory _$$AddVaccinationLogImplCopyWith(
+    _$AddVaccinationLogImpl value,
+    $Res Function(_$AddVaccinationLogImpl) then,
+  ) = __$$AddVaccinationLogImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String vaccinationId, String notes});
+}
+
+/// @nodoc
+class __$$AddVaccinationLogImplCopyWithImpl<$Res>
+    extends _$VaccinationDetailsEventCopyWithImpl<$Res, _$AddVaccinationLogImpl>
+    implements _$$AddVaccinationLogImplCopyWith<$Res> {
+  __$$AddVaccinationLogImplCopyWithImpl(
+    _$AddVaccinationLogImpl _value,
+    $Res Function(_$AddVaccinationLogImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of VaccinationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? vaccinationId = null, Object? notes = null}) {
+    return _then(
+      _$AddVaccinationLogImpl(
+        vaccinationId:
+            null == vaccinationId
+                ? _value.vaccinationId
+                : vaccinationId // ignore: cast_nullable_to_non_nullable
+                    as String,
+        notes:
+            null == notes
+                ? _value.notes
+                : notes // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$AddVaccinationLogImpl implements _AddVaccinationLog {
+  const _$AddVaccinationLogImpl({
+    required this.vaccinationId,
+    required this.notes,
+  });
+
+  @override
+  final String vaccinationId;
+  @override
+  final String notes;
+
+  @override
+  String toString() {
+    return 'VaccinationDetailsEvent.addVaccinationLog(vaccinationId: $vaccinationId, notes: $notes)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddVaccinationLogImpl &&
+            (identical(other.vaccinationId, vaccinationId) ||
+                other.vaccinationId == vaccinationId) &&
+            (identical(other.notes, notes) || other.notes == notes));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, vaccinationId, notes);
+
+  /// Create a copy of VaccinationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddVaccinationLogImplCopyWith<_$AddVaccinationLogImpl> get copyWith =>
+      __$$AddVaccinationLogImplCopyWithImpl<_$AddVaccinationLogImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) init,
+    required TResult Function() loadVaccinationLogs,
+    required TResult Function(String vaccinationId, String notes)
+    addVaccinationLog,
+  }) {
+    return addVaccinationLog(vaccinationId, notes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? init,
+    TResult? Function()? loadVaccinationLogs,
+    TResult? Function(String vaccinationId, String notes)? addVaccinationLog,
+  }) {
+    return addVaccinationLog?.call(vaccinationId, notes);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? init,
+    TResult Function()? loadVaccinationLogs,
+    TResult Function(String vaccinationId, String notes)? addVaccinationLog,
+    required TResult orElse(),
+  }) {
+    if (addVaccinationLog != null) {
+      return addVaccinationLog(vaccinationId, notes);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_LoadVaccinationLogs value) loadVaccinationLogs,
+    required TResult Function(_AddVaccinationLog value) addVaccinationLog,
+  }) {
+    return addVaccinationLog(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
+    TResult? Function(_AddVaccinationLog value)? addVaccinationLog,
+  }) {
+    return addVaccinationLog?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
+    TResult Function(_AddVaccinationLog value)? addVaccinationLog,
+    required TResult orElse(),
+  }) {
+    if (addVaccinationLog != null) {
+      return addVaccinationLog(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddVaccinationLog implements VaccinationDetailsEvent {
+  const factory _AddVaccinationLog({
+    required final String vaccinationId,
+    required final String notes,
+  }) = _$AddVaccinationLogImpl;
+
+  String get vaccinationId;
+  String get notes;
+
+  /// Create a copy of VaccinationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddVaccinationLogImplCopyWith<_$AddVaccinationLogImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -235,6 +519,9 @@ abstract class _Init implements VaccinationDetailsEvent {
 mixin _$VaccinationDetailsState {
   Status get initStatus => throw _privateConstructorUsedError;
   PetVaccination? get vaccination => throw _privateConstructorUsedError;
+  Status get logsStatus =>
+      throw _privateConstructorUsedError; // @Default([]) final List<VaccinationLog> vaccinationLogs,
+  Status get addLogStatus => throw _privateConstructorUsedError;
 
   /// Create a copy of VaccinationDetailsState
   /// with the given fields replaced by the non-null parameter values.
@@ -250,7 +537,12 @@ abstract class $VaccinationDetailsStateCopyWith<$Res> {
     $Res Function(VaccinationDetailsState) then,
   ) = _$VaccinationDetailsStateCopyWithImpl<$Res, VaccinationDetailsState>;
   @useResult
-  $Res call({Status initStatus, PetVaccination? vaccination});
+  $Res call({
+    Status initStatus,
+    PetVaccination? vaccination,
+    Status logsStatus,
+    Status addLogStatus,
+  });
 }
 
 /// @nodoc
@@ -270,7 +562,12 @@ class _$VaccinationDetailsStateCopyWithImpl<
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? initStatus = null, Object? vaccination = freezed}) {
+  $Res call({
+    Object? initStatus = null,
+    Object? vaccination = freezed,
+    Object? logsStatus = null,
+    Object? addLogStatus = null,
+  }) {
     return _then(
       _value.copyWith(
             initStatus:
@@ -283,6 +580,16 @@ class _$VaccinationDetailsStateCopyWithImpl<
                     ? _value.vaccination
                     : vaccination // ignore: cast_nullable_to_non_nullable
                         as PetVaccination?,
+            logsStatus:
+                null == logsStatus
+                    ? _value.logsStatus
+                    : logsStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
+            addLogStatus:
+                null == addLogStatus
+                    ? _value.addLogStatus
+                    : addLogStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
           )
           as $Val,
     );
@@ -298,7 +605,12 @@ abstract class _$$VaccinationDetailsStateImplCopyWith<$Res>
   ) = __$$VaccinationDetailsStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status initStatus, PetVaccination? vaccination});
+  $Res call({
+    Status initStatus,
+    PetVaccination? vaccination,
+    Status logsStatus,
+    Status addLogStatus,
+  });
 }
 
 /// @nodoc
@@ -318,7 +630,12 @@ class __$$VaccinationDetailsStateImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? initStatus = null, Object? vaccination = freezed}) {
+  $Res call({
+    Object? initStatus = null,
+    Object? vaccination = freezed,
+    Object? logsStatus = null,
+    Object? addLogStatus = null,
+  }) {
     return _then(
       _$VaccinationDetailsStateImpl(
         initStatus:
@@ -331,6 +648,16 @@ class __$$VaccinationDetailsStateImplCopyWithImpl<$Res>
                 ? _value.vaccination
                 : vaccination // ignore: cast_nullable_to_non_nullable
                     as PetVaccination?,
+        logsStatus:
+            null == logsStatus
+                ? _value.logsStatus
+                : logsStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
+        addLogStatus:
+            null == addLogStatus
+                ? _value.addLogStatus
+                : addLogStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
       ),
     );
   }
@@ -342,6 +669,8 @@ class _$VaccinationDetailsStateImpl implements _VaccinationDetailsState {
   const _$VaccinationDetailsStateImpl({
     this.initStatus = Status.init,
     this.vaccination = null,
+    this.logsStatus = Status.init,
+    this.addLogStatus = Status.init,
   });
 
   @override
@@ -350,10 +679,17 @@ class _$VaccinationDetailsStateImpl implements _VaccinationDetailsState {
   @override
   @JsonKey()
   final PetVaccination? vaccination;
+  @override
+  @JsonKey()
+  final Status logsStatus;
+  // @Default([]) final List<VaccinationLog> vaccinationLogs,
+  @override
+  @JsonKey()
+  final Status addLogStatus;
 
   @override
   String toString() {
-    return 'VaccinationDetailsState(initStatus: $initStatus, vaccination: $vaccination)';
+    return 'VaccinationDetailsState(initStatus: $initStatus, vaccination: $vaccination, logsStatus: $logsStatus, addLogStatus: $addLogStatus)';
   }
 
   @override
@@ -364,11 +700,21 @@ class _$VaccinationDetailsStateImpl implements _VaccinationDetailsState {
             (identical(other.initStatus, initStatus) ||
                 other.initStatus == initStatus) &&
             (identical(other.vaccination, vaccination) ||
-                other.vaccination == vaccination));
+                other.vaccination == vaccination) &&
+            (identical(other.logsStatus, logsStatus) ||
+                other.logsStatus == logsStatus) &&
+            (identical(other.addLogStatus, addLogStatus) ||
+                other.addLogStatus == addLogStatus));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, initStatus, vaccination);
+  int get hashCode => Object.hash(
+    runtimeType,
+    initStatus,
+    vaccination,
+    logsStatus,
+    addLogStatus,
+  );
 
   /// Create a copy of VaccinationDetailsState
   /// with the given fields replaced by the non-null parameter values.
@@ -385,12 +731,18 @@ abstract class _VaccinationDetailsState implements VaccinationDetailsState {
   const factory _VaccinationDetailsState({
     final Status initStatus,
     final PetVaccination? vaccination,
+    final Status logsStatus,
+    final Status addLogStatus,
   }) = _$VaccinationDetailsStateImpl;
 
   @override
   Status get initStatus;
   @override
   PetVaccination? get vaccination;
+  @override
+  Status get logsStatus; // @Default([]) final List<VaccinationLog> vaccinationLogs,
+  @override
+  Status get addLogStatus;
 
   /// Create a copy of VaccinationDetailsState
   /// with the given fields replaced by the non-null parameter values.

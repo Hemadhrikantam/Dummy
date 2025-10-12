@@ -114,6 +114,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           'account_type': currentContext.read<AuthBloc>().state.yourself.name,
         }),
       );
+      currentContext.read<AuthBloc>().add(AuthEvent.updateFcm());
       Injection.appStorage.write(usercred);
       emit(state.copyWith(submitStatus: Status.success));
     });

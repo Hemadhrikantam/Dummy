@@ -27,7 +27,7 @@ class MedicationDetailsCard extends StatelessWidget {
                 subTitle: '',
                 fontSize: 14,
                 title:
-                    '${state.medication?.endDate.difference(DateTime.now()).inDays ?? 0} Days Left',
+                    '${state.medication?.endDate?.difference(DateTime.now()).inDays ?? 0} Days Left',
               ),
               Styles.gap6,
               Row(
@@ -37,7 +37,7 @@ class MedicationDetailsCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        state.medication?.tabletName ?? '',
+                        state.medication?.name.split(' ')[0] ?? '',
                         style: context.textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.bold,
                           fontSize: 24,
@@ -82,21 +82,21 @@ class MedicationDetailsCard extends StatelessWidget {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          DayWithTimeWidget(
-                            day: '${AppText.morning} ',
-                            time:
-                                '- ${state.medication?.morningTime.split(':')[0]}.${state.medication?.morningTime.split(':')[2]} PM IST',
-                          ),
-                          DayWithTimeWidget(
-                            day: '${AppText.afternoon} ',
-                            time:
-                                '- ${state.medication?.afternoonTime.split(':')[0]}.${state.medication?.morningTime.split(':')[1]} PM IST',
-                          ),
-                          DayWithTimeWidget(
-                            day: '${AppText.night} ',
-                            time:
-                                '- ${state.medication?.nightTime.split(':')[0]}.${state.medication?.nightTime.split(':')[1]} PM IST',
-                          ),
+                          // DayWithTimeWidget(
+                          //   day: '${AppText.morning} ',
+                          //   time:
+                          //       '- ${state.medication?.morningTime.split(':')[0]}.${state.medication?.morningTime.split(':')[2]} PM IST',
+                          // ),
+                          // DayWithTimeWidget(
+                          //   day: '${AppText.afternoon} ',
+                          //   time:
+                          //       '- ${state.medication?.afternoonTime.split(':')[0]}.${state.medication?.morningTime.split(':')[1]} PM IST',
+                          // ),
+                          // DayWithTimeWidget(
+                          //   day: '${AppText.night} ',
+                          //   time:
+                          //       '- ${state.medication?.nightTime.split(':')[0]}.${state.medication?.nightTime.split(':')[1]} PM IST',
+                          // ),
                         ],
                       ),
                     ],
