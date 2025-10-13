@@ -1,3 +1,5 @@
+import 'package:dummy/core/enum/upload_type.dart';
+import 'package:dummy/features/auth/data/models/presign_model.dart';
 import 'package:dummy/features/auth/data/models/send_otp_model.dart';
 import 'package:dummy/features/signup/data/models/enum_model.dart';
 
@@ -9,7 +11,7 @@ import '../models/current_user_model.dart';
 abstract class AuthDatasource {
   const AuthDatasource();
   AppTypeResponse<SendOtpModel> sendOtp({required String phone});
-   AppTypeResponse<CurrentUserModel> registerUser({
+  AppTypeResponse<CurrentUserModel> registerUser({
     required String phone,
     required String userType,
   });
@@ -26,6 +28,11 @@ abstract class AuthDatasource {
     required String deviceId,
     required String pushToken,
     required String platform,
+  });
+  AppTypeResponse<PresignModel> uploadFile({
+    required String path,
+    bool public = true,
+    required UploadType type,
   });
 
   // AppTypeResponse<List<AwsSignedUrlModel>> generateSignedUrl(

@@ -1,4 +1,6 @@
+import 'package:dummy/core/enum/upload_type.dart';
 import 'package:dummy/features/auth/data/models/current_user_model.dart';
+import 'package:dummy/features/auth/data/models/presign_model.dart';
 import 'package:dummy/features/auth/data/models/send_otp_model.dart';
 import 'package:dummy/features/signup/data/models/enum_model.dart';
 
@@ -63,6 +65,15 @@ class AuthRepositoryImpl extends AuthRepository {
       pushToken: pushToken,
       platform: platform,
     );
+  }
+
+  @override
+  AppTypeResponse<PresignModel> uploadFile({
+    required String path,
+    bool public = true,
+    required UploadType type,
+  }) {
+    return _authDatasource.uploadFile(path: path, type: type, public: public);
   }
 
   // @override

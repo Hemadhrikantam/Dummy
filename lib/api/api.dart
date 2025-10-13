@@ -16,7 +16,7 @@ String enums = '$__api/enums';
 String registerAccount = '$__publicBase/account/register/';
 String catBreeds = '$__publicBase/pets/cat-breeds/';
 String dogBreeds = '$__publicBase/pets/dog-breeds/';
-String editPet = '$__privateBase/pets/edit/';
+String editPet = '$__api/account/pets';
 String personalityTags = '$__publicBase/pets/personality-tags/';
 String petDairyEvent = '$__privateBase/pet-diary/event-fields/';
 String petDairyMedia = '$__privateBase/pet-diary/media-files/';
@@ -116,3 +116,5 @@ String medicationServing(String id, String date) =>
 
 // device
 String registerDevice = '$__api/auth/device';
+String publicPresign = '$__api/upload/public/presign';
+String presign = '$__api/upload/presign';

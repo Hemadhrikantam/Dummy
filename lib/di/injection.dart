@@ -19,6 +19,7 @@ import 'package:dummy/features/auth/domain/usecases/enums_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_device_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/send_otp_usecases.dart';
+import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/dailycare/data/datasources/daily_care_datasource.dart';
 import 'package:dummy/features/dailycare/data/datasources/daily_care_datasource_impl.dart';

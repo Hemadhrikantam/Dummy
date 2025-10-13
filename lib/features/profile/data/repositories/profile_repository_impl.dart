@@ -64,7 +64,7 @@ class ProfileRepositoryImpl extends ProfileRepository {
   }
 
   @override
-  AppSuccessResponse editPet({required int id, required Payload payload}) {
-    return datasource.editPet(id: id, payload: payload);
+  AppSuccessResponse editPet({ required Payload payload}) {
+    return datasource.editPet( payload: payload);
   }
 }

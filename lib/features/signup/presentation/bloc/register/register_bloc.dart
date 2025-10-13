@@ -4,11 +4,13 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:dummy/api/storage_key.dart';
 import 'package:dummy/core/enum/breed.dart';
+import 'package:dummy/core/enum/upload_type.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/register_account_payload.dart';
 import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/pet_image_usecases.dart';
@@ -26,9 +28,9 @@ part 'register_bloc.freezed.dart';
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   RegisterBloc({
     required CreatePetUsecases createPetUsecases,
-    required PetImageUsecases petImageUsecases,
+    required UploadFileUsecases uploadFileUseacases,
   }) : __createPetUsecases = createPetUsecases,
-       __petImageUsecases = petImageUsecases,
+       __uploadFileUseacases = uploadFileUseacases,
        super(RegisterState()) {
     on<_Initialization>(__initialization);
     on<_PetName>(__petName);
@@ -46,7 +48,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   }
 
   final CreatePetUsecases __createPetUsecases;
-  final PetImageUsecases __petImageUsecases;
+  final UploadFileUsecases __uploadFileUseacases;
   Future<void> __initialization(
     _Initialization event,
     Emitter<RegisterState> emit,
@@ -71,16 +73,19 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     Emitter<RegisterState> emit,
   ) async {
     emit(state.copyWith(submitStatus: Status.loading));
-    var imageId = 0;
+    var url = '';
     if (state.petImage.isValid) {
-      final result = await __petImageUsecases(path: state.petImage.value);
+      final result = await __uploadFileUseacases(
+        path: state.petImage.value,
+        type: UploadType.profile_pics,
+      );
       result.fold(
         (error) {
           emit(state.copyWith(submitStatus: Status.error));
           return;
         },
         (success) {
-          imageId = success.id;
+          url = success.finalUrl;
         },
       );
     }
@@ -91,7 +96,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       breedId: state.breed.value!.id,
       weightValue: int.parse(state.weight.value),
       gender: (state.gender.value?.value ?? '').toLowerCase(),
-      imageFile: imageId.toString(),
+      imageFile: url.toString(),
       personalityTags:
           state.selectedPersonalityTags.map((e) => e.value!.id).toList(),
       // latitude: state.latitude ?? 0,

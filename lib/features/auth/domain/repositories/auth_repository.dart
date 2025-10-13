@@ -1,4 +1,6 @@
+import 'package:dummy/core/enum/upload_type.dart';
 import 'package:dummy/features/auth/data/models/current_user_model.dart';
+import 'package:dummy/features/auth/data/models/presign_model.dart';
 import 'package:dummy/features/auth/data/models/send_otp_model.dart';
 import 'package:dummy/features/signup/data/models/enum_model.dart';
 
@@ -27,7 +29,11 @@ abstract class AuthRepository {
     required String pushToken,
     required String platform,
   });
-
+  AppTypeResponse<PresignModel> uploadFile({
+    required String path,
+    bool public = true,
+    required UploadType type,
+  });
   // AppTypeResponse<List<AwsSignedUrlModel>> generateSignedUrl(
   //     List<String> extensions);
   // AppSuccessResponse upload({required String fileName, required String url});

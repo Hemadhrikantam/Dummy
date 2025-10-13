@@ -381,11 +381,10 @@ class ProfileDatasourceImpl extends ProfileDatasource {
 
   @override
   AppSuccessResponse editPet({
-    required int id,
     required Payload payload,
   }) async {
     final response = await http.put(
-      path: api.editPet + '$id/',
+      path: api.editPet,
       data: payload.toMap(),
     );
     return response.fold(

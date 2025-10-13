@@ -1,6 +1,10 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:dartz/dartz.dart';
+import 'package:dio/dio.dart';
+import 'package:dummy/core/enum/upload_type.dart';
+import 'package:dummy/features/auth/data/models/presign_model.dart';
 import 'package:dummy/features/auth/data/models/send_otp_model.dart';
 import 'package:dummy/features/signup/data/models/enum_model.dart';
 
@@ -293,7 +297,8 @@ class AuthDatasourceImpl extends AuthDatasource {
             return Right(
               SuccessMessage(
                 message:
-                    data['message'] as String? ?? 'Device registered successfully',
+                    data['message'] as String? ??
+                    'Device registered successfully',
               ),
             );
           } else {
@@ -307,6 +312,90 @@ class AuthDatasourceImpl extends AuthDatasource {
         } catch (e) {
           return Left(ErrorMessage(message: AppText.somethingWentWrong));
         }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<PresignModel> uploadFile({
+    required String path,
+    bool public = true,
+    required UploadType type,
+  }) async {
+    final response = await http.post(
+      path: public ? api.publicPresign : api.presign,
+      token: !public,
+      data: {
+        "upload_type": type.name,
+        "file_extension": path.split('.').last,
+        "max_size_mb": 10,
+      },
+    );
+
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final statusCode =
+              (success.data['statusCode'] as int?) ?? success.statusCode;
+          final data = success.data;
+          if (statusCode != null && statusCode <= 201) {
+            final model = PresignModel.fromJson(data['data']);
+            final r = await upload(path: path, signedUrl: model.uploadUrl);
+            r.fold(
+              (l) {
+                return Left(ErrorMessage(message: l.message));
+              },
+              (r) {
+                return Right(model);
+              },
+            );
+            return Right(model);
+          } else {
+            return Left(
+              ErrorMessage(
+                message:
+                    data['message'] as String? ?? AppText.somethingWentWrong,
+              ),
+            );
+          }
+        } catch (e) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  AppSuccessResponse upload({
+    required String path,
+    required String signedUrl,
+  }) async {
+    final file = File(path);
+    LogUtility.info('URL ${signedUrl}');
+    final response = await http.put(
+      path: signedUrl,
+      token: false,
+      data: file.openRead(),
+      options: Options(
+        responseType: ResponseType.plain,
+        headers: {
+          'Content-Type': 'application/octet-stream',
+          'Content-Length': file.lengthSync().toString(),
+        },
+      ),
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) {
+        final statusCode = success.statusCode!;
+        if (statusCode <= 201) {
+          return const Right(SuccessMessage(message: 'Success'));
+        }
+        return Left(ErrorMessage(message: AppText.somethingWentWrong));
       },
     );
   }
