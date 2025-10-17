@@ -1,5 +1,7 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/status.dart';
+import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
@@ -10,6 +12,8 @@ import 'package:dummy/core/widgets/dotted_border_widget.dart';
 import 'package:dummy/core/widgets/phone_text_field.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_welcome_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:dummy/features/auth/presentation/bloc/ngo_registration/ngo_registration_bloc.dart';
 part '../widgets/ngo_registration_fields.dart';
 part 'ngo_registration_page2.dart';
 

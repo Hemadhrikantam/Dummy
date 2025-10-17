@@ -29,6 +29,11 @@ String personalitytags = '$__api/pets/personality-tags/';
 String catbreeds = '$__api/pets/cat-breeds/';
 String dogbreeds = '$__api/pets/dog-breeds/';
 String pets = '$__api/account/pets';
+// NGO onboarding
+String ngoOnboarding = '$__api/auth/onboarding/ngo';
+String petListing = '$__api/adoption/listings';
+// NGO profile
+String ngoProfile = '$__api/account/ngo/profile';
 String adoptPet = '$__privateBase/adoption/pet-to-adopt/';
 String allPets = '$__privateBase/adoption/all-pets-to-adopt/';
 String petTypes = '$__privateBase/pets/pet-types/';

@@ -19,44 +19,57 @@ class _NgoRegistrationPage2 extends State<NgoRegistrationPage2> {
   @override
   Widget build(BuildContext context) {
     return MaterialBaseScreen(
-      child: ListView(
-        padding: Styles.edgeInsetsAll08,
-        children: [
-          Row(children: [BackButtonWidget()]),
-          Styles.gap20,
-          Text(
-            AppText.joinDummyToday,
-            style: context.textTheme.headlineLarge?.copyWith(
-              fontWeight: FontWeight.w900,
-              fontSize: 24,
-            ),
-          ),
-          Styles.gap10,
-          Text(
-            AppText.letsCreateYourNgoAccount,
-            style: context.textTheme.bodyMedium?.copyWith(fontSize: 14),
-          ),
-          Styles.gap20,
-          __File(),
-          Styles.gap15,
-          __Address(),
-          Styles.gap15,
-          __PinCode(),
-
-          Styles.gap50,
-          AppButton(
-            name: Text(
-              AppText.startYourNGOJourney,
-              style: context.textTheme.titleSmall?.copyWith(
-                fontWeight: FontWeight.w700,
+      child: BlocConsumer<NgoRegistrationBloc, NgoRegistrationState>(
+        listener: (context, state) {
+          if (state.submitStatus == Status.success) {
+            context.pushNamed(NgoWelcomePage.routeName);
+          }
+        },
+        builder: (context, state) {
+          return ListView(
+            padding: Styles.edgeInsetsAll08,
+            children: [
+              Row(children: [BackButtonWidget()]),
+              Styles.gap20,
+              Text(
+                AppText.joinDummyToday,
+                style: context.textTheme.headlineLarge?.copyWith(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 24,
+                ),
               ),
-            ),
-            onPressed: () {
-              context.pushNamed(NgoWelcomePage.routeName);
-            },
-          ),
-          Styles.gap50,
-        ],
+              Styles.gap10,
+              Text(
+                AppText.letsCreateYourNgoAccount,
+                style: context.textTheme.bodyMedium?.copyWith(fontSize: 14),
+              ),
+              Styles.gap20,
+              __File(),
+              Styles.gap15,
+              __Address(),
+              Styles.gap15,
+              __PinCode(),
+
+              Styles.gap50,
+              AppButton(
+                name: Text(
+                  AppText.startYourNGOJourney,
+                  style: context.textTheme.titleSmall?.copyWith(
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                onPressed: () {
+                  context
+                      .read<NgoRegistrationBloc>()
+                      .add(const NgoRegistrationEvent.submit());
+                },
+              ),
+              Styles.gap50,
+              if (state.submitStatus == Status.loading)
+                const Center(child: CircularProgressIndicator()),
+            ],
+          );
+        },
       ),
     );
   }

@@ -19,8 +19,10 @@ import 'package:dummy/features/auth/domain/usecases/enums_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_device_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/send_otp_usecases.dart';
+import 'package:dummy/features/auth/domain/usecases/ngo_registration_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
+import 'package:dummy/features/auth/presentation/bloc/ngo_registration/ngo_registration_bloc.dart';
 import 'package:dummy/features/dailycare/data/datasources/daily_care_datasource.dart';
 import 'package:dummy/features/dailycare/data/datasources/daily_care_datasource_impl.dart';
 import 'package:dummy/features/dailycare/data/repositories/daily_care_repository_impl.dart';
@@ -63,12 +65,14 @@ import 'package:dummy/features/health/presentation/bloc/medication_details/medic
 import 'package:dummy/features/health/presentation/bloc/medication_form/medication_form_bloc.dart';
 import 'package:dummy/features/health/presentation/bloc/vaccination_details/vaccination_details_bloc.dart';
 import 'package:dummy/features/health/presentation/pages/edit_vaccination_page.dart';
+import 'package:dummy/features/ngo/domain/usecases/pet_listing_usecase.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource_impl.dart';
 import 'package:dummy/features/profile/data/repositories/profile_repository_impl.dart';
 import 'package:dummy/features/profile/domain/repositories/profile_repository.dart';
 import 'package:dummy/features/profile/domain/usecases/add_document_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/add_media_usecases.dart';
+import 'package:dummy/features/profile/domain/usecases/add_pet_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/delete_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/documents_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_media_favroute_usecases.dart';
@@ -82,6 +86,17 @@ import 'package:dummy/features/profile/presentation/bloc/document_form/document_
 import 'package:dummy/features/profile/presentation/bloc/media_form/media_form_bloc.dart';
 import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
 import 'package:dummy/features/profile/presentation/bloc/pet_form/pet_form_bloc.dart';
+import 'package:dummy/features/ngo/data/datasources/ngo_datasource.dart';
+import 'package:dummy/features/ngo/data/datasources/ngo_datasource_impl.dart';
+import 'package:dummy/features/ngo/data/repositories/ngo_repository_impl.dart';
+import 'package:dummy/features/ngo/domain/repositories/ngo_repository.dart';
+import 'package:dummy/features/ngo/domain/usecases/get_ngo_profile_usecase.dart';
+import 'package:dummy/features/ngo/domain/usecases/update_ngo_profile_usecase.dart';
+import 'package:dummy/features/ngo/domain/usecases/add_pet_listing_usecase.dart';
+import 'package:dummy/features/ngo/domain/usecases/edit_pet_listing_usecase.dart';
+import 'package:dummy/features/ngo/presentation/bloc/ngo_profile/ngo_profile_bloc.dart';
+import 'package:dummy/features/ngo/presentation/bloc/ngo_home/ngo_home_bloc.dart';
+import 'package:dummy/features/ngo/presentation/bloc/listing_form/listing_form_bloc.dart';
 import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/pet_image_usecases.dart';
 import 'package:dummy/service/app_http_service.dart';
@@ -114,7 +129,7 @@ import '../features/dailycare/presentation/bloc/meals/meals_bloc.dart';
 import '../features/dailycare/presentation/bloc/walks/walks_bloc.dart';
 import '../features/dashboard/domain/usecases/dashboard_details_usecases.dart';
 // import '../features/health/domain/usecases/add_vaccination_log_usecases.dart';
-// import '../features/health/domain/usecases/get_vaccination_logs_usecases.dart';
+// import ../features/health/domain/usecases/get_vaccination_logs_usecases.dart';
 import '../features/health/domain/usecases/add_vaccination_usecases.dart';
 import '../features/health/domain/usecases/medications_usecases.dart';
 import '../features/health/domain/usecases/vaccinations_usecases.dart';
@@ -141,6 +156,7 @@ part 'injection_dashboard.dart';
 part 'injection_daily_care.dart';
 part 'injection_health.dart';
 part 'injection_adoption.dart';
+part 'injection_ngo.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -160,5 +176,6 @@ class Injection {
     await __dailyCareDependencies();
     await __healthDependencies();
     await __adoptionDependencies();
+    await __ngoDependencies();
   }
 }

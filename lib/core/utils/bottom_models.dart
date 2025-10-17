@@ -46,6 +46,8 @@ import '../../features/profile/presentation/widgets/pet_dairy/add_pet_documents.
 import '../../features/profile/presentation/widgets/pet_dairy/add_pet_media.dart';
 import '../../features/profile/presentation/widgets/pet_dairy/add_timeline.dart';
 import '../widgets/image_picker_container.dart';
+import 'package:dummy/features/ngo/presentation/widgets/add_listing_form.dart';
+import 'package:dummy/features/ngo/presentation/bloc/listing_form/listing_form_bloc.dart';
 
 class BottomModels {
   static Color backgroundColor = AppColors.white;
@@ -503,6 +505,21 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return AddAdoptionForm(id: id);
+      },
+    );
+  }
+  static Future<T?> addListingBottomSheet<T>(BuildContext context, {int? id}) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: AppColors.transparent,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return BlocProvider(
+          create: (context) => InjectionBloc.listingFormBloc
+            ..add(ListingFormEvent.initialization(id: id)),
+          child: AddListingForm(id: id),
+        );
       },
     );
   }

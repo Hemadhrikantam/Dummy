@@ -1,6 +1,15 @@
+import 'package:dummy/core/constant/image_resources.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
+import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/addoption/presentation/widgets/adoption_tabbar_view.dart';
+import 'package:dummy/features/health/presentation/widgets/empty_list_page.dart';
+import 'package:dummy/features/ngo/presentation/bloc/ngo_home/ngo_home_bloc.dart';
+import 'package:dummy/features/ngo/presentation/widgets/ngo_adoption_card.dart';
+import 'package:dummy/features/profile/presentation/pages/ngo_profile_options_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/app_text.dart';
@@ -30,7 +39,16 @@ class _NgoPetsView extends State<NgoPetsView> {
     return MaterialBaseScreen(
       child: Column(
         children: [
-          CustomHeaderWidget(),
+          BlocBuilder<NgoHomeBloc, NgoHomeState>(
+            builder: (context, state) {
+              return CustomHeaderWidget(
+                petImage: state.profile?.logoUrl ?? '',
+                onProfileTap: () {
+                  context.pushNamed(NgoProfileOptionsPage.routeName);
+                },
+              );
+            },
+          ),
           Styles.gap30,
           Row(
             children: [
@@ -58,7 +76,7 @@ class _NgoPetsView extends State<NgoPetsView> {
                 ),
                 width: 90,
                 onPressed: () {
-                  BottomModels.addAdoptionBottomSheet(context);
+                  BottomModels.addListingBottomSheet(context);
                 },
               ),
             ],
@@ -71,7 +89,41 @@ class _NgoPetsView extends State<NgoPetsView> {
             onTabSelected: (tab) => setState(() => selectedTab = tab),
           ),
           Styles.gap20,
-          Expanded(child: AdoptiontabbarView(tab: selectedTab,)),
+          Expanded(
+            child: BlocBuilder<NgoHomeBloc, NgoHomeState>(
+              builder: (context, state) {
+                return state.listing.isEmpty
+                    ? EmptyListPage(
+                      imagePath: ImageResources.noAdoption,
+                      title: AppText.nolistingsyet,
+                      subTitle: AppText.helppetfindahome,
+                      onPressed: () {
+                        BottomModels.addListingBottomSheet(context);
+                      },
+                      buttonName: AppText.addPetAdoption,
+                    )
+                    : CustomCard(
+                      borderColor: AppColors.transparent,
+                      backgroundColor: AppColors.background,
+                      child: AppCustomListViewBuilder(
+                        onRefresh: () async {
+                          context.read<NgoHomeBloc>().add(NgoHomeEvent.init());
+                        },
+                        itemCount: state.listing.length,
+                        isExpand: false,
+                        shrinkWrap: true,
+                        separatorBuilder: (context, i) => Styles.gap10,
+                        itemBuilder: (BuildContext context, int i) {
+                          return NgoAdoptionCard(
+                            isAllPet: selectedTab == 'All Pets',
+                            adoption: state.listing[i],
+                          );
+                        },
+                      ),
+                    );
+              },
+            ),
+          ),
         ],
       ),
     );

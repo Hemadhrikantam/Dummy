@@ -126,9 +126,15 @@ class _OtpVerification extends State<OtpVerification> {
           //   ],
           // )
           //,
-          ResendTimerText(
-            onResend: () {
-              context.read<AuthBloc>().add(AuthEvent.sendOtp());
+          BlocBuilder<AuthBloc, AuthState>(
+            builder: (context, state) {
+              return state.sendOtpStatus.loading
+                  ? LoadingWidget.circularProgressIndicatorCenter
+                  : ResendTimerText(
+                    onResend: () {
+                      context.read<AuthBloc>().add(AuthEvent.sendOtp());
+                    },
+                  );
             },
           ),
         ],

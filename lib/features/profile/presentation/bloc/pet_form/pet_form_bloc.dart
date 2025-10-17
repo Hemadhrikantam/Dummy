@@ -14,9 +14,6 @@ import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_pet_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/cat_breed_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
-import 'package:dummy/features/signup/domain/usecases/dog_breed_usecases.dart';
-import 'package:dummy/features/signup/domain/usecases/personality_tag_usecases.dart';
-import 'package:dummy/features/signup/domain/usecases/pet_image_usecases.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -27,16 +24,10 @@ part 'pet_form_bloc.freezed.dart';
 
 class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
   PetFormBloc({
-    required CatBreedUsecases catBreedUsecases,
-    required DogBreedUsecases dogBreedUsecases,
-    required PersonalityTagUsecases personalityTagUsecases,
     required CreatePetUsecases createPetUsecases,
     required EditPetUsecases editPetUsecases,
     required UploadFileUsecases uploadFileUsecases,
-  }) : __catBreedUsecases = catBreedUsecases,
-       __dogBreedUsecases = dogBreedUsecases,
-       __personalityTagUsecases = personalityTagUsecases,
-       __createPetUsecases = createPetUsecases,
+  }) : __createPetUsecases = createPetUsecases,
        __editPetUsecases = editPetUsecases,
        __uploadFileUsecases = uploadFileUsecases,
        super(PetFormState()) {
@@ -54,10 +45,7 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
     on<_PetGender>(__petGender);
   }
 
-  final CatBreedUsecases __catBreedUsecases;
   final EditPetUsecases __editPetUsecases;
-  final DogBreedUsecases __dogBreedUsecases;
-  final PersonalityTagUsecases __personalityTagUsecases;
   final CreatePetUsecases __createPetUsecases;
   final UploadFileUsecases __uploadFileUsecases;
 
@@ -74,7 +62,6 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
           .state
           .dashboardPetDetails
           .firstWhere((pet) => pet.id == event.id);
-      print(success);
 
       final breeds =
           success.type.toLowerCase() == "cat" ? catBreeds : dogBreeds;
@@ -127,7 +114,7 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
 
   Future<void> __submit(_Submit event, Emitter<PetFormState> emit) async {
     emit(state.copyWith(submitStatus: Status.loading));
-    var url = '';
+    var url = state.petImage.value;
     if (state.petImage.isValid && !state.petImage.value.contains('http')) {
       final result = await __uploadFileUsecases(
         path: state.petImage.value,
@@ -153,8 +140,8 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
         value: state.weight.value,
         unit: state.weightUnit.value,
       ),
-      // gender: state.gender.value?.value ?? '',
-      // petImage: url,
+      gender: state.gender.value?.value ?? '',
+      image_url: url,
       personalityTags:
           state.selectedPersonalityTags.map((e) => e.value!.id).toList(),
     );

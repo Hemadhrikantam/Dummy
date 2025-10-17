@@ -7,6 +7,7 @@ import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_text_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/core/widgets/static_widget.dart';
+import 'package:dummy/features/ngo/presentation/pages/account_details/ngo_account_details_page.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:dummy/features/profile/presentation/pages/premium_subscription.dart';
 import 'package:dummy/features/profile/presentation/pages/profile_page.dart';
@@ -57,7 +58,7 @@ class NgoProfileOptionsPage extends StatelessWidget {
                                 context.pushNamed(PetDairyPage.routeName);
                               } else if (item[i].title ==
                                   AppText.accountDetails) {
-                                context.push(AccountDetailsPage.route());
+                                context.push(NgoAccountDetailsPage.route());
                               } else if (item[i].title ==
                                   AppText.manageFamily) {
                                 BottomModels.manageFamilyMembersBottomSheet(

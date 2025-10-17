@@ -11,8 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CustomHeaderWidget extends StatelessWidget {
-  const CustomHeaderWidget({super.key, this.petImage});
+  const CustomHeaderWidget({super.key, this.petImage, this.onProfileTap});
   final String? petImage;
+  final VoidCallback? onProfileTap;
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DashboardBloc, DashboardState>(
@@ -50,7 +51,11 @@ class CustomHeaderWidget extends StatelessWidget {
                 Styles.gap10,
                 GestureDetector(
                   onTap: () {
-                    context.pushNamed(ProfileOptionsPage.routeName);
+                    if (onProfileTap == null) {
+                      context.pushNamed(ProfileOptionsPage.routeName);
+                    } else {
+                      onProfileTap?.call();
+                    }
                   },
                   child:
                       (petImage ?? '').isEmpty || (petImage == '0')

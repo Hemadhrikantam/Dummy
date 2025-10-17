@@ -162,11 +162,12 @@ class SignupDatasourceImpl extends SignupDatasource {
                 key: StorageKey.token,
                 value: data['data']['accessToken'],
               );
-
               await storage.write(item);
             }
             return Right(
-              SuccessMessage(message: data['message'] as String? ?? ""),
+              SuccessMessage(
+                message: data['data']['id'].toString() as String? ?? "",
+              ),
             );
           }
 

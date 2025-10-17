@@ -8,7 +8,7 @@ abstract class ProfileDatasource {
   ProfileDatasource();
   AppTypeResponse<List<DocumentsModel>> documents();
   AppSuccessResponse addMedia({required Payload payload});
-  AppSuccessResponse editPet({required Payload payload});
+  AppSuccessResponse editPet({required Payload payload, bool edit = true});
   AppSuccessResponse deleteMedia({required int id});
   AppSuccessResponse editMedia({required int id, required Payload payload});
   AppSuccessResponse addDocument({required Payload payload});

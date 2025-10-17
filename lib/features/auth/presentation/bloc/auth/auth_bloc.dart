@@ -12,6 +12,7 @@ import 'package:dummy/features/auth/domain/usecases/enums_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_account_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_device_usecases.dart';
+import 'package:dummy/features/auth/presentation/bloc/ngo_registration/ngo_registration_bloc.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
@@ -100,11 +101,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   }
 
   Future<void> __login(_Login event, Emitter<AuthState> emit) async {
-    // emit(state.copyWith(loginStatus: Status.loading));
-    // emit(state.copyWith(loginStatus: Status.loading));
-    // emit(state.copyWith(loginStatus: Status.success));
-    // emit(state.copyWith(loginStatus: Status.init));
-    // return;
+    emit(state.copyWith(loginStatus: Status.loading));
+    emit(state.copyWith(loginStatus: Status.loading));
+    emit(state.copyWith(loginStatus: Status.success));
+    emit(state.copyWith(loginStatus: Status.init));
+    return;
     emit(state.copyWith(loginStatus: Status.loading));
     LogUtility.info("${state.phone.value}");
     try {
@@ -208,15 +209,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   void __phone(_Phone event, Emitter<AuthState> emit) {
     final phone = MobileNo.dirty(value: event.phone);
     emit(state.copyWith(phone: phone));
+    currentContext.read<NgoRegistrationBloc>().add(
+      NgoRegistrationEvent.phone(event.phone),
+    );
   }
 
   FutureOr<void> __sendOtp(_SendOtp event, Emitter<AuthState> emit) async {
     LogUtility.info("event calling");
-    // emit(state.copyWith(sendOtpStatus: Status.loading));
-    // emit(state.copyWith(sendOtpStatus: Status.success));
-    // emit(state.copyWith(sendOtpStatus: Status.init));
-    // currentContext.push(OtpVerification.route());
-    // return;
+    emit(state.copyWith(sendOtpStatus: Status.loading));
+    emit(state.copyWith(sendOtpStatus: Status.success));
+    emit(state.copyWith(sendOtpStatus: Status.init));
+    currentContext.push(OtpVerification.route());
+    return;
     emit(state.copyWith(sendOtpStatus: Status.loading));
 
     await Injection.firebaseOtp.sendOtp(

@@ -25,9 +25,6 @@ class InjectionBloc {
     return PetFormBloc(
       uploadFileUsecases: getIt<UploadFileUsecases>(),
       createPetUsecases: getIt<CreatePetUsecases>(),
-      catBreedUsecases: getIt<CatBreedUsecases>(),
-      dogBreedUsecases: getIt<DogBreedUsecases>(),
-      personalityTagUsecases: getIt<PersonalityTagUsecases>(),
       editPetUsecases: getIt<EditPetUsecases>(),
     );
   }
@@ -168,6 +165,16 @@ class InjectionBloc {
     );
   }
 
+  static ListingFormBloc get listingFormBloc {
+    return ListingFormBloc(
+      createPetUsecases: getIt<AddPetUsecases>(),
+      editPetUsecases: getIt<EditPetUsecases>(),
+      uploadFileUsecases: getIt<UploadFileUsecases>(),
+      addPetListingUsecase: getIt<AddPetListingUsecase>(),
+      editPetListingUsecase: getIt<EditPetListingUsecase>(),
+    );
+  }
+
   static AdoptionBloc get adoptionBloc {
     return AdoptionBloc(
       adoptionUsecases: getIt<AdoptionUsecases>(),
@@ -177,5 +184,27 @@ class InjectionBloc {
 
   static OverviewBloc get overviewBloc {
     return OverviewBloc(overviewUsecases: getIt<OverviewUsecases>());
+  }
+
+  static NgoRegistrationBloc get ngoRegistrationBloc {
+    return NgoRegistrationBloc(
+      ngoRegistrationUsecases: getIt<NgoRegistrationUsecases>(),
+      uploadFileUsecases: getIt<UploadFileUsecases>(),
+    );
+  }
+
+  static NgoProfileBloc get ngoProfileBloc {
+    return NgoProfileBloc(
+      getNgoProfileUsecase: getIt<GetNgoProfileUsecase>(),
+      updateNgoProfileUsecase: getIt<UpdateNgoProfileUsecase>(),
+      uploadFileUsecases: getIt<UploadFileUsecases>(),
+    );
+  }
+
+  static NgoHomeBloc get ngoHomeBloc {
+    return NgoHomeBloc(
+      getNgoProfileUsecase: getIt<GetNgoProfileUsecase>(),
+      petListingUsecase: getIt<PetListingUsecase>(),
+    );
   }
 }

@@ -349,11 +349,13 @@ class ___UploadImage extends State<__UploadImage> {
             backgroundImage:
                 _image != null
                     ? FileImage(File(_image!.path))
-                    : state.petImageId > 0
+                    : state.petImage.value.contains('http')
                     ? NetworkImage(state.petImage.value)
+                    : state.petImage.value.isNotEmpty
+                    ? FileImage(File(state.petImage.value))
                     : null,
             child:
-                _image == null && state.petImageId == 0
+                _image == null && state.petImage.isNotValid
                     ? Text(
                       AppText.upload,
                       style: context.textTheme.titleMedium?.copyWith(

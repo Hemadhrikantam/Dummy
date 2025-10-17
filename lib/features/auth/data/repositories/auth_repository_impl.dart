@@ -6,6 +6,7 @@ import 'package:dummy/features/signup/data/models/enum_model.dart';
 
 import '../../../../core/models/login_model.dart';
 import '../../../../core/payload/register_account_payload.dart';
+import '../../../../core/payload/payload.dart';
 import '../../../../core/utils/type_def.dart';
 import '../../domain/entities/current_user.dart';
 import '../../domain/repositories/auth_repository.dart';
@@ -74,6 +75,11 @@ class AuthRepositoryImpl extends AuthRepository {
     required UploadType type,
   }) {
     return _authDatasource.uploadFile(path: path, type: type, public: public);
+  }
+
+  @override
+  AppSuccessResponse onboardNgo({required Payload payload}) {
+    return _authDatasource.onboardNgo(payload: payload);
   }
 
   // @override

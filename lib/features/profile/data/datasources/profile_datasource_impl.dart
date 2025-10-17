@@ -382,11 +382,12 @@ class ProfileDatasourceImpl extends ProfileDatasource {
   @override
   AppSuccessResponse editPet({
     required Payload payload,
+    bool edit = true,
   }) async {
-    final response = await http.put(
-      path: api.editPet,
-      data: payload.toMap(),
-    );
+    final response =
+        edit
+            ? await http.put(path: api.editPet, data: payload.toMap())
+            : await http.post(path: api.editPet, data: payload.toMap());
     return response.fold(
       (error) {
         LogUtility.error('Error: ${error.message}');
@@ -400,9 +401,15 @@ class ProfileDatasourceImpl extends ProfileDatasource {
                   ? data['statusCode'] as int? ?? success.statusCode
                   : success.statusCode;
           if (statusCode <= 201) {
-            return Right(
-              SuccessMessage(message: data['message'] as String? ?? ""),
-            );
+            if (edit) {
+              return Right(
+                SuccessMessage(message: data['message'] as String? ?? ""),
+              );
+            } else {
+              return Right(
+                SuccessMessage(message: data['data']['id'] as String? ?? ""),
+              );
+            }
           }
 
           return Left(

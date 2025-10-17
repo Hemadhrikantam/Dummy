@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:dummy/core/enum/upload_type.dart';
+import 'package:dummy/core/payload/payload.dart';
 import 'package:dummy/features/auth/data/models/presign_model.dart';
 import 'package:dummy/features/auth/data/models/send_otp_model.dart';
 import 'package:dummy/features/signup/data/models/enum_model.dart';
@@ -399,10 +400,51 @@ class AuthDatasourceImpl extends AuthDatasource {
       },
     );
   }
+
+  @override
+  AppSuccessResponse onboardNgo({required Payload payload}) async {
+    final response = await http.post(
+      path: api.ngoOnboarding,
+      data: payload.toMap(),
+      token: false,
+    );
+    return response.fold(
+      (error) {
+        LogUtility.error('Error: ${error.message}');
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            if (data['data'] is Map && data['data']['accessToken'] != null) {
+              var item = SecureStorageItem(
+                key: StorageKey.token,
+                value: data['data']['accessToken'],
+              );
+              await storage.write(item);
+            }
+            return Right(
+              SuccessMessage(message: data['message'] as String? ?? ""),
+            );
+          }
+
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
 }
-
-  
-
   // @override
   // AppTypeResponse<List<AwsSignedUrlModel>> generateSignedUrl(
   //     List<String> extensions) async {

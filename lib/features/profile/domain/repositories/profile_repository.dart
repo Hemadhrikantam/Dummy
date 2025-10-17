@@ -15,7 +15,7 @@ abstract class ProfileRepository {
   AppTypeResponse<Media> getMedia({required int id});
   AppTypeResponse<List<Media>> favoriteMedias();
   AppSuccessResponse editMedia({required int id, required Payload payload});
-  AppSuccessResponse editPet({required Payload payload});
+  AppSuccessResponse editPet({required Payload payload, bool edit = true});
   AppSuccessResponse updateFavroute({
     required int mediaId,
     required bool isFavroute,

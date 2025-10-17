@@ -1,31 +1,40 @@
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
+import 'package:dummy/core/widgets/loading_widget.dart';
+import 'package:dummy/features/ngo/presentation/bloc/ngo_home/ngo_home_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class NgoInfoCards extends StatelessWidget {
   const NgoInfoCards({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      children: [
-        _CardWidget(
-          title: 'Pets Listed',
-          value: 32,
-          image: ImageResources.petList,
-        ),
-        _CardWidget(
-          title: 'Active Listings',
-          value: 32,
-          image: ImageResources.activeList,
-        ),
-        _CardWidget(
-          title: 'Total Adoptions',
-          value: 32,
-          image: ImageResources.totalAdoption,
-        ),
-      ],
+    return BlocBuilder<NgoHomeBloc, NgoHomeState>(
+      builder: (context, state) {
+        return state.count == null?
+        LoadingWidget.circularProgressIndicatorCenter:
+         Wrap(
+          children: [
+            _CardWidget(
+              title: 'Pets Listed',
+              value: state.count!.pets_listed ,
+              image: ImageResources.petList,
+            ),
+            _CardWidget(
+              title: 'Active Listings',
+              value: state.count!.active_listings,
+              image: ImageResources.activeList,
+            ),
+            _CardWidget(
+              title: 'Total Adoptions',
+              value: state.count!.total_adoptions,
+              image: ImageResources.totalAdoption,
+            ),
+          ],
+        );
+      },
     );
   }
 }

@@ -25,12 +25,12 @@ mixin _$PetFormEvent {
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
     required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
     required TResult Function(DropStringItem breed) breed,
     required TResult Function(List<DropStringItem> value) addTag,
     required TResult Function(String weightUnit) weightUnit,
     required TResult Function(String weight) weight,
     required TResult Function(int index) removeTag,
-    required TResult Function(DropItem petGender) petGender,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -40,12 +40,12 @@ mixin _$PetFormEvent {
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
     TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
     TResult? Function(DropStringItem breed)? breed,
     TResult? Function(List<DropStringItem> value)? addTag,
     TResult? Function(String weightUnit)? weightUnit,
     TResult? Function(String weight)? weight,
     TResult? Function(int index)? removeTag,
-    TResult? Function(DropItem petGender)? petGender,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -55,12 +55,12 @@ mixin _$PetFormEvent {
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
     TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
     TResult Function(DropStringItem breed)? breed,
     TResult Function(List<DropStringItem> value)? addTag,
     TResult Function(String weightUnit)? weightUnit,
     TResult Function(String weight)? weight,
     TResult Function(int index)? removeTag,
-    TResult Function(DropItem petGender)? petGender,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,12 +71,12 @@ mixin _$PetFormEvent {
     required TResult Function(_PetImage value) petImage,
     required TResult Function(_PetType value) petType,
     required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_Breed value) breed,
     required TResult Function(_AddTag value) addTag,
     required TResult Function(_WeightUnit value) weightUnit,
     required TResult Function(_Weight value) weight,
     required TResult Function(_RemoveTag value) removeTag,
-    required TResult Function(_PetGender value) petGender,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -86,12 +86,12 @@ mixin _$PetFormEvent {
     TResult? Function(_PetImage value)? petImage,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_Breed value)? breed,
     TResult? Function(_AddTag value)? addTag,
     TResult? Function(_WeightUnit value)? weightUnit,
     TResult? Function(_Weight value)? weight,
     TResult? Function(_RemoveTag value)? removeTag,
-    TResult? Function(_PetGender value)? petGender,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -101,12 +101,12 @@ mixin _$PetFormEvent {
     TResult Function(_PetImage value)? petImage,
     TResult Function(_PetType value)? petType,
     TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_Breed value)? breed,
     TResult Function(_AddTag value)? addTag,
     TResult Function(_WeightUnit value)? weightUnit,
     TResult Function(_Weight value)? weight,
     TResult Function(_RemoveTag value)? removeTag,
-    TResult Function(_PetGender value)? petGender,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -207,12 +207,12 @@ class _$InitImpl implements _Init {
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
     required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
     required TResult Function(DropStringItem breed) breed,
     required TResult Function(List<DropStringItem> value) addTag,
     required TResult Function(String weightUnit) weightUnit,
     required TResult Function(String weight) weight,
     required TResult Function(int index) removeTag,
-    required TResult Function(DropItem petGender) petGender,
   }) {
     return init(id);
   }
@@ -226,12 +226,12 @@ class _$InitImpl implements _Init {
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
     TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
     TResult? Function(DropStringItem breed)? breed,
     TResult? Function(List<DropStringItem> value)? addTag,
     TResult? Function(String weightUnit)? weightUnit,
     TResult? Function(String weight)? weight,
     TResult? Function(int index)? removeTag,
-    TResult? Function(DropItem petGender)? petGender,
   }) {
     return init?.call(id);
   }
@@ -245,12 +245,12 @@ class _$InitImpl implements _Init {
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
     TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
     TResult Function(DropStringItem breed)? breed,
     TResult Function(List<DropStringItem> value)? addTag,
     TResult Function(String weightUnit)? weightUnit,
     TResult Function(String weight)? weight,
     TResult Function(int index)? removeTag,
-    TResult Function(DropItem petGender)? petGender,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -268,12 +268,12 @@ class _$InitImpl implements _Init {
     required TResult Function(_PetImage value) petImage,
     required TResult Function(_PetType value) petType,
     required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_Breed value) breed,
     required TResult Function(_AddTag value) addTag,
     required TResult Function(_WeightUnit value) weightUnit,
     required TResult Function(_Weight value) weight,
     required TResult Function(_RemoveTag value) removeTag,
-    required TResult Function(_PetGender value) petGender,
   }) {
     return init(this);
   }
@@ -287,12 +287,12 @@ class _$InitImpl implements _Init {
     TResult? Function(_PetImage value)? petImage,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_Breed value)? breed,
     TResult? Function(_AddTag value)? addTag,
     TResult? Function(_WeightUnit value)? weightUnit,
     TResult? Function(_Weight value)? weight,
     TResult? Function(_RemoveTag value)? removeTag,
-    TResult? Function(_PetGender value)? petGender,
   }) {
     return init?.call(this);
   }
@@ -306,12 +306,12 @@ class _$InitImpl implements _Init {
     TResult Function(_PetImage value)? petImage,
     TResult Function(_PetType value)? petType,
     TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_Breed value)? breed,
     TResult Function(_AddTag value)? addTag,
     TResult Function(_WeightUnit value)? weightUnit,
     TResult Function(_Weight value)? weight,
     TResult Function(_RemoveTag value)? removeTag,
-    TResult Function(_PetGender value)? petGender,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -409,12 +409,12 @@ class _$SubmitImpl implements _Submit {
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
     required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
     required TResult Function(DropStringItem breed) breed,
     required TResult Function(List<DropStringItem> value) addTag,
     required TResult Function(String weightUnit) weightUnit,
     required TResult Function(String weight) weight,
     required TResult Function(int index) removeTag,
-    required TResult Function(DropItem petGender) petGender,
   }) {
     return submit(id);
   }
@@ -428,12 +428,12 @@ class _$SubmitImpl implements _Submit {
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
     TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
     TResult? Function(DropStringItem breed)? breed,
     TResult? Function(List<DropStringItem> value)? addTag,
     TResult? Function(String weightUnit)? weightUnit,
     TResult? Function(String weight)? weight,
     TResult? Function(int index)? removeTag,
-    TResult? Function(DropItem petGender)? petGender,
   }) {
     return submit?.call(id);
   }
@@ -447,12 +447,12 @@ class _$SubmitImpl implements _Submit {
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
     TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
     TResult Function(DropStringItem breed)? breed,
     TResult Function(List<DropStringItem> value)? addTag,
     TResult Function(String weightUnit)? weightUnit,
     TResult Function(String weight)? weight,
     TResult Function(int index)? removeTag,
-    TResult Function(DropItem petGender)? petGender,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -470,12 +470,12 @@ class _$SubmitImpl implements _Submit {
     required TResult Function(_PetImage value) petImage,
     required TResult Function(_PetType value) petType,
     required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_Breed value) breed,
     required TResult Function(_AddTag value) addTag,
     required TResult Function(_WeightUnit value) weightUnit,
     required TResult Function(_Weight value) weight,
     required TResult Function(_RemoveTag value) removeTag,
-    required TResult Function(_PetGender value) petGender,
   }) {
     return submit(this);
   }
@@ -489,12 +489,12 @@ class _$SubmitImpl implements _Submit {
     TResult? Function(_PetImage value)? petImage,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_Breed value)? breed,
     TResult? Function(_AddTag value)? addTag,
     TResult? Function(_WeightUnit value)? weightUnit,
     TResult? Function(_Weight value)? weight,
     TResult? Function(_RemoveTag value)? removeTag,
-    TResult? Function(_PetGender value)? petGender,
   }) {
     return submit?.call(this);
   }
@@ -508,12 +508,12 @@ class _$SubmitImpl implements _Submit {
     TResult Function(_PetImage value)? petImage,
     TResult Function(_PetType value)? petType,
     TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_Breed value)? breed,
     TResult Function(_AddTag value)? addTag,
     TResult Function(_WeightUnit value)? weightUnit,
     TResult Function(_Weight value)? weight,
     TResult Function(_RemoveTag value)? removeTag,
-    TResult Function(_PetGender value)? petGender,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -611,12 +611,12 @@ class _$PetNameImpl implements _PetName {
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
     required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
     required TResult Function(DropStringItem breed) breed,
     required TResult Function(List<DropStringItem> value) addTag,
     required TResult Function(String weightUnit) weightUnit,
     required TResult Function(String weight) weight,
     required TResult Function(int index) removeTag,
-    required TResult Function(DropItem petGender) petGender,
   }) {
     return petName(name);
   }
@@ -630,12 +630,12 @@ class _$PetNameImpl implements _PetName {
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
     TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
     TResult? Function(DropStringItem breed)? breed,
     TResult? Function(List<DropStringItem> value)? addTag,
     TResult? Function(String weightUnit)? weightUnit,
     TResult? Function(String weight)? weight,
     TResult? Function(int index)? removeTag,
-    TResult? Function(DropItem petGender)? petGender,
   }) {
     return petName?.call(name);
   }
@@ -649,12 +649,12 @@ class _$PetNameImpl implements _PetName {
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
     TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
     TResult Function(DropStringItem breed)? breed,
     TResult Function(List<DropStringItem> value)? addTag,
     TResult Function(String weightUnit)? weightUnit,
     TResult Function(String weight)? weight,
     TResult Function(int index)? removeTag,
-    TResult Function(DropItem petGender)? petGender,
     required TResult orElse(),
   }) {
     if (petName != null) {
@@ -672,12 +672,12 @@ class _$PetNameImpl implements _PetName {
     required TResult Function(_PetImage value) petImage,
     required TResult Function(_PetType value) petType,
     required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_Breed value) breed,
     required TResult Function(_AddTag value) addTag,
     required TResult Function(_WeightUnit value) weightUnit,
     required TResult Function(_Weight value) weight,
     required TResult Function(_RemoveTag value) removeTag,
-    required TResult Function(_PetGender value) petGender,
   }) {
     return petName(this);
   }
@@ -691,12 +691,12 @@ class _$PetNameImpl implements _PetName {
     TResult? Function(_PetImage value)? petImage,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_Breed value)? breed,
     TResult? Function(_AddTag value)? addTag,
     TResult? Function(_WeightUnit value)? weightUnit,
     TResult? Function(_Weight value)? weight,
     TResult? Function(_RemoveTag value)? removeTag,
-    TResult? Function(_PetGender value)? petGender,
   }) {
     return petName?.call(this);
   }
@@ -710,12 +710,12 @@ class _$PetNameImpl implements _PetName {
     TResult Function(_PetImage value)? petImage,
     TResult Function(_PetType value)? petType,
     TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_Breed value)? breed,
     TResult Function(_AddTag value)? addTag,
     TResult Function(_WeightUnit value)? weightUnit,
     TResult Function(_Weight value)? weight,
     TResult Function(_RemoveTag value)? removeTag,
-    TResult Function(_PetGender value)? petGender,
     required TResult orElse(),
   }) {
     if (petName != null) {
@@ -813,12 +813,12 @@ class _$PetImageImpl implements _PetImage {
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
     required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
     required TResult Function(DropStringItem breed) breed,
     required TResult Function(List<DropStringItem> value) addTag,
     required TResult Function(String weightUnit) weightUnit,
     required TResult Function(String weight) weight,
     required TResult Function(int index) removeTag,
-    required TResult Function(DropItem petGender) petGender,
   }) {
     return petImage(value);
   }
@@ -832,12 +832,12 @@ class _$PetImageImpl implements _PetImage {
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
     TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
     TResult? Function(DropStringItem breed)? breed,
     TResult? Function(List<DropStringItem> value)? addTag,
     TResult? Function(String weightUnit)? weightUnit,
     TResult? Function(String weight)? weight,
     TResult? Function(int index)? removeTag,
-    TResult? Function(DropItem petGender)? petGender,
   }) {
     return petImage?.call(value);
   }
@@ -851,12 +851,12 @@ class _$PetImageImpl implements _PetImage {
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
     TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
     TResult Function(DropStringItem breed)? breed,
     TResult Function(List<DropStringItem> value)? addTag,
     TResult Function(String weightUnit)? weightUnit,
     TResult Function(String weight)? weight,
     TResult Function(int index)? removeTag,
-    TResult Function(DropItem petGender)? petGender,
     required TResult orElse(),
   }) {
     if (petImage != null) {
@@ -874,12 +874,12 @@ class _$PetImageImpl implements _PetImage {
     required TResult Function(_PetImage value) petImage,
     required TResult Function(_PetType value) petType,
     required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_Breed value) breed,
     required TResult Function(_AddTag value) addTag,
     required TResult Function(_WeightUnit value) weightUnit,
     required TResult Function(_Weight value) weight,
     required TResult Function(_RemoveTag value) removeTag,
-    required TResult Function(_PetGender value) petGender,
   }) {
     return petImage(this);
   }
@@ -893,12 +893,12 @@ class _$PetImageImpl implements _PetImage {
     TResult? Function(_PetImage value)? petImage,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_Breed value)? breed,
     TResult? Function(_AddTag value)? addTag,
     TResult? Function(_WeightUnit value)? weightUnit,
     TResult? Function(_Weight value)? weight,
     TResult? Function(_RemoveTag value)? removeTag,
-    TResult? Function(_PetGender value)? petGender,
   }) {
     return petImage?.call(this);
   }
@@ -912,12 +912,12 @@ class _$PetImageImpl implements _PetImage {
     TResult Function(_PetImage value)? petImage,
     TResult Function(_PetType value)? petType,
     TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_Breed value)? breed,
     TResult Function(_AddTag value)? addTag,
     TResult Function(_WeightUnit value)? weightUnit,
     TResult Function(_Weight value)? weight,
     TResult Function(_RemoveTag value)? removeTag,
-    TResult Function(_PetGender value)? petGender,
     required TResult orElse(),
   }) {
     if (petImage != null) {
@@ -1015,12 +1015,12 @@ class _$PetTypeImpl implements _PetType {
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
     required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
     required TResult Function(DropStringItem breed) breed,
     required TResult Function(List<DropStringItem> value) addTag,
     required TResult Function(String weightUnit) weightUnit,
     required TResult Function(String weight) weight,
     required TResult Function(int index) removeTag,
-    required TResult Function(DropItem petGender) petGender,
   }) {
     return petType(value);
   }
@@ -1034,12 +1034,12 @@ class _$PetTypeImpl implements _PetType {
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
     TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
     TResult? Function(DropStringItem breed)? breed,
     TResult? Function(List<DropStringItem> value)? addTag,
     TResult? Function(String weightUnit)? weightUnit,
     TResult? Function(String weight)? weight,
     TResult? Function(int index)? removeTag,
-    TResult? Function(DropItem petGender)? petGender,
   }) {
     return petType?.call(value);
   }
@@ -1053,12 +1053,12 @@ class _$PetTypeImpl implements _PetType {
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
     TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
     TResult Function(DropStringItem breed)? breed,
     TResult Function(List<DropStringItem> value)? addTag,
     TResult Function(String weightUnit)? weightUnit,
     TResult Function(String weight)? weight,
     TResult Function(int index)? removeTag,
-    TResult Function(DropItem petGender)? petGender,
     required TResult orElse(),
   }) {
     if (petType != null) {
@@ -1076,12 +1076,12 @@ class _$PetTypeImpl implements _PetType {
     required TResult Function(_PetImage value) petImage,
     required TResult Function(_PetType value) petType,
     required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_Breed value) breed,
     required TResult Function(_AddTag value) addTag,
     required TResult Function(_WeightUnit value) weightUnit,
     required TResult Function(_Weight value) weight,
     required TResult Function(_RemoveTag value) removeTag,
-    required TResult Function(_PetGender value) petGender,
   }) {
     return petType(this);
   }
@@ -1095,12 +1095,12 @@ class _$PetTypeImpl implements _PetType {
     TResult? Function(_PetImage value)? petImage,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_Breed value)? breed,
     TResult? Function(_AddTag value)? addTag,
     TResult? Function(_WeightUnit value)? weightUnit,
     TResult? Function(_Weight value)? weight,
     TResult? Function(_RemoveTag value)? removeTag,
-    TResult? Function(_PetGender value)? petGender,
   }) {
     return petType?.call(this);
   }
@@ -1114,12 +1114,12 @@ class _$PetTypeImpl implements _PetType {
     TResult Function(_PetImage value)? petImage,
     TResult Function(_PetType value)? petType,
     TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_Breed value)? breed,
     TResult Function(_AddTag value)? addTag,
     TResult Function(_WeightUnit value)? weightUnit,
     TResult Function(_Weight value)? weight,
     TResult Function(_RemoveTag value)? removeTag,
-    TResult Function(_PetGender value)? petGender,
     required TResult orElse(),
   }) {
     if (petType != null) {
@@ -1213,12 +1213,12 @@ class _$DOBImpl implements _DOB {
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
     required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
     required TResult Function(DropStringItem breed) breed,
     required TResult Function(List<DropStringItem> value) addTag,
     required TResult Function(String weightUnit) weightUnit,
     required TResult Function(String weight) weight,
     required TResult Function(int index) removeTag,
-    required TResult Function(DropItem petGender) petGender,
   }) {
     return dob(this.dob);
   }
@@ -1232,12 +1232,12 @@ class _$DOBImpl implements _DOB {
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
     TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
     TResult? Function(DropStringItem breed)? breed,
     TResult? Function(List<DropStringItem> value)? addTag,
     TResult? Function(String weightUnit)? weightUnit,
     TResult? Function(String weight)? weight,
     TResult? Function(int index)? removeTag,
-    TResult? Function(DropItem petGender)? petGender,
   }) {
     return dob?.call(this.dob);
   }
@@ -1251,12 +1251,12 @@ class _$DOBImpl implements _DOB {
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
     TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
     TResult Function(DropStringItem breed)? breed,
     TResult Function(List<DropStringItem> value)? addTag,
     TResult Function(String weightUnit)? weightUnit,
     TResult Function(String weight)? weight,
     TResult Function(int index)? removeTag,
-    TResult Function(DropItem petGender)? petGender,
     required TResult orElse(),
   }) {
     if (dob != null) {
@@ -1274,12 +1274,12 @@ class _$DOBImpl implements _DOB {
     required TResult Function(_PetImage value) petImage,
     required TResult Function(_PetType value) petType,
     required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_Breed value) breed,
     required TResult Function(_AddTag value) addTag,
     required TResult Function(_WeightUnit value) weightUnit,
     required TResult Function(_Weight value) weight,
     required TResult Function(_RemoveTag value) removeTag,
-    required TResult Function(_PetGender value) petGender,
   }) {
     return dob(this);
   }
@@ -1293,12 +1293,12 @@ class _$DOBImpl implements _DOB {
     TResult? Function(_PetImage value)? petImage,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_Breed value)? breed,
     TResult? Function(_AddTag value)? addTag,
     TResult? Function(_WeightUnit value)? weightUnit,
     TResult? Function(_Weight value)? weight,
     TResult? Function(_RemoveTag value)? removeTag,
-    TResult? Function(_PetGender value)? petGender,
   }) {
     return dob?.call(this);
   }
@@ -1312,12 +1312,12 @@ class _$DOBImpl implements _DOB {
     TResult Function(_PetImage value)? petImage,
     TResult Function(_PetType value)? petType,
     TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_Breed value)? breed,
     TResult Function(_AddTag value)? addTag,
     TResult Function(_WeightUnit value)? weightUnit,
     TResult Function(_Weight value)? weight,
     TResult Function(_RemoveTag value)? removeTag,
-    TResult Function(_PetGender value)? petGender,
     required TResult orElse(),
   }) {
     if (dob != null) {
@@ -1336,6 +1336,209 @@ abstract class _DOB implements PetFormEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$DOBImplCopyWith<_$DOBImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PetGenderImplCopyWith<$Res> {
+  factory _$$PetGenderImplCopyWith(
+    _$PetGenderImpl value,
+    $Res Function(_$PetGenderImpl) then,
+  ) = __$$PetGenderImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DropItem petGender});
+}
+
+/// @nodoc
+class __$$PetGenderImplCopyWithImpl<$Res>
+    extends _$PetFormEventCopyWithImpl<$Res, _$PetGenderImpl>
+    implements _$$PetGenderImplCopyWith<$Res> {
+  __$$PetGenderImplCopyWithImpl(
+    _$PetGenderImpl _value,
+    $Res Function(_$PetGenderImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of PetFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? petGender = null}) {
+    return _then(
+      _$PetGenderImpl(
+        null == petGender
+            ? _value.petGender
+            : petGender // ignore: cast_nullable_to_non_nullable
+                as DropItem,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$PetGenderImpl implements _PetGender {
+  const _$PetGenderImpl(this.petGender);
+
+  @override
+  final DropItem petGender;
+
+  @override
+  String toString() {
+    return 'PetFormEvent.petGender(petGender: $petGender)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PetGenderImpl &&
+            (identical(other.petGender, petGender) ||
+                other.petGender == petGender));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, petGender);
+
+  /// Create a copy of PetFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PetGenderImplCopyWith<_$PetGenderImpl> get copyWith =>
+      __$$PetGenderImplCopyWithImpl<_$PetGenderImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String? id) init,
+    required TResult Function(String? id) submit,
+    required TResult Function(String name) petName,
+    required TResult Function(String value) petImage,
+    required TResult Function(PetType value) petType,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(DropStringItem breed) breed,
+    required TResult Function(List<DropStringItem> value) addTag,
+    required TResult Function(String weightUnit) weightUnit,
+    required TResult Function(String weight) weight,
+    required TResult Function(int index) removeTag,
+  }) {
+    return petGender(this.petGender);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String? id)? init,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String name)? petName,
+    TResult? Function(String value)? petImage,
+    TResult? Function(PetType value)? petType,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(DropStringItem breed)? breed,
+    TResult? Function(List<DropStringItem> value)? addTag,
+    TResult? Function(String weightUnit)? weightUnit,
+    TResult? Function(String weight)? weight,
+    TResult? Function(int index)? removeTag,
+  }) {
+    return petGender?.call(this.petGender);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String? id)? init,
+    TResult Function(String? id)? submit,
+    TResult Function(String name)? petName,
+    TResult Function(String value)? petImage,
+    TResult Function(PetType value)? petType,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(DropStringItem breed)? breed,
+    TResult Function(List<DropStringItem> value)? addTag,
+    TResult Function(String weightUnit)? weightUnit,
+    TResult Function(String weight)? weight,
+    TResult Function(int index)? removeTag,
+    required TResult orElse(),
+  }) {
+    if (petGender != null) {
+      return petGender(this.petGender);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Submit value) submit,
+    required TResult Function(_PetName value) petName,
+    required TResult Function(_PetImage value) petImage,
+    required TResult Function(_PetType value) petType,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
+    required TResult Function(_Breed value) breed,
+    required TResult Function(_AddTag value) addTag,
+    required TResult Function(_WeightUnit value) weightUnit,
+    required TResult Function(_Weight value) weight,
+    required TResult Function(_RemoveTag value) removeTag,
+  }) {
+    return petGender(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_PetName value)? petName,
+    TResult? Function(_PetImage value)? petImage,
+    TResult? Function(_PetType value)? petType,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
+    TResult? Function(_Breed value)? breed,
+    TResult? Function(_AddTag value)? addTag,
+    TResult? Function(_WeightUnit value)? weightUnit,
+    TResult? Function(_Weight value)? weight,
+    TResult? Function(_RemoveTag value)? removeTag,
+  }) {
+    return petGender?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Submit value)? submit,
+    TResult Function(_PetName value)? petName,
+    TResult Function(_PetImage value)? petImage,
+    TResult Function(_PetType value)? petType,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
+    TResult Function(_Breed value)? breed,
+    TResult Function(_AddTag value)? addTag,
+    TResult Function(_WeightUnit value)? weightUnit,
+    TResult Function(_Weight value)? weight,
+    TResult Function(_RemoveTag value)? removeTag,
+    required TResult orElse(),
+  }) {
+    if (petGender != null) {
+      return petGender(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PetGender implements PetFormEvent {
+  const factory _PetGender(final DropItem petGender) = _$PetGenderImpl;
+
+  DropItem get petGender;
+
+  /// Create a copy of PetFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$PetGenderImplCopyWith<_$PetGenderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1415,12 +1618,12 @@ class _$BreedImpl implements _Breed {
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
     required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
     required TResult Function(DropStringItem breed) breed,
     required TResult Function(List<DropStringItem> value) addTag,
     required TResult Function(String weightUnit) weightUnit,
     required TResult Function(String weight) weight,
     required TResult Function(int index) removeTag,
-    required TResult Function(DropItem petGender) petGender,
   }) {
     return breed(this.breed);
   }
@@ -1434,12 +1637,12 @@ class _$BreedImpl implements _Breed {
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
     TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
     TResult? Function(DropStringItem breed)? breed,
     TResult? Function(List<DropStringItem> value)? addTag,
     TResult? Function(String weightUnit)? weightUnit,
     TResult? Function(String weight)? weight,
     TResult? Function(int index)? removeTag,
-    TResult? Function(DropItem petGender)? petGender,
   }) {
     return breed?.call(this.breed);
   }
@@ -1453,12 +1656,12 @@ class _$BreedImpl implements _Breed {
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
     TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
     TResult Function(DropStringItem breed)? breed,
     TResult Function(List<DropStringItem> value)? addTag,
     TResult Function(String weightUnit)? weightUnit,
     TResult Function(String weight)? weight,
     TResult Function(int index)? removeTag,
-    TResult Function(DropItem petGender)? petGender,
     required TResult orElse(),
   }) {
     if (breed != null) {
@@ -1476,12 +1679,12 @@ class _$BreedImpl implements _Breed {
     required TResult Function(_PetImage value) petImage,
     required TResult Function(_PetType value) petType,
     required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_Breed value) breed,
     required TResult Function(_AddTag value) addTag,
     required TResult Function(_WeightUnit value) weightUnit,
     required TResult Function(_Weight value) weight,
     required TResult Function(_RemoveTag value) removeTag,
-    required TResult Function(_PetGender value) petGender,
   }) {
     return breed(this);
   }
@@ -1495,12 +1698,12 @@ class _$BreedImpl implements _Breed {
     TResult? Function(_PetImage value)? petImage,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_Breed value)? breed,
     TResult? Function(_AddTag value)? addTag,
     TResult? Function(_WeightUnit value)? weightUnit,
     TResult? Function(_Weight value)? weight,
     TResult? Function(_RemoveTag value)? removeTag,
-    TResult? Function(_PetGender value)? petGender,
   }) {
     return breed?.call(this);
   }
@@ -1514,12 +1717,12 @@ class _$BreedImpl implements _Breed {
     TResult Function(_PetImage value)? petImage,
     TResult Function(_PetType value)? petType,
     TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_Breed value)? breed,
     TResult Function(_AddTag value)? addTag,
     TResult Function(_WeightUnit value)? weightUnit,
     TResult Function(_Weight value)? weight,
     TResult Function(_RemoveTag value)? removeTag,
-    TResult Function(_PetGender value)? petGender,
     required TResult orElse(),
   }) {
     if (breed != null) {
@@ -1623,12 +1826,12 @@ class _$AddTagImpl implements _AddTag {
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
     required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
     required TResult Function(DropStringItem breed) breed,
     required TResult Function(List<DropStringItem> value) addTag,
     required TResult Function(String weightUnit) weightUnit,
     required TResult Function(String weight) weight,
     required TResult Function(int index) removeTag,
-    required TResult Function(DropItem petGender) petGender,
   }) {
     return addTag(value);
   }
@@ -1642,12 +1845,12 @@ class _$AddTagImpl implements _AddTag {
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
     TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
     TResult? Function(DropStringItem breed)? breed,
     TResult? Function(List<DropStringItem> value)? addTag,
     TResult? Function(String weightUnit)? weightUnit,
     TResult? Function(String weight)? weight,
     TResult? Function(int index)? removeTag,
-    TResult? Function(DropItem petGender)? petGender,
   }) {
     return addTag?.call(value);
   }
@@ -1661,12 +1864,12 @@ class _$AddTagImpl implements _AddTag {
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
     TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
     TResult Function(DropStringItem breed)? breed,
     TResult Function(List<DropStringItem> value)? addTag,
     TResult Function(String weightUnit)? weightUnit,
     TResult Function(String weight)? weight,
     TResult Function(int index)? removeTag,
-    TResult Function(DropItem petGender)? petGender,
     required TResult orElse(),
   }) {
     if (addTag != null) {
@@ -1684,12 +1887,12 @@ class _$AddTagImpl implements _AddTag {
     required TResult Function(_PetImage value) petImage,
     required TResult Function(_PetType value) petType,
     required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_Breed value) breed,
     required TResult Function(_AddTag value) addTag,
     required TResult Function(_WeightUnit value) weightUnit,
     required TResult Function(_Weight value) weight,
     required TResult Function(_RemoveTag value) removeTag,
-    required TResult Function(_PetGender value) petGender,
   }) {
     return addTag(this);
   }
@@ -1703,12 +1906,12 @@ class _$AddTagImpl implements _AddTag {
     TResult? Function(_PetImage value)? petImage,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_Breed value)? breed,
     TResult? Function(_AddTag value)? addTag,
     TResult? Function(_WeightUnit value)? weightUnit,
     TResult? Function(_Weight value)? weight,
     TResult? Function(_RemoveTag value)? removeTag,
-    TResult? Function(_PetGender value)? petGender,
   }) {
     return addTag?.call(this);
   }
@@ -1722,12 +1925,12 @@ class _$AddTagImpl implements _AddTag {
     TResult Function(_PetImage value)? petImage,
     TResult Function(_PetType value)? petType,
     TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_Breed value)? breed,
     TResult Function(_AddTag value)? addTag,
     TResult Function(_WeightUnit value)? weightUnit,
     TResult Function(_Weight value)? weight,
     TResult Function(_RemoveTag value)? removeTag,
-    TResult Function(_PetGender value)? petGender,
     required TResult orElse(),
   }) {
     if (addTag != null) {
@@ -1826,12 +2029,12 @@ class _$WeightUnitImpl implements _WeightUnit {
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
     required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
     required TResult Function(DropStringItem breed) breed,
     required TResult Function(List<DropStringItem> value) addTag,
     required TResult Function(String weightUnit) weightUnit,
     required TResult Function(String weight) weight,
     required TResult Function(int index) removeTag,
-    required TResult Function(DropItem petGender) petGender,
   }) {
     return weightUnit(this.weightUnit);
   }
@@ -1845,12 +2048,12 @@ class _$WeightUnitImpl implements _WeightUnit {
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
     TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
     TResult? Function(DropStringItem breed)? breed,
     TResult? Function(List<DropStringItem> value)? addTag,
     TResult? Function(String weightUnit)? weightUnit,
     TResult? Function(String weight)? weight,
     TResult? Function(int index)? removeTag,
-    TResult? Function(DropItem petGender)? petGender,
   }) {
     return weightUnit?.call(this.weightUnit);
   }
@@ -1864,12 +2067,12 @@ class _$WeightUnitImpl implements _WeightUnit {
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
     TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
     TResult Function(DropStringItem breed)? breed,
     TResult Function(List<DropStringItem> value)? addTag,
     TResult Function(String weightUnit)? weightUnit,
     TResult Function(String weight)? weight,
     TResult Function(int index)? removeTag,
-    TResult Function(DropItem petGender)? petGender,
     required TResult orElse(),
   }) {
     if (weightUnit != null) {
@@ -1887,12 +2090,12 @@ class _$WeightUnitImpl implements _WeightUnit {
     required TResult Function(_PetImage value) petImage,
     required TResult Function(_PetType value) petType,
     required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_Breed value) breed,
     required TResult Function(_AddTag value) addTag,
     required TResult Function(_WeightUnit value) weightUnit,
     required TResult Function(_Weight value) weight,
     required TResult Function(_RemoveTag value) removeTag,
-    required TResult Function(_PetGender value) petGender,
   }) {
     return weightUnit(this);
   }
@@ -1906,12 +2109,12 @@ class _$WeightUnitImpl implements _WeightUnit {
     TResult? Function(_PetImage value)? petImage,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_Breed value)? breed,
     TResult? Function(_AddTag value)? addTag,
     TResult? Function(_WeightUnit value)? weightUnit,
     TResult? Function(_Weight value)? weight,
     TResult? Function(_RemoveTag value)? removeTag,
-    TResult? Function(_PetGender value)? petGender,
   }) {
     return weightUnit?.call(this);
   }
@@ -1925,12 +2128,12 @@ class _$WeightUnitImpl implements _WeightUnit {
     TResult Function(_PetImage value)? petImage,
     TResult Function(_PetType value)? petType,
     TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_Breed value)? breed,
     TResult Function(_AddTag value)? addTag,
     TResult Function(_WeightUnit value)? weightUnit,
     TResult Function(_Weight value)? weight,
     TResult Function(_RemoveTag value)? removeTag,
-    TResult Function(_PetGender value)? petGender,
     required TResult orElse(),
   }) {
     if (weightUnit != null) {
@@ -2028,12 +2231,12 @@ class _$WeightImpl implements _Weight {
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
     required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
     required TResult Function(DropStringItem breed) breed,
     required TResult Function(List<DropStringItem> value) addTag,
     required TResult Function(String weightUnit) weightUnit,
     required TResult Function(String weight) weight,
     required TResult Function(int index) removeTag,
-    required TResult Function(DropItem petGender) petGender,
   }) {
     return weight(this.weight);
   }
@@ -2047,12 +2250,12 @@ class _$WeightImpl implements _Weight {
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
     TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
     TResult? Function(DropStringItem breed)? breed,
     TResult? Function(List<DropStringItem> value)? addTag,
     TResult? Function(String weightUnit)? weightUnit,
     TResult? Function(String weight)? weight,
     TResult? Function(int index)? removeTag,
-    TResult? Function(DropItem petGender)? petGender,
   }) {
     return weight?.call(this.weight);
   }
@@ -2066,12 +2269,12 @@ class _$WeightImpl implements _Weight {
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
     TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
     TResult Function(DropStringItem breed)? breed,
     TResult Function(List<DropStringItem> value)? addTag,
     TResult Function(String weightUnit)? weightUnit,
     TResult Function(String weight)? weight,
     TResult Function(int index)? removeTag,
-    TResult Function(DropItem petGender)? petGender,
     required TResult orElse(),
   }) {
     if (weight != null) {
@@ -2089,12 +2292,12 @@ class _$WeightImpl implements _Weight {
     required TResult Function(_PetImage value) petImage,
     required TResult Function(_PetType value) petType,
     required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_Breed value) breed,
     required TResult Function(_AddTag value) addTag,
     required TResult Function(_WeightUnit value) weightUnit,
     required TResult Function(_Weight value) weight,
     required TResult Function(_RemoveTag value) removeTag,
-    required TResult Function(_PetGender value) petGender,
   }) {
     return weight(this);
   }
@@ -2108,12 +2311,12 @@ class _$WeightImpl implements _Weight {
     TResult? Function(_PetImage value)? petImage,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_Breed value)? breed,
     TResult? Function(_AddTag value)? addTag,
     TResult? Function(_WeightUnit value)? weightUnit,
     TResult? Function(_Weight value)? weight,
     TResult? Function(_RemoveTag value)? removeTag,
-    TResult? Function(_PetGender value)? petGender,
   }) {
     return weight?.call(this);
   }
@@ -2127,12 +2330,12 @@ class _$WeightImpl implements _Weight {
     TResult Function(_PetImage value)? petImage,
     TResult Function(_PetType value)? petType,
     TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_Breed value)? breed,
     TResult Function(_AddTag value)? addTag,
     TResult Function(_WeightUnit value)? weightUnit,
     TResult Function(_Weight value)? weight,
     TResult Function(_RemoveTag value)? removeTag,
-    TResult Function(_PetGender value)? petGender,
     required TResult orElse(),
   }) {
     if (weight != null) {
@@ -2230,12 +2433,12 @@ class _$RemoveTagImpl implements _RemoveTag {
     required TResult Function(String value) petImage,
     required TResult Function(PetType value) petType,
     required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
     required TResult Function(DropStringItem breed) breed,
     required TResult Function(List<DropStringItem> value) addTag,
     required TResult Function(String weightUnit) weightUnit,
     required TResult Function(String weight) weight,
     required TResult Function(int index) removeTag,
-    required TResult Function(DropItem petGender) petGender,
   }) {
     return removeTag(index);
   }
@@ -2249,12 +2452,12 @@ class _$RemoveTagImpl implements _RemoveTag {
     TResult? Function(String value)? petImage,
     TResult? Function(PetType value)? petType,
     TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
     TResult? Function(DropStringItem breed)? breed,
     TResult? Function(List<DropStringItem> value)? addTag,
     TResult? Function(String weightUnit)? weightUnit,
     TResult? Function(String weight)? weight,
     TResult? Function(int index)? removeTag,
-    TResult? Function(DropItem petGender)? petGender,
   }) {
     return removeTag?.call(index);
   }
@@ -2268,12 +2471,12 @@ class _$RemoveTagImpl implements _RemoveTag {
     TResult Function(String value)? petImage,
     TResult Function(PetType value)? petType,
     TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
     TResult Function(DropStringItem breed)? breed,
     TResult Function(List<DropStringItem> value)? addTag,
     TResult Function(String weightUnit)? weightUnit,
     TResult Function(String weight)? weight,
     TResult Function(int index)? removeTag,
-    TResult Function(DropItem petGender)? petGender,
     required TResult orElse(),
   }) {
     if (removeTag != null) {
@@ -2291,12 +2494,12 @@ class _$RemoveTagImpl implements _RemoveTag {
     required TResult Function(_PetImage value) petImage,
     required TResult Function(_PetType value) petType,
     required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_Breed value) breed,
     required TResult Function(_AddTag value) addTag,
     required TResult Function(_WeightUnit value) weightUnit,
     required TResult Function(_Weight value) weight,
     required TResult Function(_RemoveTag value) removeTag,
-    required TResult Function(_PetGender value) petGender,
   }) {
     return removeTag(this);
   }
@@ -2310,12 +2513,12 @@ class _$RemoveTagImpl implements _RemoveTag {
     TResult? Function(_PetImage value)? petImage,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_Breed value)? breed,
     TResult? Function(_AddTag value)? addTag,
     TResult? Function(_WeightUnit value)? weightUnit,
     TResult? Function(_Weight value)? weight,
     TResult? Function(_RemoveTag value)? removeTag,
-    TResult? Function(_PetGender value)? petGender,
   }) {
     return removeTag?.call(this);
   }
@@ -2329,12 +2532,12 @@ class _$RemoveTagImpl implements _RemoveTag {
     TResult Function(_PetImage value)? petImage,
     TResult Function(_PetType value)? petType,
     TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_Breed value)? breed,
     TResult Function(_AddTag value)? addTag,
     TResult Function(_WeightUnit value)? weightUnit,
     TResult Function(_Weight value)? weight,
     TResult Function(_RemoveTag value)? removeTag,
-    TResult Function(_PetGender value)? petGender,
     required TResult orElse(),
   }) {
     if (removeTag != null) {
@@ -2353,209 +2556,6 @@ abstract class _RemoveTag implements PetFormEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RemoveTagImplCopyWith<_$RemoveTagImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$PetGenderImplCopyWith<$Res> {
-  factory _$$PetGenderImplCopyWith(
-    _$PetGenderImpl value,
-    $Res Function(_$PetGenderImpl) then,
-  ) = __$$PetGenderImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({DropItem petGender});
-}
-
-/// @nodoc
-class __$$PetGenderImplCopyWithImpl<$Res>
-    extends _$PetFormEventCopyWithImpl<$Res, _$PetGenderImpl>
-    implements _$$PetGenderImplCopyWith<$Res> {
-  __$$PetGenderImplCopyWithImpl(
-    _$PetGenderImpl _value,
-    $Res Function(_$PetGenderImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of PetFormEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? petGender = null}) {
-    return _then(
-      _$PetGenderImpl(
-        null == petGender
-            ? _value.petGender
-            : petGender // ignore: cast_nullable_to_non_nullable
-                as DropItem,
-      ),
-    );
-  }
-}
-
-/// @nodoc
-
-class _$PetGenderImpl implements _PetGender {
-  const _$PetGenderImpl(this.petGender);
-
-  @override
-  final DropItem petGender;
-
-  @override
-  String toString() {
-    return 'PetFormEvent.petGender(petGender: $petGender)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PetGenderImpl &&
-            (identical(other.petGender, petGender) ||
-                other.petGender == petGender));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, petGender);
-
-  /// Create a copy of PetFormEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PetGenderImplCopyWith<_$PetGenderImpl> get copyWith =>
-      __$$PetGenderImplCopyWithImpl<_$PetGenderImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String? id) init,
-    required TResult Function(String? id) submit,
-    required TResult Function(String name) petName,
-    required TResult Function(String value) petImage,
-    required TResult Function(PetType value) petType,
-    required TResult Function(String dob) dob,
-    required TResult Function(DropStringItem breed) breed,
-    required TResult Function(List<DropStringItem> value) addTag,
-    required TResult Function(String weightUnit) weightUnit,
-    required TResult Function(String weight) weight,
-    required TResult Function(int index) removeTag,
-    required TResult Function(DropItem petGender) petGender,
-  }) {
-    return petGender(this.petGender);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String? id)? init,
-    TResult? Function(String? id)? submit,
-    TResult? Function(String name)? petName,
-    TResult? Function(String value)? petImage,
-    TResult? Function(PetType value)? petType,
-    TResult? Function(String dob)? dob,
-    TResult? Function(DropStringItem breed)? breed,
-    TResult? Function(List<DropStringItem> value)? addTag,
-    TResult? Function(String weightUnit)? weightUnit,
-    TResult? Function(String weight)? weight,
-    TResult? Function(int index)? removeTag,
-    TResult? Function(DropItem petGender)? petGender,
-  }) {
-    return petGender?.call(this.petGender);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String? id)? init,
-    TResult Function(String? id)? submit,
-    TResult Function(String name)? petName,
-    TResult Function(String value)? petImage,
-    TResult Function(PetType value)? petType,
-    TResult Function(String dob)? dob,
-    TResult Function(DropStringItem breed)? breed,
-    TResult Function(List<DropStringItem> value)? addTag,
-    TResult Function(String weightUnit)? weightUnit,
-    TResult Function(String weight)? weight,
-    TResult Function(int index)? removeTag,
-    TResult Function(DropItem petGender)? petGender,
-    required TResult orElse(),
-  }) {
-    if (petGender != null) {
-      return petGender(this.petGender);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Init value) init,
-    required TResult Function(_Submit value) submit,
-    required TResult Function(_PetName value) petName,
-    required TResult Function(_PetImage value) petImage,
-    required TResult Function(_PetType value) petType,
-    required TResult Function(_DOB value) dob,
-    required TResult Function(_Breed value) breed,
-    required TResult Function(_AddTag value) addTag,
-    required TResult Function(_WeightUnit value) weightUnit,
-    required TResult Function(_Weight value) weight,
-    required TResult Function(_RemoveTag value) removeTag,
-    required TResult Function(_PetGender value) petGender,
-  }) {
-    return petGender(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Init value)? init,
-    TResult? Function(_Submit value)? submit,
-    TResult? Function(_PetName value)? petName,
-    TResult? Function(_PetImage value)? petImage,
-    TResult? Function(_PetType value)? petType,
-    TResult? Function(_DOB value)? dob,
-    TResult? Function(_Breed value)? breed,
-    TResult? Function(_AddTag value)? addTag,
-    TResult? Function(_WeightUnit value)? weightUnit,
-    TResult? Function(_Weight value)? weight,
-    TResult? Function(_RemoveTag value)? removeTag,
-    TResult? Function(_PetGender value)? petGender,
-  }) {
-    return petGender?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Init value)? init,
-    TResult Function(_Submit value)? submit,
-    TResult Function(_PetName value)? petName,
-    TResult Function(_PetImage value)? petImage,
-    TResult Function(_PetType value)? petType,
-    TResult Function(_DOB value)? dob,
-    TResult Function(_Breed value)? breed,
-    TResult Function(_AddTag value)? addTag,
-    TResult Function(_WeightUnit value)? weightUnit,
-    TResult Function(_Weight value)? weight,
-    TResult Function(_RemoveTag value)? removeTag,
-    TResult Function(_PetGender value)? petGender,
-    required TResult orElse(),
-  }) {
-    if (petGender != null) {
-      return petGender(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PetGender implements PetFormEvent {
-  const factory _PetGender(final DropItem petGender) = _$PetGenderImpl;
-
-  DropItem get petGender;
-
-  /// Create a copy of PetFormEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PetGenderImplCopyWith<_$PetGenderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

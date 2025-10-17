@@ -5,19 +5,23 @@ import 'package:dummy/core/payload/payload.dart';
 class PetPayload extends Equatable implements Payload {
   const PetPayload({
     required this.name,
-    required this.type, // e.g. "dog" | "cat"
+    required this.type, 
     required this.breedId,
-    this.dob, // optional; if null we send ""
-    this.pet_id, // optional; if null we send ""
-    this.weight = const PetWeightPayload(), // defaults to empty strings
+    this.gender,
+    this.dob, 
+    this.image_url,
+    this.pet_id, 
+    this.weight = const PetWeightPayload(),
     this.personalityTags = const <String>[],
   });
 
   final String name;
-  final String type; // consider validating "dog"/"cat" upstream if needed
+  final String type; 
   final String breedId;
-  final String? pet_id; // optional
-  final DateTime? dob; // optional
+  final String? gender; 
+  final String? image_url;
+  final String? pet_id;
+  final DateTime? dob;
   final PetWeightPayload weight;
   final List<String> personalityTags;
 
@@ -27,6 +31,8 @@ class PetPayload extends Equatable implements Payload {
     name,
     type,
     breedId,
+    gender,
+    image_url,
     dob,
     weight,
     personalityTags,
@@ -36,47 +42,18 @@ class PetPayload extends Equatable implements Payload {
   JsonMap toMap() => {
     if (pet_id != null) 'pet_id': pet_id,
     'name': name,
-    'type': type,
+    'type': type.toLowerCase(),
+    'gender': gender,
     'breed_id': breedId,
-    // API sample shows empty string when dob is absent
+    'image_url': image_url,
     'dob': dob != null ? dob!.toIso8601String() : '',
     'weight': weight.toMap(),
     'personality_tags': personalityTags,
   };
-
-  /// Optional helper to build from loose inputs (e.g., text fields)
-  factory PetPayload.loose({
-    required String name,
-    required String type,
-    required String breedId,
-    String? dobText, // "YYYY-MM-DD" or ""
-    String? weightValue,
-    String? weightUnit,
-    List<String>? personalityTags,
-  }) {
-    DateTime? parsedDob;
-    if (dobText != null && dobText.trim().isNotEmpty) {
-      parsedDob = DateTime.parse(dobText.trim());
-    }
-    return PetPayload(
-      name: name.trim(),
-      type: type.trim(),
-      breedId: breedId.trim(),
-      dob: parsedDob,
-      weight: PetWeightPayload(
-        value: (weightValue ?? '').trim(),
-        unit: (weightUnit ?? '').trim(),
-      ),
-      personalityTags: personalityTags ?? const [],
-    );
-  }
 }
 
 class PetWeightPayload extends Equatable {
-  const PetWeightPayload({
-    this.value = '', // keep as string to match sample (can be "")
-    this.unit = '', // e.g. "kg", "lb" or ""
-  });
+  const PetWeightPayload({this.value = '', this.unit = ''});
 
   final String value;
   final String unit;

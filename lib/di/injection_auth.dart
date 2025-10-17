@@ -25,6 +25,7 @@ Future<void> __authDependencies() async {
   final enumsUsecases = EnumsUsecases(getIt<AuthRepository>());
   final registerDevice = RegisterDeviceUsecases(getIt<AuthRepository>());
   final uploadFileUsecases = UploadFileUsecases(getIt<AuthRepository>());
+  final ngoRegistrationUsecases = NgoRegistrationUsecases(getIt<AuthRepository>());
 
   //   //
   getIt.registerLazySingleton<LoginUserUsecases>(() => login);
@@ -38,4 +39,5 @@ Future<void> __authDependencies() async {
   getIt.registerLazySingleton<EnumsUsecases>(() => enumsUsecases);
   getIt.registerLazySingleton<RegisterDeviceUsecases>(() => registerDevice);
   getIt.registerLazySingleton<UploadFileUsecases>(() => uploadFileUsecases);
+  getIt.registerLazySingleton<NgoRegistrationUsecases>(() => ngoRegistrationUsecases);
 }
