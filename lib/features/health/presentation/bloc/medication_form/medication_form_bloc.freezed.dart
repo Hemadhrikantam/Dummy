@@ -24,7 +24,7 @@ mixin _$MedicationFormEvent {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -48,7 +48,7 @@ mixin _$MedicationFormEvent {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -72,7 +72,7 @@ mixin _$MedicationFormEvent {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -267,7 +267,7 @@ class _$InitImpl implements _Init {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -295,7 +295,7 @@ class _$InitImpl implements _Init {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -323,7 +323,7 @@ class _$InitImpl implements _Init {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -524,7 +524,7 @@ class _$ReminderImpl implements _Reminder {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -552,7 +552,7 @@ class _$ReminderImpl implements _Reminder {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -580,7 +580,7 @@ class _$ReminderImpl implements _Reminder {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -780,7 +780,7 @@ class _$TabletNameImpl implements _TabletName {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -808,7 +808,7 @@ class _$TabletNameImpl implements _TabletName {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -836,7 +836,7 @@ class _$TabletNameImpl implements _TabletName {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -1036,7 +1036,7 @@ class _$CompanyImpl implements _Company {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -1064,7 +1064,7 @@ class _$CompanyImpl implements _Company {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -1092,7 +1092,7 @@ class _$CompanyImpl implements _Company {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -1292,7 +1292,7 @@ class _$DosageImpl implements _Dosage {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -1320,7 +1320,7 @@ class _$DosageImpl implements _Dosage {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -1348,7 +1348,7 @@ class _$DosageImpl implements _Dosage {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -1480,7 +1480,7 @@ abstract class _$$DosageUnitImplCopyWith<$Res> {
     $Res Function(_$DosageUnitImpl) then,
   ) = __$$DosageUnitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DropItem value});
+  $Res call({DropStringItem value});
 }
 
 /// @nodoc
@@ -1502,7 +1502,7 @@ class __$$DosageUnitImplCopyWithImpl<$Res>
         null == value
             ? _value.value
             : value // ignore: cast_nullable_to_non_nullable
-                as DropItem,
+                as DropStringItem,
       ),
     );
   }
@@ -1514,7 +1514,7 @@ class _$DosageUnitImpl implements _DosageUnit {
   const _$DosageUnitImpl(this.value);
 
   @override
-  final DropItem value;
+  final DropStringItem value;
 
   @override
   String toString() {
@@ -1548,7 +1548,7 @@ class _$DosageUnitImpl implements _DosageUnit {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -1576,7 +1576,7 @@ class _$DosageUnitImpl implements _DosageUnit {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -1604,7 +1604,7 @@ class _$DosageUnitImpl implements _DosageUnit {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -1718,9 +1718,9 @@ class _$DosageUnitImpl implements _DosageUnit {
 }
 
 abstract class _DosageUnit implements MedicationFormEvent {
-  const factory _DosageUnit(final DropItem value) = _$DosageUnitImpl;
+  const factory _DosageUnit(final DropStringItem value) = _$DosageUnitImpl;
 
-  DropItem get value;
+  DropStringItem get value;
 
   /// Create a copy of MedicationFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1807,7 +1807,7 @@ class _$MorningTimeHourImpl implements _MorningTimeHour {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -1835,7 +1835,7 @@ class _$MorningTimeHourImpl implements _MorningTimeHour {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -1863,7 +1863,7 @@ class _$MorningTimeHourImpl implements _MorningTimeHour {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -2066,7 +2066,7 @@ class _$MorningTimeMinImpl implements _MorningTimeMin {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -2094,7 +2094,7 @@ class _$MorningTimeMinImpl implements _MorningTimeMin {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -2122,7 +2122,7 @@ class _$MorningTimeMinImpl implements _MorningTimeMin {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -2325,7 +2325,7 @@ class _$AfternoonTimeHourImpl implements _AfternoonTimeHour {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -2353,7 +2353,7 @@ class _$AfternoonTimeHourImpl implements _AfternoonTimeHour {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -2381,7 +2381,7 @@ class _$AfternoonTimeHourImpl implements _AfternoonTimeHour {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -2585,7 +2585,7 @@ class _$AfternoonTimeMinImpl implements _AfternoonTimeMin {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -2613,7 +2613,7 @@ class _$AfternoonTimeMinImpl implements _AfternoonTimeMin {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -2641,7 +2641,7 @@ class _$AfternoonTimeMinImpl implements _AfternoonTimeMin {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -2842,7 +2842,7 @@ class _$NightTimeHourImpl implements _NightTimeHour {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -2870,7 +2870,7 @@ class _$NightTimeHourImpl implements _NightTimeHour {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -2898,7 +2898,7 @@ class _$NightTimeHourImpl implements _NightTimeHour {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -3098,7 +3098,7 @@ class _$NightTimeMinImpl implements _NightTimeMin {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -3126,7 +3126,7 @@ class _$NightTimeMinImpl implements _NightTimeMin {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -3154,7 +3154,7 @@ class _$NightTimeMinImpl implements _NightTimeMin {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -3357,7 +3357,7 @@ class _$MorningTimeEnableImpl implements _MorningTimeEnable {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -3385,7 +3385,7 @@ class _$MorningTimeEnableImpl implements _MorningTimeEnable {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -3413,7 +3413,7 @@ class _$MorningTimeEnableImpl implements _MorningTimeEnable {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -3616,7 +3616,7 @@ class _$NightTimeEnableImpl implements _NightTimeEnable {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -3644,7 +3644,7 @@ class _$NightTimeEnableImpl implements _NightTimeEnable {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -3672,7 +3672,7 @@ class _$NightTimeEnableImpl implements _NightTimeEnable {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -3875,7 +3875,7 @@ class _$AfternoonTimeEnableImpl implements _AfternoonTimeEnable {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -3903,7 +3903,7 @@ class _$AfternoonTimeEnableImpl implements _AfternoonTimeEnable {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -3931,7 +3931,7 @@ class _$AfternoonTimeEnableImpl implements _AfternoonTimeEnable {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -4132,7 +4132,7 @@ class _$StartDateImpl implements _StartDate {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -4160,7 +4160,7 @@ class _$StartDateImpl implements _StartDate {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -4188,7 +4188,7 @@ class _$StartDateImpl implements _StartDate {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -4388,7 +4388,7 @@ class _$EndDateImpl implements _EndDate {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -4416,7 +4416,7 @@ class _$EndDateImpl implements _EndDate {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -4444,7 +4444,7 @@ class _$EndDateImpl implements _EndDate {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -4642,7 +4642,7 @@ class _$NoteImpl implements _Note {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -4670,7 +4670,7 @@ class _$NoteImpl implements _Note {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -4698,7 +4698,7 @@ class _$NoteImpl implements _Note {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -4898,7 +4898,7 @@ class _$MediaImpl implements _Media {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -4926,7 +4926,7 @@ class _$MediaImpl implements _Media {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -4954,7 +4954,7 @@ class _$MediaImpl implements _Media {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -5154,7 +5154,7 @@ class _$FrequencyImpl implements _Frequency {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -5182,7 +5182,7 @@ class _$FrequencyImpl implements _Frequency {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -5210,7 +5210,7 @@ class _$FrequencyImpl implements _Frequency {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -5410,7 +5410,7 @@ class _$SubmitImpl implements _Submit {
     required TResult Function(String value) tabletName,
     required TResult Function(String value) company,
     required TResult Function(String value) dosage,
-    required TResult Function(DropItem value) dosageUnit,
+    required TResult Function(DropStringItem value) dosageUnit,
     required TResult Function(DropItem value) morningTimeHour,
     required TResult Function(DropItem value) morningTimeMin,
     required TResult Function(DropItem value) afternoonTimeHour,
@@ -5438,7 +5438,7 @@ class _$SubmitImpl implements _Submit {
     TResult? Function(String value)? tabletName,
     TResult? Function(String value)? company,
     TResult? Function(String value)? dosage,
-    TResult? Function(DropItem value)? dosageUnit,
+    TResult? Function(DropStringItem value)? dosageUnit,
     TResult? Function(DropItem value)? morningTimeHour,
     TResult? Function(DropItem value)? morningTimeMin,
     TResult? Function(DropItem value)? afternoonTimeHour,
@@ -5466,7 +5466,7 @@ class _$SubmitImpl implements _Submit {
     TResult Function(String value)? tabletName,
     TResult Function(String value)? company,
     TResult Function(String value)? dosage,
-    TResult Function(DropItem value)? dosageUnit,
+    TResult Function(DropStringItem value)? dosageUnit,
     TResult Function(DropItem value)? morningTimeHour,
     TResult Function(DropItem value)? morningTimeMin,
     TResult Function(DropItem value)? afternoonTimeHour,
@@ -5599,7 +5599,7 @@ mixin _$MedicationFormState {
   NotEmpty get tabletName => throw _privateConstructorUsedError;
   NotEmpty get company => throw _privateConstructorUsedError;
   NotEmpty get dosage => throw _privateConstructorUsedError;
-  DropdownValue get dosageUnit => throw _privateConstructorUsedError;
+  DropdownStringValue get dosageUnit => throw _privateConstructorUsedError;
   bool get morningTimeEnable => throw _privateConstructorUsedError;
   bool get afternoonTimeEnable => throw _privateConstructorUsedError;
   bool get nightTimeEnable => throw _privateConstructorUsedError;
@@ -5614,7 +5614,7 @@ mixin _$MedicationFormState {
   NotEmpty get note => throw _privateConstructorUsedError;
   NotEmpty get media => throw _privateConstructorUsedError;
   DropdownStringValue get frequency => throw _privateConstructorUsedError;
-  List<DropItem> get dosageUnits => throw _privateConstructorUsedError;
+  List<DropStringItem> get dosageUnits => throw _privateConstructorUsedError;
   List<DropStringItem> get frequencies => throw _privateConstructorUsedError;
   bool get validation => throw _privateConstructorUsedError;
   String get petId => throw _privateConstructorUsedError;
@@ -5640,7 +5640,7 @@ abstract class $MedicationFormStateCopyWith<$Res> {
     NotEmpty tabletName,
     NotEmpty company,
     NotEmpty dosage,
-    DropdownValue dosageUnit,
+    DropdownStringValue dosageUnit,
     bool morningTimeEnable,
     bool afternoonTimeEnable,
     bool nightTimeEnable,
@@ -5655,7 +5655,7 @@ abstract class $MedicationFormStateCopyWith<$Res> {
     NotEmpty note,
     NotEmpty media,
     DropdownStringValue frequency,
-    List<DropItem> dosageUnits,
+    List<DropStringItem> dosageUnits,
     List<DropStringItem> frequencies,
     bool validation,
     String petId,
@@ -5739,7 +5739,7 @@ class _$MedicationFormStateCopyWithImpl<$Res, $Val extends MedicationFormState>
                 null == dosageUnit
                     ? _value.dosageUnit
                     : dosageUnit // ignore: cast_nullable_to_non_nullable
-                        as DropdownValue,
+                        as DropdownStringValue,
             morningTimeEnable:
                 null == morningTimeEnable
                     ? _value.morningTimeEnable
@@ -5814,7 +5814,7 @@ class _$MedicationFormStateCopyWithImpl<$Res, $Val extends MedicationFormState>
                 null == dosageUnits
                     ? _value.dosageUnits
                     : dosageUnits // ignore: cast_nullable_to_non_nullable
-                        as List<DropItem>,
+                        as List<DropStringItem>,
             frequencies:
                 null == frequencies
                     ? _value.frequencies
@@ -5852,7 +5852,7 @@ abstract class _$$MedicationFormStateImplCopyWith<$Res>
     NotEmpty tabletName,
     NotEmpty company,
     NotEmpty dosage,
-    DropdownValue dosageUnit,
+    DropdownStringValue dosageUnit,
     bool morningTimeEnable,
     bool afternoonTimeEnable,
     bool nightTimeEnable,
@@ -5867,7 +5867,7 @@ abstract class _$$MedicationFormStateImplCopyWith<$Res>
     NotEmpty note,
     NotEmpty media,
     DropdownStringValue frequency,
-    List<DropItem> dosageUnits,
+    List<DropStringItem> dosageUnits,
     List<DropStringItem> frequencies,
     bool validation,
     String petId,
@@ -5950,7 +5950,7 @@ class __$$MedicationFormStateImplCopyWithImpl<$Res>
             null == dosageUnit
                 ? _value.dosageUnit
                 : dosageUnit // ignore: cast_nullable_to_non_nullable
-                    as DropdownValue,
+                    as DropdownStringValue,
         morningTimeEnable:
             null == morningTimeEnable
                 ? _value.morningTimeEnable
@@ -6025,7 +6025,7 @@ class __$$MedicationFormStateImplCopyWithImpl<$Res>
             null == dosageUnits
                 ? _value._dosageUnits
                 : dosageUnits // ignore: cast_nullable_to_non_nullable
-                    as List<DropItem>,
+                    as List<DropStringItem>,
         frequencies:
             null == frequencies
                 ? _value._frequencies
@@ -6056,7 +6056,7 @@ class _$MedicationFormStateImpl implements _MedicationFormState {
     this.tabletName = const NotEmpty.pure(),
     this.company = const NotEmpty.pure(),
     this.dosage = const NotEmpty.pure(),
-    this.dosageUnit = const DropdownValue.pure(),
+    this.dosageUnit = const DropdownStringValue.pure(),
     this.morningTimeEnable = false,
     this.afternoonTimeEnable = false,
     this.nightTimeEnable = false,
@@ -6071,7 +6071,7 @@ class _$MedicationFormStateImpl implements _MedicationFormState {
     this.note = const NotEmpty.pure(),
     this.media = const NotEmpty.pure(),
     this.frequency = const DropdownStringValue.pure(),
-    final List<DropItem> dosageUnits = const [],
+    final List<DropStringItem> dosageUnits = const [],
     final List<DropStringItem> frequencies = const [],
     this.validation = false,
     this.petId = '',
@@ -6098,7 +6098,7 @@ class _$MedicationFormStateImpl implements _MedicationFormState {
   final NotEmpty dosage;
   @override
   @JsonKey()
-  final DropdownValue dosageUnit;
+  final DropdownStringValue dosageUnit;
   @override
   @JsonKey()
   final bool morningTimeEnable;
@@ -6141,10 +6141,10 @@ class _$MedicationFormStateImpl implements _MedicationFormState {
   @override
   @JsonKey()
   final DropdownStringValue frequency;
-  final List<DropItem> _dosageUnits;
+  final List<DropStringItem> _dosageUnits;
   @override
   @JsonKey()
-  List<DropItem> get dosageUnits {
+  List<DropStringItem> get dosageUnits {
     if (_dosageUnits is EqualUnmodifiableListView) return _dosageUnits;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_dosageUnits);
@@ -6276,7 +6276,7 @@ abstract class _MedicationFormState implements MedicationFormState {
     final NotEmpty tabletName,
     final NotEmpty company,
     final NotEmpty dosage,
-    final DropdownValue dosageUnit,
+    final DropdownStringValue dosageUnit,
     final bool morningTimeEnable,
     final bool afternoonTimeEnable,
     final bool nightTimeEnable,
@@ -6291,7 +6291,7 @@ abstract class _MedicationFormState implements MedicationFormState {
     final NotEmpty note,
     final NotEmpty media,
     final DropdownStringValue frequency,
-    final List<DropItem> dosageUnits,
+    final List<DropStringItem> dosageUnits,
     final List<DropStringItem> frequencies,
     final bool validation,
     final String petId,
@@ -6310,7 +6310,7 @@ abstract class _MedicationFormState implements MedicationFormState {
   @override
   NotEmpty get dosage;
   @override
-  DropdownValue get dosageUnit;
+  DropdownStringValue get dosageUnit;
   @override
   bool get morningTimeEnable;
   @override
@@ -6340,7 +6340,7 @@ abstract class _MedicationFormState implements MedicationFormState {
   @override
   DropdownStringValue get frequency;
   @override
-  List<DropItem> get dosageUnits;
+  List<DropStringItem> get dosageUnits;
   @override
   List<DropStringItem> get frequencies;
   @override

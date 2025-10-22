@@ -17,7 +17,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"mobile_number\" : \"8428719833\",\n    \"account_type\" : \"ngo\"\n}",
+							"raw": "{\n    \"mobile_number\" : \"8428719831\",\n    \"account_type\" : \"pet_parent\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -187,7 +187,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"mobile_number\": \"8428719832\",\n    \"gender\" : \"male\",\n    \"pet_name\": \"tobby\",\n    \"pet_type\": \"dog\",\n    \"breed_id\": \"a94d2475-f2ea-4984-ab53-d7dbb88e5d04\", //get value from /enums api\n    \"dob\": \"2020-01-01\", //iso format string\n    \"weight\": {\n        \"value\": 5,\n        \"unit\": \"kg\"\n    },\n    \"personality_tags\": [\"35cda955-bc27-4364-b21e-7ba246885a84\"], // pass uuid from /enums api\n    \"image_file\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/profile_pics/21404225-2c1c-45fa-9a42-af12af3a6be5.png\", //url from presign api\n    \"device_id\" : \"test-device\",\n    \"push_token\" : \"FCM_TOKEN_TEST\",\n    \"platform\" : \"ios\", // ios/android\n    \"latitude\" : \"13.0832\",\n    \"longitude\" : \"80.2705\"\n}",
+							"raw": "{\n    \"mobile_number\": \"8428719831\",\n    \"gender\" : \"male\",\n    \"pet_name\": \"tobby\",\n    \"pet_type\": \"dog\",\n    \"breed_id\": \"a94d2475-f2ea-4984-ab53-d7dbb88e5d04\", //get value from /enums api\n    \"dob\": \"2020-01-01\", //iso format string\n    \"weight\": {\n        \"value\": 5,\n        \"unit\": \"kg\"\n    },\n    \"personality_tags\": [\"35cda955-bc27-4364-b21e-7ba246885a84\"], // pass uuid from /enums api\n    \"image_file\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/profile_pics/21404225-2c1c-45fa-9a42-af12af3a6be5.png\", //url from presign api\n    \"device_id\" : \"test-device\",\n    \"push_token\" : \"FCM_TOKEN_TEST\",\n    \"platform\" : \"ios\", // ios/android\n    \"latitude\" : \"13.0832\",\n    \"longitude\" : \"80.2705\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -379,6 +379,11 @@
 								{
 									"key": "search",
 									"value": "chippi",
+									"disabled": true
+								},
+								{
+									"key": "frequencyType",
+									"value": "time",
 									"disabled": true
 								}
 							]
@@ -626,7 +631,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "// this api used for general image updation\n{\n    \"upload_type\": \"profile_pics\", // \"profile_pics\", \"ngo_registrations\", \"pet_diary_media\",\"pet_diary_documents\"\n    \"file_extension\": \"png\", //file_extension\n    \"max_size_mb\": 5 // file-size\n}",
+							"raw": "// this api used for general image updation\n{\n    \"upload_type\": \"profile_pics\", // \"profile_pics\", \"ngo_registrations\", \"pet_diary_media\",\"pet_diary_documents\", \"ngo_logo\"\n    \"file_extension\": \"png\", //file_extension\n    \"max_size_mb\": 5 // file-size\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -785,6 +790,79 @@
 							"path": [
 								"upload",
 								"presign"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "file",
+							"file": {
+								"src": "postman-cloud:///1f0a120f-9dd7-4130-8e7b-1e11056ebbb4"
+							}
+						},
+						"url": {
+							"raw": "https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/users/profile/8e9a7689-3f28-4b62-822f-795ae7528888.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAVFQXWXWTPFYLV4PN%2F20251013%2Fap-south-1%2Fs3%2Faws4_request&X-Amz-Date=20251013T035230Z&X-Amz-Expires=300&X-Amz-Signature=298319bed2fce7e6d77c2faa4072b3734942af95168c4ec00b619efae540a695&X-Amz-SignedHeaders=host&x-amz-checksum-crc32=AAAAAA%3D%3D&x-amz-sdk-checksum-algorithm=CRC32&x-id=PutObject",
+							"protocol": "https",
+							"host": [
+								"doommi-dev",
+								"s3",
+								"ap-south-1",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"uploads",
+								"users",
+								"profile",
+								"8e9a7689-3f28-4b62-822f-795ae7528888.png"
+							],
+							"query": [
+								{
+									"key": "X-Amz-Algorithm",
+									"value": "AWS4-HMAC-SHA256"
+								},
+								{
+									"key": "X-Amz-Content-Sha256",
+									"value": "UNSIGNED-PAYLOAD"
+								},
+								{
+									"key": "X-Amz-Credential",
+									"value": "AKIAVFQXWXWTPFYLV4PN%2F20251013%2Fap-south-1%2Fs3%2Faws4_request"
+								},
+								{
+									"key": "X-Amz-Date",
+									"value": "20251013T035230Z"
+								},
+								{
+									"key": "X-Amz-Expires",
+									"value": "300"
+								},
+								{
+									"key": "X-Amz-Signature",
+									"value": "298319bed2fce7e6d77c2faa4072b3734942af95168c4ec00b619efae540a695"
+								},
+								{
+									"key": "X-Amz-SignedHeaders",
+									"value": "host"
+								},
+								{
+									"key": "x-amz-checksum-crc32",
+									"value": "AAAAAA%3D%3D"
+								},
+								{
+									"key": "x-amz-sdk-checksum-algorithm",
+									"value": "CRC32"
+								},
+								{
+									"key": "x-id",
+									"value": "PutObject"
+								}
 							]
 						}
 					},
@@ -1061,7 +1139,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"ngo_name\" : \"Besant Memorial Animal Dispensary\",\n    \"contact_person_name\":\"Hari\",\n    \"email\" :\"bmadts@gmail.com\",\n    \"phone\" : \"8428719811\",\n    \"pincode\" : \"600053\",\n    \"address\" : \"besant nagar\"\n}",
+							"raw": "{\n    \"ngo_name\" : \"Besant Memorial Animal Dispensary\",\n    \"contact_person_name\":\"Hari\",\n    \"email\" :\"bmadts@gmail.com\",\n    \"phone\" : \"8428719811\",\n    \"pincode\" : \"600053\",\n    \"address\" : \"besant nagar\",\n    \"logo_url\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/profile_pics/21404225-2c1c-45fa-9a42-af12af3a6be5.png\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1103,7 +1181,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"mobile_number\" : \"8428719833\",\n    \"account_type\" : \"ngo\"\n}"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{BASE_URL}}/account/pets",
@@ -1125,13 +1203,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"value": "{{ACCESS_TOKEN_NGO}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"name\" : \"tiger\",\n    \"type\" : \"dog\",\n    \"breed_id\" :\"39d473b2-4e58-43a9-a06b-831f23744f0f\",\n    \"dob\" :\"\",\n    \"weight\": {\n        \"value\":\"\",\n        \"unit\":\"\"\n    },\n    \"personality_tags\":[\"e41ccc96-0eb7-4773-b97c-315c2565447f\"]\n}",
+							"raw": "{\n    \"name\" : \"pichu-2\",\n    \"type\" : \"cat\",\n    \"breed_id\" :\"19d175cf-b895-419e-812c-5ae843dc759b\",\n    \"dob\" :\"\",\n    \"weight\": {\n        \"value\":\"\",\n        \"unit\":\"\"\n    },\n    \"personality_tags\":[\"1f5e6bb3-4d9d-416c-ac39-f12e8cb0e154\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1164,7 +1242,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"pet_id\":\"c9a5cd6c-c47f-407c-8bcf-c83c70d81b85\",\n    \"name\" : \"tiger\",\n    \"type\" : \"dog\",\n    \"breed_id\" :\"\",\n    \"dob\" :\"\",\n    \"weight\": {\n        \"value\":\"10\",\n        \"unit\":\"kg\"\n    },\n    \"personality_tags\":[\"3d528f3d-5159-4b7b-bd73-39e3c969b606\"]\n}",
+							"raw": "{\n    \"pet_id\":\"d7b8c6a6-e977-41b7-8bdd-b7f57b26c2c1\",\n    \"name\" : \"tiger\",\n    \"type\" : \"dog\",\n    \"breed_id\" :\"\",\n    \"dob\" :\"\",\n    \"weight\": {\n        \"value\":\"10\",\n        \"unit\":\"kg\"\n    },\n    \"image_url\":\"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/profile_pics/21404225-2c1c-45fa-9a42-af12af3a6be5.png\",\n    \"personality_tags\":[\"35cda955-bc27-4364-b21e-7ba246885a84\"]\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1208,14 +1286,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/account/pets/c9a5cd6c-c47f-407c-8bcf-c83c70d81b85",
+							"raw": "{{BASE_URL}}/account/pets/e8457a9f-b5cf-455c-9289-f3d5aebc0bce",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"account",
 								"pets",
-								"c9a5cd6c-c47f-407c-8bcf-c83c70d81b85"
+								"e8457a9f-b5cf-455c-9289-f3d5aebc0bce"
 							]
 						}
 					},
@@ -1242,7 +1320,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"account_name\" :\"\", // optional\n    \"username\":\"hari\",\n    \"email\":\"bro@gmail.com\" //optional\n}"
+							"raw": ""
 						},
 						"url": {
 							"raw": "{{BASE_URL}}/adoption/listings",
@@ -1252,10 +1330,143 @@
 							"path": [
 								"adoption",
 								"listings"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "cat",
+									"disabled": true
+								},
+								{
+									"key": "breed",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "ageMin",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "adopted",
+									"disabled": true
+								}
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/adoption/listings",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"adoption",
+										"listings"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1243"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4db-57O+EaysSQXXTQa+xyF0fC6LXHk\""
+								},
+								{
+									"key": "Date",
+									"value": "Fri, 17 Oct 2025 11:46:22 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Adoption listings retrieved successfully\",\n    \"data\": [\n        {\n            \"id\": \"04426b56-e508-4831-8f1f-5eeff6c2a7ba\",\n            \"pet_id\": \"cef91223-953c-4455-bcd2-5aae3a00d8ec\",\n            \"description\": null,\n            \"adoption_fee\": null,\n            \"status\": \"available\",\n            \"created_at\": \"2025-10-17T06:16:19.669Z\",\n            \"pet_name\": \"pichu\",\n            \"pet_type\": \"cat\",\n            \"pet_dob\": null,\n            \"weight_value\": null,\n            \"weight_unit\": null,\n            \"image_url\": null,\n            \"breed_name\": \"British Shorthair\",\n            \"account_name\": \"Besant Memorial Animal Dispensary\",\n            \"account_type\": \"ngo\",\n            \"listed_by_name\": \"hari\",\n            \"age\": null,\n            \"personality_tags\": [\n                \"Independent\"\n            ]\n        },\n        {\n            \"id\": \"0d3adde1-fdb8-4a7f-a306-8886047dd49c\",\n            \"pet_id\": \"841e7f9e-c3ad-4b91-a23e-c722b76f4408\",\n            \"description\": null,\n            \"adoption_fee\": null,\n            \"status\": \"available\",\n            \"created_at\": \"2025-10-17T05:58:55.520Z\",\n            \"pet_name\": \"tiger\",\n            \"pet_type\": \"dog\",\n            \"pet_dob\": null,\n            \"weight_value\": null,\n            \"weight_unit\": null,\n            \"image_url\": null,\n            \"breed_name\": \"Bakharwal Dog\",\n            \"account_name\": \"Besant Memorial Animal Dispensary\",\n            \"account_type\": \"ngo\",\n            \"listed_by_name\": \"hari\",\n            \"age\": null,\n            \"personality_tags\": [\n                \"Energetic\"\n            ]\n        }\n    ],\n    \"pagination\": {\n        \"page\": 1,\n        \"limit\": 20,\n        \"total\": \"2\",\n        \"totalPages\": 1,\n        \"hasNextPage\": false,\n        \"hasPrevPage\": false\n    },\n    \"meta\": {\n        \"filters\": {},\n        \"totalCount\": \"2\",\n        \"summary\": {\n            \"pets_listed\": \"2\",\n            \"active_listings\": \"2\",\n            \"total_adoptions\": \"0\"\n        }\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "/adoption/listings",
@@ -1264,13 +1475,18 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"value": "{{ACCESS_TOKEN_NGO}}",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"account_name\" :\"\", // optional\n    \"username\":\"hari\",\n    \"email\":\"bro@gmail.com\" //optional\n}"
+							"raw": "{\n    \"pet_id\" :\"7c078e7b-3c52-4e05-9ab8-9f3dd5939259\",\n    \"description\": \"\",\n    \"status\":\"adopted\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "{{BASE_URL}}/adoption/listings",
@@ -1389,12 +1605,18 @@
 							}
 						],
 						"url": {
-							"raw": "{{BASE_URL}}/medications",
+							"raw": "{{BASE_URL}}/medications?pet_id=e8457a9f-b5cf-455c-9289-f3d5aebc0bce",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"medications"
+							],
+							"query": [
+								{
+									"key": "pet_id",
+									"value": "e8457a9f-b5cf-455c-9289-f3d5aebc0bce"
+								}
 							]
 						}
 					},
@@ -1519,7 +1741,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n  \"name\": \"trazodone\",\n  \"company\": \"\",\n  \"dosage\": \"25 mg\",\n  \"frequency_id\": \"b593dd2b-6643-487f-a1cd-19e40b25e389\",\n  \"start_date\": \"2025-10-02\",\n  \"end_date\": \"\",\n  \"notes\": \"testing\",\n  \"image_url\": \"\",\n  \"timeslots\": [\n    {\n      \"timeslot_id\": \"65a0f58e-a35e-4dcd-a678-623b7bd454dd\",\n      \"custom_time\": \"08:30:00\"\n    },\n    {\n      \"timeslot_id\": \"ddfa2e35-0a26-485b-8af1-39be08e2f4c1\",\n      \"custom_time\": null\n    }\n  ],\n  \"reminder\" : {\n    \"enabled\" : \"true\"\n  }\n}\n",
+							"raw": "{\n  \"pet_id\": \"9b49c402-85a4-4718-b8e8-63b230a5e9e8\",\n  \"name\": \"trazodone\",\n  \"company\": \"\",\n  \"dosage_value\": 2,\n  \"dosage_type_id\":\"782b403d-08d1-4f48-941a-a14efbe5a347\",\n  \"frequency_id\": \"f0a5adee-75e1-4dc1-beaf-142d6eb733de\",\n  \"start_date\": \"2025-10-02\",\n  \"end_date\": \"\",\n  \"notes\": \"testing\",\n  \"image_url\": \"\",\n  \"timeslots\": [\n    {\n      \"timeslot_id\": \"d338ae8b-2458-4cc2-9b3f-bdcde323c838\",\n      \"custom_time\": \"08:30:00\"\n    },\n    {\n      \"timeslot_id\": \"a34a882a-3e81-495c-ab98-b23694885ef8\",\n      \"custom_time\": null\n    }\n  ],\n  \"reminder\" : {\n    \"enabled\" : \"true\"\n  }\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1551,7 +1773,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n  \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n  \"name\": \"trazodone-2\",\n  \"company\": \"test\",\n  \"dosage\": \"25 mg\",\n  \"start_date\": \"2025-10-02\",\n  \"end_date\": \"\",\n  \"notes\": \"\",\n  \"image_url\": \"\",\n  \"timeslots\": [\n    {\n      \"timeslot_id\": \"65a0f58e-a35e-4dcd-a678-623b7bd454dd\",\n      \"custom_time\": \"09:00:00\"\n    },\n    {\n      \"timeslot_id\": \"ddfa2e35-0a26-485b-8af1-39be08e2f4c1\",\n      \"custom_time\": null\n    }\n  ],\n  \"reminder\" : {\n    \"enabled\" : false\n  }\n}\n",
+							"raw": "{\n  \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n  \"name\": \"trazodone-2\",\n  \"company\": \"test\",\n  \"dosage\": \"25 mg\",\n  \"start_date\": \"2025-10-02\",\n  \"end_date\": \"\",\n  \"notes\": \"\",\n  \"image_url\": \"\",\n  \"dosage_value\" : \"3\",\n  \"dosage_type_id\": \"fea7e16d-b852-4795-9dba-4ed792be5bde\",\n//   \"timeslots\": [\n//     {\n//       \"timeslot_id\": \"65a0f58e-a35e-4dcd-a678-623b7bd454dd\",\n//       \"custom_time\": \"09:00:00\"\n//     },\n//     {\n//       \"timeslot_id\": \"ddfa2e35-0a26-485b-8af1-39be08e2f4c1\",\n//       \"custom_time\": null\n//     }\n//   ],\n  \"reminder\" : {\n    \"enabled\" : false\n  }\n}\n",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1559,13 +1781,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/medications/4e157138-4e40-45a6-b864-25891046e612",
+							"raw": "{{BASE_URL}}/medications/d82aa429-8909-4979-9b7f-74730986dc4f",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"medications",
-								"4e157138-4e40-45a6-b864-25891046e612"
+								"d82aa429-8909-4979-9b7f-74730986dc4f"
 							]
 						}
 					},
@@ -1595,13 +1817,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/medications/04b35d22-cd11-4f0b-9c38-36b80549c95a",
+							"raw": "{{BASE_URL}}/medications/0d9a4dd0-57a8-4aa8-81b8-92cac82681f7",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"medications",
-								"04b35d22-cd11-4f0b-9c38-36b80549c95a"
+								"0d9a4dd0-57a8-4aa8-81b8-92cac82681f7"
 							]
 						}
 					},
@@ -1620,7 +1842,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"medication_id\": \"eb47387f-e012-4556-9930-0557f8918041\",\n    \"schedule_ids\" : [\"40e5c836-4526-4550-ac02-cf7fe4dfa4e3\"],\n    \"notes\" : \"test\"\n}",
+							"raw": "{\n    \"medication_id\": \"0d9a4dd0-57a8-4aa8-81b8-92cac82681f7\",\n    \"schedule_ids\" : [\"954e53f5-8b50-45a6-b25a-9b0ba439a9a9\"],\n    \"notes\" : \"test\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1656,7 +1878,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"medication_id\": \"eb47387f-e012-4556-9930-0557f8918041\",\n    \"notes\" : \"test\"\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1664,14 +1886,20 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/medications/logs/eb47387f-e012-4556-9930-0557f8918041",
+							"raw": "{{BASE_URL}}/medications/logs/0d9a4dd0-57a8-4aa8-81b8-92cac82681f7?limit=100",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"medications",
 								"logs",
-								"eb47387f-e012-4556-9930-0557f8918041"
+								"0d9a4dd0-57a8-4aa8-81b8-92cac82681f7"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100"
+								}
 							]
 						}
 					},
@@ -1728,7 +1956,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"pet_id\" : \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n    \"name\" : \"rabies\",\n    \"frequency_id\" : \"463bb22d-5684-4b74-8f1f-d53b02bac977\",\n    \"due_date\":\"2026-01-01\",\n    // \"status\":\"given\", // send if it was already given \n    \"notes\" : \"\",\n    \"image_url\" : \"\",\n    \"reminder\": {\n        \"enabled\":\"true\",\n        \"reminder_time\" : \"2025-01-01\",\n        \"timezone\" : \"\"\n    }\n}",
+							"raw": "{\n    \"pet_id\" : \"9b49c402-85a4-4718-b8e8-63b230a5e9e8\",\n    \"name\" : \"rabies\",\n    \"company_name\":\"test c\",\n    \"date_administered\": \"2026-10-10\",\n    \"frequency_id\" : \"4d6f161a-63b2-432d-8059-e7f8742ac95c\",\n    \"time_frequency_id\":\"3bd66c64-ef61-4ba8-aa96-4bfc2e905fcb\",\n    \"due_date\":\"2025-10-19\",\n    // \"status\":\"given\", // send if it was already given \n    \"notes\" : \"\",\n    \"image_url\" : \"\",\n    \"reminder\": {\n        \"enabled\":\"true\",\n        \"reminder_time\" : \"15:03\",\n        \"timezone\" : \"IST\"\n    }\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1804,7 +2032,7 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/vaccinations?pet_id=&is_active=true&status=&search=",
+							"raw": "{{BASE_URL}}/vaccinations?pet_id=9b49c402-85a4-4718-b8e8-63b230a5e9e8",
 							"host": [
 								"{{BASE_URL}}"
 							],
@@ -1813,21 +2041,24 @@
 							],
 							"query": [
 								{
-									"key": "pet_id",
-									"value": ""
-								},
-								{
 									"key": "is_active",
-									"value": "true"
+									"value": "true",
+									"disabled": true
 								},
 								{
 									"key": "status",
 									"value": "",
-									"description": "//pending, given,missed"
+									"description": "//pending, given,missed",
+									"disabled": true
 								},
 								{
 									"key": "search",
-									"value": ""
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "pet_id",
+									"value": "9b49c402-85a4-4718-b8e8-63b230a5e9e8"
 								}
 							]
 						}
@@ -1858,13 +2089,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/vaccinations/8477e576-7cc5-4d40-b2df-09ded63e17f4",
+							"raw": "{{BASE_URL}}/vaccinations/f31e8afd-a153-4c77-9bc4-f49b160d91d6",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"vaccinations",
-								"8477e576-7cc5-4d40-b2df-09ded63e17f4"
+								"f31e8afd-a153-4c77-9bc4-f49b160d91d6"
 							]
 						}
 					},
@@ -1916,7 +2147,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"vaccination_id\" : \"8477e576-7cc5-4d40-b2df-09ded63e17f4\",\n    \"notes\" : \"test\"\n}",
+							"raw": "{\n    \"vaccination_id\" : \"b10af5fb-2ac7-446f-9fd4-22ea125b2d0e\",\n    \"notes\" : \"test\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1960,14 +2191,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{BASE_URL}}/vaccinations/logs/8477e576-7cc5-4d40-b2df-09ded63e17f4",
+							"raw": "{{BASE_URL}}/vaccinations/logs/b10af5fb-2ac7-446f-9fd4-22ea125b2d0e",
 							"host": [
 								"{{BASE_URL}}"
 							],
 							"path": [
 								"vaccinations",
 								"logs",
-								"8477e576-7cc5-4d40-b2df-09ded63e17f4"
+								"b10af5fb-2ac7-446f-9fd4-22ea125b2d0e"
 							]
 						}
 					},
@@ -2019,7 +2250,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"pet_id\":\"5393d0d9-b205-45aa-83c5-5b1946b5f478\", //selected pet_id\n    \"file_url\" : \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/diary/media/d0e12e6e-afef-4a31-ae56-2a667d27e320.png\",\n    \"file_type\" : \"image\", //\"image\", \"video\"\n    \"file_size\" : \"1468006.4\", // integer/number\n    \"notes\" : \"\", // optional\n    \"event_type_id\" : \"06c87a12-dde1-4cfb-b87d-931ea1d04fb1\" // get 'id' from /enums api\n}",
+									"raw": "{\n    \"pet_id\":\"715bb2e3-6aa5-4350-9fae-2091005e90a5\", //selected pet_id\n    \"file_url\" : \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/diary/media/d0e12e6e-afef-4a31-ae56-2a667d27e320.png\",\n    \"file_type\" : \"image\", //\"image\", \"video\"\n    \"file_size\" : \"1468006.4\", // integer/number\n    \"notes\" : \"\", // optional\n    \"event_type_id\" : \"6f261cca-4058-41ea-aa7c-de13066bf162\" // get 'id' from /enums api\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2818,7 +3049,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"pet_id\": \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n    \"walk_date\": \"2025-10-10\", // yyyy-mm-dd\n    \"duration_minutes\": 30, // number - max 1440 -24 hours\n    \"location\": \"\",\n    \"notes\": \"\",\n    \"media\": [\n        { //note: max 2 medias allowed for now\n            \"file_url\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/daily_care/5cd1ac49-f5e4-44c0-87e4-f30fb7f2e76b.png\",\n            \"file_type\": \"image\",//image/video\n            \"file_size\": \"146800.6\"\n        }\n    ]\n}",
+									"raw": "{\n    \"pet_id\": \"e8457a9f-b5cf-455c-9289-f3d5aebc0bce\",\n    \"walk_date\": \"2025-10-10\", // yyyy-mm-dd\n    \"duration_minutes\": 30, // number - max 1440 -24 hours\n    \"location\": \"\",\n    \"notes\": \"\",\n    \"media\": [\n        { //note: max 2 medias allowed for now\n            \"file_url\": \"https://doommi-dev.s3.ap-south-1.amazonaws.com/uploads/pet/daily_care/5cd1ac49-f5e4-44c0-87e4-f30fb7f2e76b.png\",\n            \"file_type\": \"image\",//image/video\n            \"file_size\": \"146800.6\"\n        }\n    ]\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -3820,7 +4051,7 @@
 			]
 		},
 		{
-			"name": "memories",
+			"name": "memories [wip]",
 			"item": [
 				{
 					"name": "/memories",
@@ -3835,7 +4066,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"pet_id\" : \"08b4f1e6-d864-4e39-9a37-b6ca88b713a5\",\n    \"entity_type\" : \"walk\", // meal, walk, 9179d466-3413-4a74-b540-380d0adc5033, deworming, expense, vaccination, medication, diary_media\n    \"entity_id\":\"9179d466-3413-4a74-b540-380d0adc5033\",\n    \"title\":\"\",\n    \"description\":\"\"\n}",
+							"raw": "{\n    \"pet_id\" : \"e8457a9f-b5cf-455c-9289-f3d5aebc0bce\",\n    \"entity_type\" : \"walk\", // meal, walk, deworming, expense, vaccination, medication, diary_media\n    \"entity_id\":\"2c5e8434-9496-4c28-87fe-110da74d90e1\",\n    \"title\":\"\",\n    \"description\":\"\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -3849,6 +4080,497 @@
 							],
 							"path": [
 								"memories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/memories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/memories?pet_id=e8457a9f-b5cf-455c-9289-f3d5aebc0bce",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"memories"
+							],
+							"query": [
+								{
+									"key": "pet_id",
+									"value": "e8457a9f-b5cf-455c-9289-f3d5aebc0bce"
+								},
+								{
+									"key": "entity_type",
+									"value": "deworming",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "sort_by",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "sort_order",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/memories",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/memories/5f47d01f-b8bb-457b-9a7d-59087b04cce1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"memories",
+								"5f47d01f-b8bb-457b-9a7d-59087b04cce1"
+							],
+							"query": [
+								{
+									"key": "entity_type",
+									"value": "deworming",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "sort_by",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "sort_order",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "places",
+			"item": [
+				{
+					"name": "/places [admin]",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"test clinic\",\n    \"type\" : \"clinic\", //\"clinic\", \"store\"\n    \"description\" : \"\",\n    \"phone\" : \"\",\n    \"email\" : \"\",\n    \"website\" : \"\",\n    \"address_line1\" : \"\",\n    \"address_line2\" : \"\",\n    \"city\" : \"\",\n    \"state\" : \"\",\n    \"country\":\"\",\n    \"pincode\" : \"600053\",\n    \"latitude\" : \"\",\n    \"longitude\" : \"\",\n    \"google_maps_url\" : \"\",\n    \"is_verified\" : true // optional - default false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/places",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"places"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/places [admin]",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"test clini -2\",\n    \"type\" : \"clinic\", //\"clinic\", \"store\"\n    \"description\" : \"\",\n    \"phone\" : \"\",\n    \"email\" : \"\",\n    \"website\" : \"\",\n    \"address_line1\" : \"\",\n    \"address_line2\" : \"\",\n    \"city\" : \"\",\n    \"state\" : \"\",\n    \"country\":\"\",\n    \"pincode\" : \"600053\",\n    \"latitude\" : \"\",\n    \"longitude\" : \"\",\n    \"google_maps_url\" : \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/places/7f7a9289-2420-4ba4-9fba-30cca367ed6f",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"places",
+								"7f7a9289-2420-4ba4-9fba-30cca367ed6f"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/places",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/places?type=clinic&pincode=600053",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"places"
+							],
+							"query": [
+								{
+									"key": "type",
+									"value": "clinic"
+								},
+								{
+									"key": "pincode",
+									"value": "600053"
+								},
+								{
+									"key": "latitude",
+									"value": "13.0843",
+									"disabled": true
+								},
+								{
+									"key": "longitude",
+									"value": "80.2705",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/places?type=clinic&latitude=13.0843&longitude=80.2705",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"places"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "clinic"
+										},
+										{
+											"key": "pincode",
+											"value": "600053",
+											"disabled": true
+										},
+										{
+											"key": "latitude",
+											"value": "13.0843"
+										},
+										{
+											"key": "longitude",
+											"value": "80.2705"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Security-Policy",
+									"value": "default-src 'self';base-uri 'self';font-src 'self' https: data:;form-action 'self';frame-ancestors 'self';img-src 'self' data:;object-src 'none';script-src 'self';script-src-attr 'none';style-src 'self' https: 'unsafe-inline';upgrade-insecure-requests"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Resource-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Origin-Agent-Cluster",
+									"value": "?1"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "no-referrer"
+								},
+								{
+									"key": "Strict-Transport-Security",
+									"value": "max-age=31536000; includeSubDomains"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-DNS-Prefetch-Control",
+									"value": "off"
+								},
+								{
+									"key": "X-Download-Options",
+									"value": "noopen"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "SAMEORIGIN"
+								},
+								{
+									"key": "X-Permitted-Cross-Domain-Policies",
+									"value": "none"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "675"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2a3-/K5CyS8KFyILx+TOSYe4VPE2Onw\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 21 Oct 2025 04:40:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Places fetched\",\n    \"data\": [\n        {\n            \"id\": \"c6a286cd-4c26-41b2-810f-c651a8a2fcae\",\n            \"name\": \"test clinic\",\n            \"type\": \"clinic\",\n            \"description\": null,\n            \"phone\": null,\n            \"email\": null,\n            \"website\": null,\n            \"address_line1\": null,\n            \"address_line2\": null,\n            \"city\": null,\n            \"state\": null,\n            \"country\": null,\n            \"pincode\": \"600053\",\n            \"latitude\": \"13.118600\",\n            \"longitude\": \"80.157400\",\n            \"google_maps_url\": null,\n            \"is_active\": true,\n            \"verified\": true,\n            \"created_by\": \"4a9a40da-599a-4043-b19d-ac25ee285813\",\n            \"verified_by\": null,\n            \"created_at\": \"2025-10-19T01:29:17.452Z\",\n            \"updated_at\": \"2025-10-19T01:29:17.452Z\",\n            \"distance_meters\": 12843.28352295226\n        }\n    ],\n    \"pagination\": {\n        \"page\": 1,\n        \"limit\": 10,\n        \"total\": 3,\n        \"hasNextPage\": false,\n        \"hasPrevPage\": false\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "/places/:id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/places/c6a286cd-4c26-41b2-810f-c651a8a2fcae",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"places",
+								"c6a286cd-4c26-41b2-810f-c651a8a2fcae"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notifications",
+			"item": [
+				{
+					"name": "/notifications",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/notifications",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"notifications"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/notifications/:id/read",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{ACCESS_TOKEN_PET_PARENT}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/notifications/:id/read",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"notifications",
+								":id",
+								"read"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
 							]
 						}
 					},

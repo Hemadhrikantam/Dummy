@@ -33,6 +33,7 @@ class CustomDropdownSearch extends StatelessWidget {
     this.hintTextColor,
     this.hintTextFontWeight,
     this.onFind,
+    this.enabled = true,
   });
   final InputBorder? focusedBorder;
   final String? label;
@@ -56,6 +57,7 @@ class CustomDropdownSearch extends StatelessWidget {
   final String Function(DropItem)? itemAsString;
   final Color? hintTextColor;
   final FontWeight? hintTextFontWeight;
+  final bool enabled;
 
   @override
   Widget build(BuildContext context) {
@@ -70,6 +72,7 @@ class CustomDropdownSearch extends StatelessWidget {
           ),
         if (title != '') Styles.gap6,
         DropdownSearch<DropItem>(
+          enabled: enabled,
           asyncItems: onFind,
           dropdownButtonProps: DropdownButtonProps(
             icon: Icon(Icons.keyboard_arrow_down_outlined),
@@ -86,6 +89,10 @@ class CustomDropdownSearch extends StatelessWidget {
                 fontSize: fontSize ?? 14,
                 fontWeight: hintTextFontWeight ?? FontWeight.w400,
                 color: hintTextColor ?? AppColors.grey700,
+              ),
+              disabledBorder: OutlineInputBorder(
+                borderRadius: Styles.borderRadiusCircular50,
+                borderSide: BorderSide(color: AppColors.grey500!, width: 1),
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: Styles.borderRadiusCircular50,
@@ -219,6 +226,7 @@ class CustomDropdownSearch extends StatelessWidget {
     );
   }
 }
+
 class CustomStringDropdownSearch extends StatelessWidget {
   const CustomStringDropdownSearch({
     super.key,
@@ -253,7 +261,11 @@ class CustomStringDropdownSearch extends StatelessWidget {
   final Widget? customWidget;
   final String title;
   final bool? isMandatory;
-  final Widget Function(BuildContext context, DropStringItem item, bool isSelected)?
+  final Widget Function(
+    BuildContext context,
+    DropStringItem item,
+    bool isSelected,
+  )?
   itemBuilder;
   final Widget Function(BuildContext context, String value)? emptyBuilder;
   final Future<List<DropStringItem>> Function(String filter)? onFind;

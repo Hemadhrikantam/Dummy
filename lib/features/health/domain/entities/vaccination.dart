@@ -8,9 +8,13 @@ class PetVaccination extends Equatable {
   final String name;
   final String frequencyId;
   final String? frequencyName;
+  final String companyName;
+  final String timeFrequencyId;
+  final String? timeFrequencyName;
 
   /// Dates / status
   final DateTime dueDate;
+  final DateTime? dateAdministered;
   final String status; // "pending" | "processing" | "completed" | "failed" | ...
 
   /// Notes / media
@@ -35,7 +39,11 @@ class PetVaccination extends Equatable {
     required this.name,
     required this.frequencyId,
     this.frequencyName,
+    required this.companyName,
+    required this.timeFrequencyId,
+    this.timeFrequencyName,
     required this.dueDate,
+    this.dateAdministered,
     required this.status,
     this.notes = "",
     this.imageUrl,
@@ -56,7 +64,11 @@ class PetVaccination extends Equatable {
         name,
         frequencyId,
         frequencyName,
+        companyName,
+        timeFrequencyId,
+        timeFrequencyName,
         dueDate,
+        dateAdministered,
         status,
         notes,
         imageUrl,

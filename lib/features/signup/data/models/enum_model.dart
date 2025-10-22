@@ -3,6 +3,10 @@ import 'package:dummy/features/signup/domain/entities/diary_event_time.dart';
 import 'package:dummy/features/signup/domain/entities/frequency_type.dart';
 import 'package:dummy/features/signup/domain/entities/medication_timeslot.dart';
 import 'package:dummy/features/signup/domain/entities/personality_tag.dart';
+import 'package:dummy/features/signup/domain/entities/dosage_type.dart';
+import 'package:dummy/features/signup/domain/entities/meal_type.dart';
+import 'package:dummy/features/signup/domain/entities/grooming_type.dart';
+import 'package:dummy/features/signup/domain/entities/expense_category.dart';
 import 'package:equatable/equatable.dart';
 
 class EnumModel extends Equatable {
@@ -11,6 +15,10 @@ class EnumModel extends Equatable {
   final List<FrequencyType> frequencyTypes;
   final List<MedicationTimeslot> medicationTimeslots;
   final List<DiaryEventType> diaryEventTypes;
+  final List<DosageType> dosageTypes;
+  final List<MealType> mealTypes;
+  final List<GroomingType> groomingTypes;
+  final List<ExpenseCategory> expenseCategories;
 
   const EnumModel({
     required this.breeds,
@@ -18,6 +26,10 @@ class EnumModel extends Equatable {
     required this.frequencyTypes,
     required this.medicationTimeslots,
     required this.diaryEventTypes,
+    this.dosageTypes = const [],
+    this.mealTypes = const [],
+    this.groomingTypes = const [],
+    this.expenseCategories = const [],
   });
 
   factory EnumModel.fromJson(Map<String, dynamic> json) {
@@ -49,6 +61,26 @@ class EnumModel extends Equatable {
               ?.map((e) => DiaryEventType.fromJson(e))
               .toList() ??
           [],
+      dosageTypes:
+          (data['dosageTypes'] as List<dynamic>?)
+              ?.map((e) => DosageType.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      mealTypes:
+          (data['mealTypes'] as List<dynamic>?)
+              ?.map((e) => MealType.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      groomingTypes:
+          (data['groomingTypes'] as List<dynamic>?)
+              ?.map((e) => GroomingType.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
+      expenseCategories:
+          (data['expenseCategories'] as List<dynamic>?)
+              ?.map((e) => ExpenseCategory.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
     );
   }
 
@@ -59,5 +91,9 @@ class EnumModel extends Equatable {
     frequencyTypes,
     medicationTimeslots,
     diaryEventTypes,
+    dosageTypes,
+    mealTypes,
+    groomingTypes,
+    expenseCategories,
   ];
 }

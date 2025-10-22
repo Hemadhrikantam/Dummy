@@ -7,7 +7,8 @@ class MedicationFormEvent with _$MedicationFormEvent {
   const factory MedicationFormEvent.tabletName(String value) = _TabletName;
   const factory MedicationFormEvent.company(String value) = _Company;
   const factory MedicationFormEvent.dosage(String value) = _Dosage;
-  const factory MedicationFormEvent.dosageUnit(DropItem value) = _DosageUnit;
+  const factory MedicationFormEvent.dosageUnit(DropStringItem value) =
+      _DosageUnit;
 
   const factory MedicationFormEvent.morningTimeHour(DropItem value) =
       _MorningTimeHour;

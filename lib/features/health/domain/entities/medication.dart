@@ -6,7 +6,9 @@ class PetMedication extends Equatable {
   final String petId;
   final String name;
   final String company;
-  final String dosage; // e.g. "142 tablets"
+  final String dosageValue; // e.g. "142 tablets"
+  final String? dosageTypeId;
+  final String? dosageTypeName;
   final String frequencyId;
   final String? frequencyName;
 
@@ -33,7 +35,9 @@ class PetMedication extends Equatable {
     required this.petId,
     required this.name,
     required this.company,
-    required this.dosage,
+    required this.dosageValue,
+    this.dosageTypeId,
+    this.dosageTypeName,
     required this.frequencyId,
     this.frequencyName,
     required this.startDate,
@@ -54,7 +58,9 @@ class PetMedication extends Equatable {
     petId,
     name,
     company,
-    dosage,
+    dosageValue,
+    dosageTypeId,
+    dosageTypeName,
     frequencyId,
     frequencyName,
     startDate,

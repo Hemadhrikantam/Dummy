@@ -17,7 +17,7 @@ class VaccinationFormEvent with _$VaccinationFormEvent {
       _Frequency;
   const factory VaccinationFormEvent.reminderTimezone(DropItem value) =
       _ReminderTimezone;
-  const factory VaccinationFormEvent.reminderBefore(DropItem value) =
+  const factory VaccinationFormEvent.reminderBefore(DropStringItem value) =
       _ReminderBefore;
   const factory VaccinationFormEvent.reminderHour(DropItem value) =
       _ReminderHour;

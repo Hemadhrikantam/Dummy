@@ -10,7 +10,7 @@ abstract class MedicationFormState with _$MedicationFormState {
     @Default(NotEmpty.pure()) NotEmpty tabletName,
     @Default(NotEmpty.pure()) NotEmpty company,
     @Default(NotEmpty.pure()) NotEmpty dosage,
-    @Default(DropdownValue.pure()) DropdownValue dosageUnit,
+    @Default(DropdownStringValue.pure()) DropdownStringValue dosageUnit,
 
     @Default(false) bool morningTimeEnable,
     @Default(false) bool afternoonTimeEnable,
@@ -31,7 +31,7 @@ abstract class MedicationFormState with _$MedicationFormState {
     @Default(NotEmpty.pure()) NotEmpty media,
 
     @Default(DropdownStringValue.pure()) DropdownStringValue frequency,
-    @Default([]) List<DropItem> dosageUnits,
+    @Default([]) List<DropStringItem> dosageUnits,
     @Default([]) List<DropStringItem> frequencies,
 
     @Default(false) bool validation,

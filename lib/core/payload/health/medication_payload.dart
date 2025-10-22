@@ -9,10 +9,11 @@ class MedicationPayload extends Equatable implements Payload {
     required this.petId,
     required this.name,
     this.company = "",
-    required this.dosage, // e.g. "25 mg"
+    required this.dosageValue,
+    required this.dosageTypeId,
     required this.frequencyId,
     required this.startDate,
-    this.endDate, // optional
+    this.endDate,
     this.notes = "",
     this.imageUrl = "",
     this.timeslots = const <TimeslotPayload>[],
@@ -24,8 +25,9 @@ class MedicationPayload extends Equatable implements Payload {
   final String name;
   final String company;
 
-  /// e.g. "25 mg"
-  final String dosage;
+  /// Dosage
+  final int dosageValue; // e.g. 2
+  final String dosageTypeId; // e.g. type id
   final String frequencyId;
 
   /// Dates
@@ -47,7 +49,8 @@ class MedicationPayload extends Equatable implements Payload {
     petId,
     name,
     company,
-    dosage,
+    dosageValue,
+    dosageTypeId,
     frequencyId,
     startDate,
     endDate,
@@ -63,7 +66,8 @@ class MedicationPayload extends Equatable implements Payload {
       'pet_id': petId,
       'name': name,
       'company': company,
-      'dosage': dosage, // already combined as "25 mg"
+      'dosage_value': dosageValue,
+      'dosage_type_id': dosageTypeId,
       'frequency_id': frequencyId,
       'start_date': AppUtil.formatDate(startDate), // "YYYY-MM-DD"
       // API sample shows empty string when absent; mirror that:

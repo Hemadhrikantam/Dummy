@@ -247,7 +247,7 @@ class __Tablets extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
       builder: (context, state) {
-        return CustomDropdownSearch(
+        return CustomStringDropdownSearch(
           items: state.reminderBefores,
           selectedItem: state.reminderBefore.value,
           onChanged: (value) {

@@ -13,14 +13,10 @@ import 'package:dummy/features/health/domain/usecases/get_vaccination_usecases.d
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
+import 'package:intl/intl.dart';
 import '../../../../../core/payload/health/vaccination_payload.dart';
-import '../../../../dailycare/domain/entities/remind_before.dart';
 import '../../../../dailycare/domain/entities/timezone.dart';
-import '../../../../dailycare/domain/usecases/remind_before_usecases.dart';
-import '../../../../dailycare/domain/usecases/timezones_usecases.dart';
 import '../../../domain/usecases/add_vaccination_usecases.dart';
-import '../../../domain/usecases/medication_frequency_usecases.dart';
 
 part 'vaccination_form_event.dart';
 part 'vaccination_form_state.dart';
@@ -30,15 +26,9 @@ class VaccinationFormBloc
     extends Bloc<VaccinationFormEvent, VaccinationFormState> {
   VaccinationFormBloc({
     required AddVaccinationUsecases addVaccinationUsecases,
-    required MedicationFrequencyUsecases medicationFrequencyUsecases,
-    required TimezonesUsecases timezonesUsecases,
     required EditVaccinationUsecases editVaccinationUsecases,
-    required RemindBeforeUsecases beforeUsecases,
     required GetVaccinationUsecases getVaccinationUsecases,
   }) : _addVaccinationUsecase = addVaccinationUsecases,
-       _medicationFrequencyUsecases = medicationFrequencyUsecases,
-       _timezonesUsecases = timezonesUsecases,
-       _beforeUsecases = beforeUsecases,
        _editVaccinationUsecase = editVaccinationUsecases,
        _getVaccinationUsecase = getVaccinationUsecases,
        super(const VaccinationFormState()) {
@@ -60,26 +50,26 @@ class VaccinationFormBloc
   }
 
   final AddVaccinationUsecases _addVaccinationUsecase;
-  final MedicationFrequencyUsecases _medicationFrequencyUsecases;
-  final TimezonesUsecases _timezonesUsecases;
-  final RemindBeforeUsecases _beforeUsecases;
   final GetVaccinationUsecases _getVaccinationUsecase;
   final EditVaccinationUsecases _editVaccinationUsecase;
   Future<void> _onInit(_Init event, Emitter<VaccinationFormState> emit) async {
     emit(state.copyWith(initStatus: Status.loading));
     final frequencies =
         currentContext.read<AuthBloc>().state.enums?.frequencyTypes ?? [];
-    final reminderBefores = List<RemindBefore>.from(
-      (await _beforeUsecases()).fold((l) => [], (r) => r),
-    );
-    final timezones = List<Timezone>.from(
-      (await _timezonesUsecases()).fold((l) => [], (r) => r),
-    );
+    final reminderBefores =
+        frequencies.where((e) => e.frequencyType == 'time').toList();
+    final timezones = List<Timezone>.from([
+      Timezone(id: 1, code: 'UTC'),
+      Timezone(id: 2, code: 'IST'),
+      Timezone(id: 3, code: 'GMT'),
+    ]);
     emit(
       state.copyWith(
         petId: event.petId,
         frequencies:
             frequencies
+                .where((e) => e.frequencyType == 'date')
+                .toList()
                 .map((e) => DropStringItemModel(id: e.id, value: e.name))
                 .toList(),
         reminderTimezones:
@@ -87,9 +77,11 @@ class VaccinationFormBloc
               return DropItemModel(id: e.id, value: e.code);
             }).toList(),
         reminderBefores:
-            reminderBefores.map((e) {
-              return DropItemModel(id: e.id, value: e.title);
-            }).toList(),
+            frequencies
+                .where((e) => e.frequencyType == 'time')
+                .toList()
+                .map((e) => DropStringItemModel(id: e.id, value: e.name))
+                .toList(),
       ),
     );
     if (event.id != null) {
@@ -104,10 +96,25 @@ class VaccinationFormBloc
         emit(
           state.copyWith(
             vaccinationName: NotEmpty.dirty(value: vaccination.name),
-            // company: NotEmpty.dirty(value: vaccination.company),
-            // dateAdministered: NotEmpty.dirty(
-            //   value: vaccination.dateAdministered.toIso8601String(),
-            // ),
+            company: NotEmpty.dirty(value: vaccination.companyName),
+            dateAdministered: NotEmpty.dirty(
+              value: vaccination.dateAdministered?.toIso8601String() ?? '',
+            ),
+            reminderTimezone: DropdownValue.dirty(
+              DropItemModel(
+                id:
+                    timezones
+                        .firstWhere((e) => e.code == vaccination.timezone)
+                        .id,
+                value: vaccination.timezone ?? '',
+              ),
+            ),
+            reminderBefore: DropdownStringValue.dirty(
+              DropStringItemModel(
+                id: vaccination.timeFrequencyId,
+                value: vaccination.timeFrequencyName ?? '',
+              ),
+            ),
             dueDate: NotEmpty.dirty(
               value: vaccination.dueDate.toIso8601String(),
             ),
@@ -219,7 +226,9 @@ class VaccinationFormBloc
     _ReminderBefore event,
     Emitter<VaccinationFormState> emit,
   ) {
-    emit(state.copyWith(reminderBefore: DropdownValue.dirty(event.value)));
+    emit(
+      state.copyWith(reminderBefore: DropdownStringValue.dirty(event.value)),
+    );
     emit(state.copyWith(validation: state.validationX));
   }
 
@@ -233,10 +242,12 @@ class VaccinationFormBloc
     // final isPm = state.reminderAmPm.value!.value == "PM";
     final payload = VaccinationPayload(
       petId: currentContext.read<DashboardBloc>().state.selectedPet?.id ?? '',
-      // isGiven: state.isGiven,
+      companyName: state.company.value,
       name: state.vaccinationName.value,
       // company: state.company.value,
-      reminderTime: DateTime.now(),
+      reminderTime: DateFormat('HH:mm').parse(
+        '${state.reminderHour.value!.value}:${state.reminderMin.value!.value}',
+      ),
       // reminderTime: '${isPm ? h + 12 : h}:$m',
       // dateAdministered: DateTime.parse(state.dateAdministered.value),
       dueDate: DateTime.parse(state.dueDate.value),
@@ -245,9 +256,10 @@ class VaccinationFormBloc
       //   state.media.value,
       //   filename: state.media.value.split('/').last,
       // ),
+      dateAdministered: DateTime.parse(state.dateAdministered.value),
       frequencyId: state.frequency.value?.id.toString() ?? '',
-      reminderTimezone: state.reminderTimezone.value?.id.toString() ?? '',
-      // reminderBefore: state.reminderBefore.value!.id, ,
+      reminderTimezone: state.reminderTimezone.value?.value.toString() ?? '',
+      timeFrequencyId: state.reminderBefore.value!.id,
     );
     final result =
         event.id != null

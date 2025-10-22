@@ -301,7 +301,7 @@ class __Tablets extends StatelessWidget {
     return Expanded(
       child: BlocBuilder<MedicationFormBloc, MedicationFormState>(
         builder: (context, state) {
-          return CustomDropdownSearch(
+          return CustomStringDropdownSearch(
             selectedItem: state.dosageUnit.value,
             title: '',
             items: state.dosageUnits,
@@ -381,29 +381,27 @@ class __Morning extends StatefulWidget {
 }
 
 class ___MorningState extends State<__Morning> {
-  bool isChecked = false;
-
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CustomCheckBox(
-          isChecked: isChecked,
-          label: '',
-          onChanged: (value) {
-            setState(() {
-              isChecked = !isChecked;
-            });
-          },
-        ),
-        Expanded(
-          child: CustomCard(
-            padding: Styles.edgeInsetsAll06,
-            borderRadius: Styles.borderRadiusCircular50,
-            borderColor: AppColors.black.withOpacity(.1),
-            child: BlocBuilder<MedicationFormBloc, MedicationFormState>(
-              builder: (context, state) {
-                return Row(
+    return BlocBuilder<MedicationFormBloc, MedicationFormState>(
+      builder: (context, state) {
+        return Row(
+          children: [
+            CustomCheckBox(
+              isChecked: state.morningTimeEnable,
+              label: '',
+              onChanged: (value) {
+                context.read<MedicationFormBloc>().add(
+                  MedicationFormEvent.morningTimeEnable(value),
+                );
+              },
+            ),
+            Expanded(
+              child: CustomCard(
+                padding: Styles.edgeInsetsAll06,
+                borderRadius: Styles.borderRadiusCircular50,
+                borderColor: AppColors.black.withOpacity(.1),
+                child: Row(
                   children: [
                     Expanded(
                       flex: 4,
@@ -417,6 +415,7 @@ class ___MorningState extends State<__Morning> {
                     Expanded(
                       flex: 5,
                       child: CustomDropdownSearch(
+                        enabled: state.morningTimeEnable,
                         title: '',
                         selectedItem: state.morningTimeHour.value,
                         items: List.generate(12, (i) {
@@ -442,6 +441,7 @@ class ___MorningState extends State<__Morning> {
                     Expanded(
                       flex: 5,
                       child: CustomDropdownSearch(
+                        enabled: state.morningTimeEnable,
                         title: '',
                         selectedItem: state.morningTimeMin.value,
                         items: List.generate(60, (i) {
@@ -464,12 +464,12 @@ class ___MorningState extends State<__Morning> {
                       ),
                     ),
                   ],
-                );
-              },
+                ),
+              ),
             ),
-          ),
-        ),
-      ],
+          ],
+        );
+      },
     );
   }
 }
@@ -482,28 +482,27 @@ class __Afternoon extends StatefulWidget {
 }
 
 class ___AfternoonState extends State<__Afternoon> {
-  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CustomCheckBox(
-          isChecked: isChecked,
-          label: '',
-          onChanged: (value) {
-            setState(() {
-              isChecked = !isChecked;
-            });
-          },
-        ),
-        Expanded(
-          child: CustomCard(
-            padding: Styles.edgeInsetsAll06,
-            borderRadius: Styles.borderRadiusCircular50,
-            borderColor: AppColors.black.withOpacity(.1),
-            child: BlocBuilder<MedicationFormBloc, MedicationFormState>(
-              builder: (context, state) {
-                return Row(
+    return BlocBuilder<MedicationFormBloc, MedicationFormState>(
+      builder: (context, state) {
+        return Row(
+          children: [
+            CustomCheckBox(
+              isChecked: state.afternoonTimeEnable,
+              label: '',
+              onChanged: (value) {
+                context.read<MedicationFormBloc>().add(
+                  MedicationFormEvent.afternoonTimeEnable(value),
+                );
+              },
+            ),
+            Expanded(
+              child: CustomCard(
+                padding: Styles.edgeInsetsAll06,
+                borderRadius: Styles.borderRadiusCircular50,
+                borderColor: AppColors.black.withOpacity(.1),
+                child: Row(
                   children: [
                     Expanded(
                       flex: 4,
@@ -517,6 +516,7 @@ class ___AfternoonState extends State<__Afternoon> {
                     Expanded(
                       flex: 5,
                       child: CustomDropdownSearch(
+                        enabled: state.afternoonTimeEnable,
                         title: '',
                         selectedItem: state.afternoonTimeHour.value,
                         items: List.generate(12, (i) {
@@ -542,6 +542,7 @@ class ___AfternoonState extends State<__Afternoon> {
                     Expanded(
                       flex: 5,
                       child: CustomDropdownSearch(
+                        enabled: state.afternoonTimeEnable,
                         title: '',
                         selectedItem: state.afternoonTimeMin.value,
                         items: List.generate(60, (i) {
@@ -564,12 +565,12 @@ class ___AfternoonState extends State<__Afternoon> {
                       ),
                     ),
                   ],
-                );
-              },
+                ),
+              ),
             ),
-          ),
-        ),
-      ],
+          ],
+        );
+      },
     );
   }
 }
@@ -582,28 +583,27 @@ class __Night extends StatefulWidget {
 }
 
 class ___NightState extends State<__Night> {
-  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CustomCheckBox(
-          isChecked: isChecked,
-          label: '',
-          onChanged: (value) {
-            setState(() {
-              isChecked = !isChecked;
-            });
-          },
-        ),
-        Expanded(
-          child: CustomCard(
-            padding: Styles.edgeInsetsAll06,
-            borderRadius: Styles.borderRadiusCircular50,
-            borderColor: AppColors.black.withOpacity(.1),
-            child: BlocBuilder<MedicationFormBloc, MedicationFormState>(
-              builder: (context, state) {
-                return Row(
+    return BlocBuilder<MedicationFormBloc, MedicationFormState>(
+      builder: (context, state) {
+        return Row(
+          children: [
+            CustomCheckBox(
+              isChecked: state.nightTimeEnable,
+              label: '',
+              onChanged: (value) {
+                context.read<MedicationFormBloc>().add(
+                  MedicationFormEvent.nightTimeEnable(value),
+                );
+              },
+            ),
+            Expanded(
+              child: CustomCard(
+                padding: Styles.edgeInsetsAll06,
+                borderRadius: Styles.borderRadiusCircular50,
+                borderColor: AppColors.black.withOpacity(.1),
+                child: Row(
                   children: [
                     Expanded(
                       flex: 4,
@@ -617,6 +617,7 @@ class ___NightState extends State<__Night> {
                     Expanded(
                       flex: 5,
                       child: CustomDropdownSearch(
+                        enabled: state.nightTimeEnable,
                         title: '',
                         selectedItem: state.nightTimeHour.value,
                         items: List.generate(12, (i) {
@@ -642,6 +643,7 @@ class ___NightState extends State<__Night> {
                     Expanded(
                       flex: 5,
                       child: CustomDropdownSearch(
+                        enabled: state.nightTimeEnable,
                         title: '',
                         selectedItem: state.nightTimeMin.value,
                         items: List.generate(60, (i) {
@@ -664,12 +666,12 @@ class ___NightState extends State<__Night> {
                       ),
                     ),
                   ],
-                );
-              },
+                ),
+              ),
             ),
-          ),
-        ),
-      ],
+          ],
+        );
+      },
     );
   }
 }

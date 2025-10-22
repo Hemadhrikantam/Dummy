@@ -73,7 +73,7 @@ class MedicationDetailsCard extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        '${state.medication?.dosage ?? ""} Tablets /\nServing',
+                        '${state.medication?.dosageValue ?? ""} /\nServing',
                         style: context.textTheme.titleLarge?.copyWith(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,

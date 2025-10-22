@@ -3,6 +3,10 @@ import '../../domain/entities/vaccination.dart';
 
 class PetVaccinationModel extends PetVaccination {
   const PetVaccinationModel({
+    required super.companyName,
+    required super.timeFrequencyId,
+    super.timeFrequencyName,
+    super.dateAdministered,
     required super.id,
     required super.petId,
     required super.name,
@@ -29,6 +33,10 @@ class PetVaccinationModel extends PetVaccination {
             : DateTime.parse(v as String);
 
     return PetVaccinationModel(
+      companyName: (json['company_name'] ?? '') as String,
+      timeFrequencyId: (json['time_frequency_id'] ?? '') as String,
+      timeFrequencyName: json['time_frequency_name'] as String?,
+      dateAdministered: _dt(json['date_administered']),
       id: json['id'] as String,
       petId: json['pet_id'] as String,
       name: json['name'] as String,
@@ -56,8 +64,12 @@ class PetVaccinationModel extends PetVaccination {
       'id': id,
       'pet_id': petId,
       'name': name,
+      'company_name': companyName,
       'frequency_id': frequencyId,
       if (frequencyName != null) 'frequency_name': frequencyName,
+      'time_frequency_id': timeFrequencyId,
+      if (timeFrequencyName != null) 'time_frequency_name': timeFrequencyName,
+      'date_administered': _iso(dateAdministered),
       'due_date': dueDate.toIso8601String(),
       'status': status,
       'notes': notes,
@@ -77,8 +89,12 @@ class PetVaccinationModel extends PetVaccination {
     String? id,
     String? petId,
     String? name,
+    String? companyName,
     String? frequencyId,
     String? frequencyName,
+    String? timeFrequencyId,
+    String? timeFrequencyName,
+    DateTime? dateAdministered,
     DateTime? dueDate,
     String? status,
     String? notes,
@@ -93,6 +109,10 @@ class PetVaccinationModel extends PetVaccination {
     bool? reminderEnabled,
   }) {
     return PetVaccinationModel(
+      companyName: companyName ?? this.companyName,
+      timeFrequencyId: timeFrequencyId ?? this.timeFrequencyId,
+      timeFrequencyName: timeFrequencyName ?? this.timeFrequencyName,
+      dateAdministered: dateAdministered ?? this.dateAdministered,
       id: id ?? this.id,
       petId: petId ?? this.petId,
       name: name ?? this.name,

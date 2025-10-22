@@ -1,6 +1,7 @@
 import 'package:dummy/core/payload/payload.dart';
 import 'package:equatable/equatable.dart';
 import 'package:dummy/core/utils/app_utils.dart';
+import 'package:intl/intl.dart';
 
 import '../../utils/type_def.dart';
 
@@ -8,8 +9,11 @@ class VaccinationPayload extends Equatable implements Payload {
   const VaccinationPayload({
     required this.petId,
     required this.name,
+    required this.companyName,
     required this.frequencyId,
+    required this.timeFrequencyId,
     required this.dueDate,
+    this.dateAdministered,
     this.status,
     this.notes = "",
     this.imageUrl = "",
@@ -21,8 +25,11 @@ class VaccinationPayload extends Equatable implements Payload {
   /// core fields
   final String petId;
   final String name;
+  final String companyName;
   final String frequencyId;
+  final String timeFrequencyId;
   final DateTime dueDate;
+  final DateTime? dateAdministered;
 
   /// optional status ("given") if already administered
   final String? status;
@@ -40,8 +47,11 @@ class VaccinationPayload extends Equatable implements Payload {
   List<Object?> get props => [
     petId,
     name,
+    companyName,
     frequencyId,
+    timeFrequencyId,
     dueDate,
+    dateAdministered,
     status,
     notes,
     imageUrl,
@@ -55,14 +65,18 @@ class VaccinationPayload extends Equatable implements Payload {
     final map = <String, dynamic>{
       'pet_id': petId,
       'name': name,
+      'company_name': companyName,
+      'date_administered':
+          dateAdministered != null ? AppUtil.formatDate(dateAdministered!) : '',
       'frequency_id': frequencyId,
+      'time_frequency_id': timeFrequencyId,
       'due_date': AppUtil.formatDate(dueDate), // "YYYY-MM-DD"
       'notes': notes,
       'image_url': imageUrl,
       'reminder': {
         // API sample shows strings "true"/"false"; follow that exactly:
         'enabled': reminderEnabled ? 'true' : 'false',
-        'reminder_time': AppUtil.formatDate(reminderTime),
+        'reminder_time': DateFormat('HH:mm').format(reminderTime),
         'timezone': reminderTimezone,
       },
     };
