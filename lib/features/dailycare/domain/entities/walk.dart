@@ -1,32 +1,42 @@
 import 'package:equatable/equatable.dart';
+import 'meal.dart'; // for MediaItem
 
 class PetWalk extends Equatable {
-  final int id;
-  final String date;
-  final String duration;
+  final String id;
+  final String petId;
+  final String walkDate; // ISO or YYYY-MM-DD
+  final int durationMinutes;
   final String location;
   final String notes;
-  final String media;
-  final int pet;
+  final List<MediaItem> media;
+  final String? createdById;
+  final DateTime? createdAt;
+  final DateTime? updatedAt;
 
   const PetWalk({
     required this.id,
-    required this.date,
-    required this.duration,
+    required this.petId,
+    required this.walkDate,
+    required this.durationMinutes,
     required this.location,
     required this.notes,
     required this.media,
-    required this.pet,
+    this.createdById,
+    this.createdAt,
+    this.updatedAt,
   });
 
   @override
   List<Object?> get props => [
         id,
-        date,
-        duration,
+        petId,
+        walkDate,
+        durationMinutes,
         location,
         notes,
         media,
-        pet,
+        createdById,
+        createdAt,
+        updatedAt,
       ];
 }

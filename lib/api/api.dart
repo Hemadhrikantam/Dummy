@@ -39,20 +39,14 @@ String allPets = '$__privateBase/adoption/all-pets-to-adopt/';
 String petTypes = '$__privateBase/pets/pet-types/';
 
 //daily care
-String meals(DateTime? date) {
-  if (date != null) {
-    return '$__api/daily-care/meals/?date=${AppUtil.formatDate(date)}';
-  } else {
-    return '$__api/daily-care/meals/';
-  }
+String meals() {
+  return '$__api/dailycare/meals';
 }
 
-String walks(DateTime? date) {
-  if (date != null) {
-    return '$__api/daily-care/walks/?date=${AppUtil.formatDate(date)}';
-  } else {
-    return '$__api/daily-care/walks/';
-  }
+String mealItem(String id) => '$__api/dailycare/meals/$id';
+
+String walks() {
+  return '$__api/dailycare/walks';
 }
 
 String groomings(DateTime? date) {

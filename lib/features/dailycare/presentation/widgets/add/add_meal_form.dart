@@ -3,6 +3,7 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/utils/toast_message.dart';
@@ -68,37 +69,76 @@ class _AddMealFormState extends State<AddMealForm> {
                         children: [
                           _Date(),
                           Styles.gap15,
+                          Row(
+                            children: [
+                              Expanded(
+                                child: BlocBuilder<MealFormBloc, MealFormState>(
+                                  builder: (context, state) {
+                                    return CustomDropdownSearch(
+                                      items: List.generate(
+                                        24,
+                                        (index) => DropItemModel(
+                                          id: index + 1,
+                                          value: (index + 1).toString().padLeft(
+                                            2,
+                                            '0',
+                                          ),
+                                        ),
+                                      ),
+                                      isMandatory: true,
+                                      onChanged: (value) {
+                                        if (value == null) return;
+                                        context.read<MealFormBloc>().add(
+                                          MealFormEvent.mealTimeH(value),
+                                        );
+                                      },
+                                      title: AppText.hours,
+                                    );
+                                  },
+                                ),
+                              ),
+                              Styles.gap10,
+                              Expanded(
+                                child: BlocBuilder<MealFormBloc, MealFormState>(
+                                  builder: (context, state) {
+                                    return CustomDropdownSearch(
+                                      items: List.generate(
+                                        60,
+                                        (index) => DropItemModel(
+                                          id: index,
+                                          value: index.toString().padLeft(
+                                            2,
+                                            '0',
+                                          ),
+                                        ),
+                                      ),
+                                      isMandatory: true,
+                                      onChanged: (value) {
+                                        if (value == null) return;
+                                        context.read<MealFormBloc>().add(
+                                          MealFormEvent.mealTimeM(value),
+                                        );
+                                      },
+                                      title: AppText.minutes,
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                          Styles.gap10,
                           BlocBuilder<MealFormBloc, MealFormState>(
                             builder: (context, state) {
-                              return CustomDropdownSearch(
-                                items: state.mealTimes,
+                              return CustomStringDropdownSearch(
+                                items: state.mealtypes,
                                 isMandatory: true,
                                 onChanged: (value) {
                                   if (value == null) return;
                                   context.read<MealFormBloc>().add(
-                                    MealFormEvent.mealTime(value),
-                                  );
-                                },
-                                title: AppText.timeOfMeal,
-                              );
-                            },
-                          ),
-                          Styles.gap10,
-                          BlocSelector<MealFormBloc, MealFormState, NotEmpty>(
-                            selector: (state) {
-                              return state.mealType;
-                            },
-                            builder: (context, state) {
-                              return AppTextFormField(
-                                initialValue: state.value,
-                                isMandatory: true,
-                                headerText: AppText.mealType,
-                                hintText: 'chicken meal',
-                                onChanged: (value) {
-                                  context.read<MealFormBloc>().add(
                                     MealFormEvent.mealType(value),
                                   );
                                 },
+                                title: AppText.mealType,
                               );
                             },
                           ),

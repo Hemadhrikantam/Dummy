@@ -21,6 +21,9 @@ abstract class DailyCareDatasource {
   AppTypeResponse<List<TimezoneModel>> timezones();
   AppTypeResponse<List<RemindBeforeModel>> remindBefores();
   AppTypeResponse<List<PetMealModel>> meals(DateTime? date);
+  AppTypeResponse<PetMealModel> mealItem(String id);
+  AppSuccessResponse updateMeal({required String id, required Payload payload});
+  AppSuccessResponse deleteMeal(String id);
   AppTypeResponse<List<PetWalkModel>> walks(DateTime? date);
   AppTypeResponse<List<PetGroomingModel>> groomings(DateTime? date);
   AppTypeResponse<List<PetExpenseModel>> expenses(DateTime? date);

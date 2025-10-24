@@ -155,7 +155,7 @@ class _MealsTabState extends State<MealsTab> {
                                         child: AppNetworkImage(
                                           width: 24.0,
                                           height: 24.0,
-                                          url: mealItem.media,
+                                          url: mealItem.media.firstOrNull?.fileUrl ?? '',
                                           borderRadius:
                                               Styles.borderRadiusCircular04,
                                         ),

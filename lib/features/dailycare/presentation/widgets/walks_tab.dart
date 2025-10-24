@@ -152,7 +152,7 @@ class _WalksTabState extends State<WalksTab> {
                                           ),
                                     ),
                                     Text(
-                                      " ${walkItem.duration} in the ${walkItem.location} ",
+                                      " ${walkItem.durationMinutes} mins in the ${walkItem.location} ",
                                       style: context.textTheme.labelSmall
                                           ?.copyWith(
                                             fontSize: 16,
@@ -165,7 +165,11 @@ class _WalksTabState extends State<WalksTab> {
                                         child: AppNetworkImage(
                                           width: 24.0,
                                           height: 24.0,
-                                          url: walkItem.media,
+                                          url:
+                                              walkItem.media.isNotEmpty
+                                                  ? walkItem.media[0].fileUrl ??
+                                                      ''
+                                                  : '',
                                           borderRadius:
                                               Styles.borderRadiusCircular04,
                                         ),
@@ -180,7 +184,7 @@ class _WalksTabState extends State<WalksTab> {
                                 children: [
                                   Text(
                                     AppUtil.formatDateToMMDDYYYY(
-                                      DateTime.parse(walkItem.date),
+                                      DateTime.parse(walkItem.walkDate),
                                     ),
                                     style: context.textTheme.titleSmall
                                         ?.copyWith(

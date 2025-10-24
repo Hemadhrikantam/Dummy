@@ -21,30 +21,33 @@ mixin _$MealFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) mealType,
+    required TResult Function(DropStringItem value) mealType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) mealTime,
+    required TResult Function(DropItem value) mealTimeH,
+    required TResult Function(DropItem value) mealTimeM,
     required TResult Function() submit,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? mealType,
+    TResult? Function(DropStringItem value)? mealType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? mealTime,
+    TResult? Function(DropItem value)? mealTimeH,
+    TResult? Function(DropItem value)? mealTimeM,
     TResult? Function()? submit,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? mealType,
+    TResult Function(DropStringItem value)? mealType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? mealTime,
+    TResult Function(DropItem value)? mealTimeH,
+    TResult Function(DropItem value)? mealTimeM,
     TResult Function()? submit,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -55,7 +58,8 @@ mixin _$MealFormEvent {
     required TResult Function(_MealType value) mealType,
     required TResult Function(_Notes value) notes,
     required TResult Function(_Media value) media,
-    required TResult Function(_MealTime value) mealTime,
+    required TResult Function(_MealTimeH value) mealTimeH,
+    required TResult Function(_MealTimeM value) mealTimeM,
     required TResult Function(_Submit value) submit,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,7 +69,8 @@ mixin _$MealFormEvent {
     TResult? Function(_MealType value)? mealType,
     TResult? Function(_Notes value)? notes,
     TResult? Function(_Media value)? media,
-    TResult? Function(_MealTime value)? mealTime,
+    TResult? Function(_MealTimeH value)? mealTimeH,
+    TResult? Function(_MealTimeM value)? mealTimeM,
     TResult? Function(_Submit value)? submit,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,7 +80,8 @@ mixin _$MealFormEvent {
     TResult Function(_MealType value)? mealType,
     TResult Function(_Notes value)? notes,
     TResult Function(_Media value)? media,
-    TResult Function(_MealTime value)? mealTime,
+    TResult Function(_MealTimeH value)? mealTimeH,
+    TResult Function(_MealTimeM value)? mealTimeM,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -173,10 +179,11 @@ class _$InitImpl implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) mealType,
+    required TResult Function(DropStringItem value) mealType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) mealTime,
+    required TResult Function(DropItem value) mealTimeH,
+    required TResult Function(DropItem value) mealTimeM,
     required TResult Function() submit,
   }) {
     return init(petId);
@@ -187,10 +194,11 @@ class _$InitImpl implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? mealType,
+    TResult? Function(DropStringItem value)? mealType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? mealTime,
+    TResult? Function(DropItem value)? mealTimeH,
+    TResult? Function(DropItem value)? mealTimeM,
     TResult? Function()? submit,
   }) {
     return init?.call(petId);
@@ -201,10 +209,11 @@ class _$InitImpl implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? mealType,
+    TResult Function(DropStringItem value)? mealType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? mealTime,
+    TResult Function(DropItem value)? mealTimeH,
+    TResult Function(DropItem value)? mealTimeM,
     TResult Function()? submit,
     required TResult orElse(),
   }) {
@@ -222,7 +231,8 @@ class _$InitImpl implements _Init {
     required TResult Function(_MealType value) mealType,
     required TResult Function(_Notes value) notes,
     required TResult Function(_Media value) media,
-    required TResult Function(_MealTime value) mealTime,
+    required TResult Function(_MealTimeH value) mealTimeH,
+    required TResult Function(_MealTimeM value) mealTimeM,
     required TResult Function(_Submit value) submit,
   }) {
     return init(this);
@@ -236,7 +246,8 @@ class _$InitImpl implements _Init {
     TResult? Function(_MealType value)? mealType,
     TResult? Function(_Notes value)? notes,
     TResult? Function(_Media value)? media,
-    TResult? Function(_MealTime value)? mealTime,
+    TResult? Function(_MealTimeH value)? mealTimeH,
+    TResult? Function(_MealTimeM value)? mealTimeM,
     TResult? Function(_Submit value)? submit,
   }) {
     return init?.call(this);
@@ -250,7 +261,8 @@ class _$InitImpl implements _Init {
     TResult Function(_MealType value)? mealType,
     TResult Function(_Notes value)? notes,
     TResult Function(_Media value)? media,
-    TResult Function(_MealTime value)? mealTime,
+    TResult Function(_MealTimeH value)? mealTimeH,
+    TResult Function(_MealTimeM value)? mealTimeM,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
   }) {
@@ -343,10 +355,11 @@ class _$DateImpl implements _Date {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) mealType,
+    required TResult Function(DropStringItem value) mealType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) mealTime,
+    required TResult Function(DropItem value) mealTimeH,
+    required TResult Function(DropItem value) mealTimeM,
     required TResult Function() submit,
   }) {
     return date(value);
@@ -357,10 +370,11 @@ class _$DateImpl implements _Date {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? mealType,
+    TResult? Function(DropStringItem value)? mealType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? mealTime,
+    TResult? Function(DropItem value)? mealTimeH,
+    TResult? Function(DropItem value)? mealTimeM,
     TResult? Function()? submit,
   }) {
     return date?.call(value);
@@ -371,10 +385,11 @@ class _$DateImpl implements _Date {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? mealType,
+    TResult Function(DropStringItem value)? mealType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? mealTime,
+    TResult Function(DropItem value)? mealTimeH,
+    TResult Function(DropItem value)? mealTimeM,
     TResult Function()? submit,
     required TResult orElse(),
   }) {
@@ -392,7 +407,8 @@ class _$DateImpl implements _Date {
     required TResult Function(_MealType value) mealType,
     required TResult Function(_Notes value) notes,
     required TResult Function(_Media value) media,
-    required TResult Function(_MealTime value) mealTime,
+    required TResult Function(_MealTimeH value) mealTimeH,
+    required TResult Function(_MealTimeM value) mealTimeM,
     required TResult Function(_Submit value) submit,
   }) {
     return date(this);
@@ -406,7 +422,8 @@ class _$DateImpl implements _Date {
     TResult? Function(_MealType value)? mealType,
     TResult? Function(_Notes value)? notes,
     TResult? Function(_Media value)? media,
-    TResult? Function(_MealTime value)? mealTime,
+    TResult? Function(_MealTimeH value)? mealTimeH,
+    TResult? Function(_MealTimeM value)? mealTimeM,
     TResult? Function(_Submit value)? submit,
   }) {
     return date?.call(this);
@@ -420,7 +437,8 @@ class _$DateImpl implements _Date {
     TResult Function(_MealType value)? mealType,
     TResult Function(_Notes value)? notes,
     TResult Function(_Media value)? media,
-    TResult Function(_MealTime value)? mealTime,
+    TResult Function(_MealTimeH value)? mealTimeH,
+    TResult Function(_MealTimeM value)? mealTimeM,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
   }) {
@@ -450,7 +468,7 @@ abstract class _$$MealTypeImplCopyWith<$Res> {
     $Res Function(_$MealTypeImpl) then,
   ) = __$$MealTypeImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String value});
+  $Res call({DropStringItem value});
 }
 
 /// @nodoc
@@ -472,7 +490,7 @@ class __$$MealTypeImplCopyWithImpl<$Res>
         null == value
             ? _value.value
             : value // ignore: cast_nullable_to_non_nullable
-                as String,
+                as DropStringItem,
       ),
     );
   }
@@ -484,7 +502,7 @@ class _$MealTypeImpl implements _MealType {
   const _$MealTypeImpl(this.value);
 
   @override
-  final String value;
+  final DropStringItem value;
 
   @override
   String toString() {
@@ -515,10 +533,11 @@ class _$MealTypeImpl implements _MealType {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) mealType,
+    required TResult Function(DropStringItem value) mealType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) mealTime,
+    required TResult Function(DropItem value) mealTimeH,
+    required TResult Function(DropItem value) mealTimeM,
     required TResult Function() submit,
   }) {
     return mealType(value);
@@ -529,10 +548,11 @@ class _$MealTypeImpl implements _MealType {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? mealType,
+    TResult? Function(DropStringItem value)? mealType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? mealTime,
+    TResult? Function(DropItem value)? mealTimeH,
+    TResult? Function(DropItem value)? mealTimeM,
     TResult? Function()? submit,
   }) {
     return mealType?.call(value);
@@ -543,10 +563,11 @@ class _$MealTypeImpl implements _MealType {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? mealType,
+    TResult Function(DropStringItem value)? mealType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? mealTime,
+    TResult Function(DropItem value)? mealTimeH,
+    TResult Function(DropItem value)? mealTimeM,
     TResult Function()? submit,
     required TResult orElse(),
   }) {
@@ -564,7 +585,8 @@ class _$MealTypeImpl implements _MealType {
     required TResult Function(_MealType value) mealType,
     required TResult Function(_Notes value) notes,
     required TResult Function(_Media value) media,
-    required TResult Function(_MealTime value) mealTime,
+    required TResult Function(_MealTimeH value) mealTimeH,
+    required TResult Function(_MealTimeM value) mealTimeM,
     required TResult Function(_Submit value) submit,
   }) {
     return mealType(this);
@@ -578,7 +600,8 @@ class _$MealTypeImpl implements _MealType {
     TResult? Function(_MealType value)? mealType,
     TResult? Function(_Notes value)? notes,
     TResult? Function(_Media value)? media,
-    TResult? Function(_MealTime value)? mealTime,
+    TResult? Function(_MealTimeH value)? mealTimeH,
+    TResult? Function(_MealTimeM value)? mealTimeM,
     TResult? Function(_Submit value)? submit,
   }) {
     return mealType?.call(this);
@@ -592,7 +615,8 @@ class _$MealTypeImpl implements _MealType {
     TResult Function(_MealType value)? mealType,
     TResult Function(_Notes value)? notes,
     TResult Function(_Media value)? media,
-    TResult Function(_MealTime value)? mealTime,
+    TResult Function(_MealTimeH value)? mealTimeH,
+    TResult Function(_MealTimeM value)? mealTimeM,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
   }) {
@@ -604,9 +628,9 @@ class _$MealTypeImpl implements _MealType {
 }
 
 abstract class _MealType implements MealFormEvent {
-  const factory _MealType(final String value) = _$MealTypeImpl;
+  const factory _MealType(final DropStringItem value) = _$MealTypeImpl;
 
-  String get value;
+  DropStringItem get value;
 
   /// Create a copy of MealFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -687,10 +711,11 @@ class _$NotesImpl implements _Notes {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) mealType,
+    required TResult Function(DropStringItem value) mealType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) mealTime,
+    required TResult Function(DropItem value) mealTimeH,
+    required TResult Function(DropItem value) mealTimeM,
     required TResult Function() submit,
   }) {
     return notes(value);
@@ -701,10 +726,11 @@ class _$NotesImpl implements _Notes {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? mealType,
+    TResult? Function(DropStringItem value)? mealType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? mealTime,
+    TResult? Function(DropItem value)? mealTimeH,
+    TResult? Function(DropItem value)? mealTimeM,
     TResult? Function()? submit,
   }) {
     return notes?.call(value);
@@ -715,10 +741,11 @@ class _$NotesImpl implements _Notes {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? mealType,
+    TResult Function(DropStringItem value)? mealType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? mealTime,
+    TResult Function(DropItem value)? mealTimeH,
+    TResult Function(DropItem value)? mealTimeM,
     TResult Function()? submit,
     required TResult orElse(),
   }) {
@@ -736,7 +763,8 @@ class _$NotesImpl implements _Notes {
     required TResult Function(_MealType value) mealType,
     required TResult Function(_Notes value) notes,
     required TResult Function(_Media value) media,
-    required TResult Function(_MealTime value) mealTime,
+    required TResult Function(_MealTimeH value) mealTimeH,
+    required TResult Function(_MealTimeM value) mealTimeM,
     required TResult Function(_Submit value) submit,
   }) {
     return notes(this);
@@ -750,7 +778,8 @@ class _$NotesImpl implements _Notes {
     TResult? Function(_MealType value)? mealType,
     TResult? Function(_Notes value)? notes,
     TResult? Function(_Media value)? media,
-    TResult? Function(_MealTime value)? mealTime,
+    TResult? Function(_MealTimeH value)? mealTimeH,
+    TResult? Function(_MealTimeM value)? mealTimeM,
     TResult? Function(_Submit value)? submit,
   }) {
     return notes?.call(this);
@@ -764,7 +793,8 @@ class _$NotesImpl implements _Notes {
     TResult Function(_MealType value)? mealType,
     TResult Function(_Notes value)? notes,
     TResult Function(_Media value)? media,
-    TResult Function(_MealTime value)? mealTime,
+    TResult Function(_MealTimeH value)? mealTimeH,
+    TResult Function(_MealTimeM value)? mealTimeM,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
   }) {
@@ -859,10 +889,11 @@ class _$MediaImpl implements _Media {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) mealType,
+    required TResult Function(DropStringItem value) mealType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) mealTime,
+    required TResult Function(DropItem value) mealTimeH,
+    required TResult Function(DropItem value) mealTimeM,
     required TResult Function() submit,
   }) {
     return media(value);
@@ -873,10 +904,11 @@ class _$MediaImpl implements _Media {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? mealType,
+    TResult? Function(DropStringItem value)? mealType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? mealTime,
+    TResult? Function(DropItem value)? mealTimeH,
+    TResult? Function(DropItem value)? mealTimeM,
     TResult? Function()? submit,
   }) {
     return media?.call(value);
@@ -887,10 +919,11 @@ class _$MediaImpl implements _Media {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? mealType,
+    TResult Function(DropStringItem value)? mealType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? mealTime,
+    TResult Function(DropItem value)? mealTimeH,
+    TResult Function(DropItem value)? mealTimeM,
     TResult Function()? submit,
     required TResult orElse(),
   }) {
@@ -908,7 +941,8 @@ class _$MediaImpl implements _Media {
     required TResult Function(_MealType value) mealType,
     required TResult Function(_Notes value) notes,
     required TResult Function(_Media value) media,
-    required TResult Function(_MealTime value) mealTime,
+    required TResult Function(_MealTimeH value) mealTimeH,
+    required TResult Function(_MealTimeM value) mealTimeM,
     required TResult Function(_Submit value) submit,
   }) {
     return media(this);
@@ -922,7 +956,8 @@ class _$MediaImpl implements _Media {
     TResult? Function(_MealType value)? mealType,
     TResult? Function(_Notes value)? notes,
     TResult? Function(_Media value)? media,
-    TResult? Function(_MealTime value)? mealTime,
+    TResult? Function(_MealTimeH value)? mealTimeH,
+    TResult? Function(_MealTimeM value)? mealTimeM,
     TResult? Function(_Submit value)? submit,
   }) {
     return media?.call(this);
@@ -936,7 +971,8 @@ class _$MediaImpl implements _Media {
     TResult Function(_MealType value)? mealType,
     TResult Function(_Notes value)? notes,
     TResult Function(_Media value)? media,
-    TResult Function(_MealTime value)? mealTime,
+    TResult Function(_MealTimeH value)? mealTimeH,
+    TResult Function(_MealTimeM value)? mealTimeM,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
   }) {
@@ -960,22 +996,22 @@ abstract class _Media implements MealFormEvent {
 }
 
 /// @nodoc
-abstract class _$$MealTimeImplCopyWith<$Res> {
-  factory _$$MealTimeImplCopyWith(
-    _$MealTimeImpl value,
-    $Res Function(_$MealTimeImpl) then,
-  ) = __$$MealTimeImplCopyWithImpl<$Res>;
+abstract class _$$MealTimeHImplCopyWith<$Res> {
+  factory _$$MealTimeHImplCopyWith(
+    _$MealTimeHImpl value,
+    $Res Function(_$MealTimeHImpl) then,
+  ) = __$$MealTimeHImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DropItem value});
 }
 
 /// @nodoc
-class __$$MealTimeImplCopyWithImpl<$Res>
-    extends _$MealFormEventCopyWithImpl<$Res, _$MealTimeImpl>
-    implements _$$MealTimeImplCopyWith<$Res> {
-  __$$MealTimeImplCopyWithImpl(
-    _$MealTimeImpl _value,
-    $Res Function(_$MealTimeImpl) _then,
+class __$$MealTimeHImplCopyWithImpl<$Res>
+    extends _$MealFormEventCopyWithImpl<$Res, _$MealTimeHImpl>
+    implements _$$MealTimeHImplCopyWith<$Res> {
+  __$$MealTimeHImplCopyWithImpl(
+    _$MealTimeHImpl _value,
+    $Res Function(_$MealTimeHImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of MealFormEvent
@@ -984,7 +1020,7 @@ class __$$MealTimeImplCopyWithImpl<$Res>
   @override
   $Res call({Object? value = null}) {
     return _then(
-      _$MealTimeImpl(
+      _$MealTimeHImpl(
         null == value
             ? _value.value
             : value // ignore: cast_nullable_to_non_nullable
@@ -996,22 +1032,22 @@ class __$$MealTimeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MealTimeImpl implements _MealTime {
-  const _$MealTimeImpl(this.value);
+class _$MealTimeHImpl implements _MealTimeH {
+  const _$MealTimeHImpl(this.value);
 
   @override
   final DropItem value;
 
   @override
   String toString() {
-    return 'MealFormEvent.mealTime(value: $value)';
+    return 'MealFormEvent.mealTimeH(value: $value)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MealTimeImpl &&
+            other is _$MealTimeHImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -1023,21 +1059,22 @@ class _$MealTimeImpl implements _MealTime {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$MealTimeImplCopyWith<_$MealTimeImpl> get copyWith =>
-      __$$MealTimeImplCopyWithImpl<_$MealTimeImpl>(this, _$identity);
+  _$$MealTimeHImplCopyWith<_$MealTimeHImpl> get copyWith =>
+      __$$MealTimeHImplCopyWithImpl<_$MealTimeHImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) mealType,
+    required TResult Function(DropStringItem value) mealType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) mealTime,
+    required TResult Function(DropItem value) mealTimeH,
+    required TResult Function(DropItem value) mealTimeM,
     required TResult Function() submit,
   }) {
-    return mealTime(value);
+    return mealTimeH(value);
   }
 
   @override
@@ -1045,13 +1082,14 @@ class _$MealTimeImpl implements _MealTime {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? mealType,
+    TResult? Function(DropStringItem value)? mealType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? mealTime,
+    TResult? Function(DropItem value)? mealTimeH,
+    TResult? Function(DropItem value)? mealTimeM,
     TResult? Function()? submit,
   }) {
-    return mealTime?.call(value);
+    return mealTimeH?.call(value);
   }
 
   @override
@@ -1059,15 +1097,16 @@ class _$MealTimeImpl implements _MealTime {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? mealType,
+    TResult Function(DropStringItem value)? mealType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? mealTime,
+    TResult Function(DropItem value)? mealTimeH,
+    TResult Function(DropItem value)? mealTimeM,
     TResult Function()? submit,
     required TResult orElse(),
   }) {
-    if (mealTime != null) {
-      return mealTime(value);
+    if (mealTimeH != null) {
+      return mealTimeH(value);
     }
     return orElse();
   }
@@ -1080,10 +1119,11 @@ class _$MealTimeImpl implements _MealTime {
     required TResult Function(_MealType value) mealType,
     required TResult Function(_Notes value) notes,
     required TResult Function(_Media value) media,
-    required TResult Function(_MealTime value) mealTime,
+    required TResult Function(_MealTimeH value) mealTimeH,
+    required TResult Function(_MealTimeM value) mealTimeM,
     required TResult Function(_Submit value) submit,
   }) {
-    return mealTime(this);
+    return mealTimeH(this);
   }
 
   @override
@@ -1094,10 +1134,11 @@ class _$MealTimeImpl implements _MealTime {
     TResult? Function(_MealType value)? mealType,
     TResult? Function(_Notes value)? notes,
     TResult? Function(_Media value)? media,
-    TResult? Function(_MealTime value)? mealTime,
+    TResult? Function(_MealTimeH value)? mealTimeH,
+    TResult? Function(_MealTimeM value)? mealTimeM,
     TResult? Function(_Submit value)? submit,
   }) {
-    return mealTime?.call(this);
+    return mealTimeH?.call(this);
   }
 
   @override
@@ -1108,26 +1149,205 @@ class _$MealTimeImpl implements _MealTime {
     TResult Function(_MealType value)? mealType,
     TResult Function(_Notes value)? notes,
     TResult Function(_Media value)? media,
-    TResult Function(_MealTime value)? mealTime,
+    TResult Function(_MealTimeH value)? mealTimeH,
+    TResult Function(_MealTimeM value)? mealTimeM,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
   }) {
-    if (mealTime != null) {
-      return mealTime(this);
+    if (mealTimeH != null) {
+      return mealTimeH(this);
     }
     return orElse();
   }
 }
 
-abstract class _MealTime implements MealFormEvent {
-  const factory _MealTime(final DropItem value) = _$MealTimeImpl;
+abstract class _MealTimeH implements MealFormEvent {
+  const factory _MealTimeH(final DropItem value) = _$MealTimeHImpl;
 
   DropItem get value;
 
   /// Create a copy of MealFormEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MealTimeImplCopyWith<_$MealTimeImpl> get copyWith =>
+  _$$MealTimeHImplCopyWith<_$MealTimeHImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$MealTimeMImplCopyWith<$Res> {
+  factory _$$MealTimeMImplCopyWith(
+    _$MealTimeMImpl value,
+    $Res Function(_$MealTimeMImpl) then,
+  ) = __$$MealTimeMImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DropItem value});
+}
+
+/// @nodoc
+class __$$MealTimeMImplCopyWithImpl<$Res>
+    extends _$MealFormEventCopyWithImpl<$Res, _$MealTimeMImpl>
+    implements _$$MealTimeMImplCopyWith<$Res> {
+  __$$MealTimeMImplCopyWithImpl(
+    _$MealTimeMImpl _value,
+    $Res Function(_$MealTimeMImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MealFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$MealTimeMImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as DropItem,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$MealTimeMImpl implements _MealTimeM {
+  const _$MealTimeMImpl(this.value);
+
+  @override
+  final DropItem value;
+
+  @override
+  String toString() {
+    return 'MealFormEvent.mealTimeM(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MealTimeMImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of MealFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MealTimeMImplCopyWith<_$MealTimeMImpl> get copyWith =>
+      __$$MealTimeMImplCopyWithImpl<_$MealTimeMImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(DropStringItem value) mealType,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) media,
+    required TResult Function(DropItem value) mealTimeH,
+    required TResult Function(DropItem value) mealTimeM,
+    required TResult Function() submit,
+  }) {
+    return mealTimeM(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(DropStringItem value)? mealType,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? media,
+    TResult? Function(DropItem value)? mealTimeH,
+    TResult? Function(DropItem value)? mealTimeM,
+    TResult? Function()? submit,
+  }) {
+    return mealTimeM?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(DropStringItem value)? mealType,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? media,
+    TResult Function(DropItem value)? mealTimeH,
+    TResult Function(DropItem value)? mealTimeM,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (mealTimeM != null) {
+      return mealTimeM(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_MealType value) mealType,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Media value) media,
+    required TResult Function(_MealTimeH value) mealTimeH,
+    required TResult Function(_MealTimeM value) mealTimeM,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return mealTimeM(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_MealType value)? mealType,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_MealTimeH value)? mealTimeH,
+    TResult? Function(_MealTimeM value)? mealTimeM,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return mealTimeM?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_MealType value)? mealType,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Media value)? media,
+    TResult Function(_MealTimeH value)? mealTimeH,
+    TResult Function(_MealTimeM value)? mealTimeM,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (mealTimeM != null) {
+      return mealTimeM(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MealTimeM implements MealFormEvent {
+  const factory _MealTimeM(final DropItem value) = _$MealTimeMImpl;
+
+  DropItem get value;
+
+  /// Create a copy of MealFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MealTimeMImplCopyWith<_$MealTimeMImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1176,10 +1396,11 @@ class _$SubmitImpl implements _Submit {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) mealType,
+    required TResult Function(DropStringItem value) mealType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) mealTime,
+    required TResult Function(DropItem value) mealTimeH,
+    required TResult Function(DropItem value) mealTimeM,
     required TResult Function() submit,
   }) {
     return submit();
@@ -1190,10 +1411,11 @@ class _$SubmitImpl implements _Submit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? mealType,
+    TResult? Function(DropStringItem value)? mealType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? mealTime,
+    TResult? Function(DropItem value)? mealTimeH,
+    TResult? Function(DropItem value)? mealTimeM,
     TResult? Function()? submit,
   }) {
     return submit?.call();
@@ -1204,10 +1426,11 @@ class _$SubmitImpl implements _Submit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? mealType,
+    TResult Function(DropStringItem value)? mealType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? mealTime,
+    TResult Function(DropItem value)? mealTimeH,
+    TResult Function(DropItem value)? mealTimeM,
     TResult Function()? submit,
     required TResult orElse(),
   }) {
@@ -1225,7 +1448,8 @@ class _$SubmitImpl implements _Submit {
     required TResult Function(_MealType value) mealType,
     required TResult Function(_Notes value) notes,
     required TResult Function(_Media value) media,
-    required TResult Function(_MealTime value) mealTime,
+    required TResult Function(_MealTimeH value) mealTimeH,
+    required TResult Function(_MealTimeM value) mealTimeM,
     required TResult Function(_Submit value) submit,
   }) {
     return submit(this);
@@ -1239,7 +1463,8 @@ class _$SubmitImpl implements _Submit {
     TResult? Function(_MealType value)? mealType,
     TResult? Function(_Notes value)? notes,
     TResult? Function(_Media value)? media,
-    TResult? Function(_MealTime value)? mealTime,
+    TResult? Function(_MealTimeH value)? mealTimeH,
+    TResult? Function(_MealTimeM value)? mealTimeM,
     TResult? Function(_Submit value)? submit,
   }) {
     return submit?.call(this);
@@ -1253,7 +1478,8 @@ class _$SubmitImpl implements _Submit {
     TResult Function(_MealType value)? mealType,
     TResult Function(_Notes value)? notes,
     TResult Function(_Media value)? media,
-    TResult Function(_MealTime value)? mealTime,
+    TResult Function(_MealTimeH value)? mealTimeH,
+    TResult Function(_MealTimeM value)? mealTimeM,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
   }) {
@@ -1271,10 +1497,11 @@ abstract class _Submit implements MealFormEvent {
 /// @nodoc
 mixin _$MealFormState {
   Status get submitStatus => throw _privateConstructorUsedError;
-  List<DropItem> get mealTimes => throw _privateConstructorUsedError;
-  DropdownValue get mealTime => throw _privateConstructorUsedError;
+  List<DropStringItem> get mealtypes => throw _privateConstructorUsedError;
+  DropdownValue get mealTimeH => throw _privateConstructorUsedError;
+  DropdownValue get mealTimeM => throw _privateConstructorUsedError;
+  DropdownStringValue get mealType => throw _privateConstructorUsedError;
   NotEmpty get date => throw _privateConstructorUsedError;
-  NotEmpty get mealType => throw _privateConstructorUsedError;
   NotEmpty get notes => throw _privateConstructorUsedError;
   NotEmpty get media => throw _privateConstructorUsedError;
   bool get validation => throw _privateConstructorUsedError;
@@ -1296,10 +1523,11 @@ abstract class $MealFormStateCopyWith<$Res> {
   @useResult
   $Res call({
     Status submitStatus,
-    List<DropItem> mealTimes,
-    DropdownValue mealTime,
+    List<DropStringItem> mealtypes,
+    DropdownValue mealTimeH,
+    DropdownValue mealTimeM,
+    DropdownStringValue mealType,
     NotEmpty date,
-    NotEmpty mealType,
     NotEmpty notes,
     NotEmpty media,
     bool validation,
@@ -1323,10 +1551,11 @@ class _$MealFormStateCopyWithImpl<$Res, $Val extends MealFormState>
   @override
   $Res call({
     Object? submitStatus = null,
-    Object? mealTimes = null,
-    Object? mealTime = null,
-    Object? date = null,
+    Object? mealtypes = null,
+    Object? mealTimeH = null,
+    Object? mealTimeM = null,
     Object? mealType = null,
+    Object? date = null,
     Object? notes = null,
     Object? media = null,
     Object? validation = null,
@@ -1339,25 +1568,30 @@ class _$MealFormStateCopyWithImpl<$Res, $Val extends MealFormState>
                     ? _value.submitStatus
                     : submitStatus // ignore: cast_nullable_to_non_nullable
                         as Status,
-            mealTimes:
-                null == mealTimes
-                    ? _value.mealTimes
-                    : mealTimes // ignore: cast_nullable_to_non_nullable
-                        as List<DropItem>,
-            mealTime:
-                null == mealTime
-                    ? _value.mealTime
-                    : mealTime // ignore: cast_nullable_to_non_nullable
+            mealtypes:
+                null == mealtypes
+                    ? _value.mealtypes
+                    : mealtypes // ignore: cast_nullable_to_non_nullable
+                        as List<DropStringItem>,
+            mealTimeH:
+                null == mealTimeH
+                    ? _value.mealTimeH
+                    : mealTimeH // ignore: cast_nullable_to_non_nullable
                         as DropdownValue,
-            date:
-                null == date
-                    ? _value.date
-                    : date // ignore: cast_nullable_to_non_nullable
-                        as NotEmpty,
+            mealTimeM:
+                null == mealTimeM
+                    ? _value.mealTimeM
+                    : mealTimeM // ignore: cast_nullable_to_non_nullable
+                        as DropdownValue,
             mealType:
                 null == mealType
                     ? _value.mealType
                     : mealType // ignore: cast_nullable_to_non_nullable
+                        as DropdownStringValue,
+            date:
+                null == date
+                    ? _value.date
+                    : date // ignore: cast_nullable_to_non_nullable
                         as NotEmpty,
             notes:
                 null == notes
@@ -1396,10 +1630,11 @@ abstract class _$$MealFormStateImplCopyWith<$Res>
   @useResult
   $Res call({
     Status submitStatus,
-    List<DropItem> mealTimes,
-    DropdownValue mealTime,
+    List<DropStringItem> mealtypes,
+    DropdownValue mealTimeH,
+    DropdownValue mealTimeM,
+    DropdownStringValue mealType,
     NotEmpty date,
-    NotEmpty mealType,
     NotEmpty notes,
     NotEmpty media,
     bool validation,
@@ -1422,10 +1657,11 @@ class __$$MealFormStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? submitStatus = null,
-    Object? mealTimes = null,
-    Object? mealTime = null,
-    Object? date = null,
+    Object? mealtypes = null,
+    Object? mealTimeH = null,
+    Object? mealTimeM = null,
     Object? mealType = null,
+    Object? date = null,
     Object? notes = null,
     Object? media = null,
     Object? validation = null,
@@ -1438,25 +1674,30 @@ class __$$MealFormStateImplCopyWithImpl<$Res>
                 ? _value.submitStatus
                 : submitStatus // ignore: cast_nullable_to_non_nullable
                     as Status,
-        mealTimes:
-            null == mealTimes
-                ? _value._mealTimes
-                : mealTimes // ignore: cast_nullable_to_non_nullable
-                    as List<DropItem>,
-        mealTime:
-            null == mealTime
-                ? _value.mealTime
-                : mealTime // ignore: cast_nullable_to_non_nullable
+        mealtypes:
+            null == mealtypes
+                ? _value._mealtypes
+                : mealtypes // ignore: cast_nullable_to_non_nullable
+                    as List<DropStringItem>,
+        mealTimeH:
+            null == mealTimeH
+                ? _value.mealTimeH
+                : mealTimeH // ignore: cast_nullable_to_non_nullable
                     as DropdownValue,
-        date:
-            null == date
-                ? _value.date
-                : date // ignore: cast_nullable_to_non_nullable
-                    as NotEmpty,
+        mealTimeM:
+            null == mealTimeM
+                ? _value.mealTimeM
+                : mealTimeM // ignore: cast_nullable_to_non_nullable
+                    as DropdownValue,
         mealType:
             null == mealType
                 ? _value.mealType
                 : mealType // ignore: cast_nullable_to_non_nullable
+                    as DropdownStringValue,
+        date:
+            null == date
+                ? _value.date
+                : date // ignore: cast_nullable_to_non_nullable
                     as NotEmpty,
         notes:
             null == notes
@@ -1488,37 +1729,41 @@ class __$$MealFormStateImplCopyWithImpl<$Res>
 class _$MealFormStateImpl implements _MealFormState {
   const _$MealFormStateImpl({
     this.submitStatus = Status.init,
-    final List<DropItem> mealTimes = const [],
-    this.mealTime = const DropdownValue.pure(),
+    final List<DropStringItem> mealtypes = const [],
+    this.mealTimeH = const DropdownValue.pure(),
+    this.mealTimeM = const DropdownValue.pure(),
+    this.mealType = const DropdownStringValue.pure(),
     this.date = const NotEmpty.pure(),
-    this.mealType = const NotEmpty.pure(),
     this.notes = const NotEmpty.pure(),
     this.media = const NotEmpty.pure(),
     this.validation = false,
     this.petId = '',
-  }) : _mealTimes = mealTimes;
+  }) : _mealtypes = mealtypes;
 
   @override
   @JsonKey()
   final Status submitStatus;
-  final List<DropItem> _mealTimes;
+  final List<DropStringItem> _mealtypes;
   @override
   @JsonKey()
-  List<DropItem> get mealTimes {
-    if (_mealTimes is EqualUnmodifiableListView) return _mealTimes;
+  List<DropStringItem> get mealtypes {
+    if (_mealtypes is EqualUnmodifiableListView) return _mealtypes;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_mealTimes);
+    return EqualUnmodifiableListView(_mealtypes);
   }
 
   @override
   @JsonKey()
-  final DropdownValue mealTime;
+  final DropdownValue mealTimeH;
+  @override
+  @JsonKey()
+  final DropdownValue mealTimeM;
+  @override
+  @JsonKey()
+  final DropdownStringValue mealType;
   @override
   @JsonKey()
   final NotEmpty date;
-  @override
-  @JsonKey()
-  final NotEmpty mealType;
   @override
   @JsonKey()
   final NotEmpty notes;
@@ -1534,7 +1779,7 @@ class _$MealFormStateImpl implements _MealFormState {
 
   @override
   String toString() {
-    return 'MealFormState(submitStatus: $submitStatus, mealTimes: $mealTimes, mealTime: $mealTime, date: $date, mealType: $mealType, notes: $notes, media: $media, validation: $validation, petId: $petId)';
+    return 'MealFormState(submitStatus: $submitStatus, mealtypes: $mealtypes, mealTimeH: $mealTimeH, mealTimeM: $mealTimeM, mealType: $mealType, date: $date, notes: $notes, media: $media, validation: $validation, petId: $petId)';
   }
 
   @override
@@ -1545,14 +1790,16 @@ class _$MealFormStateImpl implements _MealFormState {
             (identical(other.submitStatus, submitStatus) ||
                 other.submitStatus == submitStatus) &&
             const DeepCollectionEquality().equals(
-              other._mealTimes,
-              _mealTimes,
+              other._mealtypes,
+              _mealtypes,
             ) &&
-            (identical(other.mealTime, mealTime) ||
-                other.mealTime == mealTime) &&
-            (identical(other.date, date) || other.date == date) &&
+            (identical(other.mealTimeH, mealTimeH) ||
+                other.mealTimeH == mealTimeH) &&
+            (identical(other.mealTimeM, mealTimeM) ||
+                other.mealTimeM == mealTimeM) &&
             (identical(other.mealType, mealType) ||
                 other.mealType == mealType) &&
+            (identical(other.date, date) || other.date == date) &&
             (identical(other.notes, notes) || other.notes == notes) &&
             (identical(other.media, media) || other.media == media) &&
             (identical(other.validation, validation) ||
@@ -1564,10 +1811,11 @@ class _$MealFormStateImpl implements _MealFormState {
   int get hashCode => Object.hash(
     runtimeType,
     submitStatus,
-    const DeepCollectionEquality().hash(_mealTimes),
-    mealTime,
-    date,
+    const DeepCollectionEquality().hash(_mealtypes),
+    mealTimeH,
+    mealTimeM,
     mealType,
+    date,
     notes,
     media,
     validation,
@@ -1586,10 +1834,11 @@ class _$MealFormStateImpl implements _MealFormState {
 abstract class _MealFormState implements MealFormState {
   const factory _MealFormState({
     final Status submitStatus,
-    final List<DropItem> mealTimes,
-    final DropdownValue mealTime,
+    final List<DropStringItem> mealtypes,
+    final DropdownValue mealTimeH,
+    final DropdownValue mealTimeM,
+    final DropdownStringValue mealType,
     final NotEmpty date,
-    final NotEmpty mealType,
     final NotEmpty notes,
     final NotEmpty media,
     final bool validation,
@@ -1599,13 +1848,15 @@ abstract class _MealFormState implements MealFormState {
   @override
   Status get submitStatus;
   @override
-  List<DropItem> get mealTimes;
+  List<DropStringItem> get mealtypes;
   @override
-  DropdownValue get mealTime;
+  DropdownValue get mealTimeH;
+  @override
+  DropdownValue get mealTimeM;
+  @override
+  DropdownStringValue get mealType;
   @override
   NotEmpty get date;
-  @override
-  NotEmpty get mealType;
   @override
   NotEmpty get notes;
   @override

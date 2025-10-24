@@ -60,11 +60,17 @@ class InjectionBloc {
   }
 
   static MealFormBloc get mealFormBloc {
-    return MealFormBloc(addMealUsecases: getIt<AddMealUsecases>());
+    return MealFormBloc(
+      addMealUsecases: getIt<AddMealUsecases>(),
+      uploadFileUsecases: getIt<UploadFileUsecases>(),
+    );
   }
 
   static WalkFormBloc get walkFormBloc {
-    return WalkFormBloc(addWalkUsecases: getIt<AddWalkUsecases>());
+    return WalkFormBloc(
+      addWalkUsecases: getIt<AddWalkUsecases>(),
+      uploadFileUsecases: getIt<UploadFileUsecases>(),
+    );
   }
 
   static GroomingFormBloc get groomingFormBloc {
@@ -205,3 +211,47 @@ class InjectionBloc {
     );
   }
 }
+
+// import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
+
+// mBloc get listingFormBloc {
+//     return ListingFormBloc(
+//       createPetUsecases: getIt<AddPetUsecases>(),
+//       editPetUsecases: getIt<EditPetUsecases>(),
+//       uploadFileUsecases: getIt<UploadFileUsecases>(),
+//       addPetListingUsecase: getIt<AddPetListingUsecase>(),
+//     );
+
+//   static AdoptionFormBloc get adoptionFormBloc {
+//     return AdoptionFormBloc(
+//   static AdoptionBloc get adoptionBloc {
+//     return AdoptionBloc(
+//     );
+//   }
+
+//   static OverviewBloc get overviewBloc {
+//     return OverviewBloc(overviewUsecases: getIt<OverviewUsecases>());
+//   }
+
+//   static NgoRegistrationBloc get ngoRegistrationBloc {
+//     return NgoRegistrationBloc(
+//       ngoRegistrationUsecases: getIt<NgoRegistrationUsecases>(),
+//       uploadFileUsecases: getIt<UploadFileUsecases>(),
+//     );
+//   }
+
+//   static NgoProfileBloc get ngoProfileBloc {
+//     return NgoProfileBloc(
+//       getNgoProfileUsecase: getIt<GetNgoProfileUsecase>(),
+//       updateNgoProfileUsecase: getIt<UpdateNgoProfileUsecase>(),
+//       uploadFileUsecases: getIt<UploadFileUsecases>(),
+//     );
+//   }
+
+//   static NgoHomeBloc get ngoHomeBloc {
+//     return NgoHomeBloc(
+//       getNgoProfileUsecase: getIt<GetNgoProfileUsecase>(),
+//       petListingUsecase: getIt<PetListingUsecase>(),
+//     );
+//   }
+// }

@@ -2,6 +2,8 @@ import 'package:dummy/core/error/app_error.dart';
 
 class AppText {
   static String versionText = 'Version 1.0.0';
+  static String minutes = 'Minutes';
+  static String hours = 'Hours';
   static String checkYourInternertConnection = 'Check Your  Internt Connection';
   static String tryAgainLater = 'Try Again Later';
   static String badRequest = 'Bad Request';
