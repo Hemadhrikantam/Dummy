@@ -36,18 +36,18 @@ class ProfileRepositoryImpl extends ProfileRepository {
   }
 
   @override
-  AppTypeResponse<MediaModel> getMedia({required int id}) {
+  AppTypeResponse<MediaModel> getMedia({required String id}) {
     return datasource.getMedia(id: id);
   }
 
   @override
-  AppSuccessResponse editMedia({required int id, required Payload payload}) {
+  AppSuccessResponse editMedia({required String id, required Payload payload}) {
     return datasource.editMedia(id: id, payload: payload);
   }
 
   @override
   AppSuccessResponse updateFavroute({
-    required int mediaId,
+    required String mediaId,
     required bool isFavroute,
   }) {
     return datasource.updateFavroute(mediaId: mediaId, isFavroute: isFavroute);
@@ -59,12 +59,12 @@ class ProfileRepositoryImpl extends ProfileRepository {
   }
 
   @override
-  AppSuccessResponse deleteMedia({required int id}) {
+  AppSuccessResponse deleteMedia({required String id}) {
     return datasource.deleteMedia(id: id);
   }
 
   @override
-  AppSuccessResponse editPet({ required Payload payload, bool edit = true}) {
-    return datasource.editPet( payload: payload,edit:edit);
+  AppSuccessResponse editPet({required Payload payload, bool edit = true}) {
+    return datasource.editPet(payload: payload, edit: edit);
   }
 }

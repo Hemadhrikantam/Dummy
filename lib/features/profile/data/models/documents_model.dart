@@ -4,18 +4,71 @@ import 'package:dummy/features/profile/domain/entities/documents.dart';
 class DocumentsModel extends Documents {
   const DocumentsModel({
     required super.id,
-    required super.user,
-    required super.pet,
-    required super.document,
-    required super.uploadedAt,
+    required super.petId,
+    required super.uploadedBy,
+    required super.fileUrl,
+    required super.fileName,
+    required super.fileSize,
+    super.notes,
+    required super.isDeleted,
+    required super.createdAt,
+    required super.updatedAt,
   });
+
   factory DocumentsModel.fromMap(JsonMap map) {
+    String? _clean(dynamic v) {
+      if (v == null) return null;
+      final s = v.toString().trim();
+      if (s.isEmpty) return null;
+      return s.replaceAll('`', '');
+    }
+
+    DateTime _parseDateTime(dynamic v) {
+      if (v == null) return DateTime.now();
+      if (v is DateTime) return v;
+      return DateTime.tryParse(v.toString()) ?? DateTime.now();
+    }
+
+    int _parseInt(dynamic v) {
+      if (v == null) return 0;
+      if (v is int) return v;
+      if (v is double) return v.toInt();
+      return int.tryParse(v.toString()) ?? 0;
+    }
+
+    bool _parseBool(dynamic v) {
+      if (v == null) return false;
+      if (v is bool) return v;
+      final s = v.toString().toLowerCase();
+      return s == 'true' || s == '1';
+    }
+
     return DocumentsModel(
-      id: map['id'] as int? ?? 0,
-      user: map['user'] as String? ?? '',
-      pet: map['pet'] as int? ?? 0,
-      document: map['document'] as String? ?? '',
-      uploadedAt: map['uploaded_at'] as String? ?? '',
+      id: _clean(map['id']) ?? '',
+      petId: _clean(map['pet_id']) ?? '',
+      uploadedBy: _clean(map['uploaded_by']) ?? '',
+      fileUrl: _clean(map['file_url']) ?? '',
+      fileName: _clean(map['file_name']) ?? '',
+      fileSize: _parseInt(map['file_size']),
+      notes: _clean(map['notes']),
+      isDeleted: _parseBool(map['is_deleted']),
+      createdAt: _parseDateTime(map['created_at']),
+      updatedAt: _parseDateTime(map['updated_at']),
     );
+  }
+
+  JsonMap toMap() {
+    return {
+      'id': id,
+      'pet_id': petId,
+      'uploaded_by': uploadedBy,
+      'file_url': fileUrl,
+      'file_name': fileName,
+      'file_size': fileSize,
+      'notes': notes,
+      'is_deleted': isDeleted,
+      'created_at': createdAt.toIso8601String(),
+      'updated_at': updatedAt.toIso8601String(),
+    };
   }
 }

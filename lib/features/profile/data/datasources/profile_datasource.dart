@@ -9,16 +9,15 @@ abstract class ProfileDatasource {
   AppTypeResponse<List<DocumentsModel>> documents();
   AppSuccessResponse addMedia({required Payload payload});
   AppSuccessResponse editPet({required Payload payload, bool edit = true});
-  AppSuccessResponse deleteMedia({required int id});
-  AppSuccessResponse editMedia({required int id, required Payload payload});
+  AppSuccessResponse deleteMedia({required String id});
+  AppSuccessResponse editMedia({required String id, required Payload payload});
   AppSuccessResponse addDocument({required Payload payload});
   AppSuccessResponse updateFavroute({
-    required int mediaId,
+    required String mediaId,
     required bool isFavroute,
   });
-
   AppTypeResponse<List<DropItemModel>> eventFields();
   AppTypeResponse<List<MediaModel>> medias();
   AppTypeResponse<List<MediaModel>> favoriteMedias();
-  AppTypeResponse<MediaModel> getMedia({required int id});
+  AppTypeResponse<MediaModel> getMedia({required String id});
 }

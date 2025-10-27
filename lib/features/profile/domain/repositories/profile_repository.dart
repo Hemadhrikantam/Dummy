@@ -9,15 +9,15 @@ abstract class ProfileRepository {
   AppTypeResponse<List<Documents>> documents();
   AppTypeResponse<List<DropItem>> eventFields();
   AppSuccessResponse addMedia({required Payload payload});
-  AppSuccessResponse deleteMedia({required int id});
+  AppSuccessResponse deleteMedia({required String id});
   AppSuccessResponse addDocument({required Payload payload});
   AppTypeResponse<List<Media>> medias();
-  AppTypeResponse<Media> getMedia({required int id});
+  AppTypeResponse<Media> getMedia({required String id});
   AppTypeResponse<List<Media>> favoriteMedias();
-  AppSuccessResponse editMedia({required int id, required Payload payload});
+  AppSuccessResponse editMedia({required String id, required Payload payload});
   AppSuccessResponse editPet({required Payload payload, bool edit = true});
   AppSuccessResponse updateFavroute({
-    required int mediaId,
+    required String mediaId,
     required bool isFavroute,
   });
 }

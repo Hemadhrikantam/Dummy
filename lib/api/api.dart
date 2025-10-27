@@ -19,9 +19,9 @@ String dogBreeds = '$__publicBase/pets/dog-breeds/';
 String editPet = '$__api/account/pets';
 String personalityTags = '$__publicBase/pets/personality-tags/';
 String petDairyEvent = '$__privateBase/pet-diary/event-fields/';
-String petDairyMedia = '$__privateBase/pet-diary/media-files/';
-String petDairyDocuments = '$__privateBase/pet-diary/documents/';
-String petDairyfavourites = '$__privateBase/pet-diary/media-favourites/';
+String petDairyMedia = '$__api/diary/media';
+String petDairyDocuments = '$__privateBase/diary/documents/';
+String petDairyfavourites = '$__privateBase/diary/favorites';
 //
 String petcreate = '$__api/auth/onboarding/pet-parent';
 String petImage = '$__api/pets/pet-image/';
@@ -93,6 +93,9 @@ String medication(String? key, String? fromDate, String? toDate) {
 
 String medicationItem(String id) => '$__api/medications/$id/';
 String medicationFrequencies = '$__api/medication/medication-frequency/';
+String medicationLogs(String medicationId) {
+  return '$__api/medications/logs/$medicationId';
+}
 
 String vaccination(String? key, String? fromDate, String? toDate) {
   if (key != null && fromDate != null) {

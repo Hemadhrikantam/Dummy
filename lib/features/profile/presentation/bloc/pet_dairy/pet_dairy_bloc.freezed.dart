@@ -21,25 +21,25 @@ mixin _$PetDairyEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
     required TResult Function() loadMedias,
-    required TResult Function(DropItem id) eventId,
-    required TResult Function(int id) deleteMedia,
-    required TResult Function(int id, bool value) updateMediaFavroute,
+    required TResult Function(DropStringItem id) eventId,
+    required TResult Function(String id) deleteMedia,
+    required TResult Function(String id, bool value) updateMediaFavroute,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
     TResult? Function()? loadMedias,
-    TResult? Function(DropItem id)? eventId,
-    TResult? Function(int id)? deleteMedia,
-    TResult? Function(int id, bool value)? updateMediaFavroute,
+    TResult? Function(DropStringItem id)? eventId,
+    TResult? Function(String id)? deleteMedia,
+    TResult? Function(String id, bool value)? updateMediaFavroute,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
     TResult Function()? loadMedias,
-    TResult Function(DropItem id)? eventId,
-    TResult Function(int id)? deleteMedia,
-    TResult Function(int id, bool value)? updateMediaFavroute,
+    TResult Function(DropStringItem id)? eventId,
+    TResult Function(String id)? deleteMedia,
+    TResult Function(String id, bool value)? updateMediaFavroute,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -136,9 +136,9 @@ class _$InitializationImpl implements _Initialization {
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
     required TResult Function() loadMedias,
-    required TResult Function(DropItem id) eventId,
-    required TResult Function(int id) deleteMedia,
-    required TResult Function(int id, bool value) updateMediaFavroute,
+    required TResult Function(DropStringItem id) eventId,
+    required TResult Function(String id) deleteMedia,
+    required TResult Function(String id, bool value) updateMediaFavroute,
   }) {
     return initialization();
   }
@@ -148,9 +148,9 @@ class _$InitializationImpl implements _Initialization {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
     TResult? Function()? loadMedias,
-    TResult? Function(DropItem id)? eventId,
-    TResult? Function(int id)? deleteMedia,
-    TResult? Function(int id, bool value)? updateMediaFavroute,
+    TResult? Function(DropStringItem id)? eventId,
+    TResult? Function(String id)? deleteMedia,
+    TResult? Function(String id, bool value)? updateMediaFavroute,
   }) {
     return initialization?.call();
   }
@@ -160,9 +160,9 @@ class _$InitializationImpl implements _Initialization {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
     TResult Function()? loadMedias,
-    TResult Function(DropItem id)? eventId,
-    TResult Function(int id)? deleteMedia,
-    TResult Function(int id, bool value)? updateMediaFavroute,
+    TResult Function(DropStringItem id)? eventId,
+    TResult Function(String id)? deleteMedia,
+    TResult Function(String id, bool value)? updateMediaFavroute,
     required TResult orElse(),
   }) {
     if (initialization != null) {
@@ -261,9 +261,9 @@ class _$LoadMediasImpl implements _LoadMedias {
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
     required TResult Function() loadMedias,
-    required TResult Function(DropItem id) eventId,
-    required TResult Function(int id) deleteMedia,
-    required TResult Function(int id, bool value) updateMediaFavroute,
+    required TResult Function(DropStringItem id) eventId,
+    required TResult Function(String id) deleteMedia,
+    required TResult Function(String id, bool value) updateMediaFavroute,
   }) {
     return loadMedias();
   }
@@ -273,9 +273,9 @@ class _$LoadMediasImpl implements _LoadMedias {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
     TResult? Function()? loadMedias,
-    TResult? Function(DropItem id)? eventId,
-    TResult? Function(int id)? deleteMedia,
-    TResult? Function(int id, bool value)? updateMediaFavroute,
+    TResult? Function(DropStringItem id)? eventId,
+    TResult? Function(String id)? deleteMedia,
+    TResult? Function(String id, bool value)? updateMediaFavroute,
   }) {
     return loadMedias?.call();
   }
@@ -285,9 +285,9 @@ class _$LoadMediasImpl implements _LoadMedias {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
     TResult Function()? loadMedias,
-    TResult Function(DropItem id)? eventId,
-    TResult Function(int id)? deleteMedia,
-    TResult Function(int id, bool value)? updateMediaFavroute,
+    TResult Function(DropStringItem id)? eventId,
+    TResult Function(String id)? deleteMedia,
+    TResult Function(String id, bool value)? updateMediaFavroute,
     required TResult orElse(),
   }) {
     if (loadMedias != null) {
@@ -348,7 +348,7 @@ abstract class _$$EventIdImplCopyWith<$Res> {
     $Res Function(_$EventIdImpl) then,
   ) = __$$EventIdImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DropItem id});
+  $Res call({DropStringItem id});
 }
 
 /// @nodoc
@@ -370,7 +370,7 @@ class __$$EventIdImplCopyWithImpl<$Res>
         null == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as DropItem,
+                as DropStringItem,
       ),
     );
   }
@@ -382,7 +382,7 @@ class _$EventIdImpl implements _EventId {
   const _$EventIdImpl(this.id);
 
   @override
-  final DropItem id;
+  final DropStringItem id;
 
   @override
   String toString() {
@@ -413,9 +413,9 @@ class _$EventIdImpl implements _EventId {
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
     required TResult Function() loadMedias,
-    required TResult Function(DropItem id) eventId,
-    required TResult Function(int id) deleteMedia,
-    required TResult Function(int id, bool value) updateMediaFavroute,
+    required TResult Function(DropStringItem id) eventId,
+    required TResult Function(String id) deleteMedia,
+    required TResult Function(String id, bool value) updateMediaFavroute,
   }) {
     return eventId(id);
   }
@@ -425,9 +425,9 @@ class _$EventIdImpl implements _EventId {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
     TResult? Function()? loadMedias,
-    TResult? Function(DropItem id)? eventId,
-    TResult? Function(int id)? deleteMedia,
-    TResult? Function(int id, bool value)? updateMediaFavroute,
+    TResult? Function(DropStringItem id)? eventId,
+    TResult? Function(String id)? deleteMedia,
+    TResult? Function(String id, bool value)? updateMediaFavroute,
   }) {
     return eventId?.call(id);
   }
@@ -437,9 +437,9 @@ class _$EventIdImpl implements _EventId {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
     TResult Function()? loadMedias,
-    TResult Function(DropItem id)? eventId,
-    TResult Function(int id)? deleteMedia,
-    TResult Function(int id, bool value)? updateMediaFavroute,
+    TResult Function(DropStringItem id)? eventId,
+    TResult Function(String id)? deleteMedia,
+    TResult Function(String id, bool value)? updateMediaFavroute,
     required TResult orElse(),
   }) {
     if (eventId != null) {
@@ -490,9 +490,9 @@ class _$EventIdImpl implements _EventId {
 }
 
 abstract class _EventId implements PetDairyEvent {
-  const factory _EventId(final DropItem id) = _$EventIdImpl;
+  const factory _EventId(final DropStringItem id) = _$EventIdImpl;
 
-  DropItem get id;
+  DropStringItem get id;
 
   /// Create a copy of PetDairyEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -508,7 +508,7 @@ abstract class _$$DeleteMediaImplCopyWith<$Res> {
     $Res Function(_$DeleteMediaImpl) then,
   ) = __$$DeleteMediaImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int id});
+  $Res call({String id});
 }
 
 /// @nodoc
@@ -530,7 +530,7 @@ class __$$DeleteMediaImplCopyWithImpl<$Res>
         null == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int,
+                as String,
       ),
     );
   }
@@ -542,7 +542,7 @@ class _$DeleteMediaImpl implements _DeleteMedia {
   const _$DeleteMediaImpl(this.id);
 
   @override
-  final int id;
+  final String id;
 
   @override
   String toString() {
@@ -573,9 +573,9 @@ class _$DeleteMediaImpl implements _DeleteMedia {
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
     required TResult Function() loadMedias,
-    required TResult Function(DropItem id) eventId,
-    required TResult Function(int id) deleteMedia,
-    required TResult Function(int id, bool value) updateMediaFavroute,
+    required TResult Function(DropStringItem id) eventId,
+    required TResult Function(String id) deleteMedia,
+    required TResult Function(String id, bool value) updateMediaFavroute,
   }) {
     return deleteMedia(id);
   }
@@ -585,9 +585,9 @@ class _$DeleteMediaImpl implements _DeleteMedia {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
     TResult? Function()? loadMedias,
-    TResult? Function(DropItem id)? eventId,
-    TResult? Function(int id)? deleteMedia,
-    TResult? Function(int id, bool value)? updateMediaFavroute,
+    TResult? Function(DropStringItem id)? eventId,
+    TResult? Function(String id)? deleteMedia,
+    TResult? Function(String id, bool value)? updateMediaFavroute,
   }) {
     return deleteMedia?.call(id);
   }
@@ -597,9 +597,9 @@ class _$DeleteMediaImpl implements _DeleteMedia {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
     TResult Function()? loadMedias,
-    TResult Function(DropItem id)? eventId,
-    TResult Function(int id)? deleteMedia,
-    TResult Function(int id, bool value)? updateMediaFavroute,
+    TResult Function(DropStringItem id)? eventId,
+    TResult Function(String id)? deleteMedia,
+    TResult Function(String id, bool value)? updateMediaFavroute,
     required TResult orElse(),
   }) {
     if (deleteMedia != null) {
@@ -650,9 +650,9 @@ class _$DeleteMediaImpl implements _DeleteMedia {
 }
 
 abstract class _DeleteMedia implements PetDairyEvent {
-  const factory _DeleteMedia(final int id) = _$DeleteMediaImpl;
+  const factory _DeleteMedia(final String id) = _$DeleteMediaImpl;
 
-  int get id;
+  String get id;
 
   /// Create a copy of PetDairyEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -668,7 +668,7 @@ abstract class _$$UpdateMediaFavrouteImplCopyWith<$Res> {
     $Res Function(_$UpdateMediaFavrouteImpl) then,
   ) = __$$UpdateMediaFavrouteImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int id, bool value});
+  $Res call({String id, bool value});
 }
 
 /// @nodoc
@@ -690,7 +690,7 @@ class __$$UpdateMediaFavrouteImplCopyWithImpl<$Res>
         null == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int,
+                as String,
         null == value
             ? _value.value
             : value // ignore: cast_nullable_to_non_nullable
@@ -706,7 +706,7 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
   const _$UpdateMediaFavrouteImpl(this.id, this.value);
 
   @override
-  final int id;
+  final String id;
   @override
   final bool value;
 
@@ -743,9 +743,9 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
     required TResult Function() loadMedias,
-    required TResult Function(DropItem id) eventId,
-    required TResult Function(int id) deleteMedia,
-    required TResult Function(int id, bool value) updateMediaFavroute,
+    required TResult Function(DropStringItem id) eventId,
+    required TResult Function(String id) deleteMedia,
+    required TResult Function(String id, bool value) updateMediaFavroute,
   }) {
     return updateMediaFavroute(id, value);
   }
@@ -755,9 +755,9 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
     TResult? Function()? loadMedias,
-    TResult? Function(DropItem id)? eventId,
-    TResult? Function(int id)? deleteMedia,
-    TResult? Function(int id, bool value)? updateMediaFavroute,
+    TResult? Function(DropStringItem id)? eventId,
+    TResult? Function(String id)? deleteMedia,
+    TResult? Function(String id, bool value)? updateMediaFavroute,
   }) {
     return updateMediaFavroute?.call(id, value);
   }
@@ -767,9 +767,9 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
     TResult Function()? loadMedias,
-    TResult Function(DropItem id)? eventId,
-    TResult Function(int id)? deleteMedia,
-    TResult Function(int id, bool value)? updateMediaFavroute,
+    TResult Function(DropStringItem id)? eventId,
+    TResult Function(String id)? deleteMedia,
+    TResult Function(String id, bool value)? updateMediaFavroute,
     required TResult orElse(),
   }) {
     if (updateMediaFavroute != null) {
@@ -820,10 +820,10 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
 }
 
 abstract class _UpdateMediaFavroute implements PetDairyEvent {
-  const factory _UpdateMediaFavroute(final int id, final bool value) =
+  const factory _UpdateMediaFavroute(final String id, final bool value) =
       _$UpdateMediaFavrouteImpl;
 
-  int get id;
+  String get id;
   bool get value;
 
   /// Create a copy of PetDairyEvent
@@ -836,11 +836,11 @@ abstract class _UpdateMediaFavroute implements PetDairyEvent {
 /// @nodoc
 mixin _$PetDairyState {
   Status get initStatus => throw _privateConstructorUsedError;
-  List<DropItem> get eventFields => throw _privateConstructorUsedError;
+  List<DropStringItem> get eventFields => throw _privateConstructorUsedError;
   List<Media> get medias => throw _privateConstructorUsedError;
   List<Media> get favoriteMedias => throw _privateConstructorUsedError;
   List<Documents> get documents => throw _privateConstructorUsedError;
-  DropdownValue get eventId => throw _privateConstructorUsedError;
+  DropdownStringValue get eventId => throw _privateConstructorUsedError;
 
   /// Create a copy of PetDairyState
   /// with the given fields replaced by the non-null parameter values.
@@ -858,11 +858,11 @@ abstract class $PetDairyStateCopyWith<$Res> {
   @useResult
   $Res call({
     Status initStatus,
-    List<DropItem> eventFields,
+    List<DropStringItem> eventFields,
     List<Media> medias,
     List<Media> favoriteMedias,
     List<Documents> documents,
-    DropdownValue eventId,
+    DropdownStringValue eventId,
   });
 }
 
@@ -899,7 +899,7 @@ class _$PetDairyStateCopyWithImpl<$Res, $Val extends PetDairyState>
                 null == eventFields
                     ? _value.eventFields
                     : eventFields // ignore: cast_nullable_to_non_nullable
-                        as List<DropItem>,
+                        as List<DropStringItem>,
             medias:
                 null == medias
                     ? _value.medias
@@ -919,7 +919,7 @@ class _$PetDairyStateCopyWithImpl<$Res, $Val extends PetDairyState>
                 null == eventId
                     ? _value.eventId
                     : eventId // ignore: cast_nullable_to_non_nullable
-                        as DropdownValue,
+                        as DropdownStringValue,
           )
           as $Val,
     );
@@ -937,11 +937,11 @@ abstract class _$$PetDairyStateImplCopyWith<$Res>
   @useResult
   $Res call({
     Status initStatus,
-    List<DropItem> eventFields,
+    List<DropStringItem> eventFields,
     List<Media> medias,
     List<Media> favoriteMedias,
     List<Documents> documents,
-    DropdownValue eventId,
+    DropdownStringValue eventId,
   });
 }
 
@@ -977,7 +977,7 @@ class __$$PetDairyStateImplCopyWithImpl<$Res>
             null == eventFields
                 ? _value._eventFields
                 : eventFields // ignore: cast_nullable_to_non_nullable
-                    as List<DropItem>,
+                    as List<DropStringItem>,
         medias:
             null == medias
                 ? _value._medias
@@ -997,7 +997,7 @@ class __$$PetDairyStateImplCopyWithImpl<$Res>
             null == eventId
                 ? _value.eventId
                 : eventId // ignore: cast_nullable_to_non_nullable
-                    as DropdownValue,
+                    as DropdownStringValue,
       ),
     );
   }
@@ -1008,11 +1008,11 @@ class __$$PetDairyStateImplCopyWithImpl<$Res>
 class _$PetDairyStateImpl implements _PetDairyState {
   const _$PetDairyStateImpl({
     this.initStatus = Status.init,
-    final List<DropItem> eventFields = const [],
+    final List<DropStringItem> eventFields = const [],
     final List<Media> medias = const [],
     final List<Media> favoriteMedias = const [],
     final List<Documents> documents = const [],
-    this.eventId = const DropdownValue.pure(),
+    this.eventId = const DropdownStringValue.pure(),
   }) : _eventFields = eventFields,
        _medias = medias,
        _favoriteMedias = favoriteMedias,
@@ -1021,10 +1021,10 @@ class _$PetDairyStateImpl implements _PetDairyState {
   @override
   @JsonKey()
   final Status initStatus;
-  final List<DropItem> _eventFields;
+  final List<DropStringItem> _eventFields;
   @override
   @JsonKey()
-  List<DropItem> get eventFields {
+  List<DropStringItem> get eventFields {
     if (_eventFields is EqualUnmodifiableListView) return _eventFields;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_eventFields);
@@ -1059,7 +1059,7 @@ class _$PetDairyStateImpl implements _PetDairyState {
 
   @override
   @JsonKey()
-  final DropdownValue eventId;
+  final DropdownStringValue eventId;
 
   @override
   String toString() {
@@ -1112,17 +1112,17 @@ class _$PetDairyStateImpl implements _PetDairyState {
 abstract class _PetDairyState implements PetDairyState {
   const factory _PetDairyState({
     final Status initStatus,
-    final List<DropItem> eventFields,
+    final List<DropStringItem> eventFields,
     final List<Media> medias,
     final List<Media> favoriteMedias,
     final List<Documents> documents,
-    final DropdownValue eventId,
+    final DropdownStringValue eventId,
   }) = _$PetDairyStateImpl;
 
   @override
   Status get initStatus;
   @override
-  List<DropItem> get eventFields;
+  List<DropStringItem> get eventFields;
   @override
   List<Media> get medias;
   @override
@@ -1130,7 +1130,7 @@ abstract class _PetDairyState implements PetDairyState {
   @override
   List<Documents> get documents;
   @override
-  DropdownValue get eventId;
+  DropdownStringValue get eventId;
 
   /// Create a copy of PetDairyState
   /// with the given fields replaced by the non-null parameter values.

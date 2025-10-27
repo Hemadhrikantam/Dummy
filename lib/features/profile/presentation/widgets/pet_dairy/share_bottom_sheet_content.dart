@@ -76,7 +76,7 @@ class ShareBottomSheetContent extends StatelessWidget {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        ShareService.shareByUrl(media.media);
+                        ShareService.shareByUrl(media.fileUrl);
                       },
                       child: Ink(
                         decoration: const ShapeDecoration(

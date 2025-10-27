@@ -362,7 +362,7 @@ class BottomModels {
     );
   }
 
-  static Future<T?> mediaDeleteBottomSheet<T>(BuildContext context, int id) {
+  static Future<T?> mediaDeleteBottomSheet<T>(BuildContext context, String id) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: backgroundColor,
@@ -481,7 +481,10 @@ class BottomModels {
     );
   }
 
-  static Future<T?> addPetMediaBottomSheet<T>(BuildContext context, {int? id}) {
+  static Future<T?> addPetMediaBottomSheet<T>(
+    BuildContext context, {
+    String? id,
+  }) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: backgroundColor,
@@ -508,6 +511,7 @@ class BottomModels {
       },
     );
   }
+
   static Future<T?> addListingBottomSheet<T>(BuildContext context, {int? id}) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -516,8 +520,10 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return BlocProvider(
-          create: (context) => InjectionBloc.listingFormBloc
-            ..add(ListingFormEvent.initialization(id: id)),
+          create:
+              (context) =>
+                  InjectionBloc.listingFormBloc
+                    ..add(ListingFormEvent.initialization(id: id)),
           child: AddListingForm(id: id),
         );
       },

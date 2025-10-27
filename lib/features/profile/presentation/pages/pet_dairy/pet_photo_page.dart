@@ -40,7 +40,7 @@ class PetPhotoCardPage extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(media.media),
+                      image: NetworkImage(media.fileUrl),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -62,14 +62,14 @@ class PetPhotoCardPage extends StatelessWidget {
                     ),
                     padding: const EdgeInsets.all(12),
                     child: Text(
-                      media.description,
+                      media.notes ?? '',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
 
                 // Top buttons (tag and close)
-                if (media.event.isNotEmpty)
+                if (media.eventTypeName.isNotEmpty)
                   Positioned(
                     top: 16,
                     left: 16,
@@ -87,7 +87,7 @@ class PetPhotoCardPage extends StatelessWidget {
                           // Icon(Icons.cake, size: 16, color: Colors.white),
                           // SizedBox(width: 4),
                           Text(
-                            media.event,
+                            media.eventTypeName,
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
@@ -122,13 +122,13 @@ class PetPhotoCardPage extends StatelessWidget {
                           context.read<PetDairyBloc>().add(
                             PetDairyEvent.updateMediaFavroute(
                               media.id,
-                              !media.isFavourite,
+                              !media.isFavorited,
                             ),
                           );
                           context.pop();
                         },
                         child:
-                            media.isFavourite
+                            media.isFavorited
                                 ? Icon(
                                   Iconsax.heart5,
                                   color: AppColors.textRed,
@@ -142,7 +142,7 @@ class PetPhotoCardPage extends StatelessWidget {
                       Styles.gap20,
                       GestureDetector(
                         onTap: () {
-                          ShareService.shareByUrl(media.media);
+                          ShareService.shareByUrl(media.fileUrl);
                           //BottomModels.shareBottomSheet(context, media);
                         },
                         child: SvgPicture.asset(

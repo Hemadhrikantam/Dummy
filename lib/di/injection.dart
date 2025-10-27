@@ -57,6 +57,7 @@ import 'package:dummy/features/health/domain/usecases/delete_vaccination_usecase
 import 'package:dummy/features/health/domain/usecases/edit_medication_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/edit_vaccination_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/get_medication_date_usecases.dart';
+import 'package:dummy/features/health/domain/usecases/get_medication_logs_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/get_medication_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/get_vaccination_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/medication_frequency_usecases.dart';

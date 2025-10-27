@@ -64,7 +64,7 @@ class _MediaTabState extends State<MediaTab> {
                     context.push(PetPhotoCardPage.route(media: m));
                   },
                   child: AppNetworkImage(
-                    url: m.media,
+                    url: m.fileUrl,
                     width: context.width * 0.43,
                   ),
                 );

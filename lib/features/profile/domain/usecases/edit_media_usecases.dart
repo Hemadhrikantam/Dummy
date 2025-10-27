@@ -5,7 +5,7 @@ import 'package:dummy/features/profile/domain/repositories/profile_repository.da
 class EditMediaUsecases {
   EditMediaUsecases(this.repository);
   final ProfileRepository repository;
-  AppSuccessResponse call({required Payload payload, required int id}) {
+  AppSuccessResponse call({required Payload payload, required String id}) {
     return repository.editMedia(payload: payload, id: id);
   }
 }

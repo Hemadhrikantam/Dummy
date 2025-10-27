@@ -3,6 +3,7 @@ import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/health/data/models/medication_date_model.dart';
 import 'package:dummy/features/health/domain/entities/medication.dart';
 import 'package:dummy/features/health/domain/entities/medication_date.dart';
+import 'package:dummy/features/health/domain/entities/medication_log.dart';
 
 import '../../../dailycare/domain/entities/frequency.dart';
 import '../entities/vaccination.dart';
@@ -45,6 +46,12 @@ abstract class HealthRepository {
   AppTypeResponse<List<PetVaccination>> vaccinations(
     String petId,
     String? key,
+    String? fromDate,
+    String? toDate,
+  );
+  // Medication logs methods
+  AppTypeResponse<List<MedicationLog>> medicationLogs(
+    String medicationId,
     String? fromDate,
     String? toDate,
   );

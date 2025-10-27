@@ -4,10 +4,10 @@ part of 'pet_dairy_bloc.dart';
 abstract class PetDairyState with _$PetDairyState {
   const factory PetDairyState({
     @Default(Status.init) final Status initStatus,
-    @Default([]) final List<DropItem> eventFields,
+    @Default([]) final List<DropStringItem> eventFields,
     @Default([]) final List<Media> medias,
     @Default([]) final List<Media> favoriteMedias,
     @Default([]) final List<Documents> documents,
-    @Default(DropdownValue.pure()) final DropdownValue eventId,
+    @Default(DropdownStringValue.pure()) final DropdownStringValue eventId,
   }) = _PetDairyState;
 }

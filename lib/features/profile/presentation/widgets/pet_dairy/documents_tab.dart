@@ -46,14 +46,14 @@ class DocumentsTab extends StatelessWidget {
                   return Row(
                     children: [
                       AppNetworkImage(
-                        url: item.document,
+                        url: item.fileUrl,
                         height: 40,
                         width: 40,
                       ),
                       Styles.gap10,
                       Expanded(
                         child: Text(
-                          item.document.split('/').last,
+                          item.fileUrl.split('/').last,
                           style: context.textTheme.titleSmall?.copyWith(
                             fontWeight: FontWeight.w400,
                             fontSize: 14,

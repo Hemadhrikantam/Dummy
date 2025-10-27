@@ -3,8 +3,10 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/core/widgets/app_custom_check_box.dart';
+import 'package:dummy/features/health/data/models/medication_date_model.dart';
 import 'package:dummy/features/health/domain/entities/medication_date.dart';
 import 'package:dummy/features/health/presentation/bloc/medication_details/medication_details_bloc.dart';
+import 'package:dummy/features/health/presentation/widgets/medication/date_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,7 +16,7 @@ import '../../../../../core/widgets/custom_card.dart';
 
 class DateCard extends StatefulWidget {
   const DateCard({super.key, required this.date});
-  final MedicationDate date;
+  final MedicationDateLogModel date;
   @override
   State<DateCard> createState() => _DateCardState();
 }
@@ -60,9 +62,9 @@ class _DateCardState extends State<DateCard> {
                     isOpen = !isOpen;
                   });
                   if (isOpen) {
-                    context.read<MedicationDetailsBloc>().add(
-                      MedicationDetailsEvent.getDate(widget.date.date),
-                    );
+                    // context.read<MedicationDetailsBloc>().add(
+                    //   MedicationDetailsEvent.getDate(widget.date.date),
+                    // );
                   }
                 },
                 padding: Styles.edgeInsetsAll02,
@@ -84,58 +86,81 @@ class _DateCardState extends State<DateCard> {
           ),
           if (isOpen)
             Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Styles.divider,
-                Text(
-                  AppText.markAsGiven,
-                  style: context.textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.w400,
-                    color: AppColors.grey500,
-                    fontSize: 14,
-                  ),
-                ),
-                Styles.gap10,
-                CustomCheckBox(
-                  fontSize: 22,
-                  isChecked: widget.date.morning,
-                  label: AppText.morning,
-                  onChanged: (value) {
-                    context.read<MedicationDetailsBloc>().add(
-                      MedicationDetailsEvent.updateDate(
-                        widget.date.copyWith(morning: !widget.date.morning),
-                      ),
-                    );
-                  },
-                ),
-                Styles.gap10,
-                CustomCheckBox(
-                  fontSize: 22,
-                  isChecked: widget.date.afternoon,
-                  label: AppText.afternoon,
-                  onChanged: (value) {
-                    context.read<MedicationDetailsBloc>().add(
-                      MedicationDetailsEvent.updateDate(
-                        widget.date.copyWith(afternoon: !widget.date.afternoon),
-                      ),
-                    );
-                  },
-                ),
-                Styles.gap10,
-                CustomCheckBox(
-                  isChecked: widget.date.night,
-                  fontSize: 22,
-                  label: AppText.night,
-                  onChanged: (value) {
-                    context.read<MedicationDetailsBloc>().add(
-                      MedicationDetailsEvent.updateDate(
-                        widget.date.copyWith(night: !widget.date.night),
-                      ),
-                    );
-                  },
-                ),
-              ],
+              children:
+                  widget.date.logs
+                      .map(
+                        (e) => Padding(
+                          padding: Styles.edgeInsetsOnlyT10,
+                          child: CustomCheckBox(
+                            fontSize: 22,
+                            isChecked: e.status != 'missed',
+                            label: e.timeslotName,
+                            onChanged: (value) {
+                              // context.read<MedicationDetailsBloc>().add(
+                              // MedicationDetailsEvent.updateDate(
+                              //   widget.date.copyWith(morning: !widget.date.morning),
+                              // ),
+                              // );
+                            },
+                          ),
+                        ),
+                      )
+                      .toList(),
             ),
+          // if (isOpen)
+          //   Column(
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       Styles.divider,
+          //       Text(
+          //         AppText.markAsGiven,
+          //         style: context.textTheme.bodyMedium?.copyWith(
+          //           fontWeight: FontWeight.w400,
+          //           color: AppColors.grey500,
+          //           fontSize: 14,
+          //         ),
+          //       ),
+          //       Styles.gap10,
+          //       CustomCheckBox(
+          //         fontSize: 22,
+          //         isChecked: widget.date.morning,
+          //         label: AppText.morning,
+          //         onChanged: (value) {
+          //           // context.read<MedicationDetailsBloc>().add(
+          //           // MedicationDetailsEvent.updateDate(
+          //           //   widget.date.copyWith(morning: !widget.date.morning),
+          //           // ),
+          //           // );
+          //         },
+          //       ),
+          //       Styles.gap10,
+          //       CustomCheckBox(
+          //         fontSize: 22,
+          //         isChecked: widget.date.afternoon,
+          //         label: AppText.afternoon,
+          //         onChanged: (value) {
+          //           // context.read<MedicationDetailsBloc>().add(
+          //           //   MedicationDetailsEvent.updateDate(
+          //           //     widget.date.copyWith(afternoon: !widget.date.afternoon),
+          //           //   ),
+          //           // );
+          //         },
+          //       ),
+          //       Styles.gap10,
+          //       CustomCheckBox(
+          //         isChecked: widget.date.night,
+          //         fontSize: 22,
+          //         label: AppText.night,
+          //         onChanged: (value) {
+          //           // context.read<MedicationDetailsBloc>().add(
+          //           //   MedicationDetailsEvent.updateDate(
+          //           //     widget.date.copyWith(night: !widget.date.night),
+          //           //   ),
+          //           // );
+          //         },
+          //       ),
+          //   ],
+          // ),
         ],
       ),
     );

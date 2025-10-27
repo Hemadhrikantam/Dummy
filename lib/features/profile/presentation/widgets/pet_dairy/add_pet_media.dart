@@ -20,7 +20,7 @@ import '../../../../../core/widgets/custom_dropdown.dart';
 
 class AddPetMedia extends StatefulWidget {
   const AddPetMedia({super.key, this.id});
-  final int? id;
+  final String? id;
   @override
   State<StatefulWidget> createState() => _AddPetMedia();
 }
@@ -141,16 +141,11 @@ class __EventsState extends State<_Events> {
   Widget build(BuildContext context) {
     return BlocBuilder<MediaFormBloc, MediaFormState>(
       builder: (context, state) {
-        return CustomDropdownSearch(
+        return CustomStringDropdownSearch(
           items: state.events,
           selectedItem: state.event.value,
           title: AppText.events,
           onChanged: (item) {
-            context.read<PetDairyBloc>().add(
-              PetDairyEvent.eventId(
-                DropItemModel(id: item?.id ?? 0, value: ''),
-              ),
-            );
             if (item != null) {
               context.read<MediaFormBloc>().add(MediaFormEvent.event(item));
             }

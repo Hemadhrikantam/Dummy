@@ -4,7 +4,7 @@ import 'package:dummy/features/profile/domain/repositories/profile_repository.da
 class EditMediaFavrouteUsecases {
   EditMediaFavrouteUsecases(this.repository);
   final ProfileRepository repository;
-  AppSuccessResponse call({required int id, required bool isFavroute}) {
+  AppSuccessResponse call({required String id, required bool isFavroute}) {
     return repository.updateFavroute(mediaId: id, isFavroute: isFavroute);
   }
 }

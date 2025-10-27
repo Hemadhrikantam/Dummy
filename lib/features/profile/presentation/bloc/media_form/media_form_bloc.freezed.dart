@@ -19,27 +19,27 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$MediaFormEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String petId, String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String value) notes,
     required TResult Function(String value) url,
-    required TResult Function(DropItem value) event,
+    required TResult Function(DropStringItem value) event,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String petId, String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? url,
-    TResult? Function(DropItem value)? event,
+    TResult? Function(DropStringItem value)? event,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String petId, String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String value)? notes,
     TResult Function(String value)? url,
-    TResult Function(DropItem value)? event,
+    TResult Function(DropStringItem value)? event,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -98,7 +98,7 @@ abstract class _$$InitImplCopyWith<$Res> {
     $Res Function(_$InitImpl) then,
   ) = __$$InitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String petId, int? id});
+  $Res call({String petId, String? id});
 }
 
 /// @nodoc
@@ -122,7 +122,7 @@ class __$$InitImplCopyWithImpl<$Res>
         freezed == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int?,
+                as String?,
       ),
     );
   }
@@ -136,7 +136,7 @@ class _$InitImpl implements _Init {
   @override
   final String petId;
   @override
-  final int? id;
+  final String? id;
 
   @override
   String toString() {
@@ -166,11 +166,11 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String petId, String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String value) notes,
     required TResult Function(String value) url,
-    required TResult Function(DropItem value) event,
+    required TResult Function(DropStringItem value) event,
   }) {
     return init(petId, id);
   }
@@ -178,11 +178,11 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String petId, String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? url,
-    TResult? Function(DropItem value)? event,
+    TResult? Function(DropStringItem value)? event,
   }) {
     return init?.call(petId, id);
   }
@@ -190,11 +190,11 @@ class _$InitImpl implements _Init {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String petId, String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String value)? notes,
     TResult Function(String value)? url,
-    TResult Function(DropItem value)? event,
+    TResult Function(DropStringItem value)? event,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -245,10 +245,10 @@ class _$InitImpl implements _Init {
 }
 
 abstract class _Init implements MediaFormEvent {
-  const factory _Init(final String petId, final int? id) = _$InitImpl;
+  const factory _Init(final String petId, final String? id) = _$InitImpl;
 
   String get petId;
-  int? get id;
+  String? get id;
 
   /// Create a copy of MediaFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -264,7 +264,7 @@ abstract class _$$SubmitImplCopyWith<$Res> {
     $Res Function(_$SubmitImpl) then,
   ) = __$$SubmitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int? id});
+  $Res call({String? id});
 }
 
 /// @nodoc
@@ -286,7 +286,7 @@ class __$$SubmitImplCopyWithImpl<$Res>
         freezed == id
             ? _value.id
             : id // ignore: cast_nullable_to_non_nullable
-                as int?,
+                as String?,
       ),
     );
   }
@@ -298,7 +298,7 @@ class _$SubmitImpl implements _Submit {
   const _$SubmitImpl(this.id);
 
   @override
-  final int? id;
+  final String? id;
 
   @override
   String toString() {
@@ -327,11 +327,11 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String petId, String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String value) notes,
     required TResult Function(String value) url,
-    required TResult Function(DropItem value) event,
+    required TResult Function(DropStringItem value) event,
   }) {
     return submit(id);
   }
@@ -339,11 +339,11 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String petId, String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? url,
-    TResult? Function(DropItem value)? event,
+    TResult? Function(DropStringItem value)? event,
   }) {
     return submit?.call(id);
   }
@@ -351,11 +351,11 @@ class _$SubmitImpl implements _Submit {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String petId, String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String value)? notes,
     TResult Function(String value)? url,
-    TResult Function(DropItem value)? event,
+    TResult Function(DropStringItem value)? event,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -406,9 +406,9 @@ class _$SubmitImpl implements _Submit {
 }
 
 abstract class _Submit implements MediaFormEvent {
-  const factory _Submit(final int? id) = _$SubmitImpl;
+  const factory _Submit(final String? id) = _$SubmitImpl;
 
-  int? get id;
+  String? get id;
 
   /// Create a copy of MediaFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -487,11 +487,11 @@ class _$NotesImpl implements _Notes {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String petId, String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String value) notes,
     required TResult Function(String value) url,
-    required TResult Function(DropItem value) event,
+    required TResult Function(DropStringItem value) event,
   }) {
     return notes(value);
   }
@@ -499,11 +499,11 @@ class _$NotesImpl implements _Notes {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String petId, String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? url,
-    TResult? Function(DropItem value)? event,
+    TResult? Function(DropStringItem value)? event,
   }) {
     return notes?.call(value);
   }
@@ -511,11 +511,11 @@ class _$NotesImpl implements _Notes {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String petId, String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String value)? notes,
     TResult Function(String value)? url,
-    TResult Function(DropItem value)? event,
+    TResult Function(DropStringItem value)? event,
     required TResult orElse(),
   }) {
     if (notes != null) {
@@ -643,11 +643,11 @@ class _$UrlImpl implements _Url {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String petId, String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String value) notes,
     required TResult Function(String value) url,
-    required TResult Function(DropItem value) event,
+    required TResult Function(DropStringItem value) event,
   }) {
     return url(value);
   }
@@ -655,11 +655,11 @@ class _$UrlImpl implements _Url {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String petId, String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? url,
-    TResult? Function(DropItem value)? event,
+    TResult? Function(DropStringItem value)? event,
   }) {
     return url?.call(value);
   }
@@ -667,11 +667,11 @@ class _$UrlImpl implements _Url {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String petId, String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String value)? notes,
     TResult Function(String value)? url,
-    TResult Function(DropItem value)? event,
+    TResult Function(DropStringItem value)? event,
     required TResult orElse(),
   }) {
     if (url != null) {
@@ -740,7 +740,7 @@ abstract class _$$EventImplCopyWith<$Res> {
     $Res Function(_$EventImpl) then,
   ) = __$$EventImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DropItem value});
+  $Res call({DropStringItem value});
 }
 
 /// @nodoc
@@ -762,7 +762,7 @@ class __$$EventImplCopyWithImpl<$Res>
         null == value
             ? _value.value
             : value // ignore: cast_nullable_to_non_nullable
-                as DropItem,
+                as DropStringItem,
       ),
     );
   }
@@ -774,7 +774,7 @@ class _$EventImpl implements _Event {
   const _$EventImpl(this.value);
 
   @override
-  final DropItem value;
+  final DropStringItem value;
 
   @override
   String toString() {
@@ -803,11 +803,11 @@ class _$EventImpl implements _Event {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String petId, int? id) init,
-    required TResult Function(int? id) submit,
+    required TResult Function(String petId, String? id) init,
+    required TResult Function(String? id) submit,
     required TResult Function(String value) notes,
     required TResult Function(String value) url,
-    required TResult Function(DropItem value) event,
+    required TResult Function(DropStringItem value) event,
   }) {
     return event(value);
   }
@@ -815,11 +815,11 @@ class _$EventImpl implements _Event {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String petId, int? id)? init,
-    TResult? Function(int? id)? submit,
+    TResult? Function(String petId, String? id)? init,
+    TResult? Function(String? id)? submit,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? url,
-    TResult? Function(DropItem value)? event,
+    TResult? Function(DropStringItem value)? event,
   }) {
     return event?.call(value);
   }
@@ -827,11 +827,11 @@ class _$EventImpl implements _Event {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String petId, int? id)? init,
-    TResult Function(int? id)? submit,
+    TResult Function(String petId, String? id)? init,
+    TResult Function(String? id)? submit,
     TResult Function(String value)? notes,
     TResult Function(String value)? url,
-    TResult Function(DropItem value)? event,
+    TResult Function(DropStringItem value)? event,
     required TResult orElse(),
   }) {
     if (event != null) {
@@ -882,9 +882,9 @@ class _$EventImpl implements _Event {
 }
 
 abstract class _Event implements MediaFormEvent {
-  const factory _Event(final DropItem value) = _$EventImpl;
+  const factory _Event(final DropStringItem value) = _$EventImpl;
 
-  DropItem get value;
+  DropStringItem get value;
 
   /// Create a copy of MediaFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -899,8 +899,8 @@ mixin _$MediaFormState {
   Status get submitStatus => throw _privateConstructorUsedError;
   NotEmpty get notes => throw _privateConstructorUsedError;
   NotEmpty get url => throw _privateConstructorUsedError;
-  DropdownValue get event => throw _privateConstructorUsedError;
-  List<DropItem> get events => throw _privateConstructorUsedError;
+  DropdownStringValue get event => throw _privateConstructorUsedError;
+  List<DropStringItem> get events => throw _privateConstructorUsedError;
   bool get validation => throw _privateConstructorUsedError;
   String get petId => throw _privateConstructorUsedError;
 
@@ -923,8 +923,8 @@ abstract class $MediaFormStateCopyWith<$Res> {
     Status submitStatus,
     NotEmpty notes,
     NotEmpty url,
-    DropdownValue event,
-    List<DropItem> events,
+    DropdownStringValue event,
+    List<DropStringItem> events,
     bool validation,
     String petId,
   });
@@ -980,12 +980,12 @@ class _$MediaFormStateCopyWithImpl<$Res, $Val extends MediaFormState>
                 null == event
                     ? _value.event
                     : event // ignore: cast_nullable_to_non_nullable
-                        as DropdownValue,
+                        as DropdownStringValue,
             events:
                 null == events
                     ? _value.events
                     : events // ignore: cast_nullable_to_non_nullable
-                        as List<DropItem>,
+                        as List<DropStringItem>,
             validation:
                 null == validation
                     ? _value.validation
@@ -1016,8 +1016,8 @@ abstract class _$$MediaFormStateImplCopyWith<$Res>
     Status submitStatus,
     NotEmpty notes,
     NotEmpty url,
-    DropdownValue event,
-    List<DropItem> events,
+    DropdownStringValue event,
+    List<DropStringItem> events,
     bool validation,
     String petId,
   });
@@ -1072,12 +1072,12 @@ class __$$MediaFormStateImplCopyWithImpl<$Res>
             null == event
                 ? _value.event
                 : event // ignore: cast_nullable_to_non_nullable
-                    as DropdownValue,
+                    as DropdownStringValue,
         events:
             null == events
                 ? _value._events
                 : events // ignore: cast_nullable_to_non_nullable
-                    as List<DropItem>,
+                    as List<DropStringItem>,
         validation:
             null == validation
                 ? _value.validation
@@ -1101,8 +1101,8 @@ class _$MediaFormStateImpl implements _MediaFormState {
     this.submitStatus = Status.init,
     this.notes = const NotEmpty.pure(),
     this.url = const NotEmpty.pure(),
-    this.event = const DropdownValue.pure(),
-    final List<DropItem> events = const [],
+    this.event = const DropdownStringValue.pure(),
+    final List<DropStringItem> events = const [],
     this.validation = false,
     this.petId = '',
   }) : _events = events;
@@ -1121,11 +1121,11 @@ class _$MediaFormStateImpl implements _MediaFormState {
   final NotEmpty url;
   @override
   @JsonKey()
-  final DropdownValue event;
-  final List<DropItem> _events;
+  final DropdownStringValue event;
+  final List<DropStringItem> _events;
   @override
   @JsonKey()
-  List<DropItem> get events {
+  List<DropStringItem> get events {
     if (_events is EqualUnmodifiableListView) return _events;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_events);
@@ -1192,8 +1192,8 @@ abstract class _MediaFormState implements MediaFormState {
     final Status submitStatus,
     final NotEmpty notes,
     final NotEmpty url,
-    final DropdownValue event,
-    final List<DropItem> events,
+    final DropdownStringValue event,
+    final List<DropStringItem> events,
     final bool validation,
     final String petId,
   }) = _$MediaFormStateImpl;
@@ -1207,9 +1207,9 @@ abstract class _MediaFormState implements MediaFormState {
   @override
   NotEmpty get url;
   @override
-  DropdownValue get event;
+  DropdownStringValue get event;
   @override
-  List<DropItem> get events;
+  List<DropStringItem> get events;
   @override
   bool get validation;
   @override

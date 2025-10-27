@@ -3,15 +3,20 @@ import 'dart:io';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:dummy/core/enum/status.dart';
+import 'package:dummy/core/enum/upload_type.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/pet_dairy/media_payload.dart';
 import 'package:dummy/core/utils/log_utility.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
+import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/profile/domain/usecases/add_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/event_fields_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/get_media_usecases.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:http/http.dart' as http;
@@ -25,11 +30,11 @@ class MediaFormBloc extends Bloc<MediaFormEvent, MediaFormState> {
     required AddMediaUsecases addMediaUsecases,
     required EditMediaUsecases editMediaUsecases,
     required GetMediaUsecases getMediaUsecases,
-    required EventFieldsUsecases eventFieldsUsecases,
+    required UploadFileUsecases uploadFileUsecases,
   }) : _addMediaUsecases = addMediaUsecases,
        _editMediaUsecases = editMediaUsecases,
        _getMediaUsecases = getMediaUsecases,
-       _eventFieldsUsecases = eventFieldsUsecases,
+       _uploadFileUsecases = uploadFileUsecases,
        super(MediaFormState()) {
     on<_Init>(__init);
     on<_Notes>(__notes);
@@ -40,11 +45,17 @@ class MediaFormBloc extends Bloc<MediaFormEvent, MediaFormState> {
   final AddMediaUsecases _addMediaUsecases;
   final EditMediaUsecases _editMediaUsecases;
   final GetMediaUsecases _getMediaUsecases;
-  final EventFieldsUsecases _eventFieldsUsecases;
+  final UploadFileUsecases _uploadFileUsecases;
   Future<void> __init(_Init event, Emitter<MediaFormState> emit) async {
     emit(state.copyWith(initStatus: Status.loading, petId: event.petId));
-    final events = List<DropItem>.from(
-      (await _eventFieldsUsecases()).fold((l) => [], (r) => r),
+    final events = List<DropStringItem>.from(
+      currentContext
+          .read<AuthBloc>()
+          .state
+          .enums!
+          .diaryEventTypes
+          .map((e) => DropStringItemModel(id: e.id, value: e.name))
+          .toList(),
     );
     emit(
       state.copyWith(
@@ -56,13 +67,13 @@ class MediaFormBloc extends Bloc<MediaFormEvent, MediaFormState> {
     if (event.id != null) {
       final result = await _getMediaUsecases(id: event.id!);
       result.fold((l) {}, (r) {
-        final event = events.firstWhere((e) => e.value == r.event);
+        final event = events.firstWhere((e) => e.value == r.eventTypeName);
         LogUtility.warning(event.toString());
         emit(
           state.copyWith(
-            notes: NotEmpty.dirty(value: r.description),
-            url: NotEmpty.dirty(value: r.media),
-            event: DropdownValue.dirty(event),
+            notes: NotEmpty.dirty(value: r.notes ?? ''),
+            url: NotEmpty.dirty(value: r.fileUrl),
+            event: DropdownStringValue.dirty(event),
           ),
         );
       });
@@ -71,11 +82,24 @@ class MediaFormBloc extends Bloc<MediaFormEvent, MediaFormState> {
 
   Future<void> __submit(_Submit event, Emitter<MediaFormState> emit) async {
     emit(state.copyWith(submitStatus: Status.loading));
+    String url = state.url.value;
+    if (url.isNotEmpty && !url.contains('http')) {
+      final result = await _uploadFileUsecases(
+        type: UploadType.pet_diary_media,
+        path: url,
+        public: false,
+      );
+      result.fold((l) {}, (r) {
+        url = r.finalUrl;
+      });
+    }
     final payload = MediaPayload(
-      pet_id: state.petId,
-      event_id: state.event.value!.id,
-      description: state.notes.value,
-      media: await prepareMultipart(state.url.value),
+      petId: state.petId,
+      eventTypeId: state.event.value!.id,
+      notes: state.notes.value,
+      fileType: _inferFileType(state.url.value),
+      fileSize: File(state.url.value).lengthSync().toString(),
+      fileUrl: url,
     );
     final result =
         event.id != null
@@ -102,7 +126,7 @@ class MediaFormBloc extends Bloc<MediaFormEvent, MediaFormState> {
   }
 
   Future<void> __event(_Event event, Emitter<MediaFormState> emit) async {
-    emit(state.copyWith(event: DropdownValue.dirty(event.value)));
+    emit(state.copyWith(event: DropdownStringValue.dirty(event.value)));
     emit(state.copyWith(validation: state.validationX));
   }
 
@@ -125,5 +149,14 @@ class MediaFormBloc extends Bloc<MediaFormEvent, MediaFormState> {
       // Local file
       return MultipartFile.fromFile(path, filename: path.split('/').last);
     }
+  }
+
+  String _inferFileType(String pathOrUrl) {
+    final lower = pathOrUrl.toLowerCase();
+    return lower.endsWith('.mp4') ||
+            lower.endsWith('.mov') ||
+            lower.contains('video')
+        ? 'video'
+        : 'image';
   }
 }

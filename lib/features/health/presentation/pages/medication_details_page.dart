@@ -101,6 +101,8 @@ class _MedicationDetailsPage extends State<MedicationDetailsPage> {
             ),
           ),
           DateList(),
+          Styles.gap30,
+          Styles.gap30,
         ],
       ),
     );

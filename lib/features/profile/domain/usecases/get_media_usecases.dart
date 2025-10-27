@@ -5,7 +5,7 @@ import 'package:dummy/features/profile/domain/repositories/profile_repository.da
 class GetMediaUsecases {
   GetMediaUsecases(this.repository);
   final ProfileRepository repository;
-  AppTypeResponse<Media> call({required int id}) {
+  AppTypeResponse<Media> call({required String id}) {
     return repository.getMedia(id: id);
   }
 }

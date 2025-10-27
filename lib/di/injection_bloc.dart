@@ -43,14 +43,17 @@ class InjectionBloc {
   static MediaFormBloc get mediaFormBloc {
     return MediaFormBloc(
       addMediaUsecases: getIt<AddMediaUsecases>(),
-      eventFieldsUsecases: getIt<EventFieldsUsecases>(),
+      uploadFileUsecases: getIt<UploadFileUsecases>(),
       editMediaUsecases: getIt<EditMediaUsecases>(),
       getMediaUsecases: getIt<GetMediaUsecases>(),
     );
   }
 
   static DocumentFormBloc get documentFormBloc {
-    return DocumentFormBloc(addDocumentUsecases: getIt<AddDocumentUsecases>());
+    return DocumentFormBloc(
+      addDocumentUsecases: getIt<AddDocumentUsecases>(),
+      uploadFileUsecases: getIt<UploadFileUsecases>(),
+    );
   }
 
   static DashboardBloc get dashboardBloc {
@@ -152,7 +155,7 @@ class InjectionBloc {
   static MedicationDetailsBloc get medicationDetailsBloc {
     return MedicationDetailsBloc(
       getMedicationUsecases: getIt<GetMedicationUsecases>(),
-      dateUsecases: getIt<GetMedicationDateUsecases>(),
+      dateUsecases: getIt<GetMedicationLogsUsecases>(),
       editDateUsecases: getIt<UpdateMedicationDateUsecases>(),
     );
   }

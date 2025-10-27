@@ -4,6 +4,7 @@ import 'package:dummy/features/health/data/datasources/health_datasource.dart';
 import 'package:dummy/features/health/data/models/medication_date_model.dart';
 import 'package:dummy/features/health/domain/entities/medication.dart';
 import 'package:dummy/features/health/domain/entities/medication_date.dart';
+import 'package:dummy/features/health/domain/entities/medication_log.dart';
 import 'package:dummy/features/health/domain/repositories/health_repository.dart';
 import 'package:flutter/semantics.dart';
 
@@ -100,5 +101,14 @@ class HealthRepositoryImpl extends HealthRepository {
     required String id,
   }) {
     return _healthDatasource.editVaccination(payload: payload, id: id);
+  }
+
+  @override
+  AppTypeResponse<List<MedicationLog>> medicationLogs(
+    String medicationId,
+    String? fromDate,
+    String? toDate,
+  ) {
+    return _healthDatasource.medicationLogs(medicationId, fromDate, toDate);
   }
 }

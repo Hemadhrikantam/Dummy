@@ -7,10 +7,13 @@ import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/payload/payload.dart';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/utils/type_def.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
 import 'package:dummy/features/profile/data/models/documents_model.dart';
 import 'package:dummy/features/profile/data/models/media_model.dart';
 import 'package:dummy/service/app_http_service.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../api/api.dart' as api;
 
 class ProfileDatasourceImpl extends ProfileDatasource {
@@ -19,7 +22,11 @@ class ProfileDatasourceImpl extends ProfileDatasource {
 
   @override
   AppTypeResponse<List<DocumentsModel>> documents() async {
-    final response = await http.get(path: api.petDairyDocuments);
+    final response = await http.get(
+      path:
+          api.petDairyDocuments +
+          (currentContext.read<DashboardBloc>().state.selectedPet?.id ?? ''),
+    );
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -33,7 +40,7 @@ class ProfileDatasourceImpl extends ProfileDatasource {
                   : success.statusCode;
           if (statusCode <= 201) {
             final item = <DocumentsModel>[];
-            for (final documents in data as List? ?? []) {
+            for (final documents in data['data'] as List? ?? []) {
               final map = Map<String, dynamic>.from(documents as Map);
               item.add(DocumentsModel.fromMap(map));
             }
@@ -89,12 +96,9 @@ class ProfileDatasourceImpl extends ProfileDatasource {
 
   @override
   AppSuccessResponse addDocument({required Payload payload}) async {
-    LogUtility.warning(payload.toMap().toString());
-    final formData = FormData.fromMap(payload.toMap());
     final response = await http.post(
       path: api.petDairyDocuments,
-      data: formData,
-      options: Options(contentType: 'multipart/form-data'),
+      data: payload.toMap(),
     );
     return response.fold(
       (error) {
@@ -128,12 +132,9 @@ class ProfileDatasourceImpl extends ProfileDatasource {
 
   @override
   AppSuccessResponse addMedia({required Payload payload}) async {
-    LogUtility.warning(payload.toMap().toString());
-    final formData = FormData.fromMap(payload.toMap());
     final response = await http.post(
       path: api.petDairyMedia,
-      data: formData,
-      options: Options(contentType: 'multipart/form-data'),
+      data: payload.toMap(),
     );
     return response.fold(
       (error) {
@@ -167,7 +168,12 @@ class ProfileDatasourceImpl extends ProfileDatasource {
 
   @override
   AppTypeResponse<List<MediaModel>> medias() async {
-    final response = await http.get(path: api.petDairyMedia);
+    final response = await http.get(
+      path:
+          api.petDairyMedia +
+          '/' +
+          (currentContext.read<DashboardBloc>().state.selectedPet?.id ?? ''),
+    );
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -181,7 +187,7 @@ class ProfileDatasourceImpl extends ProfileDatasource {
                   : success.statusCode;
           if (statusCode <= 200) {
             final item = <MediaModel>[];
-            for (final media in data as List? ?? []) {
+            for (final media in data['data'] as List? ?? []) {
               item.add(MediaModel.fromMap(media as JsonMap));
             }
             return Right(item);
@@ -199,8 +205,8 @@ class ProfileDatasourceImpl extends ProfileDatasource {
   }
 
   @override
-  AppTypeResponse<MediaModel> getMedia({required int id}) async {
-    final response = await http.get(path: '${api.petDairyMedia}$id/');
+  AppTypeResponse<MediaModel> getMedia({required String id}) async {
+    final response = await http.get(path: '${api.petDairyMedia}/$id/');
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -229,7 +235,7 @@ class ProfileDatasourceImpl extends ProfileDatasource {
 
   @override
   AppSuccessResponse editMedia({
-    required int id,
+    required String id,
     required Payload payload,
   }) async {
     LogUtility.warning(payload.toMap().toString());
@@ -271,12 +277,12 @@ class ProfileDatasourceImpl extends ProfileDatasource {
 
   @override
   AppSuccessResponse updateFavroute({
-    required int mediaId,
+    required String mediaId,
     required bool isFavroute,
   }) async {
     final formData = FormData.fromMap({"is_favourite": isFavroute});
     final response = await http.put(
-      path: '${api.petDairyfavourites}$mediaId/',
+      path: '${api.petDairyMedia}/$mediaId/favorite',
       data: formData,
       options: Options(contentType: 'multipart/form-data'),
     );
@@ -326,7 +332,7 @@ class ProfileDatasourceImpl extends ProfileDatasource {
                   : success.statusCode;
           if (statusCode <= 200) {
             final item = <MediaModel>[];
-            for (final dropList in data as List? ?? []) {
+            for (final dropList in data['data'] as List? ?? []) {
               item.add(MediaModel.fromMap(dropList as JsonMap));
             }
             return Right(item);
@@ -344,9 +350,9 @@ class ProfileDatasourceImpl extends ProfileDatasource {
   }
 
   @override
-  AppSuccessResponse deleteMedia({required int id}) async {
+  AppSuccessResponse deleteMedia({required String id}) async {
     final response = await http.delete(
-      path: '${api.petDairyMedia}$id/',
+      path: '${api.petDairyMedia}/$id/',
       options: Options(contentType: 'multipart/form-data'),
     );
     return response.fold(

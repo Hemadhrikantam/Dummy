@@ -12,7 +12,7 @@ import '../../../../../core/widgets/buttons/app_text_button.dart';
 class MediaDeletionBottomSheet extends StatelessWidget {
   const MediaDeletionBottomSheet({super.key, this.onTap, required this.id});
   final VoidCallback? onTap;
-  final int id;
+  final String id;
 
   @override
   Widget build(BuildContext context) {

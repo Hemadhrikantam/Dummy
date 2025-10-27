@@ -7,5 +7,6 @@ abstract class MedicationDetailsState with _$MedicationDetailsState {
     @Default(null) PetMedication? medication,
     @Default('') String id,
     @Default([]) List<MedicationDate> dates,
+    @Default([]) List<MedicationLog> logs,
   }) = _MedicationDetailsState;
 }

@@ -4,6 +4,8 @@ import 'package:bloc/bloc.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
 import 'package:dummy/features/profile/domain/usecases/delete_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/documents_usecases.dart';
@@ -11,6 +13,7 @@ import 'package:dummy/features/profile/domain/usecases/edit_media_favroute_useca
 import 'package:dummy/features/profile/domain/usecases/event_fields_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/favorite_medias_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/medias_usecases.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../domain/entities/documents.dart';
 
@@ -53,7 +56,15 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
     emit(state.copyWith(initStatus: Status.loading));
     final documents = await _documents();
     final medias = await _medias();
-    final events = await _eventFields();
+    final events = List<DropStringItem>.from(
+      currentContext
+          .read<AuthBloc>()
+          .state
+          .enums!
+          .diaryEventTypes
+          .map((e) => DropStringItemModel(id: e.id, value: e.name))
+          .toList(),
+    );
     final favoriteMedias = await _favMedias();
     emit(
       state.copyWith(
@@ -87,7 +98,7 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
   }
 
   void __eventId(_EventId event, Emitter<PetDairyState> emit) {
-    final eventId = DropdownValue.dirty(event.id);
+    final eventId = DropdownStringValue.dirty(event.id);
     emit(state.copyWith(eventId: eventId));
   }
 

@@ -4,6 +4,7 @@ import 'package:dummy/features/health/data/models/medication_date_model.dart';
 
 import '../../../dailycare/data/models/frequency_model.dart';
 import '../models/medication_model.dart';
+import '../models/medication_log_model.dart';
 import '../models/vaccination_model.dart';
 
 abstract class HealthDatasource {
@@ -41,6 +42,12 @@ abstract class HealthDatasource {
   AppTypeResponse<List<PetVaccinationModel>> vaccinations(
     String petId,
     String? key,
+    String? fromDate,
+    String? toDate,
+  );
+  // Medication logs methods
+  AppTypeResponse<List<MedicationLogModel>> medicationLogs(
+    String medicationId,
     String? fromDate,
     String? toDate,
   );

@@ -15,6 +15,7 @@ import 'package:dummy/service/local_storage_service.dart';
 
 import '../../../dailycare/data/models/frequency_model.dart';
 import '../models/medication_model.dart';
+import '../models/medication_log_model.dart';
 import '../models/vaccination_model.dart';
 
 class HealthDatasourceImpl extends HealthDatasource {
@@ -509,6 +510,46 @@ class HealthDatasourceImpl extends HealthDatasource {
             for (final documents in data['data'] as List? ?? []) {
               final map = Map<String, dynamic>.from(documents as Map);
               item.add(PetVaccinationModel.fromJson(map));
+            }
+            return Right(item);
+          }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<List<MedicationLogModel>> medicationLogs(
+    String medicationId,
+    String? fromDate,
+    String? toDate,
+  ) async {
+    final response = await http.get(
+      path: api.medicationLogs(medicationId),
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            final item = <MedicationLogModel>[];
+            for (final logData in data['data'] as List? ?? []) {
+              final map = Map<String, dynamic>.from(logData as Map);
+              item.add(MedicationLogModel.fromJson(map));
             }
             return Right(item);
           }
