@@ -16,6 +16,7 @@ import 'package:dummy/features/profile/domain/usecases/add_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/event_fields_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/get_media_usecases.dart';
+import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -65,18 +66,22 @@ class MediaFormBloc extends Bloc<MediaFormEvent, MediaFormState> {
       ),
     );
     if (event.id != null) {
-      final result = await _getMediaUsecases(id: event.id!);
-      result.fold((l) {}, (r) {
-        final event = events.firstWhere((e) => e.value == r.eventTypeName);
-        LogUtility.warning(event.toString());
-        emit(
-          state.copyWith(
-            notes: NotEmpty.dirty(value: r.notes ?? ''),
-            url: NotEmpty.dirty(value: r.fileUrl),
-            event: DropdownStringValue.dirty(event),
-          ),
-        );
-      });
+      final r =
+          currentContext
+              .read<PetDairyBloc>()
+              .state
+              .medias
+              .where((m) => m.id == event.id)
+              .first;
+      final eventV = events.firstWhere((e) => e.value == r.eventTypeName);
+      LogUtility.warning(event.toString());
+      emit(
+        state.copyWith(
+          notes: NotEmpty.dirty(value: r.notes ?? ''),
+          url: NotEmpty.dirty(value: r.fileUrl),
+          event: DropdownStringValue.dirty(eventV),
+        ),
+      );
     }
   }
 

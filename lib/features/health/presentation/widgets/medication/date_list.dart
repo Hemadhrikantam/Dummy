@@ -1,5 +1,7 @@
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
+import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/features/health/domain/entities/medication_date.dart';
 import 'package:dummy/features/health/domain/entities/medication_log.dart';
 import 'package:dummy/features/health/presentation/bloc/medication_details/medication_details_bloc.dart';
@@ -43,16 +45,18 @@ class DateList extends StatelessWidget {
         // }).toList()
         //   ..sort((a, b) => b.date.compareTo(a.date));
 
-        return AppCustomListViewBuilder(
-          itemCount: grouped.keys.length,
-          isExpand: false,
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          separatorBuilder: (context, i) => Styles.gap10,
-          itemBuilder: (BuildContext context, int i) {
-            return DateCard(date: grouped.values.elementAt(i));
-          },
-        );
+        return state.initStatus.loading
+            ? LoadingWidget.circularProgressIndicatorCenter
+            : AppCustomListViewBuilder(
+              itemCount: grouped.keys.length,
+              isExpand: false,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              separatorBuilder: (context, i) => Styles.gap10,
+              itemBuilder: (BuildContext context, int i) {
+                return DateCard(date: grouped.values.elementAt(i));
+              },
+            );
       },
     );
   }

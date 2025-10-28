@@ -21,8 +21,9 @@ mixin _$ExpenseFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) category,
+    required TResult Function(DropStringItem value) category,
     required TResult Function(String value) notes,
+    required TResult Function(String value) amount,
     required TResult Function(String value) media,
     required TResult Function() submit,
   }) => throw _privateConstructorUsedError;
@@ -30,8 +31,9 @@ mixin _$ExpenseFormEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? category,
+    TResult? Function(DropStringItem value)? category,
     TResult? Function(String value)? notes,
+    TResult? Function(String value)? amount,
     TResult? Function(String value)? media,
     TResult? Function()? submit,
   }) => throw _privateConstructorUsedError;
@@ -39,8 +41,9 @@ mixin _$ExpenseFormEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? category,
+    TResult Function(DropStringItem value)? category,
     TResult Function(String value)? notes,
+    TResult Function(String value)? amount,
     TResult Function(String value)? media,
     TResult Function()? submit,
     required TResult orElse(),
@@ -51,6 +54,7 @@ mixin _$ExpenseFormEvent {
     required TResult Function(_Date value) date,
     required TResult Function(_Category value) category,
     required TResult Function(_Notes value) notes,
+    required TResult Function(_Amount value) amount,
     required TResult Function(_Media value) media,
     required TResult Function(_Submit value) submit,
   }) => throw _privateConstructorUsedError;
@@ -60,6 +64,7 @@ mixin _$ExpenseFormEvent {
     TResult? Function(_Date value)? date,
     TResult? Function(_Category value)? category,
     TResult? Function(_Notes value)? notes,
+    TResult? Function(_Amount value)? amount,
     TResult? Function(_Media value)? media,
     TResult? Function(_Submit value)? submit,
   }) => throw _privateConstructorUsedError;
@@ -69,6 +74,7 @@ mixin _$ExpenseFormEvent {
     TResult Function(_Date value)? date,
     TResult Function(_Category value)? category,
     TResult Function(_Notes value)? notes,
+    TResult Function(_Amount value)? amount,
     TResult Function(_Media value)? media,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
@@ -132,15 +138,23 @@ class __$$InitImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitImpl implements _Init {
+class _$InitImpl with DiagnosticableTreeMixin implements _Init {
   const _$InitImpl(this.petId);
 
   @override
   final String petId;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ExpenseFormEvent.init(petId: $petId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ExpenseFormEvent.init'))
+      ..add(DiagnosticsProperty('petId', petId));
   }
 
   @override
@@ -167,8 +181,9 @@ class _$InitImpl implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) category,
+    required TResult Function(DropStringItem value) category,
     required TResult Function(String value) notes,
+    required TResult Function(String value) amount,
     required TResult Function(String value) media,
     required TResult Function() submit,
   }) {
@@ -180,8 +195,9 @@ class _$InitImpl implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? category,
+    TResult? Function(DropStringItem value)? category,
     TResult? Function(String value)? notes,
+    TResult? Function(String value)? amount,
     TResult? Function(String value)? media,
     TResult? Function()? submit,
   }) {
@@ -193,8 +209,9 @@ class _$InitImpl implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? category,
+    TResult Function(DropStringItem value)? category,
     TResult Function(String value)? notes,
+    TResult Function(String value)? amount,
     TResult Function(String value)? media,
     TResult Function()? submit,
     required TResult orElse(),
@@ -212,6 +229,7 @@ class _$InitImpl implements _Init {
     required TResult Function(_Date value) date,
     required TResult Function(_Category value) category,
     required TResult Function(_Notes value) notes,
+    required TResult Function(_Amount value) amount,
     required TResult Function(_Media value) media,
     required TResult Function(_Submit value) submit,
   }) {
@@ -225,6 +243,7 @@ class _$InitImpl implements _Init {
     TResult? Function(_Date value)? date,
     TResult? Function(_Category value)? category,
     TResult? Function(_Notes value)? notes,
+    TResult? Function(_Amount value)? amount,
     TResult? Function(_Media value)? media,
     TResult? Function(_Submit value)? submit,
   }) {
@@ -238,6 +257,7 @@ class _$InitImpl implements _Init {
     TResult Function(_Date value)? date,
     TResult Function(_Category value)? category,
     TResult Function(_Notes value)? notes,
+    TResult Function(_Amount value)? amount,
     TResult Function(_Media value)? media,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
@@ -296,15 +316,23 @@ class __$$DateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DateImpl implements _Date {
+class _$DateImpl with DiagnosticableTreeMixin implements _Date {
   const _$DateImpl(this.value);
 
   @override
   final String value;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ExpenseFormEvent.date(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ExpenseFormEvent.date'))
+      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -331,8 +359,9 @@ class _$DateImpl implements _Date {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) category,
+    required TResult Function(DropStringItem value) category,
     required TResult Function(String value) notes,
+    required TResult Function(String value) amount,
     required TResult Function(String value) media,
     required TResult Function() submit,
   }) {
@@ -344,8 +373,9 @@ class _$DateImpl implements _Date {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? category,
+    TResult? Function(DropStringItem value)? category,
     TResult? Function(String value)? notes,
+    TResult? Function(String value)? amount,
     TResult? Function(String value)? media,
     TResult? Function()? submit,
   }) {
@@ -357,8 +387,9 @@ class _$DateImpl implements _Date {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? category,
+    TResult Function(DropStringItem value)? category,
     TResult Function(String value)? notes,
+    TResult Function(String value)? amount,
     TResult Function(String value)? media,
     TResult Function()? submit,
     required TResult orElse(),
@@ -376,6 +407,7 @@ class _$DateImpl implements _Date {
     required TResult Function(_Date value) date,
     required TResult Function(_Category value) category,
     required TResult Function(_Notes value) notes,
+    required TResult Function(_Amount value) amount,
     required TResult Function(_Media value) media,
     required TResult Function(_Submit value) submit,
   }) {
@@ -389,6 +421,7 @@ class _$DateImpl implements _Date {
     TResult? Function(_Date value)? date,
     TResult? Function(_Category value)? category,
     TResult? Function(_Notes value)? notes,
+    TResult? Function(_Amount value)? amount,
     TResult? Function(_Media value)? media,
     TResult? Function(_Submit value)? submit,
   }) {
@@ -402,6 +435,7 @@ class _$DateImpl implements _Date {
     TResult Function(_Date value)? date,
     TResult Function(_Category value)? category,
     TResult Function(_Notes value)? notes,
+    TResult Function(_Amount value)? amount,
     TResult Function(_Media value)? media,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
@@ -432,7 +466,7 @@ abstract class _$$CategoryImplCopyWith<$Res> {
     $Res Function(_$CategoryImpl) then,
   ) = __$$CategoryImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String value});
+  $Res call({DropStringItem value});
 }
 
 /// @nodoc
@@ -454,7 +488,7 @@ class __$$CategoryImplCopyWithImpl<$Res>
         null == value
             ? _value.value
             : value // ignore: cast_nullable_to_non_nullable
-                as String,
+                as DropStringItem,
       ),
     );
   }
@@ -462,15 +496,23 @@ class __$$CategoryImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CategoryImpl implements _Category {
+class _$CategoryImpl with DiagnosticableTreeMixin implements _Category {
   const _$CategoryImpl(this.value);
 
   @override
-  final String value;
+  final DropStringItem value;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ExpenseFormEvent.category(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ExpenseFormEvent.category'))
+      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -497,8 +539,9 @@ class _$CategoryImpl implements _Category {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) category,
+    required TResult Function(DropStringItem value) category,
     required TResult Function(String value) notes,
+    required TResult Function(String value) amount,
     required TResult Function(String value) media,
     required TResult Function() submit,
   }) {
@@ -510,8 +553,9 @@ class _$CategoryImpl implements _Category {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? category,
+    TResult? Function(DropStringItem value)? category,
     TResult? Function(String value)? notes,
+    TResult? Function(String value)? amount,
     TResult? Function(String value)? media,
     TResult? Function()? submit,
   }) {
@@ -523,8 +567,9 @@ class _$CategoryImpl implements _Category {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? category,
+    TResult Function(DropStringItem value)? category,
     TResult Function(String value)? notes,
+    TResult Function(String value)? amount,
     TResult Function(String value)? media,
     TResult Function()? submit,
     required TResult orElse(),
@@ -542,6 +587,7 @@ class _$CategoryImpl implements _Category {
     required TResult Function(_Date value) date,
     required TResult Function(_Category value) category,
     required TResult Function(_Notes value) notes,
+    required TResult Function(_Amount value) amount,
     required TResult Function(_Media value) media,
     required TResult Function(_Submit value) submit,
   }) {
@@ -555,6 +601,7 @@ class _$CategoryImpl implements _Category {
     TResult? Function(_Date value)? date,
     TResult? Function(_Category value)? category,
     TResult? Function(_Notes value)? notes,
+    TResult? Function(_Amount value)? amount,
     TResult? Function(_Media value)? media,
     TResult? Function(_Submit value)? submit,
   }) {
@@ -568,6 +615,7 @@ class _$CategoryImpl implements _Category {
     TResult Function(_Date value)? date,
     TResult Function(_Category value)? category,
     TResult Function(_Notes value)? notes,
+    TResult Function(_Amount value)? amount,
     TResult Function(_Media value)? media,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
@@ -580,9 +628,9 @@ class _$CategoryImpl implements _Category {
 }
 
 abstract class _Category implements ExpenseFormEvent {
-  const factory _Category(final String value) = _$CategoryImpl;
+  const factory _Category(final DropStringItem value) = _$CategoryImpl;
 
-  String get value;
+  DropStringItem get value;
 
   /// Create a copy of ExpenseFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -628,15 +676,23 @@ class __$$NotesImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NotesImpl implements _Notes {
+class _$NotesImpl with DiagnosticableTreeMixin implements _Notes {
   const _$NotesImpl(this.value);
 
   @override
   final String value;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ExpenseFormEvent.notes(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ExpenseFormEvent.notes'))
+      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -663,8 +719,9 @@ class _$NotesImpl implements _Notes {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) category,
+    required TResult Function(DropStringItem value) category,
     required TResult Function(String value) notes,
+    required TResult Function(String value) amount,
     required TResult Function(String value) media,
     required TResult Function() submit,
   }) {
@@ -676,8 +733,9 @@ class _$NotesImpl implements _Notes {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? category,
+    TResult? Function(DropStringItem value)? category,
     TResult? Function(String value)? notes,
+    TResult? Function(String value)? amount,
     TResult? Function(String value)? media,
     TResult? Function()? submit,
   }) {
@@ -689,8 +747,9 @@ class _$NotesImpl implements _Notes {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? category,
+    TResult Function(DropStringItem value)? category,
     TResult Function(String value)? notes,
+    TResult Function(String value)? amount,
     TResult Function(String value)? media,
     TResult Function()? submit,
     required TResult orElse(),
@@ -708,6 +767,7 @@ class _$NotesImpl implements _Notes {
     required TResult Function(_Date value) date,
     required TResult Function(_Category value) category,
     required TResult Function(_Notes value) notes,
+    required TResult Function(_Amount value) amount,
     required TResult Function(_Media value) media,
     required TResult Function(_Submit value) submit,
   }) {
@@ -721,6 +781,7 @@ class _$NotesImpl implements _Notes {
     TResult? Function(_Date value)? date,
     TResult? Function(_Category value)? category,
     TResult? Function(_Notes value)? notes,
+    TResult? Function(_Amount value)? amount,
     TResult? Function(_Media value)? media,
     TResult? Function(_Submit value)? submit,
   }) {
@@ -734,6 +795,7 @@ class _$NotesImpl implements _Notes {
     TResult Function(_Date value)? date,
     TResult Function(_Category value)? category,
     TResult Function(_Notes value)? notes,
+    TResult Function(_Amount value)? amount,
     TResult Function(_Media value)? media,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
@@ -754,6 +816,186 @@ abstract class _Notes implements ExpenseFormEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$NotesImplCopyWith<_$NotesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AmountImplCopyWith<$Res> {
+  factory _$$AmountImplCopyWith(
+    _$AmountImpl value,
+    $Res Function(_$AmountImpl) then,
+  ) = __$$AmountImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$$AmountImplCopyWithImpl<$Res>
+    extends _$ExpenseFormEventCopyWithImpl<$Res, _$AmountImpl>
+    implements _$$AmountImplCopyWith<$Res> {
+  __$$AmountImplCopyWithImpl(
+    _$AmountImpl _value,
+    $Res Function(_$AmountImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of ExpenseFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$AmountImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$AmountImpl with DiagnosticableTreeMixin implements _Amount {
+  const _$AmountImpl(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ExpenseFormEvent.amount(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ExpenseFormEvent.amount'))
+      ..add(DiagnosticsProperty('value', value));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AmountImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of ExpenseFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AmountImplCopyWith<_$AmountImpl> get copyWith =>
+      __$$AmountImplCopyWithImpl<_$AmountImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String petId) init,
+    required TResult Function(String value) date,
+    required TResult Function(DropStringItem value) category,
+    required TResult Function(String value) notes,
+    required TResult Function(String value) amount,
+    required TResult Function(String value) media,
+    required TResult Function() submit,
+  }) {
+    return amount(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String petId)? init,
+    TResult? Function(String value)? date,
+    TResult? Function(DropStringItem value)? category,
+    TResult? Function(String value)? notes,
+    TResult? Function(String value)? amount,
+    TResult? Function(String value)? media,
+    TResult? Function()? submit,
+  }) {
+    return amount?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String petId)? init,
+    TResult Function(String value)? date,
+    TResult Function(DropStringItem value)? category,
+    TResult Function(String value)? notes,
+    TResult Function(String value)? amount,
+    TResult Function(String value)? media,
+    TResult Function()? submit,
+    required TResult orElse(),
+  }) {
+    if (amount != null) {
+      return amount(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_Date value) date,
+    required TResult Function(_Category value) category,
+    required TResult Function(_Notes value) notes,
+    required TResult Function(_Amount value) amount,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Submit value) submit,
+  }) {
+    return amount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_Date value)? date,
+    TResult? Function(_Category value)? category,
+    TResult? Function(_Notes value)? notes,
+    TResult? Function(_Amount value)? amount,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Submit value)? submit,
+  }) {
+    return amount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_Date value)? date,
+    TResult Function(_Category value)? category,
+    TResult Function(_Notes value)? notes,
+    TResult Function(_Amount value)? amount,
+    TResult Function(_Media value)? media,
+    TResult Function(_Submit value)? submit,
+    required TResult orElse(),
+  }) {
+    if (amount != null) {
+      return amount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Amount implements ExpenseFormEvent {
+  const factory _Amount(final String value) = _$AmountImpl;
+
+  String get value;
+
+  /// Create a copy of ExpenseFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AmountImplCopyWith<_$AmountImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -794,15 +1036,23 @@ class __$$MediaImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MediaImpl implements _Media {
+class _$MediaImpl with DiagnosticableTreeMixin implements _Media {
   const _$MediaImpl(this.value);
 
   @override
   final String value;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ExpenseFormEvent.media(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ExpenseFormEvent.media'))
+      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -829,8 +1079,9 @@ class _$MediaImpl implements _Media {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) category,
+    required TResult Function(DropStringItem value) category,
     required TResult Function(String value) notes,
+    required TResult Function(String value) amount,
     required TResult Function(String value) media,
     required TResult Function() submit,
   }) {
@@ -842,8 +1093,9 @@ class _$MediaImpl implements _Media {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? category,
+    TResult? Function(DropStringItem value)? category,
     TResult? Function(String value)? notes,
+    TResult? Function(String value)? amount,
     TResult? Function(String value)? media,
     TResult? Function()? submit,
   }) {
@@ -855,8 +1107,9 @@ class _$MediaImpl implements _Media {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? category,
+    TResult Function(DropStringItem value)? category,
     TResult Function(String value)? notes,
+    TResult Function(String value)? amount,
     TResult Function(String value)? media,
     TResult Function()? submit,
     required TResult orElse(),
@@ -874,6 +1127,7 @@ class _$MediaImpl implements _Media {
     required TResult Function(_Date value) date,
     required TResult Function(_Category value) category,
     required TResult Function(_Notes value) notes,
+    required TResult Function(_Amount value) amount,
     required TResult Function(_Media value) media,
     required TResult Function(_Submit value) submit,
   }) {
@@ -887,6 +1141,7 @@ class _$MediaImpl implements _Media {
     TResult? Function(_Date value)? date,
     TResult? Function(_Category value)? category,
     TResult? Function(_Notes value)? notes,
+    TResult? Function(_Amount value)? amount,
     TResult? Function(_Media value)? media,
     TResult? Function(_Submit value)? submit,
   }) {
@@ -900,6 +1155,7 @@ class _$MediaImpl implements _Media {
     TResult Function(_Date value)? date,
     TResult Function(_Category value)? category,
     TResult Function(_Notes value)? notes,
+    TResult Function(_Amount value)? amount,
     TResult Function(_Media value)? media,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
@@ -946,12 +1202,18 @@ class __$$SubmitImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SubmitImpl implements _Submit {
+class _$SubmitImpl with DiagnosticableTreeMixin implements _Submit {
   const _$SubmitImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ExpenseFormEvent.submit()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'ExpenseFormEvent.submit'));
   }
 
   @override
@@ -968,8 +1230,9 @@ class _$SubmitImpl implements _Submit {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) category,
+    required TResult Function(DropStringItem value) category,
     required TResult Function(String value) notes,
+    required TResult Function(String value) amount,
     required TResult Function(String value) media,
     required TResult Function() submit,
   }) {
@@ -981,8 +1244,9 @@ class _$SubmitImpl implements _Submit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? category,
+    TResult? Function(DropStringItem value)? category,
     TResult? Function(String value)? notes,
+    TResult? Function(String value)? amount,
     TResult? Function(String value)? media,
     TResult? Function()? submit,
   }) {
@@ -994,8 +1258,9 @@ class _$SubmitImpl implements _Submit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? category,
+    TResult Function(DropStringItem value)? category,
     TResult Function(String value)? notes,
+    TResult Function(String value)? amount,
     TResult Function(String value)? media,
     TResult Function()? submit,
     required TResult orElse(),
@@ -1013,6 +1278,7 @@ class _$SubmitImpl implements _Submit {
     required TResult Function(_Date value) date,
     required TResult Function(_Category value) category,
     required TResult Function(_Notes value) notes,
+    required TResult Function(_Amount value) amount,
     required TResult Function(_Media value) media,
     required TResult Function(_Submit value) submit,
   }) {
@@ -1026,6 +1292,7 @@ class _$SubmitImpl implements _Submit {
     TResult? Function(_Date value)? date,
     TResult? Function(_Category value)? category,
     TResult? Function(_Notes value)? notes,
+    TResult? Function(_Amount value)? amount,
     TResult? Function(_Media value)? media,
     TResult? Function(_Submit value)? submit,
   }) {
@@ -1039,6 +1306,7 @@ class _$SubmitImpl implements _Submit {
     TResult Function(_Date value)? date,
     TResult Function(_Category value)? category,
     TResult Function(_Notes value)? notes,
+    TResult Function(_Amount value)? amount,
     TResult Function(_Media value)? media,
     TResult Function(_Submit value)? submit,
     required TResult orElse(),
@@ -1058,9 +1326,11 @@ abstract class _Submit implements ExpenseFormEvent {
 mixin _$ExpenseFormState {
   Status get submitStatus => throw _privateConstructorUsedError;
   NotEmpty get date => throw _privateConstructorUsedError;
-  NotEmpty get category => throw _privateConstructorUsedError;
+  NotEmpty get amount => throw _privateConstructorUsedError;
+  DropdownStringValue get category => throw _privateConstructorUsedError;
   NotEmpty get notes => throw _privateConstructorUsedError;
   NotEmpty get media => throw _privateConstructorUsedError;
+  List<DropStringItem> get categories => throw _privateConstructorUsedError;
   bool get validation => throw _privateConstructorUsedError;
   String get petId => throw _privateConstructorUsedError;
 
@@ -1081,9 +1351,11 @@ abstract class $ExpenseFormStateCopyWith<$Res> {
   $Res call({
     Status submitStatus,
     NotEmpty date,
-    NotEmpty category,
+    NotEmpty amount,
+    DropdownStringValue category,
     NotEmpty notes,
     NotEmpty media,
+    List<DropStringItem> categories,
     bool validation,
     String petId,
   });
@@ -1106,9 +1378,11 @@ class _$ExpenseFormStateCopyWithImpl<$Res, $Val extends ExpenseFormState>
   $Res call({
     Object? submitStatus = null,
     Object? date = null,
+    Object? amount = null,
     Object? category = null,
     Object? notes = null,
     Object? media = null,
+    Object? categories = null,
     Object? validation = null,
     Object? petId = null,
   }) {
@@ -1124,11 +1398,16 @@ class _$ExpenseFormStateCopyWithImpl<$Res, $Val extends ExpenseFormState>
                     ? _value.date
                     : date // ignore: cast_nullable_to_non_nullable
                         as NotEmpty,
+            amount:
+                null == amount
+                    ? _value.amount
+                    : amount // ignore: cast_nullable_to_non_nullable
+                        as NotEmpty,
             category:
                 null == category
                     ? _value.category
                     : category // ignore: cast_nullable_to_non_nullable
-                        as NotEmpty,
+                        as DropdownStringValue,
             notes:
                 null == notes
                     ? _value.notes
@@ -1139,6 +1418,11 @@ class _$ExpenseFormStateCopyWithImpl<$Res, $Val extends ExpenseFormState>
                     ? _value.media
                     : media // ignore: cast_nullable_to_non_nullable
                         as NotEmpty,
+            categories:
+                null == categories
+                    ? _value.categories
+                    : categories // ignore: cast_nullable_to_non_nullable
+                        as List<DropStringItem>,
             validation:
                 null == validation
                     ? _value.validation
@@ -1167,9 +1451,11 @@ abstract class _$$ExpenseFormStateImplCopyWith<$Res>
   $Res call({
     Status submitStatus,
     NotEmpty date,
-    NotEmpty category,
+    NotEmpty amount,
+    DropdownStringValue category,
     NotEmpty notes,
     NotEmpty media,
+    List<DropStringItem> categories,
     bool validation,
     String petId,
   });
@@ -1191,9 +1477,11 @@ class __$$ExpenseFormStateImplCopyWithImpl<$Res>
   $Res call({
     Object? submitStatus = null,
     Object? date = null,
+    Object? amount = null,
     Object? category = null,
     Object? notes = null,
     Object? media = null,
+    Object? categories = null,
     Object? validation = null,
     Object? petId = null,
   }) {
@@ -1209,11 +1497,16 @@ class __$$ExpenseFormStateImplCopyWithImpl<$Res>
                 ? _value.date
                 : date // ignore: cast_nullable_to_non_nullable
                     as NotEmpty,
+        amount:
+            null == amount
+                ? _value.amount
+                : amount // ignore: cast_nullable_to_non_nullable
+                    as NotEmpty,
         category:
             null == category
                 ? _value.category
                 : category // ignore: cast_nullable_to_non_nullable
-                    as NotEmpty,
+                    as DropdownStringValue,
         notes:
             null == notes
                 ? _value.notes
@@ -1224,6 +1517,11 @@ class __$$ExpenseFormStateImplCopyWithImpl<$Res>
                 ? _value.media
                 : media // ignore: cast_nullable_to_non_nullable
                     as NotEmpty,
+        categories:
+            null == categories
+                ? _value._categories
+                : categories // ignore: cast_nullable_to_non_nullable
+                    as List<DropStringItem>,
         validation:
             null == validation
                 ? _value.validation
@@ -1241,16 +1539,20 @@ class __$$ExpenseFormStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ExpenseFormStateImpl implements _ExpenseFormState {
+class _$ExpenseFormStateImpl
+    with DiagnosticableTreeMixin
+    implements _ExpenseFormState {
   const _$ExpenseFormStateImpl({
     this.submitStatus = Status.init,
     this.date = const NotEmpty.pure(),
-    this.category = const NotEmpty.pure(),
+    this.amount = const NotEmpty.pure(),
+    this.category = const DropdownStringValue.pure(),
     this.notes = const NotEmpty.pure(),
     this.media = const NotEmpty.pure(),
+    final List<DropStringItem> categories = const [],
     this.validation = false,
     this.petId = '',
-  });
+  }) : _categories = categories;
 
   @override
   @JsonKey()
@@ -1260,13 +1562,25 @@ class _$ExpenseFormStateImpl implements _ExpenseFormState {
   final NotEmpty date;
   @override
   @JsonKey()
-  final NotEmpty category;
+  final NotEmpty amount;
+  @override
+  @JsonKey()
+  final DropdownStringValue category;
   @override
   @JsonKey()
   final NotEmpty notes;
   @override
   @JsonKey()
   final NotEmpty media;
+  final List<DropStringItem> _categories;
+  @override
+  @JsonKey()
+  List<DropStringItem> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_categories);
+  }
+
   @override
   @JsonKey()
   final bool validation;
@@ -1275,8 +1589,24 @@ class _$ExpenseFormStateImpl implements _ExpenseFormState {
   final String petId;
 
   @override
-  String toString() {
-    return 'ExpenseFormState(submitStatus: $submitStatus, date: $date, category: $category, notes: $notes, media: $media, validation: $validation, petId: $petId)';
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ExpenseFormState(submitStatus: $submitStatus, date: $date, amount: $amount, category: $category, notes: $notes, media: $media, categories: $categories, validation: $validation, petId: $petId)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ExpenseFormState'))
+      ..add(DiagnosticsProperty('submitStatus', submitStatus))
+      ..add(DiagnosticsProperty('date', date))
+      ..add(DiagnosticsProperty('amount', amount))
+      ..add(DiagnosticsProperty('category', category))
+      ..add(DiagnosticsProperty('notes', notes))
+      ..add(DiagnosticsProperty('media', media))
+      ..add(DiagnosticsProperty('categories', categories))
+      ..add(DiagnosticsProperty('validation', validation))
+      ..add(DiagnosticsProperty('petId', petId));
   }
 
   @override
@@ -1287,10 +1617,15 @@ class _$ExpenseFormStateImpl implements _ExpenseFormState {
             (identical(other.submitStatus, submitStatus) ||
                 other.submitStatus == submitStatus) &&
             (identical(other.date, date) || other.date == date) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.category, category) ||
                 other.category == category) &&
             (identical(other.notes, notes) || other.notes == notes) &&
             (identical(other.media, media) || other.media == media) &&
+            const DeepCollectionEquality().equals(
+              other._categories,
+              _categories,
+            ) &&
             (identical(other.validation, validation) ||
                 other.validation == validation) &&
             (identical(other.petId, petId) || other.petId == petId));
@@ -1301,9 +1636,11 @@ class _$ExpenseFormStateImpl implements _ExpenseFormState {
     runtimeType,
     submitStatus,
     date,
+    amount,
     category,
     notes,
     media,
+    const DeepCollectionEquality().hash(_categories),
     validation,
     petId,
   );
@@ -1324,9 +1661,11 @@ abstract class _ExpenseFormState implements ExpenseFormState {
   const factory _ExpenseFormState({
     final Status submitStatus,
     final NotEmpty date,
-    final NotEmpty category,
+    final NotEmpty amount,
+    final DropdownStringValue category,
     final NotEmpty notes,
     final NotEmpty media,
+    final List<DropStringItem> categories,
     final bool validation,
     final String petId,
   }) = _$ExpenseFormStateImpl;
@@ -1336,11 +1675,15 @@ abstract class _ExpenseFormState implements ExpenseFormState {
   @override
   NotEmpty get date;
   @override
-  NotEmpty get category;
+  NotEmpty get amount;
+  @override
+  DropdownStringValue get category;
   @override
   NotEmpty get notes;
   @override
   NotEmpty get media;
+  @override
+  List<DropStringItem> get categories;
   @override
   bool get validation;
   @override

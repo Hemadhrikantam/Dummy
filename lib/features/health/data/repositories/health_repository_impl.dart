@@ -81,6 +81,19 @@ class HealthRepositoryImpl extends HealthRepository {
   }
 
   @override
+  AppSuccessResponse updateMedicationLog({
+    required String medicationId,
+    required String logId,
+    required bool check,
+  }) {
+    return _healthDatasource.updateMedicationLog(
+      medicationId: medicationId,
+      logId: logId,
+      check: check,
+    );
+  }
+
+  @override
   AppTypeResponse<PetVaccination> getVaccination({required String id}) {
     return _healthDatasource.getVaccination(id: id);
   }

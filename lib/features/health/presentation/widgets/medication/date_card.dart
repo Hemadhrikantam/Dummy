@@ -61,11 +61,6 @@ class _DateCardState extends State<DateCard> {
                   setState(() {
                     isOpen = !isOpen;
                   });
-                  if (isOpen) {
-                    // context.read<MedicationDetailsBloc>().add(
-                    //   MedicationDetailsEvent.getDate(widget.date.date),
-                    // );
-                  }
                 },
                 padding: Styles.edgeInsetsAll02,
                 borderRadius: Styles.borderRadiusCircular50,
@@ -96,11 +91,18 @@ class _DateCardState extends State<DateCard> {
                             isChecked: e.status != 'missed',
                             label: e.timeslotName,
                             onChanged: (value) {
-                              // context.read<MedicationDetailsBloc>().add(
-                              // MedicationDetailsEvent.updateDate(
-                              //   widget.date.copyWith(morning: !widget.date.morning),
-                              // ),
-                              // );
+                              context.read<MedicationDetailsBloc>().add(
+                                MedicationDetailsEvent.updateMedicationLog(
+                                  medicationId:
+                                      context
+                                          .read<MedicationDetailsBloc>()
+                                          .state
+                                          .medication!
+                                          .id,
+                                  logId: e.scheduleId,
+                                  check: value,
+                                ),
+                              );
                             },
                           ),
                         ),

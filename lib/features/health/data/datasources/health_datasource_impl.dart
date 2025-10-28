@@ -531,9 +531,7 @@ class HealthDatasourceImpl extends HealthDatasource {
     String? fromDate,
     String? toDate,
   ) async {
-    final response = await http.get(
-      path: api.medicationLogs(medicationId),
-    );
+    final response = await http.get(path: api.medicationLogs(medicationId));
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -552,6 +550,51 @@ class HealthDatasourceImpl extends HealthDatasource {
               item.add(MedicationLogModel.fromJson(map));
             }
             return Right(item);
+          }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppSuccessResponse updateMedicationLog({
+    required String medicationId,
+    required String logId,
+    required bool check,
+  }) async {
+    final response = await http.post(
+      path: api.medicationLogs(null),
+      data: {
+        "medication_id": medicationId,
+        "schedule_ids": [logId],
+        "notes": "test",
+        "type": check ? "check" : "uncheck",
+      },
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message: data['message'] as String? ?? 'Medication log updated',
+              ),
+            );
           }
           return Left(
             ErrorMessage(

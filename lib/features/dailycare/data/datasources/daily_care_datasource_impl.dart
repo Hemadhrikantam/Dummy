@@ -191,11 +191,9 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
 
   @override
   AppSuccessResponse addExpense({required Payload payload}) async {
-    final formData = FormData.fromMap(payload.toMap());
     final response = await http.post(
-      path: api.expenses(null),
-      data: formData,
-      options: Options(contentType: 'multipart/form-data'),
+      path: api.expenses(),
+      data: payload.toMap(),
     );
     return response.fold(
       (error) {
@@ -455,7 +453,14 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
 
   @override
   AppTypeResponse<List<PetExpenseModel>> expenses(DateTime? date) async {
-    final response = await http.get(path: api.expenses(date), petId: true);
+    final response = await http.get(
+      path: api.expenses(),
+      queryParameters: {
+        'pet_id': currentContext.read<DashboardBloc>().state.selectedPet?.id,
+        'start_date': date != null ? AppUtil.formatDate(date) : null,
+        'end_date': date != null ? AppUtil.formatDate(date) : null,
+      },
+    );
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -469,7 +474,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
                   : success.statusCode;
           if (statusCode <= 201) {
             final item = <PetExpenseModel>[];
-            for (final documents in data as List? ?? []) {
+            for (final documents in data['data'] as List? ?? []) {
               final map = Map<String, dynamic>.from(documents as Map);
               item.add(PetExpenseModel.fromJson(map));
             }

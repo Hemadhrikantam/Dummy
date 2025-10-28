@@ -8,6 +8,7 @@ import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
+import 'package:dummy/core/widgets/custom_dropdown.dart';
 import 'package:dummy/core/widgets/dotted_border_widget.dart';
 import 'package:dummy/features/dailycare/presentation/bloc/expense_form/expense_form_bloc.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';
@@ -68,27 +69,37 @@ class _AddExpensesFormState extends State<AddExpensesForm> {
                         children: [
                           _Date(),
                           Styles.gap15,
-                          BlocSelector<
-                            ExpenseFormBloc,
-                            ExpenseFormState,
-                            NotEmpty
-                          >(
-                            selector: (state) {
-                              return state.category;
-                            },
+                          BlocBuilder<ExpenseFormBloc, ExpenseFormState>(
                             builder: (context, state) {
-                              return AppTextFormField(
-                                initialValue: state.value,
+                              return CustomStringDropdownSearch(
+                                selectedItem: state.category.value,
                                 onChanged: (value) {
+                                  if (value == null) return;
                                   context.read<ExpenseFormBloc>().add(
-                                    ExpenseFormEvent.category(value.toString()),
+                                    ExpenseFormEvent.category(value),
                                   );
                                 },
+                                title: AppText.category,
+                                isMandatory: true,
+                                items: state.categories,
+                              );
+                            },
+                          ),
+                          Styles.gap10,
+                          BlocBuilder<ExpenseFormBloc, ExpenseFormState>(
+                            builder: (context, state) {
+                              return AppTextFormField(
+                                initialValue: state.amount.value,
+                                hintText: AppText.enter,
                                 keyboardType: TextInputType.number,
-                                inputFormatters: <TextInputFormatter>[
-                                  FilteringTextInputFormatter.digitsOnly,
-                                ],
-                                hintText: '...',
+                                borderRadius: Styles.borderRadiusCircular25,
+                                onChanged: (value) {
+                                  context.read<ExpenseFormBloc>().add(
+                                    ExpenseFormEvent.amount(value.toString()),
+                                  );
+                                },
+                                maxLines: 1,
+                                heigth: 50,
                                 headerText: AppText.amount,
                                 isMandatory: true,
                               );

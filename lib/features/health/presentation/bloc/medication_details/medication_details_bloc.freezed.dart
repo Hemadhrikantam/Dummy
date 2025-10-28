@@ -22,18 +22,24 @@ mixin _$MedicationDetailsEvent {
     required TResult Function(String id) init,
     required TResult Function() loadLogs,
     required TResult Function(MedicationLog value) updateLog,
+    required TResult Function(String medicationId, String logId, bool check)
+    updateMedicationLog,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? init,
     TResult? Function()? loadLogs,
     TResult? Function(MedicationLog value)? updateLog,
+    TResult? Function(String medicationId, String logId, bool check)?
+    updateMedicationLog,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? init,
     TResult Function()? loadLogs,
     TResult Function(MedicationLog value)? updateLog,
+    TResult Function(String medicationId, String logId, bool check)?
+    updateMedicationLog,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,18 +47,21 @@ mixin _$MedicationDetailsEvent {
     required TResult Function(_Init value) init,
     required TResult Function(_LoadLogs value) loadLogs,
     required TResult Function(_UpdateLog value) updateLog,
+    required TResult Function(_UpdateMedicationLog value) updateMedicationLog,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_LoadLogs value)? loadLogs,
     TResult? Function(_UpdateLog value)? updateLog,
+    TResult? Function(_UpdateMedicationLog value)? updateMedicationLog,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_LoadLogs value)? loadLogs,
     TResult Function(_UpdateLog value)? updateLog,
+    TResult Function(_UpdateMedicationLog value)? updateMedicationLog,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -153,6 +162,8 @@ class _$InitImpl implements _Init {
     required TResult Function(String id) init,
     required TResult Function() loadLogs,
     required TResult Function(MedicationLog value) updateLog,
+    required TResult Function(String medicationId, String logId, bool check)
+    updateMedicationLog,
   }) {
     return init(id);
   }
@@ -163,6 +174,8 @@ class _$InitImpl implements _Init {
     TResult? Function(String id)? init,
     TResult? Function()? loadLogs,
     TResult? Function(MedicationLog value)? updateLog,
+    TResult? Function(String medicationId, String logId, bool check)?
+    updateMedicationLog,
   }) {
     return init?.call(id);
   }
@@ -173,6 +186,8 @@ class _$InitImpl implements _Init {
     TResult Function(String id)? init,
     TResult Function()? loadLogs,
     TResult Function(MedicationLog value)? updateLog,
+    TResult Function(String medicationId, String logId, bool check)?
+    updateMedicationLog,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -187,6 +202,7 @@ class _$InitImpl implements _Init {
     required TResult Function(_Init value) init,
     required TResult Function(_LoadLogs value) loadLogs,
     required TResult Function(_UpdateLog value) updateLog,
+    required TResult Function(_UpdateMedicationLog value) updateMedicationLog,
   }) {
     return init(this);
   }
@@ -197,6 +213,7 @@ class _$InitImpl implements _Init {
     TResult? Function(_Init value)? init,
     TResult? Function(_LoadLogs value)? loadLogs,
     TResult? Function(_UpdateLog value)? updateLog,
+    TResult? Function(_UpdateMedicationLog value)? updateMedicationLog,
   }) {
     return init?.call(this);
   }
@@ -207,6 +224,7 @@ class _$InitImpl implements _Init {
     TResult Function(_Init value)? init,
     TResult Function(_LoadLogs value)? loadLogs,
     TResult Function(_UpdateLog value)? updateLog,
+    TResult Function(_UpdateMedicationLog value)? updateMedicationLog,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -274,6 +292,8 @@ class _$LoadLogsImpl implements _LoadLogs {
     required TResult Function(String id) init,
     required TResult Function() loadLogs,
     required TResult Function(MedicationLog value) updateLog,
+    required TResult Function(String medicationId, String logId, bool check)
+    updateMedicationLog,
   }) {
     return loadLogs();
   }
@@ -284,6 +304,8 @@ class _$LoadLogsImpl implements _LoadLogs {
     TResult? Function(String id)? init,
     TResult? Function()? loadLogs,
     TResult? Function(MedicationLog value)? updateLog,
+    TResult? Function(String medicationId, String logId, bool check)?
+    updateMedicationLog,
   }) {
     return loadLogs?.call();
   }
@@ -294,6 +316,8 @@ class _$LoadLogsImpl implements _LoadLogs {
     TResult Function(String id)? init,
     TResult Function()? loadLogs,
     TResult Function(MedicationLog value)? updateLog,
+    TResult Function(String medicationId, String logId, bool check)?
+    updateMedicationLog,
     required TResult orElse(),
   }) {
     if (loadLogs != null) {
@@ -308,6 +332,7 @@ class _$LoadLogsImpl implements _LoadLogs {
     required TResult Function(_Init value) init,
     required TResult Function(_LoadLogs value) loadLogs,
     required TResult Function(_UpdateLog value) updateLog,
+    required TResult Function(_UpdateMedicationLog value) updateMedicationLog,
   }) {
     return loadLogs(this);
   }
@@ -318,6 +343,7 @@ class _$LoadLogsImpl implements _LoadLogs {
     TResult? Function(_Init value)? init,
     TResult? Function(_LoadLogs value)? loadLogs,
     TResult? Function(_UpdateLog value)? updateLog,
+    TResult? Function(_UpdateMedicationLog value)? updateMedicationLog,
   }) {
     return loadLogs?.call(this);
   }
@@ -328,6 +354,7 @@ class _$LoadLogsImpl implements _LoadLogs {
     TResult Function(_Init value)? init,
     TResult Function(_LoadLogs value)? loadLogs,
     TResult Function(_UpdateLog value)? updateLog,
+    TResult Function(_UpdateMedicationLog value)? updateMedicationLog,
     required TResult orElse(),
   }) {
     if (loadLogs != null) {
@@ -414,6 +441,8 @@ class _$UpdateLogImpl implements _UpdateLog {
     required TResult Function(String id) init,
     required TResult Function() loadLogs,
     required TResult Function(MedicationLog value) updateLog,
+    required TResult Function(String medicationId, String logId, bool check)
+    updateMedicationLog,
   }) {
     return updateLog(value);
   }
@@ -424,6 +453,8 @@ class _$UpdateLogImpl implements _UpdateLog {
     TResult? Function(String id)? init,
     TResult? Function()? loadLogs,
     TResult? Function(MedicationLog value)? updateLog,
+    TResult? Function(String medicationId, String logId, bool check)?
+    updateMedicationLog,
   }) {
     return updateLog?.call(value);
   }
@@ -434,6 +465,8 @@ class _$UpdateLogImpl implements _UpdateLog {
     TResult Function(String id)? init,
     TResult Function()? loadLogs,
     TResult Function(MedicationLog value)? updateLog,
+    TResult Function(String medicationId, String logId, bool check)?
+    updateMedicationLog,
     required TResult orElse(),
   }) {
     if (updateLog != null) {
@@ -448,6 +481,7 @@ class _$UpdateLogImpl implements _UpdateLog {
     required TResult Function(_Init value) init,
     required TResult Function(_LoadLogs value) loadLogs,
     required TResult Function(_UpdateLog value) updateLog,
+    required TResult Function(_UpdateMedicationLog value) updateMedicationLog,
   }) {
     return updateLog(this);
   }
@@ -458,6 +492,7 @@ class _$UpdateLogImpl implements _UpdateLog {
     TResult? Function(_Init value)? init,
     TResult? Function(_LoadLogs value)? loadLogs,
     TResult? Function(_UpdateLog value)? updateLog,
+    TResult? Function(_UpdateMedicationLog value)? updateMedicationLog,
   }) {
     return updateLog?.call(this);
   }
@@ -468,6 +503,7 @@ class _$UpdateLogImpl implements _UpdateLog {
     TResult Function(_Init value)? init,
     TResult Function(_LoadLogs value)? loadLogs,
     TResult Function(_UpdateLog value)? updateLog,
+    TResult Function(_UpdateMedicationLog value)? updateMedicationLog,
     required TResult orElse(),
   }) {
     if (updateLog != null) {
@@ -486,6 +522,199 @@ abstract class _UpdateLog implements MedicationDetailsEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateLogImplCopyWith<_$UpdateLogImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateMedicationLogImplCopyWith<$Res> {
+  factory _$$UpdateMedicationLogImplCopyWith(
+    _$UpdateMedicationLogImpl value,
+    $Res Function(_$UpdateMedicationLogImpl) then,
+  ) = __$$UpdateMedicationLogImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String medicationId, String logId, bool check});
+}
+
+/// @nodoc
+class __$$UpdateMedicationLogImplCopyWithImpl<$Res>
+    extends
+        _$MedicationDetailsEventCopyWithImpl<$Res, _$UpdateMedicationLogImpl>
+    implements _$$UpdateMedicationLogImplCopyWith<$Res> {
+  __$$UpdateMedicationLogImplCopyWithImpl(
+    _$UpdateMedicationLogImpl _value,
+    $Res Function(_$UpdateMedicationLogImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of MedicationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? medicationId = null,
+    Object? logId = null,
+    Object? check = null,
+  }) {
+    return _then(
+      _$UpdateMedicationLogImpl(
+        medicationId:
+            null == medicationId
+                ? _value.medicationId
+                : medicationId // ignore: cast_nullable_to_non_nullable
+                    as String,
+        logId:
+            null == logId
+                ? _value.logId
+                : logId // ignore: cast_nullable_to_non_nullable
+                    as String,
+        check:
+            null == check
+                ? _value.check
+                : check // ignore: cast_nullable_to_non_nullable
+                    as bool,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$UpdateMedicationLogImpl implements _UpdateMedicationLog {
+  const _$UpdateMedicationLogImpl({
+    required this.medicationId,
+    required this.logId,
+    required this.check,
+  });
+
+  @override
+  final String medicationId;
+  @override
+  final String logId;
+  @override
+  final bool check;
+
+  @override
+  String toString() {
+    return 'MedicationDetailsEvent.updateMedicationLog(medicationId: $medicationId, logId: $logId, check: $check)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateMedicationLogImpl &&
+            (identical(other.medicationId, medicationId) ||
+                other.medicationId == medicationId) &&
+            (identical(other.logId, logId) || other.logId == logId) &&
+            (identical(other.check, check) || other.check == check));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, medicationId, logId, check);
+
+  /// Create a copy of MedicationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateMedicationLogImplCopyWith<_$UpdateMedicationLogImpl> get copyWith =>
+      __$$UpdateMedicationLogImplCopyWithImpl<_$UpdateMedicationLogImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id) init,
+    required TResult Function() loadLogs,
+    required TResult Function(MedicationLog value) updateLog,
+    required TResult Function(String medicationId, String logId, bool check)
+    updateMedicationLog,
+  }) {
+    return updateMedicationLog(medicationId, logId, check);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String id)? init,
+    TResult? Function()? loadLogs,
+    TResult? Function(MedicationLog value)? updateLog,
+    TResult? Function(String medicationId, String logId, bool check)?
+    updateMedicationLog,
+  }) {
+    return updateMedicationLog?.call(medicationId, logId, check);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id)? init,
+    TResult Function()? loadLogs,
+    TResult Function(MedicationLog value)? updateLog,
+    TResult Function(String medicationId, String logId, bool check)?
+    updateMedicationLog,
+    required TResult orElse(),
+  }) {
+    if (updateMedicationLog != null) {
+      return updateMedicationLog(medicationId, logId, check);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_LoadLogs value) loadLogs,
+    required TResult Function(_UpdateLog value) updateLog,
+    required TResult Function(_UpdateMedicationLog value) updateMedicationLog,
+  }) {
+    return updateMedicationLog(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_LoadLogs value)? loadLogs,
+    TResult? Function(_UpdateLog value)? updateLog,
+    TResult? Function(_UpdateMedicationLog value)? updateMedicationLog,
+  }) {
+    return updateMedicationLog?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_LoadLogs value)? loadLogs,
+    TResult Function(_UpdateLog value)? updateLog,
+    TResult Function(_UpdateMedicationLog value)? updateMedicationLog,
+    required TResult orElse(),
+  }) {
+    if (updateMedicationLog != null) {
+      return updateMedicationLog(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateMedicationLog implements MedicationDetailsEvent {
+  const factory _UpdateMedicationLog({
+    required final String medicationId,
+    required final String logId,
+    required final bool check,
+  }) = _$UpdateMedicationLogImpl;
+
+  String get medicationId;
+  String get logId;
+  bool get check;
+
+  /// Create a copy of MedicationDetailsEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateMedicationLogImplCopyWith<_$UpdateMedicationLogImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

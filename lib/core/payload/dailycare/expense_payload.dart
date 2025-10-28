@@ -4,30 +4,93 @@ import 'package:equatable/equatable.dart';
 import '../../utils/type_def.dart';
 import '../payload.dart';
 
-class ExpensePayload extends Equatable implements Payload {
-  const ExpensePayload({
-    required this.date,
-    required this.category,
-    required this.notes,
-    required this.media,
-    required this.pet,
+class ExpenseMediaPayload extends Equatable {
+  const ExpenseMediaPayload({
+    required this.fileUrl,
+    required this.fileType,
+    required this.fileSize,
   });
 
-  final DateTime date;
-  final String category;
-  final String notes;
-  final MultipartFile media;
-  final String pet;
+  final String fileUrl; // https url to existing upload
+  final String fileType; // image|video
+  final String fileSize; // bytes as string
+
+  JsonMap toMap() {
+    String _clean(String v) => v.trim().replaceAll('`', '');
+    return {
+      'file_url': _clean(fileUrl),
+      'file_type': _clean(fileType),
+      'file_size': _clean(fileSize),
+    };
+  }
 
   @override
-  List<Object?> get props => [date, category, notes, media, pet];
+  List<Object?> get props => [fileUrl, fileType, fileSize];
+}
+
+class ExpensePayload extends Equatable implements Payload {
+  const ExpensePayload({
+    // New schema
+    this.petId,
+    this.expenseDate, // YYYY-MM-DD
+    this.categoryId,
+    this.amount,
+    this.currency,
+    this.notes,
+    this.media,
+    // Legacy (kept for backward compatibility with existing callers)
+    this.date,
+    this.category,
+    this.mediaFile,
+    this.pet,
+  });
+
+  // New schema fields
+  final String? petId;
+  final String? expenseDate; // YYYY-MM-DD
+  final String? categoryId; // uuid
+  final num? amount;
+  final String? currency; // e.g., inr
+  final String? notes;
+  final List<ExpenseMediaPayload>? media; // array of media objects
+
+  // Legacy fields (used by current form until migrated)
+  final DateTime? date;
+  final String? category;
+  final MultipartFile? mediaFile;
+  final String? pet;
 
   @override
-  JsonMap toMap() => {
-    'date': AppUtil.formatDate(date),
-    'category': category,
-    'notes': notes,
-    'pet': pet,
-    'media': media,
-  };
+  List<Object?> get props => [
+        petId,
+        expenseDate,
+        categoryId,
+        amount,
+        currency,
+        notes,
+        media,
+        date,
+        category,
+        mediaFile,
+        pet,
+      ];
+
+  @override
+  JsonMap toMap() {
+    // Always emit the new schema keys, falling back to legacy values when present.
+    final String _dateStr = expenseDate ??
+        (date != null ? AppUtil.formatDate(date!) : '');
+
+    return {
+      'pet_id': petId ?? pet,
+      'expense_date': _dateStr,
+      'category_id': categoryId ?? category,
+      'amount': amount ?? 0,
+      'currency': (currency ?? 'inr').toLowerCase(),
+      'notes': notes ?? '',
+      'media': (media ?? const [])
+          .map((m) => m.toMap())
+          .toList(),
+    };
+  }
 }

@@ -62,6 +62,7 @@ import 'package:dummy/features/health/domain/usecases/get_medication_usecases.da
 import 'package:dummy/features/health/domain/usecases/get_vaccination_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/medication_frequency_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/update_medication_date_usecases.dart';
+import 'package:dummy/features/health/domain/usecases/update_medication_log_usecases.dart';
 import 'package:dummy/features/health/presentation/bloc/medication_details/medication_details_bloc.dart';
 import 'package:dummy/features/health/presentation/bloc/medication_form/medication_form_bloc.dart';
 import 'package:dummy/features/health/presentation/bloc/vaccination_details/vaccination_details_bloc.dart';

@@ -90,7 +90,10 @@ class InjectionBloc {
   }
 
   static ExpenseFormBloc get expenseFormBloc {
-    return ExpenseFormBloc(addExpenseUsecases: getIt<AddExpenseUsecases>());
+    return ExpenseFormBloc(
+      addExpenseUsecases: getIt<AddExpenseUsecases>(),
+      uploadFileUsecases: getIt<UploadFileUsecases>(),
+    );
   }
 
   static MealsBloc get mealsBloc {
@@ -156,6 +159,7 @@ class InjectionBloc {
     return MedicationDetailsBloc(
       getMedicationUsecases: getIt<GetMedicationUsecases>(),
       dateUsecases: getIt<GetMedicationLogsUsecases>(),
+      updateLogUsecases: getIt<UpdateMedicationLogUsecases>(),
       editDateUsecases: getIt<UpdateMedicationDateUsecases>(),
     );
   }

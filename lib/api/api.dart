@@ -51,31 +51,27 @@ String walks() {
 
 String groomings(DateTime? date) {
   if (date != null) {
-    return '$__api/daily-care/groomings/?date=${AppUtil.formatDate(date)}';
+    return '$__api/dailycare/groomings/?date=${AppUtil.formatDate(date)}';
   } else {
-    return '$__api/daily-care/groomings/';
+    return '$__api/dailycare/groomings/';
   }
 }
 
 String dewormings(DateTime? date) {
   if (date != null) {
-    return '$__api/daily-care/deworming/?date=${AppUtil.formatDate(date)}';
+    return '$__api/dailycare/deworming/?date=${AppUtil.formatDate(date)}';
   } else {
-    return '$__api/daily-care/deworming/';
+    return '$__api/dailycare/deworming/';
   }
 }
 
-String expenses(DateTime? date) {
-  if (date != null) {
-    return '$__api/daily-care/expense/?date=${AppUtil.formatDate(date)}';
-  } else {
-    return '$__api/daily-care/expense/';
-  }
+String expenses() {
+  return '$__api/dailycare/expenses';
 }
 
-String frequencies = '$__api/daily-care/deworming-frequency/';
-String remindBefores = '$__api/daily-care/remind-before/';
-String timezones = '$__api/daily-care/timezone/';
+String frequencies = '$__api/dailycare/deworming-frequency/';
+String remindBefores = '$__api/dailycare/remind-before/';
+String timezones = '$__api/dailycare/timezone/';
 String overview(String id) => '$__api/dailycare/overview?pet_id=$id';
 
 //health
@@ -93,8 +89,12 @@ String medication(String? key, String? fromDate, String? toDate) {
 
 String medicationItem(String id) => '$__api/medications/$id/';
 String medicationFrequencies = '$__api/medication/medication-frequency/';
-String medicationLogs(String medicationId) {
-  return '$__api/medications/logs/$medicationId';
+String medicationLogs(String? medicationId) {
+  if (medicationId != null) {
+    return '$__api/medications/logs/$medicationId';
+  } else {
+    return '$__api/medications/logs/';
+  }
 }
 
 String vaccination(String? key, String? fromDate, String? toDate) {

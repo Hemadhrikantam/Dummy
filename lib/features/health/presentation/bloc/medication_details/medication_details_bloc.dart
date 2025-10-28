@@ -9,6 +9,7 @@ import 'package:dummy/features/health/domain/usecases/get_medication_date_usecas
 import 'package:dummy/features/health/domain/usecases/get_medication_logs_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/get_medication_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/update_medication_date_usecases.dart';
+import 'package:dummy/features/health/domain/usecases/update_medication_log_usecases.dart';
 import 'package:dummy/features/health/presentation/bloc/medications/medications_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -22,17 +23,21 @@ class MedicationDetailsBloc
   MedicationDetailsBloc({
     required GetMedicationUsecases getMedicationUsecases,
     required GetMedicationLogsUsecases dateUsecases,
+    required UpdateMedicationLogUsecases updateLogUsecases,
     required UpdateMedicationDateUsecases editDateUsecases,
   }) : _getMedicationUsecases = getMedicationUsecases,
        _getLogsUsecases = dateUsecases,
+       _updateLogUsecases = updateLogUsecases,
        _editDateUsecases = editDateUsecases,
        super(MedicationDetailsState()) {
     on<_Init>(__init);
     on<_LoadLogs>(__loadLogs);
     on<_UpdateLog>(__updateLog);
+    on<_UpdateMedicationLog>(__updateMedicationLog);
   }
   final GetMedicationUsecases _getMedicationUsecases;
   final GetMedicationLogsUsecases _getLogsUsecases;
+  final UpdateMedicationLogUsecases _updateLogUsecases;
   final UpdateMedicationDateUsecases _editDateUsecases;
 
   Future<void> __init(_Init event, Emitter<MedicationDetailsState> emit) async {
@@ -87,5 +92,29 @@ class MedicationDetailsBloc
     //     night: event.value.night,
     //   ),
     // );
+  }
+
+  Future<void> __updateMedicationLog(
+    _UpdateMedicationLog event,
+    Emitter<MedicationDetailsState> emit,
+  ) async {
+    emit(state.copyWith(initStatus: Status.loading));
+    final res = await _updateLogUsecases(
+      medicationId: event.medicationId,
+      logId: event.logId,
+      check: event.check,
+    );
+    await res.fold(
+      (failure) async {
+        emit(state.copyWith(initStatus: Status.error));
+      },
+      (success) async {
+        final result = await _getLogsUsecases(medicationId: state.id);
+        result.fold(
+          (l) => emit(state.copyWith(initStatus: Status.error)),
+          (logs) => emit(state.copyWith(logs: logs, initStatus: Status.success)),
+        );
+      },
+    );
   }
 }

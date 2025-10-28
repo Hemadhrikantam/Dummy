@@ -4,6 +4,7 @@ import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_custom_chip.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
+import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/features/health/presentation/bloc/medication_details/medication_details_bloc.dart';
 import 'package:dummy/features/health/presentation/widgets/medication/add_medication_fields.dart';
 import 'package:dummy/features/health/presentation/widgets/medication/circular_progress.dart';
@@ -19,7 +20,7 @@ class MedicationDetailsCard extends StatelessWidget {
     return BlocBuilder<MedicationDetailsBloc, MedicationDetailsState>(
       builder: (context, state) {
         return state.initStatus.loading
-            ? const Center(child: CircularProgressIndicator())
+            ? LoadingWidget.circularProgressIndicatorCenter
             : CustomCard(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
