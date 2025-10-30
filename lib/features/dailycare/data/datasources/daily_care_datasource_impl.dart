@@ -111,11 +111,9 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
 
   @override
   AppSuccessResponse addGrooming({required Payload payload}) async {
-    final formData = FormData.fromMap(payload.toMap());
     final response = await http.post(
-      path: api.groomings(null),
-      data: formData,
-      options: Options(contentType: 'multipart/form-data'),
+      path: api.groomings(),
+      data: payload.toMap(),
     );
     return response.fold(
       (error) {
@@ -151,11 +149,9 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
 
   @override
   AppSuccessResponse addDeworming({required Payload payload}) async {
-    final formData = FormData.fromMap(payload.toMap());
     final response = await http.post(
-      path: api.dewormings(null),
-      data: formData,
-      options: Options(contentType: 'multipart/form-data'),
+      path: api.dewormings(),
+      data: payload.toMap(),
     );
     return response.fold(
       (error) {
@@ -418,7 +414,14 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
 
   @override
   AppTypeResponse<List<PetGroomingModel>> groomings(DateTime? date) async {
-    final response = await http.get(path: api.groomings(date), petId: true);
+    final response = await http.get(
+      path: api.groomings(),
+      queryParameters: {
+        'pet_id': currentContext.read<DashboardBloc>().state.selectedPet?.id,
+        'start_date': date != null ? AppUtil.formatDate(date) : null,
+        'end_date': date != null ? AppUtil.formatDate(date) : null,
+      },
+    );
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -432,7 +435,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
                   : success.statusCode;
           if (statusCode <= 201) {
             final item = <PetGroomingModel>[];
-            for (final documents in data as List? ?? []) {
+            for (final documents in data['data'] as List? ?? []) {
               final map = Map<String, dynamic>.from(documents as Map);
               item.add(PetGroomingModel.fromJson(map));
             }
@@ -495,7 +498,14 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
 
   @override
   AppTypeResponse<List<PetDewormingModel>> dewormings(DateTime? date) async {
-    final response = await http.get(path: api.dewormings(date), petId: true);
+    final response = await http.get(
+      path: api.dewormings(),
+      queryParameters: {
+        'pet_id': currentContext.read<DashboardBloc>().state.selectedPet?.id,
+        'start_date': date != null ? AppUtil.formatDate(date) : null,
+        'end_date': date != null ? AppUtil.formatDate(date) : null,
+      },
+    );
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -509,7 +519,7 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
                   : success.statusCode;
           if (statusCode <= 201) {
             final item = <PetDewormingModel>[];
-            for (final documents in data as List? ?? []) {
+            for (final documents in data['data'] as List? ?? []) {
               final map = Map<String, dynamic>.from(documents as Map);
               item.add(PetDewormingModel.fromJson(map));
             }

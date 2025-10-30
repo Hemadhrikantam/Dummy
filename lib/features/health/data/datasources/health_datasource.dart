@@ -55,5 +55,6 @@ abstract class HealthDatasource {
     required String medicationId,
     required String logId,
     required bool check,
+    required DateTime date,
   });
 }

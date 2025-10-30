@@ -103,6 +103,7 @@ class MedicationDetailsBloc
       medicationId: event.medicationId,
       logId: event.logId,
       check: event.check,
+      date: event.date,
     );
     await res.fold(
       (failure) async {
@@ -112,7 +113,8 @@ class MedicationDetailsBloc
         final result = await _getLogsUsecases(medicationId: state.id);
         result.fold(
           (l) => emit(state.copyWith(initStatus: Status.error)),
-          (logs) => emit(state.copyWith(logs: logs, initStatus: Status.success)),
+          (logs) =>
+              emit(state.copyWith(logs: logs, initStatus: Status.success)),
         );
       },
     );

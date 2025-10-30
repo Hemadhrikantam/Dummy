@@ -153,7 +153,12 @@ class _GroomingTabState extends State<GroomingTab> {
                                         child: AppNetworkImage(
                                           width: 24.0,
                                           height: 24.0,
-                                          url: groomingItem.media,
+                                          url:
+                                              groomingItem
+                                                  .media
+                                                  .first
+                                                  .fileUrl ??
+                                              '',
                                           borderRadius:
                                               Styles.borderRadiusCircular04,
                                         ),

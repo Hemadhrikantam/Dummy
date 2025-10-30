@@ -1,10 +1,16 @@
+import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:dummy/core/enum/status.dart';
+import 'package:dummy/core/enum/upload_type.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/dailycare/deworming_payload.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
+import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/dailycare/domain/entities/frequency.dart';
 import 'package:dummy/features/dailycare/domain/entities/remind_before.dart';
 import 'package:dummy/features/dailycare/domain/entities/timezone.dart';
@@ -12,6 +18,7 @@ import 'package:dummy/features/dailycare/domain/usecases/add_deworming_usecases.
 import 'package:dummy/features/dailycare/domain/usecases/frequency_usecases.dart';
 import 'package:dummy/features/dailycare/domain/usecases/remind_before_usecases.dart';
 import 'package:dummy/features/dailycare/domain/usecases/timezones_usecases.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -25,10 +32,12 @@ class DewormingFormBloc extends Bloc<DewormingFormEvent, DewormingFormState> {
     required TimezonesUsecases timezonesUsecases,
     required FrequencyUsecases frequencyUsecases,
     required RemindBeforeUsecases beforeUsecases,
+    required UploadFileUsecases uploadFileUsecases,
   }) : _addDewormingUsecase = addDewormingUsecases,
        _timezonesUsecases = timezonesUsecases,
        _frequencyUsecases = frequencyUsecases,
        _beforeUsecases = beforeUsecases,
+       _uploadFileUsecases = uploadFileUsecases,
        super(const DewormingFormState()) {
     on<_Init>(_onInit);
     on<_Date>(_onDate);
@@ -49,31 +58,26 @@ class DewormingFormBloc extends Bloc<DewormingFormEvent, DewormingFormState> {
   final TimezonesUsecases _timezonesUsecases;
   final FrequencyUsecases _frequencyUsecases;
   final RemindBeforeUsecases _beforeUsecases;
+  final UploadFileUsecases _uploadFileUsecases;
 
   Future<void> _onInit(_Init event, Emitter<DewormingFormState> emit) async {
-    final frequencies = List<Frequency>.from(
-      (await _frequencyUsecases()).fold((l) => [], (r) => r),
-    );
-    final reminderBefores = List<RemindBefore>.from(
-      (await _beforeUsecases()).fold((l) => [], (r) => r),
-    );
-    final timezones = List<Timezone>.from(
-      (await _timezonesUsecases()).fold((l) => [], (r) => r),
-    );
+    final frequencies =
+        currentContext.read<AuthBloc>().state.enums!.frequencyTypes;
+    final timezones = List<Timezone>.from([
+      Timezone(id: 1, code: 'UTC'),
+      Timezone(id: 2, code: 'IST'),
+      Timezone(id: 3, code: 'GMT'),
+    ]);
     emit(
       state.copyWith(
         petId: event.petId,
         frequencies:
             frequencies.map((e) {
-              return DropItemModel(id: e.id, value: e.frequency);
+              return DropStringItemModel(id: e.id, value: e.name);
             }).toList(),
         reminderTimezones:
             timezones.map((e) {
               return DropItemModel(id: e.id, value: e.code);
-            }).toList(),
-        reminderBefores:
-            reminderBefores.map((e) {
-              return DropItemModel(id: e.id, value: e.title);
             }).toList(),
       ),
     );
@@ -90,24 +94,60 @@ class DewormingFormBloc extends Bloc<DewormingFormEvent, DewormingFormState> {
     Emitter<DewormingFormState> emit,
   ) async {
     emit(state.copyWith(submitStatus: Status.loading));
+    List<DewormingMediaPayload> mediaList = const [];
+    if (state.media.value.isNotEmpty) {
+      var url = state.media.value;
+      var fileSize = 1; // must be positive per backend validation
+      final fileType = _inferFileType(url);
+      if (!url.startsWith('http')) {
+        // Fetch uploader from DI to avoid unexpected null field issues
+
+        final uploadResult = await _uploadFileUsecases(
+          path: url,
+          type: UploadType.daily_care,
+          public: false,
+        );
+        bool ok = true;
+        uploadResult.fold(
+          (failure) {
+            ok = false;
+            emit(state.copyWith(submitStatus: Status.error));
+          },
+          (success) {
+            url = success.finalUrl;
+          },
+        );
+        if (!ok) return;
+        try {
+          fileSize = await File(state.media.value).length();
+          if (fileSize <= 0) fileSize = 1;
+        } catch (_) {
+          fileSize = 1;
+        }
+      }
+      mediaList = [
+        DewormingMediaPayload(
+          fileUrl: url,
+          fileType: fileType,
+          fileSize: fileSize.toString(),
+        ),
+      ];
+    }
     final h = int.parse(state.reminderHour.value!.value);
     final m = int.parse(state.reminderMin.value!.value);
     final isPm = state.reminderAmPm.value!.value == "PM";
     final result = await _addDewormingUsecase(
       payload: DewormingPayload(
-        date: DateTime.parse(state.date.value),
+        dewormingDate: DateTime.parse(state.date.value),
         productName: state.productName.value,
         dueDate: DateTime.parse(state.dueDate.value),
-        reminderTime: '${isPm ? h + 12 : h}:$m',
+        reminderTime:
+            '${(isPm ? h + 12 : h).toString().padLeft(2, '0')}:${m.toString().padLeft(2, '0')}',
         notes: state.notes.value,
-        media: await MultipartFile.fromFile(
-          state.media.value,
-          filename: state.media.value.split('/').last,
-        ),
-        pet: state.petId,
-        frequency: state.frequency.value!.id,
-        reminderTimezone: state.reminderTimezone.value!.id,
-        reminderBefore: state.reminderBefore.value!.id,
+        mediaList: mediaList,
+        petId: state.petId,
+        frequencyId: state.frequency.value!.id,
+        timezone: state.reminderTimezone.value!.value,
       ),
     );
 
@@ -158,7 +198,7 @@ class DewormingFormBloc extends Bloc<DewormingFormEvent, DewormingFormState> {
   }
 
   void _onFrequency(_Frequency event, Emitter<DewormingFormState> emit) {
-    emit(state.copyWith(frequency: DropdownValue.dirty(event.value)));
+    emit(state.copyWith(frequency: DropdownStringValue.dirty(event.value)));
     emit(state.copyWith(validation: state.validationX));
   }
 
@@ -168,6 +208,15 @@ class DewormingFormBloc extends Bloc<DewormingFormEvent, DewormingFormState> {
   ) {
     emit(state.copyWith(reminderTimezone: DropdownValue.dirty(event.value)));
     emit(state.copyWith(validation: state.validationX));
+  }
+
+  String _inferFileType(String pathOrUrl) {
+    final lower = pathOrUrl.toLowerCase();
+    return lower.endsWith('.mp4') ||
+            lower.endsWith('.mov') ||
+            lower.contains('video')
+        ? 'video'
+        : 'image';
   }
 
   void _onReminderBefore(

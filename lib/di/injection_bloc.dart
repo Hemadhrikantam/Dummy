@@ -77,7 +77,10 @@ class InjectionBloc {
   }
 
   static GroomingFormBloc get groomingFormBloc {
-    return GroomingFormBloc(addGroomingUsecases: getIt<AddGroomingUsecases>());
+    return GroomingFormBloc(
+      addGroomingUsecases: getIt<AddGroomingUsecases>(),
+      uploadFileUsecases: getIt<UploadFileUsecases>(),
+    );
   }
 
   static DewormingFormBloc get dewormingFormBloc {
@@ -86,6 +89,7 @@ class InjectionBloc {
       timezonesUsecases: getIt<TimezonesUsecases>(),
       frequencyUsecases: getIt<FrequencyUsecases>(),
       beforeUsecases: getIt<RemindBeforeUsecases>(),
+      uploadFileUsecases: getIt<UploadFileUsecases>(),
     );
   }
 

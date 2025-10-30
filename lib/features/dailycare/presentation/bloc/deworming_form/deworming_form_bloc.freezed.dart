@@ -25,7 +25,7 @@ mixin _$DewormingFormEvent {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
@@ -41,7 +41,7 @@ mixin _$DewormingFormEvent {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
@@ -57,7 +57,7 @@ mixin _$DewormingFormEvent {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
@@ -213,7 +213,7 @@ class _$InitImpl implements _Init {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
@@ -233,7 +233,7 @@ class _$InitImpl implements _Init {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
@@ -253,7 +253,7 @@ class _$InitImpl implements _Init {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
@@ -419,7 +419,7 @@ class _$DateImpl implements _Date {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
@@ -439,7 +439,7 @@ class _$DateImpl implements _Date {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
@@ -459,7 +459,7 @@ class _$DateImpl implements _Date {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
@@ -627,7 +627,7 @@ class _$ProductNameImpl implements _ProductName {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
@@ -647,7 +647,7 @@ class _$ProductNameImpl implements _ProductName {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
@@ -667,7 +667,7 @@ class _$ProductNameImpl implements _ProductName {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
@@ -835,7 +835,7 @@ class _$DueDateImpl implements _DueDate {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
@@ -855,7 +855,7 @@ class _$DueDateImpl implements _DueDate {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
@@ -875,7 +875,7 @@ class _$DueDateImpl implements _DueDate {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
@@ -1043,7 +1043,7 @@ class _$NotesImpl implements _Notes {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
@@ -1063,7 +1063,7 @@ class _$NotesImpl implements _Notes {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
@@ -1083,7 +1083,7 @@ class _$NotesImpl implements _Notes {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
@@ -1251,7 +1251,7 @@ class _$MediaImpl implements _Media {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
@@ -1271,7 +1271,7 @@ class _$MediaImpl implements _Media {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
@@ -1291,7 +1291,7 @@ class _$MediaImpl implements _Media {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
@@ -1390,7 +1390,7 @@ abstract class _$$FrequencyImplCopyWith<$Res> {
     $Res Function(_$FrequencyImpl) then,
   ) = __$$FrequencyImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DropItem value});
+  $Res call({DropStringItem value});
 }
 
 /// @nodoc
@@ -1412,7 +1412,7 @@ class __$$FrequencyImplCopyWithImpl<$Res>
         null == value
             ? _value.value
             : value // ignore: cast_nullable_to_non_nullable
-                as DropItem,
+                as DropStringItem,
       ),
     );
   }
@@ -1424,7 +1424,7 @@ class _$FrequencyImpl implements _Frequency {
   const _$FrequencyImpl(this.value);
 
   @override
-  final DropItem value;
+  final DropStringItem value;
 
   @override
   String toString() {
@@ -1459,7 +1459,7 @@ class _$FrequencyImpl implements _Frequency {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
@@ -1479,7 +1479,7 @@ class _$FrequencyImpl implements _Frequency {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
@@ -1499,7 +1499,7 @@ class _$FrequencyImpl implements _Frequency {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
@@ -1580,9 +1580,9 @@ class _$FrequencyImpl implements _Frequency {
 }
 
 abstract class _Frequency implements DewormingFormEvent {
-  const factory _Frequency(final DropItem value) = _$FrequencyImpl;
+  const factory _Frequency(final DropStringItem value) = _$FrequencyImpl;
 
-  DropItem get value;
+  DropStringItem get value;
 
   /// Create a copy of DewormingFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1670,7 +1670,7 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
@@ -1690,7 +1690,7 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
@@ -1710,7 +1710,7 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
@@ -1882,7 +1882,7 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
@@ -1902,7 +1902,7 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
@@ -1922,7 +1922,7 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
@@ -2090,7 +2090,7 @@ class _$ReminderHourImpl implements _ReminderHour {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
@@ -2110,7 +2110,7 @@ class _$ReminderHourImpl implements _ReminderHour {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
@@ -2130,7 +2130,7 @@ class _$ReminderHourImpl implements _ReminderHour {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
@@ -2298,7 +2298,7 @@ class _$ReminderMinImpl implements _ReminderMin {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
@@ -2318,7 +2318,7 @@ class _$ReminderMinImpl implements _ReminderMin {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
@@ -2338,7 +2338,7 @@ class _$ReminderMinImpl implements _ReminderMin {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
@@ -2506,7 +2506,7 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
@@ -2526,7 +2526,7 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
@@ -2546,7 +2546,7 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
@@ -2687,7 +2687,7 @@ class _$SubmitImpl implements _Submit {
     required TResult Function(String value) dueDate,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
-    required TResult Function(DropItem value) frequency,
+    required TResult Function(DropStringItem value) frequency,
     required TResult Function(DropItem value) reminderTimezone,
     required TResult Function(DropItem value) reminderBefore,
     required TResult Function(DropItem value) reminderHour,
@@ -2707,7 +2707,7 @@ class _$SubmitImpl implements _Submit {
     TResult? Function(String value)? dueDate,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
-    TResult? Function(DropItem value)? frequency,
+    TResult? Function(DropStringItem value)? frequency,
     TResult? Function(DropItem value)? reminderTimezone,
     TResult? Function(DropItem value)? reminderBefore,
     TResult? Function(DropItem value)? reminderHour,
@@ -2727,7 +2727,7 @@ class _$SubmitImpl implements _Submit {
     TResult Function(String value)? dueDate,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
-    TResult Function(DropItem value)? frequency,
+    TResult Function(DropStringItem value)? frequency,
     TResult Function(DropItem value)? reminderTimezone,
     TResult Function(DropItem value)? reminderBefore,
     TResult Function(DropItem value)? reminderHour,
@@ -2822,10 +2822,10 @@ mixin _$DewormingFormState {
   DropdownValue get reminderAmPm => throw _privateConstructorUsedError;
   NotEmpty get notes => throw _privateConstructorUsedError;
   NotEmpty get media => throw _privateConstructorUsedError;
-  DropdownValue get frequency => throw _privateConstructorUsedError;
+  DropdownStringValue get frequency => throw _privateConstructorUsedError;
   DropdownValue get reminderTimezone => throw _privateConstructorUsedError;
   DropdownValue get reminderBefore => throw _privateConstructorUsedError;
-  List<DropItem> get frequencies => throw _privateConstructorUsedError;
+  List<DropStringItem> get frequencies => throw _privateConstructorUsedError;
   List<DropItem> get reminderTimezones => throw _privateConstructorUsedError;
   List<DropItem> get reminderBefores => throw _privateConstructorUsedError;
   bool get validation => throw _privateConstructorUsedError;
@@ -2855,10 +2855,10 @@ abstract class $DewormingFormStateCopyWith<$Res> {
     DropdownValue reminderAmPm,
     NotEmpty notes,
     NotEmpty media,
-    DropdownValue frequency,
+    DropdownStringValue frequency,
     DropdownValue reminderTimezone,
     DropdownValue reminderBefore,
-    List<DropItem> frequencies,
+    List<DropStringItem> frequencies,
     List<DropItem> reminderTimezones,
     List<DropItem> reminderBefores,
     bool validation,
@@ -2950,7 +2950,7 @@ class _$DewormingFormStateCopyWithImpl<$Res, $Val extends DewormingFormState>
                 null == frequency
                     ? _value.frequency
                     : frequency // ignore: cast_nullable_to_non_nullable
-                        as DropdownValue,
+                        as DropdownStringValue,
             reminderTimezone:
                 null == reminderTimezone
                     ? _value.reminderTimezone
@@ -2965,7 +2965,7 @@ class _$DewormingFormStateCopyWithImpl<$Res, $Val extends DewormingFormState>
                 null == frequencies
                     ? _value.frequencies
                     : frequencies // ignore: cast_nullable_to_non_nullable
-                        as List<DropItem>,
+                        as List<DropStringItem>,
             reminderTimezones:
                 null == reminderTimezones
                     ? _value.reminderTimezones
@@ -3011,10 +3011,10 @@ abstract class _$$DewormingFormStateImplCopyWith<$Res>
     DropdownValue reminderAmPm,
     NotEmpty notes,
     NotEmpty media,
-    DropdownValue frequency,
+    DropdownStringValue frequency,
     DropdownValue reminderTimezone,
     DropdownValue reminderBefore,
-    List<DropItem> frequencies,
+    List<DropStringItem> frequencies,
     List<DropItem> reminderTimezones,
     List<DropItem> reminderBefores,
     bool validation,
@@ -3105,7 +3105,7 @@ class __$$DewormingFormStateImplCopyWithImpl<$Res>
             null == frequency
                 ? _value.frequency
                 : frequency // ignore: cast_nullable_to_non_nullable
-                    as DropdownValue,
+                    as DropdownStringValue,
         reminderTimezone:
             null == reminderTimezone
                 ? _value.reminderTimezone
@@ -3120,7 +3120,7 @@ class __$$DewormingFormStateImplCopyWithImpl<$Res>
             null == frequencies
                 ? _value._frequencies
                 : frequencies // ignore: cast_nullable_to_non_nullable
-                    as List<DropItem>,
+                    as List<DropStringItem>,
         reminderTimezones:
             null == reminderTimezones
                 ? _value._reminderTimezones
@@ -3159,10 +3159,10 @@ class _$DewormingFormStateImpl implements _DewormingFormState {
     this.reminderAmPm = const DropdownValue.pure(),
     this.notes = const NotEmpty.pure(),
     this.media = const NotEmpty.pure(),
-    this.frequency = const DropdownValue.pure(),
+    this.frequency = const DropdownStringValue.pure(),
     this.reminderTimezone = const DropdownValue.pure(),
     this.reminderBefore = const DropdownValue.pure(),
-    final List<DropItem> frequencies = const [],
+    final List<DropStringItem> frequencies = const [],
     final List<DropItem> reminderTimezones = const [],
     final List<DropItem> reminderBefores = const [],
     this.validation = false,
@@ -3201,17 +3201,17 @@ class _$DewormingFormStateImpl implements _DewormingFormState {
   final NotEmpty media;
   @override
   @JsonKey()
-  final DropdownValue frequency;
+  final DropdownStringValue frequency;
   @override
   @JsonKey()
   final DropdownValue reminderTimezone;
   @override
   @JsonKey()
   final DropdownValue reminderBefore;
-  final List<DropItem> _frequencies;
+  final List<DropStringItem> _frequencies;
   @override
   @JsonKey()
-  List<DropItem> get frequencies {
+  List<DropStringItem> get frequencies {
     if (_frequencies is EqualUnmodifiableListView) return _frequencies;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_frequencies);
@@ -3335,10 +3335,10 @@ abstract class _DewormingFormState implements DewormingFormState {
     final DropdownValue reminderAmPm,
     final NotEmpty notes,
     final NotEmpty media,
-    final DropdownValue frequency,
+    final DropdownStringValue frequency,
     final DropdownValue reminderTimezone,
     final DropdownValue reminderBefore,
-    final List<DropItem> frequencies,
+    final List<DropStringItem> frequencies,
     final List<DropItem> reminderTimezones,
     final List<DropItem> reminderBefores,
     final bool validation,
@@ -3364,13 +3364,13 @@ abstract class _DewormingFormState implements DewormingFormState {
   @override
   NotEmpty get media;
   @override
-  DropdownValue get frequency;
+  DropdownStringValue get frequency;
   @override
   DropdownValue get reminderTimezone;
   @override
   DropdownValue get reminderBefore;
   @override
-  List<DropItem> get frequencies;
+  List<DropStringItem> get frequencies;
   @override
   List<DropItem> get reminderTimezones;
   @override

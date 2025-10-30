@@ -97,7 +97,7 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                           Styles.gap10,
                           BlocBuilder<DewormingFormBloc, DewormingFormState>(
                             builder: (context, state) {
-                              return CustomDropdownSearch(
+                              return CustomStringDropdownSearch(
                                 items: state.frequencies,
                                 selectedItem: state.frequency.value,
                                 onChanged: (value) {

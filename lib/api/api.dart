@@ -49,20 +49,12 @@ String walks() {
   return '$__api/dailycare/walks';
 }
 
-String groomings(DateTime? date) {
-  if (date != null) {
-    return '$__api/dailycare/groomings/?date=${AppUtil.formatDate(date)}';
-  } else {
-    return '$__api/dailycare/groomings/';
-  }
+String groomings() {
+  return '$__api/dailycare/grooming';
 }
 
-String dewormings(DateTime? date) {
-  if (date != null) {
-    return '$__api/dailycare/deworming/?date=${AppUtil.formatDate(date)}';
-  } else {
-    return '$__api/dailycare/deworming/';
-  }
+String dewormings() {
+  return '$__api/dailycare/deworming';
 }
 
 String expenses() {

@@ -568,6 +568,7 @@ class HealthDatasourceImpl extends HealthDatasource {
     required String medicationId,
     required String logId,
     required bool check,
+    required DateTime date,
   }) async {
     final response = await http.post(
       path: api.medicationLogs(null),
@@ -576,6 +577,7 @@ class HealthDatasourceImpl extends HealthDatasource {
         "schedule_ids": [logId],
         "notes": "test",
         "type": check ? "check" : "uncheck",
+        "scheduled_date": AppUtil.formatDate(date),
       },
     );
     return response.fold(

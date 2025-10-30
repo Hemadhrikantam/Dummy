@@ -8,6 +8,7 @@ import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
+import 'package:dummy/core/widgets/custom_dropdown.dart';
 import 'package:dummy/core/widgets/dotted_border_widget.dart';
 import 'package:dummy/features/dailycare/presentation/bloc/grooming_form/grooming_form_bloc.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';
@@ -66,25 +67,19 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                         children: [
                           _Date(),
                           Styles.gap15,
-                          BlocSelector<
-                            GroomingFormBloc,
-                            GroomingFormState,
-                            NotEmpty
-                          >(
-                            selector: (state) {
-                              return state.groomingType;
-                            },
+                          BlocBuilder<GroomingFormBloc, GroomingFormState>(
                             builder: (context, state) {
-                              return AppTextFormField(
-                                headerText: AppText.type,
-                                isMandatory: true,
-                                hintText: '...',
-                                initialValue: state.value,
+                              return CustomStringDropdownSearch(
+                                selectedItem: state.groomingType.value,
                                 onChanged: (value) {
-                                  context.read<GroomingFormBloc>().add(
-                                    GroomingFormEvent.groomingType(value),
-                                  );
+                                  if (value != null) {
+                                    context.read<GroomingFormBloc>().add(
+                                      GroomingFormEvent.groomingType(value),
+                                    );
+                                  }
                                 },
+                                items: state.groomingTypes,
+                                title: AppText.type,
                               );
                             },
                           ),

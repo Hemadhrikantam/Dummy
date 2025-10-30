@@ -22,7 +22,12 @@ mixin _$MedicationDetailsEvent {
     required TResult Function(String id) init,
     required TResult Function() loadLogs,
     required TResult Function(MedicationLog value) updateLog,
-    required TResult Function(String medicationId, String logId, bool check)
+    required TResult Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )
     updateMedicationLog,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,7 +35,12 @@ mixin _$MedicationDetailsEvent {
     TResult? Function(String id)? init,
     TResult? Function()? loadLogs,
     TResult? Function(MedicationLog value)? updateLog,
-    TResult? Function(String medicationId, String logId, bool check)?
+    TResult? Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )?
     updateMedicationLog,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,7 +48,12 @@ mixin _$MedicationDetailsEvent {
     TResult Function(String id)? init,
     TResult Function()? loadLogs,
     TResult Function(MedicationLog value)? updateLog,
-    TResult Function(String medicationId, String logId, bool check)?
+    TResult Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )?
     updateMedicationLog,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
@@ -162,7 +177,12 @@ class _$InitImpl implements _Init {
     required TResult Function(String id) init,
     required TResult Function() loadLogs,
     required TResult Function(MedicationLog value) updateLog,
-    required TResult Function(String medicationId, String logId, bool check)
+    required TResult Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )
     updateMedicationLog,
   }) {
     return init(id);
@@ -174,7 +194,12 @@ class _$InitImpl implements _Init {
     TResult? Function(String id)? init,
     TResult? Function()? loadLogs,
     TResult? Function(MedicationLog value)? updateLog,
-    TResult? Function(String medicationId, String logId, bool check)?
+    TResult? Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )?
     updateMedicationLog,
   }) {
     return init?.call(id);
@@ -186,7 +211,12 @@ class _$InitImpl implements _Init {
     TResult Function(String id)? init,
     TResult Function()? loadLogs,
     TResult Function(MedicationLog value)? updateLog,
-    TResult Function(String medicationId, String logId, bool check)?
+    TResult Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )?
     updateMedicationLog,
     required TResult orElse(),
   }) {
@@ -292,7 +322,12 @@ class _$LoadLogsImpl implements _LoadLogs {
     required TResult Function(String id) init,
     required TResult Function() loadLogs,
     required TResult Function(MedicationLog value) updateLog,
-    required TResult Function(String medicationId, String logId, bool check)
+    required TResult Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )
     updateMedicationLog,
   }) {
     return loadLogs();
@@ -304,7 +339,12 @@ class _$LoadLogsImpl implements _LoadLogs {
     TResult? Function(String id)? init,
     TResult? Function()? loadLogs,
     TResult? Function(MedicationLog value)? updateLog,
-    TResult? Function(String medicationId, String logId, bool check)?
+    TResult? Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )?
     updateMedicationLog,
   }) {
     return loadLogs?.call();
@@ -316,7 +356,12 @@ class _$LoadLogsImpl implements _LoadLogs {
     TResult Function(String id)? init,
     TResult Function()? loadLogs,
     TResult Function(MedicationLog value)? updateLog,
-    TResult Function(String medicationId, String logId, bool check)?
+    TResult Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )?
     updateMedicationLog,
     required TResult orElse(),
   }) {
@@ -441,7 +486,12 @@ class _$UpdateLogImpl implements _UpdateLog {
     required TResult Function(String id) init,
     required TResult Function() loadLogs,
     required TResult Function(MedicationLog value) updateLog,
-    required TResult Function(String medicationId, String logId, bool check)
+    required TResult Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )
     updateMedicationLog,
   }) {
     return updateLog(value);
@@ -453,7 +503,12 @@ class _$UpdateLogImpl implements _UpdateLog {
     TResult? Function(String id)? init,
     TResult? Function()? loadLogs,
     TResult? Function(MedicationLog value)? updateLog,
-    TResult? Function(String medicationId, String logId, bool check)?
+    TResult? Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )?
     updateMedicationLog,
   }) {
     return updateLog?.call(value);
@@ -465,7 +520,12 @@ class _$UpdateLogImpl implements _UpdateLog {
     TResult Function(String id)? init,
     TResult Function()? loadLogs,
     TResult Function(MedicationLog value)? updateLog,
-    TResult Function(String medicationId, String logId, bool check)?
+    TResult Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )?
     updateMedicationLog,
     required TResult orElse(),
   }) {
@@ -532,7 +592,7 @@ abstract class _$$UpdateMedicationLogImplCopyWith<$Res> {
     $Res Function(_$UpdateMedicationLogImpl) then,
   ) = __$$UpdateMedicationLogImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String medicationId, String logId, bool check});
+  $Res call({String medicationId, String logId, bool check, DateTime date});
 }
 
 /// @nodoc
@@ -553,6 +613,7 @@ class __$$UpdateMedicationLogImplCopyWithImpl<$Res>
     Object? medicationId = null,
     Object? logId = null,
     Object? check = null,
+    Object? date = null,
   }) {
     return _then(
       _$UpdateMedicationLogImpl(
@@ -571,6 +632,11 @@ class __$$UpdateMedicationLogImplCopyWithImpl<$Res>
                 ? _value.check
                 : check // ignore: cast_nullable_to_non_nullable
                     as bool,
+        date:
+            null == date
+                ? _value.date
+                : date // ignore: cast_nullable_to_non_nullable
+                    as DateTime,
       ),
     );
   }
@@ -583,6 +649,7 @@ class _$UpdateMedicationLogImpl implements _UpdateMedicationLog {
     required this.medicationId,
     required this.logId,
     required this.check,
+    required this.date,
   });
 
   @override
@@ -591,10 +658,12 @@ class _$UpdateMedicationLogImpl implements _UpdateMedicationLog {
   final String logId;
   @override
   final bool check;
+  @override
+  final DateTime date;
 
   @override
   String toString() {
-    return 'MedicationDetailsEvent.updateMedicationLog(medicationId: $medicationId, logId: $logId, check: $check)';
+    return 'MedicationDetailsEvent.updateMedicationLog(medicationId: $medicationId, logId: $logId, check: $check, date: $date)';
   }
 
   @override
@@ -605,11 +674,13 @@ class _$UpdateMedicationLogImpl implements _UpdateMedicationLog {
             (identical(other.medicationId, medicationId) ||
                 other.medicationId == medicationId) &&
             (identical(other.logId, logId) || other.logId == logId) &&
-            (identical(other.check, check) || other.check == check));
+            (identical(other.check, check) || other.check == check) &&
+            (identical(other.date, date) || other.date == date));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, medicationId, logId, check);
+  int get hashCode =>
+      Object.hash(runtimeType, medicationId, logId, check, date);
 
   /// Create a copy of MedicationDetailsEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -628,10 +699,15 @@ class _$UpdateMedicationLogImpl implements _UpdateMedicationLog {
     required TResult Function(String id) init,
     required TResult Function() loadLogs,
     required TResult Function(MedicationLog value) updateLog,
-    required TResult Function(String medicationId, String logId, bool check)
+    required TResult Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )
     updateMedicationLog,
   }) {
-    return updateMedicationLog(medicationId, logId, check);
+    return updateMedicationLog(medicationId, logId, check, date);
   }
 
   @override
@@ -640,10 +716,15 @@ class _$UpdateMedicationLogImpl implements _UpdateMedicationLog {
     TResult? Function(String id)? init,
     TResult? Function()? loadLogs,
     TResult? Function(MedicationLog value)? updateLog,
-    TResult? Function(String medicationId, String logId, bool check)?
+    TResult? Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )?
     updateMedicationLog,
   }) {
-    return updateMedicationLog?.call(medicationId, logId, check);
+    return updateMedicationLog?.call(medicationId, logId, check, date);
   }
 
   @override
@@ -652,12 +733,17 @@ class _$UpdateMedicationLogImpl implements _UpdateMedicationLog {
     TResult Function(String id)? init,
     TResult Function()? loadLogs,
     TResult Function(MedicationLog value)? updateLog,
-    TResult Function(String medicationId, String logId, bool check)?
+    TResult Function(
+      String medicationId,
+      String logId,
+      bool check,
+      DateTime date,
+    )?
     updateMedicationLog,
     required TResult orElse(),
   }) {
     if (updateMedicationLog != null) {
-      return updateMedicationLog(medicationId, logId, check);
+      return updateMedicationLog(medicationId, logId, check, date);
     }
     return orElse();
   }
@@ -705,11 +791,13 @@ abstract class _UpdateMedicationLog implements MedicationDetailsEvent {
     required final String medicationId,
     required final String logId,
     required final bool check,
+    required final DateTime date,
   }) = _$UpdateMedicationLogImpl;
 
   String get medicationId;
   String get logId;
   bool get check;
+  DateTime get date;
 
   /// Create a copy of MedicationDetailsEvent
   /// with the given fields replaced by the non-null parameter values.

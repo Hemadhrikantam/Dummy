@@ -85,11 +85,13 @@ class HealthRepositoryImpl extends HealthRepository {
     required String medicationId,
     required String logId,
     required bool check,
+    required DateTime date,
   }) {
     return _healthDatasource.updateMedicationLog(
       medicationId: medicationId,
       logId: logId,
       check: check,
+      date: date,
     );
   }
 

@@ -9,11 +9,13 @@ class UpdateMedicationLogUsecases {
     required String medicationId,
     required String logId,
     required bool check,
+    required DateTime date,
   }) {
     return repository.updateMedicationLog(
       medicationId: medicationId,
       logId: logId,
       check: check,
+      date: date,
     );
   }
 }

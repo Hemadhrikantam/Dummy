@@ -10,5 +10,6 @@ abstract class MedicationDetailsEvent with _$MedicationDetailsEvent {
     required String medicationId,
     required String logId,
     required bool check,
+    required DateTime date,
   }) = _UpdateMedicationLog;
 }

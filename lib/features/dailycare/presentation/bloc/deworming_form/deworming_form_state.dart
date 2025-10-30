@@ -15,11 +15,11 @@ abstract class DewormingFormState with _$DewormingFormState {
     @Default(NotEmpty.pure()) NotEmpty notes,
     @Default(NotEmpty.pure()) NotEmpty media,
 
-    @Default(DropdownValue.pure()) DropdownValue frequency,
+    @Default(DropdownStringValue.pure()) DropdownStringValue frequency,
     @Default(DropdownValue.pure()) DropdownValue reminderTimezone,
     @Default(DropdownValue.pure()) DropdownValue reminderBefore,
 
-    @Default([]) List<DropItem> frequencies,
+    @Default([]) List<DropStringItem> frequencies,
     @Default([]) List<DropItem> reminderTimezones,
     @Default([]) List<DropItem> reminderBefores,
 
@@ -41,7 +41,6 @@ extension DewormingFormValidation on DewormingFormState {
       media,
       frequency,
       reminderTimezone,
-      reminderBefore,
     ]);
   }
 }

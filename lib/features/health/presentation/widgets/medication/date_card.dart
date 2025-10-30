@@ -101,6 +101,7 @@ class _DateCardState extends State<DateCard> {
                                           .id,
                                   logId: e.scheduleId,
                                   check: value,
+                                  date: widget.date.date,
                                 ),
                               );
                             },

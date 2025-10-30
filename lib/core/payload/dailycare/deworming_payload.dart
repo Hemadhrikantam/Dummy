@@ -1,60 +1,85 @@
-import 'package:dio/dio.dart';
 import 'package:dummy/core/utils/app_utils.dart';
 import 'package:equatable/equatable.dart';
 
 import '../../utils/type_def.dart';
 import '../payload.dart';
 
-class DewormingPayload extends Equatable implements Payload {
-  const DewormingPayload({
-    required this.date,
-    required this.productName,
-    required this.dueDate,
-    required this.reminderTime,
-    required this.notes,
-    required this.media,
-    required this.pet,
-    required this.frequency,
-    required this.reminderTimezone,
-    required this.reminderBefore,
+class DewormingMediaPayload extends Equatable {
+  const DewormingMediaPayload({
+    required this.fileUrl,
+    required this.fileType,
+    required this.fileSize,
   });
 
-  final DateTime date;
+  final String fileUrl;
+  final String fileType;
+  final String fileSize;
+
+  Map<String, dynamic> toMap() => {
+        'file_url': fileUrl,
+        'file_type': fileType,
+        'file_size': fileSize,
+      };
+
+  @override
+  List<Object?> get props => [fileUrl, fileType, fileSize];
+}
+
+class DewormingPayload extends Equatable implements Payload {
+  const DewormingPayload({
+    required this.petId,
+    required this.dewormingDate,
+    required this.productName,
+    this.frequencyId,
+    this.dueDate,
+    this.notes,
+    this.reminderTime,
+    this.timezone,
+    this.mediaList = const [],
+  });
+
+  // New schema fields only
+  final String petId; // uuid
+  final DateTime dewormingDate; // YYYY-MM-DD
   final String productName;
-  final DateTime dueDate;
-  final String reminderTime;
-  final String notes;
-  final MultipartFile media;
-  final String pet;
-  final int frequency;
-  final int reminderTimezone;
-  final int reminderBefore;
+  final String? frequencyId; // uuid (required only if setting reminder)
+  final DateTime? dueDate; // optional
+  final String? notes; // optional
+  final String? reminderTime; // HH:MM, optional
+  final String? timezone; // e.g., IST, optional
+  final List<DewormingMediaPayload> mediaList; // list of media
 
   @override
   List<Object?> get props => [
-    date,
-    productName,
-    dueDate,
-    reminderTime,
-    notes,
-    media,
-    pet,
-    frequency,
-    reminderTimezone,
-    reminderBefore,
-  ];
+        petId,
+        dewormingDate,
+        productName,
+        frequencyId,
+        dueDate,
+        notes,
+        reminderTime,
+        timezone,
+        mediaList,
+      ];
 
   @override
-  JsonMap toMap() => {
-    'date': AppUtil.formatDate(date),
-    'product_name': productName,
-    'due_date': AppUtil.formatDate(dueDate),
-    'reminder_time': reminderTime,
-    'notes': notes,
-    'media': media,
-    'pet': pet,
-    'freequency': frequency,
-    'reminder_timezone': reminderTimezone,
-    'reminder_before': reminderBefore,
-  };
+  JsonMap toMap() {
+    final bool includeReminder =
+        (timezone != null && timezone!.isNotEmpty) && (reminderTime != null && reminderTime!.isNotEmpty);
+
+    return {
+      'pet_id': petId,
+      'deworming_date': AppUtil.formatDate(dewormingDate),
+      'product_name': productName,
+      if (includeReminder && frequencyId != null && frequencyId!.isNotEmpty) 'frequency_id': frequencyId,
+      if (dueDate != null) 'due_date': AppUtil.formatDate(dueDate!),
+      'notes': notes ?? '',
+      if (includeReminder)
+        'reminder': {
+          'reminder_time': reminderTime,
+          'timezone': timezone,
+        },
+      'media': mediaList.map((m) => m.toMap()).toList(),
+    };
+  }
 }

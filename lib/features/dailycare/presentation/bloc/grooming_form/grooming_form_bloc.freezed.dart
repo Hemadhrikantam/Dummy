@@ -21,7 +21,7 @@ mixin _$GroomingFormEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) groomingType,
+    required TResult Function(DropStringItem value) groomingType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
     required TResult Function() submit,
@@ -30,7 +30,7 @@ mixin _$GroomingFormEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? groomingType,
+    TResult? Function(DropStringItem value)? groomingType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
     TResult? Function()? submit,
@@ -39,7 +39,7 @@ mixin _$GroomingFormEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? groomingType,
+    TResult Function(DropStringItem value)? groomingType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
     TResult Function()? submit,
@@ -167,7 +167,7 @@ class _$InitImpl implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) groomingType,
+    required TResult Function(DropStringItem value) groomingType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
     required TResult Function() submit,
@@ -180,7 +180,7 @@ class _$InitImpl implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? groomingType,
+    TResult? Function(DropStringItem value)? groomingType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
     TResult? Function()? submit,
@@ -193,7 +193,7 @@ class _$InitImpl implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? groomingType,
+    TResult Function(DropStringItem value)? groomingType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
     TResult Function()? submit,
@@ -331,7 +331,7 @@ class _$DateImpl implements _Date {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) groomingType,
+    required TResult Function(DropStringItem value) groomingType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
     required TResult Function() submit,
@@ -344,7 +344,7 @@ class _$DateImpl implements _Date {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? groomingType,
+    TResult? Function(DropStringItem value)? groomingType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
     TResult? Function()? submit,
@@ -357,7 +357,7 @@ class _$DateImpl implements _Date {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? groomingType,
+    TResult Function(DropStringItem value)? groomingType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
     TResult Function()? submit,
@@ -432,7 +432,7 @@ abstract class _$$GroomingTypeImplCopyWith<$Res> {
     $Res Function(_$GroomingTypeImpl) then,
   ) = __$$GroomingTypeImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String value});
+  $Res call({DropStringItem value});
 }
 
 /// @nodoc
@@ -454,7 +454,7 @@ class __$$GroomingTypeImplCopyWithImpl<$Res>
         null == value
             ? _value.value
             : value // ignore: cast_nullable_to_non_nullable
-                as String,
+                as DropStringItem,
       ),
     );
   }
@@ -466,7 +466,7 @@ class _$GroomingTypeImpl implements _GroomingType {
   const _$GroomingTypeImpl(this.value);
 
   @override
-  final String value;
+  final DropStringItem value;
 
   @override
   String toString() {
@@ -497,7 +497,7 @@ class _$GroomingTypeImpl implements _GroomingType {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) groomingType,
+    required TResult Function(DropStringItem value) groomingType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
     required TResult Function() submit,
@@ -510,7 +510,7 @@ class _$GroomingTypeImpl implements _GroomingType {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? groomingType,
+    TResult? Function(DropStringItem value)? groomingType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
     TResult? Function()? submit,
@@ -523,7 +523,7 @@ class _$GroomingTypeImpl implements _GroomingType {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? groomingType,
+    TResult Function(DropStringItem value)? groomingType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
     TResult Function()? submit,
@@ -580,9 +580,9 @@ class _$GroomingTypeImpl implements _GroomingType {
 }
 
 abstract class _GroomingType implements GroomingFormEvent {
-  const factory _GroomingType(final String value) = _$GroomingTypeImpl;
+  const factory _GroomingType(final DropStringItem value) = _$GroomingTypeImpl;
 
-  String get value;
+  DropStringItem get value;
 
   /// Create a copy of GroomingFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -663,7 +663,7 @@ class _$NotesImpl implements _Notes {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) groomingType,
+    required TResult Function(DropStringItem value) groomingType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
     required TResult Function() submit,
@@ -676,7 +676,7 @@ class _$NotesImpl implements _Notes {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? groomingType,
+    TResult? Function(DropStringItem value)? groomingType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
     TResult? Function()? submit,
@@ -689,7 +689,7 @@ class _$NotesImpl implements _Notes {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? groomingType,
+    TResult Function(DropStringItem value)? groomingType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
     TResult Function()? submit,
@@ -829,7 +829,7 @@ class _$MediaImpl implements _Media {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) groomingType,
+    required TResult Function(DropStringItem value) groomingType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
     required TResult Function() submit,
@@ -842,7 +842,7 @@ class _$MediaImpl implements _Media {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? groomingType,
+    TResult? Function(DropStringItem value)? groomingType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
     TResult? Function()? submit,
@@ -855,7 +855,7 @@ class _$MediaImpl implements _Media {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? groomingType,
+    TResult Function(DropStringItem value)? groomingType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
     TResult Function()? submit,
@@ -968,7 +968,7 @@ class _$SubmitImpl implements _Submit {
   TResult when<TResult extends Object?>({
     required TResult Function(String petId) init,
     required TResult Function(String value) date,
-    required TResult Function(String value) groomingType,
+    required TResult Function(DropStringItem value) groomingType,
     required TResult Function(String value) notes,
     required TResult Function(String value) media,
     required TResult Function() submit,
@@ -981,7 +981,7 @@ class _$SubmitImpl implements _Submit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String petId)? init,
     TResult? Function(String value)? date,
-    TResult? Function(String value)? groomingType,
+    TResult? Function(DropStringItem value)? groomingType,
     TResult? Function(String value)? notes,
     TResult? Function(String value)? media,
     TResult? Function()? submit,
@@ -994,7 +994,7 @@ class _$SubmitImpl implements _Submit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String petId)? init,
     TResult Function(String value)? date,
-    TResult Function(String value)? groomingType,
+    TResult Function(DropStringItem value)? groomingType,
     TResult Function(String value)? notes,
     TResult Function(String value)? media,
     TResult Function()? submit,
@@ -1058,11 +1058,12 @@ abstract class _Submit implements GroomingFormEvent {
 mixin _$GroomingFormState {
   Status get submitStatus => throw _privateConstructorUsedError;
   NotEmpty get date => throw _privateConstructorUsedError;
-  NotEmpty get groomingType => throw _privateConstructorUsedError;
+  DropdownStringValue get groomingType => throw _privateConstructorUsedError;
   NotEmpty get notes => throw _privateConstructorUsedError;
   NotEmpty get media => throw _privateConstructorUsedError;
   bool get validation => throw _privateConstructorUsedError;
   String get petId => throw _privateConstructorUsedError;
+  List<DropStringItem> get groomingTypes => throw _privateConstructorUsedError;
 
   /// Create a copy of GroomingFormState
   /// with the given fields replaced by the non-null parameter values.
@@ -1081,11 +1082,12 @@ abstract class $GroomingFormStateCopyWith<$Res> {
   $Res call({
     Status submitStatus,
     NotEmpty date,
-    NotEmpty groomingType,
+    DropdownStringValue groomingType,
     NotEmpty notes,
     NotEmpty media,
     bool validation,
     String petId,
+    List<DropStringItem> groomingTypes,
   });
 }
 
@@ -1111,6 +1113,7 @@ class _$GroomingFormStateCopyWithImpl<$Res, $Val extends GroomingFormState>
     Object? media = null,
     Object? validation = null,
     Object? petId = null,
+    Object? groomingTypes = null,
   }) {
     return _then(
       _value.copyWith(
@@ -1128,7 +1131,7 @@ class _$GroomingFormStateCopyWithImpl<$Res, $Val extends GroomingFormState>
                 null == groomingType
                     ? _value.groomingType
                     : groomingType // ignore: cast_nullable_to_non_nullable
-                        as NotEmpty,
+                        as DropdownStringValue,
             notes:
                 null == notes
                     ? _value.notes
@@ -1149,6 +1152,11 @@ class _$GroomingFormStateCopyWithImpl<$Res, $Val extends GroomingFormState>
                     ? _value.petId
                     : petId // ignore: cast_nullable_to_non_nullable
                         as String,
+            groomingTypes:
+                null == groomingTypes
+                    ? _value.groomingTypes
+                    : groomingTypes // ignore: cast_nullable_to_non_nullable
+                        as List<DropStringItem>,
           )
           as $Val,
     );
@@ -1167,11 +1175,12 @@ abstract class _$$GroomingFormStateImplCopyWith<$Res>
   $Res call({
     Status submitStatus,
     NotEmpty date,
-    NotEmpty groomingType,
+    DropdownStringValue groomingType,
     NotEmpty notes,
     NotEmpty media,
     bool validation,
     String petId,
+    List<DropStringItem> groomingTypes,
   });
 }
 
@@ -1196,6 +1205,7 @@ class __$$GroomingFormStateImplCopyWithImpl<$Res>
     Object? media = null,
     Object? validation = null,
     Object? petId = null,
+    Object? groomingTypes = null,
   }) {
     return _then(
       _$GroomingFormStateImpl(
@@ -1213,7 +1223,7 @@ class __$$GroomingFormStateImplCopyWithImpl<$Res>
             null == groomingType
                 ? _value.groomingType
                 : groomingType // ignore: cast_nullable_to_non_nullable
-                    as NotEmpty,
+                    as DropdownStringValue,
         notes:
             null == notes
                 ? _value.notes
@@ -1234,6 +1244,11 @@ class __$$GroomingFormStateImplCopyWithImpl<$Res>
                 ? _value.petId
                 : petId // ignore: cast_nullable_to_non_nullable
                     as String,
+        groomingTypes:
+            null == groomingTypes
+                ? _value._groomingTypes
+                : groomingTypes // ignore: cast_nullable_to_non_nullable
+                    as List<DropStringItem>,
       ),
     );
   }
@@ -1245,12 +1260,13 @@ class _$GroomingFormStateImpl implements _GroomingFormState {
   const _$GroomingFormStateImpl({
     this.submitStatus = Status.init,
     this.date = const NotEmpty.pure(),
-    this.groomingType = const NotEmpty.pure(),
+    this.groomingType = const DropdownStringValue.pure(),
     this.notes = const NotEmpty.pure(),
     this.media = const NotEmpty.pure(),
     this.validation = false,
     this.petId = '',
-  });
+    final List<DropStringItem> groomingTypes = const [],
+  }) : _groomingTypes = groomingTypes;
 
   @override
   @JsonKey()
@@ -1260,7 +1276,7 @@ class _$GroomingFormStateImpl implements _GroomingFormState {
   final NotEmpty date;
   @override
   @JsonKey()
-  final NotEmpty groomingType;
+  final DropdownStringValue groomingType;
   @override
   @JsonKey()
   final NotEmpty notes;
@@ -1273,10 +1289,18 @@ class _$GroomingFormStateImpl implements _GroomingFormState {
   @override
   @JsonKey()
   final String petId;
+  final List<DropStringItem> _groomingTypes;
+  @override
+  @JsonKey()
+  List<DropStringItem> get groomingTypes {
+    if (_groomingTypes is EqualUnmodifiableListView) return _groomingTypes;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_groomingTypes);
+  }
 
   @override
   String toString() {
-    return 'GroomingFormState(submitStatus: $submitStatus, date: $date, groomingType: $groomingType, notes: $notes, media: $media, validation: $validation, petId: $petId)';
+    return 'GroomingFormState(submitStatus: $submitStatus, date: $date, groomingType: $groomingType, notes: $notes, media: $media, validation: $validation, petId: $petId, groomingTypes: $groomingTypes)';
   }
 
   @override
@@ -1293,7 +1317,11 @@ class _$GroomingFormStateImpl implements _GroomingFormState {
             (identical(other.media, media) || other.media == media) &&
             (identical(other.validation, validation) ||
                 other.validation == validation) &&
-            (identical(other.petId, petId) || other.petId == petId));
+            (identical(other.petId, petId) || other.petId == petId) &&
+            const DeepCollectionEquality().equals(
+              other._groomingTypes,
+              _groomingTypes,
+            ));
   }
 
   @override
@@ -1306,6 +1334,7 @@ class _$GroomingFormStateImpl implements _GroomingFormState {
     media,
     validation,
     petId,
+    const DeepCollectionEquality().hash(_groomingTypes),
   );
 
   /// Create a copy of GroomingFormState
@@ -1324,11 +1353,12 @@ abstract class _GroomingFormState implements GroomingFormState {
   const factory _GroomingFormState({
     final Status submitStatus,
     final NotEmpty date,
-    final NotEmpty groomingType,
+    final DropdownStringValue groomingType,
     final NotEmpty notes,
     final NotEmpty media,
     final bool validation,
     final String petId,
+    final List<DropStringItem> groomingTypes,
   }) = _$GroomingFormStateImpl;
 
   @override
@@ -1336,7 +1366,7 @@ abstract class _GroomingFormState implements GroomingFormState {
   @override
   NotEmpty get date;
   @override
-  NotEmpty get groomingType;
+  DropdownStringValue get groomingType;
   @override
   NotEmpty get notes;
   @override
@@ -1345,6 +1375,8 @@ abstract class _GroomingFormState implements GroomingFormState {
   bool get validation;
   @override
   String get petId;
+  @override
+  List<DropStringItem> get groomingTypes;
 
   /// Create a copy of GroomingFormState
   /// with the given fields replaced by the non-null parameter values.
