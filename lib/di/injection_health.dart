@@ -40,6 +40,12 @@ Future<void> __healthDependencies() async {
   final updateMedicationLogUsecases = UpdateMedicationLogUsecases(
     getIt<HealthRepository>(),
   );
+  final getVaccinationLogUsecases = GetVaccinationLogUsecases(
+    getIt<HealthRepository>(),
+  );
+  final updateVaccinationLogUsecases = UpdateVaccinationLogUsecases(
+    getIt<HealthRepository>(),
+  );
   final updateMedicationDateUsecases = UpdateMedicationDateUsecases(
     getIt<HealthRepository>(),
   );
@@ -55,6 +61,7 @@ Future<void> __healthDependencies() async {
   final editVaccinationUsecases = EditVaccinationUsecases(
     getIt<HealthRepository>(),
   );
+  final listClinicUsecases = ListClinicUsecases(getIt<HealthRepository>());
   // final addVaccinationLogUsecases = AddVaccinationLogUsecases(
   //   getIt<HealthRepository>(),
   // );
@@ -103,6 +110,13 @@ Future<void> __healthDependencies() async {
   );
   getIt.registerLazySingleton<EditVaccinationUsecases>(
     () => editVaccinationUsecases,
+  );
+  getIt.registerLazySingleton<ListClinicUsecases>(() => listClinicUsecases);
+  getIt.registerLazySingleton<GetVaccinationLogUsecases>(
+    () => getVaccinationLogUsecases,
+  );
+  getIt.registerLazySingleton<UpdateVaccinationLogUsecases>(
+    () => updateVaccinationLogUsecases,
   );
   // getIt.registerLazySingleton<AddVaccinationLogUsecases>(
   //   () => addVaccinationLogUsecases,

@@ -1,6 +1,7 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_custom_check_box.dart';
 import 'package:flutter/material.dart';
@@ -9,8 +10,15 @@ import '../../../../../core/widgets/buttons/app_icon_button.dart';
 import '../../../../../core/widgets/custom_card.dart';
 
 class DateCard extends StatefulWidget {
-  const DateCard({super.key, required this.isGiven});
+  const DateCard({
+    super.key,
+    required this.isGiven,
+    required this.date,
+    this.notes,
+  });
   final bool isGiven;
+  final DateTime date;
+  final String? notes;
   @override
   State<DateCard> createState() => _DateCardState();
 }
@@ -40,7 +48,7 @@ class _DateCardState extends State<DateCard> {
                     ),
                   ),
                   Text(
-                    '12/01/2025',
+                    AppUtil.formatDateToMMDDYYYY(widget.date),
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,
@@ -51,7 +59,7 @@ class _DateCardState extends State<DateCard> {
 
               if (widget.isGiven)
                 Container(
-                margin: Styles.edgeInsetsAll02,
+                  margin: Styles.edgeInsetsAll02,
                   decoration: BoxDecoration(
                     color: AppColors.stepperColor,
                     borderRadius: Styles.borderRadiusCircular05,
@@ -83,25 +91,25 @@ class _DateCardState extends State<DateCard> {
                 ),
             ],
           ),
-          if(widget.isGiven)
-          Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                     AppText.notes,
-                    style: context.textTheme.labelLarge?.copyWith(
-                      color: AppColors.grey500,
-                    ),
+          if (widget.isGiven)
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  AppText.notes,
+                  style: context.textTheme.labelLarge?.copyWith(
+                    color: AppColors.grey500,
                   ),
-                  Text(
-                    'sdsdbsiubdsudsbdssdisbdisbsbcb',
-                    style: context.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
+                ),
+                Text(
+                  widget.notes ?? '',
+                  style: context.textTheme.titleLarge?.copyWith(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
                   ),
-                ],
-              ),
+                ),
+              ],
+            ),
           if (isOpen)
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -121,12 +129,13 @@ class _DateCardState extends State<DateCard> {
                   label: AppText.markAsGiven,
                   fontSize: 22,
                   onChanged: (value) {
-                    BottomModels.vaccinationMarkingBottomSheet(context).then((
-                      value,
-                    ) {
-                      setState(() {
-                        isChecked = !isChecked;
-                      });
+                    BottomModels.vaccinationMarkingBottomSheet(
+                      context,
+                      widget.date,
+                    ).then((value) {
+                      // setState(() {
+                      //   isChecked = !isChecked;
+                      // });
                     });
                   },
                 ),

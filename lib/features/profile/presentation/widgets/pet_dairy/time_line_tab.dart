@@ -1,13 +1,17 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
+import 'package:dummy/core/widgets/loading_widget.dart';
+import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TimeLineTab extends StatelessWidget {
   const TimeLineTab({super.key});
@@ -19,138 +23,167 @@ class TimeLineTab extends StatelessWidget {
       children: [
         CustomCard(
           borderColor: AppColors.white,
-          child: AppCustomListViewBuilder(
-            physics: NeverScrollableScrollPhysics(),
-            itemCount: 6,
-            isExpand: false,
-            shrinkWrap: true,
-            separatorBuilder: (context, i) => Styles.gap8,
-            itemBuilder: (context, i) {
-              return Row(
-                children: [
-                  SizedBox(
-                    width: 20,
-                    height: context.height * 0.16,
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        // Vertical dashed line
-                        Positioned.fill(
-                          child: CustomPaint(painter: DashedLinePainter()),
-                        ),
-                        // Circular indicator
-                        Align(
-                          alignment: Alignment.center,
-                          child: Container(
-                            width: 12,
-                            height: 12,
-                            decoration: BoxDecoration(
-                              color: const Color(0xFF9B5A24), // brown color
-                              shape: BoxShape.circle,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: const Color(
-                                    0xFF9B5A24,
-                                  ).withOpacity(0.3),
-                                  blurRadius: 6,
-                                  spreadRadius: 2,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  Styles.gap8,
-                  Expanded(
-                    child: CustomCard(
-                      padding: Styles.edgeInsetsAll06,
-                      borderColor: AppColors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2),
-                          blurRadius: 10,
-                          offset: const Offset(0, 4),
-                        ),
-                      ],
-                      child: Row(
+          child: BlocBuilder<PetDairyBloc, PetDairyState>(
+            builder: (context, state) {
+              return state.initStatus.loading
+                  ? LoadingWidget.circularProgressIndicatorCenter
+                  : AppCustomListViewBuilder(
+                    physics: NeverScrollableScrollPhysics(),
+                    itemCount: state.timelines.length,
+                    isExpand: false,
+                    shrinkWrap: true,
+                    separatorBuilder: (context, i) => Styles.gap8,
+                    itemBuilder: (context, i) {
+                      final item = state.timelines[i];
+                      return Row(
                         children: [
-                          AppAssestsImage(
-                            path: ImageResources.dogImage,
-                            height: 108,
-                            width: 111,
-                          ),
-                          Styles.gap10,
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                          SizedBox(
+                            width: 20,
+                            height: context.height * 0.16,
+                            child: Stack(
+                              alignment: Alignment.center,
                               children: [
-                                Container(
-                                  decoration: BoxDecoration(
-                                    borderRadius: Styles.borderRadiusCircular25,
-                                    gradient: LinearGradient(
-                                      begin: Alignment.topCenter,
-                                      end: Alignment.bottomCenter,
-                                      stops: [0.1751, 0.5754, 1.0],
-                                      colors: [
-                                        AppColors.buttonBackground,
-                                        Color(0xFFD29949),
-                                        Color(0xFF997035),
+                                // Vertical dashed line
+                                Positioned.fill(
+                                  child: CustomPaint(
+                                    painter: DashedLinePainter(),
+                                  ),
+                                ),
+                                // Circular indicator
+                                Align(
+                                  alignment: Alignment.center,
+                                  child: Container(
+                                    width: 12,
+                                    height: 12,
+                                    decoration: BoxDecoration(
+                                      color: const Color(
+                                        0xFF9B5A24,
+                                      ), // brown color
+                                      shape: BoxShape.circle,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: const Color(
+                                            0xFF9B5A24,
+                                          ).withOpacity(0.3),
+                                          blurRadius: 6,
+                                          spreadRadius: 2,
+                                        ),
                                       ],
                                     ),
                                   ),
-                                  padding: Styles.edgeInsetsAll08,
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      AppIcon(
-                                        icon: Icons.cake_outlined,
-                                        size: 14,
-                                        color: AppColors.white,
-                                      ),
-                                      Styles.gap2,
-                                      Text(
-                                        'Birthday',
-                                        style: context.textTheme.titleSmall
-                                            ?.copyWith(
-                                              fontWeight: FontWeight.w700,
-                                              fontSize: 12,
-                                              color: AppColors.white,
-                                            ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Styles.gap6,
-                                Text(
-                                  'This is pic captued in a beach, he’s running.....',
-                                  style: context.textTheme.titleSmall?.copyWith(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 14,
-                                  ),
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                Styles.gap6,
-                                Text(
-                                  '12/01/2025',
-                                  style: context.textTheme.titleSmall?.copyWith(
-                                    fontWeight: FontWeight.w300,
-                                    fontSize: 12,
-                                    color: AppColors.stepperColor,
-                                  ),
                                 ),
                               ],
                             ),
                           ),
+
+                          Styles.gap8,
+                          Expanded(
+                            child: CustomCard(
+                              padding: Styles.edgeInsetsAll06,
+                              borderColor: AppColors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.2),
+                                  blurRadius: 10,
+                                  offset: const Offset(0, 4),
+                                ),
+                              ],
+                              child: Row(
+                                children: [
+                                  item.mediaUrls.isEmpty
+                                      ? AppAssestsImage(
+                                        path: ImageResources.dogImage,
+                                        height: 108,
+                                        width: 111,
+                                      )
+                                      : AppNetworkImage(
+                                        url: item.mediaUrls.first,
+                                        height: 108,
+                                        width: 111,
+                                      ),
+                                  Styles.gap10,
+                                  Expanded(
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          decoration: BoxDecoration(
+                                            borderRadius:
+                                                Styles.borderRadiusCircular25,
+                                            gradient: LinearGradient(
+                                              begin: Alignment.topCenter,
+                                              end: Alignment.bottomCenter,
+                                              stops: [0.1751, 0.5754, 1.0],
+                                              colors: [
+                                                AppColors.buttonBackground,
+                                                Color(0xFFD29949),
+                                                Color(0xFF997035),
+                                              ],
+                                            ),
+                                          ),
+                                          padding: Styles.edgeInsetsAll08,
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              if ((item.metadata?.eventName ??
+                                                      '') ==
+                                                  'Birthday')
+                                                AppIcon(
+                                                  icon: Icons.cake_outlined,
+                                                  size: 14,
+                                                  color: AppColors.white,
+                                                ),
+                                              Styles.gap2,
+                                              Text(
+                                                item.metadata?.eventName ??
+                                                    item.type,
+                                                style: context
+                                                    .textTheme
+                                                    .titleSmall
+                                                    ?.copyWith(
+                                                      fontWeight:
+                                                          FontWeight.w700,
+                                                      fontSize: 12,
+                                                      color: AppColors.white,
+                                                    ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Styles.gap6,
+                                        Text(
+                                          item.notes ??
+                                              'This is pic captued in a beach, he’s running.....',
+                                          style: context.textTheme.titleSmall
+                                              ?.copyWith(
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 14,
+                                              ),
+                                          maxLines: 2,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
+                                        Styles.gap6,
+                                        Text(
+                                          item.eventDate,
+                                          style: context.textTheme.titleSmall
+                                              ?.copyWith(
+                                                fontWeight: FontWeight.w300,
+                                                fontSize: 12,
+                                                color: AppColors.stepperColor,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
                         ],
-                      ),
-                    ),
-                  ),
-                ],
-              );
+                      );
+                    },
+                  );
             },
           ),
         ),

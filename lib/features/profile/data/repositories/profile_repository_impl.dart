@@ -3,8 +3,10 @@ import 'package:dummy/core/payload/payload.dart';
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
 import 'package:dummy/features/profile/data/models/media_model.dart';
+import 'package:dummy/features/profile/data/models/timeline_model.dart';
 import 'package:dummy/features/profile/domain/entities/documents.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
+import 'package:dummy/features/profile/domain/entities/timeline.dart';
 import 'package:dummy/features/profile/domain/repositories/profile_repository.dart';
 
 class ProfileRepositoryImpl extends ProfileRepository {
@@ -66,5 +68,12 @@ class ProfileRepositoryImpl extends ProfileRepository {
   @override
   AppSuccessResponse editPet({required Payload payload, bool edit = true}) {
     return datasource.editPet(payload: payload, edit: edit);
+  }
+
+  // Timelines
+  @override
+  AppTypeResponse<List<Timeline>> timelines() {
+    // Delegate to datasource; model already conforms to Timeline
+    return datasource.timelines();
   }
 }

@@ -3,6 +3,7 @@ import 'package:dummy/core/payload/payload.dart';
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/profile/domain/entities/documents.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
+import 'package:dummy/features/profile/domain/entities/timeline.dart';
 
 abstract class ProfileRepository {
   ProfileRepository();
@@ -20,4 +21,7 @@ abstract class ProfileRepository {
     required String mediaId,
     required bool isFavroute,
   });
+
+  // Timelines
+  AppTypeResponse<List<Timeline>> timelines();
 }

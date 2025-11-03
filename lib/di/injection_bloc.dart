@@ -37,6 +37,7 @@ class InjectionBloc {
       editMediaFavrouteUsecases: getIt<EditMediaFavrouteUsecases>(),
       favoriteMediasUsecases: getIt<FavoriteMediasUsecases>(),
       deleteMediaUsecases: getIt<DeleteMediaUsecases>(),
+      listTimelinesUsecases: getIt<ListTimelineUsecases>(),
     );
   }
 
@@ -144,11 +145,23 @@ class InjectionBloc {
     );
   }
 
+  static VetNearMeBloc get vetNearMeBloc {
+    return VetNearMeBloc(listClinicUsecases: getIt<ListClinicUsecases>());
+  }
+
   static VaccinationDetailsBloc get vaccinationDetailsBloc {
     return VaccinationDetailsBloc(
       getVaccinationUsecases: getIt<GetVaccinationUsecases>(),
+      getVaccinationLogUsecases: getIt<GetVaccinationLogUsecases>(),
+      updateVaccinationLogUsecases: getIt<UpdateVaccinationLogUsecases>(),
       // addVaccinationLogUsecases: getIt<AddVaccinationLogUsecases>(),
       // getVaccinationLogsUsecases: getIt<GetVaccinationLogsUsecases>(),
+    );
+  }
+
+  static VaccinationLogFormBloc get vaccinationLogFormBloc {
+    return VaccinationLogFormBloc(
+      updateVaccinationLogUsecases: getIt<UpdateVaccinationLogUsecases>(),
     );
   }
 

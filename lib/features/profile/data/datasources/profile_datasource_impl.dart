@@ -12,6 +12,7 @@ import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
 import 'package:dummy/features/profile/data/models/documents_model.dart';
 import 'package:dummy/features/profile/data/models/media_model.dart';
+import 'package:dummy/features/profile/data/models/timeline_model.dart';
 import 'package:dummy/service/app_http_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../api/api.dart' as api;
@@ -418,6 +419,44 @@ class ProfileDatasourceImpl extends ProfileDatasource {
             }
           }
 
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<List<TimelineModel>> timelines() async {
+    final response = await http.get(
+      path: api.petTimeline,
+      queryParameters: {
+        'pet_id': currentContext.read<DashboardBloc>().state.selectedPet?.id,
+      },
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 200) {
+            final item = <TimelineModel>[];
+            for (final dropList in data['data'] as List? ?? []) {
+              item.add(TimelineModel.fromMap(dropList as JsonMap));
+            }
+            return Right(item);
+          }
           return Left(
             ErrorMessage(
               message: data['message'] as String? ?? AppText.somethingWentWrong,

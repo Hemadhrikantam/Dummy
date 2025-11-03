@@ -11,6 +11,7 @@ class AppProvider extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => InjectionBloc.authBloc),
+        BlocProvider(create: (context) => InjectionBloc.vetNearMeBloc),
         BlocProvider(create: (context) => InjectionBloc.ngoHomeBloc),
         BlocProvider(create: (context) => InjectionBloc.ngoRegistrationBloc),
         BlocProvider(create: (context) => InjectionBloc.registerBloc),
@@ -24,6 +25,7 @@ class AppProvider extends StatelessWidget {
         BlocProvider(create: (context) => InjectionBloc.overviewBloc),
         BlocProvider(create: (context) => InjectionBloc.medicationsBloc),
         BlocProvider(create: (context) => InjectionBloc.vaccinationsBloc),
+        BlocProvider(create: (context) => InjectionBloc.vaccinationDetailsBloc),
         BlocProvider(create: (context) => InjectionBloc.adoptionBloc),
         BlocProvider(create: (context) => InjectionBloc.addAdoptionBloc),
       ],

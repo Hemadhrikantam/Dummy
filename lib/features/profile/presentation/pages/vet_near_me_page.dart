@@ -5,9 +5,12 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/core/widgets/google_map_view.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/profile/presentation/bloc/vet_near_me/vet_near_me_bloc.dart';
 import 'package:dummy/features/profile/presentation/widgets/manage_family_members/clinic_nearme_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/manage_family_members/stores_nearme_bottom_sheet.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class VetNearMePage extends StatefulWidget {
   @override
@@ -18,7 +21,7 @@ class VetNearMePage extends StatefulWidget {
 
   static Route<T> route<T>() {
     return MaterialPageRoute<T>(
-      builder: (context) => const VetNearMePage(),
+      builder: (context) => VetNearMePage(),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -34,6 +37,7 @@ class _VetNearMePage extends State<VetNearMePage>
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
     Future.delayed(Duration.zero, () async {
+      context.read<VetNearMeBloc>().add(VetNearMeEvent.init());
       // BottomModels.clinicNearMeBottomSheet(context);
     });
   }

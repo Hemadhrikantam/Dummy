@@ -23,13 +23,37 @@ class NotificationPermission extends StatefulWidget {
 }
 
 class _NotificationPermissionState extends State<NotificationPermission> {
+  Future<void> _askLocationThenNext() async {
+    try {
+      final locationService = LocationService();
+      final locationData = await locationService.getCurrentLocation();
+      if (locationData != null) {
+        print("Latitude: ${locationData.latitude}");
+        print("Longitude: ${locationData.longitude}");
+
+        context.read<RegisterBloc>().add(
+          RegisterEvent.setLocation(
+            latitude: locationData.latitude ?? 0,
+            longitude: locationData.longitude ?? 0,
+          ),
+        );
+      } else {
+        print("Location data is null");
+      }
+    } catch (e) {
+      print("Location error: $e");
+    }
+
+    widget.onNext?.call();
+  }
+
   Future<void> showLocation() async {
     await showDialog(
       context: context,
       builder:
           (ctx) => LocationDialog(
             onNext: () {
-              widget.onNext?.call();
+              _askLocationThenNext();
             },
             onCancel: () {
               ctx.pop();
@@ -101,7 +125,7 @@ class _NotificationPermissionState extends State<NotificationPermission> {
             ),
           ),
           onPressed: () {
-            widget.onNext?.call();
+            _askLocationThenNext();
           },
         ),
         Styles.gap40,
@@ -191,30 +215,8 @@ class LocationDialog extends StatelessWidget {
             Expanded(
               child: AppButton(
                 onPressed: () async {
-                  try {
-                    final locationService = LocationService();
-                    final locationData =
-                        await locationService.getCurrentLocation();
-
-                    if (locationData != null) {
-                      print("Latitude: ${locationData.latitude}");
-                      print("Longitude: ${locationData.longitude}");
-
-                      context.read<RegisterBloc>().add(
-                        RegisterEvent.setLocation(
-                          latitude: locationData.latitude ?? 0,
-                          longitude: locationData.longitude ?? 0,
-                        ),
-                      );
-                    } else {
-                      print("Location data is null");
-                    }
-                    Navigator.pop(context);
-                    onNext.call();
-                  } catch (e) {
-                    print("Location error: $e");
-                    Navigator.pop(context);
-                  }
+                  Navigator.pop(context);
+                  onNext.call();
                 },
                 name: Text(
                   AppText.allow,

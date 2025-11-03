@@ -10,6 +10,8 @@ import 'package:flutter/semantics.dart';
 
 import '../../../dailycare/domain/entities/frequency.dart';
 import '../../domain/entities/vaccination.dart';
+import '../../domain/entities/vaccination_log_view.dart';
+import '../../domain/entities/clinic.dart';
 // import '../../domain/entities/vaccination_log.dart';
 
 class HealthRepositoryImpl extends HealthRepository {
@@ -64,6 +66,25 @@ class HealthRepositoryImpl extends HealthRepository {
     return _healthDatasource.vaccinations(petId, key, fromDate, toDate);
   }
 
+  @override
+  AppTypeResponse<VaccinationLogView> getVaccinationLog({required String id}) {
+    return _healthDatasource.getVaccinationLog(id: id);
+  }
+
+  @override
+  AppSuccessResponse updateVaccinationLog({
+    required String vaccinationId,
+    required bool check,
+    required String notes,
+    required DateTime date,
+  }) {
+    return _healthDatasource.updateVaccinationLog(
+      vaccinationId: vaccinationId,
+      check: check,
+      notes: notes,
+      date: date,
+    );
+  }
   @override
   AppTypeResponse<MedicationDate> getMedicationDate({
     required String id,
@@ -125,5 +146,13 @@ class HealthRepositoryImpl extends HealthRepository {
     String? toDate,
   ) {
     return _healthDatasource.medicationLogs(medicationId, fromDate, toDate);
+  }
+
+  @override
+  AppTypeResponse<List<Clinic>> clinics({
+    required double latitude,
+    required double longitude,
+  }) {
+    return _healthDatasource.clinics(latitude, longitude);
   }
 }

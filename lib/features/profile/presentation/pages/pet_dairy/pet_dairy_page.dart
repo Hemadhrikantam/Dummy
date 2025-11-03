@@ -5,11 +5,13 @@ import 'package:dummy/core/models/tab_model.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/custom_tab_bar.dart';
+import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
 import 'package:dummy/features/profile/presentation/widgets/bottom_action_button.dart';
 import 'package:dummy/features/profile/presentation/widgets/pet_dairy/documents_tab.dart';
 import 'package:dummy/features/profile/presentation/widgets/pet_dairy/media_tab.dart';
 import 'package:dummy/features/profile/presentation/widgets/pet_dairy/time_line_tab.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../widgets/pet_dairy/pet_dairy_header.dart';
 import '../../widgets/pet_image_widget.dart';
 
@@ -34,8 +36,11 @@ class _PetDairyPageState extends State<PetDairyPage>
 
   @override
   void initState() {
-    super.initState();
     _tabController = TabController(length: 3, vsync: this);
+    Future.delayed(Duration(seconds: 0), () {
+      context.read<PetDairyBloc>().add(PetDairyEvent.initialization());
+    });
+    super.initState();
   }
 
   @override

@@ -6,6 +6,8 @@ import '../../../dailycare/data/models/frequency_model.dart';
 import '../models/medication_model.dart';
 import '../models/medication_log_model.dart';
 import '../models/vaccination_model.dart';
+import '../models/vaccination_log_view_model.dart';
+import '../models/clinic_model.dart';
 
 abstract class HealthDatasource {
   const HealthDatasource();
@@ -45,6 +47,13 @@ abstract class HealthDatasource {
     String? fromDate,
     String? toDate,
   );
+  AppTypeResponse<VaccinationLogViewModel> getVaccinationLog({required String id});
+  AppSuccessResponse updateVaccinationLog({
+    required String vaccinationId,
+    required bool check,
+    required String notes,
+    required DateTime date,
+  });
   // Medication logs methods
   AppTypeResponse<List<MedicationLogModel>> medicationLogs(
     String medicationId,
@@ -57,4 +66,10 @@ abstract class HealthDatasource {
     required bool check,
     required DateTime date,
   });
+
+  // Clinics
+  AppTypeResponse<List<ClinicModel>> clinics(
+    double latitude,
+    double longitude,
+  );
 }

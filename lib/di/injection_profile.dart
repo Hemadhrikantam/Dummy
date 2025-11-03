@@ -27,6 +27,7 @@ Future<void> __profileDependencies() async {
   );
   final deleteMediaUsecases = DeleteMediaUsecases(getIt<ProfileRepository>());
   final addPetUsecases = AddPetUsecases(getIt<ProfileRepository>());
+  final listTimelineUsecases = ListTimelineUsecases(getIt<ProfileRepository>());
 
   //   //
   getIt.registerLazySingleton<DocumentsUsecases>(() => documents);
@@ -39,6 +40,7 @@ Future<void> __profileDependencies() async {
   getIt.registerLazySingleton<DeleteMediaUsecases>(() => deleteMediaUsecases);
   getIt.registerLazySingleton<EditPetUsecases>(() => editPetUsecases);
   getIt.registerLazySingleton<AddPetUsecases>(() => addPetUsecases);
+  getIt.registerLazySingleton<ListTimelineUsecases>(() => listTimelineUsecases);
   getIt.registerLazySingleton<FavoriteMediasUsecases>(
     () => favoriteMediasUsecases,
   );

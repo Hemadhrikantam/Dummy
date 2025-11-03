@@ -424,14 +424,20 @@ class BottomModels {
     );
   }
 
-  static Future<T?> vaccinationMarkingBottomSheet<T>(BuildContext context) {
+  static Future<T?> vaccinationMarkingBottomSheet<T>(
+    BuildContext context,
+    DateTime date,
+  ) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: backgroundColor,
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return VaccinationMarkingBottomSheetContent();
+        return BlocProvider(
+          create: (context) => InjectionBloc.vaccinationLogFormBloc,
+          child: VaccinationMarkingBottomSheetContent(date: date),
+        );
       },
     );
   }

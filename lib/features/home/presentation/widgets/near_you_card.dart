@@ -5,7 +5,9 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/home/presentation/widgets/clinic_card.dart';
+import 'package:dummy/features/profile/presentation/bloc/vet_near_me/vet_near_me_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../dailycare/presentation/widgets/overview_header_widget.dart';
 
@@ -17,6 +19,11 @@ class NearYouCard extends StatefulWidget {
 }
 
 class _NearYouCardState extends State<NearYouCard> {
+  initState() {
+    super.initState();
+    context.read<VetNearMeBloc>().add(VetNearMeEvent.init());
+  }
+
   String selectedTab = 'Clinics';
   final tabs = ['Clinics', 'Stores'];
   @override
@@ -42,14 +49,18 @@ class _NearYouCardState extends State<NearYouCard> {
             onTabSelected: (tab) => setState(() => selectedTab = tab),
           ),
           Styles.gap10,
-          AppCustomListViewBuilder(
-            itemCount: 10,
-            isExpand: false,
-            shrinkWrap: true,
-            physics: NeverScrollableScrollPhysics(),
-            separatorBuilder: (context, i) => Styles.gap10,
-            itemBuilder: (BuildContext context, int i) {
-              return ClinicCard();
+          BlocBuilder<VetNearMeBloc, VetNearMeState>(
+            builder: (context, state) {
+              return AppCustomListViewBuilder(
+                itemCount: state.clinics.length,
+                isExpand: false,
+                shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
+                separatorBuilder: (context, i) => Styles.gap10,
+                itemBuilder: (BuildContext context, int i) {
+                  return ClinicCard(clinic: state.clinics[i]);
+                },
+              );
             },
           ),
         ],

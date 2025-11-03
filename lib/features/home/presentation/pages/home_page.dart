@@ -6,9 +6,11 @@ import 'package:dummy/core/widgets/animated_row_column.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/custom_header_widget.dart';
 import 'package:dummy/core/widgets/shimmer_widget.dart';
+import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/home/presentation/widgets/near_you_card.dart'
     show NearYouCard;
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -35,6 +37,22 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePage extends State<HomePage> {
+  @override
+  initState() {
+    super.initState();
+    Future.delayed(Duration(seconds: 0), () {
+      context.read<DashboardBloc>().add(DashboardEvent.dashboardPets());
+    });
+    _maybeAskNotificationPermission();
+  }
+
+  Future<void> _maybeAskNotificationPermission() async {
+    final settings = await FirebaseMessaging.instance.getNotificationSettings();
+    if (settings.authorizationStatus != AuthorizationStatus.authorized) {
+      await Injection.notificationService.init();
+    }
+  }
+
   DashboardPetDetails? selectedPet;
   final AnimatedListController _controller = AnimatedListController();
   final ScrollController _scrollController = ScrollController();
@@ -65,14 +83,6 @@ class _HomePage extends State<HomePage> {
     context.read<DashboardBloc>().add(
       DashboardEvent.petImage(pet.imageUrl ?? ''),
     );
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(Duration(seconds: 0), () {
-      context.read<DashboardBloc>().add(DashboardEvent.dashboardPets());
-    });
   }
 
   @override

@@ -23,11 +23,7 @@ class VaccinationDetailsPage extends StatefulWidget {
   final String id;
   static Route<T> route<T>({required String id}) {
     return MaterialPageRoute<T>(
-      builder:
-          (context) => BlocProvider(
-            create: (context) => InjectionBloc.vaccinationDetailsBloc,
-            child: VaccinationDetailsPage(id: id),
-          ),
+      builder: (context) => VaccinationDetailsPage(id: id),
       settings: const RouteSettings(name: routeName),
     );
   }

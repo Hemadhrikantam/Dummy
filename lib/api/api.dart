@@ -22,6 +22,7 @@ String petDairyEvent = '$__privateBase/pet-diary/event-fields/';
 String petDairyMedia = '$__api/diary/media';
 String petDairyDocuments = '$__privateBase/diary/documents/';
 String petDairyfavourites = '$__privateBase/diary/favorites';
+String petTimeline = '$__api/timeline';
 //
 String petcreate = '$__api/auth/onboarding/pet-parent';
 String petImage = '$__api/pets/pet-image/';
@@ -87,6 +88,12 @@ String medicationLogs(String? medicationId) {
   } else {
     return '$__api/medications/logs/';
   }
+}
+
+// clinics
+String clinics(double latitude, double longitude) {
+  return '$__api/places?type=clinic&pincode=600053';
+  return '$__api/places?type=clinic&latitude=$latitude&longitude=$longitude';
 }
 
 String vaccination(String? key, String? fromDate, String? toDate) {

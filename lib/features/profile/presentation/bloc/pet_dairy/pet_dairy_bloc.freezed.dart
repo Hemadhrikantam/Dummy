@@ -21,6 +21,7 @@ mixin _$PetDairyEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
     required TResult Function() loadMedias,
+    required TResult Function() loadTimelines,
     required TResult Function(DropStringItem id) eventId,
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id, bool value) updateMediaFavroute,
@@ -29,6 +30,7 @@ mixin _$PetDairyEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
     TResult? Function()? loadMedias,
+    TResult? Function()? loadTimelines,
     TResult? Function(DropStringItem id)? eventId,
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id, bool value)? updateMediaFavroute,
@@ -37,6 +39,7 @@ mixin _$PetDairyEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
     TResult Function()? loadMedias,
+    TResult Function()? loadTimelines,
     TResult Function(DropStringItem id)? eventId,
     TResult Function(String id)? deleteMedia,
     TResult Function(String id, bool value)? updateMediaFavroute,
@@ -46,6 +49,7 @@ mixin _$PetDairyEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
     required TResult Function(_LoadMedias value) loadMedias,
+    required TResult Function(_LoadTimelines value) loadTimelines,
     required TResult Function(_EventId value) eventId,
     required TResult Function(_DeleteMedia value) deleteMedia,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
@@ -54,6 +58,7 @@ mixin _$PetDairyEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
     TResult? Function(_LoadMedias value)? loadMedias,
+    TResult? Function(_LoadTimelines value)? loadTimelines,
     TResult? Function(_EventId value)? eventId,
     TResult? Function(_DeleteMedia value)? deleteMedia,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
@@ -62,6 +67,7 @@ mixin _$PetDairyEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
     TResult Function(_LoadMedias value)? loadMedias,
+    TResult Function(_LoadTimelines value)? loadTimelines,
     TResult Function(_EventId value)? eventId,
     TResult Function(_DeleteMedia value)? deleteMedia,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
@@ -136,6 +142,7 @@ class _$InitializationImpl implements _Initialization {
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
     required TResult Function() loadMedias,
+    required TResult Function() loadTimelines,
     required TResult Function(DropStringItem id) eventId,
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id, bool value) updateMediaFavroute,
@@ -148,6 +155,7 @@ class _$InitializationImpl implements _Initialization {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
     TResult? Function()? loadMedias,
+    TResult? Function()? loadTimelines,
     TResult? Function(DropStringItem id)? eventId,
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id, bool value)? updateMediaFavroute,
@@ -160,6 +168,7 @@ class _$InitializationImpl implements _Initialization {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
     TResult Function()? loadMedias,
+    TResult Function()? loadTimelines,
     TResult Function(DropStringItem id)? eventId,
     TResult Function(String id)? deleteMedia,
     TResult Function(String id, bool value)? updateMediaFavroute,
@@ -176,6 +185,7 @@ class _$InitializationImpl implements _Initialization {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
     required TResult Function(_LoadMedias value) loadMedias,
+    required TResult Function(_LoadTimelines value) loadTimelines,
     required TResult Function(_EventId value) eventId,
     required TResult Function(_DeleteMedia value) deleteMedia,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
@@ -188,6 +198,7 @@ class _$InitializationImpl implements _Initialization {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
     TResult? Function(_LoadMedias value)? loadMedias,
+    TResult? Function(_LoadTimelines value)? loadTimelines,
     TResult? Function(_EventId value)? eventId,
     TResult? Function(_DeleteMedia value)? deleteMedia,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
@@ -200,6 +211,7 @@ class _$InitializationImpl implements _Initialization {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
     TResult Function(_LoadMedias value)? loadMedias,
+    TResult Function(_LoadTimelines value)? loadTimelines,
     TResult Function(_EventId value)? eventId,
     TResult Function(_DeleteMedia value)? deleteMedia,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
@@ -261,6 +273,7 @@ class _$LoadMediasImpl implements _LoadMedias {
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
     required TResult Function() loadMedias,
+    required TResult Function() loadTimelines,
     required TResult Function(DropStringItem id) eventId,
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id, bool value) updateMediaFavroute,
@@ -273,6 +286,7 @@ class _$LoadMediasImpl implements _LoadMedias {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
     TResult? Function()? loadMedias,
+    TResult? Function()? loadTimelines,
     TResult? Function(DropStringItem id)? eventId,
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id, bool value)? updateMediaFavroute,
@@ -285,6 +299,7 @@ class _$LoadMediasImpl implements _LoadMedias {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
     TResult Function()? loadMedias,
+    TResult Function()? loadTimelines,
     TResult Function(DropStringItem id)? eventId,
     TResult Function(String id)? deleteMedia,
     TResult Function(String id, bool value)? updateMediaFavroute,
@@ -301,6 +316,7 @@ class _$LoadMediasImpl implements _LoadMedias {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
     required TResult Function(_LoadMedias value) loadMedias,
+    required TResult Function(_LoadTimelines value) loadTimelines,
     required TResult Function(_EventId value) eventId,
     required TResult Function(_DeleteMedia value) deleteMedia,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
@@ -313,6 +329,7 @@ class _$LoadMediasImpl implements _LoadMedias {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
     TResult? Function(_LoadMedias value)? loadMedias,
+    TResult? Function(_LoadTimelines value)? loadTimelines,
     TResult? Function(_EventId value)? eventId,
     TResult? Function(_DeleteMedia value)? deleteMedia,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
@@ -325,6 +342,7 @@ class _$LoadMediasImpl implements _LoadMedias {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
     TResult Function(_LoadMedias value)? loadMedias,
+    TResult Function(_LoadTimelines value)? loadTimelines,
     TResult Function(_EventId value)? eventId,
     TResult Function(_DeleteMedia value)? deleteMedia,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
@@ -339,6 +357,137 @@ class _$LoadMediasImpl implements _LoadMedias {
 
 abstract class _LoadMedias implements PetDairyEvent {
   const factory _LoadMedias() = _$LoadMediasImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadTimelinesImplCopyWith<$Res> {
+  factory _$$LoadTimelinesImplCopyWith(
+    _$LoadTimelinesImpl value,
+    $Res Function(_$LoadTimelinesImpl) then,
+  ) = __$$LoadTimelinesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadTimelinesImplCopyWithImpl<$Res>
+    extends _$PetDairyEventCopyWithImpl<$Res, _$LoadTimelinesImpl>
+    implements _$$LoadTimelinesImplCopyWith<$Res> {
+  __$$LoadTimelinesImplCopyWithImpl(
+    _$LoadTimelinesImpl _value,
+    $Res Function(_$LoadTimelinesImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of PetDairyEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoadTimelinesImpl implements _LoadTimelines {
+  const _$LoadTimelinesImpl();
+
+  @override
+  String toString() {
+    return 'PetDairyEvent.loadTimelines()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadTimelinesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialization,
+    required TResult Function() loadMedias,
+    required TResult Function() loadTimelines,
+    required TResult Function(DropStringItem id) eventId,
+    required TResult Function(String id) deleteMedia,
+    required TResult Function(String id, bool value) updateMediaFavroute,
+  }) {
+    return loadTimelines();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialization,
+    TResult? Function()? loadMedias,
+    TResult? Function()? loadTimelines,
+    TResult? Function(DropStringItem id)? eventId,
+    TResult? Function(String id)? deleteMedia,
+    TResult? Function(String id, bool value)? updateMediaFavroute,
+  }) {
+    return loadTimelines?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialization,
+    TResult Function()? loadMedias,
+    TResult Function()? loadTimelines,
+    TResult Function(DropStringItem id)? eventId,
+    TResult Function(String id)? deleteMedia,
+    TResult Function(String id, bool value)? updateMediaFavroute,
+    required TResult orElse(),
+  }) {
+    if (loadTimelines != null) {
+      return loadTimelines();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialization value) initialization,
+    required TResult Function(_LoadMedias value) loadMedias,
+    required TResult Function(_LoadTimelines value) loadTimelines,
+    required TResult Function(_EventId value) eventId,
+    required TResult Function(_DeleteMedia value) deleteMedia,
+    required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
+  }) {
+    return loadTimelines(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_LoadMedias value)? loadMedias,
+    TResult? Function(_LoadTimelines value)? loadTimelines,
+    TResult? Function(_EventId value)? eventId,
+    TResult? Function(_DeleteMedia value)? deleteMedia,
+    TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
+  }) {
+    return loadTimelines?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialization value)? initialization,
+    TResult Function(_LoadMedias value)? loadMedias,
+    TResult Function(_LoadTimelines value)? loadTimelines,
+    TResult Function(_EventId value)? eventId,
+    TResult Function(_DeleteMedia value)? deleteMedia,
+    TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
+    required TResult orElse(),
+  }) {
+    if (loadTimelines != null) {
+      return loadTimelines(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadTimelines implements PetDairyEvent {
+  const factory _LoadTimelines() = _$LoadTimelinesImpl;
 }
 
 /// @nodoc
@@ -413,6 +562,7 @@ class _$EventIdImpl implements _EventId {
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
     required TResult Function() loadMedias,
+    required TResult Function() loadTimelines,
     required TResult Function(DropStringItem id) eventId,
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id, bool value) updateMediaFavroute,
@@ -425,6 +575,7 @@ class _$EventIdImpl implements _EventId {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
     TResult? Function()? loadMedias,
+    TResult? Function()? loadTimelines,
     TResult? Function(DropStringItem id)? eventId,
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id, bool value)? updateMediaFavroute,
@@ -437,6 +588,7 @@ class _$EventIdImpl implements _EventId {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
     TResult Function()? loadMedias,
+    TResult Function()? loadTimelines,
     TResult Function(DropStringItem id)? eventId,
     TResult Function(String id)? deleteMedia,
     TResult Function(String id, bool value)? updateMediaFavroute,
@@ -453,6 +605,7 @@ class _$EventIdImpl implements _EventId {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
     required TResult Function(_LoadMedias value) loadMedias,
+    required TResult Function(_LoadTimelines value) loadTimelines,
     required TResult Function(_EventId value) eventId,
     required TResult Function(_DeleteMedia value) deleteMedia,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
@@ -465,6 +618,7 @@ class _$EventIdImpl implements _EventId {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
     TResult? Function(_LoadMedias value)? loadMedias,
+    TResult? Function(_LoadTimelines value)? loadTimelines,
     TResult? Function(_EventId value)? eventId,
     TResult? Function(_DeleteMedia value)? deleteMedia,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
@@ -477,6 +631,7 @@ class _$EventIdImpl implements _EventId {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
     TResult Function(_LoadMedias value)? loadMedias,
+    TResult Function(_LoadTimelines value)? loadTimelines,
     TResult Function(_EventId value)? eventId,
     TResult Function(_DeleteMedia value)? deleteMedia,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
@@ -573,6 +728,7 @@ class _$DeleteMediaImpl implements _DeleteMedia {
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
     required TResult Function() loadMedias,
+    required TResult Function() loadTimelines,
     required TResult Function(DropStringItem id) eventId,
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id, bool value) updateMediaFavroute,
@@ -585,6 +741,7 @@ class _$DeleteMediaImpl implements _DeleteMedia {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
     TResult? Function()? loadMedias,
+    TResult? Function()? loadTimelines,
     TResult? Function(DropStringItem id)? eventId,
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id, bool value)? updateMediaFavroute,
@@ -597,6 +754,7 @@ class _$DeleteMediaImpl implements _DeleteMedia {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
     TResult Function()? loadMedias,
+    TResult Function()? loadTimelines,
     TResult Function(DropStringItem id)? eventId,
     TResult Function(String id)? deleteMedia,
     TResult Function(String id, bool value)? updateMediaFavroute,
@@ -613,6 +771,7 @@ class _$DeleteMediaImpl implements _DeleteMedia {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
     required TResult Function(_LoadMedias value) loadMedias,
+    required TResult Function(_LoadTimelines value) loadTimelines,
     required TResult Function(_EventId value) eventId,
     required TResult Function(_DeleteMedia value) deleteMedia,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
@@ -625,6 +784,7 @@ class _$DeleteMediaImpl implements _DeleteMedia {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
     TResult? Function(_LoadMedias value)? loadMedias,
+    TResult? Function(_LoadTimelines value)? loadTimelines,
     TResult? Function(_EventId value)? eventId,
     TResult? Function(_DeleteMedia value)? deleteMedia,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
@@ -637,6 +797,7 @@ class _$DeleteMediaImpl implements _DeleteMedia {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
     TResult Function(_LoadMedias value)? loadMedias,
+    TResult Function(_LoadTimelines value)? loadTimelines,
     TResult Function(_EventId value)? eventId,
     TResult Function(_DeleteMedia value)? deleteMedia,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
@@ -743,6 +904,7 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
     required TResult Function() loadMedias,
+    required TResult Function() loadTimelines,
     required TResult Function(DropStringItem id) eventId,
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id, bool value) updateMediaFavroute,
@@ -755,6 +917,7 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
     TResult? Function()? loadMedias,
+    TResult? Function()? loadTimelines,
     TResult? Function(DropStringItem id)? eventId,
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id, bool value)? updateMediaFavroute,
@@ -767,6 +930,7 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
     TResult Function()? loadMedias,
+    TResult Function()? loadTimelines,
     TResult Function(DropStringItem id)? eventId,
     TResult Function(String id)? deleteMedia,
     TResult Function(String id, bool value)? updateMediaFavroute,
@@ -783,6 +947,7 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
     required TResult Function(_LoadMedias value) loadMedias,
+    required TResult Function(_LoadTimelines value) loadTimelines,
     required TResult Function(_EventId value) eventId,
     required TResult Function(_DeleteMedia value) deleteMedia,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
@@ -795,6 +960,7 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
     TResult? Function(_LoadMedias value)? loadMedias,
+    TResult? Function(_LoadTimelines value)? loadTimelines,
     TResult? Function(_EventId value)? eventId,
     TResult? Function(_DeleteMedia value)? deleteMedia,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
@@ -807,6 +973,7 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
     TResult Function(_LoadMedias value)? loadMedias,
+    TResult Function(_LoadTimelines value)? loadTimelines,
     TResult Function(_EventId value)? eventId,
     TResult Function(_DeleteMedia value)? deleteMedia,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
@@ -837,6 +1004,7 @@ abstract class _UpdateMediaFavroute implements PetDairyEvent {
 mixin _$PetDairyState {
   Status get initStatus => throw _privateConstructorUsedError;
   List<DropStringItem> get eventFields => throw _privateConstructorUsedError;
+  List<Timeline> get timelines => throw _privateConstructorUsedError;
   List<Media> get medias => throw _privateConstructorUsedError;
   List<Media> get favoriteMedias => throw _privateConstructorUsedError;
   List<Documents> get documents => throw _privateConstructorUsedError;
@@ -859,6 +1027,7 @@ abstract class $PetDairyStateCopyWith<$Res> {
   $Res call({
     Status initStatus,
     List<DropStringItem> eventFields,
+    List<Timeline> timelines,
     List<Media> medias,
     List<Media> favoriteMedias,
     List<Documents> documents,
@@ -883,6 +1052,7 @@ class _$PetDairyStateCopyWithImpl<$Res, $Val extends PetDairyState>
   $Res call({
     Object? initStatus = null,
     Object? eventFields = null,
+    Object? timelines = null,
     Object? medias = null,
     Object? favoriteMedias = null,
     Object? documents = null,
@@ -900,6 +1070,11 @@ class _$PetDairyStateCopyWithImpl<$Res, $Val extends PetDairyState>
                     ? _value.eventFields
                     : eventFields // ignore: cast_nullable_to_non_nullable
                         as List<DropStringItem>,
+            timelines:
+                null == timelines
+                    ? _value.timelines
+                    : timelines // ignore: cast_nullable_to_non_nullable
+                        as List<Timeline>,
             medias:
                 null == medias
                     ? _value.medias
@@ -938,6 +1113,7 @@ abstract class _$$PetDairyStateImplCopyWith<$Res>
   $Res call({
     Status initStatus,
     List<DropStringItem> eventFields,
+    List<Timeline> timelines,
     List<Media> medias,
     List<Media> favoriteMedias,
     List<Documents> documents,
@@ -961,6 +1137,7 @@ class __$$PetDairyStateImplCopyWithImpl<$Res>
   $Res call({
     Object? initStatus = null,
     Object? eventFields = null,
+    Object? timelines = null,
     Object? medias = null,
     Object? favoriteMedias = null,
     Object? documents = null,
@@ -978,6 +1155,11 @@ class __$$PetDairyStateImplCopyWithImpl<$Res>
                 ? _value._eventFields
                 : eventFields // ignore: cast_nullable_to_non_nullable
                     as List<DropStringItem>,
+        timelines:
+            null == timelines
+                ? _value._timelines
+                : timelines // ignore: cast_nullable_to_non_nullable
+                    as List<Timeline>,
         medias:
             null == medias
                 ? _value._medias
@@ -1009,11 +1191,13 @@ class _$PetDairyStateImpl implements _PetDairyState {
   const _$PetDairyStateImpl({
     this.initStatus = Status.init,
     final List<DropStringItem> eventFields = const [],
+    final List<Timeline> timelines = const [],
     final List<Media> medias = const [],
     final List<Media> favoriteMedias = const [],
     final List<Documents> documents = const [],
     this.eventId = const DropdownStringValue.pure(),
   }) : _eventFields = eventFields,
+       _timelines = timelines,
        _medias = medias,
        _favoriteMedias = favoriteMedias,
        _documents = documents;
@@ -1028,6 +1212,15 @@ class _$PetDairyStateImpl implements _PetDairyState {
     if (_eventFields is EqualUnmodifiableListView) return _eventFields;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_eventFields);
+  }
+
+  final List<Timeline> _timelines;
+  @override
+  @JsonKey()
+  List<Timeline> get timelines {
+    if (_timelines is EqualUnmodifiableListView) return _timelines;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_timelines);
   }
 
   final List<Media> _medias;
@@ -1063,7 +1256,7 @@ class _$PetDairyStateImpl implements _PetDairyState {
 
   @override
   String toString() {
-    return 'PetDairyState(initStatus: $initStatus, eventFields: $eventFields, medias: $medias, favoriteMedias: $favoriteMedias, documents: $documents, eventId: $eventId)';
+    return 'PetDairyState(initStatus: $initStatus, eventFields: $eventFields, timelines: $timelines, medias: $medias, favoriteMedias: $favoriteMedias, documents: $documents, eventId: $eventId)';
   }
 
   @override
@@ -1076,6 +1269,10 @@ class _$PetDairyStateImpl implements _PetDairyState {
             const DeepCollectionEquality().equals(
               other._eventFields,
               _eventFields,
+            ) &&
+            const DeepCollectionEquality().equals(
+              other._timelines,
+              _timelines,
             ) &&
             const DeepCollectionEquality().equals(other._medias, _medias) &&
             const DeepCollectionEquality().equals(
@@ -1094,6 +1291,7 @@ class _$PetDairyStateImpl implements _PetDairyState {
     runtimeType,
     initStatus,
     const DeepCollectionEquality().hash(_eventFields),
+    const DeepCollectionEquality().hash(_timelines),
     const DeepCollectionEquality().hash(_medias),
     const DeepCollectionEquality().hash(_favoriteMedias),
     const DeepCollectionEquality().hash(_documents),
@@ -1113,6 +1311,7 @@ abstract class _PetDairyState implements PetDairyState {
   const factory _PetDairyState({
     final Status initStatus,
     final List<DropStringItem> eventFields,
+    final List<Timeline> timelines,
     final List<Media> medias,
     final List<Media> favoriteMedias,
     final List<Documents> documents,
@@ -1123,6 +1322,8 @@ abstract class _PetDairyState implements PetDairyState {
   Status get initStatus;
   @override
   List<DropStringItem> get eventFields;
+  @override
+  List<Timeline> get timelines;
   @override
   List<Media> get medias;
   @override

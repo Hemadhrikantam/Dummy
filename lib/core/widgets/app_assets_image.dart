@@ -202,10 +202,23 @@ class AppNetworkImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final normalized = url.trim();
+    final isValidUrl = normalized.isNotEmpty &&
+        normalized.toLowerCase() != '0' &&
+        (normalized.startsWith('http://') || normalized.startsWith('https://'));
+
+    if (!isValidUrl) {
+      // Avoid constructing a network image with invalid URL like "0" or empty
+      return ClipRRect(
+        borderRadius: borderRadius ?? Styles.borderRadiusCircular10,
+        child: Styles.sizedBox,
+      );
+    }
+
     return ClipRRect(
       borderRadius: borderRadius ?? Styles.borderRadiusCircular10,
       child: CachedNetworkImage(
-        imageUrl: url,
+        imageUrl: normalized,
         fit: boxFit,
         height: height,
         width: width,

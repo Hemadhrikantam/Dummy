@@ -1,11 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:dummy/core/enum/status.dart';
-// import 'package:dummy/features/health/data/models/vaccination_log_payload.dart';
 import 'package:dummy/features/health/domain/entities/vaccination.dart';
-// import 'package:dummy/features/health/domain/entities/vaccination_log.dart';
-// import 'package:dummy/features/health/domain/usecases/add_vaccination_log_usecases.dart';
-// import 'package:dummy/features/health/domain/usecases/get_vaccination_logs_usecases.dart';
+import 'package:dummy/features/health/domain/entities/vaccination_log_view.dart';
+import 'package:dummy/features/health/domain/usecases/get_vaccination_log_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/get_vaccination_usecases.dart';
+import 'package:dummy/features/health/domain/usecases/update_vaccination_log_usecases.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'vaccination_details_event.dart';
@@ -16,19 +15,19 @@ class VaccinationDetailsBloc
     extends Bloc<VaccinationDetailsEvent, VaccinationDetailsState> {
   VaccinationDetailsBloc({
     required GetVaccinationUsecases getVaccinationUsecases,
-    // required AddVaccinationLogUsecases addVaccinationLogUsecases,
-    // required GetVaccinationLogsUsecases getVaccinationLogsUsecases,
+    required GetVaccinationLogUsecases getVaccinationLogUsecases,
+    required UpdateVaccinationLogUsecases updateVaccinationLogUsecases,
   }) : _getVaccinationUsecases = getVaccinationUsecases,
-       //  _addVaccinationLogUsecases = addVaccinationLogUsecases,
-       //  _getVaccinationLogsUsecases = getVaccinationLogsUsecases,
+       _getVaccinationLogUsecases = getVaccinationLogUsecases,
+       _updateVaccinationLogUsecases = updateVaccinationLogUsecases,
        super(VaccinationDetailsState()) {
     on<_Init>(_init);
     on<_LoadVaccinationLogs>(_loadVaccinationLogs);
     on<_AddVaccinationLog>(_addVaccinationLog);
   }
   final GetVaccinationUsecases _getVaccinationUsecases;
-  // final AddVaccinationLogUsecases _addVaccinationLogUsecases;
-  // final GetVaccinationLogsUsecases _getVaccinationLogsUsecases;
+  final GetVaccinationLogUsecases _getVaccinationLogUsecases;
+  final UpdateVaccinationLogUsecases _updateVaccinationLogUsecases;
 
   Future<void> _init(_Init event, Emitter<VaccinationDetailsState> emit) async {
     emit(state.copyWith(initStatus: Status.loading));
@@ -39,6 +38,7 @@ class VaccinationDetailsBloc
         state.copyWith(initStatus: Status.success, vaccination: vaccination),
       ),
     );
+    add(VaccinationDetailsEvent.loadVaccinationLogs());
   }
 
   Future<void> _loadVaccinationLogs(
@@ -46,32 +46,35 @@ class VaccinationDetailsBloc
     Emitter<VaccinationDetailsState> emit,
   ) async {
     emit(state.copyWith(logsStatus: Status.loading));
-    // final response = await _getVaccinationLogsUsecases();
-    // response.fold(
-    //   (failure) => emit(state.copyWith(logsStatus: Status.error)),
-    //   (logs) => emit(
-    //     state.copyWith(logsStatus: Status.success, vaccinationLogs: logs),
-    //   ),
-    // );
+    final response = await _getVaccinationLogUsecases(
+      vaccinationId: state.vaccination?.id ?? '',
+    );
+    response.fold(
+      (failure) => emit(state.copyWith(logsStatus: Status.error)),
+      (log) =>
+          emit(state.copyWith(logsStatus: Status.success, vaccinationLog: log)),
+    );
   }
 
   Future<void> _addVaccinationLog(
     _AddVaccinationLog event,
     Emitter<VaccinationDetailsState> emit,
   ) async {
-    // emit(state.copyWith(addLogStatus: Status.loading));
-    // final payload = VaccinationLogPayload(
-    //   vaccinationId: event.vaccinationId,
-    //   notes: event.notes,
-    // );
-    // final response = await _addVaccinationLogUsecases(payload:  payload);
-    // response.fold(
-    //   (failure) => emit(state.copyWith(addLogStatus: Status.error)),
-    //   (success) {
-    //     emit(state.copyWith(addLogStatus: Status.success));
-    //     // Reload logs after adding a new one
-    //     add(VaccinationDetailsEvent.loadVaccinationLogs());
-    //   },
-    // );
+    emit(state.copyWith(addLogStatus: Status.loading));
+    final res = await _updateVaccinationLogUsecases(
+      vaccinationId: state.vaccination?.id ?? '',
+      check: event.check,
+      notes: event.notes,
+      date: event.date,
+    );
+    await res.fold(
+      (failure) async {
+        emit(state.copyWith(addLogStatus: Status.error));
+      },
+      (success) async {
+        emit(state.copyWith(addLogStatus: Status.success));
+        add(const VaccinationDetailsEvent.loadVaccinationLogs());
+      },
+    );
   }
 }

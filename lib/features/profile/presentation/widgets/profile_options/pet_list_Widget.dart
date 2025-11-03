@@ -52,12 +52,22 @@ class PetListWidget extends StatelessWidget {
                       padding: Styles.edgeInsetsZero,
                       child: ClipRRect(
                         borderRadius: Styles.borderRadiusCircular50,
-                        child: AppNetworkImage(
-                          borderRadius: Styles.borderRadiusCircular50,
-                          url: dashboardPetDetails[i].imageUrl ?? '',
-                          width: 64,
-                          height: 64,
-                        ),
+                        child:
+                            (dashboardPetDetails[i].imageUrl ?? '0') != '0'
+                                ? AppNetworkImage(
+                                  borderRadius: Styles.borderRadiusCircular50,
+                                  url: dashboardPetDetails[i].imageUrl ?? '',
+                                  width: 64,
+                                  height: 64,
+                                )
+                                : Container(
+                                  width: 64,
+                                  height: 64,
+                                  decoration: BoxDecoration(
+                                    color: AppColors.white,
+                                    borderRadius: Styles.borderRadiusCircular50,
+                                  ),
+                                ),
                       ),
                     ),
                   ),

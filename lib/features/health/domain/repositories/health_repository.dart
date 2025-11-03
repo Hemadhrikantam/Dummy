@@ -7,6 +7,8 @@ import 'package:dummy/features/health/domain/entities/medication_log.dart';
 
 import '../../../dailycare/domain/entities/frequency.dart';
 import '../entities/vaccination.dart';
+import '../entities/vaccination_log_view.dart';
+import '../entities/clinic.dart';
 // import '../entities/vaccination_log.dart';
 
 abstract class HealthRepository {
@@ -49,6 +51,13 @@ abstract class HealthRepository {
     String? fromDate,
     String? toDate,
   );
+  AppTypeResponse<VaccinationLogView> getVaccinationLog({required String id});
+  AppSuccessResponse updateVaccinationLog({
+    required String vaccinationId,
+    required bool check,
+    required String notes,
+    required DateTime date,
+  });
   // Medication logs methods
   AppTypeResponse<List<MedicationLog>> medicationLogs(
     String medicationId,
@@ -60,5 +69,11 @@ abstract class HealthRepository {
     required String logId,
     required bool check,
     required DateTime date,
+  });
+
+  // Clinics
+  AppTypeResponse<List<Clinic>> clinics({
+    required double latitude,
+    required double longitude,
   });
 }

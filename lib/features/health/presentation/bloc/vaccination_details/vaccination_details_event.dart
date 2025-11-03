@@ -6,7 +6,8 @@ class VaccinationDetailsEvent with _$VaccinationDetailsEvent {
   const factory VaccinationDetailsEvent.loadVaccinationLogs() =
       _LoadVaccinationLogs;
   const factory VaccinationDetailsEvent.addVaccinationLog({
-    required String vaccinationId,
+    required bool check,
     required String notes,
+    required DateTime date,
   }) = _AddVaccinationLog;
 }

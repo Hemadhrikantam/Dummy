@@ -7,5 +7,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Injection.init();
   await Firebase.initializeApp();
+  await Injection.notificationService.initialize();
   runApp(const AppProvider());
 }

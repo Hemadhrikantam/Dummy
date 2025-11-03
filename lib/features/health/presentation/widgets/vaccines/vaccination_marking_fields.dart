@@ -1,11 +1,13 @@
 part of 'vaccination_marking_bottom_sheet_content.dart';
 
 class __Notes extends StatelessWidget {
-  const __Notes();
+  const __Notes({required this.controller});
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return AppTextFormField(
+      controller: controller,
       hintText: AppText.enter,
       borderRadius: Styles.borderRadiusCircular25,
       onChanged: (value) {},
@@ -17,23 +19,33 @@ class __Notes extends StatelessWidget {
 }
 
 class __DueDate extends StatefulWidget {
-  const __DueDate();
+  const __DueDate({required this.initialDate, required this.onChange});
+  final DateTime initialDate;
+  final ValueChanged<DateTime> onChange;
 
   @override
   State<__DueDate> createState() => __DueDateState();
 }
 
 class __DueDateState extends State<__DueDate> {
-  var date = DateTime.now();
+  late DateTime date;
+  @override
+  void initState() {
+    super.initState();
+    date = widget.initialDate;
+  }
+
   @override
   Widget build(BuildContext context) {
     return AppCustomDateField(
+      enable: false,
       headerText: AppText.dueDate,
       selectedDate: date,
       onChange: (value) {
         setState(() {
           date = value;
         });
+        widget.onChange(value);
       },
     );
   }

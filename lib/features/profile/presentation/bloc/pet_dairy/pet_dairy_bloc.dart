@@ -6,12 +6,15 @@ import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
+import 'package:dummy/features/profile/data/models/timeline_model.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
+import 'package:dummy/features/profile/domain/entities/timeline.dart';
 import 'package:dummy/features/profile/domain/usecases/delete_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/documents_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_media_favroute_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/event_fields_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/favorite_medias_usecases.dart';
+import 'package:dummy/features/profile/domain/usecases/list_timeline_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/medias_usecases.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -29,8 +32,10 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
     required EventFieldsUsecases eventFieldsUsecases,
     required DeleteMediaUsecases deleteMediaUsecases,
     required EditMediaFavrouteUsecases editMediaFavrouteUsecases,
+    required ListTimelineUsecases listTimelinesUsecases,
   }) : _documentsUsecases = documentsUsecases,
        _mediasUsecases = mediasUsecases,
+       _listTimelinesUsecases = listTimelinesUsecases,
        _favoriteMediasUsecases = favoriteMediasUsecases,
        _eventFieldsUsecases = eventFieldsUsecases,
        _deleteMediaUsecases = deleteMediaUsecases,
@@ -39,12 +44,14 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
     on<_Initialization>(_initialization);
     on<_EventId>(__eventId);
     on<_LoadMedias>(__loadMedias);
+    on<_LoadTimelines>(__loadTimelines);
     on<_UpdateMediaFavroute>(_updateMediaFavroute);
     on<_DeleteMedia>(__deleteMedia);
   }
 
   final DocumentsUsecases _documentsUsecases;
   final MediasUsecases _mediasUsecases;
+  final ListTimelineUsecases _listTimelinesUsecases;
   final FavoriteMediasUsecases _favoriteMediasUsecases;
   final EventFieldsUsecases _eventFieldsUsecases;
   final DeleteMediaUsecases _deleteMediaUsecases;
@@ -56,6 +63,8 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
     emit(state.copyWith(initStatus: Status.loading));
     final documents = await _documents();
     final medias = await _medias();
+    final timelines = await _timelines();
+
     final events = List<DropStringItem>.from(
       currentContext
           .read<AuthBloc>()
@@ -73,6 +82,7 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
         eventFields: events,
         favoriteMedias: favoriteMedias,
         initStatus: Status.success,
+        timelines: timelines,
       ),
     );
   }
@@ -87,8 +97,8 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
     return result.fold((l) => [], (r) => r);
   }
 
-  Future<List<DropItem>> _eventFields() async {
-    final result = await _eventFieldsUsecases();
+  Future<List<Timeline>> _timelines() async {
+    final result = await _listTimelinesUsecases();
     return result.fold((l) => [], (r) => r);
   }
 
@@ -108,6 +118,14 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
   ) async {
     final list = await _medias();
     emit(state.copyWith(medias: list));
+  }
+
+  Future<void> __loadTimelines(
+    _LoadTimelines event,
+    Emitter<PetDairyState> emit,
+  ) async {
+    final list = await _timelines();
+    emit(state.copyWith(timelines: list));
   }
 
   void __deleteMedia(_DeleteMedia event, Emitter<PetDairyState> emit) {
