@@ -5,8 +5,9 @@ import 'package:dummy/core/utils/type_def.dart';
 class PetListingUsecase {
   PetListingUsecase(this.repository);
   final NgoRepository repository;
-
-  AppTypeResponse<CountListing> call() {
-    return repository.petListing();
+  AppTypeResponse<CountListing> call({
+     bool all = false,
+  }) {
+    return repository.petListing(all: all);
   }
 }

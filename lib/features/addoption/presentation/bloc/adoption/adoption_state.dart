@@ -4,7 +4,7 @@ part of 'adoption_bloc.dart';
 abstract class AdoptionState with _$AdoptionState {
   const factory AdoptionState({
     @Default(Status.init) Status adoptionStatus,
-    @Default([]) List<Adoption> adoptions,
-    @Default([]) List<Adoption> allPets,
+    @Default([]) List<Listing> adoptions,
+    @Default([]) List<Listing> allPets,
   }) = _AdoptionState;
 }

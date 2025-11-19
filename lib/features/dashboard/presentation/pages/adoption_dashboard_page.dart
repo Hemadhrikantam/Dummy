@@ -20,9 +20,9 @@ class AdoptionDashboardPage extends StatefulWidget {
   const AdoptionDashboardPage({super.key, this.selectedPet});
   static const routeName = '/AdoptionDashboardPage';
 
-  static Route<T> route<T>(DashboardPetDetails selectedPet) {
+  static Route<T> route<T>() {
     return MaterialPageRoute<T>(
-      builder: (context) => AdoptionDashboardPage(selectedPet: selectedPet),
+      builder: (context) => AdoptionDashboardPage(),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -48,7 +48,7 @@ class _AdoptionDashboardPage extends State<AdoptionDashboardPage> {
   void initState() {
     super.initState();
     Future.delayed(Duration.zero, () {
-      context.read<DashboardBloc>().add(DashboardEvent.dashboardPets());
+      // context.read<DashboardBloc>().add(DashboardEvent.dashboardPets());
     });
   }
 

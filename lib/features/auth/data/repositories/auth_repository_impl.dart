@@ -82,6 +82,11 @@ class AuthRepositoryImpl extends AuthRepository {
     return _authDatasource.onboardNgo(payload: payload);
   }
 
+  @override
+  AppSuccessResponse onboardSeeker({required Payload payload}) {
+    return _authDatasource.onboardSeeker(payload: payload);
+  }
+
   // @override
   // AppTypeResponse<List<AwsSignedUrlModel>> generateSignedUrl(
   //     List<String> extensions) {

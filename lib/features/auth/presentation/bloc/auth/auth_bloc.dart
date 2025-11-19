@@ -12,9 +12,11 @@ import 'package:dummy/features/auth/domain/usecases/enums_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_account_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_device_usecases.dart';
+import 'package:dummy/features/auth/domain/usecases/seeker_registration_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/ngo_registration/ngo_registration_bloc.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
+import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/signup/data/models/enum_model.dart';
 import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
@@ -29,6 +31,8 @@ import '../../../../../core/models/formz/not_empty.dart';
 import '../../../../../core/models/formz/password.dart';
 import '../../../../../core/utils/toast_message.dart';
 import '../../../../../di/injection.dart';
+import '../../../../../core/services/location_service.dart';
+import '../../../../../core/payload/auth/seeker_onboarding_payload.dart';
 import '../../../../dashboard/presentation/pages/dashboard_page.dart';
 import '../../../../signup/presentation/pages/start_your_pets_journey.dart';
 import '../../../domain/entities/current_user.dart';
@@ -51,10 +55,12 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     required RegisterUserUsecases registerUserUsecases,
     required EnumsUsecases enumsUsecases,
     required RegisterDeviceUsecases registerDeviceUsecases,
+    required SeekerRegistrationUsecases seekerRegistrationUsecases,
   }) : __registerUserUsecases = registerUserUsecases,
        __logoutUsecases = logoutUsecases,
        __enumsUsecases = enumsUsecases,
        __registerDeviceUsecases = registerDeviceUsecases,
+       __seekerRegistrationUsecases = seekerRegistrationUsecases,
        super(const AuthState()) {
     on<_Init>(__init);
     on<_UpdateFcm>(__updateFcm);
@@ -74,6 +80,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final EnumsUsecases __enumsUsecases;
   final LogoutUsecases __logoutUsecases;
   final RegisterDeviceUsecases __registerDeviceUsecases;
+  final SeekerRegistrationUsecases __seekerRegistrationUsecases;
 
   void __init(_Init event, Emitter<AuthState> emit) {
     emit(const AuthState());
@@ -295,16 +302,39 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         AppAlert.showToast(message: error.message);
         emit(state.copyWith(sendOtpStatus: Status.failure));
       },
-      (success) {
+      (success) async {
         if (success.isPetCreated) {
           if (state.yourself.isPetParent) {
             currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
+          } else if (state.yourself.isSeeker) {
+            currentContext.pushAndRemoveUntil(AdoptionDashboardPage.route());
           } else if (state.yourself.isNgo) {
             currentContext.pushAndRemoveUntil(NgoHomePage.route());
           }
         } else {
           if (state.yourself.isPetParent) {
             currentContext.pushNamed(MeetYourPetScreen.routeName);
+          } else if (state.yourself.isSeeker) {
+            String latitude = '';
+            String longitude = '';
+            try {
+              final locationData = await LocationService().getCurrentLocation();
+              latitude = locationData?.latitude?.toString() ?? '';
+              longitude = locationData?.longitude?.toString() ?? '';
+            } catch (_) {
+              // If location permission denied or service disabled, proceed without coords
+            }
+            final payload = SeekerOnboardingPayload(
+              mobileNumber: event.phone,
+              latitude: latitude,
+              longitude: longitude,
+            );
+            final res = await __seekerRegistrationUsecases(payload: payload);
+            res.fold((error) {
+              AppAlert.showToast(message: error.message);
+            }, (successMsg) {
+              currentContext.pushAndRemoveUntil(AdoptionDashboardPage.route());
+            });
           } else if (state.yourself.isNgo) {
             currentContext.pushNamed(NgoRegistrationPage.routeName);
           }

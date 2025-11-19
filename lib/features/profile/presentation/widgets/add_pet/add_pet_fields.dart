@@ -5,16 +5,14 @@ class __PetName extends StatelessWidget {
   final controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<PetFormBloc, PetFormState, NotEmpty>(
-      selector: (state) {
-        return state.petName;
-      },
+    return BlocBuilder<PetFormBloc, PetFormState>(
       builder: (context, state) {
-        print(state.value);
+        if (state.initStatus.loading || state.initStatus.init) {
+          return SizedBox();
+        }
         return AppTextFormField(
           headerText: AppText.petsName,
-          // initialValue: state.value,
-          controller: TextEditingController()..text = state.value,
+          initialValue: state.petName.value,
           isMandatory: true,
           hintText: 'Enter Pet Name',
           onChanged: (value) {
@@ -169,8 +167,9 @@ class __Weight extends StatelessWidget {
           isMandatory: true,
           hintText: 'Select',
           onTap: () {
+            final parentContext = context;
             showModalBottomSheet(
-              context: context,
+              context: parentContext,
               backgroundColor: Colors.white,
               isScrollControlled: true,
               enableDrag: true,
@@ -193,10 +192,12 @@ class __Weight extends StatelessWidget {
                               : state.weight.value.split('.').first,
                         ),
                         onSave: (value, unit) {
-                          context.read<PetFormBloc>().add(
+                          LogUtility.warning('Weight: $value, Unit: $unit');
+                          // Use the captured parentContext to access PetFormBloc
+                          parentContext.read<PetFormBloc>().add(
                             PetFormEvent.weight(value.toString()),
                           );
-                          context.read<PetFormBloc>().add(
+                          parentContext.read<PetFormBloc>().add(
                             PetFormEvent.weightUnit(unit),
                           );
                         },
@@ -223,11 +224,21 @@ class __PersonalityTags extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<PetFormBloc, PetFormState>(
       builder: (context, state) {
-        LogUtility.warning('Personality Tags: ${state.personalityTags.length}');
+        final selected =
+            state.selectedPersonalityTags
+                .map(
+                  (e) =>
+                      state.personalityTags
+                          .where((item) => item.value == e.value!.value)
+                          .first,
+                )
+                .toList();
+        LogUtility.warning('Selected: $selected');
         return Column(
           children: [
             CustomStringMultiDropdownSearch(
               items: state.personalityTags,
+              selectedItems: selected,
               title: AppText.personalitytags,
               isMandatory: true,
               onChanged: (p0) {
@@ -321,7 +332,6 @@ class __UploadImage extends StatefulWidget {
 }
 
 class ___UploadImage extends State<__UploadImage> {
-  XFile? _image;
   @override
   void initState() {
     super.initState();
@@ -331,41 +341,61 @@ class ___UploadImage extends State<__UploadImage> {
   Widget build(BuildContext context) {
     return BlocBuilder<PetFormBloc, PetFormState>(
       builder: (context, state) {
-        return GestureDetector(
-          onTap: () async {
-            final images = await customFilePicker(context);
-            if (images.isNotEmpty) {
-              context.read<PetFormBloc>().add(
-                PetFormEvent.petImage(images.first),
-              );
-              setState(() {
-                _image = XFile(images.first);
-              });
-            }
-          },
-          child: CircleAvatar(
-            radius: 100,
-            backgroundColor: AppColors.buttonBackground,
-            backgroundImage:
-                _image != null
-                    ? FileImage(File(_image!.path))
-                    : state.petImage.value.contains('http')
-                    ? NetworkImage(state.petImage.value)
-                    : state.petImage.value.isNotEmpty
-                    ? FileImage(File(state.petImage.value))
-                    : null,
-            child:
-                _image == null && state.petImage.isNotValid
-                    ? Text(
-                      AppText.upload,
-                      style: context.textTheme.titleMedium?.copyWith(
-                        color: AppColors.buttonTextColor,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 14,
-                      ),
-                    )
-                    : null,
-          ),
+        return Column(
+          children: [
+            GestureDetector(
+              onTap: () async {
+                final images = await customFilePicker(context);
+                if (images.isNotEmpty) {
+                  context.read<PetFormBloc>().add(
+                    PetFormEvent.petImage(images.first),
+                  );
+                }
+              },
+              child: CircleAvatar(
+                radius: 100,
+                backgroundColor: AppColors.buttonBackground,
+                backgroundImage:
+                    state.petImage.value.contains('http')
+                        ? NetworkImage(state.petImage.value)
+                        : state.petImage.value.isNotEmpty
+                        ? FileImage(File(state.petImage.value))
+                        : null,
+                child:
+                    state.petImage.isNotValid
+                        ? Text(
+                          AppText.upload,
+                          style: context.textTheme.titleMedium?.copyWith(
+                            color: AppColors.buttonTextColor,
+                            fontWeight: FontWeight.w700,
+                            fontSize: 14,
+                          ),
+                        )
+                        : null,
+              ),
+            ),
+            Styles.gap15,
+            if (state.petImage.isValid)
+              AppOutlinedButton(
+                width: context.width * .5,
+                onPressed: () async {
+                  final images = await customFilePicker(context);
+                  if (images.isNotEmpty) {
+                    context.read<PetFormBloc>().add(
+                      PetFormEvent.petImage(images.first),
+                    );
+                  }
+                },
+                name: Text(
+                  AppText.changePhoto,
+                  style: context.textTheme.titleMedium?.copyWith(
+                    color: AppColors.buttonTextColor,
+                    fontWeight: FontWeight.w700,
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+          ],
         );
       },
     );

@@ -37,6 +37,7 @@ abstract class AuthDatasource {
   });
 
   AppSuccessResponse onboardNgo({required Payload payload});
+  AppSuccessResponse onboardSeeker({required Payload payload});
 
   // AppTypeResponse<List<AwsSignedUrlModel>> generateSignedUrl(
   //     List<String> extensions);

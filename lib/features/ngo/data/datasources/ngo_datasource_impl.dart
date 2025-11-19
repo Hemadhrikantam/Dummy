@@ -155,8 +155,49 @@ class NgoDatasourceImpl extends NgoDatasource {
   }
 
   @override
-  AppTypeResponse<CountListingModel> petListing() async {
-    final response = await http.get(path: api.petListing);
+  AppSuccessResponse markPetListingStatus({
+    required String id,
+    required bool isActive,
+    required String status,
+  }) async {
+    final response = await http.put(
+      path: '${api.petListing}/$id',
+      data: {'is_active': isActive, 'status': status},
+    );
+    return response.fold(
+      (error) => Left(ErrorMessage(message: error.message)),
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message: data['message'] as String? ?? 'Listing status updated',
+              ),
+            );
+          }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<CountListingModel> petListing({bool all = false}) async {
+    final response = await http.get(
+      path: api.petListing,
+      queryParameters: {'view': all ? 'others' : 'me'},
+    );
     return response.fold(
       (error) => Left(ErrorMessage(message: error.message)),
       (success) async {

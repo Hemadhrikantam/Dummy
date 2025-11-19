@@ -90,19 +90,20 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
               ),
             ),
             Styles.gap50,
-            AppButton(
-              name: Text(
-                AppText.continueBtn,
-                style: context.textTheme.titleMedium?.copyWith(
-                  fontWeight: FontWeight.w900,
-                  fontSize: 14,
-                  color: AppColors.buttonTextColor,
+            if (state.petImage.isValid)
+              AppButton(
+                name: Text(
+                  AppText.continueBtn,
+                  style: context.textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.w900,
+                    fontSize: 14,
+                    color: AppColors.buttonTextColor,
+                  ),
                 ),
+                onPressed: () {
+                  widget.onNext?.call();
+                },
               ),
-              onPressed: () {
-                widget.onNext?.call();
-              },
-            ),
             Styles.gap12,
             AppOutlinedButton(
               name: Text(

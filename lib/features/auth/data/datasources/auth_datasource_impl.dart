@@ -444,6 +444,52 @@ class AuthDatasourceImpl extends AuthDatasource {
       },
     );
   }
+  
+  @override
+  AppSuccessResponse onboardSeeker({required Payload payload}) async {
+    final response = await http.post(
+      path: api.seekerOnboarding,
+      data: payload.toMap(),
+      token: false,
+    );
+    return response.fold(
+      (error) {
+        LogUtility.error('Error: ${error.message}');
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            if (data is Map && data['data'] is Map && data['data']['accessToken'] != null) {
+              var item = SecureStorageItem(
+                key: StorageKey.token,
+                value: data['data']['accessToken'],
+              );
+              await storage.write(item);
+            }
+            return Right(
+              SuccessMessage(message: (data is Map) ? data['message'] as String? ?? "" : ""),
+            );
+          }
+
+          return Left(
+            ErrorMessage(
+              message: (data is Map)
+                  ? data['message'] as String? ?? AppText.somethingWentWrong
+                  : AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
 }
   // @override
   // AppTypeResponse<List<AwsSignedUrlModel>> generateSignedUrl(

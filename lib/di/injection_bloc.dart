@@ -11,6 +11,7 @@ class InjectionBloc {
       registerUserUsecases: getIt<RegisterUserUsecases>(),
       enumsUsecases: getIt<EnumsUsecases>(),
       registerDeviceUsecases: getIt<RegisterDeviceUsecases>(),
+      seekerRegistrationUsecases: getIt<SeekerRegistrationUsecases>(),
     );
   }
 
@@ -46,7 +47,6 @@ class InjectionBloc {
       addMediaUsecases: getIt<AddMediaUsecases>(),
       uploadFileUsecases: getIt<UploadFileUsecases>(),
       editMediaUsecases: getIt<EditMediaUsecases>(),
-      getMediaUsecases: getIt<GetMediaUsecases>(),
     );
   }
 
@@ -183,12 +183,11 @@ class InjectionBloc {
 
   static AddAdoptionBloc get addAdoptionBloc {
     return AddAdoptionBloc(
-      submitPetAdoptionUsecase: getIt<SubmitPetAdoptionUsecases>(),
-      editPetAdoptionUsecases: getIt<EditPetAdoptionUsecases>(),
-      dogBreedUsecases: getIt<DogBreedUsecases>(),
-      catBreedUsecases: getIt<CatBreedUsecases>(),
-      adoptionDetailsUsecases: getIt<AdoptionDetailsUsecases>(),
-      petTypesUsecases: getIt<PetTypesUsecases>(),
+      createPetUsecases: getIt<AddPetUsecases>(),
+      editPetUsecases: getIt<EditPetUsecases>(),
+      uploadFileUsecases: getIt<UploadFileUsecases>(),
+      addPetListingUsecase: getIt<AddPetListingUsecase>(),
+      editPetListingUsecase: getIt<EditPetListingUsecase>(),
     );
   }
 
@@ -204,8 +203,8 @@ class InjectionBloc {
 
   static AdoptionBloc get adoptionBloc {
     return AdoptionBloc(
-      adoptionUsecases: getIt<AdoptionUsecases>(),
-      allPetsUsecases: getIt<AllPetsUsecases>(),
+      petListingUsecase: getIt<PetListingUsecase>(),
+      markAdoptedUsecase: getIt<MarkAdoptedUsecase>(),
     );
   }
 

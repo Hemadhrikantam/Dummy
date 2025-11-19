@@ -21,32 +21,38 @@ mixin _$VetNearMeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loadClinic,
+    required TResult Function() loadStore,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loadClinic,
+    TResult? Function()? loadStore,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loadClinic,
+    TResult Function()? loadStore,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_LoadClinic value) loadClinic,
+    required TResult Function(_LoadStore value) loadStore,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_LoadClinic value)? loadClinic,
+    TResult? Function(_LoadStore value)? loadStore,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_LoadClinic value)? loadClinic,
+    TResult Function(_LoadStore value)? loadStore,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -116,6 +122,7 @@ class _$InitImpl implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loadClinic,
+    required TResult Function() loadStore,
   }) {
     return init();
   }
@@ -125,6 +132,7 @@ class _$InitImpl implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loadClinic,
+    TResult? Function()? loadStore,
   }) {
     return init?.call();
   }
@@ -134,6 +142,7 @@ class _$InitImpl implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loadClinic,
+    TResult Function()? loadStore,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -147,6 +156,7 @@ class _$InitImpl implements _Init {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_LoadClinic value) loadClinic,
+    required TResult Function(_LoadStore value) loadStore,
   }) {
     return init(this);
   }
@@ -156,6 +166,7 @@ class _$InitImpl implements _Init {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_LoadClinic value)? loadClinic,
+    TResult? Function(_LoadStore value)? loadStore,
   }) {
     return init?.call(this);
   }
@@ -165,6 +176,7 @@ class _$InitImpl implements _Init {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_LoadClinic value)? loadClinic,
+    TResult Function(_LoadStore value)? loadStore,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -223,6 +235,7 @@ class _$LoadClinicImpl implements _LoadClinic {
   TResult when<TResult extends Object?>({
     required TResult Function() init,
     required TResult Function() loadClinic,
+    required TResult Function() loadStore,
   }) {
     return loadClinic();
   }
@@ -232,6 +245,7 @@ class _$LoadClinicImpl implements _LoadClinic {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function()? loadClinic,
+    TResult? Function()? loadStore,
   }) {
     return loadClinic?.call();
   }
@@ -241,6 +255,7 @@ class _$LoadClinicImpl implements _LoadClinic {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function()? loadClinic,
+    TResult Function()? loadStore,
     required TResult orElse(),
   }) {
     if (loadClinic != null) {
@@ -254,6 +269,7 @@ class _$LoadClinicImpl implements _LoadClinic {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_LoadClinic value) loadClinic,
+    required TResult Function(_LoadStore value) loadStore,
   }) {
     return loadClinic(this);
   }
@@ -263,6 +279,7 @@ class _$LoadClinicImpl implements _LoadClinic {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_LoadClinic value)? loadClinic,
+    TResult? Function(_LoadStore value)? loadStore,
   }) {
     return loadClinic?.call(this);
   }
@@ -272,6 +289,7 @@ class _$LoadClinicImpl implements _LoadClinic {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_LoadClinic value)? loadClinic,
+    TResult Function(_LoadStore value)? loadStore,
     required TResult orElse(),
   }) {
     if (loadClinic != null) {
@@ -286,9 +304,123 @@ abstract class _LoadClinic implements VetNearMeEvent {
 }
 
 /// @nodoc
+abstract class _$$LoadStoreImplCopyWith<$Res> {
+  factory _$$LoadStoreImplCopyWith(
+    _$LoadStoreImpl value,
+    $Res Function(_$LoadStoreImpl) then,
+  ) = __$$LoadStoreImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadStoreImplCopyWithImpl<$Res>
+    extends _$VetNearMeEventCopyWithImpl<$Res, _$LoadStoreImpl>
+    implements _$$LoadStoreImplCopyWith<$Res> {
+  __$$LoadStoreImplCopyWithImpl(
+    _$LoadStoreImpl _value,
+    $Res Function(_$LoadStoreImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of VetNearMeEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoadStoreImpl implements _LoadStore {
+  const _$LoadStoreImpl();
+
+  @override
+  String toString() {
+    return 'VetNearMeEvent.loadStore()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadStoreImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function() loadClinic,
+    required TResult Function() loadStore,
+  }) {
+    return loadStore();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function()? loadClinic,
+    TResult? Function()? loadStore,
+  }) {
+    return loadStore?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function()? loadClinic,
+    TResult Function()? loadStore,
+    required TResult orElse(),
+  }) {
+    if (loadStore != null) {
+      return loadStore();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_LoadClinic value) loadClinic,
+    required TResult Function(_LoadStore value) loadStore,
+  }) {
+    return loadStore(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_LoadClinic value)? loadClinic,
+    TResult? Function(_LoadStore value)? loadStore,
+  }) {
+    return loadStore?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_LoadClinic value)? loadClinic,
+    TResult Function(_LoadStore value)? loadStore,
+    required TResult orElse(),
+  }) {
+    if (loadStore != null) {
+      return loadStore(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadStore implements VetNearMeEvent {
+  const factory _LoadStore() = _$LoadStoreImpl;
+}
+
+/// @nodoc
 mixin _$VetNearMeState {
   Status get initStatus => throw _privateConstructorUsedError;
   List<Clinic> get clinics => throw _privateConstructorUsedError;
+  List<Clinic> get stores => throw _privateConstructorUsedError;
 
   /// Create a copy of VetNearMeState
   /// with the given fields replaced by the non-null parameter values.
@@ -304,7 +436,7 @@ abstract class $VetNearMeStateCopyWith<$Res> {
     $Res Function(VetNearMeState) then,
   ) = _$VetNearMeStateCopyWithImpl<$Res, VetNearMeState>;
   @useResult
-  $Res call({Status initStatus, List<Clinic> clinics});
+  $Res call({Status initStatus, List<Clinic> clinics, List<Clinic> stores});
 }
 
 /// @nodoc
@@ -321,7 +453,11 @@ class _$VetNearMeStateCopyWithImpl<$Res, $Val extends VetNearMeState>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? initStatus = null, Object? clinics = null}) {
+  $Res call({
+    Object? initStatus = null,
+    Object? clinics = null,
+    Object? stores = null,
+  }) {
     return _then(
       _value.copyWith(
             initStatus:
@@ -333,6 +469,11 @@ class _$VetNearMeStateCopyWithImpl<$Res, $Val extends VetNearMeState>
                 null == clinics
                     ? _value.clinics
                     : clinics // ignore: cast_nullable_to_non_nullable
+                        as List<Clinic>,
+            stores:
+                null == stores
+                    ? _value.stores
+                    : stores // ignore: cast_nullable_to_non_nullable
                         as List<Clinic>,
           )
           as $Val,
@@ -349,7 +490,7 @@ abstract class _$$VetNearMeStateImplCopyWith<$Res>
   ) = __$$VetNearMeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Status initStatus, List<Clinic> clinics});
+  $Res call({Status initStatus, List<Clinic> clinics, List<Clinic> stores});
 }
 
 /// @nodoc
@@ -365,7 +506,11 @@ class __$$VetNearMeStateImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? initStatus = null, Object? clinics = null}) {
+  $Res call({
+    Object? initStatus = null,
+    Object? clinics = null,
+    Object? stores = null,
+  }) {
     return _then(
       _$VetNearMeStateImpl(
         initStatus:
@@ -378,6 +523,11 @@ class __$$VetNearMeStateImplCopyWithImpl<$Res>
                 ? _value._clinics
                 : clinics // ignore: cast_nullable_to_non_nullable
                     as List<Clinic>,
+        stores:
+            null == stores
+                ? _value._stores
+                : stores // ignore: cast_nullable_to_non_nullable
+                    as List<Clinic>,
       ),
     );
   }
@@ -389,7 +539,9 @@ class _$VetNearMeStateImpl implements _VetNearMeState {
   const _$VetNearMeStateImpl({
     this.initStatus = Status.init,
     final List<Clinic> clinics = const [],
-  }) : _clinics = clinics;
+    final List<Clinic> stores = const [],
+  }) : _clinics = clinics,
+       _stores = stores;
 
   @override
   @JsonKey()
@@ -403,9 +555,18 @@ class _$VetNearMeStateImpl implements _VetNearMeState {
     return EqualUnmodifiableListView(_clinics);
   }
 
+  final List<Clinic> _stores;
+  @override
+  @JsonKey()
+  List<Clinic> get stores {
+    if (_stores is EqualUnmodifiableListView) return _stores;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_stores);
+  }
+
   @override
   String toString() {
-    return 'VetNearMeState(initStatus: $initStatus, clinics: $clinics)';
+    return 'VetNearMeState(initStatus: $initStatus, clinics: $clinics, stores: $stores)';
   }
 
   @override
@@ -415,7 +576,8 @@ class _$VetNearMeStateImpl implements _VetNearMeState {
             other is _$VetNearMeStateImpl &&
             (identical(other.initStatus, initStatus) ||
                 other.initStatus == initStatus) &&
-            const DeepCollectionEquality().equals(other._clinics, _clinics));
+            const DeepCollectionEquality().equals(other._clinics, _clinics) &&
+            const DeepCollectionEquality().equals(other._stores, _stores));
   }
 
   @override
@@ -423,6 +585,7 @@ class _$VetNearMeStateImpl implements _VetNearMeState {
     runtimeType,
     initStatus,
     const DeepCollectionEquality().hash(_clinics),
+    const DeepCollectionEquality().hash(_stores),
   );
 
   /// Create a copy of VetNearMeState
@@ -441,12 +604,15 @@ abstract class _VetNearMeState implements VetNearMeState {
   const factory _VetNearMeState({
     final Status initStatus,
     final List<Clinic> clinics,
+    final List<Clinic> stores,
   }) = _$VetNearMeStateImpl;
 
   @override
   Status get initStatus;
   @override
   List<Clinic> get clinics;
+  @override
+  List<Clinic> get stores;
 
   /// Create a copy of VetNearMeState
   /// with the given fields replaced by the non-null parameter values.

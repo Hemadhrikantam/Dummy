@@ -30,11 +30,9 @@ class MediaFormBloc extends Bloc<MediaFormEvent, MediaFormState> {
   MediaFormBloc({
     required AddMediaUsecases addMediaUsecases,
     required EditMediaUsecases editMediaUsecases,
-    required GetMediaUsecases getMediaUsecases,
     required UploadFileUsecases uploadFileUsecases,
   }) : _addMediaUsecases = addMediaUsecases,
        _editMediaUsecases = editMediaUsecases,
-       _getMediaUsecases = getMediaUsecases,
        _uploadFileUsecases = uploadFileUsecases,
        super(MediaFormState()) {
     on<_Init>(__init);
@@ -45,7 +43,6 @@ class MediaFormBloc extends Bloc<MediaFormEvent, MediaFormState> {
   }
   final AddMediaUsecases _addMediaUsecases;
   final EditMediaUsecases _editMediaUsecases;
-  final GetMediaUsecases _getMediaUsecases;
   final UploadFileUsecases _uploadFileUsecases;
   Future<void> __init(_Init event, Emitter<MediaFormState> emit) async {
     emit(state.copyWith(initStatus: Status.loading, petId: event.petId));
@@ -88,7 +85,10 @@ class MediaFormBloc extends Bloc<MediaFormEvent, MediaFormState> {
   Future<void> __submit(_Submit event, Emitter<MediaFormState> emit) async {
     emit(state.copyWith(submitStatus: Status.loading));
     String url = state.url.value;
-    if (url.isNotEmpty && !url.contains('http')) {
+    int fileSize = 10;
+    LogUtility.warning('TEST1' + url);
+    if (url.isNotEmpty && !url.startsWith('http')) {
+      LogUtility.warning('TEST1' + url);
       final result = await _uploadFileUsecases(
         type: UploadType.pet_diary_media,
         path: url,
@@ -97,14 +97,20 @@ class MediaFormBloc extends Bloc<MediaFormEvent, MediaFormState> {
       result.fold((l) {}, (r) {
         url = r.finalUrl;
       });
+      try {
+        fileSize = await File(state.url.value).length();
+        if (fileSize <= 0) fileSize = 1;
+      } catch (_) {
+        fileSize = 10;
+      }
     }
     final payload = MediaPayload(
       petId: state.petId,
       eventTypeId: state.event.value!.id,
       notes: state.notes.value,
-      fileType: _inferFileType(state.url.value),
-      fileSize: File(state.url.value).lengthSync().toString(),
-      fileUrl: url,
+      fileType: _inferFileType(url),
+      fileSize: fileSize.toString(),
+      fileUrl: url.trim().replaceAll('`', ''),
     );
     final result =
         event.id != null

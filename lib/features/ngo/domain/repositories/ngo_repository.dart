@@ -17,5 +17,10 @@ abstract class NgoRepository {
     required String petId,
     required String status,
   });
-  AppTypeResponse<CountListing> petListing();
+  AppSuccessResponse markPetListingStatus({
+    required String id,
+    required bool isActive,
+    required String status,
+  });
+  AppTypeResponse<CountListing> petListing({bool all = false});
 }

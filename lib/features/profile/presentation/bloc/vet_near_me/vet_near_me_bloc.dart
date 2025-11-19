@@ -15,6 +15,7 @@ class VetNearMeBloc extends Bloc<VetNearMeEvent, VetNearMeState> {
       super(VetNearMeState()) {
     on<_Init>(__init);
     on<_LoadClinic>(__loadClinic);
+    on<_LoadStore>(__loadStore);
   }
   final ListClinicUsecases _listClinicUsecases;
   void __init(_Init event, Emitter<VetNearMeState> emit) async {
@@ -29,6 +30,15 @@ class VetNearMeBloc extends Bloc<VetNearMeEvent, VetNearMeState> {
       clinics.fold(
         (l) => emit(state.copyWith(initStatus: Status.failure)),
         (r) => emit(state.copyWith(initStatus: Status.success, clinics: r)),
+      );
+      final stores = await _listClinicUsecases(
+        type: PlaceType.store,
+        latitude: locationData?.latitude ?? 0,
+        longitude: locationData?.longitude ?? 0,
+      );
+      stores.fold(
+        (l) => emit(state.copyWith(initStatus: Status.failure)),
+        (r) => emit(state.copyWith(initStatus: Status.success, stores: r)),
       );
     } catch (e) {
       emit(state.copyWith(initStatus: Status.failure));
@@ -47,6 +57,25 @@ class VetNearMeBloc extends Bloc<VetNearMeEvent, VetNearMeState> {
       clinics.fold(
         (l) => emit(state.copyWith(initStatus: Status.failure)),
         (r) => emit(state.copyWith(initStatus: Status.success, clinics: r)),
+      );
+    } catch (e) {
+      emit(state.copyWith(initStatus: Status.failure));
+    }
+  }
+
+  void __loadStore(_LoadStore event, Emitter<VetNearMeState> emit) async {
+    emit(state.copyWith(initStatus: Status.loading));
+    final locationService = LocationService();
+    final locationData = await locationService.getCurrentLocation();
+    try {
+      final stores = await _listClinicUsecases(
+        type: PlaceType.store,
+        latitude: locationData?.latitude ?? 0,
+        longitude: locationData?.longitude ?? 0,
+      );
+      stores.fold(
+        (l) => emit(state.copyWith(initStatus: Status.failure)),
+        (r) => emit(state.copyWith(initStatus: Status.success, stores: r)),
       );
     } catch (e) {
       emit(state.copyWith(initStatus: Status.failure));

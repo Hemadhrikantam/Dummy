@@ -1207,7 +1207,7 @@ class __$$VaccinationLogFormStateImplCopyWithImpl<$Res>
 class _$VaccinationLogFormStateImpl implements _VaccinationLogFormState {
   const _$VaccinationLogFormStateImpl({
     this.vaccinationId,
-    this.check = false,
+    this.check = true,
     this.notes = const NotEmpty.pure(),
     this.date,
     this.submitStatus = Status.init,

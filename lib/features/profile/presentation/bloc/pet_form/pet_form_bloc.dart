@@ -5,8 +5,7 @@ import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/pet_payload.dart';
-import 'package:dummy/core/payload/register_account_payload.dart';
-import 'package:dummy/core/utils/app_utils.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
@@ -68,7 +67,6 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
 
       emit(
         state.copyWith(
-          initStatus: Status.success,
           catbreeds: catBreeds,
           dogbreeds: dogBreeds,
           personalityTags: personalityTags,
@@ -78,7 +76,12 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
           breed: DropdownStringValue.dirty(
             breeds.firstWhere((b) => b.value == success.breedName),
           ),
-          petImage: NotEmpty.dirty(value: success.imageUrl ?? ''),
+          petImage: NotEmpty.dirty(
+            value:
+                (success.imageUrl ?? '').contains('http')
+                    ? success.imageUrl!
+                    : '',
+          ),
 
           selectedPersonalityTags:
               success.personalityTags
@@ -94,14 +97,22 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
               value: success.gender,
             ),
           ),
-          weight: NotEmpty.dirty(value: success.weightValue.toString()),
+          weight: NotEmpty.dirty(
+            value:
+                double.tryParse(
+                  success.weightValue.toString(),
+                )?.toInt().toString() ??
+                '',
+          ),
+          weightUnit: NotEmpty.dirty(
+            value: success.weightUnit == 'kg' ? 'Kg' : 'Lb',
+          ),
           petName: NotEmpty.dirty(value: success.name),
         ),
       );
     } else {
       emit(
         state.copyWith(
-          initStatus: Status.success,
           catbreeds: catBreeds,
           dogbreeds: dogBreeds,
           personalityTags: personalityTags,
@@ -109,7 +120,9 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
       );
     }
 
-    emit(state.copyWith(validation: state.validationX));
+    emit(
+      state.copyWith(validation: state.validationX, initStatus: Status.success),
+    );
   }
 
   Future<void> __submit(_Submit event, Emitter<PetFormState> emit) async {
@@ -138,13 +151,14 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
       breedId: state.breed.value!.id,
       weight: PetWeightPayload(
         value: state.weight.value,
-        unit: state.weightUnit.value,
+        unit: state.weightUnit.value.toLowerCase(),
       ),
       gender: state.gender.value?.value ?? '',
       image_url: url,
       personalityTags:
           state.selectedPersonalityTags.map((e) => e.value!.id).toList(),
     );
+    LogUtility.info('Payload: $payload');
     final result =
         event.id == null
             ? await __createPetUsecases(payload: payload)
@@ -164,7 +178,9 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
   }
 
   void __petType(_PetType event, Emitter<PetFormState> emit) {
-    emit(state.copyWith(petType: event.value));
+    emit(
+      state.copyWith(petType: event.value, breed: DropdownStringValue.pure()),
+    );
     emit(state.copyWith(validation: state.validationX));
   }
 

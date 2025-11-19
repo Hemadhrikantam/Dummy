@@ -75,5 +75,6 @@ abstract class HealthRepository {
   AppTypeResponse<List<Clinic>> clinics({
     required double latitude,
     required double longitude,
+    required String type,
   });
 }

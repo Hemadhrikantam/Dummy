@@ -696,8 +696,9 @@ class HealthDatasourceImpl extends HealthDatasource {
   AppTypeResponse<List<ClinicModel>> clinics(
     double latitude,
     double longitude,
+    String type,
   ) async {
-    final response = await http.get(path: api.clinics(latitude, longitude));
+    final response = await http.get(path: api.clinics(latitude, longitude, type));
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));

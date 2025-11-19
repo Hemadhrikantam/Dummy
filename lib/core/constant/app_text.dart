@@ -4,6 +4,8 @@ class AppText {
   static String versionText = 'Version 1.0.0';
   static String minutes = 'Minutes';
   static String hours = 'Hours';
+  static String male = 'Male';
+  static String female = 'Female';
   static String checkYourInternertConnection = 'Check Your  Internt Connection';
   static String tryAgainLater = 'Try Again Later';
   static String badRequest = 'Bad Request';
@@ -74,8 +76,8 @@ class AppText {
   static String whatTypeOfPet = "What Type of Pet Do You Have?";
   static String dog = "Dog";
   static String cat = "Cat";
-  static String petTypeInfo(String a, String b) =>
-      "Doommi was a $a, but we love ${b}s too—tell us about your pet!";
+  static String petTypeInfo() =>
+      "Doommi was a Dog, but we love cats too—tell us about your pet!";
 
   static String uploadPetPhoto =
       'Upload a photo to make their profile special!';
@@ -100,7 +102,7 @@ class AppText {
   static String enterVerificationCode = 'Enter Verification Code';
   static String verificationSuccessful = 'Verification Successful';
   static String enter4DigitVerificationCode =
-      'Enter 4 digit sent to your mobile number.';
+      'Enter 6 digit sent to your mobile number.';
   static String resend = 'Resend';
   static String letsCreateYopurAccount =
       'Let’s create your account to start caring for your pet!';

@@ -3595,6 +3595,7 @@ mixin _$AuthState {
   CurrentUser? get user => throw _privateConstructorUsedError;
   Status get loginStatus => throw _privateConstructorUsedError;
   Status get sendOtpStatus => throw _privateConstructorUsedError;
+  Status get verifyOtpStatus => throw _privateConstructorUsedError;
   bool get loginValidation => throw _privateConstructorUsedError;
   Status get signupStatus => throw _privateConstructorUsedError;
   bool get signupValidation => throw _privateConstructorUsedError;
@@ -3624,6 +3625,7 @@ abstract class $AuthStateCopyWith<$Res> {
     CurrentUser? user,
     Status loginStatus,
     Status sendOtpStatus,
+    Status verifyOtpStatus,
     bool loginValidation,
     Status signupStatus,
     bool signupValidation,
@@ -3657,6 +3659,7 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
     Object? user = freezed,
     Object? loginStatus = null,
     Object? sendOtpStatus = null,
+    Object? verifyOtpStatus = null,
     Object? loginValidation = null,
     Object? signupStatus = null,
     Object? signupValidation = null,
@@ -3715,6 +3718,11 @@ class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
                     ? _value.sendOtpStatus
                     : sendOtpStatus // ignore: cast_nullable_to_non_nullable
                         as Status,
+            verifyOtpStatus:
+                null == verifyOtpStatus
+                    ? _value.verifyOtpStatus
+                    : verifyOtpStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
             loginValidation:
                 null == loginValidation
                     ? _value.loginValidation
@@ -3766,6 +3774,7 @@ abstract class _$$AuthStateImplCopyWith<$Res>
     CurrentUser? user,
     Status loginStatus,
     Status sendOtpStatus,
+    Status verifyOtpStatus,
     bool loginValidation,
     Status signupStatus,
     bool signupValidation,
@@ -3798,6 +3807,7 @@ class __$$AuthStateImplCopyWithImpl<$Res>
     Object? user = freezed,
     Object? loginStatus = null,
     Object? sendOtpStatus = null,
+    Object? verifyOtpStatus = null,
     Object? loginValidation = null,
     Object? signupStatus = null,
     Object? signupValidation = null,
@@ -3856,6 +3866,11 @@ class __$$AuthStateImplCopyWithImpl<$Res>
                 ? _value.sendOtpStatus
                 : sendOtpStatus // ignore: cast_nullable_to_non_nullable
                     as Status,
+        verifyOtpStatus:
+            null == verifyOtpStatus
+                ? _value.verifyOtpStatus
+                : verifyOtpStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
         loginValidation:
             null == loginValidation
                 ? _value.loginValidation
@@ -3900,6 +3915,7 @@ class _$AuthStateImpl implements _AuthState {
     this.user = null,
     this.loginStatus = Status.init,
     this.sendOtpStatus = Status.init,
+    this.verifyOtpStatus = Status.init,
     this.loginValidation = false,
     this.signupStatus = Status.init,
     this.signupValidation = false,
@@ -3939,6 +3955,9 @@ class _$AuthStateImpl implements _AuthState {
   final Status sendOtpStatus;
   @override
   @JsonKey()
+  final Status verifyOtpStatus;
+  @override
+  @JsonKey()
   final bool loginValidation;
   @override
   @JsonKey()
@@ -3955,7 +3974,7 @@ class _$AuthStateImpl implements _AuthState {
 
   @override
   String toString() {
-    return 'AuthState(email: $email, password: $password, name: $name, verificationId: $verificationId, phone: $phone, otp: $otp, confirmPassword: $confirmPassword, user: $user, loginStatus: $loginStatus, sendOtpStatus: $sendOtpStatus, loginValidation: $loginValidation, signupStatus: $signupStatus, signupValidation: $signupValidation, yourself: $yourself, enums: $enums)';
+    return 'AuthState(email: $email, password: $password, name: $name, verificationId: $verificationId, phone: $phone, otp: $otp, confirmPassword: $confirmPassword, user: $user, loginStatus: $loginStatus, sendOtpStatus: $sendOtpStatus, verifyOtpStatus: $verifyOtpStatus, loginValidation: $loginValidation, signupStatus: $signupStatus, signupValidation: $signupValidation, yourself: $yourself, enums: $enums)';
   }
 
   @override
@@ -3978,6 +3997,8 @@ class _$AuthStateImpl implements _AuthState {
                 other.loginStatus == loginStatus) &&
             (identical(other.sendOtpStatus, sendOtpStatus) ||
                 other.sendOtpStatus == sendOtpStatus) &&
+            (identical(other.verifyOtpStatus, verifyOtpStatus) ||
+                other.verifyOtpStatus == verifyOtpStatus) &&
             (identical(other.loginValidation, loginValidation) ||
                 other.loginValidation == loginValidation) &&
             (identical(other.signupStatus, signupStatus) ||
@@ -4002,6 +4023,7 @@ class _$AuthStateImpl implements _AuthState {
     user,
     loginStatus,
     sendOtpStatus,
+    verifyOtpStatus,
     loginValidation,
     signupStatus,
     signupValidation,
@@ -4030,6 +4052,7 @@ abstract class _AuthState implements AuthState {
     final CurrentUser? user,
     final Status loginStatus,
     final Status sendOtpStatus,
+    final Status verifyOtpStatus,
     final bool loginValidation,
     final Status signupStatus,
     final bool signupValidation,
@@ -4057,6 +4080,8 @@ abstract class _AuthState implements AuthState {
   Status get loginStatus;
   @override
   Status get sendOtpStatus;
+  @override
+  Status get verifyOtpStatus;
   @override
   bool get loginValidation;
   @override

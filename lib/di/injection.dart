@@ -16,6 +16,7 @@ import 'package:dummy/features/addoption/domain/usecases/submit_pet_adoption_for
 import 'package:dummy/features/addoption/presentation/bloc/add_adoption/add_adoption_bloc.dart';
 import 'package:dummy/features/addoption/presentation/bloc/adoption/adoption_bloc.dart';
 import 'package:dummy/features/auth/domain/usecases/enums_usecases.dart';
+import 'package:dummy/features/auth/domain/usecases/seeker_registration_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_device_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/register_user_usecases.dart';
 import 'package:dummy/features/auth/domain/usecases/send_otp_usecases.dart';
@@ -101,6 +102,7 @@ import 'package:dummy/features/ngo/domain/usecases/get_ngo_profile_usecase.dart'
 import 'package:dummy/features/ngo/domain/usecases/update_ngo_profile_usecase.dart';
 import 'package:dummy/features/ngo/domain/usecases/add_pet_listing_usecase.dart';
 import 'package:dummy/features/ngo/domain/usecases/edit_pet_listing_usecase.dart';
+import 'package:dummy/features/ngo/domain/usecases/mark_adopted_usecase.dart';
 import 'package:dummy/features/ngo/presentation/bloc/ngo_profile/ngo_profile_bloc.dart';
 import 'package:dummy/features/ngo/presentation/bloc/ngo_home/ngo_home_bloc.dart';
 import 'package:dummy/features/ngo/presentation/bloc/listing_form/listing_form_bloc.dart';

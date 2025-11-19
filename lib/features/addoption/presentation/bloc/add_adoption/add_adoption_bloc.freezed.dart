@@ -21,57 +21,57 @@ mixin _$AddAdoptionEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String name) name,
-    required TResult Function(DropItem year) year,
-    required TResult Function(DropItem value) month,
-    required TResult Function(DropItem petType) petType,
-    required TResult Function(DropItem petBreed) breed,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(PetType petType) petType,
+    required TResult Function(DropStringItem petBreed) breed,
     required TResult Function(String address) address,
     required TResult Function(String phone) phone,
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String name)? name,
-    TResult? Function(DropItem year)? year,
-    TResult? Function(DropItem value)? month,
-    TResult? Function(DropItem petType)? petType,
-    TResult? Function(DropItem petBreed)? breed,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(PetType petType)? petType,
+    TResult? Function(DropStringItem petBreed)? breed,
     TResult? Function(String address)? address,
     TResult? Function(String phone)? phone,
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String name)? name,
-    TResult Function(DropItem year)? year,
-    TResult Function(DropItem value)? month,
-    TResult Function(DropItem petType)? petType,
-    TResult Function(DropItem petBreed)? breed,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(PetType petType)? petType,
+    TResult Function(DropStringItem petBreed)? breed,
     TResult Function(String address)? address,
     TResult Function(String phone)? phone,
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Name value) name,
-    required TResult Function(_Year value) year,
-    required TResult Function(_Month value) month,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_PetType value) petType,
     required TResult Function(_PetBreed value) breed,
     required TResult Function(_Address value) address,
@@ -86,8 +86,8 @@ mixin _$AddAdoptionEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Name value)? name,
-    TResult? Function(_Year value)? year,
-    TResult? Function(_Month value)? month,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_PetBreed value)? breed,
     TResult? Function(_Address value)? address,
@@ -102,8 +102,8 @@ mixin _$AddAdoptionEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Name value)? name,
-    TResult Function(_Year value)? year,
-    TResult Function(_Month value)? month,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_PetType value)? petType,
     TResult Function(_PetBreed value)? breed,
     TResult Function(_Address value)? address,
@@ -184,17 +184,17 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String name) name,
-    required TResult Function(DropItem year) year,
-    required TResult Function(DropItem value) month,
-    required TResult Function(DropItem petType) petType,
-    required TResult Function(DropItem petBreed) breed,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(PetType petType) petType,
+    required TResult Function(DropStringItem petBreed) breed,
     required TResult Function(String address) address,
     required TResult Function(String phone) phone,
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return started();
   }
@@ -204,17 +204,17 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String name)? name,
-    TResult? Function(DropItem year)? year,
-    TResult? Function(DropItem value)? month,
-    TResult? Function(DropItem petType)? petType,
-    TResult? Function(DropItem petBreed)? breed,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(PetType petType)? petType,
+    TResult? Function(DropStringItem petBreed)? breed,
     TResult? Function(String address)? address,
     TResult? Function(String phone)? phone,
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return started?.call();
   }
@@ -224,17 +224,17 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String name)? name,
-    TResult Function(DropItem year)? year,
-    TResult Function(DropItem value)? month,
-    TResult Function(DropItem petType)? petType,
-    TResult Function(DropItem petBreed)? breed,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(PetType petType)? petType,
+    TResult Function(DropStringItem petBreed)? breed,
     TResult Function(String address)? address,
     TResult Function(String phone)? phone,
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -248,8 +248,8 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Name value) name,
-    required TResult Function(_Year value) year,
-    required TResult Function(_Month value) month,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_PetType value) petType,
     required TResult Function(_PetBreed value) breed,
     required TResult Function(_Address value) address,
@@ -268,8 +268,8 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Name value)? name,
-    TResult? Function(_Year value)? year,
-    TResult? Function(_Month value)? month,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_PetBreed value)? breed,
     TResult? Function(_Address value)? address,
@@ -288,8 +288,8 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Name value)? name,
-    TResult Function(_Year value)? year,
-    TResult Function(_Month value)? month,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_PetType value)? petType,
     TResult Function(_PetBreed value)? breed,
     TResult Function(_Address value)? address,
@@ -382,17 +382,17 @@ class _$NameImpl implements _Name {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String name) name,
-    required TResult Function(DropItem year) year,
-    required TResult Function(DropItem value) month,
-    required TResult Function(DropItem petType) petType,
-    required TResult Function(DropItem petBreed) breed,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(PetType petType) petType,
+    required TResult Function(DropStringItem petBreed) breed,
     required TResult Function(String address) address,
     required TResult Function(String phone) phone,
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return name(this.name);
   }
@@ -402,17 +402,17 @@ class _$NameImpl implements _Name {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String name)? name,
-    TResult? Function(DropItem year)? year,
-    TResult? Function(DropItem value)? month,
-    TResult? Function(DropItem petType)? petType,
-    TResult? Function(DropItem petBreed)? breed,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(PetType petType)? petType,
+    TResult? Function(DropStringItem petBreed)? breed,
     TResult? Function(String address)? address,
     TResult? Function(String phone)? phone,
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return name?.call(this.name);
   }
@@ -422,17 +422,17 @@ class _$NameImpl implements _Name {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String name)? name,
-    TResult Function(DropItem year)? year,
-    TResult Function(DropItem value)? month,
-    TResult Function(DropItem petType)? petType,
-    TResult Function(DropItem petBreed)? breed,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(PetType petType)? petType,
+    TResult Function(DropStringItem petBreed)? breed,
     TResult Function(String address)? address,
     TResult Function(String phone)? phone,
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (name != null) {
@@ -446,8 +446,8 @@ class _$NameImpl implements _Name {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Name value) name,
-    required TResult Function(_Year value) year,
-    required TResult Function(_Month value) month,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_PetType value) petType,
     required TResult Function(_PetBreed value) breed,
     required TResult Function(_Address value) address,
@@ -466,8 +466,8 @@ class _$NameImpl implements _Name {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Name value)? name,
-    TResult? Function(_Year value)? year,
-    TResult? Function(_Month value)? month,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_PetBreed value)? breed,
     TResult? Function(_Address value)? address,
@@ -486,8 +486,8 @@ class _$NameImpl implements _Name {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Name value)? name,
-    TResult Function(_Year value)? year,
-    TResult Function(_Month value)? month,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_PetType value)? petType,
     TResult Function(_PetBreed value)? breed,
     TResult Function(_Address value)? address,
@@ -519,33 +519,31 @@ abstract class _Name implements AddAdoptionEvent {
 }
 
 /// @nodoc
-abstract class _$$YearImplCopyWith<$Res> {
-  factory _$$YearImplCopyWith(
-    _$YearImpl value,
-    $Res Function(_$YearImpl) then,
-  ) = __$$YearImplCopyWithImpl<$Res>;
+abstract class _$$DOBImplCopyWith<$Res> {
+  factory _$$DOBImplCopyWith(_$DOBImpl value, $Res Function(_$DOBImpl) then) =
+      __$$DOBImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DropItem year});
+  $Res call({String dob});
 }
 
 /// @nodoc
-class __$$YearImplCopyWithImpl<$Res>
-    extends _$AddAdoptionEventCopyWithImpl<$Res, _$YearImpl>
-    implements _$$YearImplCopyWith<$Res> {
-  __$$YearImplCopyWithImpl(_$YearImpl _value, $Res Function(_$YearImpl) _then)
+class __$$DOBImplCopyWithImpl<$Res>
+    extends _$AddAdoptionEventCopyWithImpl<$Res, _$DOBImpl>
+    implements _$$DOBImplCopyWith<$Res> {
+  __$$DOBImplCopyWithImpl(_$DOBImpl _value, $Res Function(_$DOBImpl) _then)
     : super(_value, _then);
 
   /// Create a copy of AddAdoptionEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? year = null}) {
+  $Res call({Object? dob = null}) {
     return _then(
-      _$YearImpl(
-        null == year
-            ? _value.year
-            : year // ignore: cast_nullable_to_non_nullable
-                as DropItem,
+      _$DOBImpl(
+        null == dob
+            ? _value.dob
+            : dob // ignore: cast_nullable_to_non_nullable
+                as String,
       ),
     );
   }
@@ -553,54 +551,54 @@ class __$$YearImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$YearImpl implements _Year {
-  const _$YearImpl(this.year);
+class _$DOBImpl implements _DOB {
+  const _$DOBImpl(this.dob);
 
   @override
-  final DropItem year;
+  final String dob;
 
   @override
   String toString() {
-    return 'AddAdoptionEvent.year(year: $year)';
+    return 'AddAdoptionEvent.dob(dob: $dob)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$YearImpl &&
-            (identical(other.year, year) || other.year == year));
+            other is _$DOBImpl &&
+            (identical(other.dob, dob) || other.dob == dob));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, year);
+  int get hashCode => Object.hash(runtimeType, dob);
 
   /// Create a copy of AddAdoptionEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$YearImplCopyWith<_$YearImpl> get copyWith =>
-      __$$YearImplCopyWithImpl<_$YearImpl>(this, _$identity);
+  _$$DOBImplCopyWith<_$DOBImpl> get copyWith =>
+      __$$DOBImplCopyWithImpl<_$DOBImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String name) name,
-    required TResult Function(DropItem year) year,
-    required TResult Function(DropItem value) month,
-    required TResult Function(DropItem petType) petType,
-    required TResult Function(DropItem petBreed) breed,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(PetType petType) petType,
+    required TResult Function(DropStringItem petBreed) breed,
     required TResult Function(String address) address,
     required TResult Function(String phone) phone,
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
-    return year(this.year);
+    return dob(this.dob);
   }
 
   @override
@@ -608,19 +606,19 @@ class _$YearImpl implements _Year {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String name)? name,
-    TResult? Function(DropItem year)? year,
-    TResult? Function(DropItem value)? month,
-    TResult? Function(DropItem petType)? petType,
-    TResult? Function(DropItem petBreed)? breed,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(PetType petType)? petType,
+    TResult? Function(DropStringItem petBreed)? breed,
     TResult? Function(String address)? address,
     TResult? Function(String phone)? phone,
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
-    return year?.call(this.year);
+    return dob?.call(this.dob);
   }
 
   @override
@@ -628,21 +626,21 @@ class _$YearImpl implements _Year {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String name)? name,
-    TResult Function(DropItem year)? year,
-    TResult Function(DropItem value)? month,
-    TResult Function(DropItem petType)? petType,
-    TResult Function(DropItem petBreed)? breed,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(PetType petType)? petType,
+    TResult Function(DropStringItem petBreed)? breed,
     TResult Function(String address)? address,
     TResult Function(String phone)? phone,
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
-    if (year != null) {
-      return year(this.year);
+    if (dob != null) {
+      return dob(this.dob);
     }
     return orElse();
   }
@@ -652,8 +650,8 @@ class _$YearImpl implements _Year {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Name value) name,
-    required TResult Function(_Year value) year,
-    required TResult Function(_Month value) month,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_PetType value) petType,
     required TResult Function(_PetBreed value) breed,
     required TResult Function(_Address value) address,
@@ -664,7 +662,7 @@ class _$YearImpl implements _Year {
     required TResult Function(_Submit value) submit,
     required TResult Function(_Initialization value) initialization,
   }) {
-    return year(this);
+    return dob(this);
   }
 
   @override
@@ -672,8 +670,8 @@ class _$YearImpl implements _Year {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Name value)? name,
-    TResult? Function(_Year value)? year,
-    TResult? Function(_Month value)? month,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_PetBreed value)? breed,
     TResult? Function(_Address value)? address,
@@ -684,7 +682,7 @@ class _$YearImpl implements _Year {
     TResult? Function(_Submit value)? submit,
     TResult? Function(_Initialization value)? initialization,
   }) {
-    return year?.call(this);
+    return dob?.call(this);
   }
 
   @override
@@ -692,8 +690,8 @@ class _$YearImpl implements _Year {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Name value)? name,
-    TResult Function(_Year value)? year,
-    TResult Function(_Month value)? month,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_PetType value)? petType,
     TResult Function(_PetBreed value)? breed,
     TResult Function(_Address value)? address,
@@ -705,54 +703,54 @@ class _$YearImpl implements _Year {
     TResult Function(_Initialization value)? initialization,
     required TResult orElse(),
   }) {
-    if (year != null) {
-      return year(this);
+    if (dob != null) {
+      return dob(this);
     }
     return orElse();
   }
 }
 
-abstract class _Year implements AddAdoptionEvent {
-  const factory _Year(final DropItem year) = _$YearImpl;
+abstract class _DOB implements AddAdoptionEvent {
+  const factory _DOB(final String dob) = _$DOBImpl;
 
-  DropItem get year;
+  String get dob;
 
   /// Create a copy of AddAdoptionEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$YearImplCopyWith<_$YearImpl> get copyWith =>
+  _$$DOBImplCopyWith<_$DOBImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$MonthImplCopyWith<$Res> {
-  factory _$$MonthImplCopyWith(
-    _$MonthImpl value,
-    $Res Function(_$MonthImpl) then,
-  ) = __$$MonthImplCopyWithImpl<$Res>;
+abstract class _$$PetGenderImplCopyWith<$Res> {
+  factory _$$PetGenderImplCopyWith(
+    _$PetGenderImpl value,
+    $Res Function(_$PetGenderImpl) then,
+  ) = __$$PetGenderImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DropItem value});
+  $Res call({DropItem petGender});
 }
 
 /// @nodoc
-class __$$MonthImplCopyWithImpl<$Res>
-    extends _$AddAdoptionEventCopyWithImpl<$Res, _$MonthImpl>
-    implements _$$MonthImplCopyWith<$Res> {
-  __$$MonthImplCopyWithImpl(
-    _$MonthImpl _value,
-    $Res Function(_$MonthImpl) _then,
+class __$$PetGenderImplCopyWithImpl<$Res>
+    extends _$AddAdoptionEventCopyWithImpl<$Res, _$PetGenderImpl>
+    implements _$$PetGenderImplCopyWith<$Res> {
+  __$$PetGenderImplCopyWithImpl(
+    _$PetGenderImpl _value,
+    $Res Function(_$PetGenderImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of AddAdoptionEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? value = null}) {
+  $Res call({Object? petGender = null}) {
     return _then(
-      _$MonthImpl(
-        null == value
-            ? _value.value
-            : value // ignore: cast_nullable_to_non_nullable
+      _$PetGenderImpl(
+        null == petGender
+            ? _value.petGender
+            : petGender // ignore: cast_nullable_to_non_nullable
                 as DropItem,
       ),
     );
@@ -761,54 +759,55 @@ class __$$MonthImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MonthImpl implements _Month {
-  const _$MonthImpl(this.value);
+class _$PetGenderImpl implements _PetGender {
+  const _$PetGenderImpl(this.petGender);
 
   @override
-  final DropItem value;
+  final DropItem petGender;
 
   @override
   String toString() {
-    return 'AddAdoptionEvent.month(value: $value)';
+    return 'AddAdoptionEvent.petGender(petGender: $petGender)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MonthImpl &&
-            (identical(other.value, value) || other.value == value));
+            other is _$PetGenderImpl &&
+            (identical(other.petGender, petGender) ||
+                other.petGender == petGender));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, value);
+  int get hashCode => Object.hash(runtimeType, petGender);
 
   /// Create a copy of AddAdoptionEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$MonthImplCopyWith<_$MonthImpl> get copyWith =>
-      __$$MonthImplCopyWithImpl<_$MonthImpl>(this, _$identity);
+  _$$PetGenderImplCopyWith<_$PetGenderImpl> get copyWith =>
+      __$$PetGenderImplCopyWithImpl<_$PetGenderImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String name) name,
-    required TResult Function(DropItem year) year,
-    required TResult Function(DropItem value) month,
-    required TResult Function(DropItem petType) petType,
-    required TResult Function(DropItem petBreed) breed,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(PetType petType) petType,
+    required TResult Function(DropStringItem petBreed) breed,
     required TResult Function(String address) address,
     required TResult Function(String phone) phone,
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
-    return month(value);
+    return petGender(this.petGender);
   }
 
   @override
@@ -816,19 +815,19 @@ class _$MonthImpl implements _Month {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String name)? name,
-    TResult? Function(DropItem year)? year,
-    TResult? Function(DropItem value)? month,
-    TResult? Function(DropItem petType)? petType,
-    TResult? Function(DropItem petBreed)? breed,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(PetType petType)? petType,
+    TResult? Function(DropStringItem petBreed)? breed,
     TResult? Function(String address)? address,
     TResult? Function(String phone)? phone,
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
-    return month?.call(value);
+    return petGender?.call(this.petGender);
   }
 
   @override
@@ -836,21 +835,21 @@ class _$MonthImpl implements _Month {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String name)? name,
-    TResult Function(DropItem year)? year,
-    TResult Function(DropItem value)? month,
-    TResult Function(DropItem petType)? petType,
-    TResult Function(DropItem petBreed)? breed,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(PetType petType)? petType,
+    TResult Function(DropStringItem petBreed)? breed,
     TResult Function(String address)? address,
     TResult Function(String phone)? phone,
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
-    if (month != null) {
-      return month(value);
+    if (petGender != null) {
+      return petGender(this.petGender);
     }
     return orElse();
   }
@@ -860,8 +859,8 @@ class _$MonthImpl implements _Month {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Name value) name,
-    required TResult Function(_Year value) year,
-    required TResult Function(_Month value) month,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_PetType value) petType,
     required TResult Function(_PetBreed value) breed,
     required TResult Function(_Address value) address,
@@ -872,7 +871,7 @@ class _$MonthImpl implements _Month {
     required TResult Function(_Submit value) submit,
     required TResult Function(_Initialization value) initialization,
   }) {
-    return month(this);
+    return petGender(this);
   }
 
   @override
@@ -880,8 +879,8 @@ class _$MonthImpl implements _Month {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Name value)? name,
-    TResult? Function(_Year value)? year,
-    TResult? Function(_Month value)? month,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_PetBreed value)? breed,
     TResult? Function(_Address value)? address,
@@ -892,7 +891,7 @@ class _$MonthImpl implements _Month {
     TResult? Function(_Submit value)? submit,
     TResult? Function(_Initialization value)? initialization,
   }) {
-    return month?.call(this);
+    return petGender?.call(this);
   }
 
   @override
@@ -900,8 +899,8 @@ class _$MonthImpl implements _Month {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Name value)? name,
-    TResult Function(_Year value)? year,
-    TResult Function(_Month value)? month,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_PetType value)? petType,
     TResult Function(_PetBreed value)? breed,
     TResult Function(_Address value)? address,
@@ -913,22 +912,22 @@ class _$MonthImpl implements _Month {
     TResult Function(_Initialization value)? initialization,
     required TResult orElse(),
   }) {
-    if (month != null) {
-      return month(this);
+    if (petGender != null) {
+      return petGender(this);
     }
     return orElse();
   }
 }
 
-abstract class _Month implements AddAdoptionEvent {
-  const factory _Month(final DropItem value) = _$MonthImpl;
+abstract class _PetGender implements AddAdoptionEvent {
+  const factory _PetGender(final DropItem petGender) = _$PetGenderImpl;
 
-  DropItem get value;
+  DropItem get petGender;
 
   /// Create a copy of AddAdoptionEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$MonthImplCopyWith<_$MonthImpl> get copyWith =>
+  _$$PetGenderImplCopyWith<_$PetGenderImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -939,7 +938,7 @@ abstract class _$$PetTypeImplCopyWith<$Res> {
     $Res Function(_$PetTypeImpl) then,
   ) = __$$PetTypeImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DropItem petType});
+  $Res call({PetType petType});
 }
 
 /// @nodoc
@@ -961,7 +960,7 @@ class __$$PetTypeImplCopyWithImpl<$Res>
         null == petType
             ? _value.petType
             : petType // ignore: cast_nullable_to_non_nullable
-                as DropItem,
+                as PetType,
       ),
     );
   }
@@ -973,7 +972,7 @@ class _$PetTypeImpl implements _PetType {
   const _$PetTypeImpl(this.petType);
 
   @override
-  final DropItem petType;
+  final PetType petType;
 
   @override
   String toString() {
@@ -1004,17 +1003,17 @@ class _$PetTypeImpl implements _PetType {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String name) name,
-    required TResult Function(DropItem year) year,
-    required TResult Function(DropItem value) month,
-    required TResult Function(DropItem petType) petType,
-    required TResult Function(DropItem petBreed) breed,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(PetType petType) petType,
+    required TResult Function(DropStringItem petBreed) breed,
     required TResult Function(String address) address,
     required TResult Function(String phone) phone,
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return petType(this.petType);
   }
@@ -1024,17 +1023,17 @@ class _$PetTypeImpl implements _PetType {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String name)? name,
-    TResult? Function(DropItem year)? year,
-    TResult? Function(DropItem value)? month,
-    TResult? Function(DropItem petType)? petType,
-    TResult? Function(DropItem petBreed)? breed,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(PetType petType)? petType,
+    TResult? Function(DropStringItem petBreed)? breed,
     TResult? Function(String address)? address,
     TResult? Function(String phone)? phone,
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return petType?.call(this.petType);
   }
@@ -1044,17 +1043,17 @@ class _$PetTypeImpl implements _PetType {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String name)? name,
-    TResult Function(DropItem year)? year,
-    TResult Function(DropItem value)? month,
-    TResult Function(DropItem petType)? petType,
-    TResult Function(DropItem petBreed)? breed,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(PetType petType)? petType,
+    TResult Function(DropStringItem petBreed)? breed,
     TResult Function(String address)? address,
     TResult Function(String phone)? phone,
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (petType != null) {
@@ -1068,8 +1067,8 @@ class _$PetTypeImpl implements _PetType {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Name value) name,
-    required TResult Function(_Year value) year,
-    required TResult Function(_Month value) month,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_PetType value) petType,
     required TResult Function(_PetBreed value) breed,
     required TResult Function(_Address value) address,
@@ -1088,8 +1087,8 @@ class _$PetTypeImpl implements _PetType {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Name value)? name,
-    TResult? Function(_Year value)? year,
-    TResult? Function(_Month value)? month,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_PetBreed value)? breed,
     TResult? Function(_Address value)? address,
@@ -1108,8 +1107,8 @@ class _$PetTypeImpl implements _PetType {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Name value)? name,
-    TResult Function(_Year value)? year,
-    TResult Function(_Month value)? month,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_PetType value)? petType,
     TResult Function(_PetBreed value)? breed,
     TResult Function(_Address value)? address,
@@ -1129,9 +1128,9 @@ class _$PetTypeImpl implements _PetType {
 }
 
 abstract class _PetType implements AddAdoptionEvent {
-  const factory _PetType(final DropItem petType) = _$PetTypeImpl;
+  const factory _PetType(final PetType petType) = _$PetTypeImpl;
 
-  DropItem get petType;
+  PetType get petType;
 
   /// Create a copy of AddAdoptionEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1147,7 +1146,7 @@ abstract class _$$PetBreedImplCopyWith<$Res> {
     $Res Function(_$PetBreedImpl) then,
   ) = __$$PetBreedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({DropItem petBreed});
+  $Res call({DropStringItem petBreed});
 }
 
 /// @nodoc
@@ -1169,7 +1168,7 @@ class __$$PetBreedImplCopyWithImpl<$Res>
         null == petBreed
             ? _value.petBreed
             : petBreed // ignore: cast_nullable_to_non_nullable
-                as DropItem,
+                as DropStringItem,
       ),
     );
   }
@@ -1181,7 +1180,7 @@ class _$PetBreedImpl implements _PetBreed {
   const _$PetBreedImpl(this.petBreed);
 
   @override
-  final DropItem petBreed;
+  final DropStringItem petBreed;
 
   @override
   String toString() {
@@ -1213,17 +1212,17 @@ class _$PetBreedImpl implements _PetBreed {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String name) name,
-    required TResult Function(DropItem year) year,
-    required TResult Function(DropItem value) month,
-    required TResult Function(DropItem petType) petType,
-    required TResult Function(DropItem petBreed) breed,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(PetType petType) petType,
+    required TResult Function(DropStringItem petBreed) breed,
     required TResult Function(String address) address,
     required TResult Function(String phone) phone,
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return breed(petBreed);
   }
@@ -1233,17 +1232,17 @@ class _$PetBreedImpl implements _PetBreed {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String name)? name,
-    TResult? Function(DropItem year)? year,
-    TResult? Function(DropItem value)? month,
-    TResult? Function(DropItem petType)? petType,
-    TResult? Function(DropItem petBreed)? breed,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(PetType petType)? petType,
+    TResult? Function(DropStringItem petBreed)? breed,
     TResult? Function(String address)? address,
     TResult? Function(String phone)? phone,
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return breed?.call(petBreed);
   }
@@ -1253,17 +1252,17 @@ class _$PetBreedImpl implements _PetBreed {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String name)? name,
-    TResult Function(DropItem year)? year,
-    TResult Function(DropItem value)? month,
-    TResult Function(DropItem petType)? petType,
-    TResult Function(DropItem petBreed)? breed,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(PetType petType)? petType,
+    TResult Function(DropStringItem petBreed)? breed,
     TResult Function(String address)? address,
     TResult Function(String phone)? phone,
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (breed != null) {
@@ -1277,8 +1276,8 @@ class _$PetBreedImpl implements _PetBreed {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Name value) name,
-    required TResult Function(_Year value) year,
-    required TResult Function(_Month value) month,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_PetType value) petType,
     required TResult Function(_PetBreed value) breed,
     required TResult Function(_Address value) address,
@@ -1297,8 +1296,8 @@ class _$PetBreedImpl implements _PetBreed {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Name value)? name,
-    TResult? Function(_Year value)? year,
-    TResult? Function(_Month value)? month,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_PetBreed value)? breed,
     TResult? Function(_Address value)? address,
@@ -1317,8 +1316,8 @@ class _$PetBreedImpl implements _PetBreed {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Name value)? name,
-    TResult Function(_Year value)? year,
-    TResult Function(_Month value)? month,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_PetType value)? petType,
     TResult Function(_PetBreed value)? breed,
     TResult Function(_Address value)? address,
@@ -1338,9 +1337,9 @@ class _$PetBreedImpl implements _PetBreed {
 }
 
 abstract class _PetBreed implements AddAdoptionEvent {
-  const factory _PetBreed(final DropItem petBreed) = _$PetBreedImpl;
+  const factory _PetBreed(final DropStringItem petBreed) = _$PetBreedImpl;
 
-  DropItem get petBreed;
+  DropStringItem get petBreed;
 
   /// Create a copy of AddAdoptionEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1421,17 +1420,17 @@ class _$AddressImpl implements _Address {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String name) name,
-    required TResult Function(DropItem year) year,
-    required TResult Function(DropItem value) month,
-    required TResult Function(DropItem petType) petType,
-    required TResult Function(DropItem petBreed) breed,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(PetType petType) petType,
+    required TResult Function(DropStringItem petBreed) breed,
     required TResult Function(String address) address,
     required TResult Function(String phone) phone,
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return address(this.address);
   }
@@ -1441,17 +1440,17 @@ class _$AddressImpl implements _Address {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String name)? name,
-    TResult? Function(DropItem year)? year,
-    TResult? Function(DropItem value)? month,
-    TResult? Function(DropItem petType)? petType,
-    TResult? Function(DropItem petBreed)? breed,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(PetType petType)? petType,
+    TResult? Function(DropStringItem petBreed)? breed,
     TResult? Function(String address)? address,
     TResult? Function(String phone)? phone,
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return address?.call(this.address);
   }
@@ -1461,17 +1460,17 @@ class _$AddressImpl implements _Address {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String name)? name,
-    TResult Function(DropItem year)? year,
-    TResult Function(DropItem value)? month,
-    TResult Function(DropItem petType)? petType,
-    TResult Function(DropItem petBreed)? breed,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(PetType petType)? petType,
+    TResult Function(DropStringItem petBreed)? breed,
     TResult Function(String address)? address,
     TResult Function(String phone)? phone,
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (address != null) {
@@ -1485,8 +1484,8 @@ class _$AddressImpl implements _Address {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Name value) name,
-    required TResult Function(_Year value) year,
-    required TResult Function(_Month value) month,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_PetType value) petType,
     required TResult Function(_PetBreed value) breed,
     required TResult Function(_Address value) address,
@@ -1505,8 +1504,8 @@ class _$AddressImpl implements _Address {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Name value)? name,
-    TResult? Function(_Year value)? year,
-    TResult? Function(_Month value)? month,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_PetBreed value)? breed,
     TResult? Function(_Address value)? address,
@@ -1525,8 +1524,8 @@ class _$AddressImpl implements _Address {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Name value)? name,
-    TResult Function(_Year value)? year,
-    TResult Function(_Month value)? month,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_PetType value)? petType,
     TResult Function(_PetBreed value)? breed,
     TResult Function(_Address value)? address,
@@ -1629,17 +1628,17 @@ class _$PhoneImpl implements _Phone {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String name) name,
-    required TResult Function(DropItem year) year,
-    required TResult Function(DropItem value) month,
-    required TResult Function(DropItem petType) petType,
-    required TResult Function(DropItem petBreed) breed,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(PetType petType) petType,
+    required TResult Function(DropStringItem petBreed) breed,
     required TResult Function(String address) address,
     required TResult Function(String phone) phone,
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return phone(this.phone);
   }
@@ -1649,17 +1648,17 @@ class _$PhoneImpl implements _Phone {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String name)? name,
-    TResult? Function(DropItem year)? year,
-    TResult? Function(DropItem value)? month,
-    TResult? Function(DropItem petType)? petType,
-    TResult? Function(DropItem petBreed)? breed,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(PetType petType)? petType,
+    TResult? Function(DropStringItem petBreed)? breed,
     TResult? Function(String address)? address,
     TResult? Function(String phone)? phone,
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return phone?.call(this.phone);
   }
@@ -1669,17 +1668,17 @@ class _$PhoneImpl implements _Phone {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String name)? name,
-    TResult Function(DropItem year)? year,
-    TResult Function(DropItem value)? month,
-    TResult Function(DropItem petType)? petType,
-    TResult Function(DropItem petBreed)? breed,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(PetType petType)? petType,
+    TResult Function(DropStringItem petBreed)? breed,
     TResult Function(String address)? address,
     TResult Function(String phone)? phone,
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (phone != null) {
@@ -1693,8 +1692,8 @@ class _$PhoneImpl implements _Phone {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Name value) name,
-    required TResult Function(_Year value) year,
-    required TResult Function(_Month value) month,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_PetType value) petType,
     required TResult Function(_PetBreed value) breed,
     required TResult Function(_Address value) address,
@@ -1713,8 +1712,8 @@ class _$PhoneImpl implements _Phone {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Name value)? name,
-    TResult? Function(_Year value)? year,
-    TResult? Function(_Month value)? month,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_PetBreed value)? breed,
     TResult? Function(_Address value)? address,
@@ -1733,8 +1732,8 @@ class _$PhoneImpl implements _Phone {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Name value)? name,
-    TResult Function(_Year value)? year,
-    TResult Function(_Month value)? month,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_PetType value)? petType,
     TResult Function(_PetBreed value)? breed,
     TResult Function(_Address value)? address,
@@ -1837,17 +1836,17 @@ class _$EmailImpl implements _Email {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String name) name,
-    required TResult Function(DropItem year) year,
-    required TResult Function(DropItem value) month,
-    required TResult Function(DropItem petType) petType,
-    required TResult Function(DropItem petBreed) breed,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(PetType petType) petType,
+    required TResult Function(DropStringItem petBreed) breed,
     required TResult Function(String address) address,
     required TResult Function(String phone) phone,
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return email(this.email);
   }
@@ -1857,17 +1856,17 @@ class _$EmailImpl implements _Email {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String name)? name,
-    TResult? Function(DropItem year)? year,
-    TResult? Function(DropItem value)? month,
-    TResult? Function(DropItem petType)? petType,
-    TResult? Function(DropItem petBreed)? breed,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(PetType petType)? petType,
+    TResult? Function(DropStringItem petBreed)? breed,
     TResult? Function(String address)? address,
     TResult? Function(String phone)? phone,
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return email?.call(this.email);
   }
@@ -1877,17 +1876,17 @@ class _$EmailImpl implements _Email {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String name)? name,
-    TResult Function(DropItem year)? year,
-    TResult Function(DropItem value)? month,
-    TResult Function(DropItem petType)? petType,
-    TResult Function(DropItem petBreed)? breed,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(PetType petType)? petType,
+    TResult Function(DropStringItem petBreed)? breed,
     TResult Function(String address)? address,
     TResult Function(String phone)? phone,
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (email != null) {
@@ -1901,8 +1900,8 @@ class _$EmailImpl implements _Email {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Name value) name,
-    required TResult Function(_Year value) year,
-    required TResult Function(_Month value) month,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_PetType value) petType,
     required TResult Function(_PetBreed value) breed,
     required TResult Function(_Address value) address,
@@ -1921,8 +1920,8 @@ class _$EmailImpl implements _Email {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Name value)? name,
-    TResult? Function(_Year value)? year,
-    TResult? Function(_Month value)? month,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_PetBreed value)? breed,
     TResult? Function(_Address value)? address,
@@ -1941,8 +1940,8 @@ class _$EmailImpl implements _Email {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Name value)? name,
-    TResult Function(_Year value)? year,
-    TResult Function(_Month value)? month,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_PetType value)? petType,
     TResult Function(_PetBreed value)? breed,
     TResult Function(_Address value)? address,
@@ -2046,17 +2045,17 @@ class _$DescriptionImpl implements _Description {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String name) name,
-    required TResult Function(DropItem year) year,
-    required TResult Function(DropItem value) month,
-    required TResult Function(DropItem petType) petType,
-    required TResult Function(DropItem petBreed) breed,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(PetType petType) petType,
+    required TResult Function(DropStringItem petBreed) breed,
     required TResult Function(String address) address,
     required TResult Function(String phone) phone,
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return description(this.description);
   }
@@ -2066,17 +2065,17 @@ class _$DescriptionImpl implements _Description {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String name)? name,
-    TResult? Function(DropItem year)? year,
-    TResult? Function(DropItem value)? month,
-    TResult? Function(DropItem petType)? petType,
-    TResult? Function(DropItem petBreed)? breed,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(PetType petType)? petType,
+    TResult? Function(DropStringItem petBreed)? breed,
     TResult? Function(String address)? address,
     TResult? Function(String phone)? phone,
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return description?.call(this.description);
   }
@@ -2086,17 +2085,17 @@ class _$DescriptionImpl implements _Description {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String name)? name,
-    TResult Function(DropItem year)? year,
-    TResult Function(DropItem value)? month,
-    TResult Function(DropItem petType)? petType,
-    TResult Function(DropItem petBreed)? breed,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(PetType petType)? petType,
+    TResult Function(DropStringItem petBreed)? breed,
     TResult Function(String address)? address,
     TResult Function(String phone)? phone,
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (description != null) {
@@ -2110,8 +2109,8 @@ class _$DescriptionImpl implements _Description {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Name value) name,
-    required TResult Function(_Year value) year,
-    required TResult Function(_Month value) month,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_PetType value) petType,
     required TResult Function(_PetBreed value) breed,
     required TResult Function(_Address value) address,
@@ -2130,8 +2129,8 @@ class _$DescriptionImpl implements _Description {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Name value)? name,
-    TResult? Function(_Year value)? year,
-    TResult? Function(_Month value)? month,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_PetBreed value)? breed,
     TResult? Function(_Address value)? address,
@@ -2150,8 +2149,8 @@ class _$DescriptionImpl implements _Description {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Name value)? name,
-    TResult Function(_Year value)? year,
-    TResult Function(_Month value)? month,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_PetType value)? petType,
     TResult Function(_PetBreed value)? breed,
     TResult Function(_Address value)? address,
@@ -2255,17 +2254,17 @@ class _$ImageImpl implements _Image {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String name) name,
-    required TResult Function(DropItem year) year,
-    required TResult Function(DropItem value) month,
-    required TResult Function(DropItem petType) petType,
-    required TResult Function(DropItem petBreed) breed,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(PetType petType) petType,
+    required TResult Function(DropStringItem petBreed) breed,
     required TResult Function(String address) address,
     required TResult Function(String phone) phone,
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return image(filePath);
   }
@@ -2275,17 +2274,17 @@ class _$ImageImpl implements _Image {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String name)? name,
-    TResult? Function(DropItem year)? year,
-    TResult? Function(DropItem value)? month,
-    TResult? Function(DropItem petType)? petType,
-    TResult? Function(DropItem petBreed)? breed,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(PetType petType)? petType,
+    TResult? Function(DropStringItem petBreed)? breed,
     TResult? Function(String address)? address,
     TResult? Function(String phone)? phone,
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return image?.call(filePath);
   }
@@ -2295,17 +2294,17 @@ class _$ImageImpl implements _Image {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String name)? name,
-    TResult Function(DropItem year)? year,
-    TResult Function(DropItem value)? month,
-    TResult Function(DropItem petType)? petType,
-    TResult Function(DropItem petBreed)? breed,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(PetType petType)? petType,
+    TResult Function(DropStringItem petBreed)? breed,
     TResult Function(String address)? address,
     TResult Function(String phone)? phone,
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (image != null) {
@@ -2319,8 +2318,8 @@ class _$ImageImpl implements _Image {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Name value) name,
-    required TResult Function(_Year value) year,
-    required TResult Function(_Month value) month,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_PetType value) petType,
     required TResult Function(_PetBreed value) breed,
     required TResult Function(_Address value) address,
@@ -2339,8 +2338,8 @@ class _$ImageImpl implements _Image {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Name value)? name,
-    TResult? Function(_Year value)? year,
-    TResult? Function(_Month value)? month,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_PetBreed value)? breed,
     TResult? Function(_Address value)? address,
@@ -2359,8 +2358,8 @@ class _$ImageImpl implements _Image {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Name value)? name,
-    TResult Function(_Year value)? year,
-    TResult Function(_Month value)? month,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_PetType value)? petType,
     TResult Function(_PetBreed value)? breed,
     TResult Function(_Address value)? address,
@@ -2398,7 +2397,7 @@ abstract class _$$SubmitImplCopyWith<$Res> {
     $Res Function(_$SubmitImpl) then,
   ) = __$$SubmitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int? id});
+  $Res call({String? id});
 }
 
 /// @nodoc
@@ -2421,7 +2420,7 @@ class __$$SubmitImplCopyWithImpl<$Res>
             freezed == id
                 ? _value.id
                 : id // ignore: cast_nullable_to_non_nullable
-                    as int?,
+                    as String?,
       ),
     );
   }
@@ -2433,7 +2432,7 @@ class _$SubmitImpl implements _Submit {
   const _$SubmitImpl({this.id});
 
   @override
-  final int? id;
+  final String? id;
 
   @override
   String toString() {
@@ -2464,17 +2463,17 @@ class _$SubmitImpl implements _Submit {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String name) name,
-    required TResult Function(DropItem year) year,
-    required TResult Function(DropItem value) month,
-    required TResult Function(DropItem petType) petType,
-    required TResult Function(DropItem petBreed) breed,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(PetType petType) petType,
+    required TResult Function(DropStringItem petBreed) breed,
     required TResult Function(String address) address,
     required TResult Function(String phone) phone,
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return submit(id);
   }
@@ -2484,17 +2483,17 @@ class _$SubmitImpl implements _Submit {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String name)? name,
-    TResult? Function(DropItem year)? year,
-    TResult? Function(DropItem value)? month,
-    TResult? Function(DropItem petType)? petType,
-    TResult? Function(DropItem petBreed)? breed,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(PetType petType)? petType,
+    TResult? Function(DropStringItem petBreed)? breed,
     TResult? Function(String address)? address,
     TResult? Function(String phone)? phone,
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return submit?.call(id);
   }
@@ -2504,17 +2503,17 @@ class _$SubmitImpl implements _Submit {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String name)? name,
-    TResult Function(DropItem year)? year,
-    TResult Function(DropItem value)? month,
-    TResult Function(DropItem petType)? petType,
-    TResult Function(DropItem petBreed)? breed,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(PetType petType)? petType,
+    TResult Function(DropStringItem petBreed)? breed,
     TResult Function(String address)? address,
     TResult Function(String phone)? phone,
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -2528,8 +2527,8 @@ class _$SubmitImpl implements _Submit {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Name value) name,
-    required TResult Function(_Year value) year,
-    required TResult Function(_Month value) month,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_PetType value) petType,
     required TResult Function(_PetBreed value) breed,
     required TResult Function(_Address value) address,
@@ -2548,8 +2547,8 @@ class _$SubmitImpl implements _Submit {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Name value)? name,
-    TResult? Function(_Year value)? year,
-    TResult? Function(_Month value)? month,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_PetBreed value)? breed,
     TResult? Function(_Address value)? address,
@@ -2568,8 +2567,8 @@ class _$SubmitImpl implements _Submit {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Name value)? name,
-    TResult Function(_Year value)? year,
-    TResult Function(_Month value)? month,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_PetType value)? petType,
     TResult Function(_PetBreed value)? breed,
     TResult Function(_Address value)? address,
@@ -2589,9 +2588,9 @@ class _$SubmitImpl implements _Submit {
 }
 
 abstract class _Submit implements AddAdoptionEvent {
-  const factory _Submit({final int? id}) = _$SubmitImpl;
+  const factory _Submit({final String? id}) = _$SubmitImpl;
 
-  int? get id;
+  String? get id;
 
   /// Create a copy of AddAdoptionEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -2607,7 +2606,7 @@ abstract class _$$InitializationImplCopyWith<$Res> {
     $Res Function(_$InitializationImpl) then,
   ) = __$$InitializationImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int? id});
+  $Res call({String? id});
 }
 
 /// @nodoc
@@ -2630,7 +2629,7 @@ class __$$InitializationImplCopyWithImpl<$Res>
             freezed == id
                 ? _value.id
                 : id // ignore: cast_nullable_to_non_nullable
-                    as int?,
+                    as String?,
       ),
     );
   }
@@ -2642,7 +2641,7 @@ class _$InitializationImpl implements _Initialization {
   const _$InitializationImpl({this.id});
 
   @override
-  final int? id;
+  final String? id;
 
   @override
   String toString() {
@@ -2676,17 +2675,17 @@ class _$InitializationImpl implements _Initialization {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function(String name) name,
-    required TResult Function(DropItem year) year,
-    required TResult Function(DropItem value) month,
-    required TResult Function(DropItem petType) petType,
-    required TResult Function(DropItem petBreed) breed,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(PetType petType) petType,
+    required TResult Function(DropStringItem petBreed) breed,
     required TResult Function(String address) address,
     required TResult Function(String phone) phone,
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return initialization(id);
   }
@@ -2696,17 +2695,17 @@ class _$InitializationImpl implements _Initialization {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function(String name)? name,
-    TResult? Function(DropItem year)? year,
-    TResult? Function(DropItem value)? month,
-    TResult? Function(DropItem petType)? petType,
-    TResult? Function(DropItem petBreed)? breed,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(PetType petType)? petType,
+    TResult? Function(DropStringItem petBreed)? breed,
     TResult? Function(String address)? address,
     TResult? Function(String phone)? phone,
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return initialization?.call(id);
   }
@@ -2716,17 +2715,17 @@ class _$InitializationImpl implements _Initialization {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function(String name)? name,
-    TResult Function(DropItem year)? year,
-    TResult Function(DropItem value)? month,
-    TResult Function(DropItem petType)? petType,
-    TResult Function(DropItem petBreed)? breed,
+    TResult Function(String dob)? dob,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(PetType petType)? petType,
+    TResult Function(DropStringItem petBreed)? breed,
     TResult Function(String address)? address,
     TResult Function(String phone)? phone,
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (initialization != null) {
@@ -2740,8 +2739,8 @@ class _$InitializationImpl implements _Initialization {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(_Name value) name,
-    required TResult Function(_Year value) year,
-    required TResult Function(_Month value) month,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_PetGender value) petGender,
     required TResult Function(_PetType value) petType,
     required TResult Function(_PetBreed value) breed,
     required TResult Function(_Address value) address,
@@ -2760,8 +2759,8 @@ class _$InitializationImpl implements _Initialization {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(_Name value)? name,
-    TResult? Function(_Year value)? year,
-    TResult? Function(_Month value)? month,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_PetGender value)? petGender,
     TResult? Function(_PetType value)? petType,
     TResult? Function(_PetBreed value)? breed,
     TResult? Function(_Address value)? address,
@@ -2780,8 +2779,8 @@ class _$InitializationImpl implements _Initialization {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(_Name value)? name,
-    TResult Function(_Year value)? year,
-    TResult Function(_Month value)? month,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_PetGender value)? petGender,
     TResult Function(_PetType value)? petType,
     TResult Function(_PetBreed value)? breed,
     TResult Function(_Address value)? address,
@@ -2801,9 +2800,9 @@ class _$InitializationImpl implements _Initialization {
 }
 
 abstract class _Initialization implements AddAdoptionEvent {
-  const factory _Initialization({final int? id}) = _$InitializationImpl;
+  const factory _Initialization({final String? id}) = _$InitializationImpl;
 
-  int? get id;
+  String? get id;
 
   /// Create a copy of AddAdoptionEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -2817,18 +2816,17 @@ mixin _$AddAdoptionState {
   Status get addAdoptionStatus => throw _privateConstructorUsedError;
   Status get submitStatus => throw _privateConstructorUsedError;
   NotEmpty get name => throw _privateConstructorUsedError;
-  DropdownValue get year => throw _privateConstructorUsedError;
-  DropdownValue get month => throw _privateConstructorUsedError;
-  DropdownValue get petType => throw _privateConstructorUsedError;
-  List<DropItem> get petTypes => throw _privateConstructorUsedError;
-  DropdownValue get breed => throw _privateConstructorUsedError;
-  List<DropItem> get catBreeds => throw _privateConstructorUsedError;
-  List<DropItem> get dogBreeds => throw _privateConstructorUsedError;
+  PetType get petType => throw _privateConstructorUsedError;
+  DropdownStringValue get breed => throw _privateConstructorUsedError;
+  List<DropStringItem> get catBreeds => throw _privateConstructorUsedError;
+  List<DropStringItem> get dogBreeds => throw _privateConstructorUsedError;
   NotEmpty get address => throw _privateConstructorUsedError;
   MobileNo get phone => throw _privateConstructorUsedError;
   Email get email => throw _privateConstructorUsedError;
   NotEmpty get description => throw _privateConstructorUsedError;
   NotEmpty get url => throw _privateConstructorUsedError;
+  NotEmpty get dob => throw _privateConstructorUsedError;
+  DropdownValue get gender => throw _privateConstructorUsedError;
   bool get adoptionValidation => throw _privateConstructorUsedError;
 
   /// Create a copy of AddAdoptionState
@@ -2849,18 +2847,17 @@ abstract class $AddAdoptionStateCopyWith<$Res> {
     Status addAdoptionStatus,
     Status submitStatus,
     NotEmpty name,
-    DropdownValue year,
-    DropdownValue month,
-    DropdownValue petType,
-    List<DropItem> petTypes,
-    DropdownValue breed,
-    List<DropItem> catBreeds,
-    List<DropItem> dogBreeds,
+    PetType petType,
+    DropdownStringValue breed,
+    List<DropStringItem> catBreeds,
+    List<DropStringItem> dogBreeds,
     NotEmpty address,
     MobileNo phone,
     Email email,
     NotEmpty description,
     NotEmpty url,
+    NotEmpty dob,
+    DropdownValue gender,
     bool adoptionValidation,
   });
 }
@@ -2883,10 +2880,7 @@ class _$AddAdoptionStateCopyWithImpl<$Res, $Val extends AddAdoptionState>
     Object? addAdoptionStatus = null,
     Object? submitStatus = null,
     Object? name = null,
-    Object? year = null,
-    Object? month = null,
     Object? petType = null,
-    Object? petTypes = null,
     Object? breed = null,
     Object? catBreeds = null,
     Object? dogBreeds = null,
@@ -2895,6 +2889,8 @@ class _$AddAdoptionStateCopyWithImpl<$Res, $Val extends AddAdoptionState>
     Object? email = null,
     Object? description = null,
     Object? url = null,
+    Object? dob = null,
+    Object? gender = null,
     Object? adoptionValidation = null,
   }) {
     return _then(
@@ -2914,41 +2910,26 @@ class _$AddAdoptionStateCopyWithImpl<$Res, $Val extends AddAdoptionState>
                     ? _value.name
                     : name // ignore: cast_nullable_to_non_nullable
                         as NotEmpty,
-            year:
-                null == year
-                    ? _value.year
-                    : year // ignore: cast_nullable_to_non_nullable
-                        as DropdownValue,
-            month:
-                null == month
-                    ? _value.month
-                    : month // ignore: cast_nullable_to_non_nullable
-                        as DropdownValue,
             petType:
                 null == petType
                     ? _value.petType
                     : petType // ignore: cast_nullable_to_non_nullable
-                        as DropdownValue,
-            petTypes:
-                null == petTypes
-                    ? _value.petTypes
-                    : petTypes // ignore: cast_nullable_to_non_nullable
-                        as List<DropItem>,
+                        as PetType,
             breed:
                 null == breed
                     ? _value.breed
                     : breed // ignore: cast_nullable_to_non_nullable
-                        as DropdownValue,
+                        as DropdownStringValue,
             catBreeds:
                 null == catBreeds
                     ? _value.catBreeds
                     : catBreeds // ignore: cast_nullable_to_non_nullable
-                        as List<DropItem>,
+                        as List<DropStringItem>,
             dogBreeds:
                 null == dogBreeds
                     ? _value.dogBreeds
                     : dogBreeds // ignore: cast_nullable_to_non_nullable
-                        as List<DropItem>,
+                        as List<DropStringItem>,
             address:
                 null == address
                     ? _value.address
@@ -2974,6 +2955,16 @@ class _$AddAdoptionStateCopyWithImpl<$Res, $Val extends AddAdoptionState>
                     ? _value.url
                     : url // ignore: cast_nullable_to_non_nullable
                         as NotEmpty,
+            dob:
+                null == dob
+                    ? _value.dob
+                    : dob // ignore: cast_nullable_to_non_nullable
+                        as NotEmpty,
+            gender:
+                null == gender
+                    ? _value.gender
+                    : gender // ignore: cast_nullable_to_non_nullable
+                        as DropdownValue,
             adoptionValidation:
                 null == adoptionValidation
                     ? _value.adoptionValidation
@@ -2998,18 +2989,17 @@ abstract class _$$AddAdoptionStateImplCopyWith<$Res>
     Status addAdoptionStatus,
     Status submitStatus,
     NotEmpty name,
-    DropdownValue year,
-    DropdownValue month,
-    DropdownValue petType,
-    List<DropItem> petTypes,
-    DropdownValue breed,
-    List<DropItem> catBreeds,
-    List<DropItem> dogBreeds,
+    PetType petType,
+    DropdownStringValue breed,
+    List<DropStringItem> catBreeds,
+    List<DropStringItem> dogBreeds,
     NotEmpty address,
     MobileNo phone,
     Email email,
     NotEmpty description,
     NotEmpty url,
+    NotEmpty dob,
+    DropdownValue gender,
     bool adoptionValidation,
   });
 }
@@ -3031,10 +3021,7 @@ class __$$AddAdoptionStateImplCopyWithImpl<$Res>
     Object? addAdoptionStatus = null,
     Object? submitStatus = null,
     Object? name = null,
-    Object? year = null,
-    Object? month = null,
     Object? petType = null,
-    Object? petTypes = null,
     Object? breed = null,
     Object? catBreeds = null,
     Object? dogBreeds = null,
@@ -3043,6 +3030,8 @@ class __$$AddAdoptionStateImplCopyWithImpl<$Res>
     Object? email = null,
     Object? description = null,
     Object? url = null,
+    Object? dob = null,
+    Object? gender = null,
     Object? adoptionValidation = null,
   }) {
     return _then(
@@ -3062,41 +3051,26 @@ class __$$AddAdoptionStateImplCopyWithImpl<$Res>
                 ? _value.name
                 : name // ignore: cast_nullable_to_non_nullable
                     as NotEmpty,
-        year:
-            null == year
-                ? _value.year
-                : year // ignore: cast_nullable_to_non_nullable
-                    as DropdownValue,
-        month:
-            null == month
-                ? _value.month
-                : month // ignore: cast_nullable_to_non_nullable
-                    as DropdownValue,
         petType:
             null == petType
                 ? _value.petType
                 : petType // ignore: cast_nullable_to_non_nullable
-                    as DropdownValue,
-        petTypes:
-            null == petTypes
-                ? _value._petTypes
-                : petTypes // ignore: cast_nullable_to_non_nullable
-                    as List<DropItem>,
+                    as PetType,
         breed:
             null == breed
                 ? _value.breed
                 : breed // ignore: cast_nullable_to_non_nullable
-                    as DropdownValue,
+                    as DropdownStringValue,
         catBreeds:
             null == catBreeds
                 ? _value._catBreeds
                 : catBreeds // ignore: cast_nullable_to_non_nullable
-                    as List<DropItem>,
+                    as List<DropStringItem>,
         dogBreeds:
             null == dogBreeds
                 ? _value._dogBreeds
                 : dogBreeds // ignore: cast_nullable_to_non_nullable
-                    as List<DropItem>,
+                    as List<DropStringItem>,
         address:
             null == address
                 ? _value.address
@@ -3122,6 +3096,16 @@ class __$$AddAdoptionStateImplCopyWithImpl<$Res>
                 ? _value.url
                 : url // ignore: cast_nullable_to_non_nullable
                     as NotEmpty,
+        dob:
+            null == dob
+                ? _value.dob
+                : dob // ignore: cast_nullable_to_non_nullable
+                    as NotEmpty,
+        gender:
+            null == gender
+                ? _value.gender
+                : gender // ignore: cast_nullable_to_non_nullable
+                    as DropdownValue,
         adoptionValidation:
             null == adoptionValidation
                 ? _value.adoptionValidation
@@ -3139,21 +3123,19 @@ class _$AddAdoptionStateImpl implements _AddAdoptionState {
     this.addAdoptionStatus = Status.init,
     this.submitStatus = Status.init,
     this.name = const NotEmpty.pure(),
-    this.year = const DropdownValue.pure(),
-    this.month = const DropdownValue.pure(),
-    this.petType = const DropdownValue.pure(),
-    final List<DropItem> petTypes = const [],
-    this.breed = const DropdownValue.pure(),
-    final List<DropItem> catBreeds = const [],
-    final List<DropItem> dogBreeds = const [],
+    this.petType = PetType.Cat,
+    this.breed = const DropdownStringValue.pure(),
+    final List<DropStringItem> catBreeds = const [],
+    final List<DropStringItem> dogBreeds = const [],
     this.address = const NotEmpty.pure(),
     this.phone = const MobileNo.pure(),
     this.email = const Email.pure(),
     this.description = const NotEmpty.pure(),
     this.url = const NotEmpty.pure(),
+    this.dob = const NotEmpty.pure(),
+    this.gender = const DropdownValue.pure(),
     this.adoptionValidation = false,
-  }) : _petTypes = petTypes,
-       _catBreeds = catBreeds,
+  }) : _catBreeds = catBreeds,
        _dogBreeds = dogBreeds;
 
   @override
@@ -3167,38 +3149,23 @@ class _$AddAdoptionStateImpl implements _AddAdoptionState {
   final NotEmpty name;
   @override
   @JsonKey()
-  final DropdownValue year;
+  final PetType petType;
   @override
   @JsonKey()
-  final DropdownValue month;
+  final DropdownStringValue breed;
+  final List<DropStringItem> _catBreeds;
   @override
   @JsonKey()
-  final DropdownValue petType;
-  final List<DropItem> _petTypes;
-  @override
-  @JsonKey()
-  List<DropItem> get petTypes {
-    if (_petTypes is EqualUnmodifiableListView) return _petTypes;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_petTypes);
-  }
-
-  @override
-  @JsonKey()
-  final DropdownValue breed;
-  final List<DropItem> _catBreeds;
-  @override
-  @JsonKey()
-  List<DropItem> get catBreeds {
+  List<DropStringItem> get catBreeds {
     if (_catBreeds is EqualUnmodifiableListView) return _catBreeds;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_catBreeds);
   }
 
-  final List<DropItem> _dogBreeds;
+  final List<DropStringItem> _dogBreeds;
   @override
   @JsonKey()
-  List<DropItem> get dogBreeds {
+  List<DropStringItem> get dogBreeds {
     if (_dogBreeds is EqualUnmodifiableListView) return _dogBreeds;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_dogBreeds);
@@ -3221,11 +3188,17 @@ class _$AddAdoptionStateImpl implements _AddAdoptionState {
   final NotEmpty url;
   @override
   @JsonKey()
+  final NotEmpty dob;
+  @override
+  @JsonKey()
+  final DropdownValue gender;
+  @override
+  @JsonKey()
   final bool adoptionValidation;
 
   @override
   String toString() {
-    return 'AddAdoptionState(addAdoptionStatus: $addAdoptionStatus, submitStatus: $submitStatus, name: $name, year: $year, month: $month, petType: $petType, petTypes: $petTypes, breed: $breed, catBreeds: $catBreeds, dogBreeds: $dogBreeds, address: $address, phone: $phone, email: $email, description: $description, url: $url, adoptionValidation: $adoptionValidation)';
+    return 'AddAdoptionState(addAdoptionStatus: $addAdoptionStatus, submitStatus: $submitStatus, name: $name, petType: $petType, breed: $breed, catBreeds: $catBreeds, dogBreeds: $dogBreeds, address: $address, phone: $phone, email: $email, description: $description, url: $url, dob: $dob, gender: $gender, adoptionValidation: $adoptionValidation)';
   }
 
   @override
@@ -3238,10 +3211,7 @@ class _$AddAdoptionStateImpl implements _AddAdoptionState {
             (identical(other.submitStatus, submitStatus) ||
                 other.submitStatus == submitStatus) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.year, year) || other.year == year) &&
-            (identical(other.month, month) || other.month == month) &&
             (identical(other.petType, petType) || other.petType == petType) &&
-            const DeepCollectionEquality().equals(other._petTypes, _petTypes) &&
             (identical(other.breed, breed) || other.breed == breed) &&
             const DeepCollectionEquality().equals(
               other._catBreeds,
@@ -3257,6 +3227,8 @@ class _$AddAdoptionStateImpl implements _AddAdoptionState {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.url, url) || other.url == url) &&
+            (identical(other.dob, dob) || other.dob == dob) &&
+            (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.adoptionValidation, adoptionValidation) ||
                 other.adoptionValidation == adoptionValidation));
   }
@@ -3267,10 +3239,7 @@ class _$AddAdoptionStateImpl implements _AddAdoptionState {
     addAdoptionStatus,
     submitStatus,
     name,
-    year,
-    month,
     petType,
-    const DeepCollectionEquality().hash(_petTypes),
     breed,
     const DeepCollectionEquality().hash(_catBreeds),
     const DeepCollectionEquality().hash(_dogBreeds),
@@ -3279,6 +3248,8 @@ class _$AddAdoptionStateImpl implements _AddAdoptionState {
     email,
     description,
     url,
+    dob,
+    gender,
     adoptionValidation,
   );
 
@@ -3299,18 +3270,17 @@ abstract class _AddAdoptionState implements AddAdoptionState {
     final Status addAdoptionStatus,
     final Status submitStatus,
     final NotEmpty name,
-    final DropdownValue year,
-    final DropdownValue month,
-    final DropdownValue petType,
-    final List<DropItem> petTypes,
-    final DropdownValue breed,
-    final List<DropItem> catBreeds,
-    final List<DropItem> dogBreeds,
+    final PetType petType,
+    final DropdownStringValue breed,
+    final List<DropStringItem> catBreeds,
+    final List<DropStringItem> dogBreeds,
     final NotEmpty address,
     final MobileNo phone,
     final Email email,
     final NotEmpty description,
     final NotEmpty url,
+    final NotEmpty dob,
+    final DropdownValue gender,
     final bool adoptionValidation,
   }) = _$AddAdoptionStateImpl;
 
@@ -3321,19 +3291,13 @@ abstract class _AddAdoptionState implements AddAdoptionState {
   @override
   NotEmpty get name;
   @override
-  DropdownValue get year;
+  PetType get petType;
   @override
-  DropdownValue get month;
+  DropdownStringValue get breed;
   @override
-  DropdownValue get petType;
+  List<DropStringItem> get catBreeds;
   @override
-  List<DropItem> get petTypes;
-  @override
-  DropdownValue get breed;
-  @override
-  List<DropItem> get catBreeds;
-  @override
-  List<DropItem> get dogBreeds;
+  List<DropStringItem> get dogBreeds;
   @override
   NotEmpty get address;
   @override
@@ -3344,6 +3308,10 @@ abstract class _AddAdoptionState implements AddAdoptionState {
   NotEmpty get description;
   @override
   NotEmpty get url;
+  @override
+  NotEmpty get dob;
+  @override
+  DropdownValue get gender;
   @override
   bool get adoptionValidation;
 

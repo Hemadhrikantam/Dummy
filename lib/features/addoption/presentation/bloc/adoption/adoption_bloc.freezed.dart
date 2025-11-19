@@ -21,32 +21,38 @@ mixin _$AdoptionEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() adoptions,
     required TResult Function() allPets,
+    required TResult Function(String id, String status) markStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? adoptions,
     TResult? Function()? allPets,
+    TResult? Function(String id, String status)? markStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? adoptions,
     TResult Function()? allPets,
+    TResult Function(String id, String status)? markStatus,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Adoptions value) adoptions,
     required TResult Function(_AllPets value) allPets,
+    required TResult Function(_MarkStatus value) markStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Adoptions value)? adoptions,
     TResult? Function(_AllPets value)? allPets,
+    TResult? Function(_MarkStatus value)? markStatus,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Adoptions value)? adoptions,
     TResult Function(_AllPets value)? allPets,
+    TResult Function(_MarkStatus value)? markStatus,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -118,6 +124,7 @@ class _$AdoptionsImpl implements _Adoptions {
   TResult when<TResult extends Object?>({
     required TResult Function() adoptions,
     required TResult Function() allPets,
+    required TResult Function(String id, String status) markStatus,
   }) {
     return adoptions();
   }
@@ -127,6 +134,7 @@ class _$AdoptionsImpl implements _Adoptions {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? adoptions,
     TResult? Function()? allPets,
+    TResult? Function(String id, String status)? markStatus,
   }) {
     return adoptions?.call();
   }
@@ -136,6 +144,7 @@ class _$AdoptionsImpl implements _Adoptions {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? adoptions,
     TResult Function()? allPets,
+    TResult Function(String id, String status)? markStatus,
     required TResult orElse(),
   }) {
     if (adoptions != null) {
@@ -149,6 +158,7 @@ class _$AdoptionsImpl implements _Adoptions {
   TResult map<TResult extends Object?>({
     required TResult Function(_Adoptions value) adoptions,
     required TResult Function(_AllPets value) allPets,
+    required TResult Function(_MarkStatus value) markStatus,
   }) {
     return adoptions(this);
   }
@@ -158,6 +168,7 @@ class _$AdoptionsImpl implements _Adoptions {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Adoptions value)? adoptions,
     TResult? Function(_AllPets value)? allPets,
+    TResult? Function(_MarkStatus value)? markStatus,
   }) {
     return adoptions?.call(this);
   }
@@ -167,6 +178,7 @@ class _$AdoptionsImpl implements _Adoptions {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Adoptions value)? adoptions,
     TResult Function(_AllPets value)? allPets,
+    TResult Function(_MarkStatus value)? markStatus,
     required TResult orElse(),
   }) {
     if (adoptions != null) {
@@ -225,6 +237,7 @@ class _$AllPetsImpl implements _AllPets {
   TResult when<TResult extends Object?>({
     required TResult Function() adoptions,
     required TResult Function() allPets,
+    required TResult Function(String id, String status) markStatus,
   }) {
     return allPets();
   }
@@ -234,6 +247,7 @@ class _$AllPetsImpl implements _AllPets {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? adoptions,
     TResult? Function()? allPets,
+    TResult? Function(String id, String status)? markStatus,
   }) {
     return allPets?.call();
   }
@@ -243,6 +257,7 @@ class _$AllPetsImpl implements _AllPets {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? adoptions,
     TResult Function()? allPets,
+    TResult Function(String id, String status)? markStatus,
     required TResult orElse(),
   }) {
     if (allPets != null) {
@@ -256,6 +271,7 @@ class _$AllPetsImpl implements _AllPets {
   TResult map<TResult extends Object?>({
     required TResult Function(_Adoptions value) adoptions,
     required TResult Function(_AllPets value) allPets,
+    required TResult Function(_MarkStatus value) markStatus,
   }) {
     return allPets(this);
   }
@@ -265,6 +281,7 @@ class _$AllPetsImpl implements _AllPets {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Adoptions value)? adoptions,
     TResult? Function(_AllPets value)? allPets,
+    TResult? Function(_MarkStatus value)? markStatus,
   }) {
     return allPets?.call(this);
   }
@@ -274,6 +291,7 @@ class _$AllPetsImpl implements _AllPets {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Adoptions value)? adoptions,
     TResult Function(_AllPets value)? allPets,
+    TResult Function(_MarkStatus value)? markStatus,
     required TResult orElse(),
   }) {
     if (allPets != null) {
@@ -288,10 +306,171 @@ abstract class _AllPets implements AdoptionEvent {
 }
 
 /// @nodoc
+abstract class _$$MarkStatusImplCopyWith<$Res> {
+  factory _$$MarkStatusImplCopyWith(
+    _$MarkStatusImpl value,
+    $Res Function(_$MarkStatusImpl) then,
+  ) = __$$MarkStatusImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id, String status});
+}
+
+/// @nodoc
+class __$$MarkStatusImplCopyWithImpl<$Res>
+    extends _$AdoptionEventCopyWithImpl<$Res, _$MarkStatusImpl>
+    implements _$$MarkStatusImplCopyWith<$Res> {
+  __$$MarkStatusImplCopyWithImpl(
+    _$MarkStatusImpl _value,
+    $Res Function(_$MarkStatusImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AdoptionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? id = null, Object? status = null}) {
+    return _then(
+      _$MarkStatusImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+        status:
+            null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$MarkStatusImpl implements _MarkStatus {
+  const _$MarkStatusImpl({required this.id, required this.status});
+
+  @override
+  final String id;
+  @override
+  final String status;
+
+  @override
+  String toString() {
+    return 'AdoptionEvent.markStatus(id: $id, status: $status)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MarkStatusImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.status, status) || other.status == status));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, status);
+
+  /// Create a copy of AdoptionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MarkStatusImplCopyWith<_$MarkStatusImpl> get copyWith =>
+      __$$MarkStatusImplCopyWithImpl<_$MarkStatusImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() adoptions,
+    required TResult Function() allPets,
+    required TResult Function(String id, String status) markStatus,
+  }) {
+    return markStatus(id, status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? adoptions,
+    TResult? Function()? allPets,
+    TResult? Function(String id, String status)? markStatus,
+  }) {
+    return markStatus?.call(id, status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? adoptions,
+    TResult Function()? allPets,
+    TResult Function(String id, String status)? markStatus,
+    required TResult orElse(),
+  }) {
+    if (markStatus != null) {
+      return markStatus(id, status);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Adoptions value) adoptions,
+    required TResult Function(_AllPets value) allPets,
+    required TResult Function(_MarkStatus value) markStatus,
+  }) {
+    return markStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Adoptions value)? adoptions,
+    TResult? Function(_AllPets value)? allPets,
+    TResult? Function(_MarkStatus value)? markStatus,
+  }) {
+    return markStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Adoptions value)? adoptions,
+    TResult Function(_AllPets value)? allPets,
+    TResult Function(_MarkStatus value)? markStatus,
+    required TResult orElse(),
+  }) {
+    if (markStatus != null) {
+      return markStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MarkStatus implements AdoptionEvent {
+  const factory _MarkStatus({
+    required final String id,
+    required final String status,
+  }) = _$MarkStatusImpl;
+
+  String get id;
+  String get status;
+
+  /// Create a copy of AdoptionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MarkStatusImplCopyWith<_$MarkStatusImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AdoptionState {
   Status get adoptionStatus => throw _privateConstructorUsedError;
-  List<Adoption> get adoptions => throw _privateConstructorUsedError;
-  List<Adoption> get allPets => throw _privateConstructorUsedError;
+  List<Listing> get adoptions => throw _privateConstructorUsedError;
+  List<Listing> get allPets => throw _privateConstructorUsedError;
 
   /// Create a copy of AdoptionState
   /// with the given fields replaced by the non-null parameter values.
@@ -309,8 +488,8 @@ abstract class $AdoptionStateCopyWith<$Res> {
   @useResult
   $Res call({
     Status adoptionStatus,
-    List<Adoption> adoptions,
-    List<Adoption> allPets,
+    List<Listing> adoptions,
+    List<Listing> allPets,
   });
 }
 
@@ -344,12 +523,12 @@ class _$AdoptionStateCopyWithImpl<$Res, $Val extends AdoptionState>
                 null == adoptions
                     ? _value.adoptions
                     : adoptions // ignore: cast_nullable_to_non_nullable
-                        as List<Adoption>,
+                        as List<Listing>,
             allPets:
                 null == allPets
                     ? _value.allPets
                     : allPets // ignore: cast_nullable_to_non_nullable
-                        as List<Adoption>,
+                        as List<Listing>,
           )
           as $Val,
     );
@@ -367,8 +546,8 @@ abstract class _$$AdoptionStateImplCopyWith<$Res>
   @useResult
   $Res call({
     Status adoptionStatus,
-    List<Adoption> adoptions,
-    List<Adoption> allPets,
+    List<Listing> adoptions,
+    List<Listing> allPets,
   });
 }
 
@@ -401,12 +580,12 @@ class __$$AdoptionStateImplCopyWithImpl<$Res>
             null == adoptions
                 ? _value._adoptions
                 : adoptions // ignore: cast_nullable_to_non_nullable
-                    as List<Adoption>,
+                    as List<Listing>,
         allPets:
             null == allPets
                 ? _value._allPets
                 : allPets // ignore: cast_nullable_to_non_nullable
-                    as List<Adoption>,
+                    as List<Listing>,
       ),
     );
   }
@@ -417,27 +596,27 @@ class __$$AdoptionStateImplCopyWithImpl<$Res>
 class _$AdoptionStateImpl implements _AdoptionState {
   const _$AdoptionStateImpl({
     this.adoptionStatus = Status.init,
-    final List<Adoption> adoptions = const [],
-    final List<Adoption> allPets = const [],
+    final List<Listing> adoptions = const [],
+    final List<Listing> allPets = const [],
   }) : _adoptions = adoptions,
        _allPets = allPets;
 
   @override
   @JsonKey()
   final Status adoptionStatus;
-  final List<Adoption> _adoptions;
+  final List<Listing> _adoptions;
   @override
   @JsonKey()
-  List<Adoption> get adoptions {
+  List<Listing> get adoptions {
     if (_adoptions is EqualUnmodifiableListView) return _adoptions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_adoptions);
   }
 
-  final List<Adoption> _allPets;
+  final List<Listing> _allPets;
   @override
   @JsonKey()
-  List<Adoption> get allPets {
+  List<Listing> get allPets {
     if (_allPets is EqualUnmodifiableListView) return _allPets;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_allPets);
@@ -482,16 +661,16 @@ class _$AdoptionStateImpl implements _AdoptionState {
 abstract class _AdoptionState implements AdoptionState {
   const factory _AdoptionState({
     final Status adoptionStatus,
-    final List<Adoption> adoptions,
-    final List<Adoption> allPets,
+    final List<Listing> adoptions,
+    final List<Listing> allPets,
   }) = _$AdoptionStateImpl;
 
   @override
   Status get adoptionStatus;
   @override
-  List<Adoption> get adoptions;
+  List<Listing> get adoptions;
   @override
-  List<Adoption> get allPets;
+  List<Listing> get allPets;
 
   /// Create a copy of AdoptionState
   /// with the given fields replaced by the non-null parameter values.

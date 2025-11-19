@@ -69,7 +69,7 @@ class _PetTypePage extends State<PetTypePage> {
                     );
                   } else if (value == "Looking to adopt only?") {
                     context.read<AuthBloc>().add(
-                      const AuthEvent.yourself(Yourself.lookingAdoption),
+                      const AuthEvent.yourself(Yourself.seeker),
                     );
                   } else if (value == "NGO or Shelter?") {
                     context.read<AuthBloc>().add(

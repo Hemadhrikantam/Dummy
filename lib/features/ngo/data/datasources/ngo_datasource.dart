@@ -17,5 +17,10 @@ abstract class NgoDatasource {
     required String petId,
     required String status,
   });
-  AppTypeResponse<CountListingModel> petListing();
+  AppSuccessResponse markPetListingStatus({
+    required String id,
+    required bool isActive,
+    required String status,
+  });
+  AppTypeResponse<CountListingModel> petListing({bool all = false});
 }

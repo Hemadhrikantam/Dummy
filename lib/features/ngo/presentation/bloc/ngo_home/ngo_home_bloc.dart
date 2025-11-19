@@ -27,10 +27,12 @@ class NgoHomeBloc extends Bloc<NgoHomeEvent, NgoHomeState> {
   Future<void> _onInit(_Init event, Emitter<NgoHomeState> emit) async {
     emit(state.copyWith(initStatus: Status.loading));
     final result = await _getNgoProfileUsecase();
-    final listingResult = (await _petListingUsecase()).fold(
-      (l) => null,
-      (r) => r,
-    );
+    final allPetsResult = (await _petListingUsecase(
+      all: true,
+    )).fold((l) => null, (r) => r);
+    final listingResult = (await _petListingUsecase(
+      all: false,
+    )).fold((l) => null, (r) => r);
     result.fold(
       (error) {
         LogUtility.error(error.message);
@@ -44,6 +46,7 @@ class NgoHomeBloc extends Bloc<NgoHomeEvent, NgoHomeState> {
             initStatus: Status.success,
             count: listingResult,
             listing: listingResult?.list ?? [],
+            allPets: allPetsResult?.list ?? [],
           ),
         );
         emit(state.copyWith(initStatus: Status.init));

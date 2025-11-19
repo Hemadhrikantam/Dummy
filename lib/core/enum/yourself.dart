@@ -1,8 +1,8 @@
-enum Yourself { pet_parent, lookingAdoption, ngo }
+enum Yourself { pet_parent, seeker, ngo }
 
 extension StatusX on Yourself {
   bool get isPetParent => this == Yourself.pet_parent;
-  bool get isLookingAdoption => this == Yourself.lookingAdoption;
+  bool get isSeeker => this == Yourself.seeker;
   bool get isNgo => this == Yourself.ngo;
 }
 
@@ -11,8 +11,8 @@ extension YourselfStringX on String {
     switch (toLowerCase()) {
       case 'pet_parent':
         return Yourself.pet_parent;
-      case 'lookingadoption':
-        return Yourself.lookingAdoption;
+      case 'seeker':
+        return Yourself.seeker;
       case 'ngo':
         return Yourself.ngo;
       default:

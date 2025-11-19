@@ -15,15 +15,23 @@ import 'package:flutter/material.dart';
 import '../../../../core/widgets/app_custom_chip.dart';
 
 class NgoAdoptionCard extends StatelessWidget {
-  const NgoAdoptionCard({super.key, required this.isAllPet, this.adoption});
+  const NgoAdoptionCard({
+    super.key,
+    required this.isAllPet,
+    this.adoption,
+    this.onTap,
+  });
   final Listing? adoption;
   final bool isAllPet;
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-      onTap: () {
-        context.push(NgoAdoptionDetailsPage.route(adoption));
-      },
+      onTap:
+          onTap ??
+          () {
+            context.push(NgoAdoptionDetailsPage.route(adoption));
+          },
       padding: Styles.edgeInsetsAll06,
       borderColor: AppColors.buttonBackground,
       child: Stack(
@@ -54,14 +62,10 @@ class NgoAdoptionCard extends StatelessWidget {
                   Styles.gap10,
                   TextValueWidget(
                     text: 'Breed & age',
-                    value:
-                        '${adoption?.breedName} ${adoption?.age ?? ''}',
+                    value: '${adoption?.breedName} ${adoption?.age ?? ''}',
                   ),
                   Styles.gap10,
-                  TextValueWidget(
-                    text: 'Location',
-                    value:  '',
-                  ),
+                  TextValueWidget(text: 'Location', value: ''),
                   Styles.gap4,
                 ],
               ),
@@ -72,15 +76,15 @@ class NgoAdoptionCard extends StatelessWidget {
             top: 0,
             child: AppCustomChipWidget(
               backgroundColor:
-                  (adoption?.status =='adopted')
+                  (adoption?.status == 'adopted')
                       ? AppColors.brown.withOpacity(0.2)
                       : AppColors.backGroundGreen,
               textColor:
-                  (adoption?.status =='adopted')
+                  (adoption?.status == 'adopted')
                       ? AppColors.brown
                       : AppColors.greenText,
               subTitle: '',
-              title: (adoption?.status =='adopted') ? 'Adopted' : 'Available',
+              title: (adoption?.status == 'adopted') ? 'Adopted' : 'Available',
               padding: Styles.edgeInsetsAll06 + Styles.edgeInsetsOnlyW10,
             ),
           ),

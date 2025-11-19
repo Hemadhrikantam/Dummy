@@ -24,6 +24,9 @@ Future<void> __ngoDependencies() async {
   getIt.registerLazySingleton<EditPetListingUsecase>(
     () => EditPetListingUsecase(getIt<NgoRepository>()),
   );
+  getIt.registerLazySingleton<MarkAdoptedUsecase>(
+    () => MarkAdoptedUsecase(getIt<NgoRepository>()),
+  );
   getIt.registerLazySingleton<PetListingUsecase>(
     () => PetListingUsecase(getIt<NgoRepository>()),
   );

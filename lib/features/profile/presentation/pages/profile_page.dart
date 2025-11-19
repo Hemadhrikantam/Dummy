@@ -90,6 +90,7 @@ class _ProfilePage extends State<ProfilePage> {
                       ShareService.shareWidgetAsImage(
                         context,
                         _ProfileCard(state: state),
+                        text: state.selectedPet?.name ?? "",
                       );
                     },
                   ),
@@ -142,6 +143,7 @@ class _ProfileCard extends StatelessWidget {
             child: Column(
               children: [
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Flexible(

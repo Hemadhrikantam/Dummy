@@ -5,5 +5,6 @@ abstract class VetNearMeState with _$VetNearMeState {
   const factory VetNearMeState({
     @Default(Status.init) final Status initStatus,
     @Default([]) final List<Clinic> clinics,
+    @Default([]) final List<Clinic> stores,
   }) = _VetNearMeState;
 }

@@ -3,7 +3,11 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/features/addoption/domain/entities/adoption.dart';
+import 'package:dummy/features/addoption/presentation/bloc/adoption/adoption_bloc.dart';
+import 'package:dummy/features/ngo/domain/entities/listing.dart';
+import 'package:dummy/features/ngo/presentation/widgets/ngo_adoption_details_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/widgets/base_screen.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
@@ -11,13 +15,14 @@ import '../../../../core/widgets/buttons/app_text_button.dart';
 import '../widgets/adoption_details_card.dart';
 
 class AdoptionDetailsPage extends StatelessWidget {
-  const AdoptionDetailsPage({super.key, this.adoption});
+  const AdoptionDetailsPage({super.key, this.adoption, this.allTab = false});
   static const routeName = '/MedicationDetailsPage';
-  final Adoption? adoption;
-
-  static Route<T> route<T>(Adoption? adoption) {
+  final Listing? adoption;
+  final bool allTab;
+  static Route<T> route<T>(Listing? adoption, bool allTab) {
     return MaterialPageRoute<T>(
-      builder: (context) => AdoptionDetailsPage(adoption: adoption),
+      builder:
+          (context) => AdoptionDetailsPage(adoption: adoption, allTab: allTab),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -86,7 +91,17 @@ class AdoptionDetailsPage extends StatelessWidget {
         children: [
           Padding(
             padding: Styles.edgeInsetsOnlyH15,
-            child: AdoptionDetailsCard(isAllPet: false, adoption: adoption),
+            child: NgoAdoptionDetailsCard(
+              isAllPet: allTab,
+              adoption: adoption,
+              onMarkAsAdopted: (value) {
+                final id = adoption?.id ?? '';
+                final newStatus = (value) ? 'adopted' : 'available';
+                context.read<AdoptionBloc>().add(
+                  AdoptionEvent.markStatus(id: id, status: newStatus),
+                );
+              },
+            ),
           ),
           Styles.gap80,
         ],

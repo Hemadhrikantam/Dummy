@@ -44,7 +44,20 @@ class NgoRepositoryImpl extends NgoRepository {
   }
 
   @override
-  AppTypeResponse<CountListing> petListing() {
-    return datasource.petListing();
+  AppSuccessResponse markPetListingStatus({
+    required String id,
+    required bool isActive,
+    required String status,
+  }) {
+    return datasource.markPetListingStatus(
+      id: id,
+      isActive: isActive,
+      status: status,
+    );
+  }
+
+  @override
+  AppTypeResponse<CountListing> petListing({bool all = false}) {
+    return datasource.petListing(all: all);
   }
 }

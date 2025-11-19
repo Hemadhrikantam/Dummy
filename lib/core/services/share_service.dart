@@ -11,7 +11,7 @@ class ShareService {
     BuildContext context,
     Widget widget, {
     String? fileName,
-    String? text,
+    String text = '',
   }) async {
     final boundaryKey = GlobalKey();
 
@@ -48,7 +48,7 @@ class ShareService {
   static Future<void> shareByUrl(
     String url, {
     String? fileName,
-    String? text,
+    String text = '',
   }) async {
     try {
       final response = await http.get(Uri.parse(url));

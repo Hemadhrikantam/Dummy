@@ -2,11 +2,15 @@ import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/addoption/presentation/bloc/adoption/adoption_bloc.dart';
+import 'package:dummy/features/addoption/presentation/pages/adoption_details_page.dart';
 import 'package:dummy/features/health/presentation/widgets/empty_list_page.dart';
+import 'package:dummy/features/ngo/presentation/widgets/ngo_adoption_card.dart';
+import 'package:dummy/features/ngo/presentation/widgets/ngo_adoption_details_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'adoption_card.dart';
@@ -34,7 +38,7 @@ class _AdoptiontabbarViewState extends State<AdoptiontabbarView> {
   Widget build(BuildContext context) {
     return BlocBuilder<AdoptionBloc, AdoptionState>(
       builder: (context, state) {
-        final item = state.adoptions;
+        final item = widget.tab == 'All Pets' ? state.allPets : state.adoptions;
         return item.isEmpty
             ? EmptyListPage(
               imagePath: ImageResources.noAdoption,
@@ -57,7 +61,15 @@ class _AdoptiontabbarViewState extends State<AdoptiontabbarView> {
                 shrinkWrap: true,
                 separatorBuilder: (context, i) => Styles.gap10,
                 itemBuilder: (BuildContext context, int i) {
-                  return AdoptionCard(
+                  return NgoAdoptionCard(
+                    onTap: () {
+                      context.push(
+                        AdoptionDetailsPage.route(
+                          item[i],
+                          widget.tab == 'All Pets',
+                        ),
+                      );
+                    },
                     isAllPet: widget.tab == 'All Pets',
                     adoption: item[i],
                   );

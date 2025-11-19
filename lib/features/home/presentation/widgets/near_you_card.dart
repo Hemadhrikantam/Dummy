@@ -52,13 +52,18 @@ class _NearYouCardState extends State<NearYouCard> {
           BlocBuilder<VetNearMeBloc, VetNearMeState>(
             builder: (context, state) {
               return AppCustomListViewBuilder(
-                itemCount: state.clinics.length,
+                itemCount:
+                    selectedTab == 'Clinics'
+                        ? state.clinics.length
+                        : state.stores.length,
                 isExpand: false,
                 shrinkWrap: true,
                 physics: NeverScrollableScrollPhysics(),
                 separatorBuilder: (context, i) => Styles.gap10,
                 itemBuilder: (BuildContext context, int i) {
-                  return ClinicCard(clinic: state.clinics[i]);
+                  return selectedTab == 'Clinics'
+                      ? ClinicCard(clinic: state.clinics[i])
+                      : ClinicCard(clinic: state.stores[i]);
                 },
               );
             },

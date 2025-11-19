@@ -47,7 +47,9 @@ abstract class HealthDatasource {
     String? fromDate,
     String? toDate,
   );
-  AppTypeResponse<VaccinationLogViewModel> getVaccinationLog({required String id});
+  AppTypeResponse<VaccinationLogViewModel> getVaccinationLog({
+    required String id,
+  });
   AppSuccessResponse updateVaccinationLog({
     required String vaccinationId,
     required bool check,
@@ -71,5 +73,6 @@ abstract class HealthDatasource {
   AppTypeResponse<List<ClinicModel>> clinics(
     double latitude,
     double longitude,
+    String type,
   );
 }

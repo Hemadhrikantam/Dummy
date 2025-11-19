@@ -1,8 +1,13 @@
 part of 'add_adoption_form.dart';
 
-class __Name extends StatelessWidget {
+class __Name extends StatefulWidget {
   const __Name();
+  @override
+  State<__Name> createState() => ___NameState();
+}
 
+class ___NameState extends State<__Name> {
+  final TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return BlocSelector<AddAdoptionBloc, AddAdoptionState, NotEmpty>(
@@ -11,7 +16,7 @@ class __Name extends StatelessWidget {
       },
       builder: (context, state) {
         return AppTextFormField(
-          initialValue: state.value,
+          controller: controller..text = state.value,
           hintText: AppText.enter,
           errorText: state.isPure ? null : state.error,
           onChanged: (value) {
@@ -107,43 +112,27 @@ class __Years extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<AddAdoptionBloc, AddAdoptionState, DropdownValue>(
-      selector: (state) {
-        return state.year;
-      },
+    return BlocBuilder<AddAdoptionBloc, AddAdoptionState>(
       builder: (context, state) {
-        final List<DropItem> years = [
-          DropItemModel(id: 1, value: '1'),
-          DropItemModel(id: 2, value: '2'),
-          DropItemModel(id: 3, value: '3'),
-          DropItemModel(id: 4, value: '4'),
-          DropItemModel(id: 5, value: '5'),
-          DropItemModel(id: 6, value: '6'),
-          DropItemModel(id: 7, value: '7'),
-          DropItemModel(id: 8, value: '8'),
-          DropItemModel(id: 9, value: '9'),
-          DropItemModel(id: 10, value: '10'),
-          DropItemModel(id: 11, value: '11'),
-          DropItemModel(id: 12, value: '12'),
-          DropItemModel(id: 13, value: '13'),
-          DropItemModel(id: 14, value: '14'),
-          DropItemModel(id: 15, value: '15'),
-          DropItemModel(id: 16, value: '16'),
-          DropItemModel(id: 17, value: '17'),
-          DropItemModel(id: 18, value: '18'),
-          DropItemModel(id: 19, value: '19'),
-          DropItemModel(id: 20, value: '20'),
-        ];
-
-        return CustomDropdownSearch(
-          selectedItem: state.value,
-          title: AppText.age,
-          items: years,
-          onChanged: (value) {
-            context.read<AddAdoptionBloc>().add(AddAdoptionEvent.year(value!));
-          },
-          label: 'Year',
-          isMandatory: true,
+        return Column(
+          children: [
+            AppCustomDateField(
+              headerText: AppText.dateOfBirth,
+              selectedDate: DateTime.tryParse(state.dob.value),
+              isMandatory: true,
+              maxDate: DateTime(
+                DateTime.now().year,
+                DateTime.now().month,
+                DateTime.now().day,
+              ),
+              suffixIcon: Iconsax.calendar,
+              onChange: (date) {
+                context.read<AddAdoptionBloc>().add(
+                  AddAdoptionEvent.dob(date.toString()),
+                );
+              },
+            ),
+          ],
         );
       },
     );
@@ -155,33 +144,22 @@ class __Months extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<AddAdoptionBloc, AddAdoptionState, DropdownValue>(
-      selector: (state) {
-        return state.month;
-      },
+    return BlocBuilder<AddAdoptionBloc, AddAdoptionState>(
       builder: (context, state) {
-        final List<DropItem> months = [
-          DropItemModel(id: 1, value: '1'),
-          DropItemModel(id: 2, value: '2'),
-          DropItemModel(id: 3, value: '3'),
-          DropItemModel(id: 4, value: '4'),
-          DropItemModel(id: 5, value: '5'),
-          DropItemModel(id: 6, value: '6'),
-          DropItemModel(id: 7, value: '7'),
-          DropItemModel(id: 8, value: '8'),
-          DropItemModel(id: 9, value: '9'),
-          DropItemModel(id: 10, value: '10'),
-          DropItemModel(id: 11, value: '11'),
-          DropItemModel(id: 12, value: '12'),
-        ];
         return CustomDropdownSearch(
-          selectedItem: state.value,
-          title: '  ',
-          items: months,
+          title: AppText.gender,
+          isMandatory: true,
+          selectedItem: state.gender.value,
+          items: const [
+            DropItemModel(id: 1, value: 'Male'),
+            DropItemModel(id: 2, value: 'Female'),
+          ],
           onChanged: (value) {
-            context.read<AddAdoptionBloc>().add(AddAdoptionEvent.month(value!));
+            context.read<AddAdoptionBloc>().add(
+              AddAdoptionEvent.petGender(value!),
+            );
           },
-          label: 'Month',
+          label: AppText.select,
         );
       },
     );
@@ -195,21 +173,23 @@ class __PetType extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AddAdoptionBloc, AddAdoptionState>(
       builder: (context, state) {
-        final List<DropItem> petTypes = [
-          DropItemModel(id: 1, value: 'Dog'),
-          DropItemModel(id: 2, value: 'Cat'),
-          DropItemModel(id: 3, value: 'Snake'),
-          DropItemModel(id: 4, value: 'Horse'),
-          DropItemModel(id: 5, value: 'Hamster'),
+        final List<DropStringItem> petTypes = [
+          DropStringItemModel(id: PetType.Dog.name, value: 'Dog'),
+          DropStringItemModel(id: PetType.Cat.name, value: 'Cat'),
         ];
-        return CustomDropdownSearch(
-          selectedItem: state.petType.value,
+        return CustomStringDropdownSearch(
+          selectedItem:
+              state.petType.name == 'Dog'
+                  ? DropStringItemModel(id: PetType.Dog.name, value: 'Dog')
+                  : DropStringItemModel(id: PetType.Cat.name, value: 'Cat'),
           title: AppText.petType,
           errorText: state.breed.isPure ? null : state.breed.error,
           items: petTypes,
           onChanged: (value) {
             context.read<AddAdoptionBloc>().add(
-              AddAdoptionEvent.petType(value!),
+              AddAdoptionEvent.petType(
+                value!.value == 'Dog' ? PetType.Dog : PetType.Cat,
+              ),
             );
           },
           label: AppText.select,
@@ -227,11 +207,11 @@ class __Breed extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AddAdoptionBloc, AddAdoptionState>(
       builder: (context, state) {
-        final petType = state.petType.value?.value.toLowerCase();
+        final petType = state.petType.name.toLowerCase();
         final isDog = petType == 'dog';
         final isCat = petType == 'cat';
 
-        return CustomDropdownSearch(
+        return CustomStringDropdownSearch(
           selectedItem: state.breed.value,
           title: AppText.breed,
           items:

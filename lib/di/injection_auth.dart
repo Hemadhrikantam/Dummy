@@ -26,6 +26,7 @@ Future<void> __authDependencies() async {
   final registerDevice = RegisterDeviceUsecases(getIt<AuthRepository>());
   final uploadFileUsecases = UploadFileUsecases(getIt<AuthRepository>());
   final ngoRegistrationUsecases = NgoRegistrationUsecases(getIt<AuthRepository>());
+  final seekerRegistrationUsecases = SeekerRegistrationUsecases(getIt<AuthRepository>());
 
   //   //
   getIt.registerLazySingleton<LoginUserUsecases>(() => login);
@@ -40,4 +41,5 @@ Future<void> __authDependencies() async {
   getIt.registerLazySingleton<RegisterDeviceUsecases>(() => registerDevice);
   getIt.registerLazySingleton<UploadFileUsecases>(() => uploadFileUsecases);
   getIt.registerLazySingleton<NgoRegistrationUsecases>(() => ngoRegistrationUsecases);
+  getIt.registerLazySingleton<SeekerRegistrationUsecases>(() => seekerRegistrationUsecases);
 }

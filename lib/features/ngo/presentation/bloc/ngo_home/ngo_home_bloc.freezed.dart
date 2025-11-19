@@ -166,6 +166,7 @@ mixin _$NgoHomeState {
   NgoProfile? get profile => throw _privateConstructorUsedError;
   CountListing? get count => throw _privateConstructorUsedError;
   List<Listing> get listing => throw _privateConstructorUsedError;
+  List<Listing> get allPets => throw _privateConstructorUsedError;
 
   /// Create a copy of NgoHomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -186,6 +187,7 @@ abstract class $NgoHomeStateCopyWith<$Res> {
     NgoProfile? profile,
     CountListing? count,
     List<Listing> listing,
+    List<Listing> allPets,
   });
 }
 
@@ -208,6 +210,7 @@ class _$NgoHomeStateCopyWithImpl<$Res, $Val extends NgoHomeState>
     Object? profile = freezed,
     Object? count = freezed,
     Object? listing = null,
+    Object? allPets = null,
   }) {
     return _then(
       _value.copyWith(
@@ -231,6 +234,11 @@ class _$NgoHomeStateCopyWithImpl<$Res, $Val extends NgoHomeState>
                     ? _value.listing
                     : listing // ignore: cast_nullable_to_non_nullable
                         as List<Listing>,
+            allPets:
+                null == allPets
+                    ? _value.allPets
+                    : allPets // ignore: cast_nullable_to_non_nullable
+                        as List<Listing>,
           )
           as $Val,
     );
@@ -251,6 +259,7 @@ abstract class _$$NgoHomeStateImplCopyWith<$Res>
     NgoProfile? profile,
     CountListing? count,
     List<Listing> listing,
+    List<Listing> allPets,
   });
 }
 
@@ -272,6 +281,7 @@ class __$$NgoHomeStateImplCopyWithImpl<$Res>
     Object? profile = freezed,
     Object? count = freezed,
     Object? listing = null,
+    Object? allPets = null,
   }) {
     return _then(
       _$NgoHomeStateImpl(
@@ -295,6 +305,11 @@ class __$$NgoHomeStateImplCopyWithImpl<$Res>
                 ? _value._listing
                 : listing // ignore: cast_nullable_to_non_nullable
                     as List<Listing>,
+        allPets:
+            null == allPets
+                ? _value._allPets
+                : allPets // ignore: cast_nullable_to_non_nullable
+                    as List<Listing>,
       ),
     );
   }
@@ -308,7 +323,9 @@ class _$NgoHomeStateImpl implements _NgoHomeState {
     this.profile = null,
     this.count = null,
     final List<Listing> listing = const [],
-  }) : _listing = listing;
+    final List<Listing> allPets = const [],
+  }) : _listing = listing,
+       _allPets = allPets;
 
   @override
   @JsonKey()
@@ -328,9 +345,18 @@ class _$NgoHomeStateImpl implements _NgoHomeState {
     return EqualUnmodifiableListView(_listing);
   }
 
+  final List<Listing> _allPets;
+  @override
+  @JsonKey()
+  List<Listing> get allPets {
+    if (_allPets is EqualUnmodifiableListView) return _allPets;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_allPets);
+  }
+
   @override
   String toString() {
-    return 'NgoHomeState(initStatus: $initStatus, profile: $profile, count: $count, listing: $listing)';
+    return 'NgoHomeState(initStatus: $initStatus, profile: $profile, count: $count, listing: $listing, allPets: $allPets)';
   }
 
   @override
@@ -342,7 +368,8 @@ class _$NgoHomeStateImpl implements _NgoHomeState {
                 other.initStatus == initStatus) &&
             (identical(other.profile, profile) || other.profile == profile) &&
             (identical(other.count, count) || other.count == count) &&
-            const DeepCollectionEquality().equals(other._listing, _listing));
+            const DeepCollectionEquality().equals(other._listing, _listing) &&
+            const DeepCollectionEquality().equals(other._allPets, _allPets));
   }
 
   @override
@@ -352,6 +379,7 @@ class _$NgoHomeStateImpl implements _NgoHomeState {
     profile,
     count,
     const DeepCollectionEquality().hash(_listing),
+    const DeepCollectionEquality().hash(_allPets),
   );
 
   /// Create a copy of NgoHomeState
@@ -369,6 +397,7 @@ abstract class _NgoHomeState implements NgoHomeState {
     final NgoProfile? profile,
     final CountListing? count,
     final List<Listing> listing,
+    final List<Listing> allPets,
   }) = _$NgoHomeStateImpl;
 
   @override
@@ -379,6 +408,8 @@ abstract class _NgoHomeState implements NgoHomeState {
   CountListing? get count;
   @override
   List<Listing> get listing;
+  @override
+  List<Listing> get allPets;
 
   /// Create a copy of NgoHomeState
   /// with the given fields replaced by the non-null parameter values.

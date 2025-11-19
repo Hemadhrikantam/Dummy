@@ -8,27 +8,35 @@ import 'package:dummy/features/addoption/domain/entities/adoption.dart';
 import 'package:dummy/features/addoption/presentation/widgets/adoption_card.dart';
 import 'package:dummy/features/ngo/domain/entities/listing.dart';
 import 'package:flutter/material.dart';
+import 'package:dummy/core/utils/toast_message.dart';
+import 'package:dummy/di/injection.dart';
 
 import '../../../../core/constant/app_text.dart';
 import '../../../../core/widgets/app_custom_check_box.dart';
 import '../../../../core/widgets/app_custom_chip.dart';
 import '../../../../core/widgets/buttons/app_icon_button.dart';
 
-
 class NgoAdoptionDetailsCard extends StatefulWidget {
   const NgoAdoptionDetailsCard({
     super.key,
     required this.isAllPet,
     required this.adoption,
+    this.onMarkAsAdopted,
   });
   final bool isAllPet;
   final Listing? adoption;
+  final Function(bool)? onMarkAsAdopted;
   @override
   State<NgoAdoptionDetailsCard> createState() => _NgoAdoptionDetailsCardState();
 }
 
 class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
   bool isChecked = false;
+  initState() {
+    isChecked = widget.adoption?.status == 'adopted';
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomCard(
@@ -106,10 +114,7 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
                 text: 'Breed & Age',
                 value: 'Pomerian, ${widget.adoption?.age ?? ''} Y',
               ),
-              TextValueWidget(
-                text: 'Location',
-                value:  '',
-              ),
+              TextValueWidget(text: 'Location', value: ''),
             ],
           ),
           Styles.gap30,
@@ -131,16 +136,47 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
                   isChecked: isChecked,
                   fontSize: 22,
                   label: AppText.markAsAdopted,
-                  onChanged: (value) {
+                  onChanged: (value) async {
                     setState(() {
-                      isChecked = !isChecked;
+                      isChecked = value;
                     });
+                    widget.onMarkAsAdopted?.call(value);
                   },
                 ),
               ],
             ),
         ],
       ),
+    );
+  }
+}
+
+class TextValueWidget extends StatelessWidget {
+  const TextValueWidget({super.key, required this.text, required this.value});
+  final String text;
+  final String value;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          text,
+          style: context.textTheme.bodySmall?.copyWith(
+            color: AppColors.black.withOpacity(.5),
+            fontWeight: FontWeight.w600,
+            fontSize: 12,
+          ),
+        ),
+        Text(
+          value,
+          style: context.textTheme.titleMedium?.copyWith(
+            fontWeight: FontWeight.w900,
+            fontSize: 16,
+          ),
+        ),
+      ],
     );
   }
 }

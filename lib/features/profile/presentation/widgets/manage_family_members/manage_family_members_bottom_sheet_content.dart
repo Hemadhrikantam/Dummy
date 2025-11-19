@@ -3,6 +3,7 @@ import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
+import 'package:dummy/features/ngo/presentation/widgets/ngo_adoption_card.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 

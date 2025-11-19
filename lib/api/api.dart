@@ -38,6 +38,8 @@ String ngoProfile = '$__api/account/ngo/profile';
 String adoptPet = '$__privateBase/adoption/pet-to-adopt/';
 String allPets = '$__privateBase/adoption/all-pets-to-adopt/';
 String petTypes = '$__privateBase/pets/pet-types/';
+// Seeker onboarding
+String seekerOnboarding = '$__api/auth/onboarding/seeker';
 
 //daily care
 String meals() {
@@ -91,9 +93,8 @@ String medicationLogs(String? medicationId) {
 }
 
 // clinics
-String clinics(double latitude, double longitude) {
-  return '$__api/places?type=clinic&pincode=600053';
-  return '$__api/places?type=clinic&latitude=$latitude&longitude=$longitude';
+String clinics(double latitude, double longitude, String type) {
+  return '$__api/places?type=$type&latitude=$latitude&longitude=$longitude';
 }
 
 String vaccination(String? key, String? fromDate, String? toDate) {

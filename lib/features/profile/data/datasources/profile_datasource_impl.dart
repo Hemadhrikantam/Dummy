@@ -240,11 +240,9 @@ class ProfileDatasourceImpl extends ProfileDatasource {
     required Payload payload,
   }) async {
     LogUtility.warning(payload.toMap().toString());
-    final formData = FormData.fromMap(payload.toMap());
     final response = await http.put(
-      path: '${api.petDairyMedia}$id/',
-      data: formData,
-      options: Options(contentType: 'multipart/form-data'),
+      path: '${api.petDairyMedia}/$id/',
+      data: payload.toMap(),
     );
     return response.fold(
       (error) {

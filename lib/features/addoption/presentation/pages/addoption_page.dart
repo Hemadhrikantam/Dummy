@@ -36,59 +36,55 @@ class _AddoptionPage extends State<AddoptionPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<DashboardBloc, DashboardState>(
-      builder: (context, state) {
-        return MaterialBaseScreen(
-          child: Column(
+    return MaterialBaseScreen(
+      child: Column(
+        children: [
+          CustomHeaderWidget(),
+          Styles.gap20,
+          Row(
             children: [
-              CustomHeaderWidget(petImage: state.petImage),
-              Styles.gap20,
-              Row(
-                children: [
-                  Expanded(child: SearchButton(hintText: AppText.search)),
-                  Styles.gap10,
-                  CircleAvatar(
-                    radius: 25,
-                    backgroundColor: AppColors.stepperColor,
-                    child: AppIcon(icon: Icons.search, color: AppColors.white),
-                  ),
-                ],
-              ),
+              Expanded(child: SearchButton(hintText: AppText.search)),
               Styles.gap10,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  // FilterButton(),
-                  AppButton(
-                    height: 42,
-                    showShadow: false,
-                    name: Text(
-                      AppText.add,
-                      style: context.textTheme.titleSmall?.copyWith(
-                        color: AppColors.buttonTextColor,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    width: 90,
-                    onPressed: () {
-                      BottomModels.addAdoptionBottomSheet(context);
-                    },
-                  ),
-                ],
+              CircleAvatar(
+                radius: 25,
+                backgroundColor: AppColors.stepperColor,
+                child: AppIcon(icon: Icons.search, color: AppColors.white),
               ),
-              Styles.gap10,
-              OverviewHeader(
-                tabs: tabs,
-                selectedTab: selectedTab,
-                isExpanded: true,
-                onTabSelected: (tab) => setState(() => selectedTab = tab),
-              ),
-              Styles.gap10,
-              Expanded(child: AdoptiontabbarView(tab: selectedTab)),
             ],
           ),
-        );
-      },
+          Styles.gap10,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              // FilterButton(),
+              AppButton(
+                height: 42,
+                showShadow: false,
+                name: Text(
+                  AppText.add,
+                  style: context.textTheme.titleSmall?.copyWith(
+                    color: AppColors.buttonTextColor,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+                width: 90,
+                onPressed: () {
+                  BottomModels.addAdoptionBottomSheet(context);
+                },
+              ),
+            ],
+          ),
+          Styles.gap10,
+          OverviewHeader(
+            tabs: tabs,
+            selectedTab: selectedTab,
+            isExpanded: true,
+            onTabSelected: (tab) => setState(() => selectedTab = tab),
+          ),
+          Styles.gap10,
+          Expanded(child: AdoptiontabbarView(tab: selectedTab)),
+        ],
+      ),
     );
   }
 }

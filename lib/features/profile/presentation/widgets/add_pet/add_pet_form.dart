@@ -6,12 +6,15 @@ import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/models/drop_item.dart';
+import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
+import 'package:dummy/core/widgets/buttons/app_button.dart';
+import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/custom_multi_dropdown.dart';
 import 'package:dummy/core/widgets/file_picker.dart';
 import 'package:dummy/features/profile/presentation/bloc/pet_form/pet_form_bloc.dart';
@@ -54,7 +57,7 @@ class _AddPetForm extends State<AddPetForm> {
               padding: Styles.edgeInsetsOnlyH00,
               children: [
                 __UploadImage(),
-                Styles.gap30,
+                Styles.gap15,
                 Padding(
                   padding: Styles.edgeInsetsAll04,
                   child: CustomCard(

@@ -384,12 +384,11 @@ class _WeightPickerBodyState extends State<WeightPickerBody> {
                     contentPadding: EdgeInsets.zero,
                   ),
                   onChanged: (value) {
-                    final parsed = int.tryParse(value);
-                    if (parsed != null && parsed >= 0) {
-                      _updateWeight(parsed);
-                    } else {
-                      _weightController.text = weight.toString();
-                    }
+                    final parsed = int.tryParse(value) ?? 0;
+                    // if (parsed != null && parsed >= 0) {
+                    _updateWeight(parsed);
+                    // } else {
+                    _weightController.text = weight.toString();
                   },
                   onSubmitted: (value) {
                     final parsed = int.tryParse(value);
@@ -444,7 +443,6 @@ class _WeightPickerBodyState extends State<WeightPickerBody> {
                   onPressed: () {
                     print(weight);
                     widget.onSave(weight, selectedUnit);
-
                     Navigator.pop(context);
                   },
                   name: Text(

@@ -62,18 +62,22 @@ class PetInformationWidget extends StatelessWidget {
                     value: dashboardPetDetails?.type ?? '',
                   ),
                 ),
-                // Expanded(
-                //   child: __InfoValue(
-                //     image: ImageResources.gender,
-                //     title: AppText.gender,
-                //     value: dashboardPetDetails?.gender ?? '',
-                //   ),
-                // ),
+                Expanded(
+                  child: __InfoValue(
+                    image: ImageResources.gender,
+                    title: AppText.gender,
+                    value:
+                        (dashboardPetDetails?.gender ?? '') == 'male'
+                            ? AppText.male
+                            : AppText.female,
+                  ),
+                ),
                 Expanded(
                   child: __InfoValue(
                     image: ImageResources.weight,
                     title: AppText.weight,
-                    value: '${dashboardPetDetails?.weightValue} ${dashboardPetDetails?.weightUnit ?? ''}',
+                    value:
+                        '${double.parse(dashboardPetDetails?.weightValue ?? '0.0').toInt()} ${dashboardPetDetails?.weightUnit ?? ''}s',
                   ),
                 ),
               ],

@@ -5,6 +5,7 @@ import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/foundation.dart';
 import '../models/drop_item.dart'; // Your DropItem class
 
 class CustomMultiDropdownSearch extends StatefulWidget {
@@ -48,6 +49,23 @@ class _CustomMultiDropdownSearchState extends State<CustomMultiDropdownSearch> {
     super.initState();
     _selectedItems = List.from(widget.selectedItems);
     _filteredItems = List.from(widget.items);
+  }
+
+  @override
+  void didUpdateWidget(covariant CustomMultiDropdownSearch oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Sync selected items if parent provides new values (e.g., after API fetch)
+    if (!listEquals(oldWidget.selectedItems, widget.selectedItems)) {
+      setState(() {
+        _selectedItems = List.from(widget.selectedItems);
+      });
+    }
+    // Keep filtered items in sync when the items list changes
+    if (!listEquals(oldWidget.items, widget.items)) {
+      setState(() {
+        _filteredItems = List.from(widget.items);
+      });
+    }
   }
 
   void _openMultiSelectBottomSheet() {
@@ -333,6 +351,23 @@ class _CustomStringMultiDropdownSearch
     super.initState();
     _selectedItems = List.from(widget.selectedItems);
     _filteredItems = List.from(widget.items);
+  }
+
+  @override
+  void didUpdateWidget(covariant CustomStringMultiDropdownSearch oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    // Sync selected items if parent provides new values (e.g., after API fetch)
+    if (!listEquals(oldWidget.selectedItems, widget.selectedItems)) {
+      setState(() {
+        _selectedItems = List.from(widget.selectedItems);
+      });
+    }
+    // Keep filtered items in sync when the items list changes
+    if (!listEquals(oldWidget.items, widget.items)) {
+      setState(() {
+        _filteredItems = List.from(widget.items);
+      });
+    }
   }
 
   void _openMultiSelectBottomSheet() {

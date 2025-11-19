@@ -3,6 +3,7 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/health/domain/entities/clinic.dart';
+import 'package:dummy/features/ngo/presentation/widgets/ngo_adoption_card.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 

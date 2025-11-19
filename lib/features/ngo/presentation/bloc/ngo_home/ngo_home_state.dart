@@ -7,5 +7,6 @@ class NgoHomeState with _$NgoHomeState {
     @Default(null) NgoProfile? profile,
     @Default(null) CountListing? count,
     @Default([]) List<Listing> listing,
+    @Default([]) List<Listing> allPets,
   }) = _NgoHomeState;
 }

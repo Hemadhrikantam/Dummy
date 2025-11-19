@@ -152,7 +152,8 @@ class HealthRepositoryImpl extends HealthRepository {
   AppTypeResponse<List<Clinic>> clinics({
     required double latitude,
     required double longitude,
+    required String type,
   }) {
-    return _healthDatasource.clinics(latitude, longitude);
+    return _healthDatasource.clinics(latitude, longitude, type);
   }
 }

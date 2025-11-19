@@ -142,7 +142,10 @@ class PetPhotoCardPage extends StatelessWidget {
                       Styles.gap20,
                       GestureDetector(
                         onTap: () {
-                          ShareService.shareByUrl(media.fileUrl);
+                          ShareService.shareByUrl(
+                            media.fileUrl,
+                            text: media.notes ?? "",
+                          );
                           //BottomModels.shareBottomSheet(context, media);
                         },
                         child: SvgPicture.asset(
@@ -153,6 +156,7 @@ class PetPhotoCardPage extends StatelessWidget {
                       Styles.gap20,
                       GestureDetector(
                         onTap: () {
+                          context.pop();
                           BottomModels.addPetMediaBottomSheet(
                             context,
                             id: media.id,

@@ -13,7 +13,6 @@ import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
-import 'package:dummy/features/signup/domain/usecases/pet_image_usecases.dart';
 import 'package:dummy/service/local_storage_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -99,8 +98,6 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       imageFile: url.toString(),
       personalityTags:
           state.selectedPersonalityTags.map((e) => e.value!.id).toList(),
-      // latitude: state.latitude ?? 0,
-      // longitude: state.longitude ?? 0,
       mobileNumber: currentContext.read<AuthBloc>().state.phone.value ?? '',
       weightUnit: state.weightUnit.value.toLowerCase(),
       deviceId: '',
@@ -132,7 +129,9 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   }
 
   void __petType(_PetType event, Emitter<RegisterState> emit) {
-    emit(state.copyWith(petType: event.value));
+    emit(
+      state.copyWith(petType: event.value, breed: DropdownStringValue.pure()),
+    );
   }
 
   void __petImage(_PetImage event, Emitter<RegisterState> emit) {

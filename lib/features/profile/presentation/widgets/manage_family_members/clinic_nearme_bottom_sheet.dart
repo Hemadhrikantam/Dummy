@@ -6,6 +6,7 @@ import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:dummy/core/widgets/loading_widget.dart';
+import 'package:dummy/features/ngo/presentation/widgets/ngo_adoption_card.dart';
 import 'package:dummy/features/profile/presentation/bloc/vet_near_me/vet_near_me_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

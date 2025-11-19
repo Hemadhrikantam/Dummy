@@ -13,6 +13,7 @@ abstract class AuthState with _$AuthState {
     @Default(null) final CurrentUser? user,
     @Default(Status.init) final Status loginStatus,
     @Default(Status.init) final Status sendOtpStatus,
+    @Default(Status.init) final Status verifyOtpStatus,
     @Default(false) final bool loginValidation,
     @Default(Status.init) final Status signupStatus,
     @Default(false) final bool signupValidation,
