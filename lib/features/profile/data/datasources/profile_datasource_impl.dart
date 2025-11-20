@@ -10,6 +10,7 @@ import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
+import 'package:dummy/features/profile/data/models/account_detail_model.dart';
 import 'package:dummy/features/profile/data/models/documents_model.dart';
 import 'package:dummy/features/profile/data/models/media_model.dart';
 import 'package:dummy/features/profile/data/models/timeline_model.dart';
@@ -225,6 +226,122 @@ class ProfileDatasourceImpl extends ProfileDatasource {
           return Left(
             ErrorMessage(
               message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<AccountDetailModel> accountMe() async {
+    final response = await http.get(path: api.accountMe);
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 200) {
+            final map =
+                (data is Map && data['data'] is Map)
+                    ? Map<String, dynamic>.from(data['data'] as Map)
+                    : Map<String, dynamic>.from(data as Map);
+            return Right(AccountDetailModel.fromMap(map));
+          }
+          return Left(
+            ErrorMessage(
+              message:
+                  (data is Map ? data['message'] as String? : null) ??
+                  AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppSuccessResponse addAccountUser({
+    required String mobileNumber,
+    required String name,
+    required String role,
+  }) async {
+    final response = await http.post(
+      path: api.accountUsers,
+      data: {'mobile_number': mobileNumber, 'name': name, 'role': role},
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message:
+                    (data is Map ? data['message'] as String? : null) ??
+                    'Added successfully',
+              ),
+            );
+          }
+          return Left(
+            ErrorMessage(
+              message:
+                  (data is Map ? data['message'] as String? : null) ??
+                  AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppSuccessResponse editAccount({required Payload payload}) async {
+    final response = await http.put(path: api.account, data: payload.toMap());
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message:
+                    (data is Map ? data['message'] as String? : null) ??
+                    'Updated successfully',
+              ),
+            );
+          }
+          return Left(
+            ErrorMessage(
+              message:
+                  (data is Map ? data['message'] as String? : null) ??
+                  AppText.somethingWentWrong,
             ),
           );
         } on Exception catch (_) {

@@ -7,6 +7,7 @@ import 'package:dummy/features/profile/data/models/timeline_model.dart';
 import 'package:dummy/features/profile/domain/entities/documents.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
 import 'package:dummy/features/profile/domain/entities/timeline.dart';
+import 'package:dummy/features/profile/domain/entities/account_detail.dart';
 import 'package:dummy/features/profile/domain/repositories/profile_repository.dart';
 
 class ProfileRepositoryImpl extends ProfileRepository {
@@ -75,5 +76,29 @@ class ProfileRepositoryImpl extends ProfileRepository {
   AppTypeResponse<List<Timeline>> timelines() {
     // Delegate to datasource; model already conforms to Timeline
     return datasource.timelines();
+  }
+
+  // Account
+  @override
+  AppTypeResponse<AccountDetail> accountMe() {
+    return datasource.accountMe();
+  }
+
+  @override
+  AppSuccessResponse addAccountUser({
+    required String mobileNumber,
+    required String name,
+    required String role,
+  }) {
+    return datasource.addAccountUser(
+      mobileNumber: mobileNumber,
+      name: name,
+      role: role,
+    );
+  }
+
+  @override
+  AppSuccessResponse editAccount({required Payload payload}) {
+    return datasource.editAccount(payload: payload);
   }
 }

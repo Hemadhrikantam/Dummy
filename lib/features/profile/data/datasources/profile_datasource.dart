@@ -3,6 +3,7 @@ import 'package:dummy/core/payload/payload.dart';
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/profile/data/models/documents_model.dart';
 import 'package:dummy/features/profile/data/models/media_model.dart';
+import 'package:dummy/features/profile/data/models/account_detail_model.dart';
 import 'package:dummy/features/profile/data/models/timeline_model.dart';
 
 abstract class ProfileDatasource {
@@ -24,4 +25,14 @@ abstract class ProfileDatasource {
 
   // Timelines
   AppTypeResponse<List<TimelineModel>> timelines();
+
+  AppTypeResponse<AccountDetailModel> accountMe();
+
+  AppSuccessResponse addAccountUser({
+    required String mobileNumber,
+    required String name,
+    required String role,
+  });
+
+  AppSuccessResponse editAccount({required Payload payload});
 }

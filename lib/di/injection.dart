@@ -77,11 +77,14 @@ import 'package:dummy/features/profile/data/datasources/profile_datasource.dart'
 import 'package:dummy/features/profile/data/datasources/profile_datasource_impl.dart';
 import 'package:dummy/features/profile/data/repositories/profile_repository_impl.dart';
 import 'package:dummy/features/profile/domain/repositories/profile_repository.dart';
+import 'package:dummy/features/profile/domain/usecases/account_detail_usecases.dart';
+import 'package:dummy/features/profile/domain/usecases/add_account_user_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/add_document_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/add_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/add_pet_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/delete_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/documents_usecases.dart';
+import 'package:dummy/features/profile/domain/usecases/edit_account_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_media_favroute_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_pet_usecases.dart';
@@ -90,6 +93,7 @@ import 'package:dummy/features/profile/domain/usecases/favorite_medias_usecases.
 import 'package:dummy/features/profile/domain/usecases/get_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/medias_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/list_timeline_usecases.dart';
+import 'package:dummy/features/profile/presentation/bloc/account/account_bloc.dart';
 import 'package:dummy/features/profile/presentation/bloc/document_form/document_form_bloc.dart';
 import 'package:dummy/features/profile/presentation/bloc/media_form/media_form_bloc.dart';
 import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';

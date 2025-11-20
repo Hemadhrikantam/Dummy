@@ -7,6 +7,7 @@ import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/dashboard/domain/usecases/dashboard_details_usecases.dart';
+import 'package:dummy/features/profile/presentation/bloc/account/account_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -49,6 +50,7 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
         );
       },
     );
+    currentContext.read<AccountBloc>().add(AccountEvent.init());
   }
 
   void __petName(_PetName event, Emitter<DashboardState> emit) {

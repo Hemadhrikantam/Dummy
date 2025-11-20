@@ -49,6 +49,13 @@ class InjectionBloc {
       editMediaUsecases: getIt<EditMediaUsecases>(),
     );
   }
+  static AccountBloc get accountBloc {
+    return AccountBloc(
+      accountDetailUsecases: getIt<AccountDetailUsecases>(),
+      addAccountUserUsecases: getIt<AddAccountUserUsecases>(),
+      editAccountUsecases: getIt<EditAccountUsecases>(),
+    );
+  }
 
   static DocumentFormBloc get documentFormBloc {
     return DocumentFormBloc(

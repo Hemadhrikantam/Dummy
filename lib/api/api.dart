@@ -30,6 +30,9 @@ String personalitytags = '$__api/pets/personality-tags/';
 String catbreeds = '$__api/pets/cat-breeds/';
 String dogbreeds = '$__api/pets/dog-breeds/';
 String pets = '$__api/account/pets';
+String accountMe = '$__api/account/me';
+String accountUsers = '$__api/account/users';
+String account = '$__api/account';
 // NGO onboarding
 String ngoOnboarding = '$__api/auth/onboarding/ngo';
 String petListing = '$__api/adoption/listings';

@@ -3,6 +3,7 @@ import 'package:dummy/core/payload/payload.dart';
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/profile/domain/entities/documents.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
+import 'package:dummy/features/profile/domain/entities/account_detail.dart';
 import 'package:dummy/features/profile/domain/entities/timeline.dart';
 
 abstract class ProfileRepository {
@@ -24,4 +25,16 @@ abstract class ProfileRepository {
 
   // Timelines
   AppTypeResponse<List<Timeline>> timelines();
+
+  // Account
+  AppTypeResponse<AccountDetail> accountMe();
+  AppSuccessResponse addAccountUser({
+    required String mobileNumber,
+    required String name,
+    required String role,
+  });
+
+  AppSuccessResponse editAccount({
+    required Payload payload,
+  });
 }
