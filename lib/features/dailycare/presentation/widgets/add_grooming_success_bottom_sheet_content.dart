@@ -59,7 +59,8 @@ class AddGroomingSuccessBottomSheetContent extends StatelessWidget {
                       ),
                       children: [
                         TextSpan(
-                          text: "[Pet's Name] shining!",
+                          text:
+                              " ${context.read<DashboardBloc>().state.selectedPet?.name ?? ""} shining!",
                           style: context.textTheme.titleSmall?.copyWith(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -93,7 +94,8 @@ class AddGroomingSuccessBottomSheetContent extends StatelessWidget {
                           ),
                           children: [
                             TextSpan(
-                              text: " [Pet's Name]'s grooming session!",
+                              text:
+                                  " ${context.read<DashboardBloc>().state.selectedPet?.name ?? ""}'s grooming session!",
                               style: context.textTheme.titleSmall?.copyWith(
                                 fontWeight: FontWeight.w700,
                                 color: AppColors.buttonTextColor,

@@ -6,17 +6,19 @@ class AccountUser extends Equatable {
     required this.mobileNumber,
     this.email,
     required this.isActive,
+    required this.username,
     required this.createdAt,
   });
 
   final String id;
   final String mobileNumber;
   final String? email;
+  final String username;
   final bool isActive;
   final DateTime createdAt;
 
   @override
-  List<Object?> get props => [id, mobileNumber, email, isActive, createdAt];
+  List<Object?> get props => [id, mobileNumber, email, isActive, createdAt, username];
 }
 
 class Account extends Equatable {

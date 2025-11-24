@@ -78,14 +78,14 @@ class AddExpensesSuccessBottomSheetContent extends StatelessWidget {
                     child: AppButton(
                       onPressed: () {
                         context.pop();
-                        context.push(PetDairyPage.route());
+                        // context.push(PetDairyPage.route());
                       },
                       borderColor: AppColors.grey500,
                       backgroundColor: AppColors.white,
                       name: RichText(
                         textAlign: TextAlign.center,
                         text: TextSpan(
-                          text: AppText.logAMemoryOfThisPurchase,
+                          text: AppText.close,
                           style: context.textTheme.titleSmall?.copyWith(
                             fontWeight: FontWeight.w700,
                             color: AppColors.buttonTextColor,

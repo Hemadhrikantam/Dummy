@@ -183,7 +183,7 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                           Styles.gap10,
                           BlocBuilder<DewormingFormBloc, DewormingFormState>(
                             builder: (context, state) {
-                              return CustomDropdownSearch(
+                              return CustomStringDropdownSearch(
                                 items: state.reminderBefores,
                                 selectedItem: state.reminderBefore.value,
                                 onChanged: (value) {
@@ -234,7 +234,7 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                                         (index) => DropItemModel(
                                           id: index + 1,
                                           value:
-                                              '${(index + 1) > 9 ? index + 1 : '0${index + 1}'}',
+                                              '${(index) > 9 ? index : '0$index'}',
                                         ),
                                       ),
                                       title: '',
@@ -380,7 +380,8 @@ class __Date extends State<_Date> {
       },
       builder: (context, state) {
         return AppCustomDateField(
-          minDate: DateTime.now().subtract(const Duration(days: 7)),
+          minDate: DateTime.now().subtract(const Duration(days: 30)),
+          maxDate: DateTime.now(),
           selectedDate:
               state.value.isNotEmpty ? DateTime.parse(state.value) : null,
           isMandatory: true,

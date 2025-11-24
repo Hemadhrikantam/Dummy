@@ -1,5 +1,9 @@
 import 'package:dummy/core/constant/app_colors.dart';
+import 'package:dummy/core/enum/status.dart';
+import 'package:dummy/core/widgets/loading_widget.dart';
+import 'package:dummy/features/profile/presentation/bloc/account/account_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/constant/app_text.dart';
 import '../../../../../core/constant/styles.dart';
@@ -13,29 +17,35 @@ class AccountDetailsForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: Styles.edgeInsetsZero,
-      children: [
-        CustomCard(
-          borderColor: AppColors.transparent,
-          child: Stack(
-            children: [
-              Column(
-                children: [
-                  __UserName(),
-                  Styles.gap10,
-                  __EmailAddress(),
-                  Styles.gap10,
-                  __PhoneNumber(),
-                  Styles.gap10,
-                ],
-              ),
-            ],
-          ),
-        ),
-        Styles.gap10,
-        // __ForgotPassword(),
-      ],
+    return BlocBuilder<AccountBloc, AccountState>(
+      builder: (context, state) {
+        return state.initStatus.loading
+            ? LoadingWidget.circularProgressIndicatorCenter
+            : ListView(
+              padding: Styles.edgeInsetsZero,
+              children: [
+                CustomCard(
+                  borderColor: AppColors.transparent,
+                  child: Stack(
+                    children: [
+                      Column(
+                        children: [
+                          __UserName(),
+                          Styles.gap10,
+                          __EmailAddress(),
+                          Styles.gap10,
+                          __PhoneNumber(),
+                          Styles.gap10,
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                Styles.gap10,
+                // __ForgotPassword(),
+              ],
+            );
+      },
     );
   }
 }

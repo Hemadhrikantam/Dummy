@@ -11,8 +11,6 @@ import 'package:dummy/core/payload/dailycare/deworming_payload.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
-import 'package:dummy/features/dailycare/domain/entities/frequency.dart';
-import 'package:dummy/features/dailycare/domain/entities/remind_before.dart';
 import 'package:dummy/features/dailycare/domain/entities/timezone.dart';
 import 'package:dummy/features/dailycare/domain/usecases/add_deworming_usecases.dart';
 import 'package:dummy/features/dailycare/domain/usecases/frequency_usecases.dart';
@@ -78,6 +76,10 @@ class DewormingFormBloc extends Bloc<DewormingFormEvent, DewormingFormState> {
         reminderTimezones:
             timezones.map((e) {
               return DropItemModel(id: e.id, value: e.code);
+            }).toList(),
+        reminderBefores:
+            frequencies.where((f) => f.frequencyType == 'time').map((e) {
+              return DropStringItemModel(id: e.id, value: e.name);
             }).toList(),
       ),
     );
@@ -223,7 +225,7 @@ class DewormingFormBloc extends Bloc<DewormingFormEvent, DewormingFormState> {
     _ReminderBefore event,
     Emitter<DewormingFormState> emit,
   ) {
-    emit(state.copyWith(reminderBefore: DropdownValue.dirty(event.value)));
+    emit(state.copyWith(reminderBefore: DropdownStringValue.dirty(event.value)));
     emit(state.copyWith(validation: state.validationX));
   }
 }

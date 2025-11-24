@@ -11,7 +11,7 @@ class DewormingFormEvent with _$DewormingFormEvent {
   const factory DewormingFormEvent.frequency(DropStringItem value) = _Frequency;
   const factory DewormingFormEvent.reminderTimezone(DropItem value) =
       _ReminderTimezone;
-  const factory DewormingFormEvent.reminderBefore(DropItem value) =
+  const factory DewormingFormEvent.reminderBefore(DropStringItem value) =
       _ReminderBefore;
   const factory DewormingFormEvent.reminderHour(DropItem value) = _ReminderHour;
   const factory DewormingFormEvent.reminderMin(DropItem value) = _ReminderMin;

@@ -45,10 +45,13 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
         state.copyWith(
           accountDetails: detail,
           phone: detail.user.mobileNumber,
+          email: detail.user.email ?? '',
+          username: detail.user.username,
           initStatus: Status.success,
         ),
       );
     });
+    emit(state.copyWith(initStatus: Status.init));
   }
 
   Future<void> _onAddMemberSubmit(
@@ -76,7 +79,6 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
             state.copyWith(
               accountDetails: detail,
               addMemberStatus: Status.success,
-              // Clear form fields after success
               memberName: '',
               memberPhone: '',
               memberRole: '',
@@ -104,18 +106,21 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
     result.fold(
       (error) => emit(state.copyWith(editAccountStatus: Status.error)),
       (success) async {
-        // Refresh account details to reflect updates
         final refresh = await _accountDetailUsecases();
         refresh.fold(
           (err) => emit(state.copyWith(editAccountStatus: Status.success)),
           (detail) => emit(
             state.copyWith(
               accountDetails: detail,
+              phone: detail.user.mobileNumber,
+              email: detail.user.email ?? '',
+              username: detail.user.username,
               editAccountStatus: Status.success,
             ),
           ),
         );
       },
     );
+    emit(state.copyWith(editAccountStatus: Status.init));
   }
 }

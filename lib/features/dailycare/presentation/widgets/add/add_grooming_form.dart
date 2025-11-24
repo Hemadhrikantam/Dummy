@@ -190,7 +190,8 @@ class __Date extends State<_Date> {
       },
       builder: (context, state) {
         return AppCustomDateField(
-          minDate: DateTime.now().subtract(const Duration(days: 7)),
+          minDate: DateTime.now().subtract(const Duration(days: 30)),
+          maxDate: DateTime.now(),
           selectedDate:
               state.value.isEmpty ? null : DateTime.parse(state.value),
           onChange: (value) {

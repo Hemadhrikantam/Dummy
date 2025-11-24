@@ -77,14 +77,15 @@ class AddDewormingSuccessBottomSheetContent extends StatelessWidget {
                     child: AppButton(
                       onPressed: () {
                         context.pop();
-                        context.push(PetDairyPage.route());
+                        // context.push(PetDairyPage.route());
                       },
                       borderColor: AppColors.grey500,
                       backgroundColor: AppColors.white,
                       name: RichText(
                         textAlign: TextAlign.center,
                         text: TextSpan(
-                          text: AppText.addDewormingTo,
+                          text: AppText.close,
+                          // AppText.addDewormingTo,
                           style: context.textTheme.titleSmall?.copyWith(
                             fontWeight: FontWeight.w700,
                             color: AppColors.buttonTextColor,
@@ -93,7 +94,8 @@ class AddDewormingSuccessBottomSheetContent extends StatelessWidget {
                           ),
                           children: [
                             TextSpan(
-                              text: " [Pet's Name]'s medication list!",
+                              text: "",
+                              //  " ${context.read<DashboardBloc>().state.selectedPet?.name ?? ""}'s medication list!",
                               style: context.textTheme.titleSmall?.copyWith(
                                 fontWeight: FontWeight.w700,
                                 color: AppColors.buttonTextColor,

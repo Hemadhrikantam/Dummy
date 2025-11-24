@@ -78,8 +78,8 @@ class _AddMealFormState extends State<AddMealForm> {
                                       items: List.generate(
                                         24,
                                         (index) => DropItemModel(
-                                          id: index + 1,
-                                          value: (index + 1).toString().padLeft(
+                                          id: index,
+                                          value: (index).toString().padLeft(
                                             2,
                                             '0',
                                           ),
@@ -243,7 +243,8 @@ class __Date extends State<_Date> {
       },
       builder: (context, state) {
         return AppCustomDateField(
-          minDate: DateTime.now().subtract(const Duration(days: 7)),
+          minDate: DateTime.now().subtract(const Duration(days: 30)),
+          maxDate: DateTime.now(),
           selectedDate:
               state.value.isNotEmpty ? DateTime.parse(state.value) : null,
           isMandatory: true,

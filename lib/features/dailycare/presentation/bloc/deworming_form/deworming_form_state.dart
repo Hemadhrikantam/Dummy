@@ -17,11 +17,11 @@ abstract class DewormingFormState with _$DewormingFormState {
 
     @Default(DropdownStringValue.pure()) DropdownStringValue frequency,
     @Default(DropdownValue.pure()) DropdownValue reminderTimezone,
-    @Default(DropdownValue.pure()) DropdownValue reminderBefore,
+    @Default(DropdownStringValue.pure()) DropdownStringValue reminderBefore,
 
     @Default([]) List<DropStringItem> frequencies,
     @Default([]) List<DropItem> reminderTimezones,
-    @Default([]) List<DropItem> reminderBefores,
+    @Default([]) List<DropStringItem> reminderBefores,
 
     @Default(false) bool validation,
     @Default('') String petId,

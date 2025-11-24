@@ -47,6 +47,7 @@ class AccountDetailModel extends AccountDetail {
       id: _cleanReq(userMap['id']),
       mobileNumber: _cleanReq(userMap['mobile_number']),
       email: _clean(userMap['email']),
+      username: _cleanReq(userMap['username']),
       isActive: _parseBool(userMap['is_active']),
       createdAt: _parseDate(userMap['created_at']),
     );
