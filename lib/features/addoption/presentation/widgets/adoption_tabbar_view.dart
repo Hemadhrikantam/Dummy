@@ -10,10 +10,8 @@ import 'package:dummy/features/addoption/presentation/bloc/adoption/adoption_blo
 import 'package:dummy/features/addoption/presentation/pages/adoption_details_page.dart';
 import 'package:dummy/features/health/presentation/widgets/empty_list_page.dart';
 import 'package:dummy/features/ngo/presentation/widgets/ngo_adoption_card.dart';
-import 'package:dummy/features/ngo/presentation/widgets/ngo_adoption_details_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'adoption_card.dart';
 
 class AdoptiontabbarView extends StatefulWidget {
   const AdoptiontabbarView({super.key, required this.tab});

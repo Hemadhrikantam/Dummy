@@ -123,3 +123,8 @@ String medicationServing(String id, String date) =>
 String registerDevice = '$__api/auth/device';
 String publicPresign = '$__api/upload/public/presign';
 String presign = '$__api/upload/presign';
+
+//AI
+String aiStream = '$__api/ai/stream';
+String aiChatHistory = '$__api/ai/history';
+String aiUsage = '$__api/ai/usage';

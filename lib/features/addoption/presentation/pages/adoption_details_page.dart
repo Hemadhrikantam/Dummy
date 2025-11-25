@@ -2,7 +2,6 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
-import 'package:dummy/features/addoption/domain/entities/adoption.dart';
 import 'package:dummy/features/addoption/presentation/bloc/adoption/adoption_bloc.dart';
 import 'package:dummy/features/ngo/domain/entities/listing.dart';
 import 'package:dummy/features/ngo/presentation/widgets/ngo_adoption_details_card.dart';
@@ -12,7 +11,6 @@ import '../../../../core/constant/app_colors.dart';
 import '../../../../core/widgets/base_screen.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
 import '../../../../core/widgets/buttons/app_text_button.dart';
-import '../widgets/adoption_details_card.dart';
 
 class AdoptionDetailsPage extends StatelessWidget {
   const AdoptionDetailsPage({super.key, this.adoption, this.allTab = false});

@@ -1,11 +1,9 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
-import 'package:dummy/features/addoption/domain/entities/adoption.dart';
 import 'package:dummy/features/ngo/domain/entities/listing.dart';
 import 'package:dummy/features/ngo/presentation/widgets/ngo_adoption_details_card.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/widgets/base_screen.dart';
-import '../widgets/adoption_details_card.dart';
 
 class AllAdoptionDetailsPage extends StatelessWidget {
   const AllAdoptionDetailsPage({super.key, this.adoption});

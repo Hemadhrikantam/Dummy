@@ -2,7 +2,6 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/breed.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/models/drop_item.dart';
-import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/email.dart';
 import 'package:dummy/core/models/formz/mobile.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
