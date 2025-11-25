@@ -128,3 +128,4 @@ String presign = '$__api/upload/presign';
 String aiStream = '$__api/ai/stream';
 String aiChatHistory = '$__api/ai/history';
 String aiUsage = '$__api/ai/usage';
+String aiChat = '$__api/ai/chat';

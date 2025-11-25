@@ -71,7 +71,6 @@ import 'package:dummy/features/health/presentation/bloc/medication_details/medic
 import 'package:dummy/features/health/presentation/bloc/medication_form/medication_form_bloc.dart';
 import 'package:dummy/features/health/presentation/bloc/vaccination_details/vaccination_details_bloc.dart';
 import 'package:dummy/features/health/presentation/bloc/vaccination_log_form/vaccination_log_form_bloc.dart';
-import 'package:dummy/features/health/presentation/pages/edit_vaccination_page.dart';
 import 'package:dummy/features/ngo/domain/usecases/pet_listing_usecase.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource_impl.dart';
@@ -113,6 +112,15 @@ import 'package:dummy/features/ngo/presentation/bloc/listing_form/listing_form_b
 import 'package:dummy/features/profile/presentation/bloc/vet_near_me/vet_near_me_bloc.dart';
 import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/pet_image_usecases.dart';
+import 'package:dummy/features/wag/data/datasources/wag_datasource.dart';
+import 'package:dummy/features/wag/data/datasources/wag_datasource_impl.dart';
+import 'package:dummy/features/wag/data/repositories/wag_repository_impl.dart';
+import 'package:dummy/features/wag/domain/repositories/wag_repository.dart';
+import 'package:dummy/features/wag/domain/usecases/ai_stream_usecases.dart';
+import 'package:dummy/features/wag/domain/usecases/send_chat_usecases.dart';
+import 'package:dummy/features/wag/domain/usecases/ai_chat_history_usecases.dart';
+import 'package:dummy/features/wag/domain/usecases/ai_usage_usecases.dart';
+import 'package:dummy/features/wag/presentation/bloc/wag_ai/wag_ai_bloc.dart';
 import 'package:dummy/service/app_http_service.dart';
 import 'package:dummy/service/local_storage_service.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -171,6 +179,7 @@ part 'injection_daily_care.dart';
 part 'injection_health.dart';
 part 'injection_adoption.dart';
 part 'injection_ngo.dart';
+part 'injection_wag.dart';
 
 final GetIt getIt = GetIt.instance;
 
@@ -191,5 +200,6 @@ class Injection {
     await __healthDependencies();
     await __adoptionDependencies();
     await __ngoDependencies();
+    await __wagDependencies();
   }
 }

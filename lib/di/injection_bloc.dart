@@ -22,6 +22,15 @@ class InjectionBloc {
     );
   }
 
+  static WagAiBloc get wagAiBloc {
+    return WagAiBloc(
+      aiStreamUsecases: getIt<AiStreamUsecases>(),
+      sendChatUsecases: getIt<SendChatUsecases>(),
+      aiChatHistoryUsecases: getIt<AiChatHistoryUsecases>(),
+      aiUsageUsecases: getIt<AiUsageUsecases>(),
+    );
+  }
+
   static PetFormBloc get petFormBloc {
     return PetFormBloc(
       uploadFileUsecases: getIt<UploadFileUsecases>(),
@@ -49,6 +58,7 @@ class InjectionBloc {
       editMediaUsecases: getIt<EditMediaUsecases>(),
     );
   }
+
   static AccountBloc get accountBloc {
     return AccountBloc(
       accountDetailUsecases: getIt<AccountDetailUsecases>(),

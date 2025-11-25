@@ -1,5 +1,7 @@
 import 'package:dummy/core/constant/app_colors.dart';
+import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/wag/presentation/bloc/wag_ai/wag_ai_bloc.dart';
 import 'package:dummy/features/wag/presentation/widgets/chat_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,7 +14,11 @@ class WagPage extends StatefulWidget {
 
   static Route<T> route<T>() {
     return MaterialPageRoute<T>(
-      builder: (context) => const WagPage(),
+      builder:
+          (context) => BlocProvider(
+            create: (context) => InjectionBloc.wagAiBloc,
+            child: const WagPage(),
+          ),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -22,6 +28,12 @@ class WagPage extends StatefulWidget {
 }
 
 class _WagPage extends State<WagPage> {
+  @override
+  initState() {
+    super.initState();
+    context.read<WagAiBloc>().add(const WagAiEvent.initialization());
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DashboardBloc, DashboardState>(

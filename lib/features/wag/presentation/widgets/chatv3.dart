@@ -1,8 +1,19 @@
+import 'dart:convert';
+
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/utils/app_utils.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/features/wag/presentation/widgets/attachment_card.dart';
+import 'package:dummy/features/wag/presentation/widgets/stream_ai.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:dummy/di/injection.dart';
+import 'package:dummy/features/wag/presentation/bloc/wag_ai/wag_ai_bloc.dart';
+import 'package:dummy/features/wag/domain/usecases/ai_stream_usecases.dart';
+import 'package:dummy/features/wag/domain/usecases/send_chat_usecases.dart';
+import 'package:dummy/features/wag/domain/usecases/ai_chat_history_usecases.dart';
+import 'package:dummy/features/wag/domain/usecases/ai_usage_usecases.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:rive/rive.dart';
 
@@ -58,48 +69,119 @@ class _ChatPage1State extends State<ChatPage1> {
     });
   }
 
+  Stream<String> mergedContentStream() async* {
+    String buffer = "";
+
+    await for (final event in listenSSEWithDio()) {
+      LogUtility.warning('DATA' + event.data.toString());
+      if (_isJson(event.data)) {
+        final jsonData = jsonDecode(event.data!);
+        if (jsonData["type"] == "content") {
+          buffer += jsonData["content"];
+          yield buffer; // update UI
+        }
+      }
+    }
+  }
+
+  bool _isJson(String? text) {
+    if (text == null) return false;
+    try {
+      jsonDecode(text);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          child: Padding(
-            padding: Styles.edgeInsetsOnlyH00,
-            child:
-                isLessing
-                    ? LesseningAI(
-                      callback: () => setState(() => isLessing = false),
-                    )
-                    : messages.isEmpty
-                    ? EmptyScreen()
-                    : AppCustomListViewBuilder(
-                      shrinkWrap: true,
-                      isExpand: false,
-                      reverse: true,
-                      controller: _scrollController,
-                      padding: Styles.edgeInsetsOnlyH00,
-                      itemCount: messages.length,
-                      itemBuilder: (context, index) {
-                        // final isMe = true;
-                        final message = messages[index];
-                        return Messages(
-                          isUser: message.isUser,
-                          message: message.message,
-                          date: message.date.toString(),
-                        );
-                      },
-                    ),
+    return BlocProvider(
+      create:
+          (_) => WagAiBloc(
+            aiStreamUsecases: getIt<AiStreamUsecases>(),
+            sendChatUsecases: getIt<SendChatUsecases>(),
+            aiChatHistoryUsecases: getIt<AiChatHistoryUsecases>(),
+            aiUsageUsecases: getIt<AiUsageUsecases>(),
           ),
+      child: BlocListener<WagAiBloc, WagAiState>(
+        listener: (context, state) {
+          final line = state.message.value;
+          if (line != null && line.isNotEmpty) {
+            setState(() {
+              messages.insert(
+                0,
+                Message(isUser: false, message: line, date: DateTime.now()),
+              );
+            });
+            Future.delayed(const Duration(milliseconds: 100), () {
+              _scrollController.jumpTo(
+                _scrollController.position.minScrollExtent,
+              );
+            });
+          }
+        },
+        child: Column(
+          children: [
+            Expanded(
+              child: StreamBuilder<String>(
+                stream: mergedContentStream(),
+                builder: (context, snapshot) {
+                  return Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Text(
+                      snapshot.data ?? "",
+                      style: TextStyle(fontSize: 18),
+                    ),
+                  );
+                },
+              ),
+            ),
+
+            // Expanded(
+            //   child: Padding(
+            //     padding: Styles.edgeInsetsOnlyH00,
+            //     child:
+            //         isLessing
+            //             ? LesseningAI(
+            //               callback: () => setState(() => isLessing = false),
+            //             )
+            //             : messages.isEmpty
+            //             ? EmptyScreen()
+            //             : AppCustomListViewBuilder(
+            //               shrinkWrap: true,
+            //               isExpand: false,
+            //               reverse: true,
+            //               controller: _scrollController,
+            //               padding: Styles.edgeInsetsOnlyH00,
+            //               itemCount: messages.length,
+            //               itemBuilder: (context, index) {
+            //                 // final isMe = true;
+            //                 final message = messages[index];
+            //                 return Messages(
+            //                   isUser: message.isUser,
+            //                   message: message.message,
+            //                   date: message.date.toString(),
+            //                 );
+            //               },
+            //             ),
+            //   ),
+            // ),
+            !isLessing
+                ? TextForm(
+                  callback: (message) {
+                    _sendMessage(message);
+                    context.read<WagAiBloc>().add(WagAiEvent.chat());
+                  },
+                  onChanged: (value) {
+                    context.read<WagAiBloc>().add(WagAiEvent.message(value));
+                  },
+                  isLessing: () => setState(() => isLessing = true),
+                )
+                : SizedBox.shrink(),
+          ],
         ),
-        !isLessing
-            ? TextForm(
-              callback: (message) {
-                _sendMessage(message);
-              },
-              isLessing: () => setState(() => isLessing = true),
-            )
-            : SizedBox.shrink(),
-      ],
+      ),
     );
   }
 }
@@ -158,9 +240,15 @@ class LesseningAI extends StatelessWidget {
 }
 
 class TextForm extends StatefulWidget {
-  const TextForm({super.key, required this.isLessing, required this.callback});
+  const TextForm({
+    super.key,
+    required this.isLessing,
+    required this.callback,
+    required this.onChanged,
+  });
   final void Function()? isLessing;
   final void Function(String) callback;
+  final Function(String) onChanged;
   @override
   State<TextForm> createState() => _TextFormState();
 }
@@ -230,6 +318,7 @@ class _TextFormState extends State<TextForm> {
           hintText: 'Enter here',
           onChanged: (value) {
             setState(() {});
+            widget.onChanged(value);
           },
         ),
       ],

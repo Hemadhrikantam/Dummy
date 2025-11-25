@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'dart:io';
-
+import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
@@ -19,6 +20,74 @@ class AppHttpImpl extends AppHttp {
   AppHttpImpl(this._dio, this._storage);
   Future<Options> get defaultHeader async {
     return Options(headers: {'Content-Type': 'application/json'});
+  }
+
+  @override
+  AppTypeResponse<Stream<String>> stream({
+    required String path,
+    Object? data,
+    Options? options,
+    bool token = true,
+    bool petId = false,
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    try {
+      late final Options? tokenHead;
+      if (token) {
+        tokenHead = await _headerWithToken(petId: petId);
+        if (tokenHead == null) {
+          return Left(ErrorMessage(message: AppText.sessionOut));
+        }
+      }
+
+      final baseHeaders =
+          token
+              ? (tokenHead!.headers ?? {})
+              : (options?.headers ?? (await defaultHeader).headers ?? {});
+
+      final effectiveHeaders = <String, dynamic>{
+        ...baseHeaders,
+        'Accept': 'text/event-stream',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+      };
+
+      final effectiveOptions = Options(
+        headers: effectiveHeaders,
+        responseType: ResponseType.stream,
+      );
+
+      final response = await _dio.get(
+        path,
+        data: data,
+        options: effectiveOptions,
+        queryParameters: queryParameters,
+      );
+
+      final byteStream = response.data.stream.map((bytes) => bytes.toList());
+      final textStream = utf8.decoder.bind(byteStream);
+      final lineStream = const LineSplitter().bind(textStream);
+      final stream = lineStream
+          .map((String line) {
+            LogUtility.warning('LINE' + line);
+            final trimmed = line.trim();
+            if (trimmed.startsWith('data:')) {
+              return trimmed.substring(5).trim();
+            }
+            return trimmed;
+          })
+          .where((String line) => line.isNotEmpty);
+
+      return Right(stream);
+    } on DioException catch (dioError) {
+      return Left(_dioErroParse(dioError));
+    } on SocketException catch (_) {
+      return Left(ErrorResponse.socketException);
+    } on FormatException catch (_) {
+      return Left(ErrorResponse.formatException);
+    } on TimeoutException catch (_) {
+      return Left(ErrorResponse.timeOutException);
+    }
   }
 
   final Dio _dio;
@@ -276,8 +345,7 @@ class AppHttpImpl extends AppHttp {
           'Authorization': 'Bearer $token',
           'Content-Type': 'application/json',
           if (petId)
-            'petId':
-                currentContext.read<DashboardBloc>().state.selectedPetId,
+            'petId': currentContext.read<DashboardBloc>().state.selectedPetId,
         },
       );
     }

@@ -2,7 +2,6 @@ import 'package:dio/dio.dart';
 
 import '../core/utils/type_def.dart';
 
-
 abstract class AppHttp {
   AppHttpResponse post({
     required String path,
@@ -50,6 +49,15 @@ abstract class AppHttp {
   });
 
   AppHttpResponse putFile({
+    required String path,
+    Object? data,
+    Options? options,
+    bool token = true,
+    bool petId = false,
+    Map<String, dynamic>? queryParameters,
+  });
+
+  AppTypeResponse<Stream<String>> stream({
     required String path,
     Object? data,
     Options? options,

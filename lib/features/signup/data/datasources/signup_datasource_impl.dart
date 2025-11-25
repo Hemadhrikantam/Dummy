@@ -27,7 +27,6 @@ class SignupDatasourceImpl extends SignupDatasource {
     final response = await http.get(path: api.catbreeds, token: false);
     return response.fold(
       (error) {
-        print(error);
         return Left(ErrorMessage(message: error.message));
       },
       (success) async {
