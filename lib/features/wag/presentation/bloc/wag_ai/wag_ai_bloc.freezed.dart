@@ -23,6 +23,7 @@ mixin _$WagAiEvent {
     required TResult Function() chat,
     required TResult Function(String value) message,
     required TResult Function(List<String> images) images,
+    required TResult Function() loadHistory,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -30,6 +31,7 @@ mixin _$WagAiEvent {
     TResult? Function()? chat,
     TResult? Function(String value)? message,
     TResult? Function(List<String> images)? images,
+    TResult? Function()? loadHistory,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -37,6 +39,7 @@ mixin _$WagAiEvent {
     TResult Function()? chat,
     TResult Function(String value)? message,
     TResult Function(List<String> images)? images,
+    TResult Function()? loadHistory,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -45,6 +48,7 @@ mixin _$WagAiEvent {
     required TResult Function(_Chat value) chat,
     required TResult Function(_Message value) message,
     required TResult Function(_Images value) images,
+    required TResult Function(_LoadHistory value) loadHistory,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -52,6 +56,7 @@ mixin _$WagAiEvent {
     TResult? Function(_Chat value)? chat,
     TResult? Function(_Message value)? message,
     TResult? Function(_Images value)? images,
+    TResult? Function(_LoadHistory value)? loadHistory,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -59,6 +64,7 @@ mixin _$WagAiEvent {
     TResult Function(_Chat value)? chat,
     TResult Function(_Message value)? message,
     TResult Function(_Images value)? images,
+    TResult Function(_LoadHistory value)? loadHistory,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -140,6 +146,7 @@ class _$InitializationImpl
     required TResult Function() chat,
     required TResult Function(String value) message,
     required TResult Function(List<String> images) images,
+    required TResult Function() loadHistory,
   }) {
     return initialization();
   }
@@ -151,6 +158,7 @@ class _$InitializationImpl
     TResult? Function()? chat,
     TResult? Function(String value)? message,
     TResult? Function(List<String> images)? images,
+    TResult? Function()? loadHistory,
   }) {
     return initialization?.call();
   }
@@ -162,6 +170,7 @@ class _$InitializationImpl
     TResult Function()? chat,
     TResult Function(String value)? message,
     TResult Function(List<String> images)? images,
+    TResult Function()? loadHistory,
     required TResult orElse(),
   }) {
     if (initialization != null) {
@@ -177,6 +186,7 @@ class _$InitializationImpl
     required TResult Function(_Chat value) chat,
     required TResult Function(_Message value) message,
     required TResult Function(_Images value) images,
+    required TResult Function(_LoadHistory value) loadHistory,
   }) {
     return initialization(this);
   }
@@ -188,6 +198,7 @@ class _$InitializationImpl
     TResult? Function(_Chat value)? chat,
     TResult? Function(_Message value)? message,
     TResult? Function(_Images value)? images,
+    TResult? Function(_LoadHistory value)? loadHistory,
   }) {
     return initialization?.call(this);
   }
@@ -199,6 +210,7 @@ class _$InitializationImpl
     TResult Function(_Chat value)? chat,
     TResult Function(_Message value)? message,
     TResult Function(_Images value)? images,
+    TResult Function(_LoadHistory value)? loadHistory,
     required TResult orElse(),
   }) {
     if (initialization != null) {
@@ -263,6 +275,7 @@ class _$ChatImpl with DiagnosticableTreeMixin implements _Chat {
     required TResult Function() chat,
     required TResult Function(String value) message,
     required TResult Function(List<String> images) images,
+    required TResult Function() loadHistory,
   }) {
     return chat();
   }
@@ -274,6 +287,7 @@ class _$ChatImpl with DiagnosticableTreeMixin implements _Chat {
     TResult? Function()? chat,
     TResult? Function(String value)? message,
     TResult? Function(List<String> images)? images,
+    TResult? Function()? loadHistory,
   }) {
     return chat?.call();
   }
@@ -285,6 +299,7 @@ class _$ChatImpl with DiagnosticableTreeMixin implements _Chat {
     TResult Function()? chat,
     TResult Function(String value)? message,
     TResult Function(List<String> images)? images,
+    TResult Function()? loadHistory,
     required TResult orElse(),
   }) {
     if (chat != null) {
@@ -300,6 +315,7 @@ class _$ChatImpl with DiagnosticableTreeMixin implements _Chat {
     required TResult Function(_Chat value) chat,
     required TResult Function(_Message value) message,
     required TResult Function(_Images value) images,
+    required TResult Function(_LoadHistory value) loadHistory,
   }) {
     return chat(this);
   }
@@ -311,6 +327,7 @@ class _$ChatImpl with DiagnosticableTreeMixin implements _Chat {
     TResult? Function(_Chat value)? chat,
     TResult? Function(_Message value)? message,
     TResult? Function(_Images value)? images,
+    TResult? Function(_LoadHistory value)? loadHistory,
   }) {
     return chat?.call(this);
   }
@@ -322,6 +339,7 @@ class _$ChatImpl with DiagnosticableTreeMixin implements _Chat {
     TResult Function(_Chat value)? chat,
     TResult Function(_Message value)? message,
     TResult Function(_Images value)? images,
+    TResult Function(_LoadHistory value)? loadHistory,
     required TResult orElse(),
   }) {
     if (chat != null) {
@@ -417,6 +435,7 @@ class _$MessageImpl with DiagnosticableTreeMixin implements _Message {
     required TResult Function() chat,
     required TResult Function(String value) message,
     required TResult Function(List<String> images) images,
+    required TResult Function() loadHistory,
   }) {
     return message(value);
   }
@@ -428,6 +447,7 @@ class _$MessageImpl with DiagnosticableTreeMixin implements _Message {
     TResult? Function()? chat,
     TResult? Function(String value)? message,
     TResult? Function(List<String> images)? images,
+    TResult? Function()? loadHistory,
   }) {
     return message?.call(value);
   }
@@ -439,6 +459,7 @@ class _$MessageImpl with DiagnosticableTreeMixin implements _Message {
     TResult Function()? chat,
     TResult Function(String value)? message,
     TResult Function(List<String> images)? images,
+    TResult Function()? loadHistory,
     required TResult orElse(),
   }) {
     if (message != null) {
@@ -454,6 +475,7 @@ class _$MessageImpl with DiagnosticableTreeMixin implements _Message {
     required TResult Function(_Chat value) chat,
     required TResult Function(_Message value) message,
     required TResult Function(_Images value) images,
+    required TResult Function(_LoadHistory value) loadHistory,
   }) {
     return message(this);
   }
@@ -465,6 +487,7 @@ class _$MessageImpl with DiagnosticableTreeMixin implements _Message {
     TResult? Function(_Chat value)? chat,
     TResult? Function(_Message value)? message,
     TResult? Function(_Images value)? images,
+    TResult? Function(_LoadHistory value)? loadHistory,
   }) {
     return message?.call(this);
   }
@@ -476,6 +499,7 @@ class _$MessageImpl with DiagnosticableTreeMixin implements _Message {
     TResult Function(_Chat value)? chat,
     TResult Function(_Message value)? message,
     TResult Function(_Images value)? images,
+    TResult Function(_LoadHistory value)? loadHistory,
     required TResult orElse(),
   }) {
     if (message != null) {
@@ -585,6 +609,7 @@ class _$ImagesImpl with DiagnosticableTreeMixin implements _Images {
     required TResult Function() chat,
     required TResult Function(String value) message,
     required TResult Function(List<String> images) images,
+    required TResult Function() loadHistory,
   }) {
     return images(this.images);
   }
@@ -596,6 +621,7 @@ class _$ImagesImpl with DiagnosticableTreeMixin implements _Images {
     TResult? Function()? chat,
     TResult? Function(String value)? message,
     TResult? Function(List<String> images)? images,
+    TResult? Function()? loadHistory,
   }) {
     return images?.call(this.images);
   }
@@ -607,6 +633,7 @@ class _$ImagesImpl with DiagnosticableTreeMixin implements _Images {
     TResult Function()? chat,
     TResult Function(String value)? message,
     TResult Function(List<String> images)? images,
+    TResult Function()? loadHistory,
     required TResult orElse(),
   }) {
     if (images != null) {
@@ -622,6 +649,7 @@ class _$ImagesImpl with DiagnosticableTreeMixin implements _Images {
     required TResult Function(_Chat value) chat,
     required TResult Function(_Message value) message,
     required TResult Function(_Images value) images,
+    required TResult Function(_LoadHistory value) loadHistory,
   }) {
     return images(this);
   }
@@ -633,6 +661,7 @@ class _$ImagesImpl with DiagnosticableTreeMixin implements _Images {
     TResult? Function(_Chat value)? chat,
     TResult? Function(_Message value)? message,
     TResult? Function(_Images value)? images,
+    TResult? Function(_LoadHistory value)? loadHistory,
   }) {
     return images?.call(this);
   }
@@ -644,6 +673,7 @@ class _$ImagesImpl with DiagnosticableTreeMixin implements _Images {
     TResult Function(_Chat value)? chat,
     TResult Function(_Message value)? message,
     TResult Function(_Images value)? images,
+    TResult Function(_LoadHistory value)? loadHistory,
     required TResult orElse(),
   }) {
     if (images != null) {
@@ -666,14 +696,154 @@ abstract class _Images implements WagAiEvent {
 }
 
 /// @nodoc
+abstract class _$$LoadHistoryImplCopyWith<$Res> {
+  factory _$$LoadHistoryImplCopyWith(
+    _$LoadHistoryImpl value,
+    $Res Function(_$LoadHistoryImpl) then,
+  ) = __$$LoadHistoryImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$LoadHistoryImplCopyWithImpl<$Res>
+    extends _$WagAiEventCopyWithImpl<$Res, _$LoadHistoryImpl>
+    implements _$$LoadHistoryImplCopyWith<$Res> {
+  __$$LoadHistoryImplCopyWithImpl(
+    _$LoadHistoryImpl _value,
+    $Res Function(_$LoadHistoryImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of WagAiEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$LoadHistoryImpl with DiagnosticableTreeMixin implements _LoadHistory {
+  const _$LoadHistoryImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WagAiEvent.loadHistory()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'WagAiEvent.loadHistory'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$LoadHistoryImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialization,
+    required TResult Function() chat,
+    required TResult Function(String value) message,
+    required TResult Function(List<String> images) images,
+    required TResult Function() loadHistory,
+  }) {
+    return loadHistory();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialization,
+    TResult? Function()? chat,
+    TResult? Function(String value)? message,
+    TResult? Function(List<String> images)? images,
+    TResult? Function()? loadHistory,
+  }) {
+    return loadHistory?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialization,
+    TResult Function()? chat,
+    TResult Function(String value)? message,
+    TResult Function(List<String> images)? images,
+    TResult Function()? loadHistory,
+    required TResult orElse(),
+  }) {
+    if (loadHistory != null) {
+      return loadHistory();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Chat value) chat,
+    required TResult Function(_Message value) message,
+    required TResult Function(_Images value) images,
+    required TResult Function(_LoadHistory value) loadHistory,
+  }) {
+    return loadHistory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Chat value)? chat,
+    TResult? Function(_Message value)? message,
+    TResult? Function(_Images value)? images,
+    TResult? Function(_LoadHistory value)? loadHistory,
+  }) {
+    return loadHistory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialization value)? initialization,
+    TResult Function(_Chat value)? chat,
+    TResult Function(_Message value)? message,
+    TResult Function(_Images value)? images,
+    TResult Function(_LoadHistory value)? loadHistory,
+    required TResult orElse(),
+  }) {
+    if (loadHistory != null) {
+      return loadHistory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadHistory implements WagAiEvent {
+  const factory _LoadHistory() = _$LoadHistoryImpl;
+}
+
+/// @nodoc
 mixin _$WagAiState {
   Status get initStatus => throw _privateConstructorUsedError;
+  Status get sendChatStatus => throw _privateConstructorUsedError;
   Stream<String>? get stream => throw _privateConstructorUsedError;
+  String get streamResponse => throw _privateConstructorUsedError;
   NotEmpty get message => throw _privateConstructorUsedError;
   List<String> get images => throw _privateConstructorUsedError;
   List<AiMessage> get history => throw _privateConstructorUsedError;
+  AiChatHistory? get historydetails => throw _privateConstructorUsedError;
+  List<Message> get responses => throw _privateConstructorUsedError;
   AiUsage? get usage => throw _privateConstructorUsedError;
-  bool get isSSECOnnected => throw _privateConstructorUsedError;
+  bool get isSSECOnnected =>
+      throw _privateConstructorUsedError; // Pagination state for history
+  int get historyPage => throw _privateConstructorUsedError;
+  int get historyLimit => throw _privateConstructorUsedError;
+  bool get hasMoreHistory => throw _privateConstructorUsedError;
+  Status get historyStatus => throw _privateConstructorUsedError;
 
   /// Create a copy of WagAiState
   /// with the given fields replaced by the non-null parameter values.
@@ -691,12 +861,20 @@ abstract class $WagAiStateCopyWith<$Res> {
   @useResult
   $Res call({
     Status initStatus,
+    Status sendChatStatus,
     Stream<String>? stream,
+    String streamResponse,
     NotEmpty message,
     List<String> images,
     List<AiMessage> history,
+    AiChatHistory? historydetails,
+    List<Message> responses,
     AiUsage? usage,
     bool isSSECOnnected,
+    int historyPage,
+    int historyLimit,
+    bool hasMoreHistory,
+    Status historyStatus,
   });
 }
 
@@ -716,12 +894,20 @@ class _$WagAiStateCopyWithImpl<$Res, $Val extends WagAiState>
   @override
   $Res call({
     Object? initStatus = null,
+    Object? sendChatStatus = null,
     Object? stream = freezed,
+    Object? streamResponse = null,
     Object? message = null,
     Object? images = null,
     Object? history = null,
+    Object? historydetails = freezed,
+    Object? responses = null,
     Object? usage = freezed,
     Object? isSSECOnnected = null,
+    Object? historyPage = null,
+    Object? historyLimit = null,
+    Object? hasMoreHistory = null,
+    Object? historyStatus = null,
   }) {
     return _then(
       _value.copyWith(
@@ -730,11 +916,21 @@ class _$WagAiStateCopyWithImpl<$Res, $Val extends WagAiState>
                     ? _value.initStatus
                     : initStatus // ignore: cast_nullable_to_non_nullable
                         as Status,
+            sendChatStatus:
+                null == sendChatStatus
+                    ? _value.sendChatStatus
+                    : sendChatStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
             stream:
                 freezed == stream
                     ? _value.stream
                     : stream // ignore: cast_nullable_to_non_nullable
                         as Stream<String>?,
+            streamResponse:
+                null == streamResponse
+                    ? _value.streamResponse
+                    : streamResponse // ignore: cast_nullable_to_non_nullable
+                        as String,
             message:
                 null == message
                     ? _value.message
@@ -750,6 +946,16 @@ class _$WagAiStateCopyWithImpl<$Res, $Val extends WagAiState>
                     ? _value.history
                     : history // ignore: cast_nullable_to_non_nullable
                         as List<AiMessage>,
+            historydetails:
+                freezed == historydetails
+                    ? _value.historydetails
+                    : historydetails // ignore: cast_nullable_to_non_nullable
+                        as AiChatHistory?,
+            responses:
+                null == responses
+                    ? _value.responses
+                    : responses // ignore: cast_nullable_to_non_nullable
+                        as List<Message>,
             usage:
                 freezed == usage
                     ? _value.usage
@@ -760,6 +966,26 @@ class _$WagAiStateCopyWithImpl<$Res, $Val extends WagAiState>
                     ? _value.isSSECOnnected
                     : isSSECOnnected // ignore: cast_nullable_to_non_nullable
                         as bool,
+            historyPage:
+                null == historyPage
+                    ? _value.historyPage
+                    : historyPage // ignore: cast_nullable_to_non_nullable
+                        as int,
+            historyLimit:
+                null == historyLimit
+                    ? _value.historyLimit
+                    : historyLimit // ignore: cast_nullable_to_non_nullable
+                        as int,
+            hasMoreHistory:
+                null == hasMoreHistory
+                    ? _value.hasMoreHistory
+                    : hasMoreHistory // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            historyStatus:
+                null == historyStatus
+                    ? _value.historyStatus
+                    : historyStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
           )
           as $Val,
     );
@@ -777,12 +1003,20 @@ abstract class _$$WagAiStateImplCopyWith<$Res>
   @useResult
   $Res call({
     Status initStatus,
+    Status sendChatStatus,
     Stream<String>? stream,
+    String streamResponse,
     NotEmpty message,
     List<String> images,
     List<AiMessage> history,
+    AiChatHistory? historydetails,
+    List<Message> responses,
     AiUsage? usage,
     bool isSSECOnnected,
+    int historyPage,
+    int historyLimit,
+    bool hasMoreHistory,
+    Status historyStatus,
   });
 }
 
@@ -801,12 +1035,20 @@ class __$$WagAiStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? initStatus = null,
+    Object? sendChatStatus = null,
     Object? stream = freezed,
+    Object? streamResponse = null,
     Object? message = null,
     Object? images = null,
     Object? history = null,
+    Object? historydetails = freezed,
+    Object? responses = null,
     Object? usage = freezed,
     Object? isSSECOnnected = null,
+    Object? historyPage = null,
+    Object? historyLimit = null,
+    Object? hasMoreHistory = null,
+    Object? historyStatus = null,
   }) {
     return _then(
       _$WagAiStateImpl(
@@ -815,11 +1057,21 @@ class __$$WagAiStateImplCopyWithImpl<$Res>
                 ? _value.initStatus
                 : initStatus // ignore: cast_nullable_to_non_nullable
                     as Status,
+        sendChatStatus:
+            null == sendChatStatus
+                ? _value.sendChatStatus
+                : sendChatStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
         stream:
             freezed == stream
                 ? _value.stream
                 : stream // ignore: cast_nullable_to_non_nullable
                     as Stream<String>?,
+        streamResponse:
+            null == streamResponse
+                ? _value.streamResponse
+                : streamResponse // ignore: cast_nullable_to_non_nullable
+                    as String,
         message:
             null == message
                 ? _value.message
@@ -835,6 +1087,16 @@ class __$$WagAiStateImplCopyWithImpl<$Res>
                 ? _value._history
                 : history // ignore: cast_nullable_to_non_nullable
                     as List<AiMessage>,
+        historydetails:
+            freezed == historydetails
+                ? _value.historydetails
+                : historydetails // ignore: cast_nullable_to_non_nullable
+                    as AiChatHistory?,
+        responses:
+            null == responses
+                ? _value._responses
+                : responses // ignore: cast_nullable_to_non_nullable
+                    as List<Message>,
         usage:
             freezed == usage
                 ? _value.usage
@@ -845,6 +1107,26 @@ class __$$WagAiStateImplCopyWithImpl<$Res>
                 ? _value.isSSECOnnected
                 : isSSECOnnected // ignore: cast_nullable_to_non_nullable
                     as bool,
+        historyPage:
+            null == historyPage
+                ? _value.historyPage
+                : historyPage // ignore: cast_nullable_to_non_nullable
+                    as int,
+        historyLimit:
+            null == historyLimit
+                ? _value.historyLimit
+                : historyLimit // ignore: cast_nullable_to_non_nullable
+                    as int,
+        hasMoreHistory:
+            null == hasMoreHistory
+                ? _value.hasMoreHistory
+                : hasMoreHistory // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        historyStatus:
+            null == historyStatus
+                ? _value.historyStatus
+                : historyStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
       ),
     );
   }
@@ -855,21 +1137,36 @@ class __$$WagAiStateImplCopyWithImpl<$Res>
 class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
   _$WagAiStateImpl({
     this.initStatus = Status.init,
+    this.sendChatStatus = Status.init,
     this.stream = null,
+    this.streamResponse = '',
     this.message = const NotEmpty.pure(),
     final List<String> images = const [],
     final List<AiMessage> history = const [],
+    this.historydetails = null,
+    final List<Message> responses = const [],
     this.usage = null,
     this.isSSECOnnected = false,
+    this.historyPage = 1,
+    this.historyLimit = 15,
+    this.hasMoreHistory = true,
+    this.historyStatus = Status.init,
   }) : _images = images,
-       _history = history;
+       _history = history,
+       _responses = responses;
 
   @override
   @JsonKey()
   final Status initStatus;
   @override
   @JsonKey()
+  final Status sendChatStatus;
+  @override
+  @JsonKey()
   final Stream<String>? stream;
+  @override
+  @JsonKey()
+  final String streamResponse;
   @override
   @JsonKey()
   final NotEmpty message;
@@ -893,14 +1190,39 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
 
   @override
   @JsonKey()
+  final AiChatHistory? historydetails;
+  final List<Message> _responses;
+  @override
+  @JsonKey()
+  List<Message> get responses {
+    if (_responses is EqualUnmodifiableListView) return _responses;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_responses);
+  }
+
+  @override
+  @JsonKey()
   final AiUsage? usage;
   @override
   @JsonKey()
   final bool isSSECOnnected;
+  // Pagination state for history
+  @override
+  @JsonKey()
+  final int historyPage;
+  @override
+  @JsonKey()
+  final int historyLimit;
+  @override
+  @JsonKey()
+  final bool hasMoreHistory;
+  @override
+  @JsonKey()
+  final Status historyStatus;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'WagAiState(initStatus: $initStatus, stream: $stream, message: $message, images: $images, history: $history, usage: $usage, isSSECOnnected: $isSSECOnnected)';
+    return 'WagAiState(initStatus: $initStatus, sendChatStatus: $sendChatStatus, stream: $stream, streamResponse: $streamResponse, message: $message, images: $images, history: $history, historydetails: $historydetails, responses: $responses, usage: $usage, isSSECOnnected: $isSSECOnnected, historyPage: $historyPage, historyLimit: $historyLimit, hasMoreHistory: $hasMoreHistory, historyStatus: $historyStatus)';
   }
 
   @override
@@ -909,12 +1231,20 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
     properties
       ..add(DiagnosticsProperty('type', 'WagAiState'))
       ..add(DiagnosticsProperty('initStatus', initStatus))
+      ..add(DiagnosticsProperty('sendChatStatus', sendChatStatus))
       ..add(DiagnosticsProperty('stream', stream))
+      ..add(DiagnosticsProperty('streamResponse', streamResponse))
       ..add(DiagnosticsProperty('message', message))
       ..add(DiagnosticsProperty('images', images))
       ..add(DiagnosticsProperty('history', history))
+      ..add(DiagnosticsProperty('historydetails', historydetails))
+      ..add(DiagnosticsProperty('responses', responses))
       ..add(DiagnosticsProperty('usage', usage))
-      ..add(DiagnosticsProperty('isSSECOnnected', isSSECOnnected));
+      ..add(DiagnosticsProperty('isSSECOnnected', isSSECOnnected))
+      ..add(DiagnosticsProperty('historyPage', historyPage))
+      ..add(DiagnosticsProperty('historyLimit', historyLimit))
+      ..add(DiagnosticsProperty('hasMoreHistory', hasMoreHistory))
+      ..add(DiagnosticsProperty('historyStatus', historyStatus));
   }
 
   @override
@@ -924,25 +1254,51 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
             other is _$WagAiStateImpl &&
             (identical(other.initStatus, initStatus) ||
                 other.initStatus == initStatus) &&
+            (identical(other.sendChatStatus, sendChatStatus) ||
+                other.sendChatStatus == sendChatStatus) &&
             (identical(other.stream, stream) || other.stream == stream) &&
+            (identical(other.streamResponse, streamResponse) ||
+                other.streamResponse == streamResponse) &&
             (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
             const DeepCollectionEquality().equals(other._history, _history) &&
+            (identical(other.historydetails, historydetails) ||
+                other.historydetails == historydetails) &&
+            const DeepCollectionEquality().equals(
+              other._responses,
+              _responses,
+            ) &&
             (identical(other.usage, usage) || other.usage == usage) &&
             (identical(other.isSSECOnnected, isSSECOnnected) ||
-                other.isSSECOnnected == isSSECOnnected));
+                other.isSSECOnnected == isSSECOnnected) &&
+            (identical(other.historyPage, historyPage) ||
+                other.historyPage == historyPage) &&
+            (identical(other.historyLimit, historyLimit) ||
+                other.historyLimit == historyLimit) &&
+            (identical(other.hasMoreHistory, hasMoreHistory) ||
+                other.hasMoreHistory == hasMoreHistory) &&
+            (identical(other.historyStatus, historyStatus) ||
+                other.historyStatus == historyStatus));
   }
 
   @override
   int get hashCode => Object.hash(
     runtimeType,
     initStatus,
+    sendChatStatus,
     stream,
+    streamResponse,
     message,
     const DeepCollectionEquality().hash(_images),
     const DeepCollectionEquality().hash(_history),
+    historydetails,
+    const DeepCollectionEquality().hash(_responses),
     usage,
     isSSECOnnected,
+    historyPage,
+    historyLimit,
+    hasMoreHistory,
+    historyStatus,
   );
 
   /// Create a copy of WagAiState
@@ -957,18 +1313,30 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
 abstract class _WagAiState implements WagAiState {
   factory _WagAiState({
     final Status initStatus,
+    final Status sendChatStatus,
     final Stream<String>? stream,
+    final String streamResponse,
     final NotEmpty message,
     final List<String> images,
     final List<AiMessage> history,
+    final AiChatHistory? historydetails,
+    final List<Message> responses,
     final AiUsage? usage,
     final bool isSSECOnnected,
+    final int historyPage,
+    final int historyLimit,
+    final bool hasMoreHistory,
+    final Status historyStatus,
   }) = _$WagAiStateImpl;
 
   @override
   Status get initStatus;
   @override
+  Status get sendChatStatus;
+  @override
   Stream<String>? get stream;
+  @override
+  String get streamResponse;
   @override
   NotEmpty get message;
   @override
@@ -976,9 +1344,21 @@ abstract class _WagAiState implements WagAiState {
   @override
   List<AiMessage> get history;
   @override
+  AiChatHistory? get historydetails;
+  @override
+  List<Message> get responses;
+  @override
   AiUsage? get usage;
   @override
-  bool get isSSECOnnected;
+  bool get isSSECOnnected; // Pagination state for history
+  @override
+  int get historyPage;
+  @override
+  int get historyLimit;
+  @override
+  bool get hasMoreHistory;
+  @override
+  Status get historyStatus;
 
   /// Create a copy of WagAiState
   /// with the given fields replaced by the non-null parameter values.

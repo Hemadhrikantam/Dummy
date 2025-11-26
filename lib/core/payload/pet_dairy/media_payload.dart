@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import '../../utils/type_def.dart';
 import '../payload.dart';
@@ -21,7 +20,14 @@ class MediaPayload extends Equatable implements Payload {
   final String eventTypeId; // UUID from /enums api
 
   @override
-  List<Object?> get props => [petId, fileUrl, fileType, fileSize, notes, eventTypeId];
+  List<Object?> get props => [
+    petId,
+    fileUrl,
+    fileType,
+    fileSize,
+    notes,
+    eventTypeId,
+  ];
 
   @override
   JsonMap toMap() => {

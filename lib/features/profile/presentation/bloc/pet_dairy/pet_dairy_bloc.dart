@@ -1,12 +1,10 @@
 import 'dart:async';
-
 import 'package:bloc/bloc.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
-import 'package:dummy/features/profile/data/models/timeline_model.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
 import 'package:dummy/features/profile/domain/entities/timeline.dart';
 import 'package:dummy/features/profile/domain/usecases/delete_media_usecases.dart';
@@ -37,7 +35,6 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
        _mediasUsecases = mediasUsecases,
        _listTimelinesUsecases = listTimelinesUsecases,
        _favoriteMediasUsecases = favoriteMediasUsecases,
-       _eventFieldsUsecases = eventFieldsUsecases,
        _deleteMediaUsecases = deleteMediaUsecases,
        _editMediaFavrouteUsecases = editMediaFavrouteUsecases,
        super(const PetDairyState()) {
@@ -53,7 +50,6 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
   final MediasUsecases _mediasUsecases;
   final ListTimelineUsecases _listTimelinesUsecases;
   final FavoriteMediasUsecases _favoriteMediasUsecases;
-  final EventFieldsUsecases _eventFieldsUsecases;
   final DeleteMediaUsecases _deleteMediaUsecases;
   final EditMediaFavrouteUsecases _editMediaFavrouteUsecases;
   Future<void> _initialization(

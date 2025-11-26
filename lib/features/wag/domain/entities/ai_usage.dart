@@ -17,4 +17,3 @@ class AiUsage {
   final DateTime periodResetsAt;
   final int totalTokensUsed;
 }
-

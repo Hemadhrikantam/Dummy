@@ -46,4 +46,3 @@ class AiChatHistory extends Equatable {
   @override
   List<Object?> get props => [messages, pagination];
 }
-

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:io';
+import 'dart:typed_data';
 import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
@@ -64,7 +65,11 @@ class AppHttpImpl extends AppHttp {
         queryParameters: queryParameters,
       );
 
-      final byteStream = response.data.stream.map((bytes) => bytes.toList());
+      // Ensure the byte stream type matches `Stream<List<int>>` for UTF8 decoder
+      final rawStream = response.data.stream as Stream<Uint8List>;
+      final Stream<List<int>> byteStream = rawStream.map<List<int>>(
+        (Uint8List bytes) => bytes,
+      );
       final textStream = utf8.decoder.bind(byteStream);
       final lineStream = const LineSplitter().bind(textStream);
       final stream = lineStream

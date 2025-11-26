@@ -14,8 +14,6 @@ import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/profile/domain/usecases/add_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_media_usecases.dart';
-import 'package:dummy/features/profile/domain/usecases/event_fields_usecases.dart';
-import 'package:dummy/features/profile/domain/usecases/get_media_usecases.dart';
 import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
@@ -86,9 +84,7 @@ class MediaFormBloc extends Bloc<MediaFormEvent, MediaFormState> {
     emit(state.copyWith(submitStatus: Status.loading));
     String url = state.url.value;
     int fileSize = 10;
-    LogUtility.warning('TEST1' + url);
     if (url.isNotEmpty && !url.startsWith('http')) {
-      LogUtility.warning('TEST1' + url);
       final result = await _uploadFileUsecases(
         type: UploadType.pet_diary_media,
         path: url,

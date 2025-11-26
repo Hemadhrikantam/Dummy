@@ -62,4 +62,3 @@ class AiChatHistoryModel extends AiChatHistory {
     return AiChatHistoryModel(messages: messages, pagination: pagination);
   }
 }
-

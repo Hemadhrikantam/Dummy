@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:dummy/core/utils/app_utils.dart';
 import 'package:equatable/equatable.dart';
 import '../../utils/type_def.dart';
@@ -19,10 +18,10 @@ class WalkMediaPayload extends Equatable {
   List<Object?> get props => [fileUrl, fileType, fileSize];
 
   JsonMap toMap() => {
-        'file_url': fileUrl.trim().replaceAll('`', ''),
-        'file_type': fileType,
-        'file_size': fileSize,
-      };
+    'file_url': fileUrl.trim().replaceAll('`', ''),
+    'file_type': fileType,
+    'file_size': fileSize,
+  };
 }
 
 class WalkPayload extends Equatable implements Payload {
@@ -44,21 +43,21 @@ class WalkPayload extends Equatable implements Payload {
 
   @override
   List<Object?> get props => [
-        petId,
-        walkDate,
-        durationMinutes,
-        location,
-        notes,
-        media,
-      ];
+    petId,
+    walkDate,
+    durationMinutes,
+    location,
+    notes,
+    media,
+  ];
 
   @override
   JsonMap toMap() => {
-        'pet_id': petId,
-        'walk_date': AppUtil.formatDate(walkDate),
-        'duration_minutes': durationMinutes,
-        'location': location,
-        'notes': notes,
-        'media': media.map((m) => m.toMap()).toList(),
-      };
+    'pet_id': petId,
+    'walk_date': AppUtil.formatDate(walkDate),
+    'duration_minutes': durationMinutes,
+    'location': location,
+    'notes': notes,
+    'media': media.map((m) => m.toMap()).toList(),
+  };
 }

@@ -3,7 +3,6 @@ import 'package:dummy/core/payload/payload.dart';
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
 import 'package:dummy/features/profile/data/models/media_model.dart';
-import 'package:dummy/features/profile/data/models/timeline_model.dart';
 import 'package:dummy/features/profile/domain/entities/documents.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
 import 'package:dummy/features/profile/domain/entities/timeline.dart';

@@ -10,4 +10,3 @@ class AiUsageUsecases {
     return repository.aiUsage();
   }
 }
-

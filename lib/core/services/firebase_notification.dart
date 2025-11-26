@@ -3,7 +3,6 @@ import 'package:dummy/core/utils/log_utility.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'dart:io' show Platform;
 
 class NotificationService {
   final FirebaseMessaging? _firebaseMessaging;
@@ -17,7 +16,7 @@ class NotificationService {
     LogUtility.warning('Requesting notification permission');
     if (kIsWeb || _firebaseMessaging == null) return;
 
-    final settings = await _firebaseMessaging!.requestPermission(
+    final settings = await _firebaseMessaging.requestPermission(
       alert: true,
       badge: true,
       sound: true,
@@ -35,7 +34,9 @@ class NotificationService {
       if (token != null) {
         LogUtility.info('Notification initialize success with fcm: $token');
       } else {
-        LogUtility.warning('Notification initialize completed, but FCM token is null');
+        LogUtility.warning(
+          'Notification initialize completed, but FCM token is null',
+        );
       }
     } catch (e) {
       LogUtility.error('Failed to fetch FCM token after init: $e');
@@ -54,9 +55,8 @@ class NotificationService {
       LogUtility.warning(
         'Current notification settings: ${settings.authorizationStatus}',
       );
+      await _initializeInternals();
     } catch (_) {}
-
-    await _initializeInternals();
 
     // Log FCM token for backend registration
     try {
@@ -64,7 +64,9 @@ class NotificationService {
       if (token != null) {
         LogUtility.info('Notification initialize success with fcm: $token');
       } else {
-        LogUtility.warning('Notification initialize completed, but FCM token is null');
+        LogUtility.warning(
+          'Notification initialize completed, but FCM token is null',
+        );
       }
     } catch (e) {
       LogUtility.error('Failed to fetch FCM token during initialize: $e');

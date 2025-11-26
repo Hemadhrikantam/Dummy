@@ -2,9 +2,6 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:dummy/core/enum/status.dart';
-import 'package:dummy/features/addoption/domain/entities/adoption.dart';
-import 'package:dummy/features/addoption/domain/usecases/adoption_usecases.dart';
-import 'package:dummy/features/addoption/domain/usecases/all_pets_usecases.dart';
 import 'package:dummy/features/ngo/domain/entities/listing.dart';
 import 'package:dummy/features/ngo/domain/usecases/pet_listing_usecase.dart';
 import 'package:dummy/features/ngo/domain/usecases/mark_adopted_usecase.dart';

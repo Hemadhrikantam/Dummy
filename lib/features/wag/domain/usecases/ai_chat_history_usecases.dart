@@ -10,4 +10,3 @@ class AiChatHistoryUsecases {
     return repository.aiChatHistory(limit: limit, page: page);
   }
 }
-

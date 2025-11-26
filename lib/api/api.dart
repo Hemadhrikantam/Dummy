@@ -1,5 +1,3 @@
-import 'package:dummy/core/utils/app_utils.dart';
-
 const String __dev = 'https://staging.doommi.com';
 
 const String __privateBase = '$__dev/api';

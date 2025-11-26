@@ -5,7 +5,6 @@ import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dar
 import 'package:dummy/features/auth/presentation/pages/ngo_welcome_page.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
 import 'package:dummy/features/dailycare/presentation/pages/dailycare_page.dart';
-import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
 import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/health/presentation/pages/health_page.dart';

@@ -6,4 +6,5 @@ class WagAiEvent with _$WagAiEvent {
   const factory WagAiEvent.chat() = _Chat;
   const factory WagAiEvent.message(String value) = _Message;
   const factory WagAiEvent.images(List<String> images) = _Images;
+  const factory WagAiEvent.loadHistory() = _LoadHistory;
 }

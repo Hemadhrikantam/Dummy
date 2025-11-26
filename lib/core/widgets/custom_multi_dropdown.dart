@@ -41,14 +41,12 @@ class CustomMultiDropdownSearch extends StatefulWidget {
 
 class _CustomMultiDropdownSearchState extends State<CustomMultiDropdownSearch> {
   List<DropItem> _selectedItems = [];
-  List<DropItem> _filteredItems = [];
-  final TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     _selectedItems = List.from(widget.selectedItems);
-    _filteredItems = List.from(widget.items);
+    // _filteredItems = List.from(widget.items);
   }
 
   @override
@@ -63,7 +61,7 @@ class _CustomMultiDropdownSearchState extends State<CustomMultiDropdownSearch> {
     // Keep filtered items in sync when the items list changes
     if (!listEquals(oldWidget.items, widget.items)) {
       setState(() {
-        _filteredItems = List.from(widget.items);
+        // _filteredItems = List.from(widget.items);
       });
     }
   }
@@ -343,14 +341,11 @@ class CustomStringMultiDropdownSearch extends StatefulWidget {
 class _CustomStringMultiDropdownSearch
     extends State<CustomStringMultiDropdownSearch> {
   List<DropStringItem> _selectedItems = [];
-  List<DropStringItem> _filteredItems = [];
-  final TextEditingController _searchController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
     _selectedItems = List.from(widget.selectedItems);
-    _filteredItems = List.from(widget.items);
   }
 
   @override
@@ -364,9 +359,7 @@ class _CustomStringMultiDropdownSearch
     }
     // Keep filtered items in sync when the items list changes
     if (!listEquals(oldWidget.items, widget.items)) {
-      setState(() {
-        _filteredItems = List.from(widget.items);
-      });
+      setState(() {});
     }
   }
 
