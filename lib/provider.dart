@@ -29,6 +29,7 @@ class AppProvider extends StatelessWidget {
         BlocProvider(create: (context) => InjectionBloc.vaccinationDetailsBloc),
         BlocProvider(create: (context) => InjectionBloc.adoptionBloc),
         BlocProvider(create: (context) => InjectionBloc.addAdoptionBloc),
+        BlocProvider(create: (context) => InjectionBloc.wagAiBloc),
       ],
       child: const App(),
     );

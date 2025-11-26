@@ -9,5 +9,6 @@ class WagAiState with _$WagAiState {
     @Default([]) final List<String> images,
     @Default([]) final List<AiMessage> history,
     @Default(null) final AiUsage? usage,
+    @Default(false) final bool isSSECOnnected,
   }) = _WagAiState;
 }

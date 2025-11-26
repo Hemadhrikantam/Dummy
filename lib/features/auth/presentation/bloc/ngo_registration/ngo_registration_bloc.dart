@@ -9,7 +9,6 @@ import 'package:dummy/core/models/formz/mobile.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/models/formz/pin_code.dart';
 import 'package:dummy/core/payload/auth/ngo_onboarding_payload.dart';
-import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/auth/domain/usecases/ngo_registration_usecases.dart';

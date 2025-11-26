@@ -21,7 +21,6 @@ import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/image_resources.dart';
 import '../../../../core/constant/styles.dart';
 import '../../../../core/widgets/app_assets_image.dart';
-import '../../../../core/widgets/app_custom_listview_builder.dart';
 import '../../../../core/widgets/app_custom_text_field.dart';
 import '../../../../core/widgets/app_icon.dart';
 
@@ -38,7 +37,7 @@ class _ChatPage1State extends State<ChatPage1> {
   bool isClicked = false;
   bool isLessing = false;
 
-  void _sendMessage(String message) {
+  void _senfdfddMessage(String message) {
     // Add the user message to the list
     setState(() {
       messages.insert(
@@ -68,6 +67,14 @@ class _ChatPage1State extends State<ChatPage1> {
       });
     });
   }
+  void _scrollToBottom() {
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    if (_scrollController.hasClients) {
+      _scrollController.jumpTo(_scrollController.position.minScrollExtent);
+    }
+  });
+}
+
 
   Stream<String> mergedContentStream() async* {
     String buffer = "";
@@ -170,7 +177,8 @@ class _ChatPage1State extends State<ChatPage1> {
             !isLessing
                 ? TextForm(
                   callback: (message) {
-                    _sendMessage(message);
+                    _scrollToBottom();
+                    // _sendMessage(message);
                     context.read<WagAiBloc>().add(WagAiEvent.chat());
                   },
                   onChanged: (value) {

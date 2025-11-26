@@ -1,10 +1,7 @@
-import 'dart:convert';
-import 'package:dio/dio.dart';
-import 'package:dummy/api/storage_key.dart';
+
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/service/app_http_service.dart';
-import 'package:dummy/service/local_storage_service.dart';
 import '../../../../api/api.dart' as api;
 
 class SSEEvent {

@@ -673,6 +673,7 @@ mixin _$WagAiState {
   List<String> get images => throw _privateConstructorUsedError;
   List<AiMessage> get history => throw _privateConstructorUsedError;
   AiUsage? get usage => throw _privateConstructorUsedError;
+  bool get isSSECOnnected => throw _privateConstructorUsedError;
 
   /// Create a copy of WagAiState
   /// with the given fields replaced by the non-null parameter values.
@@ -695,6 +696,7 @@ abstract class $WagAiStateCopyWith<$Res> {
     List<String> images,
     List<AiMessage> history,
     AiUsage? usage,
+    bool isSSECOnnected,
   });
 }
 
@@ -719,6 +721,7 @@ class _$WagAiStateCopyWithImpl<$Res, $Val extends WagAiState>
     Object? images = null,
     Object? history = null,
     Object? usage = freezed,
+    Object? isSSECOnnected = null,
   }) {
     return _then(
       _value.copyWith(
@@ -752,6 +755,11 @@ class _$WagAiStateCopyWithImpl<$Res, $Val extends WagAiState>
                     ? _value.usage
                     : usage // ignore: cast_nullable_to_non_nullable
                         as AiUsage?,
+            isSSECOnnected:
+                null == isSSECOnnected
+                    ? _value.isSSECOnnected
+                    : isSSECOnnected // ignore: cast_nullable_to_non_nullable
+                        as bool,
           )
           as $Val,
     );
@@ -774,6 +782,7 @@ abstract class _$$WagAiStateImplCopyWith<$Res>
     List<String> images,
     List<AiMessage> history,
     AiUsage? usage,
+    bool isSSECOnnected,
   });
 }
 
@@ -797,6 +806,7 @@ class __$$WagAiStateImplCopyWithImpl<$Res>
     Object? images = null,
     Object? history = null,
     Object? usage = freezed,
+    Object? isSSECOnnected = null,
   }) {
     return _then(
       _$WagAiStateImpl(
@@ -830,6 +840,11 @@ class __$$WagAiStateImplCopyWithImpl<$Res>
                 ? _value.usage
                 : usage // ignore: cast_nullable_to_non_nullable
                     as AiUsage?,
+        isSSECOnnected:
+            null == isSSECOnnected
+                ? _value.isSSECOnnected
+                : isSSECOnnected // ignore: cast_nullable_to_non_nullable
+                    as bool,
       ),
     );
   }
@@ -845,6 +860,7 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
     final List<String> images = const [],
     final List<AiMessage> history = const [],
     this.usage = null,
+    this.isSSECOnnected = false,
   }) : _images = images,
        _history = history;
 
@@ -878,10 +894,13 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
   @override
   @JsonKey()
   final AiUsage? usage;
+  @override
+  @JsonKey()
+  final bool isSSECOnnected;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'WagAiState(initStatus: $initStatus, stream: $stream, message: $message, images: $images, history: $history, usage: $usage)';
+    return 'WagAiState(initStatus: $initStatus, stream: $stream, message: $message, images: $images, history: $history, usage: $usage, isSSECOnnected: $isSSECOnnected)';
   }
 
   @override
@@ -894,7 +913,8 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
       ..add(DiagnosticsProperty('message', message))
       ..add(DiagnosticsProperty('images', images))
       ..add(DiagnosticsProperty('history', history))
-      ..add(DiagnosticsProperty('usage', usage));
+      ..add(DiagnosticsProperty('usage', usage))
+      ..add(DiagnosticsProperty('isSSECOnnected', isSSECOnnected));
   }
 
   @override
@@ -908,7 +928,9 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
             (identical(other.message, message) || other.message == message) &&
             const DeepCollectionEquality().equals(other._images, _images) &&
             const DeepCollectionEquality().equals(other._history, _history) &&
-            (identical(other.usage, usage) || other.usage == usage));
+            (identical(other.usage, usage) || other.usage == usage) &&
+            (identical(other.isSSECOnnected, isSSECOnnected) ||
+                other.isSSECOnnected == isSSECOnnected));
   }
 
   @override
@@ -920,6 +942,7 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
     const DeepCollectionEquality().hash(_images),
     const DeepCollectionEquality().hash(_history),
     usage,
+    isSSECOnnected,
   );
 
   /// Create a copy of WagAiState
@@ -939,6 +962,7 @@ abstract class _WagAiState implements WagAiState {
     final List<String> images,
     final List<AiMessage> history,
     final AiUsage? usage,
+    final bool isSSECOnnected,
   }) = _$WagAiStateImpl;
 
   @override
@@ -953,6 +977,8 @@ abstract class _WagAiState implements WagAiState {
   List<AiMessage> get history;
   @override
   AiUsage? get usage;
+  @override
+  bool get isSSECOnnected;
 
   /// Create a copy of WagAiState
   /// with the given fields replaced by the non-null parameter values.

@@ -3,15 +3,13 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
-import 'package:dummy/di/injection.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/features/wag/domain/usecases/ai_stream_usecases.dart';
 import 'package:dummy/features/wag/domain/usecases/send_chat_usecases.dart';
 import 'package:dummy/features/wag/domain/usecases/ai_chat_history_usecases.dart';
 import 'package:dummy/features/wag/domain/entities/ai_chat_history.dart';
 import 'package:dummy/features/wag/domain/usecases/ai_usage_usecases.dart';
 import 'package:dummy/features/wag/domain/entities/ai_usage.dart';
-import 'package:dummy/service/app_http_service.dart';
-import 'package:dummy/api/api.dart' as api;
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:flutter/foundation.dart';
 
@@ -61,13 +59,15 @@ class WagAiBloc extends Bloc<WagAiEvent, WagAiState> {
       emit(state.copyWith(usage: usage));
     });
 
-    final result = await _aiStreamUsecases.call();
-    await result.fold(
+    final result = await _aiStreamUsecases();
+     result.fold(
       (error) async {
+        LogUtility.error('error ---> >> > ${error.message}');
         emit(state.copyWith(initStatus: Status.error));
       },
       (sse) async {
         // Stop on sentinel if provided, and emit for each line.
+        emit(state.copyWith(isSSECOnnected: true));
         final safeStream = sse.takeWhile((line) => line != '[DONE]');
         try {
           await for (final line in safeStream) {

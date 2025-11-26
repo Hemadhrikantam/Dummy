@@ -1,8 +1,7 @@
-import 'dart:convert';
-
 import 'package:dartz/dartz.dart';
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/error/app_success.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/service/app_http_service.dart';
 import 'package:dummy/features/wag/data/models/ai_chat_history_model.dart';
 import 'package:dummy/features/wag/domain/entities/ai_chat_history.dart';
@@ -70,7 +69,10 @@ class WagDatasourceImpl extends WagDatasource {
       queryParameters: {'limit': limit, 'page': page},
     );
     return response.fold(
-      (error) => Left(ErrorMessage(message: error.message)),
+      (error) {
+        LogUtility.info('error ----> $error');
+        return Left(ErrorMessage(message: error.message));
+      },
       (success) async {
         try {
           final data = success.data;
