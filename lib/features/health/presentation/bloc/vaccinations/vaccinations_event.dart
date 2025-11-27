@@ -9,4 +9,5 @@ class VaccinationsEvent with _$VaccinationsEvent {
     String dateAdministered,
     String dueDate,
   ) = _Filter;
+  
 }

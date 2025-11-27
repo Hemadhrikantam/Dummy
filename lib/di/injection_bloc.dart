@@ -34,7 +34,6 @@ class InjectionBloc {
   static PetFormBloc get petFormBloc {
     return PetFormBloc(
       uploadFileUsecases: getIt<UploadFileUsecases>(),
-      createPetUsecases: getIt<CreatePetUsecases>(),
       editPetUsecases: getIt<EditPetUsecases>(),
     );
   }

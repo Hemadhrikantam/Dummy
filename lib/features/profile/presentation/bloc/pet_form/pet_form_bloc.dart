@@ -11,7 +11,6 @@ import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_pet_usecases.dart';
-import 'package:dummy/features/signup/domain/usecases/cat_breed_usecases.dart';
 import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
@@ -23,11 +22,9 @@ part 'pet_form_bloc.freezed.dart';
 
 class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
   PetFormBloc({
-    required CreatePetUsecases createPetUsecases,
     required EditPetUsecases editPetUsecases,
     required UploadFileUsecases uploadFileUsecases,
-  }) : __createPetUsecases = createPetUsecases,
-       __editPetUsecases = editPetUsecases,
+  }) : __editPetUsecases = editPetUsecases,
        __uploadFileUsecases = uploadFileUsecases,
        super(PetFormState()) {
     on<_Init>(__initialization);
@@ -45,7 +42,6 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
   }
 
   final EditPetUsecases __editPetUsecases;
-  final CreatePetUsecases __createPetUsecases;
   final UploadFileUsecases __uploadFileUsecases;
 
   Future<void> __initialization(_Init event, Emitter<PetFormState> emit) async {
@@ -153,22 +149,23 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
         value: state.weight.value,
         unit: state.weightUnit.value.toLowerCase(),
       ),
-      gender: state.gender.value?.value ?? '',
+      gender: (state.gender.value?.value ?? '').toLowerCase(),
       image_url: url,
       personalityTags:
           state.selectedPersonalityTags.map((e) => e.value!.id).toList(),
     );
     LogUtility.info('Payload: $payload');
-    final result =
-        event.id == null
-            ? await __createPetUsecases(payload: payload)
-            : await __editPetUsecases(payload: payload);
+    final result = await __editPetUsecases(
+      payload: payload,
+      edit: event.id != null,
+    );
 
     result.fold((error) => emit(state.copyWith(submitStatus: Status.error)), (
       success,
     ) async {
       emit(state.copyWith(submitStatus: Status.success));
     });
+    emit(state.copyWith(submitStatus: Status.init));
   }
 
   void __petName(_PetName event, Emitter<PetFormState> emit) {

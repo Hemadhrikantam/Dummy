@@ -52,7 +52,7 @@ class PetPhotoCardPage extends StatelessWidget {
                   left: 0,
                   right: 0,
                   child: Container(
-                    height: 80,
+                    height: 90,
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
@@ -61,9 +61,11 @@ class PetPhotoCardPage extends StatelessWidget {
                       ),
                     ),
                     padding: const EdgeInsets.all(12),
-                    child: Text(
-                      media.notes ?? '',
-                      style: TextStyle(color: Colors.white),
+                    child: SingleChildScrollView(
+                      child: Text(
+                        media.notes ?? '',
+                        style: TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ),

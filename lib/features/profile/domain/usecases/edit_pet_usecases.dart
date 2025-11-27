@@ -5,7 +5,7 @@ import 'package:dummy/features/profile/domain/repositories/profile_repository.da
 class EditPetUsecases {
   EditPetUsecases(this.repository);
   final ProfileRepository repository;
-  AppSuccessResponse call({required Payload payload}) {
-    return repository.editPet(payload: payload);
+  AppSuccessResponse call({required Payload payload, bool edit = true}) {
+    return repository.editPet(payload: payload, edit: edit);
   }
 }

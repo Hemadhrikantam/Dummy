@@ -34,7 +34,7 @@ class AddGroomingSuccessBottomSheetContent extends StatelessWidget {
               AppGraber(),
               Styles.gap16,
               AppAssestsImage(
-                path: ImageResources.medsIcon,
+                path: ImageResources.groomingSuccess,
                 height: context.height * .07,
                 boxFit: BoxFit.contain,
               ),

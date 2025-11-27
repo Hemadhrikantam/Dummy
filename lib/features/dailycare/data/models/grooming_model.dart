@@ -67,7 +67,7 @@ class PetGroomingModel extends PetGrooming {
       'updated_at': updatedAt?.toIso8601String(),
       'media': media
           .map((m) => (m is MediaItemModel)
-              ? (m as MediaItemModel).toJson()
+              ? m.toJson()
               : MediaItemModel(
                   id: m.id,
                   petId: m.petId,

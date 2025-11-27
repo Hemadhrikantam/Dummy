@@ -1,7 +1,5 @@
 import 'dart:io';
-
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/enum/upload_type.dart';
 import 'package:dummy/core/models/drop_item.dart';
@@ -32,9 +30,6 @@ class DewormingFormBloc extends Bloc<DewormingFormEvent, DewormingFormState> {
     required RemindBeforeUsecases beforeUsecases,
     required UploadFileUsecases uploadFileUsecases,
   }) : _addDewormingUsecase = addDewormingUsecases,
-       _timezonesUsecases = timezonesUsecases,
-       _frequencyUsecases = frequencyUsecases,
-       _beforeUsecases = beforeUsecases,
        _uploadFileUsecases = uploadFileUsecases,
        super(const DewormingFormState()) {
     on<_Init>(_onInit);
@@ -53,9 +48,6 @@ class DewormingFormBloc extends Bloc<DewormingFormEvent, DewormingFormState> {
   }
 
   final AddDewormingUsecases _addDewormingUsecase;
-  final TimezonesUsecases _timezonesUsecases;
-  final FrequencyUsecases _frequencyUsecases;
-  final RemindBeforeUsecases _beforeUsecases;
   final UploadFileUsecases _uploadFileUsecases;
 
   Future<void> _onInit(_Init event, Emitter<DewormingFormState> emit) async {
@@ -225,7 +217,9 @@ class DewormingFormBloc extends Bloc<DewormingFormEvent, DewormingFormState> {
     _ReminderBefore event,
     Emitter<DewormingFormState> emit,
   ) {
-    emit(state.copyWith(reminderBefore: DropdownStringValue.dirty(event.value)));
+    emit(
+      state.copyWith(reminderBefore: DropdownStringValue.dirty(event.value)),
+    );
     emit(state.copyWith(validation: state.validationX));
   }
 }

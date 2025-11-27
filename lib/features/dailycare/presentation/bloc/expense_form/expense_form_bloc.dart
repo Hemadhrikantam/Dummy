@@ -1,7 +1,5 @@
 import 'dart:io';
-
 import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/enum/upload_type.dart';
 import 'package:dummy/core/models/drop_item.dart';

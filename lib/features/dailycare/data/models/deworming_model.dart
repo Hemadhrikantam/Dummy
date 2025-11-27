@@ -136,7 +136,7 @@ class PetDewormingModel extends PetDeworming {
               .map(
                 (m) =>
                     (m is MediaItemModel)
-                        ? (m as MediaItemModel).toJson()
+                        ? m.toJson()
                         : MediaItemModel(
                           id: m.id,
                           petId: m.petId,

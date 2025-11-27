@@ -6,7 +6,6 @@ import 'package:dummy/features/health/presentation/widgets/success_animation_wra
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/image_resources.dart';
 import '../../../../core/constant/styles.dart';
@@ -34,7 +33,7 @@ class AddWalkSuccessBottomSheetContent extends StatelessWidget {
               AppGraber(),
               Styles.gap16,
               AppAssestsImage(
-                path: ImageResources.medsIcon,
+                path: ImageResources.walkSuccess,
                 height: context.height * .07,
                 boxFit: BoxFit.contain,
               ),

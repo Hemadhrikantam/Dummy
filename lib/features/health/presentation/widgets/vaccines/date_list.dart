@@ -1,5 +1,4 @@
 import 'package:dummy/core/constant/styles.dart';
-import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/features/health/presentation/bloc/vaccination_details/vaccination_details_bloc.dart';
 import 'package:flutter/material.dart';

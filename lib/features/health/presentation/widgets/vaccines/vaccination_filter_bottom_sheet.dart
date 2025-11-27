@@ -1,17 +1,13 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
-import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/models/formz/not_empty.dart';
-import 'package:dummy/core/widgets/app_custom_text_field.dart';
+import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:iconsax/iconsax.dart';
-
 import '../../../../../core/widgets/app_graber.dart';
 import '../../bloc/vaccinations/vaccinations_bloc.dart';
 
@@ -26,201 +22,18 @@ class VaccinationFilterBottomSheet extends StatefulWidget {
 
 class _VaccinationFilterBottomSheet
     extends State<VaccinationFilterBottomSheet> {
-  DateTime selectedDate = DateTime.now();
-  final _dobController = TextEditingController();
-  final _dobController1 = TextEditingController();
+  DateTime? selectedAdministerDate;
+  DateTime? selectedDuedateDate;
   @override
   void initState() {
     super.initState();
     final state = context.read<VaccinationsBloc>().state;
     if (state.dateAdministered.value.isNotEmpty) {
-      _dobController.text = state.dateAdministered.value;
+      selectedAdministerDate = DateTime.tryParse(state.dateAdministered.value);
     }
     if (state.dueDate.value.isNotEmpty) {
-      _dobController1.text = state.dueDate.value;
+      selectedDuedateDate = DateTime.tryParse(state.dueDate.value);
     }
-  }
-
-  void _pickDate() {
-    DateTime tempPickedDate = DateTime.now();
-
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.white,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (_) {
-        return SizedBox(
-          height: 300,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Styles.gap4,
-              AppGraber(),
-              Styles.gap10,
-              const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  AppText.dateAdministered,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-                ),
-              ),
-              Styles.gap10,
-              Expanded(
-                child: CupertinoDatePicker(
-                  mode: CupertinoDatePickerMode.date,
-                  initialDateTime: selectedDate,
-                  maximumDate: DateTime.now(),
-                  onDateTimeChanged: (DateTime dateTime) {
-                    tempPickedDate = dateTime;
-                  },
-                ),
-              ),
-              Styles.gap10,
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 10,
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: AppOutlinedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        name: Text(
-                          AppText.cancel,
-                          style: context.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.buttonTextColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Styles.gap10,
-                    Expanded(
-                      child: AppButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedDate = tempPickedDate;
-                            _dobController.text = _formatDate(tempPickedDate);
-                          });
-                          context.pop();
-                        },
-                        name: Text(
-                          AppText.save,
-                          style: context.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.buttonTextColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
-  void _pickDate1() {
-    DateTime tempPickedDate = DateTime.now();
-
-    showModalBottomSheet(
-      context: context,
-      backgroundColor: Colors.white,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-      ),
-      builder: (_) {
-        return SizedBox(
-          height: 300,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Styles.gap4,
-              AppGraber(),
-              Styles.gap10,
-              const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  AppText.dueDate,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-                ),
-              ),
-              Styles.gap10,
-              Expanded(
-                child: CupertinoDatePicker(
-                  mode: CupertinoDatePickerMode.date,
-                  initialDateTime: selectedDate,
-                  maximumDate: DateTime.now(),
-                  onDateTimeChanged: (DateTime dateTime) {
-                    tempPickedDate = dateTime;
-                  },
-                ),
-              ),
-              Styles.gap10,
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 10,
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: AppOutlinedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        name: Text(
-                          AppText.cancel,
-                          style: context.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.buttonTextColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Styles.gap10,
-                    Expanded(
-                      child: AppButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedDate = tempPickedDate;
-                            _dobController1.text = _formatDate(tempPickedDate);
-                          });
-                          context.pop();
-                        },
-                        name: Text(
-                          AppText.save,
-                          style: context.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.buttonTextColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        );
-      },
-    );
-  }
-
-  String _formatDate(DateTime date) {
-    return "${date.day.toString().padLeft(2, '0')}/"
-        "${date.month.toString().padLeft(2, '0')}/"
-        "${date.year}";
   }
 
   @override
@@ -242,79 +55,80 @@ class _VaccinationFilterBottomSheet
             ),
           ),
           Styles.gap15,
-          BlocSelector<VaccinationsBloc, VaccinationsState, NotEmpty>(
-            selector: (state) {
-              return state.dateAdministered;
-            },
-            builder: (context, state) {
-              return AppTextFormField(
-                controller: _dobController,
-                hintText: 'Select Date Adminstered',
-                readOnly: true,
-                isMandatory: true,
-                headerText: AppText.dateAdministered,
-                suffixIcon: Iconsax.calendar,
-                onTap: _pickDate,
-              );
+          AppCustomDateField(
+            hintText: 'Select Date Adminstered',
+            isMandatory: true,
+            headerText: AppText.dateAdministered,
+            selectedDate: selectedAdministerDate,
+            maxDate: selectedDuedateDate,
+            onChange: (DateTime p1) {
+              setState(() {
+                selectedAdministerDate = p1;
+              });
             },
           ),
           Styles.gap15,
-          BlocSelector<VaccinationsBloc, VaccinationsState, NotEmpty>(
-            selector: (state) {
-              return state.dueDate;
-            },
-            builder: (context, state) {
-              return AppTextFormField(
-                controller: _dobController1,
-                hintText: 'Select Due Date',
-                readOnly: true,
-                isMandatory: true,
-                suffixIcon: Iconsax.calendar,
-                headerText: AppText.duedate,
-                onTap: _pickDate1,
-              );
+          AppCustomDateField(
+            hintText: 'Select Due Date',
+            isMandatory: true,
+            headerText: AppText.duedate,
+            selectedDate: selectedDuedateDate,
+            minDate: selectedAdministerDate,
+            onChange: (DateTime p1) {
+              setState(() {
+                selectedDuedateDate = p1;
+              });
             },
           ),
           Styles.gap30,
-          Row(
-            children: [
-              Expanded(
-                child: AppOutlinedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  name: Text(
-                    AppText.reset,
-                    style: context.textTheme.titleSmall?.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.buttonTextColor,
+          BlocBuilder<VaccinationsBloc, VaccinationsState>(
+            builder: (context, state) {
+              return Row(
+                children: [
+                  Expanded(
+                    child: AppOutlinedButton(
+                      onPressed: () {
+                        setState(() {
+                          selectedAdministerDate = DateTime.tryParse(
+                            state.dateAdministered.value,
+                          );
+                          selectedDuedateDate = DateTime.tryParse(
+                            state.dueDate.value,
+                          );
+                        });
+                      },
+                      name: Text(
+                        AppText.reset,
+                        style: context.textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.buttonTextColor,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-              Styles.gap10,
-              Expanded(
-                child: BlocBuilder<VaccinationsBloc, VaccinationsState>(
-                  builder: (context, state) {
-                    return AppButton(
-                      onPressed:
-                          (_dobController.text.isNotEmpty &&
-                                      _dobController1.text.isNotEmpty) ||
-                                  (state.dateAdministered.isValid &&
-                                      state.dueDate.isValid)
-                              ? () {
-                                widget.onSaved(
-                                  _dobController.text,
-                                  _dobController1.text,
-                                );
-                              }
-                              : () {},
-                      name: Text(AppText.save, style: Styles.buttonStyle),
-                    );
-                  },
-                ),
-              ),
-            ],
+                  Styles.gap10,
+                  Expanded(
+                    child: BlocBuilder<VaccinationsBloc, VaccinationsState>(
+                      builder: (context, state) {
+                        return AppButton(
+                          onPressed:
+                              (selectedAdministerDate != null &&
+                                      selectedDuedateDate != null)
+                                  ? () {
+                                    widget.onSaved(
+                                      selectedAdministerDate!.toIso8601String(),
+                                      selectedDuedateDate!.toIso8601String(),
+                                    );
+                                  }
+                                  : () {},
+                          name: Text(AppText.save, style: Styles.buttonStyle),
+                        );
+                      },
+                    ),
+                  ),
+                ],
+              );
+            },
           ),
           Styles.gap10,
         ],

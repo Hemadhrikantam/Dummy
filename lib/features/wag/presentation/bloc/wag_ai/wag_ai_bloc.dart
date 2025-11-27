@@ -49,6 +49,8 @@ class WagAiBloc extends Bloc<WagAiEvent, WagAiState> {
       emit(
         state.copyWith(
           history: history.messages,
+          responses: [],
+          streamResponse: '',
           historydetails: history,
           historyPage: history.pagination.page,
           historyLimit: history.pagination.limit,

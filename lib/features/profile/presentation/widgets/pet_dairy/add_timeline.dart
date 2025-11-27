@@ -43,7 +43,7 @@ class _AddTimeline extends State<AddTimeline> {
           Styles.gap15,
           _BottomSheetOption(
             text: "Media",
-            isSelected: true,
+            isSelected: false,
             onTap: () {
               Navigator.pop(context);
               BottomModels.addPetMediaBottomSheet(context);

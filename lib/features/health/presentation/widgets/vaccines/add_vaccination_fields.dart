@@ -84,19 +84,17 @@ class __DateAdministeredState extends State<__DateAdministered> {
   var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<VaccinationFormBloc, VaccinationFormState, NotEmpty>(
-      selector: (state) {
-        return state.dateAdministered;
-      },
+    return BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
       builder: (context, state) {
         return AppCustomDateField(
           headerText: AppText.dateAdministered,
+          maxDate: DateTime.tryParse(state.dueDate.value),
           onChange: (value) {
             context.read<VaccinationFormBloc>().add(
               VaccinationFormEvent.dateAdministered(value.toString()),
             );
           },
-          selectedDate: DateTime.tryParse(state.value),
+          selectedDate: DateTime.tryParse(state.dateAdministered.value),
           isMandatory: true,
         );
       },
@@ -115,14 +113,12 @@ class __DueDateState extends State<__DueDate> {
   var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<VaccinationFormBloc, VaccinationFormState, NotEmpty>(
-      selector: (state) {
-        return state.dueDate;
-      },
+    return BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
       builder: (context, state) {
         return AppCustomDateField(
+          minDate: DateTime.tryParse(state.dateAdministered.value),
           headerText: AppText.dueDate,
-          selectedDate: DateTime.tryParse(state.value),
+          selectedDate: DateTime.tryParse(state.dueDate.value),
           isMandatory: true,
           onChange: (value) {
             context.read<VaccinationFormBloc>().add(

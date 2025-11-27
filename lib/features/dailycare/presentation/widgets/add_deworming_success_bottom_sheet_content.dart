@@ -3,7 +3,6 @@ import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/features/health/presentation/widgets/success_animation_wrap.dart';
-import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -34,7 +33,7 @@ class AddDewormingSuccessBottomSheetContent extends StatelessWidget {
               AppGraber(),
               Styles.gap16,
               AppAssestsImage(
-                path: ImageResources.medsIcon,
+                path: ImageResources.dewormingSuccess,
                 height: context.height * .07,
                 boxFit: BoxFit.contain,
               ),

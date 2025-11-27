@@ -104,30 +104,47 @@ class PetMealModel extends PetMeal {
     List<MediaItem> mediaList = const [];
 
     if (mediaField is List) {
-      mediaList = mediaField
-          .map((e) {
-            if (e is Map<String, dynamic>) return MediaItemModel.fromJson(e);
-            if (e is String) return MediaItemModel(fileUrl: e);
-            return null;
-          })
-          .whereType<MediaItem>()
-          .toList();
+      mediaList =
+          mediaField
+              .map((e) {
+                if (e is Map<String, dynamic>)
+                  return MediaItemModel.fromJson(e);
+                if (e is String) return MediaItemModel(fileUrl: e);
+                return null;
+              })
+              .whereType<MediaItem>()
+              .toList();
     } else if (mediaField is Map<String, dynamic>) {
       mediaList = [MediaItemModel.fromJson(mediaField)];
     } else if (mediaField is String) {
       mediaList = [MediaItemModel(fileUrl: mediaField)];
     }
 
-    DateTime? _parseDate(dynamic v) => v == null ? null : DateTime.tryParse(v.toString());
+    DateTime? _parseDate(dynamic v) =>
+        v == null ? null : DateTime.tryParse(v.toString());
 
     return PetMealModel(
       id: (json['id'] ?? json['meal_id'] ?? '').toString(),
       date: (json['meal_date'] ?? json['date'] ?? '').toString(),
       timeOfMeal: (json['meal_time'] ?? json['time_of_meal'] ?? '').toString(),
-      mealType: (json['meal_type'] ?? json['meal_type_name'] ?? json['meal_type_id'] ?? '').toString(),
-      mealTypeId: (json['meal_type_id'] ?? '').toString().isEmpty ? null : (json['meal_type_id'] ?? '').toString(),
-      mealTypeName: (json['meal_type_name'] ?? '').toString().isEmpty ? null : (json['meal_type_name'] ?? '').toString(),
-      createdById: (json['created_by_id'] ?? '').toString().isEmpty ? null : (json['created_by_id'] ?? '').toString(),
+      mealType:
+          (json['meal_type'] ??
+                  json['meal_type_name'] ??
+                  json['meal_type_id'] ??
+                  '')
+              .toString(),
+      mealTypeId:
+          (json['meal_type_id'] ?? '').toString().isEmpty
+              ? null
+              : (json['meal_type_id'] ?? '').toString(),
+      mealTypeName:
+          (json['meal_type_name'] ?? '').toString().isEmpty
+              ? null
+              : (json['meal_type_name'] ?? '').toString(),
+      createdById:
+          (json['created_by_id'] ?? '').toString().isEmpty
+              ? null
+              : (json['created_by_id'] ?? '').toString(),
       notes: (json['notes'] ?? '').toString(),
       media: mediaList,
       pet: (json['pet'] ?? json['pet_id'] ?? '').toString(),
@@ -148,22 +165,30 @@ class PetMealModel extends PetMeal {
       'created_by_id': createdById,
       'created_at': createdAt?.toIso8601String(),
       'updated_at': updatedAt?.toIso8601String(),
-      'media': media.map((m) => (m is MediaItemModel) ? (m as MediaItemModel).toJson() : MediaItemModel(
-        id: m.id,
-        petId: m.petId,
-        entityType: m.entityType,
-        entityId: m.entityId,
-        uploadedBy: m.uploadedBy,
-        fileUrl: m.fileUrl,
-        fileType: m.fileType,
-        fileSize: m.fileSize,
-        mediaCaption: m.mediaCaption,
-        sortOrder: m.sortOrder,
-        isCover: m.isCover,
-        isDeleted: m.isDeleted,
-        createdAt: m.createdAt,
-        updatedAt: m.updatedAt,
-      ).toJson()).toList(),
+      'media':
+          media
+              .map(
+                (m) =>
+                    (m is MediaItemModel)
+                        ? m.toJson()
+                        : MediaItemModel(
+                          id: m.id,
+                          petId: m.petId,
+                          entityType: m.entityType,
+                          entityId: m.entityId,
+                          uploadedBy: m.uploadedBy,
+                          fileUrl: m.fileUrl,
+                          fileType: m.fileType,
+                          fileSize: m.fileSize,
+                          mediaCaption: m.mediaCaption,
+                          sortOrder: m.sortOrder,
+                          isCover: m.isCover,
+                          isDeleted: m.isDeleted,
+                          createdAt: m.createdAt,
+                          updatedAt: m.updatedAt,
+                        ).toJson(),
+              )
+              .toList(),
       'pet': pet,
     };
   }

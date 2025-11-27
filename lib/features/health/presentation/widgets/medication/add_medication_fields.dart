@@ -202,19 +202,17 @@ class ___StartDate extends State<__StartDate> {
   var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<MedicationFormBloc, MedicationFormState, NotEmpty>(
-      selector: (state) {
-        return state.startDate;
-      },
+    return BlocBuilder<MedicationFormBloc, MedicationFormState>(
       builder: (context, state) {
         return AppCustomDateField(
+          maxDate: DateTime.tryParse(state.endDate.value),
           onChange: (value) {
             context.read<MedicationFormBloc>().add(
               MedicationFormEvent.startDate(value.toString()),
             );
           },
           headerText: AppText.startDate,
-          selectedDate: DateTime.tryParse(state.value),
+          selectedDate: DateTime.tryParse(state.startDate.value),
           isMandatory: true,
         );
       },
@@ -233,19 +231,17 @@ class __EndDateState extends State<__EndDate> {
   var date = DateTime.now();
   @override
   Widget build(BuildContext context) {
-    return BlocSelector<MedicationFormBloc, MedicationFormState, NotEmpty>(
-      selector: (state) {
-        return state.endDate;
-      },
+    return BlocBuilder<MedicationFormBloc, MedicationFormState>(
       builder: (context, state) {
         return AppCustomDateField(
+          minDate: DateTime.tryParse(state.startDate.value),
           onChange: (value) {
             context.read<MedicationFormBloc>().add(
               MedicationFormEvent.endDate(value.toString()),
             );
           },
           headerText: AppText.endDate,
-          selectedDate: DateTime.tryParse(state.value),
+          selectedDate: DateTime.tryParse(state.endDate.value),
           isMandatory: true,
         );
       },
