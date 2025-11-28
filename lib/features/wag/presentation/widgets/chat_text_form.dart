@@ -84,6 +84,10 @@ class _TextFormState extends State<TextForm> {
                   Styles.gap6,
                   ImagesContainer(
                     onTap: () {
+                      if (isAttached) {
+                        final bloc = context.read<WagAiBloc>();
+                        bloc.add(WagAiEvent.images([]));
+                      }
                       setState(() {
                         isAttached = !isAttached;
                       });

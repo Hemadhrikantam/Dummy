@@ -1,5 +1,7 @@
+import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
+import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/features/wag/presentation/widgets/chat_text_form.dart';
@@ -43,6 +45,14 @@ class _ChatPageState extends State<ChatPage> {
       listener: (context, state) {
         if (state.historyStatus == Status.success) {
           _scrollToBottom();
+        }
+        if (!state.showingUsageBottomSheet &&
+            (((state.usage?.imagesRemaining ?? 1) <= 0) ||
+                ((state.usage?.promptsRemaining ?? 1) <= 0))) {
+          context.read<WagAiBloc>().add(
+            WagAiEvent.showingUsageBottomSheet(true),
+          );
+          BottomModels.aiLimitReachedBottomSheet(context);
         }
       },
       builder: (context, state) {
@@ -130,6 +140,17 @@ class _ChatPageState extends State<ChatPage> {
                                   message: state.streamResponse,
                                   date: DateTime.now().toString(),
                                 ),
+                              Container(
+                                padding: Styles.edgeInsetsAll12,
+                                child: Text(
+                                  'Wag AI can make mistakes. Information is for guidance only and is not a substitute for professional veterinary advice.',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    color: AppColors.grey500,
+                                  ),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ),
                             ],
                           ),
                         ),

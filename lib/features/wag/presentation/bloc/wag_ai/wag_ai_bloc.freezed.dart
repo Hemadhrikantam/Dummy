@@ -24,6 +24,7 @@ mixin _$WagAiEvent {
     required TResult Function(String value) message,
     required TResult Function(List<String> images) images,
     required TResult Function() loadHistory,
+    required TResult Function(bool value) showingUsageBottomSheet,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -32,6 +33,7 @@ mixin _$WagAiEvent {
     TResult? Function(String value)? message,
     TResult? Function(List<String> images)? images,
     TResult? Function()? loadHistory,
+    TResult? Function(bool value)? showingUsageBottomSheet,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -40,6 +42,7 @@ mixin _$WagAiEvent {
     TResult Function(String value)? message,
     TResult Function(List<String> images)? images,
     TResult Function()? loadHistory,
+    TResult Function(bool value)? showingUsageBottomSheet,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -49,6 +52,8 @@ mixin _$WagAiEvent {
     required TResult Function(_Message value) message,
     required TResult Function(_Images value) images,
     required TResult Function(_LoadHistory value) loadHistory,
+    required TResult Function(_ShowingUsageBottomSheet value)
+    showingUsageBottomSheet,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -57,6 +62,7 @@ mixin _$WagAiEvent {
     TResult? Function(_Message value)? message,
     TResult? Function(_Images value)? images,
     TResult? Function(_LoadHistory value)? loadHistory,
+    TResult? Function(_ShowingUsageBottomSheet value)? showingUsageBottomSheet,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -65,6 +71,7 @@ mixin _$WagAiEvent {
     TResult Function(_Message value)? message,
     TResult Function(_Images value)? images,
     TResult Function(_LoadHistory value)? loadHistory,
+    TResult Function(_ShowingUsageBottomSheet value)? showingUsageBottomSheet,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -147,6 +154,7 @@ class _$InitializationImpl
     required TResult Function(String value) message,
     required TResult Function(List<String> images) images,
     required TResult Function() loadHistory,
+    required TResult Function(bool value) showingUsageBottomSheet,
   }) {
     return initialization();
   }
@@ -159,6 +167,7 @@ class _$InitializationImpl
     TResult? Function(String value)? message,
     TResult? Function(List<String> images)? images,
     TResult? Function()? loadHistory,
+    TResult? Function(bool value)? showingUsageBottomSheet,
   }) {
     return initialization?.call();
   }
@@ -171,6 +180,7 @@ class _$InitializationImpl
     TResult Function(String value)? message,
     TResult Function(List<String> images)? images,
     TResult Function()? loadHistory,
+    TResult Function(bool value)? showingUsageBottomSheet,
     required TResult orElse(),
   }) {
     if (initialization != null) {
@@ -187,6 +197,8 @@ class _$InitializationImpl
     required TResult Function(_Message value) message,
     required TResult Function(_Images value) images,
     required TResult Function(_LoadHistory value) loadHistory,
+    required TResult Function(_ShowingUsageBottomSheet value)
+    showingUsageBottomSheet,
   }) {
     return initialization(this);
   }
@@ -199,6 +211,7 @@ class _$InitializationImpl
     TResult? Function(_Message value)? message,
     TResult? Function(_Images value)? images,
     TResult? Function(_LoadHistory value)? loadHistory,
+    TResult? Function(_ShowingUsageBottomSheet value)? showingUsageBottomSheet,
   }) {
     return initialization?.call(this);
   }
@@ -211,6 +224,7 @@ class _$InitializationImpl
     TResult Function(_Message value)? message,
     TResult Function(_Images value)? images,
     TResult Function(_LoadHistory value)? loadHistory,
+    TResult Function(_ShowingUsageBottomSheet value)? showingUsageBottomSheet,
     required TResult orElse(),
   }) {
     if (initialization != null) {
@@ -276,6 +290,7 @@ class _$ChatImpl with DiagnosticableTreeMixin implements _Chat {
     required TResult Function(String value) message,
     required TResult Function(List<String> images) images,
     required TResult Function() loadHistory,
+    required TResult Function(bool value) showingUsageBottomSheet,
   }) {
     return chat();
   }
@@ -288,6 +303,7 @@ class _$ChatImpl with DiagnosticableTreeMixin implements _Chat {
     TResult? Function(String value)? message,
     TResult? Function(List<String> images)? images,
     TResult? Function()? loadHistory,
+    TResult? Function(bool value)? showingUsageBottomSheet,
   }) {
     return chat?.call();
   }
@@ -300,6 +316,7 @@ class _$ChatImpl with DiagnosticableTreeMixin implements _Chat {
     TResult Function(String value)? message,
     TResult Function(List<String> images)? images,
     TResult Function()? loadHistory,
+    TResult Function(bool value)? showingUsageBottomSheet,
     required TResult orElse(),
   }) {
     if (chat != null) {
@@ -316,6 +333,8 @@ class _$ChatImpl with DiagnosticableTreeMixin implements _Chat {
     required TResult Function(_Message value) message,
     required TResult Function(_Images value) images,
     required TResult Function(_LoadHistory value) loadHistory,
+    required TResult Function(_ShowingUsageBottomSheet value)
+    showingUsageBottomSheet,
   }) {
     return chat(this);
   }
@@ -328,6 +347,7 @@ class _$ChatImpl with DiagnosticableTreeMixin implements _Chat {
     TResult? Function(_Message value)? message,
     TResult? Function(_Images value)? images,
     TResult? Function(_LoadHistory value)? loadHistory,
+    TResult? Function(_ShowingUsageBottomSheet value)? showingUsageBottomSheet,
   }) {
     return chat?.call(this);
   }
@@ -340,6 +360,7 @@ class _$ChatImpl with DiagnosticableTreeMixin implements _Chat {
     TResult Function(_Message value)? message,
     TResult Function(_Images value)? images,
     TResult Function(_LoadHistory value)? loadHistory,
+    TResult Function(_ShowingUsageBottomSheet value)? showingUsageBottomSheet,
     required TResult orElse(),
   }) {
     if (chat != null) {
@@ -436,6 +457,7 @@ class _$MessageImpl with DiagnosticableTreeMixin implements _Message {
     required TResult Function(String value) message,
     required TResult Function(List<String> images) images,
     required TResult Function() loadHistory,
+    required TResult Function(bool value) showingUsageBottomSheet,
   }) {
     return message(value);
   }
@@ -448,6 +470,7 @@ class _$MessageImpl with DiagnosticableTreeMixin implements _Message {
     TResult? Function(String value)? message,
     TResult? Function(List<String> images)? images,
     TResult? Function()? loadHistory,
+    TResult? Function(bool value)? showingUsageBottomSheet,
   }) {
     return message?.call(value);
   }
@@ -460,6 +483,7 @@ class _$MessageImpl with DiagnosticableTreeMixin implements _Message {
     TResult Function(String value)? message,
     TResult Function(List<String> images)? images,
     TResult Function()? loadHistory,
+    TResult Function(bool value)? showingUsageBottomSheet,
     required TResult orElse(),
   }) {
     if (message != null) {
@@ -476,6 +500,8 @@ class _$MessageImpl with DiagnosticableTreeMixin implements _Message {
     required TResult Function(_Message value) message,
     required TResult Function(_Images value) images,
     required TResult Function(_LoadHistory value) loadHistory,
+    required TResult Function(_ShowingUsageBottomSheet value)
+    showingUsageBottomSheet,
   }) {
     return message(this);
   }
@@ -488,6 +514,7 @@ class _$MessageImpl with DiagnosticableTreeMixin implements _Message {
     TResult? Function(_Message value)? message,
     TResult? Function(_Images value)? images,
     TResult? Function(_LoadHistory value)? loadHistory,
+    TResult? Function(_ShowingUsageBottomSheet value)? showingUsageBottomSheet,
   }) {
     return message?.call(this);
   }
@@ -500,6 +527,7 @@ class _$MessageImpl with DiagnosticableTreeMixin implements _Message {
     TResult Function(_Message value)? message,
     TResult Function(_Images value)? images,
     TResult Function(_LoadHistory value)? loadHistory,
+    TResult Function(_ShowingUsageBottomSheet value)? showingUsageBottomSheet,
     required TResult orElse(),
   }) {
     if (message != null) {
@@ -610,6 +638,7 @@ class _$ImagesImpl with DiagnosticableTreeMixin implements _Images {
     required TResult Function(String value) message,
     required TResult Function(List<String> images) images,
     required TResult Function() loadHistory,
+    required TResult Function(bool value) showingUsageBottomSheet,
   }) {
     return images(this.images);
   }
@@ -622,6 +651,7 @@ class _$ImagesImpl with DiagnosticableTreeMixin implements _Images {
     TResult? Function(String value)? message,
     TResult? Function(List<String> images)? images,
     TResult? Function()? loadHistory,
+    TResult? Function(bool value)? showingUsageBottomSheet,
   }) {
     return images?.call(this.images);
   }
@@ -634,6 +664,7 @@ class _$ImagesImpl with DiagnosticableTreeMixin implements _Images {
     TResult Function(String value)? message,
     TResult Function(List<String> images)? images,
     TResult Function()? loadHistory,
+    TResult Function(bool value)? showingUsageBottomSheet,
     required TResult orElse(),
   }) {
     if (images != null) {
@@ -650,6 +681,8 @@ class _$ImagesImpl with DiagnosticableTreeMixin implements _Images {
     required TResult Function(_Message value) message,
     required TResult Function(_Images value) images,
     required TResult Function(_LoadHistory value) loadHistory,
+    required TResult Function(_ShowingUsageBottomSheet value)
+    showingUsageBottomSheet,
   }) {
     return images(this);
   }
@@ -662,6 +695,7 @@ class _$ImagesImpl with DiagnosticableTreeMixin implements _Images {
     TResult? Function(_Message value)? message,
     TResult? Function(_Images value)? images,
     TResult? Function(_LoadHistory value)? loadHistory,
+    TResult? Function(_ShowingUsageBottomSheet value)? showingUsageBottomSheet,
   }) {
     return images?.call(this);
   }
@@ -674,6 +708,7 @@ class _$ImagesImpl with DiagnosticableTreeMixin implements _Images {
     TResult Function(_Message value)? message,
     TResult Function(_Images value)? images,
     TResult Function(_LoadHistory value)? loadHistory,
+    TResult Function(_ShowingUsageBottomSheet value)? showingUsageBottomSheet,
     required TResult orElse(),
   }) {
     if (images != null) {
@@ -749,6 +784,7 @@ class _$LoadHistoryImpl with DiagnosticableTreeMixin implements _LoadHistory {
     required TResult Function(String value) message,
     required TResult Function(List<String> images) images,
     required TResult Function() loadHistory,
+    required TResult Function(bool value) showingUsageBottomSheet,
   }) {
     return loadHistory();
   }
@@ -761,6 +797,7 @@ class _$LoadHistoryImpl with DiagnosticableTreeMixin implements _LoadHistory {
     TResult? Function(String value)? message,
     TResult? Function(List<String> images)? images,
     TResult? Function()? loadHistory,
+    TResult? Function(bool value)? showingUsageBottomSheet,
   }) {
     return loadHistory?.call();
   }
@@ -773,6 +810,7 @@ class _$LoadHistoryImpl with DiagnosticableTreeMixin implements _LoadHistory {
     TResult Function(String value)? message,
     TResult Function(List<String> images)? images,
     TResult Function()? loadHistory,
+    TResult Function(bool value)? showingUsageBottomSheet,
     required TResult orElse(),
   }) {
     if (loadHistory != null) {
@@ -789,6 +827,8 @@ class _$LoadHistoryImpl with DiagnosticableTreeMixin implements _LoadHistory {
     required TResult Function(_Message value) message,
     required TResult Function(_Images value) images,
     required TResult Function(_LoadHistory value) loadHistory,
+    required TResult Function(_ShowingUsageBottomSheet value)
+    showingUsageBottomSheet,
   }) {
     return loadHistory(this);
   }
@@ -801,6 +841,7 @@ class _$LoadHistoryImpl with DiagnosticableTreeMixin implements _LoadHistory {
     TResult? Function(_Message value)? message,
     TResult? Function(_Images value)? images,
     TResult? Function(_LoadHistory value)? loadHistory,
+    TResult? Function(_ShowingUsageBottomSheet value)? showingUsageBottomSheet,
   }) {
     return loadHistory?.call(this);
   }
@@ -813,6 +854,7 @@ class _$LoadHistoryImpl with DiagnosticableTreeMixin implements _LoadHistory {
     TResult Function(_Message value)? message,
     TResult Function(_Images value)? images,
     TResult Function(_LoadHistory value)? loadHistory,
+    TResult Function(_ShowingUsageBottomSheet value)? showingUsageBottomSheet,
     required TResult orElse(),
   }) {
     if (loadHistory != null) {
@@ -827,6 +869,186 @@ abstract class _LoadHistory implements WagAiEvent {
 }
 
 /// @nodoc
+abstract class _$$ShowingUsageBottomSheetImplCopyWith<$Res> {
+  factory _$$ShowingUsageBottomSheetImplCopyWith(
+    _$ShowingUsageBottomSheetImpl value,
+    $Res Function(_$ShowingUsageBottomSheetImpl) then,
+  ) = __$$ShowingUsageBottomSheetImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool value});
+}
+
+/// @nodoc
+class __$$ShowingUsageBottomSheetImplCopyWithImpl<$Res>
+    extends _$WagAiEventCopyWithImpl<$Res, _$ShowingUsageBottomSheetImpl>
+    implements _$$ShowingUsageBottomSheetImplCopyWith<$Res> {
+  __$$ShowingUsageBottomSheetImplCopyWithImpl(
+    _$ShowingUsageBottomSheetImpl _value,
+    $Res Function(_$ShowingUsageBottomSheetImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of WagAiEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$ShowingUsageBottomSheetImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as bool,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$ShowingUsageBottomSheetImpl
+    with DiagnosticableTreeMixin
+    implements _ShowingUsageBottomSheet {
+  const _$ShowingUsageBottomSheetImpl(this.value);
+
+  @override
+  final bool value;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'WagAiEvent.showingUsageBottomSheet(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'WagAiEvent.showingUsageBottomSheet'))
+      ..add(DiagnosticsProperty('value', value));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ShowingUsageBottomSheetImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of WagAiEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ShowingUsageBottomSheetImplCopyWith<_$ShowingUsageBottomSheetImpl>
+  get copyWith => __$$ShowingUsageBottomSheetImplCopyWithImpl<
+    _$ShowingUsageBottomSheetImpl
+  >(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialization,
+    required TResult Function() chat,
+    required TResult Function(String value) message,
+    required TResult Function(List<String> images) images,
+    required TResult Function() loadHistory,
+    required TResult Function(bool value) showingUsageBottomSheet,
+  }) {
+    return showingUsageBottomSheet(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialization,
+    TResult? Function()? chat,
+    TResult? Function(String value)? message,
+    TResult? Function(List<String> images)? images,
+    TResult? Function()? loadHistory,
+    TResult? Function(bool value)? showingUsageBottomSheet,
+  }) {
+    return showingUsageBottomSheet?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialization,
+    TResult Function()? chat,
+    TResult Function(String value)? message,
+    TResult Function(List<String> images)? images,
+    TResult Function()? loadHistory,
+    TResult Function(bool value)? showingUsageBottomSheet,
+    required TResult orElse(),
+  }) {
+    if (showingUsageBottomSheet != null) {
+      return showingUsageBottomSheet(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Chat value) chat,
+    required TResult Function(_Message value) message,
+    required TResult Function(_Images value) images,
+    required TResult Function(_LoadHistory value) loadHistory,
+    required TResult Function(_ShowingUsageBottomSheet value)
+    showingUsageBottomSheet,
+  }) {
+    return showingUsageBottomSheet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Chat value)? chat,
+    TResult? Function(_Message value)? message,
+    TResult? Function(_Images value)? images,
+    TResult? Function(_LoadHistory value)? loadHistory,
+    TResult? Function(_ShowingUsageBottomSheet value)? showingUsageBottomSheet,
+  }) {
+    return showingUsageBottomSheet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialization value)? initialization,
+    TResult Function(_Chat value)? chat,
+    TResult Function(_Message value)? message,
+    TResult Function(_Images value)? images,
+    TResult Function(_LoadHistory value)? loadHistory,
+    TResult Function(_ShowingUsageBottomSheet value)? showingUsageBottomSheet,
+    required TResult orElse(),
+  }) {
+    if (showingUsageBottomSheet != null) {
+      return showingUsageBottomSheet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ShowingUsageBottomSheet implements WagAiEvent {
+  const factory _ShowingUsageBottomSheet(final bool value) =
+      _$ShowingUsageBottomSheetImpl;
+
+  bool get value;
+
+  /// Create a copy of WagAiEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ShowingUsageBottomSheetImplCopyWith<_$ShowingUsageBottomSheetImpl>
+  get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$WagAiState {
   Status get initStatus => throw _privateConstructorUsedError;
   Status get sendChatStatus => throw _privateConstructorUsedError;
@@ -838,6 +1060,7 @@ mixin _$WagAiState {
   AiChatHistory? get historydetails => throw _privateConstructorUsedError;
   List<Message> get responses => throw _privateConstructorUsedError;
   AiUsage? get usage => throw _privateConstructorUsedError;
+  bool get showingUsageBottomSheet => throw _privateConstructorUsedError;
   bool get isSSECOnnected =>
       throw _privateConstructorUsedError; // Pagination state for history
   int get historyPage => throw _privateConstructorUsedError;
@@ -870,6 +1093,7 @@ abstract class $WagAiStateCopyWith<$Res> {
     AiChatHistory? historydetails,
     List<Message> responses,
     AiUsage? usage,
+    bool showingUsageBottomSheet,
     bool isSSECOnnected,
     int historyPage,
     int historyLimit,
@@ -903,6 +1127,7 @@ class _$WagAiStateCopyWithImpl<$Res, $Val extends WagAiState>
     Object? historydetails = freezed,
     Object? responses = null,
     Object? usage = freezed,
+    Object? showingUsageBottomSheet = null,
     Object? isSSECOnnected = null,
     Object? historyPage = null,
     Object? historyLimit = null,
@@ -961,6 +1186,11 @@ class _$WagAiStateCopyWithImpl<$Res, $Val extends WagAiState>
                     ? _value.usage
                     : usage // ignore: cast_nullable_to_non_nullable
                         as AiUsage?,
+            showingUsageBottomSheet:
+                null == showingUsageBottomSheet
+                    ? _value.showingUsageBottomSheet
+                    : showingUsageBottomSheet // ignore: cast_nullable_to_non_nullable
+                        as bool,
             isSSECOnnected:
                 null == isSSECOnnected
                     ? _value.isSSECOnnected
@@ -1012,6 +1242,7 @@ abstract class _$$WagAiStateImplCopyWith<$Res>
     AiChatHistory? historydetails,
     List<Message> responses,
     AiUsage? usage,
+    bool showingUsageBottomSheet,
     bool isSSECOnnected,
     int historyPage,
     int historyLimit,
@@ -1044,6 +1275,7 @@ class __$$WagAiStateImplCopyWithImpl<$Res>
     Object? historydetails = freezed,
     Object? responses = null,
     Object? usage = freezed,
+    Object? showingUsageBottomSheet = null,
     Object? isSSECOnnected = null,
     Object? historyPage = null,
     Object? historyLimit = null,
@@ -1102,6 +1334,11 @@ class __$$WagAiStateImplCopyWithImpl<$Res>
                 ? _value.usage
                 : usage // ignore: cast_nullable_to_non_nullable
                     as AiUsage?,
+        showingUsageBottomSheet:
+            null == showingUsageBottomSheet
+                ? _value.showingUsageBottomSheet
+                : showingUsageBottomSheet // ignore: cast_nullable_to_non_nullable
+                    as bool,
         isSSECOnnected:
             null == isSSECOnnected
                 ? _value.isSSECOnnected
@@ -1146,6 +1383,7 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
     this.historydetails = null,
     final List<Message> responses = const [],
     this.usage = null,
+    this.showingUsageBottomSheet = false,
     this.isSSECOnnected = false,
     this.historyPage = 1,
     this.historyLimit = 15,
@@ -1205,6 +1443,9 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
   final AiUsage? usage;
   @override
   @JsonKey()
+  final bool showingUsageBottomSheet;
+  @override
+  @JsonKey()
   final bool isSSECOnnected;
   // Pagination state for history
   @override
@@ -1222,7 +1463,7 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'WagAiState(initStatus: $initStatus, sendChatStatus: $sendChatStatus, stream: $stream, streamResponse: $streamResponse, message: $message, images: $images, history: $history, historydetails: $historydetails, responses: $responses, usage: $usage, isSSECOnnected: $isSSECOnnected, historyPage: $historyPage, historyLimit: $historyLimit, hasMoreHistory: $hasMoreHistory, historyStatus: $historyStatus)';
+    return 'WagAiState(initStatus: $initStatus, sendChatStatus: $sendChatStatus, stream: $stream, streamResponse: $streamResponse, message: $message, images: $images, history: $history, historydetails: $historydetails, responses: $responses, usage: $usage, showingUsageBottomSheet: $showingUsageBottomSheet, isSSECOnnected: $isSSECOnnected, historyPage: $historyPage, historyLimit: $historyLimit, hasMoreHistory: $hasMoreHistory, historyStatus: $historyStatus)';
   }
 
   @override
@@ -1240,6 +1481,9 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
       ..add(DiagnosticsProperty('historydetails', historydetails))
       ..add(DiagnosticsProperty('responses', responses))
       ..add(DiagnosticsProperty('usage', usage))
+      ..add(
+        DiagnosticsProperty('showingUsageBottomSheet', showingUsageBottomSheet),
+      )
       ..add(DiagnosticsProperty('isSSECOnnected', isSSECOnnected))
       ..add(DiagnosticsProperty('historyPage', historyPage))
       ..add(DiagnosticsProperty('historyLimit', historyLimit))
@@ -1269,6 +1513,11 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
               _responses,
             ) &&
             (identical(other.usage, usage) || other.usage == usage) &&
+            (identical(
+                  other.showingUsageBottomSheet,
+                  showingUsageBottomSheet,
+                ) ||
+                other.showingUsageBottomSheet == showingUsageBottomSheet) &&
             (identical(other.isSSECOnnected, isSSECOnnected) ||
                 other.isSSECOnnected == isSSECOnnected) &&
             (identical(other.historyPage, historyPage) ||
@@ -1294,6 +1543,7 @@ class _$WagAiStateImpl with DiagnosticableTreeMixin implements _WagAiState {
     historydetails,
     const DeepCollectionEquality().hash(_responses),
     usage,
+    showingUsageBottomSheet,
     isSSECOnnected,
     historyPage,
     historyLimit,
@@ -1322,6 +1572,7 @@ abstract class _WagAiState implements WagAiState {
     final AiChatHistory? historydetails,
     final List<Message> responses,
     final AiUsage? usage,
+    final bool showingUsageBottomSheet,
     final bool isSSECOnnected,
     final int historyPage,
     final int historyLimit,
@@ -1349,6 +1600,8 @@ abstract class _WagAiState implements WagAiState {
   List<Message> get responses;
   @override
   AiUsage? get usage;
+  @override
+  bool get showingUsageBottomSheet;
   @override
   bool get isSSECOnnected; // Pagination state for history
   @override

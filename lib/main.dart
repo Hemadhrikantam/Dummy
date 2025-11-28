@@ -33,8 +33,8 @@ void main() async {
     print("Notification init ERROR → $e");
   }
 
-  // IMPORTANT: Disable GoogleFonts runtime fetching
-  GoogleFonts.config.allowRuntimeFetching = false;
+  // Allow GoogleFonts runtime fetching to avoid AssetManifest load issues
+  GoogleFonts.config.allowRuntimeFetching = true;
 
   runApp(const AppProvider());
 }

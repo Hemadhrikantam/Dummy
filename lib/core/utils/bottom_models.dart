@@ -20,6 +20,7 @@ import 'package:dummy/features/profile/presentation/widgets/media_deletion_botto
 import 'package:dummy/features/profile/presentation/widgets/member_deletion_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/pet_dairy/share_bottom_sheet_content.dart';
 import 'package:dummy/features/profile/presentation/widgets/plan_overview_bottom_sheet.dart';
+import 'package:dummy/features/wag/presentation/widgets/ai_limit_reached_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
@@ -506,7 +507,10 @@ class BottomModels {
   }
 
   //adoption
-  static Future<T?> addAdoptionBottomSheet<T>(BuildContext context, {String? id}) {
+  static Future<T?> addAdoptionBottomSheet<T>(
+    BuildContext context, {
+    String? id,
+  }) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: AppColors.transparent,
@@ -514,6 +518,18 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return AddAdoptionForm(id: id);
+      },
+    );
+  }
+
+  static Future<T?> aiLimitReachedBottomSheet<T>(BuildContext context) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: AppColors.transparent,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return AiLimitReachedBottomSheet();
       },
     );
   }

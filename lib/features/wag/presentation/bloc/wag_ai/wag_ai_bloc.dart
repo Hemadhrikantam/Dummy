@@ -34,11 +34,13 @@ class WagAiBloc extends Bloc<WagAiEvent, WagAiState> {
     on<_Message>(__message);
     on<_LoadHistory>(__loadHistory);
     on<_Images>(__images);
+    on<_ShowingUsageBottomSheet>(__showingUsageBottomSheet);
   }
   final AiStreamUsecases _aiStreamUsecases;
   final SendChatUsecases _sendChatUsecases;
   final AiChatHistoryUsecases _aiChatHistoryUsecases;
   final AiUsageUsecases _aiUsageUsecases;
+
   FutureOr<void> __initialization(
     _Initialization event,
     Emitter<WagAiState> emit,
@@ -252,5 +254,12 @@ class WagAiBloc extends Bloc<WagAiEvent, WagAiState> {
         );
       },
     );
+  }
+
+  FutureOr<void> __showingUsageBottomSheet(
+    _ShowingUsageBottomSheet event,
+    Emitter<WagAiState> emit,
+  ) async {
+    emit(state.copyWith(showingUsageBottomSheet: event.value));
   }
 }

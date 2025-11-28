@@ -13,6 +13,7 @@ class WagAiState with _$WagAiState {
     @Default(null) final AiChatHistory? historydetails,
     @Default([]) final List<Message> responses,
     @Default(null) final AiUsage? usage,
+    @Default(false) final bool showingUsageBottomSheet,
     @Default(false) final bool isSSECOnnected,
     // Pagination state for history
     @Default(1) final int historyPage,
