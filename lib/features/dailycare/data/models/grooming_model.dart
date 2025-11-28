@@ -36,21 +36,21 @@ class PetGroomingModel extends PetGrooming {
       mediaList = [MediaItemModel(fileUrl: mediaField)];
     }
 
-    DateTime? _parseDate(dynamic v) => v == null ? null : DateTime.tryParse(v.toString());
-    String _cleanStr(dynamic v) => (v ?? '').toString().trim().replaceAll('`', '');
+    DateTime? parseDate(dynamic v) => v == null ? null : DateTime.tryParse(v.toString());
+    String cleanStr(dynamic v) => (v ?? '').toString().trim().replaceAll('`', '');
 
     return PetGroomingModel(
-      id: _cleanStr(json['id']),
-      petId: _cleanStr(json['pet_id'] ?? json['pet']),
-      date: _cleanStr(json['grooming_date'] ?? json['date']),
-      groomingType: _cleanStr(json['grooming_type_name'] ?? json['grooming_type'] ?? json['grooming_type_id']),
-      groomingTypeId: _cleanStr(json['grooming_type_id']).isEmpty ? null : _cleanStr(json['grooming_type_id']),
-      groomingTypeName: _cleanStr(json['grooming_type_name']).isEmpty ? null : _cleanStr(json['grooming_type_name']),
-      createdById: _cleanStr(json['created_by_id']).isEmpty ? null : _cleanStr(json['created_by_id']),
-      notes: _cleanStr(json['notes']).isEmpty ? null : _cleanStr(json['notes']),
+      id: cleanStr(json['id']),
+      petId: cleanStr(json['pet_id'] ?? json['pet']),
+      date: cleanStr(json['grooming_date'] ?? json['date']),
+      groomingType: cleanStr(json['grooming_type_name'] ?? json['grooming_type'] ?? json['grooming_type_id']),
+      groomingTypeId: cleanStr(json['grooming_type_id']).isEmpty ? null : cleanStr(json['grooming_type_id']),
+      groomingTypeName: cleanStr(json['grooming_type_name']).isEmpty ? null : cleanStr(json['grooming_type_name']),
+      createdById: cleanStr(json['created_by_id']).isEmpty ? null : cleanStr(json['created_by_id']),
+      notes: cleanStr(json['notes']).isEmpty ? null : cleanStr(json['notes']),
       media: mediaList,
-      createdAt: _parseDate(json['created_at']),
-      updatedAt: _parseDate(json['updated_at']),
+      createdAt: parseDate(json['created_at']),
+      updatedAt: parseDate(json['updated_at']),
     );
   }
 

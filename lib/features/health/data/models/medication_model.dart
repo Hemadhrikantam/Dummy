@@ -64,7 +64,7 @@ class PetMedicationModel extends PetMedication {
   }
 
   Map<String, dynamic> toJson() {
-    String? _iso(DateTime? d) => d?.toIso8601String();
+    String? iso(DateTime? d) => d?.toIso8601String();
 
     return {
       'id': id,
@@ -77,7 +77,7 @@ class PetMedicationModel extends PetMedication {
       'frequency_id': frequencyId,
       if (frequencyName != null) 'frequency_name': frequencyName,
       'start_date': startDate.toIso8601String(),
-      'end_date': _iso(endDate),
+      'end_date': iso(endDate),
       'notes': notes,
       'image_url': imageUrl,
       'is_active': isActive,

@@ -35,7 +35,7 @@ class CountListingModel extends CountListing {
 }
 
 class ListingModel extends Listing {
-  ListingModel({
+  const ListingModel({
     required super.id,
     required super.petId,
     required super.description,

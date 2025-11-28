@@ -36,8 +36,9 @@ class PetDewormingModel extends PetDeworming {
       mediaList =
           mediaField
               .map((e) {
-                if (e is Map<String, dynamic>)
+                if (e is Map<String, dynamic>) {
                   return MediaItemModel.fromJson(e);
+                }
                 if (e is String) return MediaItemModel(fileUrl: e);
                 return null;
               })
@@ -49,9 +50,9 @@ class PetDewormingModel extends PetDeworming {
       mediaList = [MediaItemModel(fileUrl: mediaField)];
     }
 
-    DateTime? _parseDate(dynamic v) =>
+    DateTime? parseDate(dynamic v) =>
         v == null ? null : DateTime.tryParse(v.toString());
-    String _dateOnly(dynamic v) {
+    String dateOnly(dynamic v) {
       final s = (v ?? '').toString();
       if (s.isEmpty) return '';
       final dt = DateTime.tryParse(s);
@@ -66,13 +67,13 @@ class PetDewormingModel extends PetDeworming {
     return PetDewormingModel(
       id: (json['id'] ?? '').toString(),
       petId: (json['pet_id'] ?? json['pet'] ?? '').toString(),
-      date: _dateOnly(json['deworming_date'] ?? json['date']),
+      date: dateOnly(json['deworming_date'] ?? json['date']),
       productName: (json['product_name'] ?? '').toString(),
-      dueDate: _dateOnly(json['due_date']),
+      dueDate: dateOnly(json['due_date']),
       notes: json['notes'] as String?,
       isActive: json['is_active'] is bool ? json['is_active'] as bool : null,
-      createdAt: _parseDate(json['created_at']),
-      updatedAt: _parseDate(json['updated_at']),
+      createdAt: parseDate(json['created_at']),
+      updatedAt: parseDate(json['updated_at']),
       frequencyId:
           (json['frequency_id'] ?? '').toString().isEmpty
               ? null
@@ -93,7 +94,7 @@ class PetDewormingModel extends PetDeworming {
               ? null
               : (reminder['id'] ?? '').toString(),
       reminderDate:
-          reminder == null ? null : _parseDate(reminder['reminder_date']),
+          reminder == null ? null : parseDate(reminder['reminder_date']),
       reminderTime:
           reminder == null ? null : (reminder['reminder_time'] as String?),
       reminderTimezone:
@@ -111,9 +112,9 @@ class PetDewormingModel extends PetDeworming {
               ? null
               : (reminder['created_by'] ?? '').toString(),
       reminderCreatedAt:
-          reminder == null ? null : _parseDate(reminder['created_at']),
+          reminder == null ? null : parseDate(reminder['created_at']),
       reminderUpdatedAt:
-          reminder == null ? null : _parseDate(reminder['updated_at']),
+          reminder == null ? null : parseDate(reminder['updated_at']),
     );
   }
 

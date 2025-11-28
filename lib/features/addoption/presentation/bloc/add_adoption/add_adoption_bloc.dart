@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:bloc/bloc.dart';
 import 'package:dummy/core/enum/breed.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/enum/upload_type.dart';

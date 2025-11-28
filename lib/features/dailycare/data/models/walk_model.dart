@@ -16,20 +16,20 @@ class PetWalkModel extends PetWalk {
   });
 
   factory PetWalkModel.fromJson(Map<String, dynamic> json) {
-    DateTime? _parseDate(dynamic v) => v == null ? null : DateTime.tryParse(v.toString());
+    DateTime? parseDate(dynamic v) => v == null ? null : DateTime.tryParse(v.toString());
 
-    List<MediaItem> _parseMedia(dynamic mediaField) {
+    List<MediaItem> parseMedia(dynamic mediaField) {
       if (mediaField is List) {
         return mediaField
             .map((e) {
               if (e is Map<String, dynamic>) {
                 // Leverage MediaItemModel logic from meal_model if needed; inline parse here to avoid imports.
-                String? _clean(dynamic v) {
+                String? clean(dynamic v) {
                   final s = (v ?? '').toString().trim();
                   if (s.isEmpty) return null;
                   return s.replaceAll('`', '');
                 }
-                bool? _parseBool(dynamic v) {
+                bool? parseBool(dynamic v) {
                   if (v == null) return null;
                   if (v is bool) return v;
                   final s = v.toString().toLowerCase();
@@ -37,26 +37,26 @@ class PetWalkModel extends PetWalk {
                   if (s == 'false') return false;
                   return null;
                 }
-                int? _parseInt(dynamic v) {
+                int? parseInt(dynamic v) {
                   if (v == null) return null;
                   if (v is int) return v;
                   return int.tryParse(v.toString());
                 }
                 return MediaItem(
-                  id: _clean(e['id']),
-                  petId: _clean(e['pet_id']),
-                  entityType: _clean(e['entity_type']),
-                  entityId: _clean(e['entity_id']),
-                  uploadedBy: _clean(e['uploaded_by']),
-                  fileUrl: _clean(e['file_url']),
-                  fileType: _clean(e['file_type']),
-                  fileSize: _clean(e['file_size']),
-                  mediaCaption: _clean(e['media_caption']),
-                  sortOrder: _parseInt(e['sort_order']),
-                  isCover: _parseBool(e['is_cover']),
-                  isDeleted: _parseBool(e['is_deleted']),
-                  createdAt: _parseDate(e['created_at']),
-                  updatedAt: _parseDate(e['updated_at']),
+                  id: clean(e['id']),
+                  petId: clean(e['pet_id']),
+                  entityType: clean(e['entity_type']),
+                  entityId: clean(e['entity_id']),
+                  uploadedBy: clean(e['uploaded_by']),
+                  fileUrl: clean(e['file_url']),
+                  fileType: clean(e['file_type']),
+                  fileSize: clean(e['file_size']),
+                  mediaCaption: clean(e['media_caption']),
+                  sortOrder: parseInt(e['sort_order']),
+                  isCover: parseBool(e['is_cover']),
+                  isDeleted: parseBool(e['is_deleted']),
+                  createdAt: parseDate(e['created_at']),
+                  updatedAt: parseDate(e['updated_at']),
                 );
               } else if (e is String) {
                 return MediaItem(fileUrl: e);
@@ -67,12 +67,12 @@ class PetWalkModel extends PetWalk {
             .toList();
       } else if (mediaField is Map<String, dynamic>) {
         final e = mediaField;
-        String? _clean(dynamic v) {
+        String? clean(dynamic v) {
           final s = (v ?? '').toString().trim();
           if (s.isEmpty) return null;
           return s.replaceAll('`', '');
         }
-        bool? _parseBool(dynamic v) {
+        bool? parseBool(dynamic v) {
           if (v == null) return null;
           if (v is bool) return v;
           final s = v.toString().toLowerCase();
@@ -80,27 +80,27 @@ class PetWalkModel extends PetWalk {
           if (s == 'false') return false;
           return null;
         }
-        int? _parseInt(dynamic v) {
+        int? parseInt(dynamic v) {
           if (v == null) return null;
           if (v is int) return v;
           return int.tryParse(v.toString());
         }
         return [
           MediaItem(
-            id: _clean(e['id']),
-            petId: _clean(e['pet_id']),
-            entityType: _clean(e['entity_type']),
-            entityId: _clean(e['entity_id']),
-            uploadedBy: _clean(e['uploaded_by']),
-            fileUrl: _clean(e['file_url']),
-            fileType: _clean(e['file_type']),
-            fileSize: _clean(e['file_size']),
-            mediaCaption: _clean(e['media_caption']),
-            sortOrder: _parseInt(e['sort_order']),
-            isCover: _parseBool(e['is_cover']),
-            isDeleted: _parseBool(e['is_deleted']),
-            createdAt: _parseDate(e['created_at']),
-            updatedAt: _parseDate(e['updated_at']),
+            id: clean(e['id']),
+            petId: clean(e['pet_id']),
+            entityType: clean(e['entity_type']),
+            entityId: clean(e['entity_id']),
+            uploadedBy: clean(e['uploaded_by']),
+            fileUrl: clean(e['file_url']),
+            fileType: clean(e['file_type']),
+            fileSize: clean(e['file_size']),
+            mediaCaption: clean(e['media_caption']),
+            sortOrder: parseInt(e['sort_order']),
+            isCover: parseBool(e['is_cover']),
+            isDeleted: parseBool(e['is_deleted']),
+            createdAt: parseDate(e['created_at']),
+            updatedAt: parseDate(e['updated_at']),
           )
         ];
       } else if (mediaField is String) {
@@ -118,10 +118,10 @@ class PetWalkModel extends PetWalk {
           : int.tryParse((json['duration_minutes'] ?? json['duration'] ?? '0').toString()) ?? 0,
       location: (json['location'] ?? '').toString(),
       notes: (json['notes'] ?? '').toString(),
-      media: _parseMedia(json['media']),
+      media: parseMedia(json['media']),
       createdById: (json['created_by_id'] ?? '').toString().isEmpty ? null : (json['created_by_id'] ?? '').toString(),
-      createdAt: _parseDate(json['created_at']),
-      updatedAt: _parseDate(json['updated_at']),
+      createdAt: parseDate(json['created_at']),
+      updatedAt: parseDate(json['updated_at']),
     );
   }
 

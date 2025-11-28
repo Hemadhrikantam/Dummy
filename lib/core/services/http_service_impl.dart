@@ -74,7 +74,7 @@ class AppHttpImpl extends AppHttp {
       final lineStream = const LineSplitter().bind(textStream);
       final stream = lineStream
           .map((String line) {
-            LogUtility.warning('LINE' + line);
+            LogUtility.warning('LINE$line');
             final trimmed = line.trim();
             if (trimmed.startsWith('data:')) {
               return trimmed.substring(5).trim();

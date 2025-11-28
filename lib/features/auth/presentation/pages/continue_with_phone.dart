@@ -3,6 +3,7 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/toast_message.dart';
 
@@ -13,6 +14,7 @@ import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/core/widgets/phone_text_field.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
+import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -58,7 +60,12 @@ class _ContinueWithPhone extends State<ContinueWithPhone> {
               __YourPhone(),
               Styles.gap40,
 
-              BlocBuilder<AuthBloc, AuthState>(
+              BlocConsumer<AuthBloc, AuthState>(
+                listener: (context, state) {
+                  if (state.sendOtpStatus.success) {
+                    context.push(OtpVerification.route());
+                  }
+                },
                 builder: (context, state) {
                   return state.sendOtpStatus.loading
                       ? LoadingWidget.circularProgressIndicatorCenter

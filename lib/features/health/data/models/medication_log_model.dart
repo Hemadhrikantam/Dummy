@@ -42,16 +42,16 @@ class MedicationLogModel extends MedicationLog {
   }
 
   Map<String, dynamic> toJson() {
-    String? _iso(DateTime? d) => d?.toIso8601String();
-    String _dateOnly(DateTime d) => d.toIso8601String().split('T')[0];
+    String? iso(DateTime? d) => d?.toIso8601String();
+    String dateOnly(DateTime d) => d.toIso8601String().split('T')[0];
 
     return {
-      'date': _dateOnly(date),
+      'date': dateOnly(date),
       'timeslot_id': timeslotId,
       'timeslot_name': timeslotName,
       'schedule_id': scheduleId,
       'status': status,
-      'administered_at': _iso(administeredAt),
+      'administered_at': iso(administeredAt),
       'administered_by': administeredBy,
       'notes': notes,
     };

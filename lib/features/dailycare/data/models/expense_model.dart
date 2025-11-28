@@ -20,8 +20,8 @@ class PetExpenseModel extends PetExpense {
   });
 
   factory PetExpenseModel.fromJson(Map<String, dynamic> json) {
-    DateTime? _parseDate(dynamic v) => v == null ? null : DateTime.tryParse(v.toString());
-    String? _clean(dynamic v) {
+    DateTime? parseDate(dynamic v) => v == null ? null : DateTime.tryParse(v.toString());
+    String? clean(dynamic v) {
       final s = (v ?? '').toString().trim();
       if (s.isEmpty) return null;
       return s.replaceAll('`', '');
@@ -48,19 +48,19 @@ class PetExpenseModel extends PetExpense {
     final firstMediaUrl = mediaList.isNotEmpty ? (mediaList.first.fileUrl ?? '') : '';
 
     return PetExpenseModel(
-      id: _clean(json['id']) ?? '',
-      pet: _clean(json['pet_id']) ?? '',
+      id: clean(json['id']) ?? '',
+      pet: clean(json['pet_id']) ?? '',
       date: (json['expense_date'] ?? '').toString(),
       category: (json['category_name'] ?? '').toString(),
       notes: (json['notes'] ?? '').toString(),
       media: firstMediaUrl,
       amount: (json['amount'] ?? '').toString(),
       currency: (json['currency'] ?? '').toString(),
-      categoryId: _clean(json['category_id']) ?? '',
-      categoryName: _clean(json['category_name']),
-      createdById: _clean(json['created_by_id']),
-      createdAt: _parseDate(json['created_at']),
-      updatedAt: _parseDate(json['updated_at']),
+      categoryId: clean(json['category_id']) ?? '',
+      categoryName: clean(json['category_name']),
+      createdById: clean(json['created_by_id']),
+      createdAt: parseDate(json['created_at']),
+      updatedAt: parseDate(json['updated_at']),
       medias: mediaList,
     );
   }

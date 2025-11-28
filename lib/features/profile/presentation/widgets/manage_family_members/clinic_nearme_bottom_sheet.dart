@@ -12,7 +12,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/custom_card.dart';
-import '../../../../addoption/presentation/widgets/adoption_card.dart';
 
 class ClinicNearMeBottomSheet extends StatelessWidget {
   const ClinicNearMeBottomSheet({super.key, this.onTap});

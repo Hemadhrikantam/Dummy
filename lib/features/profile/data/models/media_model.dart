@@ -20,7 +20,7 @@ class MediaModel extends Media {
 
   factory MediaModel.fromMap(JsonMap map) {
     // Helper function to clean strings (remove backticks and trim)
-    String? _clean(dynamic value) {
+    String? clean(dynamic value) {
       if (value == null) return null;
       final str = value.toString().trim();
       if (str.isEmpty) return null;
@@ -28,14 +28,14 @@ class MediaModel extends Media {
     }
 
     // Helper function to parse DateTime
-    DateTime _parseDateTime(dynamic value) {
+    DateTime parseDateTime(dynamic value) {
       if (value == null) return DateTime.now();
       if (value is DateTime) return value;
       return DateTime.tryParse(value.toString()) ?? DateTime.now();
     }
 
     // Helper function to parse int
-    int _parseInt(dynamic value) {
+    int parseInt(dynamic value) {
       if (value == null) return 0;
       if (value is int) return value;
       if (value is double) return value.toInt();
@@ -43,7 +43,7 @@ class MediaModel extends Media {
     }
 
     // Helper function to parse bool
-    bool _parseBool(dynamic value) {
+    bool parseBool(dynamic value) {
       if (value == null) return false;
       if (value is bool) return value;
       final str = value.toString().toLowerCase();
@@ -51,19 +51,19 @@ class MediaModel extends Media {
     }
 
     return MediaModel(
-      id: _clean(map['id']) ?? '',
-      petId: _clean(map['pet_id']) ?? '',
-      uploadedBy: _clean(map['uploaded_by']) ?? '',
-      fileUrl: _clean(map['file_url']) ?? '',
-      fileType: _clean(map['file_type']) ?? '',
-      fileSize: _parseInt(map['file_size']),
-      notes: _clean(map['notes']),
-      eventTypeId: _clean(map['event_type_id']) ?? '',
-      isDeleted: _parseBool(map['is_deleted']),
-      createdAt: _parseDateTime(map['created_at']),
-      updatedAt: _parseDateTime(map['updated_at']),
-      eventTypeName: _clean(map['event_type_name']) ?? '',
-      isFavorited: _parseBool(map['is_favorited']),
+      id: clean(map['id']) ?? '',
+      petId: clean(map['pet_id']) ?? '',
+      uploadedBy: clean(map['uploaded_by']) ?? '',
+      fileUrl: clean(map['file_url']) ?? '',
+      fileType: clean(map['file_type']) ?? '',
+      fileSize: parseInt(map['file_size']),
+      notes: clean(map['notes']),
+      eventTypeId: clean(map['event_type_id']) ?? '',
+      isDeleted: parseBool(map['is_deleted']),
+      createdAt: parseDateTime(map['created_at']),
+      updatedAt: parseDateTime(map['updated_at']),
+      eventTypeName: clean(map['event_type_name']) ?? '',
+      isFavorited: parseBool(map['is_favorited']),
     );
   }
 

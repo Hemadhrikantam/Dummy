@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 import 'package:dummy/api/api.dart' as api;
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/error/app_error.dart';

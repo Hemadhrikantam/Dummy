@@ -16,11 +16,11 @@ class ExpenseMediaPayload extends Equatable {
   final String fileSize; // bytes as string
 
   JsonMap toMap() {
-    String _clean(String v) => v.trim().replaceAll('`', '');
+    String clean(String v) => v.trim().replaceAll('`', '');
     return {
-      'file_url': _clean(fileUrl),
-      'file_type': _clean(fileType),
-      'file_size': _clean(fileSize),
+      'file_url': clean(fileUrl),
+      'file_type': clean(fileType),
+      'file_size': clean(fileSize),
     };
   }
 
@@ -78,12 +78,12 @@ class ExpensePayload extends Equatable implements Payload {
   @override
   JsonMap toMap() {
     // Always emit the new schema keys, falling back to legacy values when present.
-    final String _dateStr = expenseDate ??
+    final String dateStr = expenseDate ??
         (date != null ? AppUtil.formatDate(date!) : '');
 
     return {
       'pet_id': petId ?? pet,
-      'expense_date': _dateStr,
+      'expense_date': dateStr,
       'category_id': categoryId ?? category,
       'amount': amount ?? 0,
       'currency': (currency ?? 'inr').toLowerCase(),

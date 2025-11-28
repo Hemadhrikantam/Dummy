@@ -15,7 +15,7 @@ class NgoProfile extends Equatable {
   final DateTime? createdAt;
   final DateTime? updatedAt;
 
-  NgoProfile({
+  const NgoProfile({
     required this.id,
     required this.ngoName,
     required this.contactPersonName,

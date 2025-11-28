@@ -172,9 +172,7 @@ class ProfileDatasourceImpl extends ProfileDatasource {
   AppTypeResponse<List<MediaModel>> medias() async {
     final response = await http.get(
       path:
-          api.petDairyMedia +
-          '/' +
-          (currentContext.read<DashboardBloc>().state.selectedPet?.id ?? ''),
+          '${api.petDairyMedia}/${currentContext.read<DashboardBloc>().state.selectedPet?.id ?? ''}',
     );
     return response.fold(
       (error) {

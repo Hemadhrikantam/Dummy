@@ -294,7 +294,7 @@ class AuthDatasourceImpl extends AuthDatasource {
           final statusCode =
               (success.data['statusCode'] as int?) ?? success.statusCode;
           final data = success.data;
-          if (statusCode != null && statusCode <= 201) {
+          if (statusCode <= 201) {
             return Right(
               SuccessMessage(
                 message:
@@ -342,7 +342,7 @@ class AuthDatasourceImpl extends AuthDatasource {
           final statusCode =
               (success.data['statusCode'] as int?) ?? success.statusCode;
           final data = success.data;
-          if (statusCode != null && statusCode <= 201) {
+          if (statusCode <= 201) {
             final model = PresignModel.fromJson(data['data']);
             final r = await upload(path: path, signedUrl: model.uploadUrl);
             r.fold(
@@ -374,7 +374,7 @@ class AuthDatasourceImpl extends AuthDatasource {
     required String signedUrl,
   }) async {
     final file = File(path);
-    LogUtility.info('URL ${signedUrl}');
+    LogUtility.info('URL $signedUrl');
     final response = await http.put(
       path: signedUrl,
       token: false,
@@ -392,7 +392,7 @@ class AuthDatasourceImpl extends AuthDatasource {
         return Left(ErrorMessage(message: error.message));
       },
       (success) {
-        final statusCode = success.statusCode!;
+        final statusCode = success.statusCode;
         if (statusCode <= 201) {
           return const Right(SuccessMessage(message: 'Success'));
         }

@@ -1,7 +1,4 @@
 import 'dart:async';
-
-import 'package:bloc/bloc.dart';
-import 'package:dio/dio.dart';
 import 'package:dummy/core/enum/breed.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/enum/upload_type.dart';
@@ -11,20 +8,15 @@ import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/email.dart';
 import 'package:dummy/core/models/formz/mobile.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
-import 'package:dummy/core/payload/adoption/pet_adoption_payload.dart';
 import 'package:dummy/core/payload/pet_payload.dart';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/di/injection.dart';
-import 'package:dummy/features/addoption/domain/usecases/adoption_details_usecases.dart';
-import 'package:dummy/features/addoption/domain/usecases/edit_pet_adoption_usecases.dart';
-import 'package:dummy/features/addoption/domain/usecases/submit_pet_adoption_form.dart';
 import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/ngo/domain/usecases/add_pet_listing_usecase.dart';
 import 'package:dummy/features/ngo/domain/usecases/edit_pet_listing_usecase.dart';
 import 'package:dummy/features/profile/domain/usecases/add_pet_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_pet_usecases.dart';
-import 'package:dummy/features/signup/domain/usecases/create_pet_usecases.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -254,17 +246,6 @@ class ListingFormBloc extends Bloc<ListingFormEvent, ListingFormState> {
     } else {
       final dogBreeds = enums.breeds.where((b) => b.type == 'dog').toList();
       return dogBreeds
-          .map((b) => DropStringItemModel(id: b.id, value: b.name))
-          .toList();
-    }
-  }
-
-  Future<List<DropStringItem>> __personalityTags() async {
-    final enums = currentContext.read<AuthBloc>().state.enums;
-    if (enums == null) {
-      return [];
-    } else {
-      return enums.personalityTags
           .map((b) => DropStringItemModel(id: b.id, value: b.name))
           .toList();
     }

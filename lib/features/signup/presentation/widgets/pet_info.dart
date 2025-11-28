@@ -477,7 +477,7 @@ class RoundedDropdownState extends State<RoundedDropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
-      value: selectedValue,
+      initialValue: selectedValue,
       items:
           options
               .map(

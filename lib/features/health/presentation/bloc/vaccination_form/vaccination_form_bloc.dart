@@ -1,4 +1,3 @@
-import 'package:bloc/bloc.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
@@ -54,8 +53,6 @@ class VaccinationFormBloc
     emit(state.copyWith(initStatus: Status.loading));
     final frequencies =
         currentContext.read<AuthBloc>().state.enums?.frequencyTypes ?? [];
-    final reminderBefores =
-        frequencies.where((e) => e.frequencyType == 'time').toList();
     final timezones = List<Timezone>.from([
       Timezone(id: 1, code: 'UTC'),
       Timezone(id: 2, code: 'IST'),

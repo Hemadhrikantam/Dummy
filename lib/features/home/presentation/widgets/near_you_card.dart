@@ -19,6 +19,7 @@ class NearYouCard extends StatefulWidget {
 }
 
 class _NearYouCardState extends State<NearYouCard> {
+  @override
   initState() {
     super.initState();
     context.read<VetNearMeBloc>().add(VetNearMeEvent.init());

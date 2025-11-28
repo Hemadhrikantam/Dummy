@@ -2,7 +2,7 @@ import 'package:dummy/features/ngo/domain/entities/ngo_profile.dart';
 
 class NgoProfileModel extends NgoProfile {
 
-  NgoProfileModel({
+  const NgoProfileModel({
     required super.id,
     required super.ngoName,
     required super.contactPersonName,

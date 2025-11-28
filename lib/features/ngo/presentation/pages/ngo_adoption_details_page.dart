@@ -2,8 +2,6 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
-import 'package:dummy/features/addoption/domain/entities/adoption.dart';
-import 'package:dummy/features/addoption/presentation/widgets/adoption_details_card.dart';
 import 'package:dummy/features/ngo/domain/entities/listing.dart';
 import 'package:dummy/features/ngo/presentation/widgets/ngo_adoption_details_card.dart';
 import 'package:flutter/material.dart';

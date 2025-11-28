@@ -23,7 +23,7 @@ import '../../../../../core/widgets/dotted_border_widget.dart';
 part 'add_medication_form.dart';
 
 class __TabletName extends StatefulWidget {
-  const __TabletName({Key? key}) : super(key: key);
+  const __TabletName();
 
   @override
   State<__TabletName> createState() => _TabletNameState();
@@ -73,7 +73,7 @@ class _TabletNameState extends State<__TabletName> {
 }
 
 class __Company extends StatefulWidget {
-  const __Company({Key? key}) : super(key: key);
+  const __Company();
 
   @override
   State<__Company> createState() => _CompanyState();

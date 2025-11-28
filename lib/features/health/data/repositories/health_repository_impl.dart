@@ -6,7 +6,6 @@ import 'package:dummy/features/health/domain/entities/medication.dart';
 import 'package:dummy/features/health/domain/entities/medication_date.dart';
 import 'package:dummy/features/health/domain/entities/medication_log.dart';
 import 'package:dummy/features/health/domain/repositories/health_repository.dart';
-import 'package:flutter/semantics.dart';
 
 import '../../../dailycare/domain/entities/frequency.dart';
 import '../../domain/entities/vaccination.dart';

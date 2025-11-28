@@ -42,7 +42,7 @@ class ShareService {
         await File('${tempDir.path}/${fileName ?? "doomi"}.png').create();
     await file.writeAsBytes(pngBytes);
 
-    await Share.shareXFiles([XFile(file.path)], text: '$text');
+    await Share.shareXFiles([XFile(file.path)], text: text);
   }
 
   static Future<void> shareByUrl(
@@ -63,7 +63,7 @@ class ShareService {
 
       await file.writeAsBytes(response.bodyBytes);
 
-      await Share.shareXFiles([XFile(file.path)], text: '$text');
+      await Share.shareXFiles([XFile(file.path)], text: text);
     } catch (e) {
       print('Error in shareByUrl: $e');
       rethrow;

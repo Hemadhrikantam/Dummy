@@ -18,8 +18,6 @@ import 'package:dummy/features/profile/presentation/pages/support/faq_page.dart'
 import 'package:dummy/features/profile/presentation/pages/support/privacy_policy_page.dart';
 import 'package:dummy/features/profile/presentation/pages/support/terms_and_condition_page.dart';
 import 'package:dummy/features/profile/presentation/pages/vet_near_me_page.dart';
-import 'package:dummy/features/signup/domain/entities/breed.dart';
-import 'package:dummy/features/signup/domain/entities/personality_tag.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy1_page.dart';
 import 'package:dummy/features/signup/presentation/pages/join_dummy2_page.dart'
     show JoinDummy2Page;

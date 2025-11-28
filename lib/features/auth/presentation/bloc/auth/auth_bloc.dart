@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:dummy/api/storage_key.dart';
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
@@ -15,7 +14,6 @@ import 'package:dummy/features/auth/domain/usecases/register_device_usecases.dar
 import 'package:dummy/features/auth/domain/usecases/seeker_registration_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/ngo_registration/ngo_registration_bloc.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
-import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
 import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/signup/data/models/enum_model.dart';
@@ -109,11 +107,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   Future<void> __login(_Login event, Emitter<AuthState> emit) async {
     emit(state.copyWith(loginStatus: Status.loading));
-    emit(state.copyWith(loginStatus: Status.loading));
-    emit(state.copyWith(loginStatus: Status.success));
-    emit(state.copyWith(loginStatus: Status.init));
-    return;
-    emit(state.copyWith(loginStatus: Status.loading));
     LogUtility.info("${state.phone.value}");
     try {
       UserCredential userCredential = await Injection.firebaseOtp.verifyOtp(
@@ -135,46 +128,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
   }
 
-  Future<void> __signup(_Signup event, Emitter<AuthState> emit) async {
-    // emit(state.copyWith(signupStatus: Status.loading));
-    // final result = await __registerAccountUsecases(
-    //   registerAccount: RegisterAccountPayload(
-    //     petName: state.name.value,
-    //     petType: state.email.value,
-    //     dob: state.password.value,
-    //     petWeight: 0,
-    //     petImage: 1,
-    //     breed: 0,
-    //     personalityTag: [],
-    //     gender: '',
-    //     latitude: 0,
-    //     longitude: 0,
-    //   ),
-    // );
-    // result.fold(
-    //   (error) {
-    //     AppAlert.showToast(message: error.message);
-    //     emit(state.copyWith(signupStatus: Status.failure));
-    //   },
-    //   (success) {
-    //     currentContext.pushNamedAndRemoveUntil(DashboardPage.routeName);
-    //     emit(
-    //       state.copyWith(
-    //         signupStatus: Status.success,
-    //         email: NotEmpty.pure(),
-    //         name: NotEmpty.pure(),
-    //         password: Password.pure(),
-    //         confirmPassword: Password.pure(),
-    //         // user: CurrentUser(
-    //         //   id: '',
-    //         //   email: state.name.value,
-    //         //   name: state.name.value,
-    //         // ),
-    //       ),
-    //     );
-    //   },
-    // );
-  }
+  Future<void> __signup(_Signup event, Emitter<AuthState> emit) async {}
 
   Future<void> __checkUser(_CheckUser event, Emitter<AuthState> emit) async {
     // final result = await __currentUserUsecases();
@@ -224,11 +178,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   FutureOr<void> __sendOtp(_SendOtp event, Emitter<AuthState> emit) async {
     LogUtility.info("event calling");
     emit(state.copyWith(sendOtpStatus: Status.loading));
-    emit(state.copyWith(sendOtpStatus: Status.success));
-    emit(state.copyWith(sendOtpStatus: Status.init));
-    currentContext.push(OtpVerification.route());
-    return;
-    emit(state.copyWith(sendOtpStatus: Status.loading));
 
     await Injection.firebaseOtp.sendOtp(
       phoneNumber: '+91${state.phone.value}',
@@ -243,23 +192,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         );
       },
     );
-    // final result = await __sendOtpUsecases(phone: state.phone.value.toString());
-    // result.fold(
-    //   (error) {
-    //     AppAlert.showToast(message: error.message);
-
-    //     emit(state.copyWith(sendOtpStatus: Status.failure));
-    //   },
-    //   (success) {
-    //     if (success.isRegistered) {
-    //       AppAlert.showToast(message: success.message);
-    //       currentContext.pushNamed(OtpVerification.routeName);
-    //     } else {
-    //       currentContext.pushNamed(PetTypePage.routeName);
-    //     }
-    //     emit(state.copyWith(sendOtpStatus: Status.success));
-    //   },
-    // );
   }
 
   void __otp(_Otp event, Emitter<AuthState> emit) {
@@ -279,7 +211,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           verificationId: NotEmpty.dirty(value: event.verificationId!),
         ),
       );
-      currentContext.push(OtpVerification.route());
+      AppAlert.showToast(message: AppText.otpSuccess);
+
       emit(state.copyWith(sendOtpStatus: Status.init));
     } else {
       AppAlert.showToast(message: AppText.somethingWentWrong);
@@ -330,11 +263,16 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               longitude: longitude,
             );
             final res = await __seekerRegistrationUsecases(payload: payload);
-            res.fold((error) {
-              AppAlert.showToast(message: error.message);
-            }, (successMsg) {
-              currentContext.pushAndRemoveUntil(AdoptionDashboardPage.route());
-            });
+            res.fold(
+              (error) {
+                AppAlert.showToast(message: error.message);
+              },
+              (successMsg) {
+                currentContext.pushAndRemoveUntil(
+                  AdoptionDashboardPage.route(),
+                );
+              },
+            );
           } else if (state.yourself.isNgo) {
             currentContext.pushNamed(NgoRegistrationPage.routeName);
           }

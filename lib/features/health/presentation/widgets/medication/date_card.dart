@@ -3,8 +3,6 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/core/widgets/app_custom_check_box.dart';
-import 'package:dummy/features/health/data/models/medication_date_model.dart';
-import 'package:dummy/features/health/domain/entities/medication_date.dart';
 import 'package:dummy/features/health/presentation/bloc/medication_details/medication_details_bloc.dart';
 import 'package:dummy/features/health/presentation/widgets/medication/date_list.dart';
 import 'package:flutter/material.dart';

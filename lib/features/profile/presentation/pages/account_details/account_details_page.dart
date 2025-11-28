@@ -1,6 +1,5 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/enum/status.dart';
-import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/features/profile/presentation/bloc/account/account_bloc.dart';

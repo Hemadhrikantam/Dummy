@@ -17,7 +17,6 @@ import 'package:dummy/features/profile/presentation/widgets/profile_header.dart'
 import 'package:flutter/material.dart';
 
 import '../widgets/profile_options/profile_options_widget.dart';
-import 'account_details/account_details_page.dart';
 
 class NgoProfileOptionsPage extends StatelessWidget {
   const NgoProfileOptionsPage({super.key});

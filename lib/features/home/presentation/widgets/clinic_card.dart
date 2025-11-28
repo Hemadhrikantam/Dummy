@@ -7,8 +7,6 @@ import 'package:dummy/features/ngo/presentation/widgets/ngo_adoption_card.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
-import '../../../addoption/presentation/widgets/adoption_card.dart';
-
 class ClinicCard extends StatelessWidget {
   const ClinicCard({super.key, required this.clinic});
 
@@ -19,10 +17,7 @@ class ClinicCard extends StatelessWidget {
     return CustomCard(
       child: Row(
         children: [
-          TextValueWidget(
-            text: 'Clinic Name   ${0}Km',
-            value: clinic.name ?? '',
-          ),
+          TextValueWidget(text: 'Clinic Name   ${0}Km', value: clinic.name),
           Styles.spacer,
           AppIcon(icon: Iconsax.map5, color: AppColors.stepperColor),
         ],

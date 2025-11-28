@@ -4,12 +4,8 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
-import 'package:dummy/features/addoption/domain/entities/adoption.dart';
-import 'package:dummy/features/addoption/presentation/widgets/adoption_card.dart';
 import 'package:dummy/features/ngo/domain/entities/listing.dart';
 import 'package:flutter/material.dart';
-import 'package:dummy/core/utils/toast_message.dart';
-import 'package:dummy/di/injection.dart';
 
 import '../../../../core/constant/app_text.dart';
 import '../../../../core/widgets/app_custom_check_box.dart';
@@ -32,6 +28,7 @@ class NgoAdoptionDetailsCard extends StatefulWidget {
 
 class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
   bool isChecked = false;
+  @override
   initState() {
     isChecked = widget.adoption?.status == 'adopted';
     super.initState();

@@ -299,7 +299,7 @@ class __Time extends StatelessWidget {
                   60,
                   (index) => DropItemModel(
                     id: index,
-                    value: '${(index) > 9 ? index : '0${index}'}',
+                    value: '${(index) > 9 ? index : '0$index'}',
                   ),
                 ),
                 title: '',

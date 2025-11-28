@@ -175,9 +175,7 @@ class _OTPInputState extends State<_OTPInput> {
     if (value.isEmpty && index > 0) {
       FocusScope.of(context).requestFocus(_focusNodes[index - 1]);
     }
-    bool allFilled = _controllers.every(
-      (controller) => controller.text.length == 1,
-    );
+    _controllers.every((controller) => controller.text.length == 1);
 
     // if (allFilled) {
     final otp = _controllers.map((c) => c.text).join();

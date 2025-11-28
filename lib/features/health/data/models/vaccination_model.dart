@@ -27,7 +27,7 @@ class PetVaccinationModel extends PetVaccination {
   });
 
   factory PetVaccinationModel.fromJson(Map<String, dynamic> json) {
-    DateTime? _dt(dynamic v) =>
+    DateTime? dt(dynamic v) =>
         v == null || (v is String && v.isEmpty)
             ? null
             : DateTime.parse(v as String);
@@ -36,7 +36,7 @@ class PetVaccinationModel extends PetVaccination {
       companyName: (json['company_name'] ?? '') as String,
       timeFrequencyId: (json['time_frequency_id'] ?? '') as String,
       timeFrequencyName: json['time_frequency_name'] as String?,
-      dateAdministered: _dt(json['date_administered']),
+      dateAdministered: dt(json['date_administered']),
       id: json['id'] as String,
       petId: json['pet_id'] as String,
       name: json['name'] as String,
@@ -51,14 +51,14 @@ class PetVaccinationModel extends PetVaccination {
       createdAt: DateTime.parse(json['created_at'] as String),
       updatedAt: DateTime.parse(json['updated_at'] as String),
       reminderId: json['reminder_id'] as String?,
-      reminderDate: _dt(json['reminder_date']),
+      reminderDate: dt(json['reminder_date']),
       timezone: json['timezone'] as String?,
       reminderEnabled: json['reminder_enabled'] as bool?,
     );
   }
 
   Map<String, dynamic> toJson() {
-    String? _iso(DateTime? d) => d?.toIso8601String();
+    String? iso(DateTime? d) => d?.toIso8601String();
 
     return {
       'id': id,
@@ -69,7 +69,7 @@ class PetVaccinationModel extends PetVaccination {
       if (frequencyName != null) 'frequency_name': frequencyName,
       'time_frequency_id': timeFrequencyId,
       if (timeFrequencyName != null) 'time_frequency_name': timeFrequencyName,
-      'date_administered': _iso(dateAdministered),
+      'date_administered': iso(dateAdministered),
       'due_date': dueDate.toIso8601String(),
       'status': status,
       'notes': notes,
@@ -79,7 +79,7 @@ class PetVaccinationModel extends PetVaccination {
       'created_at': createdAt.toIso8601String(),
       'updated_at': updatedAt.toIso8601String(),
       'reminder_id': reminderId,
-      'reminder_date': _iso(reminderDate),
+      'reminder_date': iso(reminderDate),
       'timezone': timezone,
       'reminder_enabled': reminderEnabled,
     };

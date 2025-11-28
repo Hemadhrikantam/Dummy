@@ -2,7 +2,6 @@ import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
-import 'package:dummy/features/addoption/presentation/widgets/adoption_card.dart';
 import 'package:dummy/features/ngo/presentation/bloc/ngo_home/ngo_home_bloc.dart';
 import 'package:dummy/features/ngo/presentation/widgets/ngo_adoption_card.dart';
 import 'package:flutter/material.dart';

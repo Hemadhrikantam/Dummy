@@ -15,11 +15,11 @@ class GroomingMediaPayload extends Equatable {
   final String fileSize; // bytes string
 
   JsonMap toMap() {
-    String _clean(String v) => v.trim().replaceAll('`', '');
+    String clean(String v) => v.trim().replaceAll('`', '');
     return {
-      'file_url': _clean(fileUrl),
-      'file_type': _clean(fileType),
-      'file_size': _clean(fileSize),
+      'file_url': clean(fileUrl),
+      'file_type': clean(fileType),
+      'file_size': clean(fileSize),
     };
   }
 

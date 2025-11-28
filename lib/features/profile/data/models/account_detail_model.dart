@@ -10,29 +10,29 @@ class AccountDetailModel extends AccountDetail {
   });
 
   factory AccountDetailModel.fromMap(JsonMap map) {
-    String? _clean(dynamic v) {
+    String? clean(dynamic v) {
       if (v == null) return null;
       final s = v.toString().trim();
       if (s.isEmpty) return null;
       return s.replaceAll('`', '');
     }
 
-    String _cleanReq(dynamic v) => (_clean(v) ?? '');
+    String cleanReq(dynamic v) => (clean(v) ?? '');
 
-    bool _parseBool(dynamic v) {
+    bool parseBool(dynamic v) {
       if (v == null) return false;
       if (v is bool) return v;
       final s = v.toString().toLowerCase();
       return s == 'true' || s == '1';
     }
 
-    DateTime _parseDate(dynamic v) {
+    DateTime parseDate(dynamic v) {
       if (v == null) return DateTime.now();
       if (v is DateTime) return v;
       return DateTime.tryParse(v.toString()) ?? DateTime.now();
     }
 
-    DateTime? _parseDateNullable(dynamic v) {
+    DateTime? parseDateNullable(dynamic v) {
       if (v == null) return null;
       if (v is DateTime) return v;
       return DateTime.tryParse(v.toString());
@@ -44,34 +44,34 @@ class AccountDetailModel extends AccountDetail {
     final petsList = (map['pets'] as List?) ?? const [];
 
     final user = AccountUser(
-      id: _cleanReq(userMap['id']),
-      mobileNumber: _cleanReq(userMap['mobile_number']),
-      email: _clean(userMap['email']),
-      username: _cleanReq(userMap['username']),
-      isActive: _parseBool(userMap['is_active']),
-      createdAt: _parseDate(userMap['created_at']),
+      id: cleanReq(userMap['id']),
+      mobileNumber: cleanReq(userMap['mobile_number']),
+      email: clean(userMap['email']),
+      username: cleanReq(userMap['username']),
+      isActive: parseBool(userMap['is_active']),
+      createdAt: parseDate(userMap['created_at']),
     );
 
     final account = Account(
-      id: _cleanReq(accountMap['id']),
-      accountName: _cleanReq(accountMap['account_name']),
-      accountType: _cleanReq(accountMap['account_type']),
-      subscriptionType: _cleanReq(accountMap['subscription_type']),
-      preferredCurrency: _cleanReq(accountMap['preferred_currency']),
-      createdAt: _parseDate(accountMap['created_at']),
-      updatedAt: _parseDate(accountMap['updated_at']),
+      id: cleanReq(accountMap['id']),
+      accountName: cleanReq(accountMap['account_name']),
+      accountType: cleanReq(accountMap['account_type']),
+      subscriptionType: cleanReq(accountMap['subscription_type']),
+      preferredCurrency: cleanReq(accountMap['preferred_currency']),
+      createdAt: parseDate(accountMap['created_at']),
+      updatedAt: parseDate(accountMap['updated_at']),
     );
 
     final users = usersList.map((e) {
       final m = (e ?? const <String, dynamic>{}) as Map<String, dynamic>;
       return AccountMember(
-        accountUserId: _cleanReq(m['account_user_id']),
-        memberName: _cleanReq(m['member_name']),
-        role: _cleanReq(m['role']),
-        isMainAccount: _parseBool(m['is_main_account']),
-        userId: _cleanReq(m['user_id']),
-        mobileNumber: _cleanReq(m['mobile_number']),
-        email: _clean(m['email']),
+        accountUserId: cleanReq(m['account_user_id']),
+        memberName: cleanReq(m['member_name']),
+        role: cleanReq(m['role']),
+        isMainAccount: parseBool(m['is_main_account']),
+        userId: cleanReq(m['user_id']),
+        mobileNumber: cleanReq(m['mobile_number']),
+        email: clean(m['email']),
       );
     }).toList();
 
@@ -79,21 +79,21 @@ class AccountDetailModel extends AccountDetail {
       final p = (e ?? const <String, dynamic>{}) as Map<String, dynamic>;
       final tagsRaw = p['personality_tags'];
       final tags = tagsRaw is List
-          ? tagsRaw.map((t) => _cleanReq(t)).where((t) => t.isNotEmpty).toList()
+          ? tagsRaw.map((t) => cleanReq(t)).where((t) => t.isNotEmpty).toList()
           : const <String>[];
       return AccountPet(
-        id: _cleanReq(p['id']),
-        name: _cleanReq(p['name']),
-        type: _cleanReq(p['type']),
-        breedId: _clean(p['breed_id']),
-        breedName: _clean(p['breed_name']),
-        dob: _parseDateNullable(p['dob']),
-        gender: _clean(p['gender']),
-        weightValue: _clean(p['weight_value']),
-        weightUnit: _clean(p['weight_unit']),
-        imageUrl: _clean(p['image_url']),
-        createdAt: _parseDateNullable(p['created_at']),
-        updatedAt: _parseDateNullable(p['updated_at']),
+        id: cleanReq(p['id']),
+        name: cleanReq(p['name']),
+        type: cleanReq(p['type']),
+        breedId: clean(p['breed_id']),
+        breedName: clean(p['breed_name']),
+        dob: parseDateNullable(p['dob']),
+        gender: clean(p['gender']),
+        weightValue: clean(p['weight_value']),
+        weightUnit: clean(p['weight_unit']),
+        imageUrl: clean(p['image_url']),
+        createdAt: parseDateNullable(p['created_at']),
+        updatedAt: parseDateNullable(p['updated_at']),
         personalityTags: tags,
       );
     }).toList();
@@ -107,12 +107,12 @@ class AccountDetailModel extends AccountDetail {
   }
 
   JsonMap toMap() {
-    String? _opt(String? v) => v;
+    String? opt(String? v) => v;
     return {
       'user': {
         'id': user.id,
         'mobile_number': user.mobileNumber,
-        'email': _opt(user.email),
+        'email': opt(user.email),
         'is_active': user.isActive,
         'created_at': user.createdAt.toIso8601String(),
       },
@@ -133,7 +133,7 @@ class AccountDetailModel extends AccountDetail {
                 'is_main_account': m.isMainAccount,
                 'user_id': m.userId,
                 'mobile_number': m.mobileNumber,
-                'email': _opt(m.email),
+                'email': opt(m.email),
               })
           .toList(),
       'pets': pets
@@ -141,13 +141,13 @@ class AccountDetailModel extends AccountDetail {
                 'id': p.id,
                 'name': p.name,
                 'type': p.type,
-                'breed_id': _opt(p.breedId),
-                'breed_name': _opt(p.breedName),
+                'breed_id': opt(p.breedId),
+                'breed_name': opt(p.breedName),
                 'dob': p.dob?.toIso8601String(),
-                'gender': _opt(p.gender),
-                'weight_value': _opt(p.weightValue),
-                'weight_unit': _opt(p.weightUnit),
-                'image_url': _opt(p.imageUrl),
+                'gender': opt(p.gender),
+                'weight_value': opt(p.weightValue),
+                'weight_unit': opt(p.weightUnit),
+                'image_url': opt(p.imageUrl),
                 'created_at': p.createdAt?.toIso8601String(),
                 'updated_at': p.updatedAt?.toIso8601String(),
                 'personality_tags': p.personalityTags,

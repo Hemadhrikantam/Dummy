@@ -16,27 +16,27 @@ class DocumentsModel extends Documents {
   });
 
   factory DocumentsModel.fromMap(JsonMap map) {
-    String? _clean(dynamic v) {
+    String? clean(dynamic v) {
       if (v == null) return null;
       final s = v.toString().trim();
       if (s.isEmpty) return null;
       return s.replaceAll('`', '');
     }
 
-    DateTime _parseDateTime(dynamic v) {
+    DateTime parseDateTime(dynamic v) {
       if (v == null) return DateTime.now();
       if (v is DateTime) return v;
       return DateTime.tryParse(v.toString()) ?? DateTime.now();
     }
 
-    int _parseInt(dynamic v) {
+    int parseInt(dynamic v) {
       if (v == null) return 0;
       if (v is int) return v;
       if (v is double) return v.toInt();
       return int.tryParse(v.toString()) ?? 0;
     }
 
-    bool _parseBool(dynamic v) {
+    bool parseBool(dynamic v) {
       if (v == null) return false;
       if (v is bool) return v;
       final s = v.toString().toLowerCase();
@@ -44,16 +44,16 @@ class DocumentsModel extends Documents {
     }
 
     return DocumentsModel(
-      id: _clean(map['id']) ?? '',
-      petId: _clean(map['pet_id']) ?? '',
-      uploadedBy: _clean(map['uploaded_by']) ?? '',
-      fileUrl: _clean(map['file_url']) ?? '',
-      fileName: _clean(map['file_name']) ?? '',
-      fileSize: _parseInt(map['file_size']),
-      notes: _clean(map['notes']),
-      isDeleted: _parseBool(map['is_deleted']),
-      createdAt: _parseDateTime(map['created_at']),
-      updatedAt: _parseDateTime(map['updated_at']),
+      id: clean(map['id']) ?? '',
+      petId: clean(map['pet_id']) ?? '',
+      uploadedBy: clean(map['uploaded_by']) ?? '',
+      fileUrl: clean(map['file_url']) ?? '',
+      fileName: clean(map['file_name']) ?? '',
+      fileSize: parseInt(map['file_size']),
+      notes: clean(map['notes']),
+      isDeleted: parseBool(map['is_deleted']),
+      createdAt: parseDateTime(map['created_at']),
+      updatedAt: parseDateTime(map['updated_at']),
     );
   }
 

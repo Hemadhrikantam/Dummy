@@ -1,4 +1,3 @@
-import 'package:dummy/core/error/app_error.dart';
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/ngo/data/datasources/ngo_datasource.dart';
 import 'package:dummy/features/ngo/domain/entities/listing.dart';

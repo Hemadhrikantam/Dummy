@@ -1,7 +1,5 @@
-import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
-import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/custom_header_widget.dart';
 import 'package:dummy/features/ngo/presentation/bloc/ngo_home/ngo_home_bloc.dart';

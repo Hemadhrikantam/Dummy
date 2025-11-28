@@ -1,16 +1,11 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
-import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/services/share_service.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/features/profile/domain/entities/documents.dart';
-import 'package:dummy/features/profile/domain/entities/media.dart';
-import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:iconsax/iconsax.dart';
 
 class PetDocumentPage extends StatelessWidget {
   const PetDocumentPage({super.key, required this.media});

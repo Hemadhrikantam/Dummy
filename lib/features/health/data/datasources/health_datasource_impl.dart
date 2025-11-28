@@ -150,11 +150,9 @@ class HealthDatasourceImpl extends HealthDatasource {
     required String id,
   }) async {
     LogUtility.warning(payload.toMap().toString());
-    final formData = FormData.fromMap(payload.toMap());
     final response = await http.put(
       path: api.medicationItem(id),
       data: payload.toMap(),
-      // options: Options(contentType: 'multipart/form-data'),
     );
     return response.fold(
       (error) {
@@ -375,7 +373,7 @@ class HealthDatasourceImpl extends HealthDatasource {
   }) async {
     LogUtility.warning(payload.toMap().toString());
     final response = await http.put(
-      path: api.vaccination(null, null, null) + '/$id/',
+      path: '${api.vaccination(null, null, null)}/$id/',
       data: payload.toMap(),
     );
     return response.fold(

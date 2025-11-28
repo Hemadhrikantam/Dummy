@@ -19,7 +19,7 @@ class MediaItemModel extends MediaItem {
   });
 
   factory MediaItemModel.fromJson(Map<String, dynamic> json) {
-    bool? _parseBool(dynamic v) {
+    bool? parseBool(dynamic v) {
       if (v == null) return null;
       if (v is bool) return v;
       final s = v.toString().toLowerCase();
@@ -28,38 +28,38 @@ class MediaItemModel extends MediaItem {
       return null;
     }
 
-    int? _parseInt(dynamic v) {
+    int? parseInt(dynamic v) {
       if (v == null) return null;
       if (v is int) return v;
       return int.tryParse(v.toString());
     }
 
-    DateTime? _parseDate(dynamic v) {
+    DateTime? parseDate(dynamic v) {
       if (v == null) return null;
       return DateTime.tryParse(v.toString());
     }
 
-    String? _clean(dynamic v) {
+    String? clean(dynamic v) {
       final s = (v ?? '').toString().trim();
       if (s.isEmpty) return null;
       return s.replaceAll('`', '');
     }
 
     return MediaItemModel(
-      id: _clean(json['id']),
-      petId: _clean(json['pet_id']),
-      entityType: _clean(json['entity_type']),
-      entityId: _clean(json['entity_id']),
-      uploadedBy: _clean(json['uploaded_by']),
-      fileUrl: _clean(json['file_url']),
-      fileType: _clean(json['file_type']),
-      fileSize: _clean(json['file_size']),
-      mediaCaption: _clean(json['media_caption']),
-      sortOrder: _parseInt(json['sort_order']),
-      isCover: _parseBool(json['is_cover']),
-      isDeleted: _parseBool(json['is_deleted']),
-      createdAt: _parseDate(json['created_at']),
-      updatedAt: _parseDate(json['updated_at']),
+      id: clean(json['id']),
+      petId: clean(json['pet_id']),
+      entityType: clean(json['entity_type']),
+      entityId: clean(json['entity_id']),
+      uploadedBy: clean(json['uploaded_by']),
+      fileUrl: clean(json['file_url']),
+      fileType: clean(json['file_type']),
+      fileSize: clean(json['file_size']),
+      mediaCaption: clean(json['media_caption']),
+      sortOrder: parseInt(json['sort_order']),
+      isCover: parseBool(json['is_cover']),
+      isDeleted: parseBool(json['is_deleted']),
+      createdAt: parseDate(json['created_at']),
+      updatedAt: parseDate(json['updated_at']),
     );
   }
 
@@ -107,8 +107,9 @@ class PetMealModel extends PetMeal {
       mediaList =
           mediaField
               .map((e) {
-                if (e is Map<String, dynamic>)
+                if (e is Map<String, dynamic>) {
                   return MediaItemModel.fromJson(e);
+                }
                 if (e is String) return MediaItemModel(fileUrl: e);
                 return null;
               })
@@ -120,7 +121,7 @@ class PetMealModel extends PetMeal {
       mediaList = [MediaItemModel(fileUrl: mediaField)];
     }
 
-    DateTime? _parseDate(dynamic v) =>
+    DateTime? parseDate(dynamic v) =>
         v == null ? null : DateTime.tryParse(v.toString());
 
     return PetMealModel(
@@ -148,8 +149,8 @@ class PetMealModel extends PetMeal {
       notes: (json['notes'] ?? '').toString(),
       media: mediaList,
       pet: (json['pet'] ?? json['pet_id'] ?? '').toString(),
-      createdAt: _parseDate(json['created_at']),
-      updatedAt: _parseDate(json['updated_at']),
+      createdAt: parseDate(json['created_at']),
+      updatedAt: parseDate(json['updated_at']),
     );
   }
 

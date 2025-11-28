@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:bloc/bloc.dart';
 import 'package:dummy/api/storage_key.dart';
 import 'package:dummy/core/enum/breed.dart';
 import 'package:dummy/core/enum/upload_type.dart';

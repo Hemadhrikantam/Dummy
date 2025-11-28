@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:dummy/core/constant/app_colors.dart';
-import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/app_utils.dart';
 import 'package:flutter/material.dart';
