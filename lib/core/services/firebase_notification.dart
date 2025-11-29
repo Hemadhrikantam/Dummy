@@ -1,4 +1,3 @@
-import 'dart:core';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
@@ -8,6 +7,17 @@ class NotificationService {
   final FirebaseMessaging? _firebaseMessaging;
   final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
       FlutterLocalNotificationsPlugin();
+
+  // Android notification channel with custom sound from res/raw/notification.mp3
+  static const AndroidNotificationChannel _androidChannel =
+      AndroidNotificationChannel(
+        'wag_ai_notifications',
+        'Wag AI Notifications',
+        description: 'Default channel for Wag notifications with custom sound',
+        importance: Importance.high,
+        playSound: true,
+        sound: RawResourceAndroidNotificationSound('notification'),
+      );
 
   NotificationService(this._firebaseMessaging);
 
@@ -80,6 +90,27 @@ class NotificationService {
       LogUtility.warning(
         'Foreground message received: ${message.notification?.title}',
       );
+      // Show a local notification with the custom sound when in foreground
+      try {
+        final androidDetails = AndroidNotificationDetails(
+          _androidChannel.id,
+          _androidChannel.name,
+          channelDescription: _androidChannel.description,
+          importance: Importance.high,
+          priority: Priority.high,
+          playSound: true,
+          sound: RawResourceAndroidNotificationSound('notification'),
+        );
+
+        await flutterLocalNotificationsPlugin.show(
+          message.hashCode,
+          message.notification?.title ?? 'Notification',
+          message.notification?.body ?? '',
+          NotificationDetails(android: androidDetails),
+        );
+      } catch (e) {
+        LogUtility.error('Failed to display local notification: $e');
+      }
     });
 
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
@@ -108,6 +139,22 @@ class NotificationService {
         InitializationSettings(android: initializationSettingsAndroid);
 
     await flutterLocalNotificationsPlugin.initialize(initializationSettings);
+
+    // Ensure the channel exists so background FCM notifications can use it
+    try {
+      final androidPlugin =
+          flutterLocalNotificationsPlugin
+              .resolvePlatformSpecificImplementation<
+                AndroidFlutterLocalNotificationsPlugin
+              >();
+      await androidPlugin?.createNotificationChannel(_androidChannel);
+      LogUtility.info(
+        'Android notification channel created: '
+        '${_androidChannel.id}',
+      );
+    } catch (e) {
+      LogUtility.error('Failed to create Android notification channel: $e');
+    }
   }
 
   Future<String?> getToken() async {

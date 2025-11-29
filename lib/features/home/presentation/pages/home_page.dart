@@ -123,7 +123,6 @@ class _HomePage extends State<HomePage> {
 
                       if (selectedPet != null)
                         PetInformationWidget(dashboardPetDetails: selectedPet),
-
                       Styles.gap15,
                       QuickActionsWidget(
                         selectedPet: selectedPet!,

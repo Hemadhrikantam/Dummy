@@ -35,6 +35,10 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <!-- Default FCM notification channel to ensure background notifications use custom sound -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="wag_ai_notifications" />
     </application>
     <!-- Required to query activities that can process text, see:
          https://developer.android.com/training/package-visibility and

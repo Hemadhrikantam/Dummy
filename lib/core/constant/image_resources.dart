@@ -27,6 +27,7 @@ class ImageResources {
   static const String home = '$__icons/home.png';
   static const String unselectedPet = '$__icons/unselected_pet.png';
   static const String pet = '$__icons/pet.png';
+  static const String pet_icon = '$__icons/pet_icon.png';
   static const String unselectedHeart = '$__icons/unselected_heart.png';
   static const String heart = '$__icons/heart.png';
   static const String unselectedHealth = '$__icons/unselected_health.png';

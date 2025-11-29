@@ -212,7 +212,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         ),
       );
       AppAlert.showToast(message: AppText.otpSuccess);
-
       emit(state.copyWith(sendOtpStatus: Status.init));
     } else {
       AppAlert.showToast(message: AppText.somethingWentWrong);
@@ -277,8 +276,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             currentContext.pushNamed(NgoRegistrationPage.routeName);
           }
         }
-        emit(state.copyWith(sendOtpStatus: Status.success));
       },
     );
+    emit(state.copyWith(sendOtpStatus: Status.init));
   }
 }

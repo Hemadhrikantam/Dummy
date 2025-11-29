@@ -52,10 +52,9 @@ class NavBar extends StatelessWidget {
               onTap: onTap,
               index: 2,
             ),
-
             __NavItem(
-              selectedAsset: ImageResources.pet,
-              unselectedAsset: ImageResources.unselectedPet,
+              selectedAsset: ImageResources.addoption,
+              unselectedAsset: ImageResources.unselectedAddoption,
               selected: pageIndex == 3,
               text: AppText.addoption,
               onTap: onTap,
@@ -87,7 +86,7 @@ class __NavItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: InkWell(
-          onTap: () => onTap?.call(index),
+        onTap: () => onTap?.call(index),
         child: Column(
           children: [
             Styles.gap20,

@@ -29,7 +29,7 @@ class PetInformationWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: __InfoValue(
-                    image: ImageResources.pet,
+                    image: ImageResources.pet_icon,
                     title: AppText.name,
                     value: dashboardPetDetails?.name ?? '',
                   ),
@@ -117,7 +117,12 @@ class __InfoValue extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        AppAssestsImage(path: image, height: 20, width: 20),
+        AppAssestsImage(
+          path: image,
+          height: 22,
+          width: 22,
+          boxFit: BoxFit.contain,
+        ),
         Styles.gap6,
         Flexible(
           child: Column(

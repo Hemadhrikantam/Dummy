@@ -42,6 +42,23 @@ class StaticWidget {
       title: AppText.support,
     ),
   ];
+
+  static List<SettingsListData> adoptionListData = [
+    SettingsListData(
+      leadingIcon: ImageResources.accountDetails,
+      title: AppText.accountDetails,
+    ),
+
+    SettingsListData(
+      leadingIcon: ImageResources.vetNearMe,
+      title: AppText.vetNearMe,
+    ),
+    SettingsListData(
+      leadingIcon: ImageResources.support,
+      title: AppText.support,
+    ),
+  ];
+
   static List<SettingsListData> ngoProfileListData = [
     SettingsListData(
       leadingIcon: ImageResources.accountDetails,

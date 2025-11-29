@@ -61,7 +61,12 @@ class _PetTypePage extends State<PetTypePage> {
                   "Looking to adopt only?",
                   "NGO or Shelter?",
                 ],
-                selected: "Pet Parent?",
+                selected:
+                    state.isPetParent
+                        ? "Pet Parent?"
+                        : state.isSeeker
+                        ? "Looking to adopt only?"
+                        : "NGO or Shelter?",
                 onSelected: (value) {
                   if (value == "Pet Parent?") {
                     context.read<AuthBloc>().add(
