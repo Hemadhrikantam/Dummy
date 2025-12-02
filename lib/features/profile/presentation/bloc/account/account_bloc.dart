@@ -1,3 +1,4 @@
+import 'package:dummy/core/utils/toast_message.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:dummy/core/enum/status.dart';
@@ -109,15 +110,18 @@ class AccountBloc extends Bloc<AccountEvent, AccountState> {
         final refresh = await _accountDetailUsecases();
         refresh.fold(
           (err) => emit(state.copyWith(editAccountStatus: Status.success)),
-          (detail) => emit(
-            state.copyWith(
-              accountDetails: detail,
-              phone: detail.user.mobileNumber,
-              email: detail.user.email ?? '',
-              username: detail.user.username,
-              editAccountStatus: Status.success,
-            ),
-          ),
+          (detail) {
+            AppAlert.showToast(message: 'Account Details Updated Successfully');
+            emit(
+              state.copyWith(
+                accountDetails: detail,
+                phone: detail.user.mobileNumber,
+                email: detail.user.email ?? '',
+                username: detail.user.username,
+                editAccountStatus: Status.success,
+              ),
+            );
+          },
         );
       },
     );

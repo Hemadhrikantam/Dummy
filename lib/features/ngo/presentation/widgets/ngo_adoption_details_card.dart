@@ -1,4 +1,5 @@
 import 'package:dummy/core/constant/app_colors.dart';
+import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
@@ -64,23 +65,24 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
                   ),
                 ),
               ),
-              Positioned(
-                top: context.height * .18,
-                right: 10,
-                child: CustomCard(
-                  padding: Styles.edgeInsetsAll02,
-                  borderRadius: Styles.borderRadiusCircular50,
-                  borderColor: AppColors.transparent,
-                  child: AppIconButton(
-                    padding: Styles.edgeInsetsOnlyH00,
-                    backgroundColor: AppColors.transparent,
-                    icon: Icons.keyboard_arrow_right_rounded,
-                    size: 25,
-                    iconColor: AppColors.black,
+              if (false)
+                Positioned(
+                  top: context.height * .15,
+                  right: 10,
+                  child: CustomCard(
+                    padding: Styles.edgeInsetsAll02,
+                    borderRadius: Styles.borderRadiusCircular50,
                     borderColor: AppColors.transparent,
+                    child: AppIconButton(
+                      padding: Styles.edgeInsetsOnlyH00,
+                      backgroundColor: AppColors.transparent,
+                      icon: Icons.keyboard_arrow_right_rounded,
+                      size: 25,
+                      iconColor: AppColors.black,
+                      borderColor: AppColors.transparent,
+                    ),
                   ),
                 ),
-              ),
             ],
           ),
           Styles.gap20,
@@ -120,9 +122,36 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
             value: widget.adoption?.description ?? '',
           ),
           Styles.gap30,
-          // TextValueWidget(text: 'Contact', value: widget.adoption?.phone ?? ''),
-          // Styles.gap30,
-          // TextValueWidget(text: 'Email', value: widget.adoption?.email ?? ''),
+          TextValueWidget(
+            text: 'Contact',
+            value: '',
+            icon:
+                (widget.isAllPet)
+                    ? GestureDetector(
+                      onTap: () {},
+                      child: AppAssestsImage(
+                        path: ImageResources.call,
+                        height: 20,
+                        width: 20,
+                        boxFit: BoxFit.contain,
+                      ),
+                    )
+                    : null,
+          ),
+          Styles.gap30,
+          TextValueWidget(
+            text: 'Email',
+            value: '',
+            icon:
+                (widget.isAllPet)
+                    ? AppAssestsImage(
+                      path: ImageResources.sms,
+                      height: 20,
+                      width: 20,
+                      boxFit: BoxFit.contain,
+                    )
+                    : null,
+          ),
           Styles.gap30,
           if (!widget.isAllPet)
             Column(
@@ -149,10 +178,15 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
 }
 
 class TextValueWidget extends StatelessWidget {
-  const TextValueWidget({super.key, required this.text, required this.value});
+  const TextValueWidget({
+    super.key,
+    required this.text,
+    required this.value,
+    this.icon,
+  });
   final String text;
   final String value;
-
+  final Widget? icon;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -166,12 +200,17 @@ class TextValueWidget extends StatelessWidget {
             fontSize: 12,
           ),
         ),
-        Text(
-          value,
-          style: context.textTheme.titleMedium?.copyWith(
-            fontWeight: FontWeight.w900,
-            fontSize: 16,
-          ),
+        Row(
+          children: [
+            Text(
+              value,
+              style: context.textTheme.titleMedium?.copyWith(
+                fontWeight: FontWeight.w900,
+                fontSize: 16,
+              ),
+            ),
+            if (icon != null) icon!,
+          ],
         ),
       ],
     );

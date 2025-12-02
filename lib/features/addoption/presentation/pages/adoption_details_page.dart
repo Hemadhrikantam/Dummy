@@ -31,59 +31,62 @@ class AdoptionDetailsPage extends StatelessWidget {
       title: AppText.details,
       subTitle: '',
       onlyTitle: true,
-      bottom: Container(
-        width: double.infinity,
-        padding: Styles.edgeInsetsAll12,
-        decoration: BoxDecoration(
-          color: AppColors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: AppColors.grey700,
-              blurRadius: 10,
-              offset: const Offset(0, 0),
-            ),
-          ],
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: AppTextButton(
-                onPressed: () {
-                  BottomModels.adoptionDeleteBottomSheet(context);
-                },
-                backgroundColor: AppColors.white,
-                name: AppText.delete,
-                textColor: AppColors.red,
-              ),
-            ),
-            Styles.gap10,
-            Expanded(
-              child: AppButton(
-                onPressed: () {
-                  BottomModels.addAdoptionBottomSheet(
-                    context,
-                    id: adoption?.id,
-                  );
-                },
-                name: Center(
-                  child: Text(
-                    AppText.edit,
-                    style: context.textTheme.titleMedium?.copyWith(
-                      color: AppColors.buttonTextColor,
-                      fontWeight: FontWeight.w700,
-                      fontSize: 14,
-                    ),
+      bottom:
+          allTab
+              ? null
+              : Container(
+                width: double.infinity,
+                padding: Styles.edgeInsetsAll12,
+                decoration: BoxDecoration(
+                  color: AppColors.white,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(20),
+                    topRight: Radius.circular(20),
                   ),
+                  boxShadow: [
+                    BoxShadow(
+                      color: AppColors.grey700,
+                      blurRadius: 10,
+                      offset: const Offset(0, 0),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: AppTextButton(
+                        onPressed: () {
+                          BottomModels.adoptionDeleteBottomSheet(context);
+                        },
+                        backgroundColor: AppColors.white,
+                        name: AppText.delete,
+                        textColor: AppColors.red,
+                      ),
+                    ),
+                    Styles.gap10,
+                    Expanded(
+                      child: AppButton(
+                        onPressed: () {
+                          BottomModels.addAdoptionBottomSheet(
+                            context,
+                            id: adoption?.id,
+                          );
+                        },
+                        name: Center(
+                          child: Text(
+                            AppText.edit,
+                            style: context.textTheme.titleMedium?.copyWith(
+                              color: AppColors.buttonTextColor,
+                              fontWeight: FontWeight.w700,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
-          ],
-        ),
-      ),
       child: ListView(
         padding: Styles.edgeInsetsOnlyH00,
         children: [

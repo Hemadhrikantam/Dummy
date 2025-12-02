@@ -19,32 +19,30 @@ class AccountDetailsForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AccountBloc, AccountState>(
       builder: (context, state) {
-        return state.initStatus.loading
-            ? LoadingWidget.circularProgressIndicatorCenter
-            : ListView(
-              padding: Styles.edgeInsetsZero,
-              children: [
-                CustomCard(
-                  borderColor: AppColors.transparent,
-                  child: Stack(
+        return ListView(
+          padding: Styles.edgeInsetsZero,
+          children: [
+            CustomCard(
+              borderColor: AppColors.transparent,
+              child: Stack(
+                children: [
+                  Column(
                     children: [
-                      Column(
-                        children: [
-                          __UserName(),
-                          Styles.gap10,
-                          __EmailAddress(),
-                          Styles.gap10,
-                          __PhoneNumber(),
-                          Styles.gap10,
-                        ],
-                      ),
+                      __UserName(),
+                      Styles.gap10,
+                      __EmailAddress(),
+                      Styles.gap10,
+                      __PhoneNumber(),
+                      Styles.gap10,
                     ],
                   ),
-                ),
-                Styles.gap10,
-                // __ForgotPassword(),
-              ],
-            );
+                ],
+              ),
+            ),
+            Styles.gap10,
+            // __ForgotPassword(),
+          ],
+        );
       },
     );
   }

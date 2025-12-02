@@ -1,5 +1,6 @@
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/features/addoption/presentation/bloc/adoption/adoption_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,6 +26,7 @@ class AddoptionPage extends StatefulWidget {
 class _AddoptionPage extends State<AddoptionPage> {
   String selectedTab = 'My Listing';
   final tabs = ['My Listing', 'All Pets'];
+  String _query = '';
   @override
   void initState() {
     Future.delayed(Duration.zero, () {
@@ -38,11 +40,21 @@ class _AddoptionPage extends State<AddoptionPage> {
     return MaterialBaseScreen(
       child: Column(
         children: [
-          CustomHeaderWidget(),
+          CustomHeaderWidget(
+            petImage:
+                context.read<DashboardBloc>().state.selectedPet?.imageUrl ?? '',
+          ),
           Styles.gap20,
           Row(
             children: [
-              Expanded(child: SearchButton(hintText: AppText.search)),
+              Expanded(
+                child: SearchButton(
+                  hintText: AppText.search,
+                  onChanged: (value) {
+                    setState(() => _query = value.trim());
+                  },
+                ),
+              ),
               Styles.gap10,
               CircleAvatar(
                 radius: 25,
@@ -81,7 +93,7 @@ class _AddoptionPage extends State<AddoptionPage> {
             onTabSelected: (tab) => setState(() => selectedTab = tab),
           ),
           Styles.gap10,
-          Expanded(child: AdoptiontabbarView(tab: selectedTab)),
+          Expanded(child: AdoptiontabbarView(tab: selectedTab, query: _query)),
         ],
       ),
     );

@@ -130,7 +130,6 @@ class ProfileOptionsPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Expanded(child: SizedBox()),
                       AppTextButton(
                         onPressed: () {
                           BottomModels.logoutBottomSheet(context);

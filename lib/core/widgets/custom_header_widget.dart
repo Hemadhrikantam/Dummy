@@ -59,13 +59,10 @@ class CustomHeaderWidget extends StatelessWidget {
                   },
                   child:
                       (petImage ?? '').isEmpty || (petImage == '0')
-                          ? Container(
+                          ? AppAssestsImage(
+                            path: ImageResources.dog,
                             height: 45,
                             width: 45,
-                            decoration: BoxDecoration(
-                              color: AppColors.buttonColor,
-                              shape: BoxShape.circle,
-                            ),
                           )
                           : AppNetworkImage(
                             borderRadius: Styles.borderRadiusCircular25,

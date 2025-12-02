@@ -72,7 +72,17 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
       state.copyWith(
         catBreeds: catBreeds,
         dogBreeds: dogBreeds,
-        addAdoptionStatus: Status.success,
+        petType: null,
+        breed: DropdownStringValue.pure(),
+        gender: DropdownValue.pure(),
+        phone: MobileNo.pure(),
+        email: Email.pure(),
+        address: NotEmpty.pure(),
+        description: NotEmpty.pure(),
+        name: NotEmpty.pure(),
+        dob: NotEmpty.pure(),
+        url: NotEmpty.pure(),
+        addAdoptionStatus: Status.init,
       ),
     );
     if (event.id != null) {
@@ -190,7 +200,7 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
 
     final payload = PetPayload(
       name: state.name.value,
-      type: state.petType.name.toLowerCase(),
+      type: state.petType!.name.toLowerCase(),
       breedId: (state.breed.value?.id ?? '').toString(),
       gender: state.gender.value?.value.toLowerCase(),
       dob: DateTime.parse(state.dob.value),

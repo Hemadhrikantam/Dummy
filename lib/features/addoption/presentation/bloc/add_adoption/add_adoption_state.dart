@@ -6,7 +6,7 @@ abstract class AddAdoptionState with _$AddAdoptionState {
     @Default(Status.init) Status addAdoptionStatus,
     @Default(Status.init) Status submitStatus,
     @Default(NotEmpty.pure()) NotEmpty name,
-    @Default(PetType.Cat) PetType petType,
+    @Default(null) PetType? petType,
     @Default(DropdownStringValue.pure()) DropdownStringValue breed,
     @Default([]) List<DropStringItem> catBreeds,
     @Default([]) List<DropStringItem> dogBreeds,

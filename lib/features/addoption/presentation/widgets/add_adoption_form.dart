@@ -87,7 +87,7 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Expanded(child: __Years()),
                                     Styles.gap10,
@@ -117,7 +117,7 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
                           builder: (context, state) {
                             return SaveCancelWidget(
                               onPressed:
-                                  state.adoptionValidation
+                                  state.adoptionValidation && state.petType != null
                                       ? () {
                                         context.read<AddAdoptionBloc>().add(
                                           AddAdoptionEvent.submit(

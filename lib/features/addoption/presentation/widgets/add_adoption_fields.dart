@@ -116,6 +116,7 @@ class __Years extends StatelessWidget {
       builder: (context, state) {
         return Column(
           children: [
+            Styles.gap10,
             AppCustomDateField(
               headerText: AppText.dateOfBirth,
               selectedDate: DateTime.tryParse(state.dob.value),
@@ -179,9 +180,11 @@ class __PetType extends StatelessWidget {
         ];
         return CustomStringDropdownSearch(
           selectedItem:
-              state.petType.name == 'Dog'
-                  ? DropStringItemModel(id: PetType.Dog.name, value: 'Dog')
-                  : DropStringItemModel(id: PetType.Cat.name, value: 'Cat'),
+              state.petType != null
+                  ? state.petType!.name == 'Dog'
+                      ? DropStringItemModel(id: PetType.Dog.name, value: 'Dog')
+                      : DropStringItemModel(id: PetType.Cat.name, value: 'Cat')
+                  : null,
           title: AppText.petType,
           errorText: state.breed.isPure ? null : state.breed.error,
           items: petTypes,
@@ -207,7 +210,7 @@ class __Breed extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AddAdoptionBloc, AddAdoptionState>(
       builder: (context, state) {
-        final petType = state.petType.name.toLowerCase();
+        final petType = state.petType?.name.toLowerCase();
         final isDog = petType == 'dog';
         final isCat = petType == 'cat';
 

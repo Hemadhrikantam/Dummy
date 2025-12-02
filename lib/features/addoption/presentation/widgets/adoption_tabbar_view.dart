@@ -14,8 +14,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AdoptiontabbarView extends StatefulWidget {
-  const AdoptiontabbarView({super.key, required this.tab});
+  const AdoptiontabbarView({super.key, required this.tab, this.query});
   final String tab;
+  final String? query;
 
   @override
   State<AdoptiontabbarView> createState() => _AdoptiontabbarViewState();
@@ -37,6 +38,18 @@ class _AdoptiontabbarViewState extends State<AdoptiontabbarView> {
     return BlocBuilder<AdoptionBloc, AdoptionState>(
       builder: (context, state) {
         final item = widget.tab == 'All Pets' ? state.allPets : state.adoptions;
+        final q = (widget.query ?? '').toLowerCase();
+        final filtered = q.isEmpty
+            ? item
+            : item.where((l) {
+                bool match(String? v) => (v ?? '').toLowerCase().contains(q);
+                return match(l.petName) ||
+                    match(l.breedName) ||
+                    match(l.petType) ||
+                    match(l.listedByName) ||
+                    match(l.description) ||
+                    match(l.status);
+              }).toList();
         return item.isEmpty
             ? EmptyListPage(
               imagePath: ImageResources.noAdoption,
@@ -54,7 +67,7 @@ class _AdoptiontabbarViewState extends State<AdoptiontabbarView> {
                 onRefresh: () async {
                   context.read<AdoptionBloc>().add(AdoptionEvent.adoptions());
                 },
-                itemCount: item.length,
+                itemCount: filtered.length,
                 isExpand: false,
                 shrinkWrap: true,
                 separatorBuilder: (context, i) => Styles.gap10,
@@ -63,13 +76,13 @@ class _AdoptiontabbarViewState extends State<AdoptiontabbarView> {
                     onTap: () {
                       context.push(
                         AdoptionDetailsPage.route(
-                          item[i],
+                          filtered[i],
                           widget.tab == 'All Pets',
                         ),
                       );
                     },
                     isAllPet: widget.tab == 'All Pets',
-                    adoption: item[i],
+                    adoption: filtered[i],
                   );
                 },
               ),

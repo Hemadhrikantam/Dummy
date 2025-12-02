@@ -67,42 +67,32 @@ class _AdoptionDashboardPage extends State<AdoptionDashboardPage> {
       ),
       AddoptionPage(),
     ];
-    return PopScope(
-      canPop: selectedIndex == 0,
-      onPopInvoked: (didPop) {
-        if (!didPop && selectedIndex != 0) {
-          setState(() {
-            selectedIndex = 0;
-          });
-        }
-      },
-      child: Scaffold(
-        backgroundColor: AppColors.white,
-        resizeToAvoidBottomInset: false,
-        bottomNavigationBar: AdoptionNavBar(
-          onTap: _onItemTapped,
-          pageIndex: selectedIndex,
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: Container(
-          margin: const EdgeInsets.only(top: 10),
-          height: 64,
-          width: 64,
-          child: FloatingActionButton(
-            elevation: 0,
-            onPressed: () {
-              BottomModels.needPremiumBottomSheet(context);
-              // context.push(WagPage.route());
-            },
-            shape: RoundedRectangleBorder(
-              side: const BorderSide(width: 3, color: AppColors.white),
-              borderRadius: Styles.borderRadiusCircular50,
-            ),
-            child: AppAssestsImage(path: ImageResources.ai2),
-          ),
-        ),
-        body: IndexedStack(index: selectedIndex, children: screens),
+    return Scaffold(
+      backgroundColor: AppColors.white,
+      resizeToAvoidBottomInset: false,
+      bottomNavigationBar: AdoptionNavBar(
+        onTap: _onItemTapped,
+        pageIndex: selectedIndex,
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: Container(
+        margin: const EdgeInsets.only(top: 10),
+        height: 64,
+        width: 64,
+        child: FloatingActionButton(
+          elevation: 0,
+          onPressed: () {
+            BottomModels.needPremiumBottomSheet(context);
+            // context.push(WagPage.route());
+          },
+          shape: RoundedRectangleBorder(
+            side: const BorderSide(width: 3, color: AppColors.white),
+            borderRadius: Styles.borderRadiusCircular50,
+          ),
+          child: AppAssestsImage(path: ImageResources.ai2),
+        ),
+      ),
+      body: IndexedStack(index: selectedIndex, children: screens),
     );
   }
 }

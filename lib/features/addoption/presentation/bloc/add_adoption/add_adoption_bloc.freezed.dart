@@ -2816,7 +2816,7 @@ mixin _$AddAdoptionState {
   Status get addAdoptionStatus => throw _privateConstructorUsedError;
   Status get submitStatus => throw _privateConstructorUsedError;
   NotEmpty get name => throw _privateConstructorUsedError;
-  PetType get petType => throw _privateConstructorUsedError;
+  PetType? get petType => throw _privateConstructorUsedError;
   DropdownStringValue get breed => throw _privateConstructorUsedError;
   List<DropStringItem> get catBreeds => throw _privateConstructorUsedError;
   List<DropStringItem> get dogBreeds => throw _privateConstructorUsedError;
@@ -2847,7 +2847,7 @@ abstract class $AddAdoptionStateCopyWith<$Res> {
     Status addAdoptionStatus,
     Status submitStatus,
     NotEmpty name,
-    PetType petType,
+    PetType? petType,
     DropdownStringValue breed,
     List<DropStringItem> catBreeds,
     List<DropStringItem> dogBreeds,
@@ -2880,7 +2880,7 @@ class _$AddAdoptionStateCopyWithImpl<$Res, $Val extends AddAdoptionState>
     Object? addAdoptionStatus = null,
     Object? submitStatus = null,
     Object? name = null,
-    Object? petType = null,
+    Object? petType = freezed,
     Object? breed = null,
     Object? catBreeds = null,
     Object? dogBreeds = null,
@@ -2911,10 +2911,10 @@ class _$AddAdoptionStateCopyWithImpl<$Res, $Val extends AddAdoptionState>
                     : name // ignore: cast_nullable_to_non_nullable
                         as NotEmpty,
             petType:
-                null == petType
+                freezed == petType
                     ? _value.petType
                     : petType // ignore: cast_nullable_to_non_nullable
-                        as PetType,
+                        as PetType?,
             breed:
                 null == breed
                     ? _value.breed
@@ -2989,7 +2989,7 @@ abstract class _$$AddAdoptionStateImplCopyWith<$Res>
     Status addAdoptionStatus,
     Status submitStatus,
     NotEmpty name,
-    PetType petType,
+    PetType? petType,
     DropdownStringValue breed,
     List<DropStringItem> catBreeds,
     List<DropStringItem> dogBreeds,
@@ -3021,7 +3021,7 @@ class __$$AddAdoptionStateImplCopyWithImpl<$Res>
     Object? addAdoptionStatus = null,
     Object? submitStatus = null,
     Object? name = null,
-    Object? petType = null,
+    Object? petType = freezed,
     Object? breed = null,
     Object? catBreeds = null,
     Object? dogBreeds = null,
@@ -3052,10 +3052,10 @@ class __$$AddAdoptionStateImplCopyWithImpl<$Res>
                 : name // ignore: cast_nullable_to_non_nullable
                     as NotEmpty,
         petType:
-            null == petType
+            freezed == petType
                 ? _value.petType
                 : petType // ignore: cast_nullable_to_non_nullable
-                    as PetType,
+                    as PetType?,
         breed:
             null == breed
                 ? _value.breed
@@ -3123,7 +3123,7 @@ class _$AddAdoptionStateImpl implements _AddAdoptionState {
     this.addAdoptionStatus = Status.init,
     this.submitStatus = Status.init,
     this.name = const NotEmpty.pure(),
-    this.petType = PetType.Cat,
+    this.petType = null,
     this.breed = const DropdownStringValue.pure(),
     final List<DropStringItem> catBreeds = const [],
     final List<DropStringItem> dogBreeds = const [],
@@ -3149,7 +3149,7 @@ class _$AddAdoptionStateImpl implements _AddAdoptionState {
   final NotEmpty name;
   @override
   @JsonKey()
-  final PetType petType;
+  final PetType? petType;
   @override
   @JsonKey()
   final DropdownStringValue breed;
@@ -3270,7 +3270,7 @@ abstract class _AddAdoptionState implements AddAdoptionState {
     final Status addAdoptionStatus,
     final Status submitStatus,
     final NotEmpty name,
-    final PetType petType,
+    final PetType? petType,
     final DropdownStringValue breed,
     final List<DropStringItem> catBreeds,
     final List<DropStringItem> dogBreeds,
@@ -3291,7 +3291,7 @@ abstract class _AddAdoptionState implements AddAdoptionState {
   @override
   NotEmpty get name;
   @override
-  PetType get petType;
+  PetType? get petType;
   @override
   DropdownStringValue get breed;
   @override
