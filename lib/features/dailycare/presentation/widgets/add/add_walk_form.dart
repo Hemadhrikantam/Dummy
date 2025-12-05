@@ -11,7 +11,7 @@ import 'package:dummy/core/widgets/custom_dropdown.dart';
 import 'package:dummy/core/widgets/dotted_border_widget.dart';
 import 'package:dummy/features/dailycare/presentation/bloc/walk_form/walk_form_bloc.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/bottom_models.dart';

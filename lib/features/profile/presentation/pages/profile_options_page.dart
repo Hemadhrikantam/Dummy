@@ -10,7 +10,7 @@ import 'package:dummy/core/widgets/buttons/app_text_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/core/widgets/static_widget.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:dummy/features/profile/presentation/pages/premium_subscription.dart';
 import 'package:dummy/features/profile/presentation/pages/profile_page.dart';

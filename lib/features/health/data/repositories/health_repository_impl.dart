@@ -11,6 +11,7 @@ import '../../../dailycare/domain/entities/frequency.dart';
 import '../../domain/entities/vaccination.dart';
 import '../../domain/entities/vaccination_log_view.dart';
 import '../../domain/entities/clinic.dart';
+import '../../domain/entities/ai_insight.dart';
 // import '../../domain/entities/vaccination_log.dart';
 
 class HealthRepositoryImpl extends HealthRepository {
@@ -154,5 +155,10 @@ class HealthRepositoryImpl extends HealthRepository {
     required String type,
   }) {
     return _healthDatasource.clinics(latitude, longitude, type);
+  }
+
+  @override
+  AppTypeResponse<AiInsight> aiInsights({required String petId}) {
+    return _healthDatasource.aiInsights(petId: petId);
   }
 }

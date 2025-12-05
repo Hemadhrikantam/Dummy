@@ -6,7 +6,7 @@ import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';

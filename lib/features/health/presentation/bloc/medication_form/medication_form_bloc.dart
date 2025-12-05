@@ -8,7 +8,7 @@ import 'package:dummy/core/payload/health/medication_payload.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/health/domain/usecases/add_medication_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/edit_medication_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/get_medication_usecases.dart';
@@ -304,20 +304,17 @@ class MedicationFormBloc
         if (state.morningTimeEnable)
           TimeslotPayload(
             timeslotId: 'd338ae8b-2458-4cc2-9b3f-bdcde323c838',
-            customTime:
-                '${state.morningTimeHour.value!.value.padLeft(2, '0')}:${state.morningTimeMin.value!.value.padLeft(2, '0')}',
+            customTime: '09:00:00',
           ),
         if (state.afternoonTimeEnable)
           TimeslotPayload(
             timeslotId: '6a1fd2aa-06b8-4762-b540-5c48b417ec16',
-            customTime:
-                '${state.afternoonTimeHour.value!.value.padLeft(2, '0')}:${state.afternoonTimeMin.value!.value.padLeft(2, '0')}',
+            customTime: '13:00:00',
           ),
         if (state.nightTimeEnable)
           TimeslotPayload(
             timeslotId: 'a34a882a-3e81-495c-ab98-b23694885ef8',
-            customTime:
-                '${state.nightTimeHour.value!.value.padLeft(2, '0')}:${state.nightTimeMin.value!.value.padLeft(2, '0')}',
+            customTime: '20:00:00',
           ),
       ],
       dosageTypeId: state.dosageUnit.value!.id.toString(),

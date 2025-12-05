@@ -1,5 +1,5 @@
 import 'package:dummy/core/constant/app_colors.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/wag/presentation/bloc/wag_ai/wag_ai_bloc.dart';
 import 'package:dummy/features/wag/presentation/widgets/chat_card.dart';
 import 'package:flutter/material.dart';

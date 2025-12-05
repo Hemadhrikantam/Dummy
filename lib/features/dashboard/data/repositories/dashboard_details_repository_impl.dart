@@ -1,6 +1,7 @@
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/features/dashboard/data/datasources/dashboard_details_datasource.dart';
 import 'package:dummy/features/dashboard/data/models/dashboard_details_model.dart';
+import 'package:dummy/features/dashboard/data/models/notification_model.dart';
 import 'package:dummy/features/dashboard/domain/repositories/dashboard_details_repository.dart';
 
 class DashboardDetailsRepositoryImpl extends DashboardDetailsRepository {
@@ -11,5 +12,10 @@ class DashboardDetailsRepositoryImpl extends DashboardDetailsRepository {
   @override
   AppTypeResponse <List<DashboardDetailsModel>> dashboardPetDetails() {
     return _dashboardDetailsDatasource.dashboardPetDetails();
+  }
+
+  @override
+  AppTypeResponse<List<NotificationModel>> notifications() {
+    return _dashboardDetailsDatasource.notifications();
   }
 }

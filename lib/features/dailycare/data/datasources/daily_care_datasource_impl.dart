@@ -13,7 +13,7 @@ import 'package:dummy/features/dailycare/data/models/frequency_model.dart';
 import 'package:dummy/features/dailycare/data/models/overview_model.dart';
 import 'package:dummy/features/dailycare/data/models/remind_before_model.dart';
 import 'package:dummy/features/dailycare/data/models/timezone_model.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/service/app_http_service.dart';
 import 'package:dummy/service/local_storage_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

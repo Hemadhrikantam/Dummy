@@ -6,13 +6,13 @@ import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
-import 'package:dummy/features/dailycare/presentation/pages/dailycare_page.dart';
+import 'package:dummy/features/dailycare/presentation/bloc/daily_care/daily_care_bloc.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
-import 'package:dummy/features/health/presentation/pages/health_page.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
+import 'package:dummy/features/health/presentation/bloc/health/health_bloc.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../dailycare/presentation/bloc/overview/overview_bloc.dart';
 
 class QuickActionsWidget extends StatefulWidget {
@@ -59,30 +59,42 @@ class _QuickActionsWidgetState extends State<QuickActionsWidget> {
             children: [
               __ActionItem(
                 image: ImageResources.logMeals,
-                title: AppText.logMeals,
+                title: AppText.meals,
                 onTap: () {
-                  context.pushNamed(
-                    DailycarePage.routeName,
-                    arguments: {
-                      'selectedPet': widget.selectedPet,
-                      'initialTab': 'Meals',
-                      'selectedPetId': widget.selectedPetId,
-                    },
+                  // context.pushNamed(
+                  //   DailycarePage.routeName,
+                  //   arguments: {
+                  //     'selectedPet': widget.selectedPet,
+                  //     'initialTab': 'Meals',
+                  //     'selectedPetId': widget.selectedPetId,
+                  //   },
+                  // );
+                  context.read<DashboardBloc>().add(
+                    DashboardEvent.changePage(2),
+                  );
+                  context.read<DailyCareBloc>().add(
+                    DailyCareEvent.changePageIndex(1),
                   );
                 },
               ),
               Styles.gap8,
               __ActionItem(
                 image: ImageResources.logVaccin,
-                title: AppText.logVaccin,
+                title: AppText.vaccinations,
                 onTap: () {
-                  context.pushNamed(
-                    HealthPage.routeName,
-                    arguments: {
-                      'selectedPet': widget.selectedPet,
-                      'initialTab': 'Vaccination',
-                      'selectedPetId': widget.selectedPetId,
-                    },
+                  // context.pushNamed(
+                  //   HealthPage.routeName,
+                  //   arguments: {
+                  //     'selectedPet': widget.selectedPet,
+                  //     'initialTab': 'Vaccination',
+                  //     'selectedPetId': widget.selectedPetId,
+                  //   },
+                  // );
+                  context.read<DashboardBloc>().add(
+                    DashboardEvent.changePage(1),
+                  );
+                  context.read<HealthBloc>().add(
+                    HealthEvent.changePageIndex(1),
                   );
                 },
               ),
@@ -90,15 +102,21 @@ class _QuickActionsWidgetState extends State<QuickActionsWidget> {
 
               __ActionItem(
                 image: ImageResources.logWalks,
-                title: AppText.logWalks,
+                title: AppText.walks,
                 onTap: () {
-                  context.pushNamed(
-                    DailycarePage.routeName,
-                    arguments: {
-                      'selectedPet': widget.selectedPet,
-                      'initialTab': 'Walks',
-                      'selectedPetId': widget.selectedPetId,
-                    },
+                  // context.pushNamed(
+                  //   DailycarePage.routeName,
+                  //   arguments: {
+                  //     'selectedPet': widget.selectedPet,
+                  //     'initialTab': 'Walks',
+                  //     'selectedPetId': widget.selectedPetId,
+                  //   },
+                  // );
+                  context.read<DashboardBloc>().add(
+                    DashboardEvent.changePage(2),
+                  );
+                  context.read<DailyCareBloc>().add(
+                    DailyCareEvent.changePageIndex(2),
                   );
                 },
               ),
@@ -109,13 +127,29 @@ class _QuickActionsWidgetState extends State<QuickActionsWidget> {
             children: [
               //FOR PREMIUM
               __ActionItem(
-                image: ImageResources.checkMood,
-                title: AppText.checkMood,
+                image: ImageResources.medications,
+                title: AppText.medications,
+                onTap: () {
+                  context.read<DashboardBloc>().add(
+                    DashboardEvent.changePage(1),
+                  );
+                  context.read<HealthBloc>().add(
+                    HealthEvent.changePageIndex(2),
+                  );
+                },
               ),
               Styles.gap8,
               __ActionItem(
-                image: ImageResources.symptoms,
-                title: AppText.symptoms,
+                image: ImageResources.expensesImage,
+                title: AppText.expenses,
+                onTap: () {
+                  context.read<DashboardBloc>().add(
+                    DashboardEvent.changePage(2),
+                  );
+                  context.read<DailyCareBloc>().add(
+                    DailyCareEvent.changePageIndex(5),
+                  );
+                },
               ),
               // __ActionItem(
               //   image: ImageResources.medication,
@@ -132,7 +166,7 @@ class _QuickActionsWidgetState extends State<QuickActionsWidget> {
                   context.push(PetDairyPage.route());
                 },
                 image: ImageResources.addMemories,
-                title: AppText.addMemories,
+                title: AppText.memories,
               ),
             ],
           ),

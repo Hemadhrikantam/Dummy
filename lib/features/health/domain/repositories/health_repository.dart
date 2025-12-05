@@ -9,6 +9,7 @@ import '../../../dailycare/domain/entities/frequency.dart';
 import '../entities/vaccination.dart';
 import '../entities/vaccination_log_view.dart';
 import '../entities/clinic.dart';
+import '../entities/ai_insight.dart';
 // import '../entities/vaccination_log.dart';
 
 abstract class HealthRepository {
@@ -77,4 +78,7 @@ abstract class HealthRepository {
     required double longitude,
     required String type,
   });
+
+  // AI Insights
+  AppTypeResponse<AiInsight> aiInsights({required String petId});
 }

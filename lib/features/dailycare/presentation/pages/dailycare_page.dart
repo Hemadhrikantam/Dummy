@@ -4,7 +4,7 @@ import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/daily_care_overview_section.dart';
 import 'package:dummy/core/widgets/custom_header_widget.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/widgets/base_screen.dart';
@@ -22,7 +22,10 @@ class DailycarePage extends StatefulWidget {
   });
   static const routeName = '/DailyCarePage';
 
-  static Route<T> route<T>(DashboardPetDetails selectedPet, String selectedPetId) {
+  static Route<T> route<T>(
+    DashboardPetDetails selectedPet,
+    String selectedPetId,
+  ) {
     return MaterialPageRoute<T>(
       builder:
           (context) => DailycarePage(
@@ -41,10 +44,10 @@ class _DailycarePage extends State<DailycarePage> {
   @override
   void initState() {
     Future.delayed(Duration(seconds: 3), () {
-      LogUtility.info('selected pet ${widget.selectedPet?.id??0}');
+      LogUtility.info('selected pet ${widget.selectedPet?.id ?? 0}');
       LogUtility.info('selected pet id ----> ${widget.selectedPetId}');
       context.read<OverviewBloc>().add(
-        OverviewEvent.overview(widget.selectedPet?.id??''),
+        OverviewEvent.overview(widget.selectedPet?.id ?? ''),
       );
     });
     super.initState();

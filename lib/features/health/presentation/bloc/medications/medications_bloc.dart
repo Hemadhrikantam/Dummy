@@ -1,6 +1,6 @@
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/di/injection.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/health/domain/entities/medication.dart';
 import 'package:dummy/features/health/domain/usecases/delete_medication_usecases.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -34,7 +34,7 @@ class MedicationsBloc extends Bloc<MedicationsEvent, MedicationsState> {
     emit(state.copyWith(medicationsStatus: Status.loading));
     final result = await _medicationsUsecases(
       currentContext.read<DashboardBloc>().state.selectedPet?.id ?? '',
-      event.key,
+      '',
       state.startDate.isValid
           ? AppUtil.convertToYYYYMMDD(state.startDate.value)
           : null,
@@ -45,9 +45,25 @@ class MedicationsBloc extends Bloc<MedicationsEvent, MedicationsState> {
 
     result.fold(
       (failure) => emit(state.copyWith(medicationsStatus: Status.error)),
-      (success) => emit(
-        state.copyWith(medicationsStatus: Status.success, medications: success),
-      ),
+      (success) {
+        final key = event.key?.toLowerCase() ?? '';
+        final filtered =
+            success
+                .where(
+                  (medication) =>
+                      (medication.dosageTypeName?.toLowerCase().contains(key) ??
+                          false) ||
+                      (medication.company.toLowerCase().contains(key)) ||
+                      (medication.name.toLowerCase().contains(key)),
+                )
+                .toList();
+        emit(
+          state.copyWith(
+            medicationsStatus: Status.success,
+            medications: filtered,
+          ),
+        );
+      },
     );
   }
 

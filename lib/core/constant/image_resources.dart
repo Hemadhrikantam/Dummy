@@ -115,6 +115,8 @@ class ImageResources {
   static const String expenses = '$__icons/expense.png';
   static const String addMemories = '$images/add_memories.png';
   static const String symptoms = '$images/symptoms.png';
+  static const String expensesImage = '$images/expenses.png';
+  static const String medications = '$images/medication.png';
 
   //wag
   static const String wagLogo = '$images/wag_logo.png';

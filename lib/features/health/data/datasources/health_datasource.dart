@@ -8,6 +8,7 @@ import '../models/medication_log_model.dart';
 import '../models/vaccination_model.dart';
 import '../models/vaccination_log_view_model.dart';
 import '../models/clinic_model.dart';
+import '../models/ai_insight_model.dart';
 
 abstract class HealthDatasource {
   const HealthDatasource();
@@ -75,4 +76,7 @@ abstract class HealthDatasource {
     double longitude,
     String type,
   );
+
+  // AI Insights
+  AppTypeResponse<AiInsightModel> aiInsights({required String petId});
 }

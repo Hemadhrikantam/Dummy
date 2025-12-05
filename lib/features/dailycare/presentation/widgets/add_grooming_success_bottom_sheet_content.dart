@@ -6,14 +6,13 @@ import 'package:dummy/features/health/presentation/widgets/success_animation_wra
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_dairy_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/image_resources.dart';
 import '../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/app_assets_image.dart';
 import '../../../../core/widgets/app_graber.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
-import '../../../dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 
 class AddGroomingSuccessBottomSheetContent extends StatelessWidget {
   const AddGroomingSuccessBottomSheetContent({super.key, this.onTap});

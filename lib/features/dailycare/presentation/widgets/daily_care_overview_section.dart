@@ -1,4 +1,5 @@
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/features/dailycare/presentation/bloc/daily_care/daily_care_bloc.dart';
 import 'package:dummy/features/dailycare/presentation/bloc/overview/overview_bloc.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/deworming_tab.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/expenses_tab.dart';
@@ -93,48 +94,63 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
       DewormingTab(selectedPet: widget.selectedPet),
       ExpensesTab(selectedPet: widget.selectedPet),
     ];
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        GestureDetector(
-          onTap: () {},
-          child: OverviewDailyHeaderWidget(
-            tabs: tabs,
-            selectedTab: selectedTab,
-            scrollController: _tabScrollController,
-            tabKeys: _tabKeys,
-            // onScrollContextReady: (ctx) => _scrollContext = ctx,
-            onTabSelected: (tab) {
-              setState(() {
-                selectedTab = tab;
-                _controller.animateToPage(
-                  tabs.indexOf(tab),
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.ease,
+    return BlocConsumer<DailyCareBloc, DailyCareState>(
+      listener: (context, state) {
+        if (state.pageIndex != _controller.page?.round()) {
+          _scrollToSelectedTab(tabs[state.pageIndex]);
+          _controller.animateToPage(
+            state.pageIndex,
+            duration: const Duration(milliseconds: 300),
+            curve: Curves.ease,
+          );
+          setState(() {
+            selectedTab = tabs[state.pageIndex];
+          });
+        }
+      },
+      builder: (context, state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            OverviewDailyHeaderWidget(
+              tabs: tabs,
+              selectedTab: tabs[state.pageIndex],
+              scrollController: _tabScrollController,
+              tabKeys: _tabKeys,
+              onTabSelected: (tab) {
+                setState(() {
+                  _controller.animateToPage(
+                    tabs.indexOf(tab),
+                    duration: const Duration(milliseconds: 300),
+                    curve: Curves.ease,
+                  );
+                });
+                _scrollToSelectedTab(tab);
+                context.read<DailyCareBloc>().add(
+                  DailyCareEvent.changePageIndex(tabs.indexOf(tab)),
                 );
-              });
-              _scrollToSelectedTab(tab);
-            },
-          ),
-        ),
+              },
+            ),
 
-        Styles.gap10,
-        Expanded(
-          child: PageView.builder(
-            controller: _controller,
-            onPageChanged: (i) {
-              setState(() {
-                selectedTab = tabs[i];
-              });
-              _scrollToSelectedTab(tabs[i]);
-            },
-            itemCount: tabPages.length,
-            itemBuilder: (context, index) {
-              return tabPages[index];
-            },
-          ),
-        ),
-      ],
+            Styles.gap10,
+            Expanded(
+              child: PageView.builder(
+                controller: _controller,
+                onPageChanged: (i) {
+                  setState(() {
+                    selectedTab = tabs[i];
+                  });
+                  _scrollToSelectedTab(tabs[i]);
+                },
+                itemCount: tabPages.length,
+                itemBuilder: (context, index) {
+                  return tabPages[index];
+                },
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

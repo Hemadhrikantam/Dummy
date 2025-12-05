@@ -7,7 +7,6 @@ import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/ngo/domain/entities/listing.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../core/constant/app_text.dart';
 import '../../../../core/widgets/app_custom_check_box.dart';
 import '../../../../core/widgets/app_custom_chip.dart';

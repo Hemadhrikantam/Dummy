@@ -1,4 +1,5 @@
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/features/health/domain/entities/ai_insight.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/constant/app_colors.dart';
@@ -7,7 +8,8 @@ import '../../../../../core/widgets/buttons/app_text_button.dart';
 import '../../../../../core/widgets/custom_card.dart';
 
 class PredictiveAlertsSection extends StatelessWidget {
-  const PredictiveAlertsSection({super.key});
+  const PredictiveAlertsSection({super.key, this.aiInsight});
+  final AiInsight? aiInsight;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class PredictiveAlertsSection extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Luna hasn't had a grooming session in 2 weeks—regular grooming can prevent skin issues.",
+                "${aiInsight?.petName ?? ''} hasn't had a grooming session in 2 weeks—regular grooming can prevent skin issues.",
                 style: context.textTheme.titleMedium?.copyWith(
                   color: AppColors.stepperColor,
                   fontWeight: FontWeight.w600,

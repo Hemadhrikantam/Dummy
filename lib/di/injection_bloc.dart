@@ -22,6 +22,20 @@ class InjectionBloc {
     );
   }
 
+  static DailyCareBloc get dailyCareBloc {
+    return DailyCareBloc();
+  }
+
+  static HealthBloc get healthBloc {
+    return HealthBloc(aiInsightsUsecases: getIt<AiInsightsUsecases>());
+  }
+
+  static NotificationsBloc get notificationsBloc {
+    return NotificationsBloc(
+      notificationsUsecases: getIt<NotificationsUsecases>(),
+    );
+  }
+
   static WagAiBloc get wagAiBloc {
     return WagAiBloc(
       aiStreamUsecases: getIt<AiStreamUsecases>(),

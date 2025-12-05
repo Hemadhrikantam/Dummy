@@ -7,7 +7,7 @@ import 'package:dio/dio.dart';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/di/injection.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/service/app_http_service.dart' show AppHttp;
 import 'package:dummy/service/local_storage_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

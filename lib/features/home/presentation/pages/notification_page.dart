@@ -1,5 +1,6 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
@@ -7,7 +8,10 @@ import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/core/widgets/loading_widget.dart';
+import 'package:dummy/core/utils/app_utils.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/notifications/notifications_bloc.dart';
 import 'package:dummy/features/profile/presentation/pages/profile_options_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -36,6 +40,14 @@ class _NotificationPage extends State<NotificationPage> {
       "time": "2 days ago",
     },
   );
+
+  initState() {
+    super.initState();
+    context.read<NotificationsBloc>().add(
+      NotificationsEvent.getNotifications(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DashboardBloc, DashboardState>(
@@ -73,51 +85,61 @@ class _NotificationPage extends State<NotificationPage> {
               Expanded(
                 child: SingleChildScrollView(
                   child: CustomCard(
-                    child: AppCustomListViewBuilder(
-                      shrinkWrap: true,
-                      isExpand: false,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: notifications.length,
-                      itemBuilder: (context, index) {
-                        final notification = notifications[index];
-                        return Padding(
-                          padding: Styles.edgeInsetsOnlyH15,
-                          child: Row(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      notification['title']!,
-                                      style: const TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 16,
+                    child: BlocBuilder<NotificationsBloc, NotificationsState>(
+                      builder: (context, state) {
+                        return state.initStatus.loading
+                            ? LoadingWidget.circularProgressIndicatorCenter
+                            : AppCustomListViewBuilder(
+                              shrinkWrap: true,
+                              isExpand: false,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemCount: state.notifications.length,
+                              itemBuilder: (context, index) {
+                                final notification = state.notifications[index];
+                                return Padding(
+                                  padding: Styles.edgeInsetsOnlyH15,
+                                  child: Row(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              notification.title,
+                                              style: const TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                fontSize: 16,
+                                              ),
+                                            ),
+                                            const SizedBox(height: 4),
+                                            Text(
+                                              notification.body,
+                                              style: const TextStyle(
+                                                fontSize: 14,
+                                                color: Colors.black87,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                    const SizedBox(height: 4),
-                                    Text(
-                                      notification['message']!,
-                                      style: const TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.black87,
+                                      const SizedBox(width: 8),
+                                      Text(
+                                        AppUtil.formatTimeAndAgoFromString(
+                                          notification.sentAt,
+                                        ),
+                                        style: const TextStyle(
+                                          fontSize: 12,
+                                          color: Colors.grey,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              const SizedBox(width: 8),
-                              Text(
-                                notification['time']!,
-                                style: const TextStyle(
-                                  fontSize: 12,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ],
-                          ),
-                        );
+                                    ],
+                                  ),
+                                );
+                              },
+                            );
                       },
                     ),
                   ),

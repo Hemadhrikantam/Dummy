@@ -12,7 +12,7 @@ import '../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/app_assets_image.dart';
 import '../../../../core/widgets/app_graber.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
-import '../../../dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 
 class AddWalkSuccessBottomSheetContent extends StatelessWidget {
   const AddWalkSuccessBottomSheetContent({super.key, this.onTap});

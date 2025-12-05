@@ -8,7 +8,7 @@ import 'package:dummy/core/payload/payload.dart';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/utils/type_def.dart';
 import 'package:dummy/di/injection.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
 import 'package:dummy/features/profile/data/models/account_detail_model.dart';
 import 'package:dummy/features/profile/data/models/documents_model.dart';

@@ -7,7 +7,7 @@ import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/loading_widget.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/health/presentation/widgets/empty_list_page.dart';
 import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
 import 'package:dummy/features/profile/presentation/pages/pet_dairy/pet_photo_page.dart';

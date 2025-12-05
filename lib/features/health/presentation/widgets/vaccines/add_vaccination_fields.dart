@@ -16,7 +16,7 @@ import '../../../../../core/widgets/custom_dropdown.dart';
 import '../../../../../core/widgets/custom_switch.dart';
 import '../../../../../core/widgets/dotted_border_widget.dart';
 import '../../../../../core/widgets/loading_widget.dart';
-import '../../../../dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import '../../bloc/vaccination_form/vaccination_form_bloc.dart';
 
 part 'add_vaccination_form.dart';

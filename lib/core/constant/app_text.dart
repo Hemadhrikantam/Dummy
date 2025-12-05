@@ -4,6 +4,8 @@ class AppText {
   static String versionText = 'Version 1.0.0';
   static String minutes = 'Minutes';
   static String hours = 'Hours';
+  static String memories = 'Memories';
+
   static String male = 'Male';
   static String female = 'Female';
   static String checkYourInternertConnection = 'Check Your  Internt Connection';

@@ -31,7 +31,7 @@ class MedicationsCard extends StatelessWidget {
             children: [
               RichText(
                 text: TextSpan(
-                  text: 'Tablet  ',
+                  text: '${medication.dosageTypeName}  ',
                   style: context.textTheme.titleLarge?.copyWith(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,

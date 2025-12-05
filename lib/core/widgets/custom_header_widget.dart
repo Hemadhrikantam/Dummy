@@ -3,7 +3,7 @@ import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/home/presentation/pages/notification_page.dart';
 import 'package:dummy/features/profile/presentation/pages/profile_options_page.dart'
     show ProfileOptionsPage;

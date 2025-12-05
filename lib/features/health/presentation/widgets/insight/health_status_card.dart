@@ -2,6 +2,7 @@ import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/buttons/app_text_button.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
+import 'package:dummy/features/health/domain/entities/ai_insight.dart';
 import 'package:dummy/features/home/presentation/widgets/pet_information_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -14,13 +15,14 @@ import '../../../../../core/widgets/custom_card.dart';
 class HealthStatusCard extends StatelessWidget {
   const HealthStatusCard({
     super.key,
-    required this.isEmpty,
+    required this.insight,
     required this.selectedPet,
   });
-  final bool isEmpty;
+  final AiInsight? insight;
   final DashboardPetDetails? selectedPet;
   @override
   Widget build(BuildContext context) {
+    bool isEmpty = insight == null;
     return CustomCard(
       backgroundColor: AppColors.buttonBackground,
       borderColor: AppColors.darkOrange.withOpacity(.28),
@@ -41,7 +43,7 @@ class HealthStatusCard extends StatelessWidget {
                             : MainAxisAlignment.spaceBetween,
                     children:
                         isEmpty
-                            ? [
+                            ? ([
                               AppAssestsImage(
                                 path: ImageResources.injection,
                                 height: 25,
@@ -58,7 +60,7 @@ class HealthStatusCard extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                            ]
+                            ])
                             : [
                               Row(
                                 children: [
@@ -83,7 +85,7 @@ class HealthStatusCard extends StatelessWidget {
                                             ),
                                       ),
                                       Text(
-                                        "7/10",
+                                        "${insight?.summary.healthScore}/100",
                                         style: context.textTheme.labelLarge
                                             ?.copyWith(
                                               fontWeight: FontWeight.w700,

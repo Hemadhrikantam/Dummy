@@ -60,10 +60,12 @@ class _MedicationsTabState extends State<MedicationsTab> {
                       hintText: AppText.search,
                       onChanged: (value) {
                         _debouncer.run(() {
-                          setState(() {
-                            searchVal = value;
-                          });
-                          refresh();
+                          // Dispatch search directly to the bloc
+                          context
+                              .read<MedicationsBloc>()
+                              .add(MedicationsEvent.medications(value));
+                          // Keep local state to support pull-to-refresh
+                          setState(() => searchVal = value);
                         });
                       },
                     ),

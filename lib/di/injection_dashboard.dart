@@ -15,4 +15,8 @@ Future<void> __dashboardDependencies() async {
 
   //   //
   getIt.registerLazySingleton<DashboardDetailsUsecases>(() => dashboardDetail);
+
+  // Notifications Usecase
+  final notificationsUsecases = NotificationsUsecases(getIt<DashboardDetailsRepository>());
+  getIt.registerLazySingleton<NotificationsUsecases>(() => notificationsUsecases);
 }

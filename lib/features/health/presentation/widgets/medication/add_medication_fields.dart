@@ -1,14 +1,13 @@
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/widgets/app_custom_check_box.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/core/widgets/mandatory_field_widget.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/health/presentation/bloc/medication_form/medication_form_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -407,58 +406,6 @@ class ___MorningState extends State<__Morning> {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    Styles.gap4,
-                    Expanded(
-                      flex: 5,
-                      child: CustomDropdownSearch(
-                        enabled: state.morningTimeEnable,
-                        title: '',
-                        selectedItem: state.morningTimeHour.value,
-                        items: List.generate(12, (i) {
-                          return DropItemModel(
-                            id: i == 11 ? 00 : i + 1,
-                            value:
-                                i == 11
-                                    ? '00'
-                                    : '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
-                          );
-                        }),
-                        onChanged: (value) {
-                          if (value != null) {
-                            context.read<MedicationFormBloc>().add(
-                              MedicationFormEvent.morningTimeHour(value),
-                            );
-                          }
-                        },
-                        label: AppText.hh,
-                      ),
-                    ),
-                    Styles.gap4,
-                    Expanded(
-                      flex: 5,
-                      child: CustomDropdownSearch(
-                        enabled: state.morningTimeEnable,
-                        title: '',
-                        selectedItem: state.morningTimeMin.value,
-                        items: List.generate(60, (i) {
-                          return DropItemModel(
-                            id: i == 59 ? 00 : i + 1,
-                            value:
-                                i == 59
-                                    ? '00'
-                                    : '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
-                          );
-                        }),
-                        onChanged: (value) {
-                          if (value != null) {
-                            context.read<MedicationFormBloc>().add(
-                              MedicationFormEvent.morningTimeMin(value),
-                            );
-                          }
-                        },
-                        label: AppText.mm,
-                      ),
-                    ),
                   ],
                 ),
               ),
@@ -508,58 +455,6 @@ class ___AfternoonState extends State<__Afternoon> {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    Styles.gap4,
-                    Expanded(
-                      flex: 5,
-                      child: CustomDropdownSearch(
-                        enabled: state.afternoonTimeEnable,
-                        title: '',
-                        selectedItem: state.afternoonTimeHour.value,
-                        items: List.generate(12, (i) {
-                          return DropItemModel(
-                            id: i == 11 ? 00 : i + 1,
-                            value:
-                                i == 11
-                                    ? "00"
-                                    : '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
-                          );
-                        }),
-                        onChanged: (value) {
-                          if (value != null) {
-                            context.read<MedicationFormBloc>().add(
-                              MedicationFormEvent.afternoonTimeHour(value),
-                            );
-                          }
-                        },
-                        label: AppText.hh,
-                      ),
-                    ),
-                    Styles.gap4,
-                    Expanded(
-                      flex: 5,
-                      child: CustomDropdownSearch(
-                        enabled: state.afternoonTimeEnable,
-                        title: '',
-                        selectedItem: state.afternoonTimeMin.value,
-                        items: List.generate(60, (i) {
-                          return DropItemModel(
-                            id: i == 59 ? 00 : i + 1,
-                            value:
-                                i == 59
-                                    ? '00'
-                                    : '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
-                          );
-                        }),
-                        onChanged: (value) {
-                          if (value != null) {
-                            context.read<MedicationFormBloc>().add(
-                              MedicationFormEvent.afternoonTimeMin(value),
-                            );
-                          }
-                        },
-                        label: AppText.mm,
-                      ),
-                    ),
                   ],
                 ),
               ),
@@ -607,58 +502,6 @@ class ___NightState extends State<__Night> {
                         AppText.night,
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    Styles.gap4,
-                    Expanded(
-                      flex: 5,
-                      child: CustomDropdownSearch(
-                        enabled: state.nightTimeEnable,
-                        title: '',
-                        selectedItem: state.nightTimeHour.value,
-                        items: List.generate(12, (i) {
-                          return DropItemModel(
-                            id: i == 11 ? 00 : i + 1,
-                            value:
-                                i == 11
-                                    ? '00'
-                                    : '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
-                          );
-                        }),
-                        onChanged: (value) {
-                          if (value != null) {
-                            context.read<MedicationFormBloc>().add(
-                              MedicationFormEvent.nightTimeHour(value),
-                            );
-                          }
-                        },
-                        label: AppText.hh,
-                      ),
-                    ),
-                    Styles.gap4,
-                    Expanded(
-                      flex: 5,
-                      child: CustomDropdownSearch(
-                        enabled: state.nightTimeEnable,
-                        title: '',
-                        selectedItem: state.nightTimeMin.value,
-                        items: List.generate(60, (i) {
-                          return DropItemModel(
-                            id: i == 59 ? 00 : i + 1,
-                            value:
-                                i == 59
-                                    ? '00'
-                                    : '${(i + 1) > 9 ? i + 1 : '0${i + 1}'}',
-                          );
-                        }),
-                        onChanged: (value) {
-                          if (value != null) {
-                            context.read<MedicationFormBloc>().add(
-                              MedicationFormEvent.nightTimeMin(value),
-                            );
-                          }
-                        },
-                        label: AppText.mm,
                       ),
                     ),
                   ],
@@ -711,26 +554,20 @@ class TotalDosage extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      if (state.morningTimeHour.isValid &&
-                          state.morningTimeMin.isValid)
+                      if (state.morningTimeEnable)
                         DayWithTimeWidget(
                           day: '${AppText.morning} ',
-                          time:
-                              '- ${state.morningTimeHour.value?.value}.${state.morningTimeMin.value?.value} AM IST',
+                          time: '- 09:00 AM IST',
                         ),
-                      if (state.afternoonTimeHour.isValid &&
-                          state.afternoonTimeMin.isValid)
+                      if (state.afternoonTimeEnable)
                         DayWithTimeWidget(
                           day: '${AppText.afternoon} ',
-                          time:
-                              '- ${state.afternoonTimeHour.value?.value}.${state.afternoonTimeMin.value?.value} PM IST',
+                          time: '- 01:00 PM IST',
                         ),
-                      if (state.nightTimeHour.isValid &&
-                          state.nightTimeMin.isValid)
+                      if (state.nightTimeEnable)
                         DayWithTimeWidget(
                           day: '${AppText.night} ',
-                          time:
-                              '- ${state.nightTimeHour.value?.value}.${state.nightTimeMin.value?.value} PM IST',
+                          time: '- 08:00 PM IST',
                         ),
                     ],
                   ),

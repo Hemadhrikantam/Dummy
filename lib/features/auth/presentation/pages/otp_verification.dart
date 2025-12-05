@@ -200,9 +200,10 @@ class _OTPInputState extends State<_OTPInput> {
               onChanged: (value) => _handleInput(value, index),
               maxLength: 1,
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 14),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
               keyboardType: TextInputType.number,
               decoration: InputDecoration(
+                contentPadding: Styles.edgeInsetsZero,
                 counterText: '',
                 filled: true,
                 fillColor: Colors.white,

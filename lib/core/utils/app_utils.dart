@@ -1,14 +1,11 @@
 // ignore_for_file: inference_failure_on_function_return_type
 
 import 'dart:io';
-
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
-
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../models/formz/password.dart';
 import 'toast_message.dart';
 
@@ -90,6 +87,39 @@ class AppUtil {
     try {
       final dateTime = DateTime.parse(dateString);
       return DateFormat('MM/dd/yyyy hh:mm a').format(dateTime);
+    } catch (e) {
+      return '';
+    }
+  }
+
+  static String formatTimeAndAgoFromString(String dateString) {
+    try {
+      final dt = DateTime.parse(dateString).toLocal();
+      final now = DateTime.now();
+      final diff = now.difference(dt);
+      final timePart = DateFormat('hh:mm a').format(dt);
+      String agoPart;
+
+      if (diff.inMinutes < 1) {
+        agoPart = 'just now';
+      } else if (diff.inMinutes < 60) {
+        final m = diff.inMinutes;
+        agoPart = timePart;
+      } else if (diff.inHours < 24) {
+        final h = diff.inHours;
+        agoPart = timePart;
+      } else if (diff.inDays < 7) {
+        final d = diff.inDays;
+        agoPart = '$d day${d == 1 ? '' : 's'} ago';
+      } else if (diff.inDays < 30) {
+        final w = (diff.inDays / 7).floor();
+        agoPart = '$w week${w == 1 ? '' : 's'} ago';
+      } else {
+        final mo = (diff.inDays / 30).floor();
+        agoPart = '$mo month${mo == 1 ? '' : 's'} ago';
+      }
+
+      return '$agoPart';
     } catch (e) {
       return '';
     }
@@ -208,16 +238,12 @@ class AppUtil {
         return null;
     }
   }
-  static  void launchApp(String url) async {
+
+  static void launchApp(String url) async {
     if (await canLaunchUrl(Uri.parse(url))) {
-      await launchUrl(Uri.parse(url),);
+      await launchUrl(Uri.parse(url));
     } else {
       debugPrint("Could not launch $url");
     }
   }
-
-
-
 }
-  
-

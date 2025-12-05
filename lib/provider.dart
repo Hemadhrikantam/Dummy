@@ -11,6 +11,9 @@ class AppProvider extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => InjectionBloc.authBloc),
+        BlocProvider(create: (context) => InjectionBloc.dailyCareBloc),
+        BlocProvider(create: (context) => InjectionBloc.healthBloc),
+        BlocProvider(create: (context) => InjectionBloc.notificationsBloc),
         BlocProvider(create: (context) => InjectionBloc.accountBloc),
         BlocProvider(create: (context) => InjectionBloc.vetNearMeBloc),
         BlocProvider(create: (context) => InjectionBloc.ngoHomeBloc),

@@ -7,7 +7,7 @@ import 'package:dummy/core/widgets/animated_row_column.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
 import 'package:dummy/core/widgets/custom_search_bar.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -68,10 +68,12 @@ class _VaccinesTabState extends State<VaccinesTab> {
                       hintText: AppText.search,
                       onChanged: (value) {
                         _debouncer.run(() {
-                          setState(() {
-                            searchVal = value;
-                          });
-                          refresh();
+                          // Dispatch search directly to the bloc
+                          context.read<VaccinationsBloc>().add(
+                            VaccinationsEvent.vaccinations(value),
+                          );
+                          // Keep local state to support pull-to-refresh
+                          setState(() => searchVal = value);
                         });
                       },
                     ),

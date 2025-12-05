@@ -7,7 +7,7 @@ import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/nav_bar.dart';
 import 'package:dummy/features/addoption/presentation/pages/addoption_page.dart';
 import 'package:dummy/features/dailycare/presentation/pages/dailycare_page.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/health/presentation/pages/health_page.dart';
 import 'package:dummy/features/home/presentation/pages/home_page.dart';
 import 'package:dummy/features/wag/presentation/pages/wag_page.dart';
@@ -31,7 +31,6 @@ class DashboardPage extends StatefulWidget {
 
 class _DashboardPage extends State<DashboardPage> {
   // int selectedIndex = 0;
-
   // void _onItemTapped(int index) {
   //   setState(() {
   //     selectedIndex = index;

@@ -1,6 +1,6 @@
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/di/injection.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/health/domain/usecases/delete_vaccination_usecases.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -45,12 +45,24 @@ class VaccinationsBloc extends Bloc<VaccinationsEvent, VaccinationsState> {
 
     result.fold(
       (failure) => emit(state.copyWith(vaccinationsStatus: Status.error)),
-      (success) => emit(
-        state.copyWith(
-          vaccinationsStatus: Status.success,
-          vaccinations: success,
-        ),
-      ),
+      (success) {
+        final key = event.key?.toLowerCase() ?? '';
+        final filtered =
+            success
+                .where(
+                  (vaccination) =>
+                      (vaccination.notes.toLowerCase().contains(key)) ||
+                      (vaccination.companyName.toLowerCase().contains(key)) ||
+                      (vaccination.name.toLowerCase().contains(key)),
+                )
+                .toList();
+        emit(
+          state.copyWith(
+            vaccinationsStatus: Status.success,
+            vaccinations: filtered,
+          ),
+        );
+      },
     );
   }
 

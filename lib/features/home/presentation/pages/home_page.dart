@@ -13,12 +13,10 @@ import 'package:dummy/features/home/presentation/widgets/near_you_card.dart'
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import '../widgets/pet_information_widget.dart';
 import '../widgets/pet_list_home_widget.dart';
 import '../widgets/quick_actions_widget.dart';
-import '../widgets/tip_of_the_day_card.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -129,10 +127,7 @@ class _HomePage extends State<HomePage> {
                         selectedPetId: selectedPet?.id ?? '',
                       ),
 
-                      Styles.gap15,
-
-                      TipOfTheDayCard(selectedPet: selectedPet!),
-
+                      // TipOfTheDayCard(selectedPet: selectedPet!),
                       Styles.gap15,
                       const NearYouCard(),
                     ],

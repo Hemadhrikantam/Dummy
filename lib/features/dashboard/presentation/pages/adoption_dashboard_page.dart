@@ -7,7 +7,7 @@ import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/features/addoption/presentation/pages/addoption_page.dart';
 import 'package:dummy/features/dailycare/presentation/pages/dailycare_page.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
-import 'package:dummy/features/dashboard/presentation/bloc/dashboard_bloc.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/health/presentation/pages/health_page.dart';
 import 'package:dummy/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';

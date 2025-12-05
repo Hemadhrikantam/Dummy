@@ -19,6 +19,7 @@ import '../models/medication_log_model.dart';
 import '../models/vaccination_model.dart';
 import '../models/vaccination_log_view_model.dart';
 import '../models/clinic_model.dart';
+import '../models/ai_insight_model.dart';
 
 class HealthDatasourceImpl extends HealthDatasource {
   const HealthDatasourceImpl({required this.http, required this.storage});
@@ -696,7 +697,9 @@ class HealthDatasourceImpl extends HealthDatasource {
     double longitude,
     String type,
   ) async {
-    final response = await http.get(path: api.clinics(latitude, longitude, type));
+    final response = await http.get(
+      path: api.clinics(latitude, longitude, type),
+    );
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -727,6 +730,38 @@ class HealthDatasourceImpl extends HealthDatasource {
             ),
           );
         } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<AiInsightModel> aiInsights({required String petId}) async {
+    final response = await http.get(path: api.aiInsights(petId), token: true);
+    return response.fold(
+      (error) => Left(ErrorMessage(message: error.message)),
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            final item = AiInsightModel.fromJson(data['data']);
+            return Right(item);
+          }
+
+          return Left(
+            ErrorMessage(
+              message:
+                  (data is Map && data['message'] != null)
+                      ? data['message'] as String
+                      : AppText.somethingWentWrong,
+            ),
+          );
+        } catch (_) {
           return Left(ErrorMessage(message: AppText.somethingWentWrong));
         }
       },

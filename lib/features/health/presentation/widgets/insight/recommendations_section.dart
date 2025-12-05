@@ -1,4 +1,5 @@
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/features/health/domain/entities/ai_insight.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../core/constant/app_colors.dart';
@@ -8,32 +9,43 @@ import '../../../../../core/widgets/app_assets_image.dart';
 import '../../../../../core/widgets/custom_card.dart';
 
 class RecommendationsSection extends StatelessWidget {
-  const RecommendationsSection({super.key});
-
+  const RecommendationsSection({super.key, this.aiInsight});
+  final AiInsight? aiInsight;
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Recommendations for Luna",
+          "Recommendations for ${aiInsight?.petName ?? ''}",
           style: context.textTheme.labelLarge?.copyWith(
             fontWeight: FontWeight.w700,
             fontSize: 20,
           ),
         ),
         Styles.gap20,
-        RecommendationsCard(
-          text:
-              'Luna missed her last flea dose—set a reminder to stay on track.',
-          chipText: 'Medication Reminder',
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children:
+              aiInsight?.recommendations
+                  .map(
+                    (e) => Padding(
+                      padding: Styles.edgeInsetsOnlyB20,
+                      child: RecommendationsCard(
+                        text: e.message,
+                        chipText: e.actionLabel,
+                      ),
+                    ),
+                  )
+                  .toList() ??
+              [],
         ),
-        Styles.gap10,
-        RecommendationsCard(
-          text:
-              "Luna hasn't had a playdate in a while—plan a fun outing to keep her active!",
-          chipText: 'Activity Boost',
-        ),
+        // Styles.gap10,
+        // RecommendationsCard(
+        //   text:
+        //       "Luna hasn't had a playdate in a while—plan a fun outing to keep her active!",
+        //   chipText: 'Activity Boost',
+        // ),
       ],
     );
   }
