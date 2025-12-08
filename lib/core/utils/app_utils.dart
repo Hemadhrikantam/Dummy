@@ -114,10 +114,8 @@ class AppUtil {
       if (diff.inMinutes < 1) {
         agoPart = 'just now';
       } else if (diff.inMinutes < 60) {
-        final m = diff.inMinutes;
         agoPart = timePart;
       } else if (diff.inHours < 24) {
-        final h = diff.inHours;
         agoPart = timePart;
       } else if (diff.inDays < 7) {
         final d = diff.inDays;

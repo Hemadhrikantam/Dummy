@@ -1,12 +1,10 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/features/profile/presentation/bloc/account/account_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import '../../../../../core/constant/app_text.dart';
 import '../../../../../core/widgets/base_screen.dart';
 import '../../../../../core/widgets/buttons/app_button.dart';
@@ -34,9 +32,7 @@ class AccountDetailsPage extends StatelessWidget {
       bottom: CustomBottomSheet(
         child: BlocConsumer<AccountBloc, AccountState>(
           listener: (context, state) {
-            if (state.editAccountStatus == Status.success) {
-              
-            }
+            if (state.editAccountStatus == Status.success) {}
           },
           builder: (context, state) {
             return state.editAccountStatus == Status.loading

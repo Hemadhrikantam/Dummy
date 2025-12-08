@@ -10,6 +10,9 @@ abstract class NgoDatasource {
     required String desc,
     required String petId,
     required String status,
+    String? contactEmail,
+    String? contactPhone,
+    String? contactAddress,
   });
   AppSuccessResponse updatePetListing({
     required String id,

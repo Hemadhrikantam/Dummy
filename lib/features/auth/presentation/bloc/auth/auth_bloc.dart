@@ -18,11 +18,9 @@ import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_p
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/signup/data/models/enum_model.dart';
 import 'package:dummy/features/signup/presentation/pages/meet_your_pet_screen.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../../../../core/enum/status.dart';
 import '../../../../../core/enum/yourself.dart';
 import '../../../../../core/models/formz/not_empty.dart';

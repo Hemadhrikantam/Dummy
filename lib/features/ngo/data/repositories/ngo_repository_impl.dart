@@ -23,8 +23,18 @@ class NgoRepositoryImpl extends NgoRepository {
     required String desc,
     required String petId,
     required String status,
+    String? contactEmail,
+    String? contactPhone,
+    String? contactAddress,
   }) {
-    return datasource.addPetListing(desc: desc, petId: petId, status: status);
+    return datasource.addPetListing(
+      desc: desc,
+      petId: petId,
+      status: status,
+      contactEmail: contactEmail,
+      contactPhone: contactPhone,
+      contactAddress: contactAddress,
+    );
   }
 
   @override

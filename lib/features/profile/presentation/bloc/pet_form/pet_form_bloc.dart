@@ -152,6 +152,7 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
       image_url: url,
       personalityTags:
           state.selectedPersonalityTags.map((e) => e.value!.id).toList(),
+      ownership_type: OwnershipType.owned.name,
     );
     LogUtility.info('Payload: $payload');
     final result = await __editPetUsecases(

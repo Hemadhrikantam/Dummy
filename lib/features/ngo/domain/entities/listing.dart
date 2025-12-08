@@ -41,6 +41,9 @@ class Listing extends Equatable {
   final String listedByName;
   final String? age;
   final List<String> personalityTags;
+  final String? contactEmail;
+  final String? contactPhone;
+  final String? contactAddress;
 
   const Listing({
     required this.id,
@@ -61,6 +64,9 @@ class Listing extends Equatable {
     required this.listedByName,
     this.age,
     this.personalityTags = const [],
+    this.contactEmail,
+    this.contactPhone,
+    this.contactAddress,
   });
 
   @override
@@ -83,5 +89,8 @@ class Listing extends Equatable {
     listedByName,
     age,
     personalityTags,
+    contactEmail,
+    contactPhone,
+    contactAddress,
   ];
 }

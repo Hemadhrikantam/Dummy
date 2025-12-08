@@ -184,6 +184,7 @@ class ListingFormBloc extends Bloc<ListingFormEvent, ListingFormState> {
       image_url: url,
       weight: const PetWeightPayload(value: '0', unit: 'kg'),
       personalityTags: const [],
+      ownership_type: OwnershipType.adoption_listing.name,
     );
 
     final result =
@@ -211,6 +212,12 @@ class ListingFormBloc extends Bloc<ListingFormEvent, ListingFormState> {
                   desc: state.description.value,
                   petId: petId,
                   status: listingStatus,
+                  contactEmail: state.email.value,
+                  contactPhone: state.phone.value,
+                  contactAddress:
+                      state.address.value.isNotEmpty
+                          ? state.address.value
+                          : null,
                 );
 
         listingResult.fold(

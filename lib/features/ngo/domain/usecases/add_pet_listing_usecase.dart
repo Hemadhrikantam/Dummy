@@ -9,7 +9,17 @@ class AddPetListingUsecase {
     required String desc,
     required String petId,
     required String status,
+    String? contactEmail,
+    String? contactPhone,
+    String? contactAddress,
   }) {
-    return repository.addPetListing(desc: desc, petId: petId, status: status);
+    return repository.addPetListing(
+      desc: desc,
+      petId: petId,
+      status: status,
+      contactEmail: contactEmail,
+      contactPhone: contactPhone,
+      contactAddress: contactAddress,
+    );
   }
 }

@@ -54,6 +54,9 @@ class ListingModel extends Listing {
     required super.listedByName,
     super.age,
     super.personalityTags = const [],
+    super.contactEmail,
+    super.contactPhone,
+    super.contactAddress,
   });
 
   factory ListingModel.fromMap(Map<String, dynamic> map) {
@@ -87,6 +90,9 @@ class ListingModel extends Listing {
               .where((s) => s.isNotEmpty)
               .toList() ??
           const [],
+      contactEmail: map['contact_email'] as String?,
+      contactPhone: map['contact_phone'] as String?,
+      contactAddress: map['contact_address'] as String?,
     );
   }
 }

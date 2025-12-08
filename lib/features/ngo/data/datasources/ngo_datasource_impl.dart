@@ -81,10 +81,21 @@ class NgoDatasourceImpl extends NgoDatasource {
     required String desc,
     required String petId,
     required String status,
+    String? contactEmail,
+    String? contactPhone,
+    String? contactAddress,
   }) async {
+    final body = {
+      'description': desc,
+      'pet_id': petId,
+      'status': status,
+      'contact_email': contactEmail,
+      'contact_phone': contactPhone,
+      'contact_address': contactAddress,
+    }..removeWhere((key, value) => value == null);
     final response = await http.post(
       path: api.petListing,
-      data: {'description': desc, 'pet_id': petId, 'status': status},
+      data: body,
     );
     return response.fold(
       (error) => Left(ErrorMessage(message: error.message)),

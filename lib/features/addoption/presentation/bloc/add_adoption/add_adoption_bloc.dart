@@ -207,6 +207,7 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
       image_url: url,
       weight: const PetWeightPayload(value: '0', unit: 'kg'),
       personalityTags: const [],
+      ownership_type: OwnershipType.adoption_listing.name,
     );
 
     final result =
@@ -233,6 +234,9 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
                   desc: state.description.value,
                   petId: petId,
                   status: listingStatus,
+                  contactEmail: state.email.value,
+                  contactPhone: state.phone.value,
+                  contactAddress: state.address.value,
                 );
 
         listingResult.fold(
