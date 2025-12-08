@@ -72,6 +72,17 @@ class AppUtil {
     }
   }
 
+  static String convertToYYYYMMDD2(String dateStr) {
+    try {
+      final date = DateTime.parse(dateStr);
+      final outputFormat = DateFormat('yyyy-MM-dd');
+      return outputFormat.format(date);
+    } catch (e) {
+      print('Error converting date: $e');
+      return '';
+    }
+  }
+
   static String formatDateToMMDDYYYY(DateTime date) {
     return "${date.day.toString().padLeft(2, '0')}/"
         "${date.month.toString().padLeft(2, '0')}/"

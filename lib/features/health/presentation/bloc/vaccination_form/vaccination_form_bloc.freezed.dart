@@ -34,6 +34,7 @@ mixin _$VaccinationFormEvent {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -52,6 +53,7 @@ mixin _$VaccinationFormEvent {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -70,6 +72,7 @@ mixin _$VaccinationFormEvent {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -89,6 +92,7 @@ mixin _$VaccinationFormEvent {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -107,6 +111,7 @@ mixin _$VaccinationFormEvent {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -125,6 +130,7 @@ mixin _$VaccinationFormEvent {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -244,6 +250,7 @@ class _$InitImpl implements _Init {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return init(petId, id);
   }
@@ -266,6 +273,7 @@ class _$InitImpl implements _Init {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return init?.call(petId, id);
   }
@@ -288,6 +296,7 @@ class _$InitImpl implements _Init {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -314,6 +323,7 @@ class _$InitImpl implements _Init {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return init(this);
   }
@@ -336,6 +346,7 @@ class _$InitImpl implements _Init {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return init?.call(this);
   }
@@ -358,6 +369,7 @@ class _$InitImpl implements _Init {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -465,6 +477,7 @@ class _$IsGivenImpl implements _IsGiven {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return isGiven(value);
   }
@@ -487,6 +500,7 @@ class _$IsGivenImpl implements _IsGiven {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return isGiven?.call(value);
   }
@@ -509,6 +523,7 @@ class _$IsGivenImpl implements _IsGiven {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (isGiven != null) {
@@ -535,6 +550,7 @@ class _$IsGivenImpl implements _IsGiven {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return isGiven(this);
   }
@@ -557,6 +573,7 @@ class _$IsGivenImpl implements _IsGiven {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return isGiven?.call(this);
   }
@@ -579,6 +596,7 @@ class _$IsGivenImpl implements _IsGiven {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (isGiven != null) {
@@ -688,6 +706,7 @@ class _$VaccinationNameImpl implements _VaccinationName {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return vaccinationName(value);
   }
@@ -710,6 +729,7 @@ class _$VaccinationNameImpl implements _VaccinationName {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return vaccinationName?.call(value);
   }
@@ -732,6 +752,7 @@ class _$VaccinationNameImpl implements _VaccinationName {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (vaccinationName != null) {
@@ -758,6 +779,7 @@ class _$VaccinationNameImpl implements _VaccinationName {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return vaccinationName(this);
   }
@@ -780,6 +802,7 @@ class _$VaccinationNameImpl implements _VaccinationName {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return vaccinationName?.call(this);
   }
@@ -802,6 +825,7 @@ class _$VaccinationNameImpl implements _VaccinationName {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (vaccinationName != null) {
@@ -908,6 +932,7 @@ class _$CompanyImpl implements _Company {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return company(value);
   }
@@ -930,6 +955,7 @@ class _$CompanyImpl implements _Company {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return company?.call(value);
   }
@@ -952,6 +978,7 @@ class _$CompanyImpl implements _Company {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (company != null) {
@@ -978,6 +1005,7 @@ class _$CompanyImpl implements _Company {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return company(this);
   }
@@ -1000,6 +1028,7 @@ class _$CompanyImpl implements _Company {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return company?.call(this);
   }
@@ -1022,6 +1051,7 @@ class _$CompanyImpl implements _Company {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (company != null) {
@@ -1131,6 +1161,7 @@ class _$DateAdministeredImpl implements _DateAdministered {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return dateAdministered(value);
   }
@@ -1153,6 +1184,7 @@ class _$DateAdministeredImpl implements _DateAdministered {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return dateAdministered?.call(value);
   }
@@ -1175,6 +1207,7 @@ class _$DateAdministeredImpl implements _DateAdministered {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (dateAdministered != null) {
@@ -1201,6 +1234,7 @@ class _$DateAdministeredImpl implements _DateAdministered {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return dateAdministered(this);
   }
@@ -1223,6 +1257,7 @@ class _$DateAdministeredImpl implements _DateAdministered {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return dateAdministered?.call(this);
   }
@@ -1245,6 +1280,7 @@ class _$DateAdministeredImpl implements _DateAdministered {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (dateAdministered != null) {
@@ -1351,6 +1387,7 @@ class _$DueDateImpl implements _DueDate {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return dueDate(value);
   }
@@ -1373,6 +1410,7 @@ class _$DueDateImpl implements _DueDate {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return dueDate?.call(value);
   }
@@ -1395,6 +1433,7 @@ class _$DueDateImpl implements _DueDate {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (dueDate != null) {
@@ -1421,6 +1460,7 @@ class _$DueDateImpl implements _DueDate {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return dueDate(this);
   }
@@ -1443,6 +1483,7 @@ class _$DueDateImpl implements _DueDate {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return dueDate?.call(this);
   }
@@ -1465,6 +1506,7 @@ class _$DueDateImpl implements _DueDate {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (dueDate != null) {
@@ -1569,6 +1611,7 @@ class _$NoteImpl implements _Note {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return note(value);
   }
@@ -1591,6 +1634,7 @@ class _$NoteImpl implements _Note {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return note?.call(value);
   }
@@ -1613,6 +1657,7 @@ class _$NoteImpl implements _Note {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (note != null) {
@@ -1639,6 +1684,7 @@ class _$NoteImpl implements _Note {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return note(this);
   }
@@ -1661,6 +1707,7 @@ class _$NoteImpl implements _Note {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return note?.call(this);
   }
@@ -1683,6 +1730,7 @@ class _$NoteImpl implements _Note {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (note != null) {
@@ -1789,6 +1837,7 @@ class _$MediaImpl implements _Media {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return media(value);
   }
@@ -1811,6 +1860,7 @@ class _$MediaImpl implements _Media {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return media?.call(value);
   }
@@ -1833,6 +1883,7 @@ class _$MediaImpl implements _Media {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (media != null) {
@@ -1859,6 +1910,7 @@ class _$MediaImpl implements _Media {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return media(this);
   }
@@ -1881,6 +1933,7 @@ class _$MediaImpl implements _Media {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return media?.call(this);
   }
@@ -1903,6 +1956,7 @@ class _$MediaImpl implements _Media {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (media != null) {
@@ -2009,6 +2063,7 @@ class _$FrequencyImpl implements _Frequency {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return frequency(value);
   }
@@ -2031,6 +2086,7 @@ class _$FrequencyImpl implements _Frequency {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return frequency?.call(value);
   }
@@ -2053,6 +2109,7 @@ class _$FrequencyImpl implements _Frequency {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (frequency != null) {
@@ -2079,6 +2136,7 @@ class _$FrequencyImpl implements _Frequency {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return frequency(this);
   }
@@ -2101,6 +2159,7 @@ class _$FrequencyImpl implements _Frequency {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return frequency?.call(this);
   }
@@ -2123,6 +2182,7 @@ class _$FrequencyImpl implements _Frequency {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (frequency != null) {
@@ -2232,6 +2292,7 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return reminderTimezone(value);
   }
@@ -2254,6 +2315,7 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return reminderTimezone?.call(value);
   }
@@ -2276,6 +2338,7 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (reminderTimezone != null) {
@@ -2302,6 +2365,7 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return reminderTimezone(this);
   }
@@ -2324,6 +2388,7 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return reminderTimezone?.call(this);
   }
@@ -2346,6 +2411,7 @@ class _$ReminderTimezoneImpl implements _ReminderTimezone {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (reminderTimezone != null) {
@@ -2456,6 +2522,7 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return reminderBefore(value);
   }
@@ -2478,6 +2545,7 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return reminderBefore?.call(value);
   }
@@ -2500,6 +2568,7 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (reminderBefore != null) {
@@ -2526,6 +2595,7 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return reminderBefore(this);
   }
@@ -2548,6 +2618,7 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return reminderBefore?.call(this);
   }
@@ -2570,6 +2641,7 @@ class _$ReminderBeforeImpl implements _ReminderBefore {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (reminderBefore != null) {
@@ -2677,6 +2749,7 @@ class _$ReminderHourImpl implements _ReminderHour {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return reminderHour(value);
   }
@@ -2699,6 +2772,7 @@ class _$ReminderHourImpl implements _ReminderHour {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return reminderHour?.call(value);
   }
@@ -2721,6 +2795,7 @@ class _$ReminderHourImpl implements _ReminderHour {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (reminderHour != null) {
@@ -2747,6 +2822,7 @@ class _$ReminderHourImpl implements _ReminderHour {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return reminderHour(this);
   }
@@ -2769,6 +2845,7 @@ class _$ReminderHourImpl implements _ReminderHour {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return reminderHour?.call(this);
   }
@@ -2791,6 +2868,7 @@ class _$ReminderHourImpl implements _ReminderHour {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (reminderHour != null) {
@@ -2897,6 +2975,7 @@ class _$ReminderMinImpl implements _ReminderMin {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return reminderMin(value);
   }
@@ -2919,6 +2998,7 @@ class _$ReminderMinImpl implements _ReminderMin {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return reminderMin?.call(value);
   }
@@ -2941,6 +3021,7 @@ class _$ReminderMinImpl implements _ReminderMin {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (reminderMin != null) {
@@ -2967,6 +3048,7 @@ class _$ReminderMinImpl implements _ReminderMin {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return reminderMin(this);
   }
@@ -2989,6 +3071,7 @@ class _$ReminderMinImpl implements _ReminderMin {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return reminderMin?.call(this);
   }
@@ -3011,6 +3094,7 @@ class _$ReminderMinImpl implements _ReminderMin {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (reminderMin != null) {
@@ -3117,6 +3201,7 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return reminderAmPm(value);
   }
@@ -3139,6 +3224,7 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return reminderAmPm?.call(value);
   }
@@ -3161,6 +3247,7 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (reminderAmPm != null) {
@@ -3187,6 +3274,7 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return reminderAmPm(this);
   }
@@ -3209,6 +3297,7 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return reminderAmPm?.call(this);
   }
@@ -3231,6 +3320,7 @@ class _$ReminderAmPmImpl implements _ReminderAmPm {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (reminderAmPm != null) {
@@ -3338,6 +3428,7 @@ class _$SubmitImpl implements _Submit {
     required TResult Function(DropItem value) reminderMin,
     required TResult Function(DropItem value) reminderAmPm,
     required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
   }) {
     return submit(id);
   }
@@ -3360,6 +3451,7 @@ class _$SubmitImpl implements _Submit {
     TResult? Function(DropItem value)? reminderMin,
     TResult? Function(DropItem value)? reminderAmPm,
     TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
   }) {
     return submit?.call(id);
   }
@@ -3382,6 +3474,7 @@ class _$SubmitImpl implements _Submit {
     TResult Function(DropItem value)? reminderMin,
     TResult Function(DropItem value)? reminderAmPm,
     TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -3408,6 +3501,7 @@ class _$SubmitImpl implements _Submit {
     required TResult Function(_ReminderMin value) reminderMin,
     required TResult Function(_ReminderAmPm value) reminderAmPm,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
   }) {
     return submit(this);
   }
@@ -3430,6 +3524,7 @@ class _$SubmitImpl implements _Submit {
     TResult? Function(_ReminderMin value)? reminderMin,
     TResult? Function(_ReminderAmPm value)? reminderAmPm,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
   }) {
     return submit?.call(this);
   }
@@ -3452,6 +3547,7 @@ class _$SubmitImpl implements _Submit {
     TResult Function(_ReminderMin value)? reminderMin,
     TResult Function(_ReminderAmPm value)? reminderAmPm,
     TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -3470,6 +3566,234 @@ abstract class _Submit implements VaccinationFormEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SubmitImplCopyWith<_$SubmitImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DoseSubmittedImplCopyWith<$Res> {
+  factory _$$DoseSubmittedImplCopyWith(
+    _$DoseSubmittedImpl value,
+    $Res Function(_$DoseSubmittedImpl) then,
+  ) = __$$DoseSubmittedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool isDoseSubmitted});
+}
+
+/// @nodoc
+class __$$DoseSubmittedImplCopyWithImpl<$Res>
+    extends _$VaccinationFormEventCopyWithImpl<$Res, _$DoseSubmittedImpl>
+    implements _$$DoseSubmittedImplCopyWith<$Res> {
+  __$$DoseSubmittedImplCopyWithImpl(
+    _$DoseSubmittedImpl _value,
+    $Res Function(_$DoseSubmittedImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of VaccinationFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? isDoseSubmitted = null}) {
+    return _then(
+      _$DoseSubmittedImpl(
+        null == isDoseSubmitted
+            ? _value.isDoseSubmitted
+            : isDoseSubmitted // ignore: cast_nullable_to_non_nullable
+                as bool,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$DoseSubmittedImpl implements _DoseSubmitted {
+  const _$DoseSubmittedImpl(this.isDoseSubmitted);
+
+  @override
+  final bool isDoseSubmitted;
+
+  @override
+  String toString() {
+    return 'VaccinationFormEvent.doseSubmitted(isDoseSubmitted: $isDoseSubmitted)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DoseSubmittedImpl &&
+            (identical(other.isDoseSubmitted, isDoseSubmitted) ||
+                other.isDoseSubmitted == isDoseSubmitted));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, isDoseSubmitted);
+
+  /// Create a copy of VaccinationFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DoseSubmittedImplCopyWith<_$DoseSubmittedImpl> get copyWith =>
+      __$$DoseSubmittedImplCopyWithImpl<_$DoseSubmittedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String petId, String? id) init,
+    required TResult Function(bool value) isGiven,
+    required TResult Function(String value) vaccinationName,
+    required TResult Function(String value) company,
+    required TResult Function(String value) dateAdministered,
+    required TResult Function(String value) dueDate,
+    required TResult Function(String value) note,
+    required TResult Function(String value) media,
+    required TResult Function(DropStringItem value) frequency,
+    required TResult Function(DropItem value) reminderTimezone,
+    required TResult Function(DropStringItem value) reminderBefore,
+    required TResult Function(DropItem value) reminderHour,
+    required TResult Function(DropItem value) reminderMin,
+    required TResult Function(DropItem value) reminderAmPm,
+    required TResult Function(String? id) submit,
+    required TResult Function(bool isDoseSubmitted) doseSubmitted,
+  }) {
+    return doseSubmitted(isDoseSubmitted);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String petId, String? id)? init,
+    TResult? Function(bool value)? isGiven,
+    TResult? Function(String value)? vaccinationName,
+    TResult? Function(String value)? company,
+    TResult? Function(String value)? dateAdministered,
+    TResult? Function(String value)? dueDate,
+    TResult? Function(String value)? note,
+    TResult? Function(String value)? media,
+    TResult? Function(DropStringItem value)? frequency,
+    TResult? Function(DropItem value)? reminderTimezone,
+    TResult? Function(DropStringItem value)? reminderBefore,
+    TResult? Function(DropItem value)? reminderHour,
+    TResult? Function(DropItem value)? reminderMin,
+    TResult? Function(DropItem value)? reminderAmPm,
+    TResult? Function(String? id)? submit,
+    TResult? Function(bool isDoseSubmitted)? doseSubmitted,
+  }) {
+    return doseSubmitted?.call(isDoseSubmitted);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String petId, String? id)? init,
+    TResult Function(bool value)? isGiven,
+    TResult Function(String value)? vaccinationName,
+    TResult Function(String value)? company,
+    TResult Function(String value)? dateAdministered,
+    TResult Function(String value)? dueDate,
+    TResult Function(String value)? note,
+    TResult Function(String value)? media,
+    TResult Function(DropStringItem value)? frequency,
+    TResult Function(DropItem value)? reminderTimezone,
+    TResult Function(DropStringItem value)? reminderBefore,
+    TResult Function(DropItem value)? reminderHour,
+    TResult Function(DropItem value)? reminderMin,
+    TResult Function(DropItem value)? reminderAmPm,
+    TResult Function(String? id)? submit,
+    TResult Function(bool isDoseSubmitted)? doseSubmitted,
+    required TResult orElse(),
+  }) {
+    if (doseSubmitted != null) {
+      return doseSubmitted(isDoseSubmitted);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_IsGiven value) isGiven,
+    required TResult Function(_VaccinationName value) vaccinationName,
+    required TResult Function(_Company value) company,
+    required TResult Function(_DateAdministered value) dateAdministered,
+    required TResult Function(_DueDate value) dueDate,
+    required TResult Function(_Note value) note,
+    required TResult Function(_Media value) media,
+    required TResult Function(_Frequency value) frequency,
+    required TResult Function(_ReminderTimezone value) reminderTimezone,
+    required TResult Function(_ReminderBefore value) reminderBefore,
+    required TResult Function(_ReminderHour value) reminderHour,
+    required TResult Function(_ReminderMin value) reminderMin,
+    required TResult Function(_ReminderAmPm value) reminderAmPm,
+    required TResult Function(_Submit value) submit,
+    required TResult Function(_DoseSubmitted value) doseSubmitted,
+  }) {
+    return doseSubmitted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_IsGiven value)? isGiven,
+    TResult? Function(_VaccinationName value)? vaccinationName,
+    TResult? Function(_Company value)? company,
+    TResult? Function(_DateAdministered value)? dateAdministered,
+    TResult? Function(_DueDate value)? dueDate,
+    TResult? Function(_Note value)? note,
+    TResult? Function(_Media value)? media,
+    TResult? Function(_Frequency value)? frequency,
+    TResult? Function(_ReminderTimezone value)? reminderTimezone,
+    TResult? Function(_ReminderBefore value)? reminderBefore,
+    TResult? Function(_ReminderHour value)? reminderHour,
+    TResult? Function(_ReminderMin value)? reminderMin,
+    TResult? Function(_ReminderAmPm value)? reminderAmPm,
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_DoseSubmitted value)? doseSubmitted,
+  }) {
+    return doseSubmitted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_IsGiven value)? isGiven,
+    TResult Function(_VaccinationName value)? vaccinationName,
+    TResult Function(_Company value)? company,
+    TResult Function(_DateAdministered value)? dateAdministered,
+    TResult Function(_DueDate value)? dueDate,
+    TResult Function(_Note value)? note,
+    TResult Function(_Media value)? media,
+    TResult Function(_Frequency value)? frequency,
+    TResult Function(_ReminderTimezone value)? reminderTimezone,
+    TResult Function(_ReminderBefore value)? reminderBefore,
+    TResult Function(_ReminderHour value)? reminderHour,
+    TResult Function(_ReminderMin value)? reminderMin,
+    TResult Function(_ReminderAmPm value)? reminderAmPm,
+    TResult Function(_Submit value)? submit,
+    TResult Function(_DoseSubmitted value)? doseSubmitted,
+    required TResult orElse(),
+  }) {
+    if (doseSubmitted != null) {
+      return doseSubmitted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DoseSubmitted implements VaccinationFormEvent {
+  const factory _DoseSubmitted(final bool isDoseSubmitted) =
+      _$DoseSubmittedImpl;
+
+  bool get isDoseSubmitted;
+
+  /// Create a copy of VaccinationFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DoseSubmittedImplCopyWith<_$DoseSubmittedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -3495,6 +3819,7 @@ mixin _$VaccinationFormState {
   List<DropStringItem> get reminderBefores =>
       throw _privateConstructorUsedError;
   bool get validation => throw _privateConstructorUsedError;
+  bool get isDoseCompleted => throw _privateConstructorUsedError;
   String get petId => throw _privateConstructorUsedError;
 
   /// Create a copy of VaccinationFormState
@@ -3531,6 +3856,7 @@ abstract class $VaccinationFormStateCopyWith<$Res> {
     List<DropItem> reminderTimezones,
     List<DropStringItem> reminderBefores,
     bool validation,
+    bool isDoseCompleted,
     String petId,
   });
 }
@@ -3572,6 +3898,7 @@ class _$VaccinationFormStateCopyWithImpl<
     Object? reminderTimezones = null,
     Object? reminderBefores = null,
     Object? validation = null,
+    Object? isDoseCompleted = null,
     Object? petId = null,
   }) {
     return _then(
@@ -3671,6 +3998,11 @@ class _$VaccinationFormStateCopyWithImpl<
                     ? _value.validation
                     : validation // ignore: cast_nullable_to_non_nullable
                         as bool,
+            isDoseCompleted:
+                null == isDoseCompleted
+                    ? _value.isDoseCompleted
+                    : isDoseCompleted // ignore: cast_nullable_to_non_nullable
+                        as bool,
             petId:
                 null == petId
                     ? _value.petId
@@ -3711,6 +4043,7 @@ abstract class _$$VaccinationFormStateImplCopyWith<$Res>
     List<DropItem> reminderTimezones,
     List<DropStringItem> reminderBefores,
     bool validation,
+    bool isDoseCompleted,
     String petId,
   });
 }
@@ -3748,6 +4081,7 @@ class __$$VaccinationFormStateImplCopyWithImpl<$Res>
     Object? reminderTimezones = null,
     Object? reminderBefores = null,
     Object? validation = null,
+    Object? isDoseCompleted = null,
     Object? petId = null,
   }) {
     return _then(
@@ -3847,6 +4181,11 @@ class __$$VaccinationFormStateImplCopyWithImpl<$Res>
                 ? _value.validation
                 : validation // ignore: cast_nullable_to_non_nullable
                     as bool,
+        isDoseCompleted:
+            null == isDoseCompleted
+                ? _value.isDoseCompleted
+                : isDoseCompleted // ignore: cast_nullable_to_non_nullable
+                    as bool,
         petId:
             null == petId
                 ? _value.petId
@@ -3880,6 +4219,7 @@ class _$VaccinationFormStateImpl implements _VaccinationFormState {
     final List<DropItem> reminderTimezones = const [],
     final List<DropStringItem> reminderBefores = const [],
     this.validation = false,
+    this.isDoseCompleted = false,
     this.petId = '',
   }) : _frequencies = frequencies,
        _reminderTimezones = reminderTimezones,
@@ -3963,11 +4303,14 @@ class _$VaccinationFormStateImpl implements _VaccinationFormState {
   final bool validation;
   @override
   @JsonKey()
+  final bool isDoseCompleted;
+  @override
+  @JsonKey()
   final String petId;
 
   @override
   String toString() {
-    return 'VaccinationFormState(initStatus: $initStatus, submitStatus: $submitStatus, isGiven: $isGiven, vaccinationName: $vaccinationName, company: $company, dateAdministered: $dateAdministered, dueDate: $dueDate, note: $note, media: $media, reminderHour: $reminderHour, reminderMin: $reminderMin, reminderAmPm: $reminderAmPm, frequency: $frequency, reminderTimezone: $reminderTimezone, reminderBefore: $reminderBefore, frequencies: $frequencies, reminderTimezones: $reminderTimezones, reminderBefores: $reminderBefores, validation: $validation, petId: $petId)';
+    return 'VaccinationFormState(initStatus: $initStatus, submitStatus: $submitStatus, isGiven: $isGiven, vaccinationName: $vaccinationName, company: $company, dateAdministered: $dateAdministered, dueDate: $dueDate, note: $note, media: $media, reminderHour: $reminderHour, reminderMin: $reminderMin, reminderAmPm: $reminderAmPm, frequency: $frequency, reminderTimezone: $reminderTimezone, reminderBefore: $reminderBefore, frequencies: $frequencies, reminderTimezones: $reminderTimezones, reminderBefores: $reminderBefores, validation: $validation, isDoseCompleted: $isDoseCompleted, petId: $petId)';
   }
 
   @override
@@ -4014,6 +4357,8 @@ class _$VaccinationFormStateImpl implements _VaccinationFormState {
             ) &&
             (identical(other.validation, validation) ||
                 other.validation == validation) &&
+            (identical(other.isDoseCompleted, isDoseCompleted) ||
+                other.isDoseCompleted == isDoseCompleted) &&
             (identical(other.petId, petId) || other.petId == petId));
   }
 
@@ -4039,6 +4384,7 @@ class _$VaccinationFormStateImpl implements _VaccinationFormState {
     const DeepCollectionEquality().hash(_reminderTimezones),
     const DeepCollectionEquality().hash(_reminderBefores),
     validation,
+    isDoseCompleted,
     petId,
   ]);
 
@@ -4076,6 +4422,7 @@ abstract class _VaccinationFormState implements VaccinationFormState {
     final List<DropItem> reminderTimezones,
     final List<DropStringItem> reminderBefores,
     final bool validation,
+    final bool isDoseCompleted,
     final String petId,
   }) = _$VaccinationFormStateImpl;
 
@@ -4117,6 +4464,8 @@ abstract class _VaccinationFormState implements VaccinationFormState {
   List<DropStringItem> get reminderBefores;
   @override
   bool get validation;
+  @override
+  bool get isDoseCompleted;
   @override
   String get petId;
 

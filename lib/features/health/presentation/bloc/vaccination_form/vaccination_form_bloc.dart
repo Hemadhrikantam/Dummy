@@ -44,6 +44,7 @@ class VaccinationFormBloc
     on<_ReminderTimezone>(_onReminderTimezone);
     on<_ReminderBefore>(_onReminderBefore);
     on<_Submit>(_onSubmit);
+    on<_DoseSubmitted>(__doseSubmitted);
   }
 
   final AddVaccinationUsecases _addVaccinationUsecase;
@@ -111,7 +112,7 @@ class VaccinationFormBloc
               ),
             ),
             dueDate: NotEmpty.dirty(
-              value: vaccination.dueDate.toIso8601String(),
+              value: vaccination.dueDate?.toIso8601String() ?? '',
             ),
             note: NotEmpty.dirty(value: vaccination.notes),
             media: NotEmpty.dirty(value: vaccination.imageUrl ?? ''),
@@ -209,6 +210,14 @@ class VaccinationFormBloc
     emit(state.copyWith(validation: state.validationX));
   }
 
+  void __doseSubmitted(
+    _DoseSubmitted event,
+    Emitter<VaccinationFormState> emit,
+  ) {
+    emit(state.copyWith(isDoseCompleted: event.isDoseSubmitted));
+    emit(state.copyWith(validation: state.validationX));
+  }
+
   void _onReminderTimezone(
     _ReminderTimezone event,
     Emitter<VaccinationFormState> emit,
@@ -245,7 +254,8 @@ class VaccinationFormBloc
       ),
       // reminderTime: '${isPm ? h + 12 : h}:$m',
       // dateAdministered: DateTime.parse(state.dateAdministered.value),
-      dueDate: DateTime.parse(state.dueDate.value),
+      dueDate:
+          state.dueDate.isValid ? DateTime.parse(state.dueDate.value) : null,
       notes: state.note.value,
       // media: await MultipartFile.fromFile(
       //   state.media.value,

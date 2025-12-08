@@ -13,7 +13,7 @@ class PetVaccination extends Equatable {
   final String? timeFrequencyName;
 
   /// Dates / status
-  final DateTime dueDate;
+  final DateTime? dueDate;
   final DateTime? dateAdministered;
   final String status; // "pending" | "processing" | "completed" | "failed" | ...
 

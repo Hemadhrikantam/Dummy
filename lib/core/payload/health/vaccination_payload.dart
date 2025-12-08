@@ -28,7 +28,7 @@ class VaccinationPayload extends Equatable implements Payload {
   final String companyName;
   final String frequencyId;
   final String timeFrequencyId;
-  final DateTime dueDate;
+  final DateTime? dueDate;
   final DateTime? dateAdministered;
 
   /// optional status ("given") if already administered
@@ -70,7 +70,8 @@ class VaccinationPayload extends Equatable implements Payload {
           dateAdministered != null ? AppUtil.formatDate(dateAdministered!) : '',
       'frequency_id': frequencyId,
       'time_frequency_id': timeFrequencyId,
-      'due_date': AppUtil.formatDate(dueDate), // "YYYY-MM-DD"
+      'due_date':
+          dueDate != null ? AppUtil.formatDate(dueDate!) : '', // "YYYY-MM-DD"
       'notes': notes,
       'image_url': imageUrl,
       'reminder': {

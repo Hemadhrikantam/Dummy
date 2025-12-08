@@ -38,8 +38,8 @@ class __DueDateState extends State<__DueDate> {
   @override
   Widget build(BuildContext context) {
     return AppCustomDateField(
-      enable: false,
-      headerText: AppText.dueDate,
+      enable: true,
+      headerText: AppText.nextDueDate,
       selectedDate: date,
       onChange: (value) {
         setState(() {

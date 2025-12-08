@@ -26,6 +26,7 @@ abstract class VaccinationFormState with _$VaccinationFormState {
     @Default([]) List<DropStringItem> reminderBefores,
 
     @Default(false) bool validation,
+    @Default(false) bool isDoseCompleted,
     @Default('') String petId,
   }) = _VaccinationFormState;
 }
@@ -39,10 +40,10 @@ extension VaccinationFormValidation on VaccinationFormState {
       // reminderMin,
       // reminderAmPm,
       dateAdministered,
-      dueDate,
+      if (!isDoseCompleted) dueDate,
       note,
       // media,
-      frequency,
+      // frequency,
       // reminderTimezone,
       // reminderBefore,
     ]);

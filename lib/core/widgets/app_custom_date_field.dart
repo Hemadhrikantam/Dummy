@@ -37,9 +37,10 @@ class AppCustomDateField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AppTextFormField(
-      controller: selectedDate != null
-          ? TextEditingController(text: _formatDate(selectedDate!))
-          : null,
+      controller:
+          selectedDate != null
+              ? TextEditingController(text: _formatDate(selectedDate!))
+              : null,
       suffixIcon: suffixIcon ?? Iconsax.calendar,
       readOnly: true,
       hintText: hintText ?? AppText.enter,
@@ -47,17 +48,19 @@ class AppCustomDateField extends StatelessWidget {
       isMandatory: isMandatory,
       headerText: headerText ?? AppText.date,
       enable: enable,
-      onTap: !enable
-          ? null
-          : () {
-              _pickDate(
-                context,
-                selectedDate: selectedDate,
-                minDate: minDate,
-                maxDate: maxDate,
-                onChange: onChange,
-              );
-            },
+      onTap:
+          !enable
+              ? null
+              : () {
+                _pickDate(
+                  context,
+                  selectedDate: selectedDate,
+                  minDate: minDate,
+                  maxDate: maxDate,
+                  onChange: onChange,
+                  headerText: headerText,
+                );
+              },
     );
   }
 }
@@ -73,6 +76,7 @@ void _pickDate(
   DateTime? selectedDate,
   DateTime? minDate,
   DateTime? maxDate,
+  String? headerText,
   required Function(DateTime) onChange,
 }) {
   DateTime tempPickedDate = DateTime.now();
@@ -96,8 +100,11 @@ void _pickDate(
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                AppText.dateOfBirth,
-                style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                headerText ?? AppText.dateOfBirth,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.w700,
+                ),
               ),
             ),
             Styles.gap10,

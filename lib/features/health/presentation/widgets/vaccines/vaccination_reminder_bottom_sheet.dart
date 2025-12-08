@@ -1,15 +1,19 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/custom_dropdown.dart';
+import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/features/health/domain/entities/vaccination.dart';
 import 'package:dummy/features/health/presentation/bloc/vaccination_form/vaccination_form_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/app_graber.dart';
+import '../../../../dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 
 class VaccinationReminderBottomSheet extends StatefulWidget {
   const VaccinationReminderBottomSheet({super.key, required this.vaccination});
@@ -23,6 +27,10 @@ class _VaccinationReminderBottomSheet
     extends State<VaccinationReminderBottomSheet> {
   @override
   void initState() {
+    final petId = context.read<DashboardBloc>().state.selectedPet?.id;
+    context.read<VaccinationFormBloc>().add(
+      VaccinationFormEvent.init(petId ?? '', widget.vaccination.id),
+    );
     super.initState();
   }
 
@@ -30,34 +38,44 @@ class _VaccinationReminderBottomSheet
   Widget build(BuildContext context) {
     return Padding(
       padding: Styles.edgeInsetsOnlyW15,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Styles.gap6,
-          AppGraber(),
-          Styles.gap16,
-          __Reminder(widget.vaccination),
-          Styles.gap25,
-          Row(
-            children: [
-              Expanded(
-                child: AppButton(
-                  showShadow: false,
-                  backgroundColor: Colors.white,
-                  name: Text(AppText.clearFilter, style: Styles.buttonStyle),
-                ),
-              ),
-              Styles.gap10,
-              Expanded(
-                child: AppButton(
-                  name: Text(AppText.save, style: Styles.buttonStyle),
-                ),
-              ),
-            ],
-          ),
-          Styles.gap10,
-        ],
+      child: BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
+        builder: (context, state) {
+          return state.initStatus.loading
+              ? SizedBox(
+                height: 280,
+                width: context.width,
+                child: LoadingWidget.circularProgressIndicatorCenter,
+              )
+              : Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Styles.gap6,
+                  AppGraber(),
+                  Styles.gap16,
+                  __Reminder(widget.vaccination),
+                  Styles.gap25,
+                  Row(
+                    children: [
+                      Expanded(
+                        child: AppButton(
+                          showShadow: false,
+                          backgroundColor: Colors.white,
+                          name: Text(AppText.clear, style: Styles.buttonStyle),
+                        ),
+                      ),
+                      Styles.gap10,
+                      Expanded(
+                        child: AppButton(
+                          name: Text(AppText.save, style: Styles.buttonStyle),
+                        ),
+                      ),
+                    ],
+                  ),
+                  Styles.gap10,
+                ],
+              );
+        },
       ),
     );
   }

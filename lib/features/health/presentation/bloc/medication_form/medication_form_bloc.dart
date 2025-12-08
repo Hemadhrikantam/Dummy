@@ -141,6 +141,7 @@ class MedicationFormBloc
           state.copyWith(
             tabletName: NotEmpty.dirty(value: r.name.split(' ')[0]),
             company: NotEmpty.dirty(value: r.company),
+            note: NotEmpty.dirty(value: r.notes),
             startDate: NotEmpty.dirty(value: r.startDate.toString()),
             endDate: NotEmpty.dirty(value: r.endDate.toString()),
             dosageUnit: DropdownStringValue.dirty(
@@ -152,7 +153,6 @@ class MedicationFormBloc
             frequency: DropdownStringValue.dirty(
               state.frequencies.firstWhere((e) => e.id == r.frequencyId),
             ),
-            note: NotEmpty.dirty(value: r.notes),
             dosage: NotEmpty.dirty(
               value: r.dosageValue.split(' ')[0].toString(),
             ),

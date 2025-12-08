@@ -341,29 +341,53 @@ class __Frequency extends StatelessWidget {
   }
 }
 
-class __Notes extends StatelessWidget {
+class __Notes extends StatefulWidget {
   __Notes();
-  final controller = TextEditingController();
+
+  @override
+  State<__Notes> createState() => __NotesState();
+}
+
+class __NotesState extends State<__Notes> {
+  TextEditingController controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    final initialValue = context.read<MedicationFormBloc>().state.note.value;
+    controller = TextEditingController(text: initialValue);
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MedicationFormBloc, MedicationFormState>(
-      builder: (context, state) {
-        return AppTextFormField(
-          // initialValue: state.note.value,
-          controller: controller..text = state.note.value,
-          onChanged: (value) {
-            context.read<MedicationFormBloc>().add(
-              MedicationFormEvent.note(value),
-            );
-          },
-          hintText: AppText.enter,
-          borderRadius: Styles.borderRadiusCircular25,
-          maxLines: 7,
-          heigth: 140,
-          headerText: AppText.notes,
-          isMandatory: true,
-        );
+    return BlocListener<MedicationFormBloc, MedicationFormState>(
+      listenWhen:
+          (previous, current) => previous.note.value != current.note.value,
+      listener: (context, state) {
+        if (controller.text != state.note.value) {
+          controller.text = state.note.value;
+        }
       },
+      child: AppTextFormField(
+        controller: controller,
+        onChanged: (value) {
+          context.read<MedicationFormBloc>().add(
+            MedicationFormEvent.note(value),
+          );
+        },
+        hintText: AppText.enter,
+        borderRadius: Styles.borderRadiusCircular25,
+        maxLines: 7,
+        heigth: 140,
+        headerText: AppText.notes,
+        isMandatory: true,
+      ),
     );
   }
 }
@@ -516,7 +540,10 @@ class ___NightState extends State<__Night> {
 }
 
 class TotalDosage extends StatelessWidget {
-  const TotalDosage({super.key});
+  const TotalDosage({super.key, this.dosage, this.startDate, this.endDate});
+  final String? dosage;
+  final String? startDate;
+  final String? endDate;
 
   @override
   Widget build(BuildContext context) {
@@ -542,9 +569,11 @@ class TotalDosage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    state.dosage.isPure || state.dosageUnit.isPure
-                        ? '0 /\nServing'
-                        : '${state.dosage.value} ${state.dosageUnit.value?.value} /\nServing',
+                    dosage != null
+                        ? dosage ?? ''
+                        : state.dosage.isPure || state.dosageUnit.isPure
+                        ? '0'
+                        : '${state.dosage.value} ${state.dosageUnit.value?.value}',
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 16,
@@ -572,6 +601,38 @@ class TotalDosage extends StatelessWidget {
                     ],
                   ),
                 ],
+              ),
+              Styles.gap10,
+              Text(
+                AppText.startDate,
+                style: context.textTheme.labelLarge?.copyWith(
+                  color: AppColors.grey500,
+                ),
+              ),
+              Styles.gap10,
+              Text(
+                startDate != null ? startDate ?? '' : '',
+                style: context.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: AppColors.stepperColor,
+                ),
+              ),
+              Styles.gap10,
+              Text(
+                AppText.endDate,
+                style: context.textTheme.labelLarge?.copyWith(
+                  color: AppColors.grey500,
+                ),
+              ),
+              Styles.gap10,
+              Text(
+                endDate != null ? endDate ?? '' : '',
+                style: context.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  color: AppColors.stepperColor,
+                ),
               ),
             ],
           ),
@@ -653,13 +714,13 @@ class DayWithTimeWidget extends StatelessWidget {
           fontSize: 14,
         ),
         children: [
-          TextSpan(
-            text: time,
-            style: context.textTheme.labelMedium?.copyWith(
-              fontSize: 14,
-              fontWeight: FontWeight.w300,
-            ),
-          ),
+          // TextSpan(
+          //   text: time,
+          //   style: context.textTheme.labelMedium?.copyWith(
+          //     fontSize: 14,
+          //     fontWeight: FontWeight.w300,
+          //   ),
+          // ),
         ],
       ),
     );

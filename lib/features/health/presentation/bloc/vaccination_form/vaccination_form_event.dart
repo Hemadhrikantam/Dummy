@@ -25,4 +25,6 @@ class VaccinationFormEvent with _$VaccinationFormEvent {
   const factory VaccinationFormEvent.reminderAmPm(DropItem value) =
       _ReminderAmPm;
   const factory VaccinationFormEvent.submit({String? id}) = _Submit;
+  const factory VaccinationFormEvent.doseSubmitted(bool isDoseSubmitted) =
+      _DoseSubmitted;
 }

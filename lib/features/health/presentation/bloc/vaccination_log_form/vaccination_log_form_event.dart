@@ -9,7 +9,11 @@ class VaccinationLogFormEvent with _$VaccinationLogFormEvent {
     String? notes,
   }) = _Init;
   const factory VaccinationLogFormEvent.isGiven(bool value) = _IsGiven;
-  const factory VaccinationLogFormEvent.notesChanged(String value) = _NotesChanged;
-  const factory VaccinationLogFormEvent.dateChanged(DateTime value) = _DateChanged;
+  const factory VaccinationLogFormEvent.notesChanged(String value) =
+      _NotesChanged;
+  const factory VaccinationLogFormEvent.dateChanged(DateTime value) =
+      _DateChanged;
   const factory VaccinationLogFormEvent.submit() = _Submit;
+  const factory VaccinationLogFormEvent.finalDoseCompleted(bool value) =
+      _FinalDoseCompleted;
 }

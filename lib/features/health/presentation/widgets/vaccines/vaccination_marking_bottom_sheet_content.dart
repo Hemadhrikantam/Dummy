@@ -1,8 +1,6 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/extention/device_size_extention.dart';
-import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
@@ -11,14 +9,11 @@ import 'package:dummy/features/health/presentation/bloc/vaccination_log_form/vac
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/constant/app_colors.dart';
-import '../../../../../core/constant/image_resources.dart';
 import '../../../../../core/constant/styles.dart';
-import '../../../../../core/widgets/app_assets_image.dart';
 import '../../../../../core/widgets/app_custom_check_box.dart';
 import '../../../../../core/widgets/app_custom_text_field.dart';
 import '../../../../../core/widgets/buttons/app_button.dart';
 import '../../../../../core/widgets/buttons/app_text_button.dart';
-import '../../../../../core/widgets/custom_card.dart';
 import '../../../../../core/widgets/custom_switch.dart';
 part 'vaccination_marking_fields.dart';
 
@@ -100,68 +95,69 @@ class _VaccinationMarkingBottomSheetContentState
                       );
                     },
                   ),
-                  Styles.gap10,
-                  CustomCard(
-                    padding: Styles.edgeInsetsAll08,
-                    backgroundColor: AppColors.buttonBackground.withOpacity(.6),
-                    border: Border.all(color: Colors.transparent),
-                    child: Row(
-                      children: [
-                        AppAssestsImage(
-                          path: ImageResources.medsIcon,
-                          height: context.height * .04,
-                          width: context.height * .04,
-                          boxFit: BoxFit.contain,
-                        ),
-                        Styles.gap10,
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "${AppText.nextDueDate} : [${AppUtil.formatDate(widget.date)}]",
-                              style: context.textTheme.titleMedium?.copyWith(
-                                color: AppColors.buttonTextColor,
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16,
-                              ),
-                            ),
-                            Text(
-                              AppText.autoSuggestedBasedOnAnnualFrequency,
-                              style: context.textTheme.titleMedium?.copyWith(
-                                color: AppColors.buttonTextColor,
-                                fontWeight: FontWeight.w300,
-                                fontSize: 12,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                  // Styles.gap10,
+                  // CustomCard(
+                  //   padding: Styles.edgeInsetsAll08,
+                  //   backgroundColor: AppColors.buttonBackground.withOpacity(.6),
+                  //   border: Border.all(color: Colors.transparent),
+                  //   child: Row(
+                  //     children: [
+                  //       AppAssestsImage(
+                  //         path: ImageResources.medsIcon,
+                  //         height: context.height * .04,
+                  //         width: context.height * .04,
+                  //         boxFit: BoxFit.contain,
+                  //       ),
+                  //       Styles.gap10,
+                  //       Column(
+                  //         crossAxisAlignment: CrossAxisAlignment.start,
+                  //         children: [
+                  //           Text(
+                  //             "${AppText.nextDueDate} : [${AppUtil.formatDate(widget.date)}]",
+                  //             style: context.textTheme.titleMedium?.copyWith(
+                  //               color: AppColors.buttonTextColor,
+                  //               fontWeight: FontWeight.w500,
+                  //               fontSize: 16,
+                  //             ),
+                  //           ),
+                  //           Text(
+                  //             AppText.autoSuggestedBasedOnAnnualFrequency,
+                  //             style: context.textTheme.titleMedium?.copyWith(
+                  //               color: AppColors.buttonTextColor,
+                  //               fontWeight: FontWeight.w300,
+                  //               fontSize: 12,
+                  //             ),
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                   Styles.gap10,
                   __Notes(controller: _notesController),
                   Styles.gap10,
-                  __DueDate(
-                    initialDate: formState.date ?? widget.date,
-                    onChange:
-                        (value) => context.read<VaccinationLogFormBloc>().add(
-                          VaccinationLogFormEvent.dateChanged(value),
-                        ),
-                  ),
+                  if (!formState.isFinalDoseCompleted)
+                    __DueDate(
+                      initialDate: formState.date ?? widget.date,
+                      onChange:
+                          (value) => context.read<VaccinationLogFormBloc>().add(
+                            VaccinationLogFormEvent.dateChanged(value),
+                          ),
+                    ),
                   Styles.gap10,
                   Row(
                     children: [
                       CustomSwitch(
-                        value: formState.check,
+                        value: formState.isFinalDoseCompleted,
                         onChanged: (value) {
                           context.read<VaccinationLogFormBloc>().add(
-                            VaccinationLogFormEvent.isGiven(value),
+                            VaccinationLogFormEvent.finalDoseCompleted(value),
                           );
                         },
                       ),
                       Styles.gap6,
                       Text(
-                        AppText.applyThisInterval,
+                        AppText.finalDoseCompleted,
                         style: context.textTheme.labelLarge?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -169,7 +165,6 @@ class _VaccinationMarkingBottomSheetContentState
                     ],
                   ),
                   Styles.gap10,
-
                   Row(
                     children: [
                       Expanded(

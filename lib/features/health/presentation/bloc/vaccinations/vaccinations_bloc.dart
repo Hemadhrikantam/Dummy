@@ -36,10 +36,10 @@ class VaccinationsBloc extends Bloc<VaccinationsEvent, VaccinationsState> {
       currentContext.read<DashboardBloc>().state.selectedPet?.id ?? '',
       event.key,
       state.dateAdministered.isValid
-          ? AppUtil.convertToYYYYMMDD(state.dateAdministered.value)
+          ? AppUtil.convertToYYYYMMDD2(state.dateAdministered.value)
           : null,
       state.dueDate.isValid
-          ? AppUtil.convertToYYYYMMDD(state.dueDate.value)
+          ? AppUtil.convertToYYYYMMDD2(state.dueDate.value)
           : null,
     );
 

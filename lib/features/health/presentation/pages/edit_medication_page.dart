@@ -11,6 +11,7 @@ import 'package:dummy/features/profile/presentation/widgets/bottom_action_button
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/constant/app_text.dart';
+import '../../../../core/utils/app_utils.dart';
 import '../../../../core/widgets/base_screen.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
 import '../widgets/medication/add_medication_fields.dart';
@@ -44,7 +45,13 @@ class EditMedicationPage extends StatelessWidget {
               context.read<MedicationsBloc>().add(
                 MedicationsEvent.medications(null),
               );
-              context.push(MedicationSuccessPage.route());
+              context.push(
+                MedicationSuccessPage.route(
+                  dosage: state.dosage.value,
+                  startDate: AppUtil.convertToYYYYMMDD2(state.startDate.value),
+                  endDate: AppUtil.convertToYYYYMMDD2(state.endDate.value),
+                ),
+              );
             }
           },
           builder: (context, state) {

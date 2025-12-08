@@ -104,7 +104,9 @@ class VaccinesCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    AppUtil.formatDateToMMDDYYYY(vaccination.dueDate),
+                    vaccination.dueDate != null
+                        ? AppUtil.formatDateToMMDDYYYY(vaccination.dueDate!)
+                        : '',
                     style: context.textTheme.titleLarge?.copyWith(
                       fontWeight: FontWeight.bold,
                       fontSize: 18,

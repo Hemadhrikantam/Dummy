@@ -50,7 +50,10 @@ class AddVaccinationPage extends StatelessWidget {
                 VaccinationSuccessPage.route(
                   vaccinationName: state.vaccinationName.value,
                   companyName: state.company.value,
-                  dueDate: DateTime.parse(state.dueDate.value),
+                  dueDate:
+                      state.dueDate.isValid
+                          ? DateTime.parse(state.dueDate.value)
+                          : null,
                   dateAdministered: DateTime.parse(
                     state.dateAdministered.value,
                   ),

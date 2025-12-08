@@ -21,6 +21,7 @@ class VaccinationLogFormBloc
     on<_NotesChanged>(_onNotesChanged);
     on<_DateChanged>(_onDateChanged);
     on<_Submit>(_onSubmit);
+    on<_FinalDoseCompleted>(_finalDoseCompleted);
   }
 
   final UpdateVaccinationLogUsecases _updateVaccinationLogUsecases;
@@ -42,6 +43,14 @@ class VaccinationLogFormBloc
 
   void _onIsGiven(_IsGiven event, Emitter<VaccinationLogFormState> emit) {
     final next = state.copyWith(check: event.value);
+    emit(next.copyWith(validation: next.validationX));
+  }
+
+  void _finalDoseCompleted(
+    _FinalDoseCompleted event,
+    Emitter<VaccinationLogFormState> emit,
+  ) {
+    final next = state.copyWith(isFinalDoseCompleted: event.value);
     emit(next.copyWith(validation: next.validationX));
   }
 

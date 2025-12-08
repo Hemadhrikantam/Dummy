@@ -21,12 +21,12 @@ class VaccinationSuccessContent extends StatelessWidget {
     super.key,
     required this.vaccinationName,
     required this.companyName,
-    required this.dueDate,
+    this.dueDate,
     required this.dateAdministered,
   });
   final String vaccinationName;
   final String companyName;
-  final DateTime dueDate;
+  final DateTime? dueDate;
   final DateTime dateAdministered;
   @override
   Widget build(BuildContext context) {
@@ -128,7 +128,7 @@ class VaccinationSuccessContent extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          AppUtil.formatDate(dueDate),
+                          dueDate != null ? AppUtil.formatDate(dueDate!) : '',
                           style: context.textTheme.titleLarge?.copyWith(
                             fontWeight: FontWeight.w600,
                             fontSize: 22,

@@ -4,7 +4,8 @@ part of 'vaccination_log_form_bloc.dart';
 class VaccinationLogFormState with _$VaccinationLogFormState {
   const factory VaccinationLogFormState({
     String? vaccinationId,
-    @Default(true) bool check,
+    @Default(false) bool check,
+    @Default(false) bool isFinalDoseCompleted,
     @Default(NotEmpty.pure()) NotEmpty notes,
     DateTime? date,
     @Default(Status.init) Status submitStatus,

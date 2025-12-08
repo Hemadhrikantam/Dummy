@@ -18,7 +18,15 @@ import '../../../../../core/widgets/custom_card.dart';
 import 'add_medication_fields.dart';
 
 class MedicationSuccessContent extends StatelessWidget {
-  const MedicationSuccessContent({super.key});
+  const MedicationSuccessContent({
+    super.key,
+    required this.dosage,
+    required this.startDate,
+    required this.endDate,
+  });
+  final String dosage;
+  final String startDate;
+  final String endDate;
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +76,11 @@ class MedicationSuccessContent extends StatelessWidget {
                     ),
                   ),
                   Styles.gap20,
-                  TotalDosage(),
+                  TotalDosage(
+                    dosage: dosage,
+                    startDate: startDate,
+                    endDate: endDate,
+                  ),
                   Styles.gap20,
                   AppButton(
                     onPressed: () {

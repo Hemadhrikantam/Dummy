@@ -3,6 +3,7 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/health/presentation/bloc/medication_form/medication_form_bloc.dart';
@@ -44,7 +45,13 @@ class AddMedicationPage extends StatelessWidget {
               context.read<MedicationsBloc>().add(
                 MedicationsEvent.medications(null),
               );
-              context.push(MedicationSuccessPage.route());
+              context.push(
+                MedicationSuccessPage.route(
+                  dosage: state.dosage.value,
+                  startDate: AppUtil.convertToYYYYMMDD2(state.startDate.value),
+                  endDate: AppUtil.convertToYYYYMMDD2(state.endDate.value),
+                ),
+              );
             }
           },
           builder: (context, state) {

@@ -56,7 +56,7 @@ class VaccinationDetailsCard extends StatelessWidget {
                     subTitle: '',
                     fontSize: 14,
                     title:
-                        '${state.vaccination?.dueDate.difference(DateTime.now()).inDays ?? 0} Days Left',
+                        '${state.vaccination?.dueDate?.difference(DateTime.now()).inDays ?? 0} Days Left',
                   ),
                 ],
               ),

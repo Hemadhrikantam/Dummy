@@ -77,7 +77,7 @@ class MedicationDetailsCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            '${state.medication?.dosageValue ?? ""} ${state.medication?.dosageTypeName ?? ""}/\nServing',
+                            '${state.medication?.dosageValue ?? ""} ${state.medication?.dosageTypeName ?? ""}',
                             style: context.textTheme.titleLarge?.copyWith(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
@@ -90,8 +90,7 @@ class MedicationDetailsCard extends StatelessWidget {
                                     .map(
                                       (e) => DayWithTimeWidget(
                                         day: '${e.name} ',
-                                        time:
-                                            '- ${e.customTime!.split(':')[0]}.${e.customTime!.split(':')[2]} PM IST',
+                                        time: '',
                                       ),
                                     )
                                     .toList(),

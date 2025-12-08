@@ -109,22 +109,22 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(state.copyWith(loginStatus: Status.loading));
     LogUtility.info("${state.phone.value}");
     try {
-      UserCredential userCredential = await Injection.firebaseOtp.verifyOtp(
-        verificationId: state.verificationId.value,
-        smsCode: state.otp.value ?? '',
-      );
-      if (userCredential.user?.uid != null) {
-        emit(state.copyWith(loginStatus: Status.success));
-        emit(state.copyWith(loginStatus: Status.init));
-      } else {
-        AppAlert.showToast(message: AppText.invalidOtp);
-        emit(state.copyWith(loginStatus: Status.error));
-        emit(state.copyWith(loginStatus: Status.init));
-      }
-    } catch (e) {
-      AppAlert.showToast(message: AppText.somethingWentWrong);
-      emit(state.copyWith(loginStatus: Status.error));
+      // UserCredential userCredential = await Injection.firebaseOtp.verifyOtp(
+      //   verificationId: state.verificationId.value,
+      //   smsCode: state.otp.value ?? '',
+      // );
+      // if (userCredential.user?.uid != null) {
+      emit(state.copyWith(loginStatus: Status.success));
       emit(state.copyWith(loginStatus: Status.init));
+      //   } else {
+      //     AppAlert.showToast(message: AppText.invalidOtp);
+      //     emit(state.copyWith(loginStatus: Status.error));
+      //     emit(state.copyWith(loginStatus: Status.init));
+      //   }
+    } catch (e) {
+      //   AppAlert.showToast(message: AppText.somethingWentWrong);
+      //   emit(state.copyWith(loginStatus: Status.error));
+      //   emit(state.copyWith(loginStatus: Status.init));
     }
   }
 
@@ -203,21 +203,30 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     _UpdateSendOtpStatus event,
     Emitter<AuthState> emit,
   ) {
-    if (event.success) {
-      AppAlert.showToast(message: AppText.otpSuccess);
-      emit(
-        state.copyWith(
-          sendOtpStatus: Status.success,
-          verificationId: NotEmpty.dirty(value: event.verificationId!),
-        ),
-      );
-      AppAlert.showToast(message: AppText.otpSuccess);
-      emit(state.copyWith(sendOtpStatus: Status.init));
-    } else {
-      AppAlert.showToast(message: AppText.somethingWentWrong);
-      emit(state.copyWith(sendOtpStatus: Status.failure));
-      emit(state.copyWith(sendOtpStatus: Status.init));
-    }
+    AppAlert.showToast(message: AppText.otpSuccess);
+    emit(
+      state.copyWith(
+        sendOtpStatus: Status.success,
+        // verificationId: NotEmpty.dirty(value: event.verificationId!),
+      ),
+    );
+    emit(state.copyWith(sendOtpStatus: Status.init));
+
+    // if (event.success) {
+    //   AppAlert.showToast(message: AppText.otpSuccess);
+    //   emit(
+    //     state.copyWith(
+    //       sendOtpStatus: Status.success,
+    //       verificationId: NotEmpty.dirty(value: event.verificationId!),
+    //     ),
+    //   );
+    //   AppAlert.showToast(message: AppText.otpSuccess);
+    //   emit(state.copyWith(sendOtpStatus: Status.init));
+    // } else {
+    //   AppAlert.showToast(message: AppText.somethingWentWrong);
+    //   emit(state.copyWith(sendOtpStatus: Status.failure));
+    //   emit(state.copyWith(sendOtpStatus: Status.init));
+    // }
   }
 
   FutureOr<void> __register(_Register event, Emitter<AuthState> emit) async {

@@ -241,6 +241,7 @@ class AppText {
   static String location = 'Location';
   static const String save = 'Save';
   static const String clearFilter = 'Clear Filter';
+  static const String clear = 'Clear';
   static const String type = 'Type';
   static const String frequency = 'Frequency';
   static const String duedate = 'Due Date';
@@ -316,12 +317,13 @@ class AppText {
   static const String healthy = 'healthy! ';
   static const String dummyWouldBeProudOfYouForKeeping =
       'Doommi would be proud of you for keeping ';
-  static const String nextDueDate = 'Next Due Date : ';
+  static const String nextDueDate = 'Next Due Date';
   static const String autoSuggestedBasedOnAnnualFrequency =
       'Auto suggested based on annual frequency';
   static const String applyThisInterval =
       'Apply this interval to future Due Dates?';
   static const String nextDueDateSetTo = 'Next Due Date set to';
+  static const String finalDoseCompleted = 'Final Dose Completed';
 
   //profile
   static const String petProfile = 'Pet Profile';

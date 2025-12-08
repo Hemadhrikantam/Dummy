@@ -10,6 +10,7 @@ import '../../../../../core/constant/app_colors.dart';
 import '../../../../../core/constant/app_text.dart';
 import '../../../../../core/models/drop_item.dart';
 import '../../../../../core/models/formz/not_empty.dart';
+import '../../../../../core/widgets/app_custom_check_box.dart';
 import '../../../../../core/widgets/app_custom_text_field.dart';
 import '../../../../../core/widgets/custom_card.dart';
 import '../../../../../core/widgets/custom_dropdown.dart';
@@ -86,16 +87,31 @@ class __DateAdministeredState extends State<__DateAdministered> {
   Widget build(BuildContext context) {
     return BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
       builder: (context, state) {
-        return AppCustomDateField(
-          headerText: AppText.dateAdministered,
-          maxDate: DateTime.tryParse(state.dueDate.value),
-          onChange: (value) {
-            context.read<VaccinationFormBloc>().add(
-              VaccinationFormEvent.dateAdministered(value.toString()),
-            );
-          },
-          selectedDate: DateTime.tryParse(state.dateAdministered.value),
-          isMandatory: true,
+        return Column(
+          children: [
+            AppCustomDateField(
+              headerText: AppText.dateAdministered,
+              maxDate: DateTime.tryParse(state.dueDate.value),
+              onChange: (value) {
+                context.read<VaccinationFormBloc>().add(
+                  VaccinationFormEvent.dateAdministered(value.toString()),
+                );
+              },
+              selectedDate: DateTime.tryParse(state.dateAdministered.value),
+              isMandatory: true,
+            ),
+            Styles.gap10,
+            CustomCheckBox(
+              fontSize: 22,
+              isChecked: state.isDoseCompleted,
+              label: 'Dose Completed',
+              onChanged: (value) {
+                context.read<VaccinationFormBloc>().add(
+                  VaccinationFormEvent.doseSubmitted(!state.isDoseCompleted),
+                );
+              },
+            ),
+          ],
         );
       },
     );
@@ -131,30 +147,30 @@ class __DueDateState extends State<__DueDate> {
   }
 }
 
-class __Frequency extends StatelessWidget {
-  const __Frequency();
+// class __Frequency extends StatelessWidget {
+//   const __Frequency();
 
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
-      builder: (context, state) {
-        return CustomStringDropdownSearch(
-          items: state.frequencies,
-          selectedItem: state.frequency.value,
-          onChanged: (value) {
-            if (value != null) {
-              context.read<VaccinationFormBloc>().add(
-                VaccinationFormEvent.frequency(value),
-              );
-            }
-          },
-          title: AppText.frequency,
-          isMandatory: true,
-        );
-      },
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return BlocBuilder<VaccinationFormBloc, VaccinationFormState>(
+//       builder: (context, state) {
+//         return CustomStringDropdownSearch(
+//           items: state.frequencies,
+//           selectedItem: state.frequency.value,
+//           onChanged: (value) {
+//             if (value != null) {
+//               context.read<VaccinationFormBloc>().add(
+//                 VaccinationFormEvent.frequency(value),
+//               );
+//             }
+//           },
+//           title: AppText.frequency,
+//           isMandatory: true,
+//         );
+//       },
+//     );
+//   }
+// }
 
 class __Remainder extends StatefulWidget {
   const __Remainder();

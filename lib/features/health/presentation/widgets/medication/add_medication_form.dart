@@ -12,7 +12,7 @@ class _AddMedicationForm extends State<AddMedicationForm> {
   void initState() {
     final petId = context.read<DashboardBloc>().state.selectedPet?.id;
     context.read<MedicationFormBloc>().add(
-      MedicationFormEvent.init(petId ?? '',widget.id),
+      MedicationFormEvent.init(petId ?? '', widget.id),
     );
     super.initState();
   }
@@ -46,13 +46,13 @@ class _AddMedicationForm extends State<AddMedicationForm> {
                       Styles.gap10,
                       __Night(),
                       Styles.gap10,
-                      if ((state.morningTimeHour.isValid &&
-                              state.morningTimeMin.isValid) ||
-                          (state.afternoonTimeHour.isValid &&
-                              state.afternoonTimeMin.isValid) ||
-                          (state.nightTimeHour.isValid &&
-                              state.nightTimeMin.isValid))
-                        TotalDosage(),
+                      // if ((state.morningTimeHour.isValid &&
+                      //         state.morningTimeMin.isValid) ||
+                      //     (state.afternoonTimeHour.isValid &&
+                      //         state.afternoonTimeMin.isValid) ||
+                      //     (state.nightTimeHour.isValid &&
+                      //         state.nightTimeMin.isValid))
+                      //   TotalDosage(),
                       __Frequency(),
                       Styles.gap10,
                       __StartDate(),

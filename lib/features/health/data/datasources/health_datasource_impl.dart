@@ -493,6 +493,8 @@ class HealthDatasourceImpl extends HealthDatasource {
       queryParameters: {
         'pet_id': petId,
         if (key?.isNotEmpty ?? false) 'search': key,
+        if (fromDate?.isNotEmpty ?? false) 'from_date': fromDate,
+        if (toDate?.isNotEmpty ?? false) 'to_date': toDate,
       },
     );
     return response.fold(

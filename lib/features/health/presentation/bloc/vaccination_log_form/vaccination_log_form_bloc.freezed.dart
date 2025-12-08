@@ -30,6 +30,7 @@ mixin _$VaccinationLogFormEvent {
     required TResult Function(String value) notesChanged,
     required TResult Function(DateTime value) dateChanged,
     required TResult Function() submit,
+    required TResult Function(bool value) finalDoseCompleted,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -44,6 +45,7 @@ mixin _$VaccinationLogFormEvent {
     TResult? Function(String value)? notesChanged,
     TResult? Function(DateTime value)? dateChanged,
     TResult? Function()? submit,
+    TResult? Function(bool value)? finalDoseCompleted,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -58,6 +60,7 @@ mixin _$VaccinationLogFormEvent {
     TResult Function(String value)? notesChanged,
     TResult Function(DateTime value)? dateChanged,
     TResult Function()? submit,
+    TResult Function(bool value)? finalDoseCompleted,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -67,6 +70,7 @@ mixin _$VaccinationLogFormEvent {
     required TResult Function(_NotesChanged value) notesChanged,
     required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_FinalDoseCompleted value) finalDoseCompleted,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -75,6 +79,7 @@ mixin _$VaccinationLogFormEvent {
     TResult? Function(_NotesChanged value)? notesChanged,
     TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_FinalDoseCompleted value)? finalDoseCompleted,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -83,6 +88,7 @@ mixin _$VaccinationLogFormEvent {
     TResult Function(_NotesChanged value)? notesChanged,
     TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_Submit value)? submit,
+    TResult Function(_FinalDoseCompleted value)? finalDoseCompleted,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -228,6 +234,7 @@ class _$InitImpl implements _Init {
     required TResult Function(String value) notesChanged,
     required TResult Function(DateTime value) dateChanged,
     required TResult Function() submit,
+    required TResult Function(bool value) finalDoseCompleted,
   }) {
     return init(vaccinationId, check, date, notes);
   }
@@ -246,6 +253,7 @@ class _$InitImpl implements _Init {
     TResult? Function(String value)? notesChanged,
     TResult? Function(DateTime value)? dateChanged,
     TResult? Function()? submit,
+    TResult? Function(bool value)? finalDoseCompleted,
   }) {
     return init?.call(vaccinationId, check, date, notes);
   }
@@ -264,6 +272,7 @@ class _$InitImpl implements _Init {
     TResult Function(String value)? notesChanged,
     TResult Function(DateTime value)? dateChanged,
     TResult Function()? submit,
+    TResult Function(bool value)? finalDoseCompleted,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -280,6 +289,7 @@ class _$InitImpl implements _Init {
     required TResult Function(_NotesChanged value) notesChanged,
     required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_FinalDoseCompleted value) finalDoseCompleted,
   }) {
     return init(this);
   }
@@ -292,6 +302,7 @@ class _$InitImpl implements _Init {
     TResult? Function(_NotesChanged value)? notesChanged,
     TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_FinalDoseCompleted value)? finalDoseCompleted,
   }) {
     return init?.call(this);
   }
@@ -304,6 +315,7 @@ class _$InitImpl implements _Init {
     TResult Function(_NotesChanged value)? notesChanged,
     TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_Submit value)? submit,
+    TResult Function(_FinalDoseCompleted value)? finalDoseCompleted,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -414,6 +426,7 @@ class _$IsGivenImpl implements _IsGiven {
     required TResult Function(String value) notesChanged,
     required TResult Function(DateTime value) dateChanged,
     required TResult Function() submit,
+    required TResult Function(bool value) finalDoseCompleted,
   }) {
     return isGiven(value);
   }
@@ -432,6 +445,7 @@ class _$IsGivenImpl implements _IsGiven {
     TResult? Function(String value)? notesChanged,
     TResult? Function(DateTime value)? dateChanged,
     TResult? Function()? submit,
+    TResult? Function(bool value)? finalDoseCompleted,
   }) {
     return isGiven?.call(value);
   }
@@ -450,6 +464,7 @@ class _$IsGivenImpl implements _IsGiven {
     TResult Function(String value)? notesChanged,
     TResult Function(DateTime value)? dateChanged,
     TResult Function()? submit,
+    TResult Function(bool value)? finalDoseCompleted,
     required TResult orElse(),
   }) {
     if (isGiven != null) {
@@ -466,6 +481,7 @@ class _$IsGivenImpl implements _IsGiven {
     required TResult Function(_NotesChanged value) notesChanged,
     required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_FinalDoseCompleted value) finalDoseCompleted,
   }) {
     return isGiven(this);
   }
@@ -478,6 +494,7 @@ class _$IsGivenImpl implements _IsGiven {
     TResult? Function(_NotesChanged value)? notesChanged,
     TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_FinalDoseCompleted value)? finalDoseCompleted,
   }) {
     return isGiven?.call(this);
   }
@@ -490,6 +507,7 @@ class _$IsGivenImpl implements _IsGiven {
     TResult Function(_NotesChanged value)? notesChanged,
     TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_Submit value)? submit,
+    TResult Function(_FinalDoseCompleted value)? finalDoseCompleted,
     required TResult orElse(),
   }) {
     if (isGiven != null) {
@@ -592,6 +610,7 @@ class _$NotesChangedImpl implements _NotesChanged {
     required TResult Function(String value) notesChanged,
     required TResult Function(DateTime value) dateChanged,
     required TResult Function() submit,
+    required TResult Function(bool value) finalDoseCompleted,
   }) {
     return notesChanged(value);
   }
@@ -610,6 +629,7 @@ class _$NotesChangedImpl implements _NotesChanged {
     TResult? Function(String value)? notesChanged,
     TResult? Function(DateTime value)? dateChanged,
     TResult? Function()? submit,
+    TResult? Function(bool value)? finalDoseCompleted,
   }) {
     return notesChanged?.call(value);
   }
@@ -628,6 +648,7 @@ class _$NotesChangedImpl implements _NotesChanged {
     TResult Function(String value)? notesChanged,
     TResult Function(DateTime value)? dateChanged,
     TResult Function()? submit,
+    TResult Function(bool value)? finalDoseCompleted,
     required TResult orElse(),
   }) {
     if (notesChanged != null) {
@@ -644,6 +665,7 @@ class _$NotesChangedImpl implements _NotesChanged {
     required TResult Function(_NotesChanged value) notesChanged,
     required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_FinalDoseCompleted value) finalDoseCompleted,
   }) {
     return notesChanged(this);
   }
@@ -656,6 +678,7 @@ class _$NotesChangedImpl implements _NotesChanged {
     TResult? Function(_NotesChanged value)? notesChanged,
     TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_FinalDoseCompleted value)? finalDoseCompleted,
   }) {
     return notesChanged?.call(this);
   }
@@ -668,6 +691,7 @@ class _$NotesChangedImpl implements _NotesChanged {
     TResult Function(_NotesChanged value)? notesChanged,
     TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_Submit value)? submit,
+    TResult Function(_FinalDoseCompleted value)? finalDoseCompleted,
     required TResult orElse(),
   }) {
     if (notesChanged != null) {
@@ -770,6 +794,7 @@ class _$DateChangedImpl implements _DateChanged {
     required TResult Function(String value) notesChanged,
     required TResult Function(DateTime value) dateChanged,
     required TResult Function() submit,
+    required TResult Function(bool value) finalDoseCompleted,
   }) {
     return dateChanged(value);
   }
@@ -788,6 +813,7 @@ class _$DateChangedImpl implements _DateChanged {
     TResult? Function(String value)? notesChanged,
     TResult? Function(DateTime value)? dateChanged,
     TResult? Function()? submit,
+    TResult? Function(bool value)? finalDoseCompleted,
   }) {
     return dateChanged?.call(value);
   }
@@ -806,6 +832,7 @@ class _$DateChangedImpl implements _DateChanged {
     TResult Function(String value)? notesChanged,
     TResult Function(DateTime value)? dateChanged,
     TResult Function()? submit,
+    TResult Function(bool value)? finalDoseCompleted,
     required TResult orElse(),
   }) {
     if (dateChanged != null) {
@@ -822,6 +849,7 @@ class _$DateChangedImpl implements _DateChanged {
     required TResult Function(_NotesChanged value) notesChanged,
     required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_FinalDoseCompleted value) finalDoseCompleted,
   }) {
     return dateChanged(this);
   }
@@ -834,6 +862,7 @@ class _$DateChangedImpl implements _DateChanged {
     TResult? Function(_NotesChanged value)? notesChanged,
     TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_FinalDoseCompleted value)? finalDoseCompleted,
   }) {
     return dateChanged?.call(this);
   }
@@ -846,6 +875,7 @@ class _$DateChangedImpl implements _DateChanged {
     TResult Function(_NotesChanged value)? notesChanged,
     TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_Submit value)? submit,
+    TResult Function(_FinalDoseCompleted value)? finalDoseCompleted,
     required TResult orElse(),
   }) {
     if (dateChanged != null) {
@@ -921,6 +951,7 @@ class _$SubmitImpl implements _Submit {
     required TResult Function(String value) notesChanged,
     required TResult Function(DateTime value) dateChanged,
     required TResult Function() submit,
+    required TResult Function(bool value) finalDoseCompleted,
   }) {
     return submit();
   }
@@ -939,6 +970,7 @@ class _$SubmitImpl implements _Submit {
     TResult? Function(String value)? notesChanged,
     TResult? Function(DateTime value)? dateChanged,
     TResult? Function()? submit,
+    TResult? Function(bool value)? finalDoseCompleted,
   }) {
     return submit?.call();
   }
@@ -957,6 +989,7 @@ class _$SubmitImpl implements _Submit {
     TResult Function(String value)? notesChanged,
     TResult Function(DateTime value)? dateChanged,
     TResult Function()? submit,
+    TResult Function(bool value)? finalDoseCompleted,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -973,6 +1006,7 @@ class _$SubmitImpl implements _Submit {
     required TResult Function(_NotesChanged value) notesChanged,
     required TResult Function(_DateChanged value) dateChanged,
     required TResult Function(_Submit value) submit,
+    required TResult Function(_FinalDoseCompleted value) finalDoseCompleted,
   }) {
     return submit(this);
   }
@@ -985,6 +1019,7 @@ class _$SubmitImpl implements _Submit {
     TResult? Function(_NotesChanged value)? notesChanged,
     TResult? Function(_DateChanged value)? dateChanged,
     TResult? Function(_Submit value)? submit,
+    TResult? Function(_FinalDoseCompleted value)? finalDoseCompleted,
   }) {
     return submit?.call(this);
   }
@@ -997,6 +1032,7 @@ class _$SubmitImpl implements _Submit {
     TResult Function(_NotesChanged value)? notesChanged,
     TResult Function(_DateChanged value)? dateChanged,
     TResult Function(_Submit value)? submit,
+    TResult Function(_FinalDoseCompleted value)? finalDoseCompleted,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -1011,9 +1047,199 @@ abstract class _Submit implements VaccinationLogFormEvent {
 }
 
 /// @nodoc
+abstract class _$$FinalDoseCompletedImplCopyWith<$Res> {
+  factory _$$FinalDoseCompletedImplCopyWith(
+    _$FinalDoseCompletedImpl value,
+    $Res Function(_$FinalDoseCompletedImpl) then,
+  ) = __$$FinalDoseCompletedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool value});
+}
+
+/// @nodoc
+class __$$FinalDoseCompletedImplCopyWithImpl<$Res>
+    extends
+        _$VaccinationLogFormEventCopyWithImpl<$Res, _$FinalDoseCompletedImpl>
+    implements _$$FinalDoseCompletedImplCopyWith<$Res> {
+  __$$FinalDoseCompletedImplCopyWithImpl(
+    _$FinalDoseCompletedImpl _value,
+    $Res Function(_$FinalDoseCompletedImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of VaccinationLogFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? value = null}) {
+    return _then(
+      _$FinalDoseCompletedImpl(
+        null == value
+            ? _value.value
+            : value // ignore: cast_nullable_to_non_nullable
+                as bool,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$FinalDoseCompletedImpl implements _FinalDoseCompleted {
+  const _$FinalDoseCompletedImpl(this.value);
+
+  @override
+  final bool value;
+
+  @override
+  String toString() {
+    return 'VaccinationLogFormEvent.finalDoseCompleted(value: $value)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FinalDoseCompletedImpl &&
+            (identical(other.value, value) || other.value == value));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  /// Create a copy of VaccinationLogFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$FinalDoseCompletedImplCopyWith<_$FinalDoseCompletedImpl> get copyWith =>
+      __$$FinalDoseCompletedImplCopyWithImpl<_$FinalDoseCompletedImpl>(
+        this,
+        _$identity,
+      );
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(
+      String vaccinationId,
+      bool? check,
+      DateTime? date,
+      String? notes,
+    )
+    init,
+    required TResult Function(bool value) isGiven,
+    required TResult Function(String value) notesChanged,
+    required TResult Function(DateTime value) dateChanged,
+    required TResult Function() submit,
+    required TResult Function(bool value) finalDoseCompleted,
+  }) {
+    return finalDoseCompleted(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(
+      String vaccinationId,
+      bool? check,
+      DateTime? date,
+      String? notes,
+    )?
+    init,
+    TResult? Function(bool value)? isGiven,
+    TResult? Function(String value)? notesChanged,
+    TResult? Function(DateTime value)? dateChanged,
+    TResult? Function()? submit,
+    TResult? Function(bool value)? finalDoseCompleted,
+  }) {
+    return finalDoseCompleted?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(
+      String vaccinationId,
+      bool? check,
+      DateTime? date,
+      String? notes,
+    )?
+    init,
+    TResult Function(bool value)? isGiven,
+    TResult Function(String value)? notesChanged,
+    TResult Function(DateTime value)? dateChanged,
+    TResult Function()? submit,
+    TResult Function(bool value)? finalDoseCompleted,
+    required TResult orElse(),
+  }) {
+    if (finalDoseCompleted != null) {
+      return finalDoseCompleted(value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_IsGiven value) isGiven,
+    required TResult Function(_NotesChanged value) notesChanged,
+    required TResult Function(_DateChanged value) dateChanged,
+    required TResult Function(_Submit value) submit,
+    required TResult Function(_FinalDoseCompleted value) finalDoseCompleted,
+  }) {
+    return finalDoseCompleted(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_IsGiven value)? isGiven,
+    TResult? Function(_NotesChanged value)? notesChanged,
+    TResult? Function(_DateChanged value)? dateChanged,
+    TResult? Function(_Submit value)? submit,
+    TResult? Function(_FinalDoseCompleted value)? finalDoseCompleted,
+  }) {
+    return finalDoseCompleted?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_IsGiven value)? isGiven,
+    TResult Function(_NotesChanged value)? notesChanged,
+    TResult Function(_DateChanged value)? dateChanged,
+    TResult Function(_Submit value)? submit,
+    TResult Function(_FinalDoseCompleted value)? finalDoseCompleted,
+    required TResult orElse(),
+  }) {
+    if (finalDoseCompleted != null) {
+      return finalDoseCompleted(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FinalDoseCompleted implements VaccinationLogFormEvent {
+  const factory _FinalDoseCompleted(final bool value) =
+      _$FinalDoseCompletedImpl;
+
+  bool get value;
+
+  /// Create a copy of VaccinationLogFormEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$FinalDoseCompletedImplCopyWith<_$FinalDoseCompletedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$VaccinationLogFormState {
   String? get vaccinationId => throw _privateConstructorUsedError;
   bool get check => throw _privateConstructorUsedError;
+  bool get isFinalDoseCompleted => throw _privateConstructorUsedError;
   NotEmpty get notes => throw _privateConstructorUsedError;
   DateTime? get date => throw _privateConstructorUsedError;
   Status get submitStatus => throw _privateConstructorUsedError;
@@ -1037,6 +1263,7 @@ abstract class $VaccinationLogFormStateCopyWith<$Res> {
   $Res call({
     String? vaccinationId,
     bool check,
+    bool isFinalDoseCompleted,
     NotEmpty notes,
     DateTime? date,
     Status submitStatus,
@@ -1065,6 +1292,7 @@ class _$VaccinationLogFormStateCopyWithImpl<
   $Res call({
     Object? vaccinationId = freezed,
     Object? check = null,
+    Object? isFinalDoseCompleted = null,
     Object? notes = null,
     Object? date = freezed,
     Object? submitStatus = null,
@@ -1082,6 +1310,11 @@ class _$VaccinationLogFormStateCopyWithImpl<
                 null == check
                     ? _value.check
                     : check // ignore: cast_nullable_to_non_nullable
+                        as bool,
+            isFinalDoseCompleted:
+                null == isFinalDoseCompleted
+                    ? _value.isFinalDoseCompleted
+                    : isFinalDoseCompleted // ignore: cast_nullable_to_non_nullable
                         as bool,
             notes:
                 null == notes
@@ -1126,6 +1359,7 @@ abstract class _$$VaccinationLogFormStateImplCopyWith<$Res>
   $Res call({
     String? vaccinationId,
     bool check,
+    bool isFinalDoseCompleted,
     NotEmpty notes,
     DateTime? date,
     Status submitStatus,
@@ -1154,6 +1388,7 @@ class __$$VaccinationLogFormStateImplCopyWithImpl<$Res>
   $Res call({
     Object? vaccinationId = freezed,
     Object? check = null,
+    Object? isFinalDoseCompleted = null,
     Object? notes = null,
     Object? date = freezed,
     Object? submitStatus = null,
@@ -1171,6 +1406,11 @@ class __$$VaccinationLogFormStateImplCopyWithImpl<$Res>
             null == check
                 ? _value.check
                 : check // ignore: cast_nullable_to_non_nullable
+                    as bool,
+        isFinalDoseCompleted:
+            null == isFinalDoseCompleted
+                ? _value.isFinalDoseCompleted
+                : isFinalDoseCompleted // ignore: cast_nullable_to_non_nullable
                     as bool,
         notes:
             null == notes
@@ -1207,7 +1447,8 @@ class __$$VaccinationLogFormStateImplCopyWithImpl<$Res>
 class _$VaccinationLogFormStateImpl implements _VaccinationLogFormState {
   const _$VaccinationLogFormStateImpl({
     this.vaccinationId,
-    this.check = true,
+    this.check = false,
+    this.isFinalDoseCompleted = false,
     this.notes = const NotEmpty.pure(),
     this.date,
     this.submitStatus = Status.init,
@@ -1220,6 +1461,9 @@ class _$VaccinationLogFormStateImpl implements _VaccinationLogFormState {
   @override
   @JsonKey()
   final bool check;
+  @override
+  @JsonKey()
+  final bool isFinalDoseCompleted;
   @override
   @JsonKey()
   final NotEmpty notes;
@@ -1236,7 +1480,7 @@ class _$VaccinationLogFormStateImpl implements _VaccinationLogFormState {
 
   @override
   String toString() {
-    return 'VaccinationLogFormState(vaccinationId: $vaccinationId, check: $check, notes: $notes, date: $date, submitStatus: $submitStatus, errorMessage: $errorMessage, validation: $validation)';
+    return 'VaccinationLogFormState(vaccinationId: $vaccinationId, check: $check, isFinalDoseCompleted: $isFinalDoseCompleted, notes: $notes, date: $date, submitStatus: $submitStatus, errorMessage: $errorMessage, validation: $validation)';
   }
 
   @override
@@ -1247,6 +1491,8 @@ class _$VaccinationLogFormStateImpl implements _VaccinationLogFormState {
             (identical(other.vaccinationId, vaccinationId) ||
                 other.vaccinationId == vaccinationId) &&
             (identical(other.check, check) || other.check == check) &&
+            (identical(other.isFinalDoseCompleted, isFinalDoseCompleted) ||
+                other.isFinalDoseCompleted == isFinalDoseCompleted) &&
             (identical(other.notes, notes) || other.notes == notes) &&
             (identical(other.date, date) || other.date == date) &&
             (identical(other.submitStatus, submitStatus) ||
@@ -1262,6 +1508,7 @@ class _$VaccinationLogFormStateImpl implements _VaccinationLogFormState {
     runtimeType,
     vaccinationId,
     check,
+    isFinalDoseCompleted,
     notes,
     date,
     submitStatus,
@@ -1284,6 +1531,7 @@ abstract class _VaccinationLogFormState implements VaccinationLogFormState {
   const factory _VaccinationLogFormState({
     final String? vaccinationId,
     final bool check,
+    final bool isFinalDoseCompleted,
     final NotEmpty notes,
     final DateTime? date,
     final Status submitStatus,
@@ -1295,6 +1543,8 @@ abstract class _VaccinationLogFormState implements VaccinationLogFormState {
   String? get vaccinationId;
   @override
   bool get check;
+  @override
+  bool get isFinalDoseCompleted;
   @override
   NotEmpty get notes;
   @override
