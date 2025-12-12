@@ -109,7 +109,7 @@ class _AddListingFormState extends State<AddListingForm> {
                           builder: (context, state) {
                             return SaveCancelWidget(
                               onPressed:
-                                  state.adoptionValidation
+                                  state.adoptionValidation && state.url.isValid
                                       ? () {
                                         context.read<ListingFormBloc>().add(
                                           ListingFormEvent.submit(

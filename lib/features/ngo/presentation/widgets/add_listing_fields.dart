@@ -114,10 +114,10 @@ class __PetType extends StatelessWidget {
           DropStringItemModel(id: PetType.Cat.name, value: 'Cat'),
         ];
         return CustomStringDropdownSearch(
-          selectedItem:
-              state.petType.name == 'Dog'
-                  ? DropStringItemModel(id: PetType.Dog.name, value: 'Dog')
-                  : DropStringItemModel(id: PetType.Cat.name, value: 'Cat'),
+          // selectedItem:
+          //     state.petType.name == 'Dog'
+          //         ? DropStringItemModel(id: PetType.Dog.name, value: 'Dog')
+          //         : DropStringItemModel(id: PetType.Cat.name, value: 'Cat'),
           title: AppText.petType,
           errorText: state.breed.isPure ? null : state.breed.error,
           items: petTypes,
@@ -143,7 +143,7 @@ class __Breed extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ListingFormBloc, ListingFormState>(
       builder: (context, state) {
-        final petType = state.petType.name.toLowerCase();
+        final petType = state.petType?.name.toLowerCase();
         final isDog = petType == 'dog';
         final isCat = petType == 'cat';
 
@@ -151,10 +151,12 @@ class __Breed extends StatelessWidget {
           selectedItem: state.breed.value,
           title: AppText.breed,
           items:
-              isCat
-                  ? state.catBreeds
-                  : isDog
-                  ? state.dogBreeds
+              isDog || isCat
+                  ? isCat
+                      ? state.catBreeds
+                      : isDog
+                      ? state.dogBreeds
+                      : []
                   : [],
           onChanged: (value) {
             context.read<ListingFormBloc>().add(ListingFormEvent.breed(value!));

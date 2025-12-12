@@ -29,6 +29,7 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePage extends State<ProfilePage> {
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,39 +62,50 @@ class _ProfilePage extends State<ProfilePage> {
                   Styles.gap50,
                   _ProfileCard(state: state),
                   Styles.gap30,
-                  AppButton(
-                    backgroundColor: AppColors.white,
-                    showShadow: false,
-                    name: Text(
-                      AppText.edit,
-                      style: context.textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.buttonTextColor,
+                  if (!isLoading)
+                    AppButton(
+                      backgroundColor: AppColors.white,
+                      showShadow: false,
+                      name: Text(
+                        AppText.edit,
+                        style: context.textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.buttonTextColor,
+                        ),
                       ),
+                      onPressed: () {
+                        context.push(
+                          AddPetPage.route(id: state.selectedPet?.id),
+                        );
+                      },
                     ),
-                    onPressed: () {
-                      context.push(AddPetPage.route(id: state.selectedPet?.id));
-                    },
-                  ),
-                  Styles.gap16,
-                  AppButton(
-                    backgroundColor: AppColors.white,
-                    showShadow: false,
-                    name: Text(
-                      AppText.share,
-                      style: context.textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.buttonTextColor,
+                  if (!isLoading) Styles.gap16,
+                  if (!isLoading)
+                    AppButton(
+                      backgroundColor: AppColors.white,
+                      showShadow: false,
+                      name: Text(
+                        AppText.share,
+                        style: context.textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.buttonTextColor,
+                        ),
                       ),
+                      onPressed: () {
+                        setState(() {
+                          isLoading = true;
+                        });
+                        ShareService.shareWidgetAsImage(
+                          context,
+                          _ProfileCard(state: state),
+                          text: state.selectedPet?.name ?? "",
+                        ).then((v) {
+                          setState(() {
+                            isLoading = false;
+                          });
+                        });
+                      },
                     ),
-                    onPressed: () {
-                      ShareService.shareWidgetAsImage(
-                        context,
-                        _ProfileCard(state: state),
-                        text: state.selectedPet?.name ?? "",
-                      );
-                    },
-                  ),
                   Styles.gap50,
                 ],
               );

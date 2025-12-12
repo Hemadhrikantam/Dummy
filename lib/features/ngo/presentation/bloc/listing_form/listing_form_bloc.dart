@@ -10,6 +10,7 @@ import 'package:dummy/core/models/formz/mobile.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/pet_payload.dart';
 import 'package:dummy/core/utils/log_utility.dart';
+import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
@@ -72,6 +73,7 @@ class ListingFormBloc extends Bloc<ListingFormEvent, ListingFormState> {
         catBreeds: catBreeds,
         dogBreeds: dogBreeds,
         addListingStatus: Status.success,
+        adoptionValidation: false,
       ),
     );
 
@@ -174,7 +176,7 @@ class ListingFormBloc extends Bloc<ListingFormEvent, ListingFormState> {
     }
     final payload = PetPayload(
       name: state.name.value,
-      type: state.petType.name.toLowerCase(),
+      type: state.petType?.name.toLowerCase() ?? '',
       breedId: (state.breed.value?.id ?? '').toString(),
       gender: state.gender.value?.value.toLowerCase(),
       dob:
@@ -194,6 +196,7 @@ class ListingFormBloc extends Bloc<ListingFormEvent, ListingFormState> {
 
     await result.fold(
       (error) async {
+        AppAlert.showToast(message: error.message);
         emit(state.copyWith(submitStatus: Status.error));
       },
       (success) async {
@@ -222,9 +225,12 @@ class ListingFormBloc extends Bloc<ListingFormEvent, ListingFormState> {
 
         listingResult.fold(
           (err) {
+            LogUtility.error(err.message);
+            AppAlert.showToast(message: err.message);
             emit(state.copyWith(submitStatus: Status.error));
           },
           (ok) {
+            AppAlert.showToast(message: ok.message);
             emit(state.copyWith(submitStatus: Status.success));
             currentContext.pop();
             BottomModels.addAdoptionSuccessBottomSheet(currentContext);

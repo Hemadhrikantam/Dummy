@@ -29,6 +29,7 @@ class _ChatPageState extends State<ChatPage> {
     // Future.delayed(Duration(milliseconds: 400), () {
     //   _scrollToBottom();
     // });
+    _scrollToBottom();
   }
 
   void _scrollToBottom() {

@@ -215,6 +215,7 @@ class __Date extends State<_Date> {
         return AppCustomDateField(
           minDate: DateTime.now().subtract(const Duration(days: 30)),
           maxDate: DateTime.now(),
+          headerText: AppText.date,
           selectedDate:
               state.value.isNotEmpty ? DateTime.parse(state.value) : null,
           isMandatory: true,

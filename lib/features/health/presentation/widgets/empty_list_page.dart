@@ -35,7 +35,7 @@ class EmptyListPage extends StatelessWidget {
               height: 180,
               boxFit: BoxFit.contain,
             ),
-          Styles.gap12,
+          if (title != null) Styles.gap12,
           if (title != null)
             Text(
               title!,
@@ -46,7 +46,7 @@ class EmptyListPage extends StatelessWidget {
                 color: AppColors.stepperColor,
               ),
             ),
-          Styles.gap10,
+          if (subTitle != null) Styles.gap10,
           if (subTitle != null)
             Text(
               subTitle!,
@@ -57,7 +57,7 @@ class EmptyListPage extends StatelessWidget {
                 color: AppColors.text,
               ),
             ),
-          Styles.gap30,
+          if (buttonName != null) Styles.gap30,
           if (buttonName != null)
             AppButton(
               onPressed: onPressed,

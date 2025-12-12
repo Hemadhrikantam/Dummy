@@ -478,6 +478,8 @@ class BottomModels {
       isScrollControlled: true,
       backgroundColor: backgroundColor,
       context: context,
+      isDismissible: false,
+      enableDrag: false,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return BlocProvider(
@@ -496,6 +498,8 @@ class BottomModels {
       isScrollControlled: true,
       backgroundColor: backgroundColor,
       context: context,
+      isDismissible: false,
+      enableDrag: false,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return BlocProvider(

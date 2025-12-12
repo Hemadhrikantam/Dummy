@@ -24,6 +24,7 @@ import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../../../core/utils/bottom_models.dart';
+import '../../../../../core/utils/toast_message.dart';
 
 part 'add_adoption_event.dart';
 part 'add_adoption_state.dart';
@@ -217,6 +218,7 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
 
     await result.fold(
       (error) async {
+        AppAlert.showToast(message: error.message);
         emit(state.copyWith(submitStatus: Status.error));
       },
       (success) async {
@@ -241,9 +243,11 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
 
         listingResult.fold(
           (err) {
+            AppAlert.showToast(message: err.message);
             emit(state.copyWith(submitStatus: Status.error));
           },
           (ok) {
+            AppAlert.showToast(message: ok.message);
             emit(state.copyWith(submitStatus: Status.success));
             currentContext.read<AdoptionBloc>().add(AdoptionEvent.adoptions());
             currentContext.pop();

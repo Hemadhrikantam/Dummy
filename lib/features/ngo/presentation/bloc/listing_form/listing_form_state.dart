@@ -6,7 +6,7 @@ abstract class ListingFormState with _$ListingFormState {
     @Default(Status.init) Status addListingStatus,
     @Default(Status.init) Status submitStatus,
     @Default(NotEmpty.pure()) NotEmpty name,
-    @Default(PetType.Cat) PetType petType,
+    @Default(null) PetType? petType,
     @Default(DropdownStringValue.pure()) DropdownStringValue breed,
     @Default(NotEmpty.pure()) NotEmpty address,
     @Default(MobileNo.pure()) MobileNo phone,
@@ -30,7 +30,7 @@ extension PetFormValidation on ListingFormState {
       phone,
       email,
       description,
-      url,
+      // url,
       dob,
       gender,
     ]);

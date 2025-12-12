@@ -2816,7 +2816,7 @@ mixin _$ListingFormState {
   Status get addListingStatus => throw _privateConstructorUsedError;
   Status get submitStatus => throw _privateConstructorUsedError;
   NotEmpty get name => throw _privateConstructorUsedError;
-  PetType get petType => throw _privateConstructorUsedError;
+  PetType? get petType => throw _privateConstructorUsedError;
   DropdownStringValue get breed => throw _privateConstructorUsedError;
   NotEmpty get address => throw _privateConstructorUsedError;
   MobileNo get phone => throw _privateConstructorUsedError;
@@ -2847,7 +2847,7 @@ abstract class $ListingFormStateCopyWith<$Res> {
     Status addListingStatus,
     Status submitStatus,
     NotEmpty name,
-    PetType petType,
+    PetType? petType,
     DropdownStringValue breed,
     NotEmpty address,
     MobileNo phone,
@@ -2880,7 +2880,7 @@ class _$ListingFormStateCopyWithImpl<$Res, $Val extends ListingFormState>
     Object? addListingStatus = null,
     Object? submitStatus = null,
     Object? name = null,
-    Object? petType = null,
+    Object? petType = freezed,
     Object? breed = null,
     Object? address = null,
     Object? phone = null,
@@ -2911,10 +2911,10 @@ class _$ListingFormStateCopyWithImpl<$Res, $Val extends ListingFormState>
                     : name // ignore: cast_nullable_to_non_nullable
                         as NotEmpty,
             petType:
-                null == petType
+                freezed == petType
                     ? _value.petType
                     : petType // ignore: cast_nullable_to_non_nullable
-                        as PetType,
+                        as PetType?,
             breed:
                 null == breed
                     ? _value.breed
@@ -2989,7 +2989,7 @@ abstract class _$$ListingFormStateImplCopyWith<$Res>
     Status addListingStatus,
     Status submitStatus,
     NotEmpty name,
-    PetType petType,
+    PetType? petType,
     DropdownStringValue breed,
     NotEmpty address,
     MobileNo phone,
@@ -3021,7 +3021,7 @@ class __$$ListingFormStateImplCopyWithImpl<$Res>
     Object? addListingStatus = null,
     Object? submitStatus = null,
     Object? name = null,
-    Object? petType = null,
+    Object? petType = freezed,
     Object? breed = null,
     Object? address = null,
     Object? phone = null,
@@ -3052,10 +3052,10 @@ class __$$ListingFormStateImplCopyWithImpl<$Res>
                 : name // ignore: cast_nullable_to_non_nullable
                     as NotEmpty,
         petType:
-            null == petType
+            freezed == petType
                 ? _value.petType
                 : petType // ignore: cast_nullable_to_non_nullable
-                    as PetType,
+                    as PetType?,
         breed:
             null == breed
                 ? _value.breed
@@ -3123,7 +3123,7 @@ class _$ListingFormStateImpl implements _ListingFormState {
     this.addListingStatus = Status.init,
     this.submitStatus = Status.init,
     this.name = const NotEmpty.pure(),
-    this.petType = PetType.Cat,
+    this.petType = null,
     this.breed = const DropdownStringValue.pure(),
     this.address = const NotEmpty.pure(),
     this.phone = const MobileNo.pure(),
@@ -3149,7 +3149,7 @@ class _$ListingFormStateImpl implements _ListingFormState {
   final NotEmpty name;
   @override
   @JsonKey()
-  final PetType petType;
+  final PetType? petType;
   @override
   @JsonKey()
   final DropdownStringValue breed;
@@ -3270,7 +3270,7 @@ abstract class _ListingFormState implements ListingFormState {
     final Status addListingStatus,
     final Status submitStatus,
     final NotEmpty name,
-    final PetType petType,
+    final PetType? petType,
     final DropdownStringValue breed,
     final NotEmpty address,
     final MobileNo phone,
@@ -3291,7 +3291,7 @@ abstract class _ListingFormState implements ListingFormState {
   @override
   NotEmpty get name;
   @override
-  PetType get petType;
+  PetType? get petType;
   @override
   DropdownStringValue get breed;
   @override

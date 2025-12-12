@@ -248,6 +248,7 @@ class __Date extends State<_Date> {
           selectedDate:
               state.value.isNotEmpty ? DateTime.parse(state.value) : null,
           isMandatory: true,
+          headerText: AppText.date,
           onChange: (value) {
             context.read<MealFormBloc>().add(
               MealFormEvent.date(value.toString()),

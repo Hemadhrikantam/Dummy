@@ -25,13 +25,24 @@ class MedicationDetailsCard extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AppCustomChipWidget(
-                    backgroundColor: AppColors.buttonBackground.withOpacity(.1),
-                    textColor: AppColors.stepperColor,
-                    subTitle: '',
-                    fontSize: 14,
-                    title:
-                        '${state.medication?.endDate?.difference(DateTime.now()).inDays ?? 0} Days Left',
+                  BlocBuilder<MedicationDetailsBloc, MedicationDetailsState>(
+                    builder: (context, state) {
+                      final daysLeft =
+                          (state.medication?.endDate ?? DateTime.now())
+                              .difference(DateTime.now())
+                              .inDays;
+                      return daysLeft >= 0 &&
+                              (state.medication?.isActive ?? false)
+                          ? AppCustomChipWidget(
+                            backgroundColor: AppColors.buttonBackground
+                                .withOpacity(.1),
+                            textColor: AppColors.stepperColor,
+                            subTitle: '',
+                            fontSize: 14,
+                            title: '$daysLeft Days Left',
+                          )
+                          : Styles.sizedBox;
+                    },
                   ),
                   Styles.gap6,
                   Row(
