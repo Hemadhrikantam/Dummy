@@ -2,6 +2,7 @@ import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_page.dart';
@@ -68,6 +69,7 @@ class LoginForm extends StatelessWidget {
                 onPressed:
                     state.loginValidation
                         ? () {
+                          LogUtility.info('test');
                           context.read<AuthBloc>().add(AuthEvent.login());
                         }
                         : () {

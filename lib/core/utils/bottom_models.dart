@@ -476,6 +476,7 @@ class BottomModels {
   static Future<T?> addPetDocumentsBottomSheet<T>(BuildContext context) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
+      isDismissible: false,
       backgroundColor: backgroundColor,
       context: context,
       isDismissible: false,
@@ -495,6 +496,7 @@ class BottomModels {
     String? id,
   }) {
     return showModalBottomSheet<T>(
+      isDismissible: false,
       isScrollControlled: true,
       backgroundColor: backgroundColor,
       context: context,
