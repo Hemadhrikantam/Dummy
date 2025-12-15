@@ -175,7 +175,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   FutureOr<void> __sendOtp(_SendOtp event, Emitter<AuthState> emit) async {
     // LogUtility.info("event calling");
-    // emit(state.copyWith(sendOtpStatus: Status.loading));
+    emit(state.copyWith(sendOtpStatus: Status.loading));
 
     // await Injection.firebaseOtp.sendOtp(
     //   phoneNumber: '+91${state.phone.value}',
@@ -190,6 +190,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     //     );
     //   },
     // );
+    emit(state.copyWith(sendOtpStatus: Status.success));
+    emit(state.copyWith(sendOtpStatus: Status.init));
   }
 
   void __otp(_Otp event, Emitter<AuthState> emit) {

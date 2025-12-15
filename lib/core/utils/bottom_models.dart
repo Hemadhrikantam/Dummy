@@ -479,7 +479,6 @@ class BottomModels {
       isDismissible: false,
       backgroundColor: backgroundColor,
       context: context,
-      isDismissible: false,
       enableDrag: false,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
@@ -500,7 +499,6 @@ class BottomModels {
       isScrollControlled: true,
       backgroundColor: backgroundColor,
       context: context,
-      isDismissible: false,
       enableDrag: false,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
