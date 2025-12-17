@@ -11,20 +11,18 @@ class LocationService {
     if (!serviceEnabled) {
       serviceEnabled = await _location.requestService();
       if (!serviceEnabled) {
-        return Future.error('Location service not enabled');
+        return null;
       }
     }
 
-    // Check permission
     permissionGranted = await _location.hasPermission();
     if (permissionGranted == PermissionStatus.denied) {
       permissionGranted = await _location.requestPermission();
       if (permissionGranted != PermissionStatus.granted) {
-        return Future.error('Location permission denied');
+        return null;
       }
     }
 
-    // Get location
     return await _location.getLocation();
   }
 }

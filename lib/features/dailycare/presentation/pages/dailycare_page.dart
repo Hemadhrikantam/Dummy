@@ -24,12 +24,14 @@ class DailycarePage extends StatefulWidget {
 
   static Route<T> route<T>(
     DashboardPetDetails selectedPet,
+    String initialTab,
     String selectedPetId,
   ) {
     return MaterialPageRoute<T>(
       builder:
           (context) => DailycarePage(
             selectedPet: selectedPet,
+            initialTab: initialTab,
             selectedPetId: selectedPetId,
           ),
       settings: const RouteSettings(name: routeName),

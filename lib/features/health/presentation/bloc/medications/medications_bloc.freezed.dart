@@ -22,21 +22,21 @@ mixin _$MedicationsEvent {
     required TResult Function() init,
     required TResult Function(String? key) medications,
     required TResult Function(String id) delete,
-    required TResult Function(String startDate, String endDate) filter,
+    required TResult Function(String? startDate, String? endDate) filter,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String? key)? medications,
     TResult? Function(String id)? delete,
-    TResult? Function(String startDate, String endDate)? filter,
+    TResult? Function(String? startDate, String? endDate)? filter,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String? key)? medications,
     TResult Function(String id)? delete,
-    TResult Function(String startDate, String endDate)? filter,
+    TResult Function(String? startDate, String? endDate)? filter,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -129,7 +129,7 @@ class _$InitImpl implements _Init {
     required TResult Function() init,
     required TResult Function(String? key) medications,
     required TResult Function(String id) delete,
-    required TResult Function(String startDate, String endDate) filter,
+    required TResult Function(String? startDate, String? endDate) filter,
   }) {
     return init();
   }
@@ -140,7 +140,7 @@ class _$InitImpl implements _Init {
     TResult? Function()? init,
     TResult? Function(String? key)? medications,
     TResult? Function(String id)? delete,
-    TResult? Function(String startDate, String endDate)? filter,
+    TResult? Function(String? startDate, String? endDate)? filter,
   }) {
     return init?.call();
   }
@@ -151,7 +151,7 @@ class _$InitImpl implements _Init {
     TResult Function()? init,
     TResult Function(String? key)? medications,
     TResult Function(String id)? delete,
-    TResult Function(String startDate, String endDate)? filter,
+    TResult Function(String? startDate, String? endDate)? filter,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -275,7 +275,7 @@ class _$MedicationsImpl implements _Medications {
     required TResult Function() init,
     required TResult Function(String? key) medications,
     required TResult Function(String id) delete,
-    required TResult Function(String startDate, String endDate) filter,
+    required TResult Function(String? startDate, String? endDate) filter,
   }) {
     return medications(key);
   }
@@ -286,7 +286,7 @@ class _$MedicationsImpl implements _Medications {
     TResult? Function()? init,
     TResult? Function(String? key)? medications,
     TResult? Function(String id)? delete,
-    TResult? Function(String startDate, String endDate)? filter,
+    TResult? Function(String? startDate, String? endDate)? filter,
   }) {
     return medications?.call(key);
   }
@@ -297,7 +297,7 @@ class _$MedicationsImpl implements _Medications {
     TResult Function()? init,
     TResult Function(String? key)? medications,
     TResult Function(String id)? delete,
-    TResult Function(String startDate, String endDate)? filter,
+    TResult Function(String? startDate, String? endDate)? filter,
     required TResult orElse(),
   }) {
     if (medications != null) {
@@ -429,7 +429,7 @@ class _$DeleteImpl implements _Delete {
     required TResult Function() init,
     required TResult Function(String? key) medications,
     required TResult Function(String id) delete,
-    required TResult Function(String startDate, String endDate) filter,
+    required TResult Function(String? startDate, String? endDate) filter,
   }) {
     return delete(id);
   }
@@ -440,7 +440,7 @@ class _$DeleteImpl implements _Delete {
     TResult? Function()? init,
     TResult? Function(String? key)? medications,
     TResult? Function(String id)? delete,
-    TResult? Function(String startDate, String endDate)? filter,
+    TResult? Function(String? startDate, String? endDate)? filter,
   }) {
     return delete?.call(id);
   }
@@ -451,7 +451,7 @@ class _$DeleteImpl implements _Delete {
     TResult Function()? init,
     TResult Function(String? key)? medications,
     TResult Function(String id)? delete,
-    TResult Function(String startDate, String endDate)? filter,
+    TResult Function(String? startDate, String? endDate)? filter,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -517,7 +517,7 @@ abstract class _$$FilterImplCopyWith<$Res> {
     $Res Function(_$FilterImpl) then,
   ) = __$$FilterImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String startDate, String endDate});
+  $Res call({String? startDate, String? endDate});
 }
 
 /// @nodoc
@@ -533,17 +533,17 @@ class __$$FilterImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? startDate = null, Object? endDate = null}) {
+  $Res call({Object? startDate = freezed, Object? endDate = freezed}) {
     return _then(
       _$FilterImpl(
-        null == startDate
+        freezed == startDate
             ? _value.startDate
             : startDate // ignore: cast_nullable_to_non_nullable
-                as String,
-        null == endDate
+                as String?,
+        freezed == endDate
             ? _value.endDate
             : endDate // ignore: cast_nullable_to_non_nullable
-                as String,
+                as String?,
       ),
     );
   }
@@ -555,9 +555,9 @@ class _$FilterImpl implements _Filter {
   const _$FilterImpl(this.startDate, this.endDate);
 
   @override
-  final String startDate;
+  final String? startDate;
   @override
-  final String endDate;
+  final String? endDate;
 
   @override
   String toString() {
@@ -591,7 +591,7 @@ class _$FilterImpl implements _Filter {
     required TResult Function() init,
     required TResult Function(String? key) medications,
     required TResult Function(String id) delete,
-    required TResult Function(String startDate, String endDate) filter,
+    required TResult Function(String? startDate, String? endDate) filter,
   }) {
     return filter(startDate, endDate);
   }
@@ -602,7 +602,7 @@ class _$FilterImpl implements _Filter {
     TResult? Function()? init,
     TResult? Function(String? key)? medications,
     TResult? Function(String id)? delete,
-    TResult? Function(String startDate, String endDate)? filter,
+    TResult? Function(String? startDate, String? endDate)? filter,
   }) {
     return filter?.call(startDate, endDate);
   }
@@ -613,7 +613,7 @@ class _$FilterImpl implements _Filter {
     TResult Function()? init,
     TResult Function(String? key)? medications,
     TResult Function(String id)? delete,
-    TResult Function(String startDate, String endDate)? filter,
+    TResult Function(String? startDate, String? endDate)? filter,
     required TResult orElse(),
   }) {
     if (filter != null) {
@@ -661,11 +661,11 @@ class _$FilterImpl implements _Filter {
 }
 
 abstract class _Filter implements MedicationsEvent {
-  const factory _Filter(final String startDate, final String endDate) =
+  const factory _Filter(final String? startDate, final String? endDate) =
       _$FilterImpl;
 
-  String get startDate;
-  String get endDate;
+  String? get startDate;
+  String? get endDate;
 
   /// Create a copy of MedicationsEvent
   /// with the given fields replaced by the non-null parameter values.

@@ -111,7 +111,12 @@ class HealthDatasourceImpl extends HealthDatasource {
   ) async {
     final response = await http.get(
       path: api.medication(null, null, null),
-      queryParameters: {'pet_id': petId, if (key != null) 'key': key},
+      queryParameters: {
+        'pet_id': petId,
+        if (key != null) 'key': key,
+        if (fromDate?.isNotEmpty ?? false) 'from_date': fromDate,
+        if (toDate?.isNotEmpty ?? false) 'to_date': toDate,
+      },
     );
     return response.fold(
       (error) {

@@ -108,6 +108,7 @@ class BottomModels {
   static Future<T?> medicationFilterSheet<T>(
     BuildContext context,
     Function(String startDate, String endDate) onSaved,
+    Function() onReset,
   ) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -115,7 +116,7 @@ class BottomModels {
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return MedicationFilterBottomSheet(onSaved: onSaved);
+        return MedicationFilterBottomSheet(onSaved: onSaved, onReset: onReset);
       },
     );
   }
@@ -393,6 +394,8 @@ class BottomModels {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: backgroundColor,
+      isDismissible: false,
+      enableDrag: false,
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {

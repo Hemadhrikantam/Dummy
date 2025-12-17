@@ -32,7 +32,7 @@ class AddExpensesSuccessBottomSheetContent extends StatelessWidget {
               AppGraber(),
               Styles.gap16,
               AppAssestsImage(
-                path: ImageResources.espenseSuccess,
+                path: ImageResources.expenseSuccess,
                 height: context.height * .07,
                 boxFit: BoxFit.contain,
               ),

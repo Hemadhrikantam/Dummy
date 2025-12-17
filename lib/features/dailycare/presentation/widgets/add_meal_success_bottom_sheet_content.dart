@@ -78,6 +78,7 @@ class AddMealSuccessBottomSheetContent extends StatelessWidget {
                     child: AppButton(
                       onPressed: () {
                         context.pop();
+                        
                         context.push(PetDairyPage.route());
                       },
                       showShadow: false,

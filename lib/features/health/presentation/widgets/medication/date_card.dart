@@ -86,7 +86,8 @@ class _DateCardState extends State<DateCard> {
                           padding: Styles.edgeInsetsOnlyT10,
                           child: CustomCheckBox(
                             fontSize: 22,
-                            isChecked: e.status != 'missed',
+                            isChecked:
+                                e.status != 'missed' && e.status != 'upcoming',
                             label: e.timeslotName,
                             onChanged: (value) {
                               context.read<MedicationDetailsBloc>().add(

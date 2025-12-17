@@ -44,14 +44,11 @@ class _DewormingTabState extends State<DewormingTab> {
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
-    _selectedDay = DateTime.now();
-    final firstDayOfMonth = DateTime(now.year, now.month, 1);
-    final nextMonth = DateTime(now.year, now.month + 1, 1);
-    final totalDaysInMonth = nextMonth.difference(firstDayOfMonth).inDays;
+    _selectedDay ??= now;
 
-    final daysInCurrentMonth = List.generate(
-      totalDaysInMonth,
-      (index) => DateTime(now.year, now.month, index + 1),
+    final daysInLast30Days = List.generate(
+      30,
+      (index) => DateTime(now.year, now.month, now.day - index),
     );
     return RefreshIndicator.adaptive(
       color: AppColors.stepperColor,
@@ -64,7 +61,7 @@ class _DewormingTabState extends State<DewormingTab> {
       child: AnimatedListView(
         children: [
           DaySelector(
-            days: daysInCurrentMonth,
+            days: daysInLast30Days.reversed.toList(),
             initialDate: now,
             onDaySelected: (day) {
               setState(() {
@@ -119,6 +116,7 @@ class _DewormingTabState extends State<DewormingTab> {
                       separatorBuilder: (context, i) => Styles.gap10,
                       itemBuilder: (context, index) {
                         final dewormingItem = items[index];
+                        print(dewormingItem.dueDate);
                         return CustomCard(
                           borderRadius: Styles.borderRadiusCircular08,
                           child: Row(
@@ -159,7 +157,10 @@ class _DewormingTabState extends State<DewormingTab> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
-                                    'Next ${AppUtil.formatDateToMMDDYYYY(DateTime.parse(dewormingItem.dueDate))}',
+                                    dewormingItem.dueDate != null &&
+                                            dewormingItem.dueDate != ''
+                                        ? 'Next ${AppUtil.formatDateToMMDDYYYY(DateTime.parse(dewormingItem.dueDate ?? ''))}'
+                                        : '',
                                     style: context.textTheme.titleSmall
                                         ?.copyWith(
                                           fontSize: 12,

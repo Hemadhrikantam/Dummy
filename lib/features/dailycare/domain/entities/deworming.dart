@@ -6,7 +6,7 @@ class PetDeworming extends Equatable {
   final String petId;
   final String date; // normalized YYYY-MM-DD
   final String productName;
-  final String dueDate; // normalized YYYY-MM-DD
+  final String? dueDate; // normalized YYYY-MM-DD
   final String? notes;
   final bool? isActive;
   final DateTime? createdAt;

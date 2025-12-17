@@ -61,9 +61,9 @@ class _MedicationsTabState extends State<MedicationsTab> {
                       onChanged: (value) {
                         _debouncer.run(() {
                           // Dispatch search directly to the bloc
-                          context
-                              .read<MedicationsBloc>()
-                              .add(MedicationsEvent.medications(value));
+                          context.read<MedicationsBloc>().add(
+                            MedicationsEvent.medications(value),
+                          );
                           // Keep local state to support pull-to-refresh
                           setState(() => searchVal = value);
                         });
@@ -92,16 +92,22 @@ class _MedicationsTabState extends State<MedicationsTab> {
                 children: [
                   FilterButton(
                     onTap: () {
-                      BottomModels.medicationFilterSheet(context, (
-                        startDate,
-                        endDate,
-                      ) {
-                        context.read<MedicationsBloc>().add(
-                          MedicationsEvent.filter(startDate, endDate),
-                        );
-                        context.pop();
-                        refresh();
-                      });
+                      BottomModels.medicationFilterSheet(
+                        context,
+                        (startDate, endDate) {
+                          context.read<MedicationsBloc>().add(
+                            MedicationsEvent.filter(startDate, endDate),
+                          );
+                          context.pop();
+                          refresh();
+                        },
+                        () {
+                          context.read<MedicationsBloc>().add(
+                            MedicationsEvent.filter(null, null),
+                          );
+                          refresh();
+                        },
+                      );
                     },
                   ),
                 ],

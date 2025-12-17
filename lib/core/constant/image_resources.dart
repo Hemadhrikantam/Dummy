@@ -85,7 +85,7 @@ class ImageResources {
   static const String walkSuccess = '$__icons/walk_success.png';
   static const String groomingSuccess = '$__icons/grooming_success.png';
   static const String dewormingSuccess = '$__icons/deworming_success.png';
-  static const String espenseSuccess = '$__icons/espense_success.png';
+  static const String expenseSuccess = '$__icons/expense_success.png';
   static const String bathIcon = '$__icons/Bath.png';
   static const String petFood = '$__icons/pet_food.svg';
   static const String addAdoption = '$__icons/add_adoption.png';

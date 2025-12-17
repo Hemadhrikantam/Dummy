@@ -33,14 +33,14 @@ extension DewormingFormValidation on DewormingFormState {
     return Formz.validate([
       date,
       productName,
-      dueDate,
-      reminderHour,
-      reminderMin,
-      reminderAmPm,
+      // dueDate,
+      // reminderHour,
+      // reminderMin,
+      // reminderAmPm,
       notes,
-      media,
-      frequency,
-      reminderTimezone,
+      // media,
+      // frequency,
+      // reminderTimezone,
     ]);
   }
 }

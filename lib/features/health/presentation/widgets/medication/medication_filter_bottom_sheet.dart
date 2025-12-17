@@ -3,7 +3,6 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
@@ -16,32 +15,46 @@ import 'package:iconsax/iconsax.dart';
 import '../../../../../core/widgets/app_graber.dart';
 
 class MedicationFilterBottomSheet extends StatefulWidget {
-  const MedicationFilterBottomSheet({super.key, required this.onSaved});
+  const MedicationFilterBottomSheet({
+    super.key,
+    required this.onSaved,
+    required this.onReset,
+  });
+
   final Function(String startDate, String endDate) onSaved;
+  final Function() onReset;
 
   @override
   State<MedicationFilterBottomSheet> createState() =>
-      _MedicationFilterBottomSheet();
+      _MedicationFilterBottomSheetState();
 }
 
-class _MedicationFilterBottomSheet extends State<MedicationFilterBottomSheet> {
-  DateTime selectedDate = DateTime.now();
-  final _dobController = TextEditingController();
-  final _dobController1 = TextEditingController();
+class _MedicationFilterBottomSheetState
+    extends State<MedicationFilterBottomSheet> {
+  DateTime? _startDate;
+  DateTime? _endDate;
+
+  final _startController = TextEditingController();
+  final _endController = TextEditingController();
+
   @override
   void initState() {
     super.initState();
     final state = context.read<MedicationsBloc>().state;
+
     if (state.startDate.value.isNotEmpty) {
-      _dobController.text = state.startDate.value;
+      _startController.text = state.startDate.value;
+      _startDate = _parseDate(state.startDate.value);
     }
+
     if (state.endDate.value.isNotEmpty) {
-      _dobController1.text = state.endDate.value;
+      _endController.text = state.endDate.value;
+      _endDate = _parseDate(state.endDate.value);
     }
   }
 
-  void _pickDate() {
-    DateTime tempPickedDate = DateTime.now();
+  void _pickStartDate() {
+    DateTime tempDate = _startDate ?? DateTime.now();
 
     showModalBottomSheet(
       context: context,
@@ -50,86 +63,29 @@ class _MedicationFilterBottomSheet extends State<MedicationFilterBottomSheet> {
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (_) {
-        return SizedBox(
-          height: 300,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Styles.gap4,
-              AppGraber(),
-              Styles.gap10,
-              const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  AppText.startDate,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-                ),
-              ),
-              Styles.gap10,
-              Expanded(
-                child: CupertinoDatePicker(
-                  mode: CupertinoDatePickerMode.date,
-                  initialDateTime: selectedDate,
-                  maximumDate: DateTime.now(),
-                  onDateTimeChanged: (DateTime dateTime) {
-                    tempPickedDate = dateTime;
-                  },
-                ),
-              ),
-              Styles.gap10,
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 10,
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: AppOutlinedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        name: Text(
-                          AppText.cancel,
-                          style: context.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.buttonTextColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Styles.gap10,
-                    Expanded(
-                      child: AppButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedDate = tempPickedDate;
-                            _dobController.text = _formatDate(tempPickedDate);
-                          });
-                          context.pop();
-                        },
-                        name: Text(
-                          AppText.save,
-                          style: context.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.buttonTextColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+        return _datePickerSheet(
+          title: AppText.startDate,
+          initialDate: tempDate,
+          maximumDate: DateTime.now(),
+          onSave: () {
+            setState(() {
+              _startDate = tempDate;
+              _endDate = null;
+              _endController.clear();
+              _startController.text = _formatDate(tempDate);
+            });
+            context.pop();
+          },
+          onChanged: (date) => tempDate = date,
         );
       },
     );
   }
 
-  void _pickDate1() {
-    DateTime tempPickedDate = DateTime.now();
+  void _pickEndDate() {
+    if (_startDate == null) return;
+
+    DateTime tempDate = _endDate ?? _startDate!;
 
     showModalBottomSheet(
       context: context,
@@ -138,88 +94,108 @@ class _MedicationFilterBottomSheet extends State<MedicationFilterBottomSheet> {
         borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       builder: (_) {
-        return SizedBox(
-          height: 300,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Styles.gap4,
-              AppGraber(),
-              Styles.gap10,
-              const SizedBox(height: 10),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  AppText.endDate,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
-                ),
-              ),
-              Styles.gap10,
-              Expanded(
-                child: CupertinoDatePicker(
-                  mode: CupertinoDatePickerMode.date,
-                  initialDateTime: selectedDate,
-                  maximumDate: DateTime.now(),
-                  onDateTimeChanged: (DateTime dateTime) {
-                    tempPickedDate = dateTime;
-                  },
-                ),
-              ),
-              Styles.gap10,
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 10,
-                ),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: AppOutlinedButton(
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        name: Text(
-                          AppText.cancel,
-                          style: context.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.buttonTextColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                    Styles.gap10,
-                    Expanded(
-                      child: AppButton(
-                        onPressed: () {
-                          setState(() {
-                            selectedDate = tempPickedDate;
-                            _dobController1.text = _formatDate(tempPickedDate);
-                          });
-                          context.pop();
-                        },
-                        name: Text(
-                          AppText.save,
-                          style: context.textTheme.titleSmall?.copyWith(
-                            fontWeight: FontWeight.w700,
-                            color: AppColors.buttonTextColor,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+        return _datePickerSheet(
+          title: AppText.endDate,
+          initialDate: tempDate,
+          minimumDate: _startDate,
+          maximumDate: DateTime.now(),
+          onSave: () {
+            setState(() {
+              _endDate = tempDate;
+              _endController.text = _formatDate(tempDate);
+            });
+            context.pop();
+          },
+          onChanged: (date) => tempDate = date,
         );
       },
     );
   }
 
-  String _formatDate(DateTime date) {
-    return "${date.day.toString().padLeft(2, '0')}/"
-        "${date.month.toString().padLeft(2, '0')}/"
-        "${date.year}";
+  Widget _datePickerSheet({
+    required String title,
+    required DateTime initialDate,
+    DateTime? minimumDate,
+    DateTime? maximumDate,
+    required VoidCallback onSave,
+    required Function(DateTime) onChanged,
+  }) {
+    return SizedBox(
+      height: 300,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Styles.gap4,
+          AppGraber(),
+          Styles.gap10,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Text(
+              title,
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+            ),
+          ),
+          Styles.gap10,
+          Expanded(
+            child: CupertinoDatePicker(
+              mode: CupertinoDatePickerMode.date,
+              initialDateTime: initialDate,
+              minimumDate: minimumDate,
+              maximumDate: maximumDate,
+              onDateTimeChanged: onChanged,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+            child: Row(
+              children: [
+                Expanded(
+                  child: AppOutlinedButton(
+                    onPressed: () => context.pop(),
+                    name: Text(
+                      AppText.cancel,
+                      style: context.textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.buttonTextColor,
+                      ),
+                    ),
+                  ),
+                ),
+                Styles.gap10,
+                Expanded(
+                  child: AppButton(
+                    onPressed: onSave,
+                    name: Text(
+                      AppText.save,
+                      style: context.textTheme.titleSmall?.copyWith(
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.buttonTextColor,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  bool get _isValidRange => _startDate != null && _endDate != null;
+
+  String _formatDate(DateTime date) =>
+      "${date.day.toString().padLeft(2, '0')}/"
+      "${date.month.toString().padLeft(2, '0')}/"
+      "${date.year}";
+
+  DateTime _parseDate(String value) {
+    final parts = value.split('/');
+    return DateTime(
+      int.parse(parts[2]),
+      int.parse(parts[1]),
+      int.parse(parts[0]),
+    );
   }
 
   @override
@@ -227,8 +203,8 @@ class _MedicationFilterBottomSheet extends State<MedicationFilterBottomSheet> {
     return Padding(
       padding: Styles.edgeInsetsOnlyW15,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
         mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Styles.gap6,
           AppGraber(),
@@ -241,76 +217,66 @@ class _MedicationFilterBottomSheet extends State<MedicationFilterBottomSheet> {
             ),
           ),
           Styles.gap15,
-          BlocSelector<MedicationsBloc, MedicationsState, NotEmpty>(
-            selector: (state) {
-              return state.startDate;
-            },
-            builder: (context, state) {
-              return AppTextFormField(
-                controller: _dobController,
-                hintText: 'Select Start Date',
-                readOnly: true,
-                isMandatory: true,
-                headerText: AppText.startDate,
-                suffixIcon: Iconsax.calendar,
-                onTap: _pickDate,
-              );
-            },
+          AppTextFormField(
+            controller: _startController,
+            readOnly: true,
+            headerText: AppText.startDate,
+            hintText: 'Select Start Date',
+            suffixIcon: Iconsax.calendar,
+            onTap: _pickStartDate,
           ),
           Styles.gap15,
-          BlocSelector<MedicationsBloc, MedicationsState, NotEmpty>(
-            selector: (state) {
-              return state.endDate;
-            },
-            builder: (context, state) {
-              return AppTextFormField(
-                headerText: AppText.endDate,
-                controller: _dobController1,
-                isMandatory: true,
-                onTap: _pickDate1,
-                readOnly: true,
-                suffixIcon: Iconsax.calendar,
-                hintText: 'Select End Date',
-              );
-            },
+          AppTextFormField(
+            controller: _endController,
+            readOnly: true,
+            headerText: AppText.endDate,
+            hintText: 'Select End Date',
+            suffixIcon: Iconsax.calendar,
+            onTap: _startDate == null ? null : _pickEndDate,
           ),
           Styles.gap30,
           Row(
             children: [
               Expanded(
-                child: AppOutlinedButton(
-                  onPressed: () {
-                    Navigator.pop(context);
+                child: BlocBuilder<MedicationsBloc, MedicationsState>(
+                  builder: (context, state) {
+                    return AppOutlinedButton(
+                      onPressed: () {
+                        setState(() {
+                          _startDate = null;
+                          _endDate = null;
+                          _startController.clear();
+                          _endController.clear();
+                        });
+                        if (state.startDate.isPure && state.endDate.isPure) {
+                          return;
+                        }
+                        widget.onReset();
+                      },
+                      name: Text(
+                        AppText.reset,
+                        style: context.textTheme.titleSmall?.copyWith(
+                          fontWeight: FontWeight.w700,
+                          color: AppColors.buttonTextColor,
+                        ),
+                      ),
+                    );
                   },
-                  name: Text(
-                    AppText.reset,
-                    style: context.textTheme.titleSmall?.copyWith(
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.buttonTextColor,
-                    ),
-                  ),
                 ),
               ),
               Styles.gap10,
               Expanded(
-                child: BlocBuilder<MedicationsBloc, MedicationsState>(
-                  builder: (context, state) {
-                    return AppButton(
-                      onPressed:
-                          (_dobController.text.isNotEmpty &&
-                                      _dobController1.text.isNotEmpty) ||
-                                  (state.startDate.isValid &&
-                                      state.endDate.isValid)
-                              ? () {
-                                widget.onSaved(
-                                  _dobController.text,
-                                  _dobController1.text,
-                                );
-                              }
-                              : () {},
-                      name: Text(AppText.save, style: Styles.buttonStyle),
-                    );
-                  },
+                child: AppButton(
+                  onPressed:
+                      _isValidRange
+                          ? () {
+                            widget.onSaved(
+                              _startController.text,
+                              _endController.text,
+                            );
+                          }
+                          : null,
+                  name: Text(AppText.save, style: Styles.buttonStyle),
                 ),
               ),
             ],

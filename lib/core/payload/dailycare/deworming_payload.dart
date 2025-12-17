@@ -16,10 +16,10 @@ class DewormingMediaPayload extends Equatable {
   final String fileSize;
 
   Map<String, dynamic> toMap() => {
-        'file_url': fileUrl,
-        'file_type': fileType,
-        'file_size': fileSize,
-      };
+    'file_url': fileUrl,
+    'file_type': fileType,
+    'file_size': fileSize,
+  };
 
   @override
   List<Object?> get props => [fileUrl, fileType, fileSize];
@@ -30,56 +30,56 @@ class DewormingPayload extends Equatable implements Payload {
     required this.petId,
     required this.dewormingDate,
     required this.productName,
-    this.frequencyId,
-    this.dueDate,
+    // this.frequencyId,
+    // this.dueDate,
     this.notes,
-    this.reminderTime,
-    this.timezone,
-    this.mediaList = const [],
+    // this.reminderTime,
+    // this.timezone,
+    // this.mediaList = const [],
   });
 
   // New schema fields only
   final String petId; // uuid
   final DateTime dewormingDate; // YYYY-MM-DD
   final String productName;
-  final String? frequencyId; // uuid (required only if setting reminder)
-  final DateTime? dueDate; // optional
+  // final String? frequencyId; // uuid (required only if setting reminder)
+  // final DateTime? dueDate; // optional
   final String? notes; // optional
-  final String? reminderTime; // HH:MM, optional
-  final String? timezone; // e.g., IST, optional
-  final List<DewormingMediaPayload> mediaList; // list of media
+  // final String? reminderTime; // HH:MM, optional
+  // final String? timezone; // e.g., IST, optional
+  // final List<DewormingMediaPayload> mediaList; // list of media
 
   @override
   List<Object?> get props => [
-        petId,
-        dewormingDate,
-        productName,
-        frequencyId,
-        dueDate,
-        notes,
-        reminderTime,
-        timezone,
-        mediaList,
-      ];
+    petId,
+    dewormingDate,
+    productName,
+    // frequencyId,
+    // dueDate,
+    notes,
+    // reminderTime,
+    // timezone,
+    // mediaList,
+  ];
 
   @override
   JsonMap toMap() {
-    final bool includeReminder =
-        (timezone != null && timezone!.isNotEmpty) && (reminderTime != null && reminderTime!.isNotEmpty);
+    // final bool includeReminder =
+    //     (timezone != null && timezone!.isNotEmpty) && (reminderTime != null && reminderTime!.isNotEmpty);
 
     return {
       'pet_id': petId,
       'deworming_date': AppUtil.formatDate(dewormingDate),
       'product_name': productName,
-      if (includeReminder && frequencyId != null && frequencyId!.isNotEmpty) 'frequency_id': frequencyId,
-      if (dueDate != null) 'due_date': AppUtil.formatDate(dueDate!),
-      'notes': notes ?? '',
-      if (includeReminder)
-        'reminder': {
-          'reminder_time': reminderTime,
-          'timezone': timezone,
-        },
-      'media': mediaList.map((m) => m.toMap()).toList(),
+      // if (includeReminder && frequencyId != null && frequencyId!.isNotEmpty) 'frequency_id': frequencyId,
+      // if (dueDate != null) 'due_date': AppUtil.formatDate(dueDate!),
+      // 'notes': notes ?? '',
+      // if (includeReminder)
+      //   'reminder': {
+      //     'reminder_time': reminderTime,
+      //     'timezone': timezone,
+      //   },
+      // 'media': mediaList.map((m) => m.toMap()).toList(),
     };
   }
 }

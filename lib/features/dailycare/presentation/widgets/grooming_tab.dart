@@ -41,14 +41,12 @@ class _GroomingTabState extends State<GroomingTab> {
 
   @override
   Widget build(BuildContext context) {
-    final now = DateTime.now();
-    _selectedDay = DateTime.now();
-    final firstDayOfMonth = DateTime(now.year, now.month, 1);
-    final nextMonth = DateTime(now.year, now.month + 1, 1);
-    final totalDaysInMonth = nextMonth.difference(firstDayOfMonth).inDays;
-    final daysInCurrentMonth = List.generate(
-      totalDaysInMonth,
-      (index) => DateTime(now.year, now.month, index + 1),
+     final now = DateTime.now();
+    _selectedDay ??= now;
+
+    final daysInLast30Days = List.generate(
+      30,
+      (index) => DateTime(now.year, now.month, now.day - index),
     );
 
     return RefreshIndicator.adaptive(
@@ -62,7 +60,7 @@ class _GroomingTabState extends State<GroomingTab> {
       child: AnimatedListView(
         children: [
           DaySelector(
-            days: daysInCurrentMonth,
+            days: daysInLast30Days.reversed.toList(),
             initialDate: now,
             onDaySelected: (day) {
               setState(() {

@@ -54,14 +54,15 @@ class _DaySelectorState extends State<DaySelector> {
     );
 
     if (index != -1) {
-    final itemExtent = _itemWidth + (_itemGap * 1.85);
-    final screenWidth = MediaQuery.of(context).size.width;
-    final targetOffset = (index * itemExtent) - (screenWidth / 2) + (_itemWidth / 5);
+      final itemExtent = _itemWidth + (_itemGap * 1.85);
+      final screenWidth = MediaQuery.of(context).size.width;
+      final targetOffset =
+          (index * itemExtent) - (screenWidth / 2) + (_itemWidth / 5);
       _scrollController.jumpTo(
-      targetOffset.clamp(
-        _scrollController.position.minScrollExtent,
-        _scrollController.position.maxScrollExtent,
-      ),
+        targetOffset.clamp(
+          _scrollController.position.minScrollExtent,
+          _scrollController.position.maxScrollExtent,
+        ),
       );
     }
   }
@@ -117,7 +118,17 @@ class _DaySelectorState extends State<DaySelector> {
                 fontSize: 14,
               ),
             ),
-            Styles.gap4,
+            Text(
+              DateFormat('MMM').format(day),
+              style: GoogleFonts.instrumentSans(
+                color:
+                    isSelected || isToday
+                        ? AppColors.buttonTextColor
+                        : AppColors.grey500,
+                fontSize: 12,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
           ],
         ),
       ),

@@ -126,21 +126,21 @@ class DewormingFormBloc extends Bloc<DewormingFormEvent, DewormingFormState> {
         ),
       ];
     }
-    final h = int.parse(state.reminderHour.value!.value);
-    final m = int.parse(state.reminderMin.value!.value);
-    final isPm = state.reminderAmPm.value!.value == "PM";
+    // final h = int.parse(state.reminderHour.value!.value);
+    // final m = int.parse(state.reminderMin.value!.value);
+    // final isPm = state.reminderAmPm.value!.value == "PM";
     final result = await _addDewormingUsecase(
       payload: DewormingPayload(
         dewormingDate: DateTime.parse(state.date.value),
         productName: state.productName.value,
-        dueDate: DateTime.parse(state.dueDate.value),
-        reminderTime:
-            '${(isPm ? h + 12 : h).toString().padLeft(2, '0')}:${m.toString().padLeft(2, '0')}',
+        // dueDate: DateTime.parse(state.dueDate.value),
+        // reminderTime:
+        //     '${(isPm ? h + 12 : h).toString().padLeft(2, '0')}:${m.toString().padLeft(2, '0')}',
         notes: state.notes.value,
-        mediaList: mediaList,
+        // mediaList: mediaList,
         petId: state.petId,
-        frequencyId: state.frequency.value!.id,
-        timezone: state.reminderTimezone.value!.value,
+        // frequencyId: state.frequency.value!.id,
+        // timezone: state.reminderTimezone.value!.value,
       ),
     );
 

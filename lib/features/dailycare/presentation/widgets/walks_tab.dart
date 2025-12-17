@@ -54,17 +54,11 @@ class _WalksTabState extends State<WalksTab> {
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
-    _selectedDay = DateTime.now();
-    final firstDayOfMonth = DateTime(now.year, now.month, 1);
-    final nextMonth = DateTime(now.year, now.month + 1, 1);
-    final totalDaysInMonth = nextMonth.difference(firstDayOfMonth).inDays;
-    // final nextFiveDays = List.generate(
-    //   6,
-    //   (index) => now.add(Duration(days: index)),
-    // );
-    final daysInCurrentMonth = List.generate(
-      totalDaysInMonth,
-      (index) => DateTime(now.year, now.month, index + 1),
+    _selectedDay ??= now;
+
+    final daysInLast30Days = List.generate(
+      30,
+      (index) => DateTime(now.year, now.month, now.day - index),
     );
 
     return RefreshIndicator.adaptive(
@@ -76,7 +70,7 @@ class _WalksTabState extends State<WalksTab> {
       child: AnimatedListView(
         children: [
           DaySelector(
-            days: daysInCurrentMonth,
+            days: daysInLast30Days.reversed.toList(),
             initialDate: now,
             onDaySelected: (day) {
               setState(() {

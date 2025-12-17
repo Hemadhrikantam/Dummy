@@ -108,6 +108,7 @@ class MedicationSuccessContent extends StatelessWidget {
                               DashboardEvent.changePage(0),
                             );
                             context.pop();
+                            context.pop();
                           },
                           backgroundColor: AppColors.white,
                           name: AppText.home,

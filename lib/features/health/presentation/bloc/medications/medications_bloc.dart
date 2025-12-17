@@ -68,8 +68,14 @@ class MedicationsBloc extends Bloc<MedicationsEvent, MedicationsState> {
   }
 
   void __filter(_Filter event, emit) {
-    final startDate = NotEmpty.dirty(value: event.startDate);
-    final endDate = NotEmpty.dirty(value: event.endDate);
+    final startDate =
+        event.startDate == null
+            ? NotEmpty.pure()
+            : NotEmpty.dirty(value: event.startDate!);
+    final endDate =
+        event.endDate == null
+            ? NotEmpty.pure()
+            : NotEmpty.dirty(value: event.endDate!);
     emit(state.copyWith(startDate: startDate, endDate: endDate));
   }
 

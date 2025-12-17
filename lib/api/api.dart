@@ -75,6 +75,7 @@ String medication(String? key, String? fromDate, String? toDate) {
   if (key != null && fromDate != null) {
     return '$__api/medications/?search=$key&from_date=$fromDate&to_date=$toDate';
   } else if (key != null) {
+    print('hiiii');
     return '$__api/medications/?search=$key';
   } else if (fromDate != null) {
     return '$__api/medications/?from_date=$fromDate&to_date=$toDate';

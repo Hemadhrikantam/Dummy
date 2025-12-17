@@ -42,15 +42,11 @@ class _MealsTabState extends State<MealsTab> {
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
-    _selectedDay = DateTime.now();
-    final firstDayOfMonth = DateTime(now.year, now.month, 1);
-    final nextMonth = DateTime(now.year, now.month + 1, 1);
-    final totalDaysInMonth = nextMonth.difference(firstDayOfMonth).inDays;
+    _selectedDay ??= now;
 
-    // Generate list of all days
-    final daysInCurrentMonth = List.generate(
-      totalDaysInMonth,
-      (index) => DateTime(now.year, now.month, index + 1),
+    final daysInLast30Days = List.generate(
+      30,
+      (index) => DateTime(now.year, now.month, now.day - index),
     );
 
     return RefreshIndicator.adaptive(
@@ -62,7 +58,7 @@ class _MealsTabState extends State<MealsTab> {
       child: AnimatedListView(
         children: [
           DaySelector(
-            days: daysInCurrentMonth,
+            days: daysInLast30Days.reversed.toList(),
             initialDate: now,
             onDaySelected: (day) {
               setState(() {
@@ -155,7 +151,12 @@ class _MealsTabState extends State<MealsTab> {
                                         child: AppNetworkImage(
                                           width: 24.0,
                                           height: 24.0,
-                                          url: mealItem.media.firstOrNull?.fileUrl ?? '',
+                                          url:
+                                              mealItem
+                                                  .media
+                                                  .firstOrNull
+                                                  ?.fileUrl ??
+                                              '',
                                           borderRadius:
                                               Styles.borderRadiusCircular04,
                                         ),

@@ -5,6 +5,6 @@ class MedicationsEvent with _$MedicationsEvent {
   const factory MedicationsEvent.init() = _Init;
   const factory MedicationsEvent.medications(String? key) = _Medications;
   const factory MedicationsEvent.delete(String id) = _Delete;
-  const factory MedicationsEvent.filter(String startDate, String endDate) =
+  const factory MedicationsEvent.filter(String? startDate, String? endDate) =
       _Filter;
 }

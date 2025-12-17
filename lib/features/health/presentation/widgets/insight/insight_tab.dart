@@ -1,10 +1,12 @@
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/animated_row_column.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/health/presentation/bloc/health/health_bloc.dart';
+import 'package:dummy/features/wag/presentation/pages/wag_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -16,6 +18,7 @@ import 'health_status_card.dart';
 import 'personalized_recommendations_section.dart';
 import 'predictive_alerts_section.dart';
 import 'recommendations_section.dart';
+
 class InsightTab extends StatelessWidget {
   final DashboardPetDetails? selectedPet;
   const InsightTab({super.key, required this.selectedPet});
@@ -100,7 +103,6 @@ class InsightTab extends StatelessWidget {
                         Styles.gap20,
                         Text(
                           '${selectedPet?.name ?? ''} has had 10 walks this month—great job keeping her active!',
-
                           style: context.textTheme.titleMedium?.copyWith(
                             color: AppColors.stepperColor,
                             fontWeight: FontWeight.w600,
@@ -112,6 +114,9 @@ class InsightTab extends StatelessWidget {
                           children: [
                             Expanded(
                               child: AppTextButton(
+                                onPressed: () {
+                                  context.push(WagPage.route());
+                                },
                                 backgroundColor: AppColors.white,
                                 name: empty ? "Learn More" : "Check Symptoms",
                                 borderColor: AppColors.grey500,

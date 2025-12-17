@@ -2,6 +2,7 @@ import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
+import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
@@ -271,9 +272,9 @@ class VaccinationFormBloc
             ? await _editVaccinationUsecase(payload: payload, id: event.id!)
             : await _addVaccinationUsecase(payload: payload);
 
-    result.fold(
-      (failure) => emit(state.copyWith(submitStatus: Status.error)),
-      (success) => emit(state.copyWith(submitStatus: Status.success)),
-    );
+    result.fold((failure) {
+      emit(state.copyWith(submitStatus: Status.error));
+      AppAlert.showToast(message: failure.message);
+    }, (success) => emit(state.copyWith(submitStatus: Status.success)));
   }
 }

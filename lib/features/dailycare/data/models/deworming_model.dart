@@ -9,7 +9,7 @@ class PetDewormingModel extends PetDeworming {
     required super.petId,
     required super.date,
     required super.productName,
-    required super.dueDate,
+    super.dueDate,
     required super.media,
     super.notes,
     super.isActive,

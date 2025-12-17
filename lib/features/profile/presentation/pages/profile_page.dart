@@ -149,7 +149,7 @@ class _ProfileCard extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: 15,
+          bottom: 20,
           child: SizedBox(
             width: MediaQuery.of(context).size.width * .8,
             child: Column(
@@ -209,6 +209,7 @@ class _ProfileCard extends StatelessWidget {
                   ],
                 ),
                 Styles.gap65,
+                Styles.gap20,
                 AppAssestsImage(
                   path: ImageResources.dashboardLogo,
                   width: 120,
