@@ -13,6 +13,7 @@ abstract class ProfileRepository {
   AppSuccessResponse addMedia({required Payload payload});
   AppSuccessResponse deleteMedia({required String id});
   AppSuccessResponse addDocument({required Payload payload});
+  AppSuccessResponse deleteDocument({required String id});
   AppTypeResponse<List<Media>> medias();
   AppTypeResponse<Media> getMedia({required String id});
   AppTypeResponse<List<Media>> favoriteMedias();
@@ -37,4 +38,7 @@ abstract class ProfileRepository {
   AppSuccessResponse editAccount({
     required Payload payload,
   });
+
+  AppTypeResponse<List<Timeline>> memories();
+  AppSuccessResponse addMemory({required Payload payload});
 }

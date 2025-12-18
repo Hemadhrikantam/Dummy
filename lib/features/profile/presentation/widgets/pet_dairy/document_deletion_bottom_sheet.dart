@@ -5,12 +5,12 @@ import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_blo
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/constant/app_colors.dart';
-import '../../../../core/constant/styles.dart';
-import '../../../../../core/widgets/buttons/app_text_button.dart';
+import '../../../../../core/constant/app_colors.dart';
+import '../../../../../core/constant/styles.dart';
+import '../../../../../../core/widgets/buttons/app_text_button.dart';
 
-class MediaDeletionBottomSheet extends StatelessWidget {
-  const MediaDeletionBottomSheet({super.key, this.onTap, required this.id});
+class DocumentDeletionBottomSheet extends StatelessWidget {
+  const DocumentDeletionBottomSheet({super.key, this.onTap, required this.id});
   final VoidCallback? onTap;
   final String id;
 
@@ -49,7 +49,7 @@ class MediaDeletionBottomSheet extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: AppText.media,
+                      text: AppText.document,
                       style: context.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,
@@ -78,7 +78,7 @@ class MediaDeletionBottomSheet extends StatelessWidget {
                     child: AppTextButton(
                       onPressed: () {
                         context.read<PetDairyBloc>().add(
-                          PetDairyEvent.deleteMedia(id),
+                          PetDairyEvent.deleteDocument(id),
                         );
                         context.pop();
                         context.pop();

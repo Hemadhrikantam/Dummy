@@ -11,6 +11,7 @@ abstract class GroomingFormState with _$GroomingFormState {
     @Default(false) bool validation,
     @Default('') String petId,
     @Default([]) final List<DropStringItem> groomingTypes,
+    @Default('') String addedGroomingId,
   }) = _GroomingFormState;
 }
 

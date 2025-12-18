@@ -29,12 +29,12 @@ class TimeLineTab extends StatelessWidget {
                   ? LoadingWidget.circularProgressIndicatorCenter
                   : AppCustomListViewBuilder(
                     physics: NeverScrollableScrollPhysics(),
-                    itemCount: state.timelines.length,
+                    itemCount: state.memories.length,
                     isExpand: false,
                     shrinkWrap: true,
                     separatorBuilder: (context, i) => Styles.gap8,
                     itemBuilder: (context, i) {
-                      final item = state.timelines[i];
+                      final item = state.memories[i];
                       return Row(
                         children: [
                           SizedBox(

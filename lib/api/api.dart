@@ -133,3 +133,6 @@ String aiInsights(String petId) => '$__api/ai-insights?petId=$petId';
 
 // Notifications
 String notifications = '$__api/notifications';
+
+//memories
+String memories = '$__api/memories';

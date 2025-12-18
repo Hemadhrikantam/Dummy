@@ -218,6 +218,9 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
 
     await result.fold(
       (error) async {
+        if (error.message.contains('Pet limit reached')) {
+          BottomModels.needPremiumBottomSheet(currentContext);
+        }
         AppAlert.showToast(message: error.message);
         emit(state.copyWith(submitStatus: Status.error));
       },

@@ -16,7 +16,7 @@ import 'package:dummy/features/profile/domain/entities/media.dart';
 import 'package:dummy/features/profile/presentation/widgets/logout_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/manage_family_members/clinic_nearme_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/manage_family_members/stores_nearme_bottom_sheet.dart';
-import 'package:dummy/features/profile/presentation/widgets/media_deletion_bottom_sheet.dart';
+import 'package:dummy/features/profile/presentation/widgets/pet_dairy/media_deletion_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/member_deletion_bottom_sheet.dart';
 import 'package:dummy/features/profile/presentation/widgets/pet_dairy/share_bottom_sheet_content.dart';
 import 'package:dummy/features/profile/presentation/widgets/plan_overview_bottom_sheet.dart';
@@ -46,6 +46,7 @@ import '../../features/profile/presentation/widgets/manage_family_members/manage
 import '../../features/profile/presentation/widgets/pet_dairy/add_pet_documents.dart';
 import '../../features/profile/presentation/widgets/pet_dairy/add_pet_media.dart';
 import '../../features/profile/presentation/widgets/pet_dairy/add_timeline.dart';
+import '../../features/profile/presentation/widgets/pet_dairy/document_deletion_bottom_sheet.dart';
 import '../widgets/image_picker_container.dart';
 import 'package:dummy/features/ngo/presentation/widgets/add_listing_form.dart';
 import 'package:dummy/features/ngo/presentation/bloc/listing_form/listing_form_bloc.dart';
@@ -259,7 +260,10 @@ class BottomModels {
     );
   }
 
-  static Future<T?> addGroomingSuccessBottomSheet<T>(BuildContext context) {
+  static Future<T?> addGroomingSuccessBottomSheet<T>(
+    BuildContext context,
+    void Function()? onTap,
+  ) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: backgroundColor,
@@ -372,6 +376,21 @@ class BottomModels {
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
         return MediaDeletionBottomSheet(id: id);
+      },
+    );
+  }
+
+  static Future<T?> documentDeleteBottomSheet<T>(
+    BuildContext context,
+    String id,
+  ) {
+    return showModalBottomSheet<T>(
+      isScrollControlled: true,
+      backgroundColor: backgroundColor,
+      context: context,
+      shape: Styles.bottomDialog,
+      builder: (BuildContext context) {
+        return DocumentDeletionBottomSheet(id: id);
       },
     );
   }

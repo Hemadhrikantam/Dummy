@@ -61,6 +61,9 @@ class InjectionBloc {
       favoriteMediasUsecases: getIt<FavoriteMediasUsecases>(),
       deleteMediaUsecases: getIt<DeleteMediaUsecases>(),
       listTimelinesUsecases: getIt<ListTimelineUsecases>(),
+      deleteDocumentUsecases: getIt<DeleteDocumentUsecases>(),
+      memoriesUsecases: getIt<MemoriesUsecases>(),
+      addMemoryUsecases: getIt<AddMemoryUsecases>(),
     );
   }
 

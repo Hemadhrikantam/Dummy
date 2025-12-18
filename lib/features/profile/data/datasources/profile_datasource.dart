@@ -14,6 +14,7 @@ abstract class ProfileDatasource {
   AppSuccessResponse deleteMedia({required String id});
   AppSuccessResponse editMedia({required String id, required Payload payload});
   AppSuccessResponse addDocument({required Payload payload});
+  AppSuccessResponse deleteDocument({required String id});
   AppSuccessResponse updateFavroute({
     required String mediaId,
     required bool isFavroute,
@@ -35,4 +36,7 @@ abstract class ProfileDatasource {
   });
 
   AppSuccessResponse editAccount({required Payload payload});
+
+  AppTypeResponse<List<TimelineModel>> memories();
+  AppSuccessResponse addMemory({required Payload payload});
 }

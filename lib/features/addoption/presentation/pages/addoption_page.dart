@@ -14,6 +14,7 @@ import '../../../../core/widgets/buttons/app_button.dart';
 import '../../../../core/widgets/custom_header_widget.dart';
 import '../../../../core/widgets/custom_search_bar.dart';
 import '../../../dailycare/presentation/widgets/overview_header_widget.dart';
+import '../../../profile/presentation/bloc/account/account_bloc.dart';
 import '../widgets/adoption_tabbar_view.dart';
 
 class AddoptionPage extends StatefulWidget {
@@ -68,19 +69,29 @@ class _AddoptionPage extends State<AddoptionPage> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               // FilterButton(),
-              AppButton(
-                height: 42,
-                showShadow: false,
-                name: Text(
-                  AppText.add,
-                  style: context.textTheme.titleSmall?.copyWith(
-                    color: AppColors.buttonTextColor,
-                    fontWeight: FontWeight.w700,
-                  ),
-                ),
-                width: 90,
-                onPressed: () {
-                  BottomModels.addAdoptionBottomSheet(context);
+              BlocBuilder<AccountBloc, AccountState>(
+                builder: (context, state) {
+                  return AppButton(
+                    height: 42,
+                    showShadow: false,
+                    name: Text(
+                      AppText.add,
+                      style: context.textTheme.titleSmall?.copyWith(
+                        color: AppColors.buttonTextColor,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    width: 90,
+                    onPressed: () {
+                      if (state.accountDetails?.account.subscriptionType ==
+                              'free' &&
+                          (state.accountDetails?.pets ?? []).length == 1) {
+                        BottomModels.needPremiumBottomSheet(context);
+                        return;
+                      }
+                      BottomModels.addAdoptionBottomSheet(context);
+                    },
+                  );
                 },
               ),
             ],

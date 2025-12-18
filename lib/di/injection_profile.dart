@@ -12,6 +12,8 @@ Future<void> __profileDependencies() async {
 
   // profile Usecases
   final documents = DocumentsUsecases(getIt<ProfileRepository>());
+  final memories = MemoriesUsecases(getIt<ProfileRepository>());
+  final addMemoryUsecases = AddMemoryUsecases(getIt<ProfileRepository>());
   final eventFields = EventFieldsUsecases(getIt<ProfileRepository>());
   final addMediaUsecases = AddMediaUsecases(getIt<ProfileRepository>());
   final addDocumentUsecases = AddDocumentUsecases(getIt<ProfileRepository>());
@@ -26,6 +28,9 @@ Future<void> __profileDependencies() async {
     getIt<ProfileRepository>(),
   );
   final deleteMediaUsecases = DeleteMediaUsecases(getIt<ProfileRepository>());
+  final deleteDocumentUsecases = DeleteDocumentUsecases(
+    getIt<ProfileRepository>(),
+  );
   final addPetUsecases = AddPetUsecases(getIt<ProfileRepository>());
   final listTimelineUsecases = ListTimelineUsecases(getIt<ProfileRepository>());
   final accountDetailUsecases = AccountDetailUsecases(
@@ -38,6 +43,8 @@ Future<void> __profileDependencies() async {
 
   //   //
   getIt.registerLazySingleton<DocumentsUsecases>(() => documents);
+  getIt.registerLazySingleton<MemoriesUsecases>(() => memories);
+  getIt.registerLazySingleton<AddMemoryUsecases>(() => addMemoryUsecases);
   getIt.registerLazySingleton<EventFieldsUsecases>(() => eventFields);
   getIt.registerLazySingleton<AddMediaUsecases>(() => addMediaUsecases);
   getIt.registerLazySingleton<AddDocumentUsecases>(() => addDocumentUsecases);
@@ -45,6 +52,9 @@ Future<void> __profileDependencies() async {
   getIt.registerLazySingleton<EditMediaUsecases>(() => editMediaUsecases);
   getIt.registerLazySingleton<GetMediaUsecases>(() => getMediaUsecases);
   getIt.registerLazySingleton<DeleteMediaUsecases>(() => deleteMediaUsecases);
+  getIt.registerLazySingleton<DeleteDocumentUsecases>(
+    () => deleteDocumentUsecases,
+  );
   getIt.registerLazySingleton<EditPetUsecases>(() => editPetUsecases);
   getIt.registerLazySingleton<AddPetUsecases>(() => addPetUsecases);
   getIt.registerLazySingleton<EditAccountUsecases>(() => editAccountUsecases);

@@ -17,6 +17,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/bottom_models.dart';
 import '../../../../../core/widgets/mandatory_field_widget.dart';
+import '../../../../profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
 import '../../bloc/groomings/groomings_bloc.dart';
 
 class AddGroomingForm extends StatefulWidget {
@@ -148,7 +149,17 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                           GroomingsEvent.groomings(DateTime.now()),
                         );
                         context.pop();
-                        BottomModels.addGroomingSuccessBottomSheet(context);
+                        BottomModels.addGroomingSuccessBottomSheet(context, () {
+                          //   context.read<PetDairyBloc>().add(
+                          //   PetDairyEvent.addMemory(
+                          //     state.petId,
+                          //     'grooming',
+                          //     state.addedGroomingId,
+                          //     title,
+                          //     description,
+                          //   ),
+                          // );
+                        });
                       }
                     },
                     builder: (context, state) {

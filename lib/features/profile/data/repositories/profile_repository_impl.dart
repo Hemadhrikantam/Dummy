@@ -28,6 +28,11 @@ class ProfileRepositoryImpl extends ProfileRepository {
   }
 
   @override
+  AppSuccessResponse deleteDocument({required String id}) {
+    return datasource.deleteDocument(id: id);
+  }
+
+  @override
   AppSuccessResponse addMedia({required Payload payload}) {
     return datasource.addMedia(payload: payload);
   }
@@ -99,5 +104,15 @@ class ProfileRepositoryImpl extends ProfileRepository {
   @override
   AppSuccessResponse editAccount({required Payload payload}) {
     return datasource.editAccount(payload: payload);
+  }
+
+  @override
+  AppTypeResponse<List<Timeline>> memories() {
+    return datasource.memories();
+  }
+
+  @override
+  AppSuccessResponse addMemory({required Payload payload}) {
+    return datasource.addMemory(payload: payload);
   }
 }

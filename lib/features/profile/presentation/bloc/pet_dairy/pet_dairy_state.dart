@@ -10,5 +10,7 @@ abstract class PetDairyState with _$PetDairyState {
     @Default([]) final List<Media> favoriteMedias,
     @Default([]) final List<Documents> documents,
     @Default(DropdownStringValue.pure()) final DropdownStringValue eventId,
+    @Default([]) final List<Timeline> memories,
+    @Default(Status.init) final Status addMemoryStatus,
   }) = _PetDairyState;
 }

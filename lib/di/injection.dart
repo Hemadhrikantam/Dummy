@@ -84,7 +84,9 @@ import 'package:dummy/features/profile/domain/usecases/account_detail_usecases.d
 import 'package:dummy/features/profile/domain/usecases/add_account_user_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/add_document_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/add_media_usecases.dart';
+import 'package:dummy/features/profile/domain/usecases/add_memory_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/add_pet_usecases.dart';
+import 'package:dummy/features/profile/domain/usecases/delete_document_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/delete_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/documents_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_account_usecases.dart';
@@ -96,6 +98,7 @@ import 'package:dummy/features/profile/domain/usecases/favorite_medias_usecases.
 import 'package:dummy/features/profile/domain/usecases/get_media_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/medias_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/list_timeline_usecases.dart';
+import 'package:dummy/features/profile/domain/usecases/memories_usecases.dart';
 import 'package:dummy/features/profile/presentation/bloc/account/account_bloc.dart';
 import 'package:dummy/features/profile/presentation/bloc/document_form/document_form_bloc.dart';
 import 'package:dummy/features/profile/presentation/bloc/media_form/media_form_bloc.dart';

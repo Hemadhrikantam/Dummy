@@ -124,7 +124,7 @@ class PetDocumentPage extends StatelessWidget {
                         onTap: () {
                           ShareService.shareByUrl(
                             media.fileUrl,
-                            text: media.notes ?? "",
+                            text: media.notes ?? "document",
                           );
                         },
                         child: SvgPicture.asset(
@@ -135,7 +135,7 @@ class PetDocumentPage extends StatelessWidget {
                       Styles.gap20,
                       GestureDetector(
                         onTap: () {
-                          BottomModels.mediaDeleteBottomSheet(
+                          BottomModels.documentDeleteBottomSheet(
                             context,
                             media.id,
                           );

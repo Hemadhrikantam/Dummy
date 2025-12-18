@@ -15,6 +15,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../../core/utils/bottom_models.dart';
+import '../../../../../core/utils/toast_message.dart';
+
 part 'pet_form_event.dart';
 part 'pet_form_state.dart';
 part 'pet_form_bloc.freezed.dart';
@@ -160,11 +163,18 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
       edit: event.id != null,
     );
 
-    result.fold((error) => emit(state.copyWith(submitStatus: Status.error)), (
-      success,
-    ) async {
-      emit(state.copyWith(submitStatus: Status.success));
-    });
+    result.fold(
+      (error) {
+        emit(state.copyWith(submitStatus: Status.error));
+        if (error.message.contains('Pet limit reached')) {
+          BottomModels.needPremiumBottomSheet(currentContext);
+        }
+        AppAlert.showToast(message: error.message);
+      },
+      (success) async {
+        emit(state.copyWith(submitStatus: Status.success));
+      },
+    );
     emit(state.copyWith(submitStatus: Status.init));
   }
 

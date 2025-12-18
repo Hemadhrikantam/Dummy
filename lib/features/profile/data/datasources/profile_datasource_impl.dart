@@ -133,6 +133,42 @@ class ProfileDatasourceImpl extends ProfileDatasource {
   }
 
   @override
+  AppSuccessResponse deleteDocument({required String id}) async {
+    final response = await http.delete(
+      path: '${api.petDairyDocuments}$id/',
+      options: Options(contentType: 'multipart/form-data'),
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message: data['message'] as String? ?? 'Deleted successfully',
+              ),
+            );
+          }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
   AppSuccessResponse addMedia({required Payload payload}) async {
     final response = await http.post(
       path: api.petDairyMedia,
@@ -483,7 +519,7 @@ class ProfileDatasourceImpl extends ProfileDatasource {
           if (statusCode <= 201) {
             return Right(
               SuccessMessage(
-                message: data['message'] as String? ?? 'Added successfully',
+                message: data['message'] as String? ?? 'Deleted successfully',
               ),
             );
           }
@@ -569,6 +605,79 @@ class ProfileDatasourceImpl extends ProfileDatasource {
               item.add(TimelineModel.fromMap(dropList as JsonMap));
             }
             return Right(item);
+          }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppTypeResponse<List<TimelineModel>> memories() async {
+    final response = await http.get(
+      path: api.memories,
+      queryParameters: {
+        'pet_id': currentContext.read<DashboardBloc>().state.selectedPet?.id,
+      },
+    );
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            final item = <TimelineModel>[];
+            for (final documents in data['data'] as List? ?? []) {
+              final map = Map<String, dynamic>.from(documents as Map);
+              item.add(TimelineModel.fromMap(map));
+            }
+            return Right(item);
+          }
+
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppSuccessResponse addMemory({required Payload payload}) async {
+    final response = await http.post(path: api.memories, data: payload.toMap());
+    return response.fold(
+      (error) {
+        return Left(ErrorMessage(message: error.message));
+      },
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message: data['message'] as String? ?? 'Added successfully',
+              ),
+            );
           }
           return Left(
             ErrorMessage(

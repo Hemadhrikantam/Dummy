@@ -6,6 +6,10 @@ import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/profile/presentation/pages/add_pet/add_pet_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../core/utils/bottom_models.dart';
+import '../../../profile/presentation/bloc/account/account_bloc.dart';
 
 class PetListHomeWidget extends StatelessWidget {
   const PetListHomeWidget({
@@ -71,15 +75,30 @@ class PetListHomeWidget extends StatelessWidget {
             ),
           ),
           Styles.gap10,
-          CustomCard(
-            padding: Styles.edgeInsetsAll10,
-            borderRadius: Styles.borderRadiusCircular40,
-            backgroundColor: AppColors.stepperColor,
-            borderColor: AppColors.stepperColor,
-            onTap: () {
-              context.push(AddPetPage.route());
+          BlocBuilder<AccountBloc, AccountState>(
+            builder: (context, state) {
+              return (state.accountDetails?.account.subscriptionType ==
+                              'premium' &&
+                          (state.accountDetails?.pets ?? []).length < 3) ||
+                      state.accountDetails?.account.subscriptionType == 'free'
+                  ? CustomCard(
+                    padding: Styles.edgeInsetsAll10,
+                    borderRadius: Styles.borderRadiusCircular40,
+                    backgroundColor: AppColors.stepperColor,
+                    borderColor: AppColors.stepperColor,
+                    onTap: () {
+                      if (state.accountDetails?.account.subscriptionType ==
+                              'free' &&
+                          (state.accountDetails?.pets ?? []).length == 1) {
+                        BottomModels.needPremiumBottomSheet(context);
+                        return;
+                      }
+                      context.push(AddPetPage.route());
+                    },
+                    child: Icon(Icons.add, color: AppColors.white, size: 31),
+                  )
+                  : Styles.sizedBox;
             },
-            child: Icon(Icons.add, color: AppColors.white, size: 31),
           ),
         ],
       ),

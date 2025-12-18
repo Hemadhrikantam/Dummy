@@ -122,7 +122,12 @@ class GroomingFormBloc extends Bloc<GroomingFormEvent, GroomingFormState> {
 
     result.fold(
       (failure) => emit(state.copyWith(submitStatus: Status.error)),
-      (success) => emit(state.copyWith(submitStatus: Status.success)),
+      (success) => emit(
+        state.copyWith(
+          submitStatus: Status.success,
+          // addedGroomingId: success,
+        ),
+      ),
     );
   }
 
