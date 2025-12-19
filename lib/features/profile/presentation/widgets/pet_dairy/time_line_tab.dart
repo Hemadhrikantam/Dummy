@@ -4,6 +4,7 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
+import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/app_icon.dart';
@@ -75,7 +76,6 @@ class TimeLineTab extends StatelessWidget {
                               ],
                             ),
                           ),
-
                           Styles.gap8,
                           Expanded(
                             child: CustomCard(
@@ -154,7 +154,7 @@ class TimeLineTab extends StatelessWidget {
                                         Styles.gap6,
                                         Text(
                                           item.notes ??
-                                              'This is pic captued in a beach, he’s running.....',
+                                              'This is pic captued in a ${item.type}',
                                           style: context.textTheme.titleSmall
                                               ?.copyWith(
                                                 fontWeight: FontWeight.w400,
@@ -165,7 +165,9 @@ class TimeLineTab extends StatelessWidget {
                                         ),
                                         Styles.gap6,
                                         Text(
-                                          item.eventDate,
+                                          AppUtil.convertToYYYYMMDD2(
+                                            item.eventDate,
+                                          ),
                                           style: context.textTheme.titleSmall
                                               ?.copyWith(
                                                 fontWeight: FontWeight.w300,

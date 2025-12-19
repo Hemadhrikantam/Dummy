@@ -55,6 +55,7 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
     on<_DeleteMedia>(__deleteMedia);
     on<_DeleteDocument>(__deleteDocument);
     on<_AddMemory>(__addMemory);
+    on<_AddedEntityId>(__addedEntityId);
   }
 
   final DocumentsUsecases _documentsUsecases;
@@ -107,10 +108,8 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
 
     final payload = MemoriesPayload(
       petId: event.id,
-      entityId: event.entityId,
+      entityId: state.addedEntityId,
       entityType: event.entityType,
-      title: event.title,
-      description: event.description,
     );
     final result = await _addMemoryUsecases(payload: payload);
     result.fold(
@@ -193,5 +192,9 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
     final favoriteMedias = await _favMedias();
     final medias = await _medias();
     emit(state.copyWith(favoriteMedias: favoriteMedias, medias: medias));
+  }
+
+  void __addedEntityId(_AddedEntityId event, Emitter<PetDairyState> emit) {
+    emit(state.copyWith(addedEntityId: event.id));
   }
 }

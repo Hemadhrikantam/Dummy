@@ -30,15 +30,22 @@ class _VetNearMePage extends State<VetNearMePage>
     with TickerProviderStateMixin {
   late TabController _tabController;
   int selectedIndex = 0;
+  bool _mapLoaded = false;
 
   @override
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
-    Future.delayed(Duration.zero, () async {
-      context.read<VetNearMeBloc>().add(VetNearMeEvent.init());
-      // BottomModels.clinicNearMeBottomSheet(context);
-    });
+    // Future.delayed(Duration.zero, () async {
+    //   context.read<VetNearMeBloc>().add(VetNearMeEvent.init());
+    // });
+  }
+
+  void _onMapLoaded() {
+    if (_mapLoaded) return;
+    _mapLoaded = true;
+
+    context.read<VetNearMeBloc>().add(VetNearMeEvent.init());
   }
 
   @override
@@ -54,6 +61,7 @@ class _VetNearMePage extends State<VetNearMePage>
         alignment: Alignment.bottomCenter,
         children: [
           GoogleMapView(
+            onMapLoaded: _onMapLoaded,
             child: Container(
               padding: Styles.edgeInsetsAll10,
               decoration: BoxDecoration(color: Colors.transparent),

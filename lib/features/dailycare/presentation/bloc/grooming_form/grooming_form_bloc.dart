@@ -13,6 +13,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
+
 part 'grooming_form_event.dart';
 part 'grooming_form_state.dart';
 part 'grooming_form_bloc.freezed.dart';
@@ -120,15 +122,21 @@ class GroomingFormBloc extends Bloc<GroomingFormEvent, GroomingFormState> {
       ),
     );
 
-    result.fold(
-      (failure) => emit(state.copyWith(submitStatus: Status.error)),
-      (success) => emit(
-        state.copyWith(
-          submitStatus: Status.success,
-          // addedGroomingId: success,
-        ),
-      ),
-    );
+    result.fold((failure) => emit(state.copyWith(submitStatus: Status.error)), (
+      success,
+    ) {
+      String? extractedId;
+      if (success.message.contains(' - ')) {
+        final parts = success.message.split(' - ');
+        if (parts.length > 1) {
+          extractedId = parts.last.trim();
+        }
+      }
+      currentContext.read<PetDairyBloc>().add(
+        PetDairyEvent.addedEntityId(extractedId ?? ''),
+      );
+      emit(state.copyWith(submitStatus: Status.success));
+    });
   }
 
   String _inferFileType(String pathOrUrl) {

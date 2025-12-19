@@ -1064,7 +1064,6 @@ mixin _$GroomingFormState {
   bool get validation => throw _privateConstructorUsedError;
   String get petId => throw _privateConstructorUsedError;
   List<DropStringItem> get groomingTypes => throw _privateConstructorUsedError;
-  String get addedGroomingId => throw _privateConstructorUsedError;
 
   /// Create a copy of GroomingFormState
   /// with the given fields replaced by the non-null parameter values.
@@ -1089,7 +1088,6 @@ abstract class $GroomingFormStateCopyWith<$Res> {
     bool validation,
     String petId,
     List<DropStringItem> groomingTypes,
-    String addedGroomingId,
   });
 }
 
@@ -1116,7 +1114,6 @@ class _$GroomingFormStateCopyWithImpl<$Res, $Val extends GroomingFormState>
     Object? validation = null,
     Object? petId = null,
     Object? groomingTypes = null,
-    Object? addedGroomingId = null,
   }) {
     return _then(
       _value.copyWith(
@@ -1160,11 +1157,6 @@ class _$GroomingFormStateCopyWithImpl<$Res, $Val extends GroomingFormState>
                     ? _value.groomingTypes
                     : groomingTypes // ignore: cast_nullable_to_non_nullable
                         as List<DropStringItem>,
-            addedGroomingId:
-                null == addedGroomingId
-                    ? _value.addedGroomingId
-                    : addedGroomingId // ignore: cast_nullable_to_non_nullable
-                        as String,
           )
           as $Val,
     );
@@ -1189,7 +1181,6 @@ abstract class _$$GroomingFormStateImplCopyWith<$Res>
     bool validation,
     String petId,
     List<DropStringItem> groomingTypes,
-    String addedGroomingId,
   });
 }
 
@@ -1215,7 +1206,6 @@ class __$$GroomingFormStateImplCopyWithImpl<$Res>
     Object? validation = null,
     Object? petId = null,
     Object? groomingTypes = null,
-    Object? addedGroomingId = null,
   }) {
     return _then(
       _$GroomingFormStateImpl(
@@ -1259,11 +1249,6 @@ class __$$GroomingFormStateImplCopyWithImpl<$Res>
                 ? _value._groomingTypes
                 : groomingTypes // ignore: cast_nullable_to_non_nullable
                     as List<DropStringItem>,
-        addedGroomingId:
-            null == addedGroomingId
-                ? _value.addedGroomingId
-                : addedGroomingId // ignore: cast_nullable_to_non_nullable
-                    as String,
       ),
     );
   }
@@ -1281,7 +1266,6 @@ class _$GroomingFormStateImpl implements _GroomingFormState {
     this.validation = false,
     this.petId = '',
     final List<DropStringItem> groomingTypes = const [],
-    this.addedGroomingId = '',
   }) : _groomingTypes = groomingTypes;
 
   @override
@@ -1315,12 +1299,8 @@ class _$GroomingFormStateImpl implements _GroomingFormState {
   }
 
   @override
-  @JsonKey()
-  final String addedGroomingId;
-
-  @override
   String toString() {
-    return 'GroomingFormState(submitStatus: $submitStatus, date: $date, groomingType: $groomingType, notes: $notes, media: $media, validation: $validation, petId: $petId, groomingTypes: $groomingTypes, addedGroomingId: $addedGroomingId)';
+    return 'GroomingFormState(submitStatus: $submitStatus, date: $date, groomingType: $groomingType, notes: $notes, media: $media, validation: $validation, petId: $petId, groomingTypes: $groomingTypes)';
   }
 
   @override
@@ -1341,9 +1321,7 @@ class _$GroomingFormStateImpl implements _GroomingFormState {
             const DeepCollectionEquality().equals(
               other._groomingTypes,
               _groomingTypes,
-            ) &&
-            (identical(other.addedGroomingId, addedGroomingId) ||
-                other.addedGroomingId == addedGroomingId));
+            ));
   }
 
   @override
@@ -1357,7 +1335,6 @@ class _$GroomingFormStateImpl implements _GroomingFormState {
     validation,
     petId,
     const DeepCollectionEquality().hash(_groomingTypes),
-    addedGroomingId,
   );
 
   /// Create a copy of GroomingFormState
@@ -1382,7 +1359,6 @@ abstract class _GroomingFormState implements GroomingFormState {
     final bool validation,
     final String petId,
     final List<DropStringItem> groomingTypes,
-    final String addedGroomingId,
   }) = _$GroomingFormStateImpl;
 
   @override
@@ -1401,8 +1377,6 @@ abstract class _GroomingFormState implements GroomingFormState {
   String get petId;
   @override
   List<DropStringItem> get groomingTypes;
-  @override
-  String get addedGroomingId;
 
   /// Create a copy of GroomingFormState
   /// with the given fields replaced by the non-null parameter values.

@@ -707,6 +707,7 @@ class HealthDatasourceImpl extends HealthDatasource {
     final response = await http.get(
       path: api.clinics(latitude, longitude, type),
     );
+
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));
@@ -714,20 +715,26 @@ class HealthDatasourceImpl extends HealthDatasource {
       (success) async {
         try {
           final data = success.data;
+
           final statusCode =
               (data is Map)
                   ? data['statusCode'] as int? ?? success.statusCode
                   : success.statusCode;
-          if (statusCode <= 201) {
-            final item = <ClinicModel>[];
-            final list =
-                (data is Map ? data['data'] as List? : data as List?) ?? [];
-            for (final documents in list) {
-              final map = Map<String, dynamic>.from(documents as Map);
-              item.add(ClinicModel.fromJson(map));
-            }
-            return Right(item);
+
+          if (statusCode <= 201 && data is Map) {
+            print("----------------I'm being called--------------");
+            final List list = (data['data']?['places'] as List?) ?? [];
+
+            final items =
+                list
+                    .map(
+                      (e) => ClinicModel.fromJson(Map<String, dynamic>.from(e)),
+                    )
+                    .toList();
+
+            return Right(items);
           }
+
           return Left(
             ErrorMessage(
               message:
@@ -736,7 +743,7 @@ class HealthDatasourceImpl extends HealthDatasource {
                       : AppText.somethingWentWrong,
             ),
           );
-        } on Exception catch (_) {
+        } catch (e) {
           return Left(ErrorMessage(message: AppText.somethingWentWrong));
         }
       },

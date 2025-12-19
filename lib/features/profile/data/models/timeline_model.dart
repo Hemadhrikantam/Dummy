@@ -88,9 +88,9 @@ class TimelineModel extends Timeline {
 
     return TimelineModel(
       id: clean(map['id']) ?? '',
-      type: clean(map['type']) ?? '',
+      type: clean(map['entity_type']) ?? '',
       petId: clean(map['pet_id']) ?? '',
-      eventDate: dateString(map['event_date']),
+      eventDate: dateString(map['marked_at']),
       eventTime: timeString(map['event_time']),
       title: clean(map['title']) ?? '',
       notes: clean(map['notes']),
@@ -99,7 +99,7 @@ class TimelineModel extends Timeline {
       mediaCount: parseInt(map['media_count']),
       mediaUrls: parseUrls(map['media_urls']),
       createdAt: parseDateTime(map['created_at']),
-      createdBy: clean(map['created_by']),
+      createdBy: clean(map['marked_by_id']),
       metadata: parseMetadata(map['metadata']),
     );
   }

@@ -26,14 +26,8 @@ mixin _$PetDairyEvent {
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id) deleteDocument,
     required TResult Function(String id, bool value) updateMediaFavroute,
-    required TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )
-    addMemory,
+    required TResult Function(String id, String entityType) addMemory,
+    required TResult Function(String id) addedEntityId,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -44,14 +38,8 @@ mixin _$PetDairyEvent {
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id)? deleteDocument,
     TResult? Function(String id, bool value)? updateMediaFavroute,
-    TResult? Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult? Function(String id, String entityType)? addMemory,
+    TResult? Function(String id)? addedEntityId,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -62,14 +50,8 @@ mixin _$PetDairyEvent {
     TResult Function(String id)? deleteMedia,
     TResult Function(String id)? deleteDocument,
     TResult Function(String id, bool value)? updateMediaFavroute,
-    TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult Function(String id, String entityType)? addMemory,
+    TResult Function(String id)? addedEntityId,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +64,7 @@ mixin _$PetDairyEvent {
     required TResult Function(_DeleteDocument value) deleteDocument,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
     required TResult Function(_AddMemory value) addMemory,
+    required TResult Function(_AddedEntityId value) addedEntityId,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
@@ -93,6 +76,7 @@ mixin _$PetDairyEvent {
     TResult? Function(_DeleteDocument value)? deleteDocument,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult? Function(_AddMemory value)? addMemory,
+    TResult? Function(_AddedEntityId value)? addedEntityId,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
@@ -104,6 +88,7 @@ mixin _$PetDairyEvent {
     TResult Function(_DeleteDocument value)? deleteDocument,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult Function(_AddMemory value)? addMemory,
+    TResult Function(_AddedEntityId value)? addedEntityId,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -180,14 +165,8 @@ class _$InitializationImpl implements _Initialization {
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id) deleteDocument,
     required TResult Function(String id, bool value) updateMediaFavroute,
-    required TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )
-    addMemory,
+    required TResult Function(String id, String entityType) addMemory,
+    required TResult Function(String id) addedEntityId,
   }) {
     return initialization();
   }
@@ -202,14 +181,8 @@ class _$InitializationImpl implements _Initialization {
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id)? deleteDocument,
     TResult? Function(String id, bool value)? updateMediaFavroute,
-    TResult? Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult? Function(String id, String entityType)? addMemory,
+    TResult? Function(String id)? addedEntityId,
   }) {
     return initialization?.call();
   }
@@ -224,14 +197,8 @@ class _$InitializationImpl implements _Initialization {
     TResult Function(String id)? deleteMedia,
     TResult Function(String id)? deleteDocument,
     TResult Function(String id, bool value)? updateMediaFavroute,
-    TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult Function(String id, String entityType)? addMemory,
+    TResult Function(String id)? addedEntityId,
     required TResult orElse(),
   }) {
     if (initialization != null) {
@@ -251,6 +218,7 @@ class _$InitializationImpl implements _Initialization {
     required TResult Function(_DeleteDocument value) deleteDocument,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
     required TResult Function(_AddMemory value) addMemory,
+    required TResult Function(_AddedEntityId value) addedEntityId,
   }) {
     return initialization(this);
   }
@@ -266,6 +234,7 @@ class _$InitializationImpl implements _Initialization {
     TResult? Function(_DeleteDocument value)? deleteDocument,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult? Function(_AddMemory value)? addMemory,
+    TResult? Function(_AddedEntityId value)? addedEntityId,
   }) {
     return initialization?.call(this);
   }
@@ -281,6 +250,7 @@ class _$InitializationImpl implements _Initialization {
     TResult Function(_DeleteDocument value)? deleteDocument,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult Function(_AddMemory value)? addMemory,
+    TResult Function(_AddedEntityId value)? addedEntityId,
     required TResult orElse(),
   }) {
     if (initialization != null) {
@@ -344,14 +314,8 @@ class _$LoadMediasImpl implements _LoadMedias {
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id) deleteDocument,
     required TResult Function(String id, bool value) updateMediaFavroute,
-    required TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )
-    addMemory,
+    required TResult Function(String id, String entityType) addMemory,
+    required TResult Function(String id) addedEntityId,
   }) {
     return loadMedias();
   }
@@ -366,14 +330,8 @@ class _$LoadMediasImpl implements _LoadMedias {
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id)? deleteDocument,
     TResult? Function(String id, bool value)? updateMediaFavroute,
-    TResult? Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult? Function(String id, String entityType)? addMemory,
+    TResult? Function(String id)? addedEntityId,
   }) {
     return loadMedias?.call();
   }
@@ -388,14 +346,8 @@ class _$LoadMediasImpl implements _LoadMedias {
     TResult Function(String id)? deleteMedia,
     TResult Function(String id)? deleteDocument,
     TResult Function(String id, bool value)? updateMediaFavroute,
-    TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult Function(String id, String entityType)? addMemory,
+    TResult Function(String id)? addedEntityId,
     required TResult orElse(),
   }) {
     if (loadMedias != null) {
@@ -415,6 +367,7 @@ class _$LoadMediasImpl implements _LoadMedias {
     required TResult Function(_DeleteDocument value) deleteDocument,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
     required TResult Function(_AddMemory value) addMemory,
+    required TResult Function(_AddedEntityId value) addedEntityId,
   }) {
     return loadMedias(this);
   }
@@ -430,6 +383,7 @@ class _$LoadMediasImpl implements _LoadMedias {
     TResult? Function(_DeleteDocument value)? deleteDocument,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult? Function(_AddMemory value)? addMemory,
+    TResult? Function(_AddedEntityId value)? addedEntityId,
   }) {
     return loadMedias?.call(this);
   }
@@ -445,6 +399,7 @@ class _$LoadMediasImpl implements _LoadMedias {
     TResult Function(_DeleteDocument value)? deleteDocument,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult Function(_AddMemory value)? addMemory,
+    TResult Function(_AddedEntityId value)? addedEntityId,
     required TResult orElse(),
   }) {
     if (loadMedias != null) {
@@ -508,14 +463,8 @@ class _$LoadTimelinesImpl implements _LoadTimelines {
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id) deleteDocument,
     required TResult Function(String id, bool value) updateMediaFavroute,
-    required TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )
-    addMemory,
+    required TResult Function(String id, String entityType) addMemory,
+    required TResult Function(String id) addedEntityId,
   }) {
     return loadTimelines();
   }
@@ -530,14 +479,8 @@ class _$LoadTimelinesImpl implements _LoadTimelines {
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id)? deleteDocument,
     TResult? Function(String id, bool value)? updateMediaFavroute,
-    TResult? Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult? Function(String id, String entityType)? addMemory,
+    TResult? Function(String id)? addedEntityId,
   }) {
     return loadTimelines?.call();
   }
@@ -552,14 +495,8 @@ class _$LoadTimelinesImpl implements _LoadTimelines {
     TResult Function(String id)? deleteMedia,
     TResult Function(String id)? deleteDocument,
     TResult Function(String id, bool value)? updateMediaFavroute,
-    TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult Function(String id, String entityType)? addMemory,
+    TResult Function(String id)? addedEntityId,
     required TResult orElse(),
   }) {
     if (loadTimelines != null) {
@@ -579,6 +516,7 @@ class _$LoadTimelinesImpl implements _LoadTimelines {
     required TResult Function(_DeleteDocument value) deleteDocument,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
     required TResult Function(_AddMemory value) addMemory,
+    required TResult Function(_AddedEntityId value) addedEntityId,
   }) {
     return loadTimelines(this);
   }
@@ -594,6 +532,7 @@ class _$LoadTimelinesImpl implements _LoadTimelines {
     TResult? Function(_DeleteDocument value)? deleteDocument,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult? Function(_AddMemory value)? addMemory,
+    TResult? Function(_AddedEntityId value)? addedEntityId,
   }) {
     return loadTimelines?.call(this);
   }
@@ -609,6 +548,7 @@ class _$LoadTimelinesImpl implements _LoadTimelines {
     TResult Function(_DeleteDocument value)? deleteDocument,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult Function(_AddMemory value)? addMemory,
+    TResult Function(_AddedEntityId value)? addedEntityId,
     required TResult orElse(),
   }) {
     if (loadTimelines != null) {
@@ -699,14 +639,8 @@ class _$EventIdImpl implements _EventId {
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id) deleteDocument,
     required TResult Function(String id, bool value) updateMediaFavroute,
-    required TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )
-    addMemory,
+    required TResult Function(String id, String entityType) addMemory,
+    required TResult Function(String id) addedEntityId,
   }) {
     return eventId(id);
   }
@@ -721,14 +655,8 @@ class _$EventIdImpl implements _EventId {
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id)? deleteDocument,
     TResult? Function(String id, bool value)? updateMediaFavroute,
-    TResult? Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult? Function(String id, String entityType)? addMemory,
+    TResult? Function(String id)? addedEntityId,
   }) {
     return eventId?.call(id);
   }
@@ -743,14 +671,8 @@ class _$EventIdImpl implements _EventId {
     TResult Function(String id)? deleteMedia,
     TResult Function(String id)? deleteDocument,
     TResult Function(String id, bool value)? updateMediaFavroute,
-    TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult Function(String id, String entityType)? addMemory,
+    TResult Function(String id)? addedEntityId,
     required TResult orElse(),
   }) {
     if (eventId != null) {
@@ -770,6 +692,7 @@ class _$EventIdImpl implements _EventId {
     required TResult Function(_DeleteDocument value) deleteDocument,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
     required TResult Function(_AddMemory value) addMemory,
+    required TResult Function(_AddedEntityId value) addedEntityId,
   }) {
     return eventId(this);
   }
@@ -785,6 +708,7 @@ class _$EventIdImpl implements _EventId {
     TResult? Function(_DeleteDocument value)? deleteDocument,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult? Function(_AddMemory value)? addMemory,
+    TResult? Function(_AddedEntityId value)? addedEntityId,
   }) {
     return eventId?.call(this);
   }
@@ -800,6 +724,7 @@ class _$EventIdImpl implements _EventId {
     TResult Function(_DeleteDocument value)? deleteDocument,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult Function(_AddMemory value)? addMemory,
+    TResult Function(_AddedEntityId value)? addedEntityId,
     required TResult orElse(),
   }) {
     if (eventId != null) {
@@ -898,14 +823,8 @@ class _$DeleteMediaImpl implements _DeleteMedia {
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id) deleteDocument,
     required TResult Function(String id, bool value) updateMediaFavroute,
-    required TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )
-    addMemory,
+    required TResult Function(String id, String entityType) addMemory,
+    required TResult Function(String id) addedEntityId,
   }) {
     return deleteMedia(id);
   }
@@ -920,14 +839,8 @@ class _$DeleteMediaImpl implements _DeleteMedia {
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id)? deleteDocument,
     TResult? Function(String id, bool value)? updateMediaFavroute,
-    TResult? Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult? Function(String id, String entityType)? addMemory,
+    TResult? Function(String id)? addedEntityId,
   }) {
     return deleteMedia?.call(id);
   }
@@ -942,14 +855,8 @@ class _$DeleteMediaImpl implements _DeleteMedia {
     TResult Function(String id)? deleteMedia,
     TResult Function(String id)? deleteDocument,
     TResult Function(String id, bool value)? updateMediaFavroute,
-    TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult Function(String id, String entityType)? addMemory,
+    TResult Function(String id)? addedEntityId,
     required TResult orElse(),
   }) {
     if (deleteMedia != null) {
@@ -969,6 +876,7 @@ class _$DeleteMediaImpl implements _DeleteMedia {
     required TResult Function(_DeleteDocument value) deleteDocument,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
     required TResult Function(_AddMemory value) addMemory,
+    required TResult Function(_AddedEntityId value) addedEntityId,
   }) {
     return deleteMedia(this);
   }
@@ -984,6 +892,7 @@ class _$DeleteMediaImpl implements _DeleteMedia {
     TResult? Function(_DeleteDocument value)? deleteDocument,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult? Function(_AddMemory value)? addMemory,
+    TResult? Function(_AddedEntityId value)? addedEntityId,
   }) {
     return deleteMedia?.call(this);
   }
@@ -999,6 +908,7 @@ class _$DeleteMediaImpl implements _DeleteMedia {
     TResult Function(_DeleteDocument value)? deleteDocument,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult Function(_AddMemory value)? addMemory,
+    TResult Function(_AddedEntityId value)? addedEntityId,
     required TResult orElse(),
   }) {
     if (deleteMedia != null) {
@@ -1100,14 +1010,8 @@ class _$DeleteDocumentImpl implements _DeleteDocument {
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id) deleteDocument,
     required TResult Function(String id, bool value) updateMediaFavroute,
-    required TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )
-    addMemory,
+    required TResult Function(String id, String entityType) addMemory,
+    required TResult Function(String id) addedEntityId,
   }) {
     return deleteDocument(id);
   }
@@ -1122,14 +1026,8 @@ class _$DeleteDocumentImpl implements _DeleteDocument {
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id)? deleteDocument,
     TResult? Function(String id, bool value)? updateMediaFavroute,
-    TResult? Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult? Function(String id, String entityType)? addMemory,
+    TResult? Function(String id)? addedEntityId,
   }) {
     return deleteDocument?.call(id);
   }
@@ -1144,14 +1042,8 @@ class _$DeleteDocumentImpl implements _DeleteDocument {
     TResult Function(String id)? deleteMedia,
     TResult Function(String id)? deleteDocument,
     TResult Function(String id, bool value)? updateMediaFavroute,
-    TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult Function(String id, String entityType)? addMemory,
+    TResult Function(String id)? addedEntityId,
     required TResult orElse(),
   }) {
     if (deleteDocument != null) {
@@ -1171,6 +1063,7 @@ class _$DeleteDocumentImpl implements _DeleteDocument {
     required TResult Function(_DeleteDocument value) deleteDocument,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
     required TResult Function(_AddMemory value) addMemory,
+    required TResult Function(_AddedEntityId value) addedEntityId,
   }) {
     return deleteDocument(this);
   }
@@ -1186,6 +1079,7 @@ class _$DeleteDocumentImpl implements _DeleteDocument {
     TResult? Function(_DeleteDocument value)? deleteDocument,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult? Function(_AddMemory value)? addMemory,
+    TResult? Function(_AddedEntityId value)? addedEntityId,
   }) {
     return deleteDocument?.call(this);
   }
@@ -1201,6 +1095,7 @@ class _$DeleteDocumentImpl implements _DeleteDocument {
     TResult Function(_DeleteDocument value)? deleteDocument,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult Function(_AddMemory value)? addMemory,
+    TResult Function(_AddedEntityId value)? addedEntityId,
     required TResult orElse(),
   }) {
     if (deleteDocument != null) {
@@ -1309,14 +1204,8 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id) deleteDocument,
     required TResult Function(String id, bool value) updateMediaFavroute,
-    required TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )
-    addMemory,
+    required TResult Function(String id, String entityType) addMemory,
+    required TResult Function(String id) addedEntityId,
   }) {
     return updateMediaFavroute(id, value);
   }
@@ -1331,14 +1220,8 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id)? deleteDocument,
     TResult? Function(String id, bool value)? updateMediaFavroute,
-    TResult? Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult? Function(String id, String entityType)? addMemory,
+    TResult? Function(String id)? addedEntityId,
   }) {
     return updateMediaFavroute?.call(id, value);
   }
@@ -1353,14 +1236,8 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
     TResult Function(String id)? deleteMedia,
     TResult Function(String id)? deleteDocument,
     TResult Function(String id, bool value)? updateMediaFavroute,
-    TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult Function(String id, String entityType)? addMemory,
+    TResult Function(String id)? addedEntityId,
     required TResult orElse(),
   }) {
     if (updateMediaFavroute != null) {
@@ -1380,6 +1257,7 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
     required TResult Function(_DeleteDocument value) deleteDocument,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
     required TResult Function(_AddMemory value) addMemory,
+    required TResult Function(_AddedEntityId value) addedEntityId,
   }) {
     return updateMediaFavroute(this);
   }
@@ -1395,6 +1273,7 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
     TResult? Function(_DeleteDocument value)? deleteDocument,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult? Function(_AddMemory value)? addMemory,
+    TResult? Function(_AddedEntityId value)? addedEntityId,
   }) {
     return updateMediaFavroute?.call(this);
   }
@@ -1410,6 +1289,7 @@ class _$UpdateMediaFavrouteImpl implements _UpdateMediaFavroute {
     TResult Function(_DeleteDocument value)? deleteDocument,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult Function(_AddMemory value)? addMemory,
+    TResult Function(_AddedEntityId value)? addedEntityId,
     required TResult orElse(),
   }) {
     if (updateMediaFavroute != null) {
@@ -1440,13 +1320,7 @@ abstract class _$$AddMemoryImplCopyWith<$Res> {
     $Res Function(_$AddMemoryImpl) then,
   ) = __$$AddMemoryImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({
-    String id,
-    String entityType,
-    String entityId,
-    String title,
-    String description,
-  });
+  $Res call({String id, String entityType});
 }
 
 /// @nodoc
@@ -1462,13 +1336,7 @@ class __$$AddMemoryImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? id = null,
-    Object? entityType = null,
-    Object? entityId = null,
-    Object? title = null,
-    Object? description = null,
-  }) {
+  $Res call({Object? id = null, Object? entityType = null}) {
     return _then(
       _$AddMemoryImpl(
         null == id
@@ -1479,18 +1347,6 @@ class __$$AddMemoryImplCopyWithImpl<$Res>
             ? _value.entityType
             : entityType // ignore: cast_nullable_to_non_nullable
                 as String,
-        null == entityId
-            ? _value.entityId
-            : entityId // ignore: cast_nullable_to_non_nullable
-                as String,
-        null == title
-            ? _value.title
-            : title // ignore: cast_nullable_to_non_nullable
-                as String,
-        null == description
-            ? _value.description
-            : description // ignore: cast_nullable_to_non_nullable
-                as String,
       ),
     );
   }
@@ -1499,28 +1355,16 @@ class __$$AddMemoryImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AddMemoryImpl implements _AddMemory {
-  const _$AddMemoryImpl(
-    this.id,
-    this.entityType,
-    this.entityId,
-    this.title,
-    this.description,
-  );
+  const _$AddMemoryImpl(this.id, this.entityType);
 
   @override
   final String id;
   @override
   final String entityType;
-  @override
-  final String entityId;
-  @override
-  final String title;
-  @override
-  final String description;
 
   @override
   String toString() {
-    return 'PetDairyEvent.addMemory(id: $id, entityType: $entityType, entityId: $entityId, title: $title, description: $description)';
+    return 'PetDairyEvent.addMemory(id: $id, entityType: $entityType)';
   }
 
   @override
@@ -1530,17 +1374,11 @@ class _$AddMemoryImpl implements _AddMemory {
             other is _$AddMemoryImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.entityType, entityType) ||
-                other.entityType == entityType) &&
-            (identical(other.entityId, entityId) ||
-                other.entityId == entityId) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.description, description) ||
-                other.description == description));
+                other.entityType == entityType));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, entityType, entityId, title, description);
+  int get hashCode => Object.hash(runtimeType, id, entityType);
 
   /// Create a copy of PetDairyEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -1560,16 +1398,10 @@ class _$AddMemoryImpl implements _AddMemory {
     required TResult Function(String id) deleteMedia,
     required TResult Function(String id) deleteDocument,
     required TResult Function(String id, bool value) updateMediaFavroute,
-    required TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )
-    addMemory,
+    required TResult Function(String id, String entityType) addMemory,
+    required TResult Function(String id) addedEntityId,
   }) {
-    return addMemory(id, entityType, entityId, title, description);
+    return addMemory(id, entityType);
   }
 
   @override
@@ -1582,16 +1414,10 @@ class _$AddMemoryImpl implements _AddMemory {
     TResult? Function(String id)? deleteMedia,
     TResult? Function(String id)? deleteDocument,
     TResult? Function(String id, bool value)? updateMediaFavroute,
-    TResult? Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult? Function(String id, String entityType)? addMemory,
+    TResult? Function(String id)? addedEntityId,
   }) {
-    return addMemory?.call(id, entityType, entityId, title, description);
+    return addMemory?.call(id, entityType);
   }
 
   @override
@@ -1604,18 +1430,12 @@ class _$AddMemoryImpl implements _AddMemory {
     TResult Function(String id)? deleteMedia,
     TResult Function(String id)? deleteDocument,
     TResult Function(String id, bool value)? updateMediaFavroute,
-    TResult Function(
-      String id,
-      String entityType,
-      String entityId,
-      String title,
-      String description,
-    )?
-    addMemory,
+    TResult Function(String id, String entityType)? addMemory,
+    TResult Function(String id)? addedEntityId,
     required TResult orElse(),
   }) {
     if (addMemory != null) {
-      return addMemory(id, entityType, entityId, title, description);
+      return addMemory(id, entityType);
     }
     return orElse();
   }
@@ -1631,6 +1451,7 @@ class _$AddMemoryImpl implements _AddMemory {
     required TResult Function(_DeleteDocument value) deleteDocument,
     required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
     required TResult Function(_AddMemory value) addMemory,
+    required TResult Function(_AddedEntityId value) addedEntityId,
   }) {
     return addMemory(this);
   }
@@ -1646,6 +1467,7 @@ class _$AddMemoryImpl implements _AddMemory {
     TResult? Function(_DeleteDocument value)? deleteDocument,
     TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult? Function(_AddMemory value)? addMemory,
+    TResult? Function(_AddedEntityId value)? addedEntityId,
   }) {
     return addMemory?.call(this);
   }
@@ -1661,6 +1483,7 @@ class _$AddMemoryImpl implements _AddMemory {
     TResult Function(_DeleteDocument value)? deleteDocument,
     TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
     TResult Function(_AddMemory value)? addMemory,
+    TResult Function(_AddedEntityId value)? addedEntityId,
     required TResult orElse(),
   }) {
     if (addMemory != null) {
@@ -1671,24 +1494,200 @@ class _$AddMemoryImpl implements _AddMemory {
 }
 
 abstract class _AddMemory implements PetDairyEvent {
-  const factory _AddMemory(
-    final String id,
-    final String entityType,
-    final String entityId,
-    final String title,
-    final String description,
-  ) = _$AddMemoryImpl;
+  const factory _AddMemory(final String id, final String entityType) =
+      _$AddMemoryImpl;
 
   String get id;
   String get entityType;
-  String get entityId;
-  String get title;
-  String get description;
 
   /// Create a copy of PetDairyEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AddMemoryImplCopyWith<_$AddMemoryImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$AddedEntityIdImplCopyWith<$Res> {
+  factory _$$AddedEntityIdImplCopyWith(
+    _$AddedEntityIdImpl value,
+    $Res Function(_$AddedEntityIdImpl) then,
+  ) = __$$AddedEntityIdImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$AddedEntityIdImplCopyWithImpl<$Res>
+    extends _$PetDairyEventCopyWithImpl<$Res, _$AddedEntityIdImpl>
+    implements _$$AddedEntityIdImplCopyWith<$Res> {
+  __$$AddedEntityIdImplCopyWithImpl(
+    _$AddedEntityIdImpl _value,
+    $Res Function(_$AddedEntityIdImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of PetDairyEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? id = null}) {
+    return _then(
+      _$AddedEntityIdImpl(
+        null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$AddedEntityIdImpl implements _AddedEntityId {
+  const _$AddedEntityIdImpl(this.id);
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'PetDairyEvent.addedEntityId(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AddedEntityIdImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of PetDairyEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AddedEntityIdImplCopyWith<_$AddedEntityIdImpl> get copyWith =>
+      __$$AddedEntityIdImplCopyWithImpl<_$AddedEntityIdImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialization,
+    required TResult Function() loadMedias,
+    required TResult Function() loadTimelines,
+    required TResult Function(DropStringItem id) eventId,
+    required TResult Function(String id) deleteMedia,
+    required TResult Function(String id) deleteDocument,
+    required TResult Function(String id, bool value) updateMediaFavroute,
+    required TResult Function(String id, String entityType) addMemory,
+    required TResult Function(String id) addedEntityId,
+  }) {
+    return addedEntityId(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialization,
+    TResult? Function()? loadMedias,
+    TResult? Function()? loadTimelines,
+    TResult? Function(DropStringItem id)? eventId,
+    TResult? Function(String id)? deleteMedia,
+    TResult? Function(String id)? deleteDocument,
+    TResult? Function(String id, bool value)? updateMediaFavroute,
+    TResult? Function(String id, String entityType)? addMemory,
+    TResult? Function(String id)? addedEntityId,
+  }) {
+    return addedEntityId?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialization,
+    TResult Function()? loadMedias,
+    TResult Function()? loadTimelines,
+    TResult Function(DropStringItem id)? eventId,
+    TResult Function(String id)? deleteMedia,
+    TResult Function(String id)? deleteDocument,
+    TResult Function(String id, bool value)? updateMediaFavroute,
+    TResult Function(String id, String entityType)? addMemory,
+    TResult Function(String id)? addedEntityId,
+    required TResult orElse(),
+  }) {
+    if (addedEntityId != null) {
+      return addedEntityId(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialization value) initialization,
+    required TResult Function(_LoadMedias value) loadMedias,
+    required TResult Function(_LoadTimelines value) loadTimelines,
+    required TResult Function(_EventId value) eventId,
+    required TResult Function(_DeleteMedia value) deleteMedia,
+    required TResult Function(_DeleteDocument value) deleteDocument,
+    required TResult Function(_UpdateMediaFavroute value) updateMediaFavroute,
+    required TResult Function(_AddMemory value) addMemory,
+    required TResult Function(_AddedEntityId value) addedEntityId,
+  }) {
+    return addedEntityId(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_LoadMedias value)? loadMedias,
+    TResult? Function(_LoadTimelines value)? loadTimelines,
+    TResult? Function(_EventId value)? eventId,
+    TResult? Function(_DeleteMedia value)? deleteMedia,
+    TResult? Function(_DeleteDocument value)? deleteDocument,
+    TResult? Function(_UpdateMediaFavroute value)? updateMediaFavroute,
+    TResult? Function(_AddMemory value)? addMemory,
+    TResult? Function(_AddedEntityId value)? addedEntityId,
+  }) {
+    return addedEntityId?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialization value)? initialization,
+    TResult Function(_LoadMedias value)? loadMedias,
+    TResult Function(_LoadTimelines value)? loadTimelines,
+    TResult Function(_EventId value)? eventId,
+    TResult Function(_DeleteMedia value)? deleteMedia,
+    TResult Function(_DeleteDocument value)? deleteDocument,
+    TResult Function(_UpdateMediaFavroute value)? updateMediaFavroute,
+    TResult Function(_AddMemory value)? addMemory,
+    TResult Function(_AddedEntityId value)? addedEntityId,
+    required TResult orElse(),
+  }) {
+    if (addedEntityId != null) {
+      return addedEntityId(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _AddedEntityId implements PetDairyEvent {
+  const factory _AddedEntityId(final String id) = _$AddedEntityIdImpl;
+
+  String get id;
+
+  /// Create a copy of PetDairyEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AddedEntityIdImplCopyWith<_$AddedEntityIdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1703,6 +1702,7 @@ mixin _$PetDairyState {
   DropdownStringValue get eventId => throw _privateConstructorUsedError;
   List<Timeline> get memories => throw _privateConstructorUsedError;
   Status get addMemoryStatus => throw _privateConstructorUsedError;
+  String get addedEntityId => throw _privateConstructorUsedError;
 
   /// Create a copy of PetDairyState
   /// with the given fields replaced by the non-null parameter values.
@@ -1728,6 +1728,7 @@ abstract class $PetDairyStateCopyWith<$Res> {
     DropdownStringValue eventId,
     List<Timeline> memories,
     Status addMemoryStatus,
+    String addedEntityId,
   });
 }
 
@@ -1755,6 +1756,7 @@ class _$PetDairyStateCopyWithImpl<$Res, $Val extends PetDairyState>
     Object? eventId = null,
     Object? memories = null,
     Object? addMemoryStatus = null,
+    Object? addedEntityId = null,
   }) {
     return _then(
       _value.copyWith(
@@ -1803,6 +1805,11 @@ class _$PetDairyStateCopyWithImpl<$Res, $Val extends PetDairyState>
                     ? _value.addMemoryStatus
                     : addMemoryStatus // ignore: cast_nullable_to_non_nullable
                         as Status,
+            addedEntityId:
+                null == addedEntityId
+                    ? _value.addedEntityId
+                    : addedEntityId // ignore: cast_nullable_to_non_nullable
+                        as String,
           )
           as $Val,
     );
@@ -1828,6 +1835,7 @@ abstract class _$$PetDairyStateImplCopyWith<$Res>
     DropdownStringValue eventId,
     List<Timeline> memories,
     Status addMemoryStatus,
+    String addedEntityId,
   });
 }
 
@@ -1854,6 +1862,7 @@ class __$$PetDairyStateImplCopyWithImpl<$Res>
     Object? eventId = null,
     Object? memories = null,
     Object? addMemoryStatus = null,
+    Object? addedEntityId = null,
   }) {
     return _then(
       _$PetDairyStateImpl(
@@ -1902,6 +1911,11 @@ class __$$PetDairyStateImplCopyWithImpl<$Res>
                 ? _value.addMemoryStatus
                 : addMemoryStatus // ignore: cast_nullable_to_non_nullable
                     as Status,
+        addedEntityId:
+            null == addedEntityId
+                ? _value.addedEntityId
+                : addedEntityId // ignore: cast_nullable_to_non_nullable
+                    as String,
       ),
     );
   }
@@ -1920,6 +1934,7 @@ class _$PetDairyStateImpl implements _PetDairyState {
     this.eventId = const DropdownStringValue.pure(),
     final List<Timeline> memories = const [],
     this.addMemoryStatus = Status.init,
+    this.addedEntityId = '',
   }) : _eventFields = eventFields,
        _timelines = timelines,
        _medias = medias,
@@ -1990,10 +2005,13 @@ class _$PetDairyStateImpl implements _PetDairyState {
   @override
   @JsonKey()
   final Status addMemoryStatus;
+  @override
+  @JsonKey()
+  final String addedEntityId;
 
   @override
   String toString() {
-    return 'PetDairyState(initStatus: $initStatus, eventFields: $eventFields, timelines: $timelines, medias: $medias, favoriteMedias: $favoriteMedias, documents: $documents, eventId: $eventId, memories: $memories, addMemoryStatus: $addMemoryStatus)';
+    return 'PetDairyState(initStatus: $initStatus, eventFields: $eventFields, timelines: $timelines, medias: $medias, favoriteMedias: $favoriteMedias, documents: $documents, eventId: $eventId, memories: $memories, addMemoryStatus: $addMemoryStatus, addedEntityId: $addedEntityId)';
   }
 
   @override
@@ -2023,7 +2041,9 @@ class _$PetDairyStateImpl implements _PetDairyState {
             (identical(other.eventId, eventId) || other.eventId == eventId) &&
             const DeepCollectionEquality().equals(other._memories, _memories) &&
             (identical(other.addMemoryStatus, addMemoryStatus) ||
-                other.addMemoryStatus == addMemoryStatus));
+                other.addMemoryStatus == addMemoryStatus) &&
+            (identical(other.addedEntityId, addedEntityId) ||
+                other.addedEntityId == addedEntityId));
   }
 
   @override
@@ -2038,6 +2058,7 @@ class _$PetDairyStateImpl implements _PetDairyState {
     eventId,
     const DeepCollectionEquality().hash(_memories),
     addMemoryStatus,
+    addedEntityId,
   );
 
   /// Create a copy of PetDairyState
@@ -2060,6 +2081,7 @@ abstract class _PetDairyState implements PetDairyState {
     final DropdownStringValue eventId,
     final List<Timeline> memories,
     final Status addMemoryStatus,
+    final String addedEntityId,
   }) = _$PetDairyStateImpl;
 
   @override
@@ -2080,6 +2102,8 @@ abstract class _PetDairyState implements PetDairyState {
   List<Timeline> get memories;
   @override
   Status get addMemoryStatus;
+  @override
+  String get addedEntityId;
 
   /// Create a copy of PetDairyState
   /// with the given fields replaced by the non-null parameter values.

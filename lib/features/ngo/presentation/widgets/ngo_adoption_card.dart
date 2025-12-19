@@ -43,28 +43,37 @@ class NgoAdoptionCard extends StatelessWidget {
                 url: adoption?.imageUrl ?? '',
               ),
               Styles.gap15,
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  // Styles.gap10,
-                  Text(
-                    adoption?.petName ?? '',
-                    style: context.textTheme.titleMedium?.copyWith(
-                      color: AppColors.stepperColor,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    // Styles.gap10,
+                    Text(
+                      adoption?.petName ?? '',
+                      style: context.textTheme.titleMedium?.copyWith(
+                        color: AppColors.stepperColor,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20,
+                      ),
                     ),
-                  ),
-                  Styles.gap10,
-                  TextValueWidget(
-                    text: 'Breed & age',
-                    value: '${adoption?.breedName} ${adoption?.age ?? ''}',
-                  ),
-                  Styles.gap10,
-                  TextValueWidget(text: 'Location', value: ''),
-                  Styles.gap4,
-                ],
+                    Styles.gap10,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextValueWidget(
+                            text: 'Breed & age',
+                            value:
+                                '${adoption?.breedName} ${adoption?.age ?? ''}',
+                          ),
+                        ),
+                      ],
+                    ),
+                    Styles.gap10,
+                    TextValueWidget(text: 'Location', value: ''),
+                    Styles.gap4,
+                  ],
+                ),
               ),
             ],
           ),

@@ -7,25 +7,19 @@ class MemoriesPayload extends Equatable implements Payload {
     required this.petId,
     required this.entityId,
     required this.entityType,
-    required this.title,
-    required this.description,
   });
 
   final String petId;
   final String entityId;
   final String entityType;
-  final String title;
-  final String description;
 
   @override
-  List<Object?> get props => [petId, entityId, entityType, title, description];
+  List<Object?> get props => [petId, entityId, entityType];
 
   @override
   JsonMap toMap() => {
     "pet_id": petId,
     "entity_id": entityId,
     "entity_type": entityType,
-    "title": title,
-    "description": description,
   };
 }

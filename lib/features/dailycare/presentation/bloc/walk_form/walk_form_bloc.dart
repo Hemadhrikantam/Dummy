@@ -8,8 +8,12 @@ import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/dailycare/walk_payload.dart';
 import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/dailycare/domain/usecases/add_walk_usecases.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+import '../../../../../di/injection.dart';
+import '../../../../profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
 part 'walk_form_event.dart';
 part 'walk_form_state.dart';
 part 'walk_form_bloc.freezed.dart';
@@ -100,10 +104,21 @@ class WalkFormBloc extends Bloc<WalkFormEvent, WalkFormState> {
         media: mediaList,
       ),
     );
-    result.fold(
-      (failure) => emit(state.copyWith(submitStatus: Status.error)),
-      (success) => emit(state.copyWith(submitStatus: Status.success)),
-    );
+    result.fold((failure) => emit(state.copyWith(submitStatus: Status.error)), (
+      success,
+    ) {
+      String? extractedId;
+      if (success.message.contains(' - ')) {
+        final parts = success.message.split(' - ');
+        if (parts.length > 1) {
+          extractedId = parts.last.trim();
+        }
+      }
+      currentContext.read<PetDairyBloc>().add(
+        PetDairyEvent.addedEntityId(extractedId ?? ''),
+      );
+      emit(state.copyWith(submitStatus: Status.success));
+    });
   }
 
   void __date(_Date event, Emitter<WalkFormState> emit) {

@@ -11,6 +11,7 @@ import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/dailycare/domain/usecases/add_meal_usecases.dart';
+import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -109,10 +110,21 @@ class MealFormBloc extends Bloc<MealFormEvent, MealFormState> {
         media: mediaList,
       ),
     );
-    result.fold(
-      (failure) => emit(state.copyWith(submitStatus: Status.error)),
-      (success) => emit(state.copyWith(submitStatus: Status.success)),
-    );
+    result.fold((failure) => emit(state.copyWith(submitStatus: Status.error)), (
+      success,
+    ) {
+      String? extractedId;
+      if (success.message.contains(' - ')) {
+        final parts = success.message.split(' - ');
+        if (parts.length > 1) {
+          extractedId = parts.last.trim();
+        }
+      }
+      currentContext.read<PetDairyBloc>().add(
+        PetDairyEvent.addedEntityId(extractedId ?? ''),
+      );
+      emit(state.copyWith(submitStatus: Status.success));
+    });
   }
 
   String _inferFileType(String pathOrUrl) {

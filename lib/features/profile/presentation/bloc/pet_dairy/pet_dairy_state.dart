@@ -12,5 +12,6 @@ abstract class PetDairyState with _$PetDairyState {
     @Default(DropdownStringValue.pure()) final DropdownStringValue eventId,
     @Default([]) final List<Timeline> memories,
     @Default(Status.init) final Status addMemoryStatus,
+    @Default('') final String addedEntityId,
   }) = _PetDairyState;
 }

@@ -38,6 +38,7 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
 
   @override
   Widget build(BuildContext context) {
+    print(widget.adoption.toString());
     return BlocBuilder<NgoHomeBloc, NgoHomeState>(
       builder: (context, state) {
         return CustomCard(
@@ -116,10 +117,15 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
                 children: [
                   TextValueWidget(
                     text: 'Breed & Age',
-                    value: 'Pomerian, ${widget.adoption?.age ?? ''} Y',
+                    value:
+                        '${widget.adoption?.breedName ?? ''}, ${widget.adoption?.age ?? ''} Y',
                   ),
-                  TextValueWidget(text: 'Location', value: ''),
                 ],
+              ),
+              Styles.gap30,
+              TextValueWidget(
+                text: 'Location',
+                value: '${widget.adoption?.contactAddress}',
               ),
               Styles.gap30,
               TextValueWidget(
@@ -129,7 +135,7 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
               Styles.gap30,
               TextValueWidget(
                 text: 'Contact',
-                value: '',
+                value: '${widget.adoption?.contactPhone}',
                 icon:
                     (widget.isAllPet)
                         ? GestureDetector(
@@ -146,7 +152,7 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
               Styles.gap30,
               TextValueWidget(
                 text: 'Email',
-                value: '',
+                value: '${widget.adoption?.contactEmail}',
                 icon:
                     (widget.isAllPet)
                         ? AppAssestsImage(

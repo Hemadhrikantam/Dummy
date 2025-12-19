@@ -96,7 +96,7 @@ String medicationLogs(String? medicationId) {
 
 // clinics
 String clinics(double latitude, double longitude, String type) {
-  return '$__api/places?type=$type&latitude=$latitude&longitude=$longitude';
+  return '$__api/places/nearby?type=$type&lat=$latitude&lng=$longitude';
 }
 
 String vaccination(String? key, String? fromDate, String? toDate) {

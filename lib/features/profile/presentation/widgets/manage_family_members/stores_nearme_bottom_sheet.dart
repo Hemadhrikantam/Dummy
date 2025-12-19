@@ -56,11 +56,18 @@ class StoresNearMeBottomSheet extends StatelessWidget {
                             CustomCard(
                               child: Row(
                                 children: [
-                                  TextValueWidget(
-                                    text: 'Stores Name   0km',
-                                    value: item.name,
+                                  Expanded(
+                                    child: TextValueWidget(
+                                      text: 'Stores Name',
+                                      value: item.name,
+                                    ),
                                   ),
-                                  Styles.spacer,
+                                  Styles.gap10,
+                                  TextValueWidget(
+                                    text: '',
+                                    value: formatDistanceKm(item.distance),
+                                  ),
+                                  Styles.gap10,
                                   AppAssestsImage(
                                     path: ImageResources.map,
                                     width: 30,
@@ -82,5 +89,17 @@ class StoresNearMeBottomSheet extends StatelessWidget {
         );
       },
     );
+  }
+
+  String formatDistanceKm(double? meters) {
+    if (meters == null) return '0 km';
+
+    final km = meters / 1000;
+
+    if (km < 1) {
+      return '${meters.toStringAsFixed(0)} m';
+    }
+
+    return '${km.toStringAsFixed(1)} km';
   }
 }

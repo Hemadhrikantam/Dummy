@@ -1,4 +1,5 @@
 import 'package:dummy/core/constant/app_text.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
@@ -13,6 +14,9 @@ import '../../../../../core/widgets/app_assets_image.dart';
 import '../../../../core/widgets/app_graber.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
+
+import '../../../../core/widgets/loading_widget.dart';
+import '../../../profile/presentation/bloc/pet_dairy/pet_dairy_bloc.dart';
 
 class AddWalkSuccessBottomSheetContent extends StatelessWidget {
   const AddWalkSuccessBottomSheetContent({super.key, this.onTap});
@@ -74,41 +78,66 @@ class AddWalkSuccessBottomSheetContent extends StatelessWidget {
               Row(
                 children: [
                   Expanded(
-                    child: AppButton(
-                      onPressed: () {
-                        context.pop();
-                        context.push(PetDairyPage.route());
+                    child: BlocConsumer<PetDairyBloc, PetDairyState>(
+                      listener: (context, state) {
+                        if (state.addMemoryStatus.success) {
+                          context.pop();
+                          context.push(PetDairyPage.route());
+                        }
                       },
-                      borderColor: AppColors.grey500,
-                      backgroundColor: AppColors.white,
-                      name: BlocBuilder<DashboardBloc, DashboardState>(
-                        builder: (context, state) {
-                          return RichText(
-                            textAlign: TextAlign.center,
-                            text: TextSpan(
-                              text: AppText.logAMemoryOf,
-                              style: context.textTheme.titleSmall?.copyWith(
-                                fontWeight: FontWeight.w700,
-                                color: AppColors.buttonTextColor,
-                                letterSpacing: -.5,
-                                fontSize: 14,
-                              ),
-                              children: [
-                                TextSpan(
-                                  text:
-                                      " ${state.dashboardPetDetails[0].name}'s walk!",
-                                  style: context.textTheme.titleSmall?.copyWith(
-                                    fontWeight: FontWeight.w700,
-                                    color: AppColors.buttonTextColor,
-                                    letterSpacing: -.5,
-                                    fontSize: 14,
+                      builder: (context, state) {
+                        return state.addMemoryStatus.loading
+                            ? LoadingWidget
+                                .circularProgressIndicatorWithOutRowSmall
+                            : AppButton(
+                              onPressed: () {
+                                context.read<PetDairyBloc>().add(
+                                  PetDairyEvent.addMemory(
+                                    context
+                                            .read<DashboardBloc>()
+                                            .state
+                                            .selectedPet
+                                            ?.id ??
+                                        '',
+                                    'walk',
                                   ),
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
+                                );
+                              },
+                              borderColor: AppColors.grey500,
+                              backgroundColor: AppColors.white,
+                              name: BlocBuilder<DashboardBloc, DashboardState>(
+                                builder: (context, state) {
+                                  return RichText(
+                                    textAlign: TextAlign.center,
+                                    text: TextSpan(
+                                      text: AppText.logAMemoryOf,
+                                      style: context.textTheme.titleSmall
+                                          ?.copyWith(
+                                            fontWeight: FontWeight.w700,
+                                            color: AppColors.buttonTextColor,
+                                            letterSpacing: -.5,
+                                            fontSize: 14,
+                                          ),
+                                      children: [
+                                        TextSpan(
+                                          text:
+                                              " ${state.dashboardPetDetails[0].name}'s walk!",
+                                          style: context.textTheme.titleSmall
+                                              ?.copyWith(
+                                                fontWeight: FontWeight.w700,
+                                                color:
+                                                    AppColors.buttonTextColor,
+                                                letterSpacing: -.5,
+                                                fontSize: 14,
+                                              ),
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                },
+                              ),
+                            );
+                      },
                     ),
                   ),
                 ],

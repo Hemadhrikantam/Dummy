@@ -20,46 +20,48 @@ class VetNearMeBloc extends Bloc<VetNearMeEvent, VetNearMeState> {
   }
   final ListClinicUsecases _listClinicUsecases;
   void __init(_Init event, Emitter<VetNearMeState> emit) async {
-    LogUtility.info('----------------11-----------------');
     emit(state.copyWith(initStatus: Status.loading));
 
     final locationService = LocationService();
-    LogUtility.info('----------------22-----------------');
-
     final locationData = await locationService.getCurrentLocation();
 
     if (locationData == null) {
-      LogUtility.info('Location not available yet');
-      emit(state.copyWith(initStatus: Status.failure));
+      await Future.delayed(const Duration(seconds: 1));
+      add(_Init());
       return;
     }
 
-    LogUtility.info('----------------33-----------------');
-
     try {
-      final clinics = await _listClinicUsecases(
+      final clinicsResult = await _listClinicUsecases(
         latitude: locationData.latitude ?? 0,
         longitude: locationData.longitude ?? 0,
       );
 
-      LogUtility.info('----------------44-----------------');
-
-      clinics.fold(
-        (l) => emit(state.copyWith(initStatus: Status.failure)),
-        (r) => emit(state.copyWith(initStatus: Status.success, clinics: r)),
-      );
-
-      final stores = await _listClinicUsecases(
-        type: PlaceType.store,
+      final storesResult = await _listClinicUsecases(
+        type: PlaceType.pet_store,
         latitude: locationData.latitude ?? 0,
         longitude: locationData.longitude ?? 0,
       );
 
-      stores.fold(
+      clinicsResult.fold(
         (l) => emit(state.copyWith(initStatus: Status.failure)),
-        (r) => emit(state.copyWith(initStatus: Status.success, stores: r)),
+        (clinics) {
+          storesResult.fold(
+            (l) => emit(state.copyWith(initStatus: Status.failure)),
+            (stores) {
+              emit(
+                state.copyWith(
+                  initStatus: Status.success,
+                  clinics: clinics,
+                  stores: stores,
+                ),
+              );
+            },
+          );
+        },
       );
     } catch (e) {
+      LogUtility.error(e.toString());
       emit(state.copyWith(initStatus: Status.failure));
     }
   }
@@ -90,7 +92,7 @@ class VetNearMeBloc extends Bloc<VetNearMeEvent, VetNearMeState> {
     final locationData = await locationService.getCurrentLocation();
     try {
       final stores = await _listClinicUsecases(
-        type: PlaceType.store,
+        type: PlaceType.pet_store,
         latitude: locationData?.latitude ?? 0,
         longitude: locationData?.longitude ?? 0,
       );

@@ -49,13 +49,11 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
                   ? data['statusCode'] as int? ?? success.statusCode
                   : success.statusCode;
           if (statusCode <= 201) {
+            final message =
+                data['message'] as String? ?? 'Meal added successfully';
+            final id = data['data']?['id'];
             return Right(
-              SuccessMessage(
-                message:
-                    (data is Map && data['message'] is String)
-                        ? data['message'] as String
-                        : 'Meal added successfully',
-              ),
+              SuccessMessage(message: id != null ? '$message - $id' : message),
             );
           }
 
@@ -89,11 +87,11 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
                   ? data['statusCode'] as int? ?? success.statusCode
                   : success.statusCode;
           if (statusCode <= 201) {
+            final message =
+                data['message'] as String? ?? 'Walk added successfully';
+            final id = data['data']?['id'];
             return Right(
-              SuccessMessage(
-                message:
-                    data['message'] as String? ?? 'Meal added successfully',
-              ),
+              SuccessMessage(message: id != null ? '$message - $id' : message),
             );
           }
 
@@ -127,11 +125,11 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
                   ? data['statusCode'] as int? ?? success.statusCode
                   : success.statusCode;
           if (statusCode <= 201) {
+            final message =
+                data['message'] as String? ?? 'Grooming added successfully';
+            final id = data['data']?['id'];
             return Right(
-              SuccessMessage(
-                message:
-                    data['message'] as String? ?? 'Meal added successfully',
-              ),
+              SuccessMessage(message: id != null ? '$message - $id' : message),
             );
           }
 

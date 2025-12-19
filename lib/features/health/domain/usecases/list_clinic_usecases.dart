@@ -7,7 +7,7 @@ class ListClinicUsecases {
   final HealthRepository repository;
 
   AppTypeResponse<List<Clinic>> call({
-    PlaceType type = PlaceType.clinic,
+    PlaceType type = PlaceType.veterinary_care,
     required double latitude,
     required double longitude,
   }) {
@@ -19,4 +19,4 @@ class ListClinicUsecases {
   }
 }
 
-enum PlaceType { clinic, store }
+enum PlaceType { veterinary_care, pet_store }

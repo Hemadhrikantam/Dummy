@@ -10,11 +10,7 @@ class PetDairyEvent with _$PetDairyEvent {
   const factory PetDairyEvent.deleteDocument(String id) = _DeleteDocument;
   const factory PetDairyEvent.updateMediaFavroute(String id, bool value) =
       _UpdateMediaFavroute;
-  const factory PetDairyEvent.addMemory(
-    String id,
-    String entityType,
-    String entityId,
-    String title,
-    String description,
-  ) = _AddMemory;
+  const factory PetDairyEvent.addMemory(String id, String entityType) =
+      _AddMemory;
+  const factory PetDairyEvent.addedEntityId(String id) = _AddedEntityId;
 }

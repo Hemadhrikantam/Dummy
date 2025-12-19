@@ -206,7 +206,7 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
       gender: state.gender.value?.value.toLowerCase(),
       dob: DateTime.parse(state.dob.value),
       image_url: url,
-      weight: const PetWeightPayload(value: '0', unit: 'kg'),
+      weight: const PetWeightPayload(value: '', unit: 'kg'),
       personalityTags: const [],
       ownership_type: OwnershipType.adoption_listing.name,
     );

@@ -54,7 +54,7 @@ class PetPayload extends Equatable implements Payload {
     'dob': dob != null ? dob!.toIso8601String() : '',
     'weight': weight.toMap(),
     'personality_tags': personalityTags,
-    'ownership_type ': ownership_type,
+    'ownership_type': ownership_type,
   };
 }
 
