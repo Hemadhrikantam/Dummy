@@ -8,14 +8,27 @@ import 'package:dummy/features/health/presentation/widgets/medication/date_card.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class DateList extends StatelessWidget {
+class DateList extends StatefulWidget {
   const DateList({super.key});
 
   @override
+  State<DateList> createState() => _DateListState();
+}
+
+class _DateListState extends State<DateList> {
+  bool isFirstTime = true;
+
+  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MedicationDetailsBloc, MedicationDetailsState>(
+    return BlocConsumer<MedicationDetailsBloc, MedicationDetailsState>(
+      listener: (context, state) {
+        if (state.initStatus.success) {
+          setState(() {
+            isFirstTime = false;
+          });
+        }
+      },
       builder: (context, state) {
-        // Group logs by calendar date (ignore time) and map to MedicationDateLogModel
         final Map<DateTime, MedicationDateLogModel> grouped = {};
         for (final log in state.logs) {
           final key = DateTime(log.date.year, log.date.month, log.date.day);
@@ -28,23 +41,7 @@ class DateList extends StatelessWidget {
               .add(log);
         }
 
-        // final List<MedicationDate> groupedDates = grouped.entries.map((e) {
-        //   final logsForDate = e.value;
-        //   bool hasStatus(String slot) => logsForDate.any(
-        //         (l) => l.timeslotName.toLowerCase() == slot &&
-        //                 l.status.toLowerCase() == 'taken',
-        //       );
-        //   return MedicationDate(
-        //     id: 0,
-        //     date: e.key,
-        //     morning: hasStatus('morning'),
-        //     afternoon: hasStatus('afternoon'),
-        //     night: hasStatus('night'),
-        //   );
-        // }).toList()
-        //   ..sort((a, b) => b.date.compareTo(a.date));
-
-        return state.initStatus.loading
+        return state.initStatus.loading && isFirstTime
             ? LoadingWidget.circularProgressIndicatorCenter
             : AppCustomListViewBuilder(
               itemCount: grouped.keys.length,

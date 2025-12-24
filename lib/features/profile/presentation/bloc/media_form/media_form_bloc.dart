@@ -76,6 +76,7 @@ class MediaFormBloc extends Bloc<MediaFormEvent, MediaFormState> {
           event: DropdownStringValue.dirty(eventV),
         ),
       );
+      emit(state.copyWith(validation: state.validationX));
     }
   }
 
@@ -116,6 +117,16 @@ class MediaFormBloc extends Bloc<MediaFormEvent, MediaFormState> {
         emit(state.copyWith(submitStatus: Status.error));
       },
       (r) {
+        String? extractedId;
+        if (r.message.contains(' - ')) {
+          final parts = r.message.split(' - ');
+          if (parts.length > 1) {
+            extractedId = parts.last.trim();
+          }
+        }
+        currentContext.read<PetDairyBloc>().add(
+          PetDairyEvent.addedEntityId(extractedId ?? ''),
+        );
         emit(state.copyWith(submitStatus: Status.success));
       },
     );

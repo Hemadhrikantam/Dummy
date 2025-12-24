@@ -7,6 +7,7 @@ import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:dummy/core/widgets/dotted_border_widget.dart';
+import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/profile/presentation/bloc/document_form/document_form_bloc.dart';
@@ -82,18 +83,23 @@ class _AddPetDocuments extends State<AddPetDocuments> {
               }
             },
             builder: (context, state) {
-              return SaveCancelWidget(
-                onPressed:
-                    state.validation
-                        ? () {
-                          context.read<DocumentFormBloc>().add(
-                            const DocumentFormEvent.submit(null),
-                          );
-                        }
-                        : () => AppAlert.showToast(
-                          message: 'Provide Required Fields',
-                        ),
-              );
+              return state.submitStatus.loading
+                  ? LoadingWidget.circularProgressIndicatorWithRow
+                  : SaveCancelWidget(
+                    onPressed:
+                        state.validation
+                            ? () {
+                              if (state.submitStatus.loading) {
+                                return;
+                              }
+                              context.read<DocumentFormBloc>().add(
+                                const DocumentFormEvent.submit(null),
+                              );
+                            }
+                            : () => AppAlert.showToast(
+                              message: 'Provide Required Fields',
+                            ),
+                  );
             },
           ),
           Styles.gap10,

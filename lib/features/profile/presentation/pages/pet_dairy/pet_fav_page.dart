@@ -36,12 +36,12 @@ class PetFavPage extends StatelessWidget {
         children: [
           BlocBuilder<PetDairyBloc, PetDairyState>(
             builder: (context, state) {
-              if (state.medias.isEmpty) {
+              if (state.favoriteMedias.isEmpty) {
                 return Padding(
                   padding: Styles.edgeInsetsOnlyH00,
                   child: EmptyListPage(
                     imagePath: ImageResources.noMedia,
-                    subTitle: AppText.startCapturingMemo(
+                    subTitle: AppText.startAddingFavoritingMemo(
                       context.read<DashboardBloc>().state.selectedPet?.name ??
                           "",
                     ),

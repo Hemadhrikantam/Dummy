@@ -61,7 +61,10 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
           .firstWhere((pet) => pet.id == event.id);
 
       final breeds =
-          success.type.toLowerCase() == "cat" ? catBreeds : dogBreeds;
+          success.type.toLowerCase() == "dog" ? catBreeds : dogBreeds;
+      print(success.type.toLowerCase());
+      print(breeds);
+      print(success.breedName);
 
       emit(
         state.copyWith(
@@ -172,6 +175,7 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
         AppAlert.showToast(message: error.message);
       },
       (success) async {
+        AppAlert.showToast(message: success.message);
         emit(state.copyWith(submitStatus: Status.success));
       },
     );

@@ -164,7 +164,7 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
                         : null,
               ),
               Styles.gap30,
-              if (!widget.isAllPet && state.listing.contains(widget.adoption))
+              if (!widget.isAllPet)
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [

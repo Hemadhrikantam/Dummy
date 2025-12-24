@@ -13,7 +13,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:iconsax/iconsax.dart';
 
-class PetPhotoCardPage extends StatelessWidget {
+class PetPhotoCardPage extends StatefulWidget {
   const PetPhotoCardPage({super.key, required this.media});
   static const routeName = '/PetPhotoCardPage';
   final Media media;
@@ -22,6 +22,19 @@ class PetPhotoCardPage extends StatelessWidget {
       builder: (context) => PetPhotoCardPage(media: media),
       settings: const RouteSettings(name: routeName),
     );
+  }
+
+  @override
+  State<PetPhotoCardPage> createState() => _PetPhotoCardPageState();
+}
+
+class _PetPhotoCardPageState extends State<PetPhotoCardPage> {
+  late bool isFavorited;
+
+  @override
+  void initState() {
+    super.initState();
+    isFavorited = widget.media.isFavorited;
   }
 
   @override
@@ -40,7 +53,7 @@ class PetPhotoCardPage extends StatelessWidget {
                   width: double.infinity,
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                      image: NetworkImage(media.fileUrl),
+                      image: NetworkImage(widget.media.fileUrl),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -63,7 +76,7 @@ class PetPhotoCardPage extends StatelessWidget {
                     padding: const EdgeInsets.all(12),
                     child: SingleChildScrollView(
                       child: Text(
-                        media.notes ?? '',
+                        widget.media.notes ?? '',
                         style: TextStyle(color: Colors.white),
                       ),
                     ),
@@ -71,7 +84,7 @@ class PetPhotoCardPage extends StatelessWidget {
                 ),
 
                 // Top buttons (tag and close)
-                if (media.eventTypeName.isNotEmpty)
+                if (widget.media.eventTypeName.isNotEmpty)
                   Positioned(
                     top: 16,
                     left: 16,
@@ -89,7 +102,7 @@ class PetPhotoCardPage extends StatelessWidget {
                           // Icon(Icons.cake, size: 16, color: Colors.white),
                           // SizedBox(width: 4),
                           Text(
-                            media.eventTypeName,
+                            widget.media.eventTypeName,
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w600,
@@ -123,14 +136,16 @@ class PetPhotoCardPage extends StatelessWidget {
                         onTap: () {
                           context.read<PetDairyBloc>().add(
                             PetDairyEvent.updateMediaFavroute(
-                              media.id,
-                              !media.isFavorited,
+                              widget.media.id,
+                              !widget.media.isFavorited,
                             ),
                           );
-                          context.pop();
+                          setState(() {
+                            isFavorited = !isFavorited;
+                          });
                         },
                         child:
-                            media.isFavorited
+                            isFavorited
                                 ? Icon(
                                   Iconsax.heart5,
                                   color: AppColors.textRed,
@@ -145,8 +160,8 @@ class PetPhotoCardPage extends StatelessWidget {
                       GestureDetector(
                         onTap: () {
                           ShareService.shareByUrl(
-                            media.fileUrl,
-                            text: media.notes ?? "",
+                            widget.media.fileUrl,
+                            text: widget.media.notes ?? "",
                           );
                           //BottomModels.shareBottomSheet(context, media);
                         },
@@ -161,7 +176,7 @@ class PetPhotoCardPage extends StatelessWidget {
                           context.pop();
                           BottomModels.addPetMediaBottomSheet(
                             context,
-                            id: media.id,
+                            id: widget.media.id,
                           );
                         },
                         child: SvgPicture.asset(
@@ -174,7 +189,7 @@ class PetPhotoCardPage extends StatelessWidget {
                         onTap: () {
                           BottomModels.mediaDeleteBottomSheet(
                             context,
-                            media.id,
+                            widget.media.id,
                           );
                         },
                         child: SvgPicture.asset(

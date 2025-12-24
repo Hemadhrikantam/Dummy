@@ -36,15 +36,12 @@ class _VetNearMePage extends State<VetNearMePage>
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
-    // Future.delayed(Duration.zero, () async {
-    //   context.read<VetNearMeBloc>().add(VetNearMeEvent.init());
-    // });
   }
 
   void _onMapLoaded() {
     if (_mapLoaded) return;
     _mapLoaded = true;
-
+    setState(() {});
     context.read<VetNearMeBloc>().add(VetNearMeEvent.init());
   }
 
@@ -110,7 +107,6 @@ class _VetNearMePage extends State<VetNearMePage>
                               setState(() {
                                 selectedIndex = 0;
                               });
-                              // BottomModels.clinicNearMeBottomSheet(context);
                             },
                           ),
                         ),
@@ -136,7 +132,6 @@ class _VetNearMePage extends State<VetNearMePage>
                               setState(() {
                                 selectedIndex = 1;
                               });
-                              // BottomModels.storesNearMeBottomSheet(context);
                             },
                           ),
                         ),
@@ -148,19 +143,20 @@ class _VetNearMePage extends State<VetNearMePage>
               ),
             ),
           ),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(20),
-                topRight: Radius.circular(20),
+          if (_mapLoaded)
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
               ),
+              child:
+                  selectedIndex == 0
+                      ? ClinicNearMeBottomSheet()
+                      : StoresNearMeBottomSheet(),
             ),
-            child:
-                selectedIndex == 0
-                    ? ClinicNearMeBottomSheet()
-                    : StoresNearMeBottomSheet(),
-          ),
         ],
       ),
     );

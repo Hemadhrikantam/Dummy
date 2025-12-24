@@ -8,6 +8,7 @@ import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/core/widgets/app_graber.dart';
 import 'package:dummy/core/widgets/dotted_border_widget.dart';
+import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/profile/presentation/bloc/media_form/media_form_bloc.dart';
@@ -105,18 +106,23 @@ class _AddPetMedia extends State<AddPetMedia> {
                   }
                 },
                 builder: (context, state) {
-                  return SaveCancelWidget(
-                    onPressed:
-                        state.validation
-                            ? () {
-                              context.read<MediaFormBloc>().add(
-                                MediaFormEvent.submit(widget.id),
-                              );
-                            }
-                            : () => AppAlert.showToast(
-                              message: 'Provide Required Fields',
-                            ),
-                  );
+                  return state.submitStatus.loading
+                      ? LoadingWidget.circularProgressIndicatorWithRow
+                      : SaveCancelWidget(
+                        onPressed:
+                            state.validation
+                                ? () {
+                                  if (state.submitStatus.loading) {
+                                    return;
+                                  }
+                                  context.read<MediaFormBloc>().add(
+                                    MediaFormEvent.submit(widget.id),
+                                  );
+                                }
+                                : () => AppAlert.showToast(
+                                  message: 'Provide Required Fields',
+                                ),
+                      );
                 },
               ),
               Styles.gap10,

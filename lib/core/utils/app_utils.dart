@@ -255,4 +255,69 @@ class AppUtil {
       debugPrint("Could not launch $url");
     }
   }
+
+  static int calculateTotalDosage({
+    required DateTime startDate,
+    required DateTime endDate,
+    required int dosagePerTime,
+    required bool morningEnabled,
+    required bool afternoonEnabled,
+    required bool nightEnabled,
+    required String frequency,
+  }) {
+    /// Times per day
+    int timesPerDay = 0;
+    if (morningEnabled) timesPerDay++;
+    if (afternoonEnabled) timesPerDay++;
+    if (nightEnabled) timesPerDay++;
+
+    if (timesPerDay == 0) return 0;
+
+    /// Inclusive total days
+    final int totalDays = endDate.difference(startDate).inDays + 1;
+
+    /// Frequency occurrences
+    int occurrences;
+
+    switch (frequency) {
+      case 'Daily':
+        occurrences = totalDays;
+        break;
+
+      case 'Weekly':
+        occurrences = (totalDays / 7).ceil();
+        break;
+
+      case 'Biweekly':
+        occurrences = (totalDays / 14).ceil();
+        break;
+
+      case 'Monthly':
+        occurrences =
+            ((endDate.year - startDate.year) * 12 +
+                endDate.month -
+                startDate.month +
+                1);
+        break;
+
+      case 'Quarterly':
+        occurrences =
+            (((endDate.year - startDate.year) * 12 +
+                        endDate.month -
+                        startDate.month +
+                        1) /
+                    3)
+                .ceil();
+        break;
+
+      case 'Yearly':
+        occurrences = endDate.year - startDate.year + 1;
+        break;
+
+      default:
+        occurrences = totalDays;
+    }
+
+    return dosagePerTime * timesPerDay * occurrences;
+  }
 }

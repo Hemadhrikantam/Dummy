@@ -351,6 +351,8 @@ class AppText {
   static String member = 'Member';
   static String startCapturingMemo(String name) =>
       'Start capturing memories with $name 🐶';
+  static String startAddingFavoritingMemo(String name) =>
+      'Start adding favorite memories with $name 🐶';
   static String doommiHelpsKeep = 'Doommi helps keep your buddy safe.';
   // static String letKeepSafe = 'Let’s keep [Pet Name] safe.';
   static String nolistingsyet = 'No listings yet.';

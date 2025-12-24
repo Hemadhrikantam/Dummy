@@ -12,14 +12,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/constant/app_text.dart';
 
-class MedicationDetailsCard extends StatelessWidget {
+class MedicationDetailsCard extends StatefulWidget {
   const MedicationDetailsCard({super.key});
 
   @override
+  State<MedicationDetailsCard> createState() => _MedicationDetailsCardState();
+}
+
+class _MedicationDetailsCardState extends State<MedicationDetailsCard> {
+  bool isFirstTime = true;
+  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MedicationDetailsBloc, MedicationDetailsState>(
+    return BlocConsumer<MedicationDetailsBloc, MedicationDetailsState>(
+      listener: (context, state) {
+        if (state.initStatus.success) {
+          setState(() {
+            isFirstTime = false;
+          });
+        }
+      },
       builder: (context, state) {
-        return state.initStatus.loading
+        return state.initStatus.loading && isFirstTime
             ? LoadingWidget.circularProgressIndicatorCenter
             : CustomCard(
               child: Column(

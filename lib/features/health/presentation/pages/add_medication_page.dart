@@ -45,21 +45,15 @@ class AddMedicationPage extends StatelessWidget {
               context.read<MedicationsBloc>().add(
                 MedicationsEvent.medications(null),
               );
-              int times = 0;
-              if (state.morningTimeEnable) {
-                times = times + 1;
-              }
-              if (state.afternoonTimeEnable) {
-                times = times + 1;
-              }
-              if (state.nightTimeEnable) {
-                times = times + 1;
-              }
-              final days = DateTime.parse(
-                state.endDate.value,
-              ).difference(DateTime.parse(state.startDate.value));
-              final totalDosage =
-                  int.parse(state.dosage.value) * times * days.inDays;
+              final totalDosage = AppUtil.calculateTotalDosage(
+                startDate: DateTime.parse(state.startDate.value),
+                endDate: DateTime.parse(state.endDate.value),
+                dosagePerTime: int.parse(state.dosage.value),
+                morningEnabled: state.morningTimeEnable,
+                afternoonEnabled: state.afternoonTimeEnable,
+                nightEnabled: state.nightTimeEnable,
+                frequency: state.frequency.value?.value ?? 'Daily',
+              );
               context.push(
                 MedicationSuccessPage.route(
                   dosage: '$totalDosage ${state.dosageUnit.value?.value}',

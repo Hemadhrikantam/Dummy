@@ -169,10 +169,14 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
   }
 
   void __deleteMedia(_DeleteMedia event, Emitter<PetDairyState> emit) {
-    final media = state.medias.firstWhere((media) => media.id == event.id);
     final medias = [...state.medias];
-    medias.remove(media);
-    emit(state.copyWith(medias: medias));
+    final favoriteMedias = [...state.favoriteMedias];
+
+    medias.removeWhere((media) => media.id == event.id);
+    favoriteMedias.removeWhere((media) => media.id == event.id);
+
+    emit(state.copyWith(medias: medias, favoriteMedias: favoriteMedias));
+
     _deleteMediaUsecases(id: event.id);
   }
 

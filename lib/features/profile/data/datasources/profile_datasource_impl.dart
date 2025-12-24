@@ -186,10 +186,10 @@ class ProfileDatasourceImpl extends ProfileDatasource {
                   ? data['statusCode'] as int? ?? success.statusCode
                   : success.statusCode;
           if (statusCode <= 201) {
+            final message = data['message'] as String? ?? 'Added successfully';
+            final id = data['data']?['id'];
             return Right(
-              SuccessMessage(
-                message: data['message'] as String? ?? 'Added successfully',
-              ),
+              SuccessMessage(message: id != null ? '$message - $id' : message),
             );
           }
           return Left(
