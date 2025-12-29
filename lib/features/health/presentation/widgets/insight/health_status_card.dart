@@ -1,5 +1,4 @@
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/buttons/app_text_button.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/health/domain/entities/ai_insight.dart';
@@ -109,7 +108,7 @@ class HealthStatusCard extends StatelessWidget {
               ),
             ],
           ),
-          Styles.gap10,
+          // Styles.gap10,
           if (isEmpty)
             AppTextButton(
               backgroundColor: AppColors.white,
@@ -117,47 +116,47 @@ class HealthStatusCard extends StatelessWidget {
               borderColor: AppColors.grey500,
               textColor: AppColors.buttonTextColor,
             ),
-          if (!isEmpty)
-            CustomCard(
-              padding: Styles.edgeInsetsAll10,
-              borderColor: AppColors.black.withOpacity(.1),
-              child: Row(
-                children: [
-                  AppAssestsImage(
-                    path: ImageResources.syringeIcon,
-                    height: context.height * .04,
-                    width: context.height * .04,
-                    boxFit: BoxFit.cover,
-                  ),
-                  Styles.gap10,
-                  Expanded(
-                    child: RichText(
-                      textAlign: TextAlign.start,
-                      text: TextSpan(
-                        text:
-                            "Great job logging her meals and walks! She missed her last deworming dose",
-                        style: context.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 12,
-                          fontStyle: FontStyle.italic,
-                        ),
-                        children: [
-                          TextSpan(
-                            text: "(Due: 03/01/2025). ",
-                            style: context.textTheme.titleLarge?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 12,
-                              color: AppColors.stepperColor,
-                              fontStyle: FontStyle.italic,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
+          // if (!isEmpty)
+          //   CustomCard(
+          //     padding: Styles.edgeInsetsAll10,
+          //     borderColor: AppColors.black.withOpacity(.1),
+          //     child: Row(
+          //       children: [
+          //         AppAssestsImage(
+          //           path: ImageResources.syringeIcon,
+          //           height: context.height * .04,
+          //           width: context.height * .04,
+          //           boxFit: BoxFit.cover,
+          //         ),
+          //         Styles.gap10,
+          //         Expanded(
+          //           child: RichText(
+          //             textAlign: TextAlign.start,
+          //             text: TextSpan(
+          //               text:
+          //                   "Great job logging her meals and walks! She missed her last deworming dose",
+          //               style: context.textTheme.titleMedium?.copyWith(
+          //                 fontWeight: FontWeight.w500,
+          //                 fontSize: 12,
+          //                 fontStyle: FontStyle.italic,
+          //               ),
+          //               children: [
+          //                 TextSpan(
+          //                   text: "(Due: 03/01/2025). ",
+          //                   style: context.textTheme.titleLarge?.copyWith(
+          //                     fontWeight: FontWeight.bold,
+          //                     fontSize: 12,
+          //                     color: AppColors.stepperColor,
+          //                     fontStyle: FontStyle.italic,
+          //                   ),
+          //                 ),
+          //               ],
+          //             ),
+          //           ),
+          //         ),
+          //       ],
+          //     ),
+          //   ),
         ],
       ),
     );

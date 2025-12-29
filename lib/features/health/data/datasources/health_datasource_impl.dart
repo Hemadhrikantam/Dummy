@@ -31,7 +31,7 @@ class HealthDatasourceImpl extends HealthDatasource {
     LogUtility.warning(payload.toMap().toString());
     // final formData = FormData.fromMap(payload.toMap());
     final response = await http.post(
-      path: api.medication(null, null, null),
+      path: api.medication,
       data: payload.toMap(),
       // options: Options(contentType: 'multipart/form-data'),
     );
@@ -110,10 +110,10 @@ class HealthDatasourceImpl extends HealthDatasource {
     String? toDate,
   ) async {
     final response = await http.get(
-      path: api.medication(null, null, null),
+      path: api.medication,
       queryParameters: {
         'pet_id': petId,
-        if (key != null) 'key': key,
+        if (key != null) 'search': key,
         if (fromDate?.isNotEmpty ?? false) 'from_date': fromDate,
         if (toDate?.isNotEmpty ?? false) 'to_date': toDate,
       },
@@ -306,9 +306,7 @@ class HealthDatasourceImpl extends HealthDatasource {
 
   @override
   AppSuccessResponse deleteMedication({required String id}) async {
-    final response = await http.delete(
-      path: '${api.medication(null, null, null)}$id/',
-    );
+    final response = await http.delete(path: '${api.medication}$id/');
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));

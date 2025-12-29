@@ -4,9 +4,15 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
 class GoogleMapView extends StatefulWidget {
-  const GoogleMapView({super.key, this.child, this.onMapLoaded});
+  const GoogleMapView({
+    super.key,
+    this.child,
+    this.onMapLoaded,
+    required this.markers,
+  });
   final Widget? child;
   final VoidCallback? onMapLoaded;
+  final Set<Marker> markers;
   @override
   State<StatefulWidget> createState() => _GoogleMapViewState();
 }
@@ -113,6 +119,7 @@ class _GoogleMapViewState extends State<GoogleMapView> {
             _mapController = controller;
             widget.onMapLoaded?.call();
           },
+          markers: widget.markers,
           initialCameraPosition: CameraPosition(
             target: _currentPosition!,
             zoom: 15,

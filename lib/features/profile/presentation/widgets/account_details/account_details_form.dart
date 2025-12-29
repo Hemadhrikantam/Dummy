@@ -1,6 +1,4 @@
 import 'package:dummy/core/constant/app_colors.dart';
-import 'package:dummy/core/enum/status.dart';
-import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/features/profile/presentation/bloc/account/account_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

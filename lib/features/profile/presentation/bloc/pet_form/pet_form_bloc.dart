@@ -61,7 +61,7 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
           .firstWhere((pet) => pet.id == event.id);
 
       final breeds =
-          success.type.toLowerCase() == "dog" ? catBreeds : dogBreeds;
+          success.type.toLowerCase() == "cat" ? catBreeds : dogBreeds;
       print(success.type.toLowerCase());
       print(breeds);
       print(success.breedName);

@@ -1,22 +1,13 @@
 import 'package:dummy/core/constant/styles.dart';
-import 'package:dummy/core/extention/app_navigation.dart';
-import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/extention/device_size_extention.dart';
 import 'package:dummy/core/widgets/animated_row_column.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/dashboard/domain/entities/dashboard_details.dart';
 import 'package:dummy/features/health/presentation/bloc/health/health_bloc.dart';
-import 'package:dummy/features/wag/presentation/pages/wag_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import '../../../../../core/constant/app_colors.dart';
 import '../../../../../core/constant/image_resources.dart';
-import '../../../../../core/widgets/app_assets_image.dart';
-import '../../../../../core/widgets/buttons/app_text_button.dart';
 import 'health_status_card.dart';
-import 'personalized_recommendations_section.dart';
-import 'predictive_alerts_section.dart';
 import 'recommendations_section.dart';
 
 class InsightTab extends StatelessWidget {
@@ -45,98 +36,98 @@ class InsightTab extends StatelessWidget {
                     selectedPet: selectedPet,
                   ),
                   Styles.gap20,
-                  CustomCard(
-                    borderColor: AppColors.buttonBackground,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Row(
-                          children: [
-                            AppAssestsImage(
-                              path: ImageResources.nailsIcon,
-                              height: context.height * .06,
-                              width: context.height * .06,
-                              boxFit: BoxFit.contain,
-                            ),
-                            Styles.gap20,
-                            Expanded(
-                              child: Text(
-                                empty
-                                    ? "Track ${selectedPet?.name ?? ''}’s daily care to unlock more insights!"
-                                    : '${selectedPet?.name ?? ''} has had 10 walks this month—great job keeping her active!',
+                  // CustomCard(
+                  //   borderColor: AppColors.buttonBackground,
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.stretch,
+                  //     children: [
+                  //       Row(
+                  //         children: [
+                  //           AppAssestsImage(
+                  //             path: ImageResources.nailsIcon,
+                  //             height: context.height * .06,
+                  //             width: context.height * .06,
+                  //             boxFit: BoxFit.contain,
+                  //           ),
+                  //           Styles.gap20,
+                  //           Expanded(
+                  //             child: Text(
+                  //               empty
+                  //                   ? "Track ${selectedPet?.name ?? ''}’s daily care to unlock more insights!"
+                  //                   : '${selectedPet?.name ?? ''} has had 10 walks this month—great job keeping her active!',
 
-                                style: context.textTheme.titleMedium?.copyWith(
-                                  color: AppColors.stepperColor,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                        if (empty)
-                          AppTextButton(
-                            backgroundColor: AppColors.white,
-                            name: "Log Walks",
-                            borderColor: AppColors.grey500,
-                            textColor: AppColors.buttonTextColor,
-                          ),
-                      ],
-                    ),
-                  ),
-                  Styles.gap20,
-                  CustomCard(
-                    borderColor: AppColors.buttonBackground,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset(
-                              ImageResources.dashboardLogo,
-                              height: 25,
-                            ),
-                            Styles.gap6,
-                            SvgPicture.asset(ImageResources.premium, width: 50),
-                          ],
-                        ),
-                        Styles.gap20,
-                        Text(
-                          '${selectedPet?.name ?? ''} has had 10 walks this month—great job keeping her active!',
-                          style: context.textTheme.titleMedium?.copyWith(
-                            color: AppColors.stepperColor,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 18,
-                          ),
-                        ),
-                        Styles.gap20,
-                        Row(
-                          children: [
-                            Expanded(
-                              child: AppTextButton(
-                                onPressed: () {
-                                  context.push(WagPage.route());
-                                },
-                                backgroundColor: AppColors.white,
-                                name: empty ? "Learn More" : "Check Symptoms",
-                                borderColor: AppColors.grey500,
-                                textColor: AppColors.buttonTextColor,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
+                  //               style: context.textTheme.titleMedium?.copyWith(
+                  //                 color: AppColors.stepperColor,
+                  //                 fontWeight: FontWeight.w600,
+                  //                 fontSize: 18,
+                  //               ),
+                  //             ),
+                  //           ),
+                  //         ],
+                  //       ),
+                  //       if (empty)
+                  //         AppTextButton(
+                  //           backgroundColor: AppColors.white,
+                  //           name: "Log Walks",
+                  //           borderColor: AppColors.grey500,
+                  //           textColor: AppColors.buttonTextColor,
+                  //         ),
+                  //     ],
+                  //   ),
+                  // ),
+                  // Styles.gap20,
+                  // CustomCard(
+                  //   borderColor: AppColors.buttonBackground,
+                  //   child: Column(
+                  //     crossAxisAlignment: CrossAxisAlignment.start,
+                  //     children: [
+                  //       Row(
+                  //         children: [
+                  //           Image.asset(
+                  //             ImageResources.dashboardLogo,
+                  //             height: 25,
+                  //           ),
+                  //           Styles.gap6,
+                  //           SvgPicture.asset(ImageResources.premium, width: 50),
+                  //         ],
+                  //       ),
+                  //       Styles.gap20,
+                  //       Text(
+                  //         '${selectedPet?.name ?? ''} has had 10 walks this month—great job keeping her active!',
+                  //         style: context.textTheme.titleMedium?.copyWith(
+                  //           color: AppColors.stepperColor,
+                  //           fontWeight: FontWeight.w600,
+                  //           fontSize: 18,
+                  //         ),
+                  //       ),
+                  //       Styles.gap20,
+                  //       Row(
+                  //         children: [
+                  //           Expanded(
+                  //             child: AppTextButton(
+                  //               onPressed: () {
+                  //                 context.push(WagPage.route());
+                  //               },
+                  //               backgroundColor: AppColors.white,
+                  //               name: empty ? "Learn More" : "Check Symptoms",
+                  //               borderColor: AppColors.grey500,
+                  //               textColor: AppColors.buttonTextColor,
+                  //             ),
+                  //           ),
+                  //         ],
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                   if (!empty)
                     Column(
                       children: [
-                        Styles.gap20,
-                        PredictiveAlertsSection(aiInsight: state.aiInsights),
-                        Styles.gap20,
-                        PersonalizedRecommendationsSection(
-                          aiInsight: state.aiInsights,
-                        ),
+                        // Styles.gap20,
+                        // PredictiveAlertsSection(aiInsight: state.aiInsights),
+                        // Styles.gap20,
+                        // PersonalizedRecommendationsSection(
+                        //   aiInsight: state.aiInsights,
+                        // ),
 
                         // Styles.gap20,
                         // ClipRRect(
@@ -216,7 +207,7 @@ class InsightTab extends StatelessWidget {
                         // ),
                       ],
                     ),
-                  Styles.gap20,
+                  // Styles.gap20,
                   RecommendationsSection(aiInsight: state.aiInsights),
                   Styles.gap20,
                   // LearnSections(),

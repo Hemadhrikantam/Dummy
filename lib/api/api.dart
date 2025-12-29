@@ -68,21 +68,11 @@ String expenses() {
 String frequencies = '$__api/dailycare/deworming-frequency/';
 String remindBefores = '$__api/dailycare/remind-before/';
 String timezones = '$__api/dailycare/timezone/';
-String overview(String id) => '$__api/dailycare/overview?pet_id=$id';
+String overview(String id, String date) =>
+    '$__api/dailycare/overview?pet_id=$id&start_date=$date';
 
 //health
-String medication(String? key, String? fromDate, String? toDate) {
-  if (key != null && fromDate != null) {
-    return '$__api/medications/?search=$key&from_date=$fromDate&to_date=$toDate';
-  } else if (key != null) {
-    print('hiiii');
-    return '$__api/medications/?search=$key';
-  } else if (fromDate != null) {
-    return '$__api/medications/?from_date=$fromDate&to_date=$toDate';
-  } else {
-    return '$__api/medications/';
-  }
-}
+String medication = '$__api/medications/';
 
 String medicationItem(String id) => '$__api/medications/$id/';
 String medicationFrequencies = '$__api/medication/medication-frequency/';
