@@ -28,7 +28,7 @@ mixin _$VaccinationLogFormEvent {
     init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) notesChanged,
-    required TResult Function(DateTime value) dateChanged,
+    required TResult Function(DateTime value) nextDueDateChanged,
     required TResult Function() submit,
     required TResult Function(bool value) finalDoseCompleted,
   }) => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ mixin _$VaccinationLogFormEvent {
     init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? notesChanged,
-    TResult? Function(DateTime value)? dateChanged,
+    TResult? Function(DateTime value)? nextDueDateChanged,
     TResult? Function()? submit,
     TResult? Function(bool value)? finalDoseCompleted,
   }) => throw _privateConstructorUsedError;
@@ -58,7 +58,7 @@ mixin _$VaccinationLogFormEvent {
     init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? notesChanged,
-    TResult Function(DateTime value)? dateChanged,
+    TResult Function(DateTime value)? nextDueDateChanged,
     TResult Function()? submit,
     TResult Function(bool value)? finalDoseCompleted,
     required TResult orElse(),
@@ -68,7 +68,7 @@ mixin _$VaccinationLogFormEvent {
     required TResult Function(_Init value) init,
     required TResult Function(_IsGiven value) isGiven,
     required TResult Function(_NotesChanged value) notesChanged,
-    required TResult Function(_DateChanged value) dateChanged,
+    required TResult Function(_NextDueDateChanged value) nextDueDateChanged,
     required TResult Function(_Submit value) submit,
     required TResult Function(_FinalDoseCompleted value) finalDoseCompleted,
   }) => throw _privateConstructorUsedError;
@@ -77,7 +77,7 @@ mixin _$VaccinationLogFormEvent {
     TResult? Function(_Init value)? init,
     TResult? Function(_IsGiven value)? isGiven,
     TResult? Function(_NotesChanged value)? notesChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
+    TResult? Function(_NextDueDateChanged value)? nextDueDateChanged,
     TResult? Function(_Submit value)? submit,
     TResult? Function(_FinalDoseCompleted value)? finalDoseCompleted,
   }) => throw _privateConstructorUsedError;
@@ -86,7 +86,7 @@ mixin _$VaccinationLogFormEvent {
     TResult Function(_Init value)? init,
     TResult Function(_IsGiven value)? isGiven,
     TResult Function(_NotesChanged value)? notesChanged,
-    TResult Function(_DateChanged value)? dateChanged,
+    TResult Function(_NextDueDateChanged value)? nextDueDateChanged,
     TResult Function(_Submit value)? submit,
     TResult Function(_FinalDoseCompleted value)? finalDoseCompleted,
     required TResult orElse(),
@@ -232,7 +232,7 @@ class _$InitImpl implements _Init {
     init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) notesChanged,
-    required TResult Function(DateTime value) dateChanged,
+    required TResult Function(DateTime value) nextDueDateChanged,
     required TResult Function() submit,
     required TResult Function(bool value) finalDoseCompleted,
   }) {
@@ -251,7 +251,7 @@ class _$InitImpl implements _Init {
     init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? notesChanged,
-    TResult? Function(DateTime value)? dateChanged,
+    TResult? Function(DateTime value)? nextDueDateChanged,
     TResult? Function()? submit,
     TResult? Function(bool value)? finalDoseCompleted,
   }) {
@@ -270,7 +270,7 @@ class _$InitImpl implements _Init {
     init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? notesChanged,
-    TResult Function(DateTime value)? dateChanged,
+    TResult Function(DateTime value)? nextDueDateChanged,
     TResult Function()? submit,
     TResult Function(bool value)? finalDoseCompleted,
     required TResult orElse(),
@@ -287,7 +287,7 @@ class _$InitImpl implements _Init {
     required TResult Function(_Init value) init,
     required TResult Function(_IsGiven value) isGiven,
     required TResult Function(_NotesChanged value) notesChanged,
-    required TResult Function(_DateChanged value) dateChanged,
+    required TResult Function(_NextDueDateChanged value) nextDueDateChanged,
     required TResult Function(_Submit value) submit,
     required TResult Function(_FinalDoseCompleted value) finalDoseCompleted,
   }) {
@@ -300,7 +300,7 @@ class _$InitImpl implements _Init {
     TResult? Function(_Init value)? init,
     TResult? Function(_IsGiven value)? isGiven,
     TResult? Function(_NotesChanged value)? notesChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
+    TResult? Function(_NextDueDateChanged value)? nextDueDateChanged,
     TResult? Function(_Submit value)? submit,
     TResult? Function(_FinalDoseCompleted value)? finalDoseCompleted,
   }) {
@@ -313,7 +313,7 @@ class _$InitImpl implements _Init {
     TResult Function(_Init value)? init,
     TResult Function(_IsGiven value)? isGiven,
     TResult Function(_NotesChanged value)? notesChanged,
-    TResult Function(_DateChanged value)? dateChanged,
+    TResult Function(_NextDueDateChanged value)? nextDueDateChanged,
     TResult Function(_Submit value)? submit,
     TResult Function(_FinalDoseCompleted value)? finalDoseCompleted,
     required TResult orElse(),
@@ -424,7 +424,7 @@ class _$IsGivenImpl implements _IsGiven {
     init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) notesChanged,
-    required TResult Function(DateTime value) dateChanged,
+    required TResult Function(DateTime value) nextDueDateChanged,
     required TResult Function() submit,
     required TResult Function(bool value) finalDoseCompleted,
   }) {
@@ -443,7 +443,7 @@ class _$IsGivenImpl implements _IsGiven {
     init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? notesChanged,
-    TResult? Function(DateTime value)? dateChanged,
+    TResult? Function(DateTime value)? nextDueDateChanged,
     TResult? Function()? submit,
     TResult? Function(bool value)? finalDoseCompleted,
   }) {
@@ -462,7 +462,7 @@ class _$IsGivenImpl implements _IsGiven {
     init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? notesChanged,
-    TResult Function(DateTime value)? dateChanged,
+    TResult Function(DateTime value)? nextDueDateChanged,
     TResult Function()? submit,
     TResult Function(bool value)? finalDoseCompleted,
     required TResult orElse(),
@@ -479,7 +479,7 @@ class _$IsGivenImpl implements _IsGiven {
     required TResult Function(_Init value) init,
     required TResult Function(_IsGiven value) isGiven,
     required TResult Function(_NotesChanged value) notesChanged,
-    required TResult Function(_DateChanged value) dateChanged,
+    required TResult Function(_NextDueDateChanged value) nextDueDateChanged,
     required TResult Function(_Submit value) submit,
     required TResult Function(_FinalDoseCompleted value) finalDoseCompleted,
   }) {
@@ -492,7 +492,7 @@ class _$IsGivenImpl implements _IsGiven {
     TResult? Function(_Init value)? init,
     TResult? Function(_IsGiven value)? isGiven,
     TResult? Function(_NotesChanged value)? notesChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
+    TResult? Function(_NextDueDateChanged value)? nextDueDateChanged,
     TResult? Function(_Submit value)? submit,
     TResult? Function(_FinalDoseCompleted value)? finalDoseCompleted,
   }) {
@@ -505,7 +505,7 @@ class _$IsGivenImpl implements _IsGiven {
     TResult Function(_Init value)? init,
     TResult Function(_IsGiven value)? isGiven,
     TResult Function(_NotesChanged value)? notesChanged,
-    TResult Function(_DateChanged value)? dateChanged,
+    TResult Function(_NextDueDateChanged value)? nextDueDateChanged,
     TResult Function(_Submit value)? submit,
     TResult Function(_FinalDoseCompleted value)? finalDoseCompleted,
     required TResult orElse(),
@@ -608,7 +608,7 @@ class _$NotesChangedImpl implements _NotesChanged {
     init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) notesChanged,
-    required TResult Function(DateTime value) dateChanged,
+    required TResult Function(DateTime value) nextDueDateChanged,
     required TResult Function() submit,
     required TResult Function(bool value) finalDoseCompleted,
   }) {
@@ -627,7 +627,7 @@ class _$NotesChangedImpl implements _NotesChanged {
     init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? notesChanged,
-    TResult? Function(DateTime value)? dateChanged,
+    TResult? Function(DateTime value)? nextDueDateChanged,
     TResult? Function()? submit,
     TResult? Function(bool value)? finalDoseCompleted,
   }) {
@@ -646,7 +646,7 @@ class _$NotesChangedImpl implements _NotesChanged {
     init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? notesChanged,
-    TResult Function(DateTime value)? dateChanged,
+    TResult Function(DateTime value)? nextDueDateChanged,
     TResult Function()? submit,
     TResult Function(bool value)? finalDoseCompleted,
     required TResult orElse(),
@@ -663,7 +663,7 @@ class _$NotesChangedImpl implements _NotesChanged {
     required TResult Function(_Init value) init,
     required TResult Function(_IsGiven value) isGiven,
     required TResult Function(_NotesChanged value) notesChanged,
-    required TResult Function(_DateChanged value) dateChanged,
+    required TResult Function(_NextDueDateChanged value) nextDueDateChanged,
     required TResult Function(_Submit value) submit,
     required TResult Function(_FinalDoseCompleted value) finalDoseCompleted,
   }) {
@@ -676,7 +676,7 @@ class _$NotesChangedImpl implements _NotesChanged {
     TResult? Function(_Init value)? init,
     TResult? Function(_IsGiven value)? isGiven,
     TResult? Function(_NotesChanged value)? notesChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
+    TResult? Function(_NextDueDateChanged value)? nextDueDateChanged,
     TResult? Function(_Submit value)? submit,
     TResult? Function(_FinalDoseCompleted value)? finalDoseCompleted,
   }) {
@@ -689,7 +689,7 @@ class _$NotesChangedImpl implements _NotesChanged {
     TResult Function(_Init value)? init,
     TResult Function(_IsGiven value)? isGiven,
     TResult Function(_NotesChanged value)? notesChanged,
-    TResult Function(_DateChanged value)? dateChanged,
+    TResult Function(_NextDueDateChanged value)? nextDueDateChanged,
     TResult Function(_Submit value)? submit,
     TResult Function(_FinalDoseCompleted value)? finalDoseCompleted,
     required TResult orElse(),
@@ -714,22 +714,23 @@ abstract class _NotesChanged implements VaccinationLogFormEvent {
 }
 
 /// @nodoc
-abstract class _$$DateChangedImplCopyWith<$Res> {
-  factory _$$DateChangedImplCopyWith(
-    _$DateChangedImpl value,
-    $Res Function(_$DateChangedImpl) then,
-  ) = __$$DateChangedImplCopyWithImpl<$Res>;
+abstract class _$$NextDueDateChangedImplCopyWith<$Res> {
+  factory _$$NextDueDateChangedImplCopyWith(
+    _$NextDueDateChangedImpl value,
+    $Res Function(_$NextDueDateChangedImpl) then,
+  ) = __$$NextDueDateChangedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({DateTime value});
 }
 
 /// @nodoc
-class __$$DateChangedImplCopyWithImpl<$Res>
-    extends _$VaccinationLogFormEventCopyWithImpl<$Res, _$DateChangedImpl>
-    implements _$$DateChangedImplCopyWith<$Res> {
-  __$$DateChangedImplCopyWithImpl(
-    _$DateChangedImpl _value,
-    $Res Function(_$DateChangedImpl) _then,
+class __$$NextDueDateChangedImplCopyWithImpl<$Res>
+    extends
+        _$VaccinationLogFormEventCopyWithImpl<$Res, _$NextDueDateChangedImpl>
+    implements _$$NextDueDateChangedImplCopyWith<$Res> {
+  __$$NextDueDateChangedImplCopyWithImpl(
+    _$NextDueDateChangedImpl _value,
+    $Res Function(_$NextDueDateChangedImpl) _then,
   ) : super(_value, _then);
 
   /// Create a copy of VaccinationLogFormEvent
@@ -738,7 +739,7 @@ class __$$DateChangedImplCopyWithImpl<$Res>
   @override
   $Res call({Object? value = null}) {
     return _then(
-      _$DateChangedImpl(
+      _$NextDueDateChangedImpl(
         null == value
             ? _value.value
             : value // ignore: cast_nullable_to_non_nullable
@@ -750,22 +751,22 @@ class __$$DateChangedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DateChangedImpl implements _DateChanged {
-  const _$DateChangedImpl(this.value);
+class _$NextDueDateChangedImpl implements _NextDueDateChanged {
+  const _$NextDueDateChangedImpl(this.value);
 
   @override
   final DateTime value;
 
   @override
   String toString() {
-    return 'VaccinationLogFormEvent.dateChanged(value: $value)';
+    return 'VaccinationLogFormEvent.nextDueDateChanged(value: $value)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DateChangedImpl &&
+            other is _$NextDueDateChangedImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -777,8 +778,11 @@ class _$DateChangedImpl implements _DateChanged {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$DateChangedImplCopyWith<_$DateChangedImpl> get copyWith =>
-      __$$DateChangedImplCopyWithImpl<_$DateChangedImpl>(this, _$identity);
+  _$$NextDueDateChangedImplCopyWith<_$NextDueDateChangedImpl> get copyWith =>
+      __$$NextDueDateChangedImplCopyWithImpl<_$NextDueDateChangedImpl>(
+        this,
+        _$identity,
+      );
 
   @override
   @optionalTypeArgs
@@ -792,11 +796,11 @@ class _$DateChangedImpl implements _DateChanged {
     init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) notesChanged,
-    required TResult Function(DateTime value) dateChanged,
+    required TResult Function(DateTime value) nextDueDateChanged,
     required TResult Function() submit,
     required TResult Function(bool value) finalDoseCompleted,
   }) {
-    return dateChanged(value);
+    return nextDueDateChanged(value);
   }
 
   @override
@@ -811,11 +815,11 @@ class _$DateChangedImpl implements _DateChanged {
     init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? notesChanged,
-    TResult? Function(DateTime value)? dateChanged,
+    TResult? Function(DateTime value)? nextDueDateChanged,
     TResult? Function()? submit,
     TResult? Function(bool value)? finalDoseCompleted,
   }) {
-    return dateChanged?.call(value);
+    return nextDueDateChanged?.call(value);
   }
 
   @override
@@ -830,13 +834,13 @@ class _$DateChangedImpl implements _DateChanged {
     init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? notesChanged,
-    TResult Function(DateTime value)? dateChanged,
+    TResult Function(DateTime value)? nextDueDateChanged,
     TResult Function()? submit,
     TResult Function(bool value)? finalDoseCompleted,
     required TResult orElse(),
   }) {
-    if (dateChanged != null) {
-      return dateChanged(value);
+    if (nextDueDateChanged != null) {
+      return nextDueDateChanged(value);
     }
     return orElse();
   }
@@ -847,11 +851,11 @@ class _$DateChangedImpl implements _DateChanged {
     required TResult Function(_Init value) init,
     required TResult Function(_IsGiven value) isGiven,
     required TResult Function(_NotesChanged value) notesChanged,
-    required TResult Function(_DateChanged value) dateChanged,
+    required TResult Function(_NextDueDateChanged value) nextDueDateChanged,
     required TResult Function(_Submit value) submit,
     required TResult Function(_FinalDoseCompleted value) finalDoseCompleted,
   }) {
-    return dateChanged(this);
+    return nextDueDateChanged(this);
   }
 
   @override
@@ -860,11 +864,11 @@ class _$DateChangedImpl implements _DateChanged {
     TResult? Function(_Init value)? init,
     TResult? Function(_IsGiven value)? isGiven,
     TResult? Function(_NotesChanged value)? notesChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
+    TResult? Function(_NextDueDateChanged value)? nextDueDateChanged,
     TResult? Function(_Submit value)? submit,
     TResult? Function(_FinalDoseCompleted value)? finalDoseCompleted,
   }) {
-    return dateChanged?.call(this);
+    return nextDueDateChanged?.call(this);
   }
 
   @override
@@ -873,27 +877,28 @@ class _$DateChangedImpl implements _DateChanged {
     TResult Function(_Init value)? init,
     TResult Function(_IsGiven value)? isGiven,
     TResult Function(_NotesChanged value)? notesChanged,
-    TResult Function(_DateChanged value)? dateChanged,
+    TResult Function(_NextDueDateChanged value)? nextDueDateChanged,
     TResult Function(_Submit value)? submit,
     TResult Function(_FinalDoseCompleted value)? finalDoseCompleted,
     required TResult orElse(),
   }) {
-    if (dateChanged != null) {
-      return dateChanged(this);
+    if (nextDueDateChanged != null) {
+      return nextDueDateChanged(this);
     }
     return orElse();
   }
 }
 
-abstract class _DateChanged implements VaccinationLogFormEvent {
-  const factory _DateChanged(final DateTime value) = _$DateChangedImpl;
+abstract class _NextDueDateChanged implements VaccinationLogFormEvent {
+  const factory _NextDueDateChanged(final DateTime value) =
+      _$NextDueDateChangedImpl;
 
   DateTime get value;
 
   /// Create a copy of VaccinationLogFormEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$DateChangedImplCopyWith<_$DateChangedImpl> get copyWith =>
+  _$$NextDueDateChangedImplCopyWith<_$NextDueDateChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -949,7 +954,7 @@ class _$SubmitImpl implements _Submit {
     init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) notesChanged,
-    required TResult Function(DateTime value) dateChanged,
+    required TResult Function(DateTime value) nextDueDateChanged,
     required TResult Function() submit,
     required TResult Function(bool value) finalDoseCompleted,
   }) {
@@ -968,7 +973,7 @@ class _$SubmitImpl implements _Submit {
     init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? notesChanged,
-    TResult? Function(DateTime value)? dateChanged,
+    TResult? Function(DateTime value)? nextDueDateChanged,
     TResult? Function()? submit,
     TResult? Function(bool value)? finalDoseCompleted,
   }) {
@@ -987,7 +992,7 @@ class _$SubmitImpl implements _Submit {
     init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? notesChanged,
-    TResult Function(DateTime value)? dateChanged,
+    TResult Function(DateTime value)? nextDueDateChanged,
     TResult Function()? submit,
     TResult Function(bool value)? finalDoseCompleted,
     required TResult orElse(),
@@ -1004,7 +1009,7 @@ class _$SubmitImpl implements _Submit {
     required TResult Function(_Init value) init,
     required TResult Function(_IsGiven value) isGiven,
     required TResult Function(_NotesChanged value) notesChanged,
-    required TResult Function(_DateChanged value) dateChanged,
+    required TResult Function(_NextDueDateChanged value) nextDueDateChanged,
     required TResult Function(_Submit value) submit,
     required TResult Function(_FinalDoseCompleted value) finalDoseCompleted,
   }) {
@@ -1017,7 +1022,7 @@ class _$SubmitImpl implements _Submit {
     TResult? Function(_Init value)? init,
     TResult? Function(_IsGiven value)? isGiven,
     TResult? Function(_NotesChanged value)? notesChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
+    TResult? Function(_NextDueDateChanged value)? nextDueDateChanged,
     TResult? Function(_Submit value)? submit,
     TResult? Function(_FinalDoseCompleted value)? finalDoseCompleted,
   }) {
@@ -1030,7 +1035,7 @@ class _$SubmitImpl implements _Submit {
     TResult Function(_Init value)? init,
     TResult Function(_IsGiven value)? isGiven,
     TResult Function(_NotesChanged value)? notesChanged,
-    TResult Function(_DateChanged value)? dateChanged,
+    TResult Function(_NextDueDateChanged value)? nextDueDateChanged,
     TResult Function(_Submit value)? submit,
     TResult Function(_FinalDoseCompleted value)? finalDoseCompleted,
     required TResult orElse(),
@@ -1129,7 +1134,7 @@ class _$FinalDoseCompletedImpl implements _FinalDoseCompleted {
     init,
     required TResult Function(bool value) isGiven,
     required TResult Function(String value) notesChanged,
-    required TResult Function(DateTime value) dateChanged,
+    required TResult Function(DateTime value) nextDueDateChanged,
     required TResult Function() submit,
     required TResult Function(bool value) finalDoseCompleted,
   }) {
@@ -1148,7 +1153,7 @@ class _$FinalDoseCompletedImpl implements _FinalDoseCompleted {
     init,
     TResult? Function(bool value)? isGiven,
     TResult? Function(String value)? notesChanged,
-    TResult? Function(DateTime value)? dateChanged,
+    TResult? Function(DateTime value)? nextDueDateChanged,
     TResult? Function()? submit,
     TResult? Function(bool value)? finalDoseCompleted,
   }) {
@@ -1167,7 +1172,7 @@ class _$FinalDoseCompletedImpl implements _FinalDoseCompleted {
     init,
     TResult Function(bool value)? isGiven,
     TResult Function(String value)? notesChanged,
-    TResult Function(DateTime value)? dateChanged,
+    TResult Function(DateTime value)? nextDueDateChanged,
     TResult Function()? submit,
     TResult Function(bool value)? finalDoseCompleted,
     required TResult orElse(),
@@ -1184,7 +1189,7 @@ class _$FinalDoseCompletedImpl implements _FinalDoseCompleted {
     required TResult Function(_Init value) init,
     required TResult Function(_IsGiven value) isGiven,
     required TResult Function(_NotesChanged value) notesChanged,
-    required TResult Function(_DateChanged value) dateChanged,
+    required TResult Function(_NextDueDateChanged value) nextDueDateChanged,
     required TResult Function(_Submit value) submit,
     required TResult Function(_FinalDoseCompleted value) finalDoseCompleted,
   }) {
@@ -1197,7 +1202,7 @@ class _$FinalDoseCompletedImpl implements _FinalDoseCompleted {
     TResult? Function(_Init value)? init,
     TResult? Function(_IsGiven value)? isGiven,
     TResult? Function(_NotesChanged value)? notesChanged,
-    TResult? Function(_DateChanged value)? dateChanged,
+    TResult? Function(_NextDueDateChanged value)? nextDueDateChanged,
     TResult? Function(_Submit value)? submit,
     TResult? Function(_FinalDoseCompleted value)? finalDoseCompleted,
   }) {
@@ -1210,7 +1215,7 @@ class _$FinalDoseCompletedImpl implements _FinalDoseCompleted {
     TResult Function(_Init value)? init,
     TResult Function(_IsGiven value)? isGiven,
     TResult Function(_NotesChanged value)? notesChanged,
-    TResult Function(_DateChanged value)? dateChanged,
+    TResult Function(_NextDueDateChanged value)? nextDueDateChanged,
     TResult Function(_Submit value)? submit,
     TResult Function(_FinalDoseCompleted value)? finalDoseCompleted,
     required TResult orElse(),
@@ -1242,6 +1247,7 @@ mixin _$VaccinationLogFormState {
   bool get isFinalDoseCompleted => throw _privateConstructorUsedError;
   NotEmpty get notes => throw _privateConstructorUsedError;
   DateTime? get date => throw _privateConstructorUsedError;
+  DateTime? get nextDueDate => throw _privateConstructorUsedError;
   Status get submitStatus => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   bool get validation => throw _privateConstructorUsedError;
@@ -1266,6 +1272,7 @@ abstract class $VaccinationLogFormStateCopyWith<$Res> {
     bool isFinalDoseCompleted,
     NotEmpty notes,
     DateTime? date,
+    DateTime? nextDueDate,
     Status submitStatus,
     String? errorMessage,
     bool validation,
@@ -1295,6 +1302,7 @@ class _$VaccinationLogFormStateCopyWithImpl<
     Object? isFinalDoseCompleted = null,
     Object? notes = null,
     Object? date = freezed,
+    Object? nextDueDate = freezed,
     Object? submitStatus = null,
     Object? errorMessage = freezed,
     Object? validation = null,
@@ -1325,6 +1333,11 @@ class _$VaccinationLogFormStateCopyWithImpl<
                 freezed == date
                     ? _value.date
                     : date // ignore: cast_nullable_to_non_nullable
+                        as DateTime?,
+            nextDueDate:
+                freezed == nextDueDate
+                    ? _value.nextDueDate
+                    : nextDueDate // ignore: cast_nullable_to_non_nullable
                         as DateTime?,
             submitStatus:
                 null == submitStatus
@@ -1362,6 +1375,7 @@ abstract class _$$VaccinationLogFormStateImplCopyWith<$Res>
     bool isFinalDoseCompleted,
     NotEmpty notes,
     DateTime? date,
+    DateTime? nextDueDate,
     Status submitStatus,
     String? errorMessage,
     bool validation,
@@ -1391,6 +1405,7 @@ class __$$VaccinationLogFormStateImplCopyWithImpl<$Res>
     Object? isFinalDoseCompleted = null,
     Object? notes = null,
     Object? date = freezed,
+    Object? nextDueDate = freezed,
     Object? submitStatus = null,
     Object? errorMessage = freezed,
     Object? validation = null,
@@ -1422,6 +1437,11 @@ class __$$VaccinationLogFormStateImplCopyWithImpl<$Res>
                 ? _value.date
                 : date // ignore: cast_nullable_to_non_nullable
                     as DateTime?,
+        nextDueDate:
+            freezed == nextDueDate
+                ? _value.nextDueDate
+                : nextDueDate // ignore: cast_nullable_to_non_nullable
+                    as DateTime?,
         submitStatus:
             null == submitStatus
                 ? _value.submitStatus
@@ -1448,9 +1468,10 @@ class _$VaccinationLogFormStateImpl implements _VaccinationLogFormState {
   const _$VaccinationLogFormStateImpl({
     this.vaccinationId,
     this.check = false,
-    this.isFinalDoseCompleted = false,
+    this.isFinalDoseCompleted = true,
     this.notes = const NotEmpty.pure(),
-    this.date,
+    this.date = null,
+    this.nextDueDate = null,
     this.submitStatus = Status.init,
     this.errorMessage,
     this.validation = false,
@@ -1468,7 +1489,11 @@ class _$VaccinationLogFormStateImpl implements _VaccinationLogFormState {
   @JsonKey()
   final NotEmpty notes;
   @override
+  @JsonKey()
   final DateTime? date;
+  @override
+  @JsonKey()
+  final DateTime? nextDueDate;
   @override
   @JsonKey()
   final Status submitStatus;
@@ -1480,7 +1505,7 @@ class _$VaccinationLogFormStateImpl implements _VaccinationLogFormState {
 
   @override
   String toString() {
-    return 'VaccinationLogFormState(vaccinationId: $vaccinationId, check: $check, isFinalDoseCompleted: $isFinalDoseCompleted, notes: $notes, date: $date, submitStatus: $submitStatus, errorMessage: $errorMessage, validation: $validation)';
+    return 'VaccinationLogFormState(vaccinationId: $vaccinationId, check: $check, isFinalDoseCompleted: $isFinalDoseCompleted, notes: $notes, date: $date, nextDueDate: $nextDueDate, submitStatus: $submitStatus, errorMessage: $errorMessage, validation: $validation)';
   }
 
   @override
@@ -1495,6 +1520,8 @@ class _$VaccinationLogFormStateImpl implements _VaccinationLogFormState {
                 other.isFinalDoseCompleted == isFinalDoseCompleted) &&
             (identical(other.notes, notes) || other.notes == notes) &&
             (identical(other.date, date) || other.date == date) &&
+            (identical(other.nextDueDate, nextDueDate) ||
+                other.nextDueDate == nextDueDate) &&
             (identical(other.submitStatus, submitStatus) ||
                 other.submitStatus == submitStatus) &&
             (identical(other.errorMessage, errorMessage) ||
@@ -1511,6 +1538,7 @@ class _$VaccinationLogFormStateImpl implements _VaccinationLogFormState {
     isFinalDoseCompleted,
     notes,
     date,
+    nextDueDate,
     submitStatus,
     errorMessage,
     validation,
@@ -1534,6 +1562,7 @@ abstract class _VaccinationLogFormState implements VaccinationLogFormState {
     final bool isFinalDoseCompleted,
     final NotEmpty notes,
     final DateTime? date,
+    final DateTime? nextDueDate,
     final Status submitStatus,
     final String? errorMessage,
     final bool validation,
@@ -1549,6 +1578,8 @@ abstract class _VaccinationLogFormState implements VaccinationLogFormState {
   NotEmpty get notes;
   @override
   DateTime? get date;
+  @override
+  DateTime? get nextDueDate;
   @override
   Status get submitStatus;
   @override

@@ -118,11 +118,11 @@ class VaccinationFormBloc
             note: NotEmpty.dirty(value: vaccination.notes),
             media: NotEmpty.dirty(value: vaccination.imageUrl ?? ''),
             isGiven: vaccination.status == 'given',
-            frequency: DropdownStringValue.dirty(
-              state.frequencies.firstWhere(
-                (e) => e.id == vaccination.frequencyId,
-              ),
-            ),
+            // frequency: DropdownStringValue.dirty(
+            //   state.frequencies.firstWhere(
+            //     (e) => e.id == vaccination.frequencyId,
+            //   ),
+            // ),
             reminderHour: DropdownValue.dirty(
               DropItemModel(id: reminderHour, value: reminderHour.toString()),
             ),
@@ -266,6 +266,7 @@ class VaccinationFormBloc
       frequencyId: state.frequency.value?.id.toString() ?? '',
       reminderTimezone: state.reminderTimezone.value?.value.toString() ?? '',
       timeFrequencyId: state.reminderBefore.value!.id,
+      doseCompleted: state.isDoseCompleted,
     );
     final result =
         event.id != null

@@ -20,6 +20,7 @@ class VaccinationPayload extends Equatable implements Payload {
     this.reminderEnabled = false,
     required this.reminderTime,
     this.reminderTimezone = "",
+    this.doseCompleted = false,
   });
 
   /// core fields
@@ -42,6 +43,7 @@ class VaccinationPayload extends Equatable implements Payload {
   final bool reminderEnabled;
   final DateTime reminderTime;
   final String reminderTimezone;
+  final bool doseCompleted;
 
   @override
   List<Object?> get props => [
@@ -58,6 +60,7 @@ class VaccinationPayload extends Equatable implements Payload {
     reminderEnabled,
     reminderTime,
     reminderTimezone,
+    doseCompleted,
   ];
 
   @override
@@ -85,6 +88,11 @@ class VaccinationPayload extends Equatable implements Payload {
     // Only include status if provided (e.g., "given")
     if (status != null && status!.isNotEmpty) {
       map['status'] = status;
+    }
+
+    // Include dose_completed only when true
+    if (doseCompleted) {
+      map['dose_completed'] = true;
     }
 
     return map;

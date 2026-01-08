@@ -10,12 +10,16 @@ class UpdateVaccinationLogUsecases {
     required bool check,
     required String notes,
     required DateTime date,
+    DateTime? nextDueDate,
+    required bool isFinalDoseCompleted,
   }) {
     return repository.updateVaccinationLog(
       vaccinationId: vaccinationId,
       check: check,
       notes: notes,
       date: date,
+      nextDueDate: nextDueDate,
+      isFinalDoseCompleted: isFinalDoseCompleted,
     );
   }
 }

@@ -77,14 +77,19 @@ class HealthRepositoryImpl extends HealthRepository {
     required bool check,
     required String notes,
     required DateTime date,
+    DateTime? nextDueDate,
+    required bool isFinalDoseCompleted,
   }) {
     return _healthDatasource.updateVaccinationLog(
       vaccinationId: vaccinationId,
       check: check,
       notes: notes,
       date: date,
+      nextDueDate: nextDueDate,
+      isFinalDoseCompleted: isFinalDoseCompleted,
     );
   }
+
   @override
   AppTypeResponse<MedicationDate> getMedicationDate({
     required String id,

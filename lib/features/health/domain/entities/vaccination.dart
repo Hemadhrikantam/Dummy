@@ -6,8 +6,6 @@ class PetVaccination extends Equatable {
   final String id;
   final String petId;
   final String name;
-  final String frequencyId;
-  final String? frequencyName;
   final String companyName;
   final String timeFrequencyId;
   final String? timeFrequencyName;
@@ -15,9 +13,7 @@ class PetVaccination extends Equatable {
   /// Dates / status
   final DateTime? dueDate;
   final DateTime? dateAdministered;
-  final String status; // "pending" | "processing" | "completed" | "failed" | ...
-
-  /// Notes / media
+  final String status;
   final String notes;
   final String? imageUrl;
 
@@ -37,8 +33,6 @@ class PetVaccination extends Equatable {
     required this.id,
     required this.petId,
     required this.name,
-    required this.frequencyId,
-    this.frequencyName,
     required this.companyName,
     required this.timeFrequencyId,
     this.timeFrequencyName,
@@ -59,26 +53,24 @@ class PetVaccination extends Equatable {
 
   @override
   List<Object?> get props => [
-        id,
-        petId,
-        name,
-        frequencyId,
-        frequencyName,
-        companyName,
-        timeFrequencyId,
-        timeFrequencyName,
-        dueDate,
-        dateAdministered,
-        status,
-        notes,
-        imageUrl,
-        isActive,
-        createdBy,
-        createdAt,
-        updatedAt,
-        reminderId,
-        reminderDate,
-        timezone,
-        reminderEnabled,
-      ];
+    id,
+    petId,
+    name,
+    companyName,
+    timeFrequencyId,
+    timeFrequencyName,
+    dueDate,
+    dateAdministered,
+    status,
+    notes,
+    imageUrl,
+    isActive,
+    createdBy,
+    createdAt,
+    updatedAt,
+    reminderId,
+    reminderDate,
+    timezone,
+    reminderEnabled,
+  ];
 }

@@ -5,9 +5,10 @@ class VaccinationLogFormState with _$VaccinationLogFormState {
   const factory VaccinationLogFormState({
     String? vaccinationId,
     @Default(false) bool check,
-    @Default(false) bool isFinalDoseCompleted,
+    @Default(true) bool isFinalDoseCompleted,
     @Default(NotEmpty.pure()) NotEmpty notes,
-    DateTime? date,
+    @Default(null) DateTime? date,
+    @Default(null) DateTime? nextDueDate,
     @Default(Status.init) Status submitStatus,
     String? errorMessage,
     @Default(false) bool validation,

@@ -570,16 +570,19 @@ class HealthDatasourceImpl extends HealthDatasource {
     required bool check,
     required String notes,
     required DateTime date,
+    DateTime? nextDueDate,
+    required bool isFinalDoseCompleted,
   }) async {
-    final response = await http.post(
-      path: api.vaccinationLogs,
-      data: {
-        "vaccination_id": vaccinationId,
-        "notes": notes,
-        "type": check ? "check" : "uncheck",
-        "administered_at": AppUtil.formatDate(date),
-      },
-    );
+    final body = {
+      "vaccination_id": vaccinationId,
+      "notes": notes,
+      "type": check ? "check" : "uncheck",
+      "administered_at": AppUtil.formatDate(date),
+      if (!isFinalDoseCompleted && nextDueDate != null)
+        "next_due_date": AppUtil.formatDate(nextDueDate),
+      if (isFinalDoseCompleted) "is_final_dose": true,
+    };
+    final response = await http.post(path: api.vaccinationLogs, data: body);
     return response.fold(
       (error) {
         return Left(ErrorMessage(message: error.message));

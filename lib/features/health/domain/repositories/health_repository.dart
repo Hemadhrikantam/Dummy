@@ -58,6 +58,8 @@ abstract class HealthRepository {
     required bool check,
     required String notes,
     required DateTime date,
+    DateTime? nextDueDate,
+    required bool isFinalDoseCompleted,
   });
   // Medication logs methods
   AppTypeResponse<List<MedicationLog>> medicationLogs(

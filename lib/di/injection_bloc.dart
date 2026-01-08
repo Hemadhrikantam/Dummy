@@ -186,7 +186,6 @@ class InjectionBloc {
     return VaccinationDetailsBloc(
       getVaccinationUsecases: getIt<GetVaccinationUsecases>(),
       getVaccinationLogUsecases: getIt<GetVaccinationLogUsecases>(),
-      updateVaccinationLogUsecases: getIt<UpdateVaccinationLogUsecases>(),
       // addVaccinationLogUsecases: getIt<AddVaccinationLogUsecases>(),
       // getVaccinationLogsUsecases: getIt<GetVaccinationLogsUsecases>(),
     );

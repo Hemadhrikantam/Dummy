@@ -16,18 +16,14 @@ class VaccinationDetailsBloc
   VaccinationDetailsBloc({
     required GetVaccinationUsecases getVaccinationUsecases,
     required GetVaccinationLogUsecases getVaccinationLogUsecases,
-    required UpdateVaccinationLogUsecases updateVaccinationLogUsecases,
   }) : _getVaccinationUsecases = getVaccinationUsecases,
        _getVaccinationLogUsecases = getVaccinationLogUsecases,
-       _updateVaccinationLogUsecases = updateVaccinationLogUsecases,
        super(VaccinationDetailsState()) {
     on<_Init>(_init);
     on<_LoadVaccinationLogs>(_loadVaccinationLogs);
-    on<_AddVaccinationLog>(_addVaccinationLog);
   }
   final GetVaccinationUsecases _getVaccinationUsecases;
   final GetVaccinationLogUsecases _getVaccinationLogUsecases;
-  final UpdateVaccinationLogUsecases _updateVaccinationLogUsecases;
 
   Future<void> _init(_Init event, Emitter<VaccinationDetailsState> emit) async {
     emit(state.copyWith(initStatus: Status.loading));
@@ -56,25 +52,27 @@ class VaccinationDetailsBloc
     );
   }
 
-  Future<void> _addVaccinationLog(
-    _AddVaccinationLog event,
-    Emitter<VaccinationDetailsState> emit,
-  ) async {
-    emit(state.copyWith(addLogStatus: Status.loading));
-    final res = await _updateVaccinationLogUsecases(
-      vaccinationId: state.vaccination?.id ?? '',
-      check: event.check,
-      notes: event.notes,
-      date: event.date,
-    );
-    await res.fold(
-      (failure) async {
-        emit(state.copyWith(addLogStatus: Status.error));
-      },
-      (success) async {
-        emit(state.copyWith(addLogStatus: Status.success));
-        add(const VaccinationDetailsEvent.loadVaccinationLogs());
-      },
-    );
-  }
+  // Future<void> _addVaccinationLog(
+  //   _AddVaccinationLog event,
+  //   Emitter<VaccinationDetailsState> emit,
+  // ) async {
+  //   emit(state.copyWith(addLogStatus: Status.loading));
+  //   final res = await _updateVaccinationLogUsecases(
+  //     vaccinationId: state.vaccination?.id ?? '',
+  //     check: event.check,
+  //     notes: event.notes,
+  //     date: event.date,
+  //     nextDueDate: event.nextDueDate,
+  //     isFinalDoseCompleted: event.isFinalDoseCompleted,
+  //   );
+  //   await res.fold(
+  //     (failure) async {
+  //       emit(state.copyWith(addLogStatus: Status.error));
+  //     },
+  //     (success) async {
+  //       emit(state.copyWith(addLogStatus: Status.success));
+  //       add(const VaccinationDetailsEvent.loadVaccinationLogs());
+  //     },
+  //   );
+  // }
 }

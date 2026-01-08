@@ -19,7 +19,7 @@ class VaccinationLogFormBloc
     on<_Init>(_onInit);
     on<_IsGiven>(_onIsGiven);
     on<_NotesChanged>(_onNotesChanged);
-    on<_DateChanged>(_onDateChanged);
+    on<_NextDueDateChanged>(_onNextDueDateChanged);
     on<_Submit>(_onSubmit);
     on<_FinalDoseCompleted>(_finalDoseCompleted);
   }
@@ -62,11 +62,11 @@ class VaccinationLogFormBloc
     emit(next.copyWith(validation: next.validationX));
   }
 
-  void _onDateChanged(
-    _DateChanged event,
+  void _onNextDueDateChanged(
+    _NextDueDateChanged event,
     Emitter<VaccinationLogFormState> emit,
   ) {
-    final next = state.copyWith(date: event.value);
+    final next = state.copyWith(nextDueDate: event.value);
     emit(next.copyWith(validation: next.validationX));
   }
 
@@ -99,6 +99,8 @@ class VaccinationLogFormBloc
       check: state.check,
       notes: state.notes.value,
       date: state.date!,
+      nextDueDate: state.isFinalDoseCompleted ? null : state.nextDueDate,
+      isFinalDoseCompleted: state.isFinalDoseCompleted,
     );
     await res.fold(
       (failure) async {

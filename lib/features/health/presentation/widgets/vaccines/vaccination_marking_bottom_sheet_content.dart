@@ -138,10 +138,10 @@ class _VaccinationMarkingBottomSheetContentState
                   Styles.gap10,
                   if (!formState.isFinalDoseCompleted)
                     __DueDate(
-                      initialDate: formState.date ?? widget.date,
+                      initialDate: formState.nextDueDate,
                       onChange:
                           (value) => context.read<VaccinationLogFormBloc>().add(
-                            VaccinationLogFormEvent.dateChanged(value),
+                            VaccinationLogFormEvent.nextDueDateChanged(value),
                           ),
                     ),
                   Styles.gap10,
@@ -197,7 +197,6 @@ class _VaccinationMarkingBottomSheetContentState
                           builder: (context, state) {
                             return AppButton(
                               onPressed: () {
-                                // sync notes text into bloc before submit
                                 context.read<VaccinationLogFormBloc>().add(
                                   VaccinationLogFormEvent.notesChanged(
                                     _notesController.text,

@@ -19,8 +19,8 @@ class __Notes extends StatelessWidget {
 }
 
 class __DueDate extends StatefulWidget {
-  const __DueDate({required this.initialDate, required this.onChange});
-  final DateTime initialDate;
+  const __DueDate({this.initialDate, required this.onChange});
+  final DateTime? initialDate;
   final ValueChanged<DateTime> onChange;
 
   @override
@@ -28,7 +28,7 @@ class __DueDate extends StatefulWidget {
 }
 
 class __DueDateState extends State<__DueDate> {
-  late DateTime date;
+  DateTime? date;
   @override
   void initState() {
     super.initState();

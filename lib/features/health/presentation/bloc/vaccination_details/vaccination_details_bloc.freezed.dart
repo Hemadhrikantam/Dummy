@@ -21,41 +21,32 @@ mixin _$VaccinationDetailsEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) init,
     required TResult Function() loadVaccinationLogs,
-    required TResult Function(bool check, String notes, DateTime date)
-    addVaccinationLog,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? init,
     TResult? Function()? loadVaccinationLogs,
-    TResult? Function(bool check, String notes, DateTime date)?
-    addVaccinationLog,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? init,
     TResult Function()? loadVaccinationLogs,
-    TResult Function(bool check, String notes, DateTime date)?
-    addVaccinationLog,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_LoadVaccinationLogs value) loadVaccinationLogs,
-    required TResult Function(_AddVaccinationLog value) addVaccinationLog,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
-    TResult? Function(_AddVaccinationLog value)? addVaccinationLog,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
-    TResult Function(_AddVaccinationLog value)? addVaccinationLog,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -155,8 +146,6 @@ class _$InitImpl implements _Init {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) init,
     required TResult Function() loadVaccinationLogs,
-    required TResult Function(bool check, String notes, DateTime date)
-    addVaccinationLog,
   }) {
     return init(id);
   }
@@ -166,8 +155,6 @@ class _$InitImpl implements _Init {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? init,
     TResult? Function()? loadVaccinationLogs,
-    TResult? Function(bool check, String notes, DateTime date)?
-    addVaccinationLog,
   }) {
     return init?.call(id);
   }
@@ -177,8 +164,6 @@ class _$InitImpl implements _Init {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? init,
     TResult Function()? loadVaccinationLogs,
-    TResult Function(bool check, String notes, DateTime date)?
-    addVaccinationLog,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -192,7 +177,6 @@ class _$InitImpl implements _Init {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_LoadVaccinationLogs value) loadVaccinationLogs,
-    required TResult Function(_AddVaccinationLog value) addVaccinationLog,
   }) {
     return init(this);
   }
@@ -202,7 +186,6 @@ class _$InitImpl implements _Init {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
-    TResult? Function(_AddVaccinationLog value)? addVaccinationLog,
   }) {
     return init?.call(this);
   }
@@ -212,7 +195,6 @@ class _$InitImpl implements _Init {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
-    TResult Function(_AddVaccinationLog value)? addVaccinationLog,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -281,8 +263,6 @@ class _$LoadVaccinationLogsImpl implements _LoadVaccinationLogs {
   TResult when<TResult extends Object?>({
     required TResult Function(String id) init,
     required TResult Function() loadVaccinationLogs,
-    required TResult Function(bool check, String notes, DateTime date)
-    addVaccinationLog,
   }) {
     return loadVaccinationLogs();
   }
@@ -292,8 +272,6 @@ class _$LoadVaccinationLogsImpl implements _LoadVaccinationLogs {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String id)? init,
     TResult? Function()? loadVaccinationLogs,
-    TResult? Function(bool check, String notes, DateTime date)?
-    addVaccinationLog,
   }) {
     return loadVaccinationLogs?.call();
   }
@@ -303,8 +281,6 @@ class _$LoadVaccinationLogsImpl implements _LoadVaccinationLogs {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id)? init,
     TResult Function()? loadVaccinationLogs,
-    TResult Function(bool check, String notes, DateTime date)?
-    addVaccinationLog,
     required TResult orElse(),
   }) {
     if (loadVaccinationLogs != null) {
@@ -318,7 +294,6 @@ class _$LoadVaccinationLogsImpl implements _LoadVaccinationLogs {
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
     required TResult Function(_LoadVaccinationLogs value) loadVaccinationLogs,
-    required TResult Function(_AddVaccinationLog value) addVaccinationLog,
   }) {
     return loadVaccinationLogs(this);
   }
@@ -328,7 +303,6 @@ class _$LoadVaccinationLogsImpl implements _LoadVaccinationLogs {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
     TResult? Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
-    TResult? Function(_AddVaccinationLog value)? addVaccinationLog,
   }) {
     return loadVaccinationLogs?.call(this);
   }
@@ -338,7 +312,6 @@ class _$LoadVaccinationLogsImpl implements _LoadVaccinationLogs {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
     TResult Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
-    TResult Function(_AddVaccinationLog value)? addVaccinationLog,
     required TResult orElse(),
   }) {
     if (loadVaccinationLogs != null) {
@@ -350,187 +323,6 @@ class _$LoadVaccinationLogsImpl implements _LoadVaccinationLogs {
 
 abstract class _LoadVaccinationLogs implements VaccinationDetailsEvent {
   const factory _LoadVaccinationLogs() = _$LoadVaccinationLogsImpl;
-}
-
-/// @nodoc
-abstract class _$$AddVaccinationLogImplCopyWith<$Res> {
-  factory _$$AddVaccinationLogImplCopyWith(
-    _$AddVaccinationLogImpl value,
-    $Res Function(_$AddVaccinationLogImpl) then,
-  ) = __$$AddVaccinationLogImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool check, String notes, DateTime date});
-}
-
-/// @nodoc
-class __$$AddVaccinationLogImplCopyWithImpl<$Res>
-    extends _$VaccinationDetailsEventCopyWithImpl<$Res, _$AddVaccinationLogImpl>
-    implements _$$AddVaccinationLogImplCopyWith<$Res> {
-  __$$AddVaccinationLogImplCopyWithImpl(
-    _$AddVaccinationLogImpl _value,
-    $Res Function(_$AddVaccinationLogImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of VaccinationDetailsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? check = null, Object? notes = null, Object? date = null}) {
-    return _then(
-      _$AddVaccinationLogImpl(
-        check:
-            null == check
-                ? _value.check
-                : check // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        notes:
-            null == notes
-                ? _value.notes
-                : notes // ignore: cast_nullable_to_non_nullable
-                    as String,
-        date:
-            null == date
-                ? _value.date
-                : date // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
-      ),
-    );
-  }
-}
-
-/// @nodoc
-
-class _$AddVaccinationLogImpl implements _AddVaccinationLog {
-  const _$AddVaccinationLogImpl({
-    required this.check,
-    required this.notes,
-    required this.date,
-  });
-
-  @override
-  final bool check;
-  @override
-  final String notes;
-  @override
-  final DateTime date;
-
-  @override
-  String toString() {
-    return 'VaccinationDetailsEvent.addVaccinationLog(check: $check, notes: $notes, date: $date)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AddVaccinationLogImpl &&
-            (identical(other.check, check) || other.check == check) &&
-            (identical(other.notes, notes) || other.notes == notes) &&
-            (identical(other.date, date) || other.date == date));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, check, notes, date);
-
-  /// Create a copy of VaccinationDetailsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AddVaccinationLogImplCopyWith<_$AddVaccinationLogImpl> get copyWith =>
-      __$$AddVaccinationLogImplCopyWithImpl<_$AddVaccinationLogImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String id) init,
-    required TResult Function() loadVaccinationLogs,
-    required TResult Function(bool check, String notes, DateTime date)
-    addVaccinationLog,
-  }) {
-    return addVaccinationLog(check, notes, date);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String id)? init,
-    TResult? Function()? loadVaccinationLogs,
-    TResult? Function(bool check, String notes, DateTime date)?
-    addVaccinationLog,
-  }) {
-    return addVaccinationLog?.call(check, notes, date);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id)? init,
-    TResult Function()? loadVaccinationLogs,
-    TResult Function(bool check, String notes, DateTime date)?
-    addVaccinationLog,
-    required TResult orElse(),
-  }) {
-    if (addVaccinationLog != null) {
-      return addVaccinationLog(check, notes, date);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Init value) init,
-    required TResult Function(_LoadVaccinationLogs value) loadVaccinationLogs,
-    required TResult Function(_AddVaccinationLog value) addVaccinationLog,
-  }) {
-    return addVaccinationLog(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Init value)? init,
-    TResult? Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
-    TResult? Function(_AddVaccinationLog value)? addVaccinationLog,
-  }) {
-    return addVaccinationLog?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Init value)? init,
-    TResult Function(_LoadVaccinationLogs value)? loadVaccinationLogs,
-    TResult Function(_AddVaccinationLog value)? addVaccinationLog,
-    required TResult orElse(),
-  }) {
-    if (addVaccinationLog != null) {
-      return addVaccinationLog(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _AddVaccinationLog implements VaccinationDetailsEvent {
-  const factory _AddVaccinationLog({
-    required final bool check,
-    required final String notes,
-    required final DateTime date,
-  }) = _$AddVaccinationLogImpl;
-
-  bool get check;
-  String get notes;
-  DateTime get date;
-
-  /// Create a copy of VaccinationDetailsEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AddVaccinationLogImplCopyWith<_$AddVaccinationLogImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
