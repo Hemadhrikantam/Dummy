@@ -4,9 +4,7 @@ import 'package:dummy/features/health/domain/entities/vaccination.dart';
 import 'package:dummy/features/health/domain/entities/vaccination_log_view.dart';
 import 'package:dummy/features/health/domain/usecases/get_vaccination_log_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/get_vaccination_usecases.dart';
-import 'package:dummy/features/health/domain/usecases/update_vaccination_log_usecases.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-
 part 'vaccination_details_event.dart';
 part 'vaccination_details_state.dart';
 part 'vaccination_details_bloc.freezed.dart';

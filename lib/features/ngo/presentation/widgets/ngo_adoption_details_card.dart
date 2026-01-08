@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/constant/app_text.dart';
 import '../../../../core/widgets/app_custom_check_box.dart';
 import '../../../../core/widgets/app_custom_chip.dart';
-import '../../../../core/widgets/buttons/app_icon_button.dart';
+// import '../../../../core/widgets/buttons/app_icon_button.dart';
 import '../bloc/ngo_home/ngo_home_bloc.dart';
 
 class NgoAdoptionDetailsCard extends StatefulWidget {
@@ -70,24 +70,24 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
                       ),
                     ),
                   ),
-                  if (false)
-                    Positioned(
-                      top: context.height * .15,
-                      right: 10,
-                      child: CustomCard(
-                        padding: Styles.edgeInsetsAll02,
-                        borderRadius: Styles.borderRadiusCircular50,
-                        borderColor: AppColors.transparent,
-                        child: AppIconButton(
-                          padding: Styles.edgeInsetsOnlyH00,
-                          backgroundColor: AppColors.transparent,
-                          icon: Icons.keyboard_arrow_right_rounded,
-                          size: 25,
-                          iconColor: AppColors.black,
-                          borderColor: AppColors.transparent,
-                        ),
-                      ),
-                    ),
+                  // if (false)
+                  //   Positioned(
+                  //     top: context.height * .15,
+                  //     right: 10,
+                  //     child: CustomCard(
+                  //       padding: Styles.edgeInsetsAll02,
+                  //       borderRadius: Styles.borderRadiusCircular50,
+                  //       borderColor: AppColors.transparent,
+                  //       child: AppIconButton(
+                  //         padding: Styles.edgeInsetsOnlyH00,
+                  //         backgroundColor: AppColors.transparent,
+                  //         icon: Icons.keyboard_arrow_right_rounded,
+                  //         size: 25,
+                  //         iconColor: AppColors.black,
+                  //         borderColor: AppColors.transparent,
+                  //       ),
+                  //     ),
+                  //   ),
                 ],
               ),
               Styles.gap20,

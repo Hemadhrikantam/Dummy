@@ -87,11 +87,10 @@ class DewormingFormBloc extends Bloc<DewormingFormEvent, DewormingFormState> {
     Emitter<DewormingFormState> emit,
   ) async {
     emit(state.copyWith(submitStatus: Status.loading));
-    List<DewormingMediaPayload> mediaList = const [];
     if (state.media.value.isNotEmpty) {
       var url = state.media.value;
       var fileSize = 1; // must be positive per backend validation
-      final fileType = _inferFileType(url);
+      _inferFileType(url);
       if (!url.startsWith('http')) {
         // Fetch uploader from DI to avoid unexpected null field issues
 
@@ -118,13 +117,6 @@ class DewormingFormBloc extends Bloc<DewormingFormEvent, DewormingFormState> {
           fileSize = 1;
         }
       }
-      mediaList = [
-        DewormingMediaPayload(
-          fileUrl: url,
-          fileType: fileType,
-          fileSize: fileSize.toString(),
-        ),
-      ];
     }
     // final h = int.parse(state.reminderHour.value!.value);
     // final m = int.parse(state.reminderMin.value!.value);
