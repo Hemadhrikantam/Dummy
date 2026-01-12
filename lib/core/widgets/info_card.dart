@@ -2,7 +2,7 @@ import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+ 
 
 class InfoCard extends StatelessWidget {
   const InfoCard({
@@ -22,7 +22,8 @@ class InfoCard extends StatelessWidget {
       borderRadius: Styles.borderRadiusCircular10,
       child: Text(
         title,
-        style: GoogleFonts.instrumentSans(
+        style: const TextStyle(
+          fontFamily: 'InstrumentSans',
           fontSize: 14,
           fontStyle: FontStyle.italic,
           fontWeight: FontWeight.w500,

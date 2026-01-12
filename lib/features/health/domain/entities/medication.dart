@@ -11,6 +11,7 @@ class PetMedication extends Equatable {
   final String? dosageTypeName;
   final String frequencyId;
   final String? frequencyName;
+  final double progress;
 
   // Dates
   final DateTime startDate;
@@ -31,6 +32,7 @@ class PetMedication extends Equatable {
   final MedicationReminder? reminder;
 
   const PetMedication({
+    required this.progress,
     required this.id,
     required this.petId,
     required this.name,
@@ -73,6 +75,7 @@ class PetMedication extends Equatable {
     updatedAt,
     timeslots,
     reminder,
+    progress,
   ];
 }
 

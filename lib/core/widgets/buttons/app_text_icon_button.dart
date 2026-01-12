@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+ 
 
 import '../../constant/app_colors.dart';
 
@@ -47,8 +47,9 @@ class AppTextIconButton extends StatelessWidget {
       icon: Icon(icon, size: 20, color: textColor ?? AppColors.primaryColor),
       label: Text(
         name,
-        style: GoogleFonts.instrumentSans(
-          color: textColor ?? AppColors.primaryColor,
+        style: const TextStyle(
+          fontFamily: 'InstrumentSans',
+          color: AppColors.primaryColor,
           fontWeight: FontWeight.w500,
           fontSize: 14,
         ),

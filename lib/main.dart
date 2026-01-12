@@ -1,7 +1,6 @@
 import 'package:dummy/provider.dart';
 import 'package:flutter/material.dart';
 import 'di/injection.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 // void main() async {
@@ -33,8 +32,7 @@ void main() async {
     print("Notification init ERROR → $e");
   }
 
-  // Allow GoogleFonts runtime fetching to avoid AssetManifest load issues
-  GoogleFonts.config.allowRuntimeFetching = true;
+  
 
   runApp(const AppProvider());
 }

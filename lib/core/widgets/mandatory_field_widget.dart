@@ -1,6 +1,6 @@
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import '../constant/app_colors.dart';
 
 class MandatoryFieldWidget extends StatelessWidget {
@@ -27,7 +27,8 @@ class MandatoryFieldWidget extends StatelessWidget {
           if (required)
             TextSpan(
               text: ' *',
-              style: GoogleFonts.instrumentSans(
+              style: const TextStyle(
+                fontFamily: 'InstrumentSans',
                 color: AppColors.textRed,
                 fontSize: 16,
               ),

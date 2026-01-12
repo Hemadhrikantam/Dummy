@@ -12,7 +12,7 @@ import 'package:dummy/core/widgets/info_card.dart';
 import 'package:dummy/features/signup/presentation/bloc/register/register_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
+ 
 import 'package:image_picker/image_picker.dart';
 
 class UploadPetPhoto extends StatefulWidget {
@@ -78,7 +78,8 @@ class _UploadPetPhotoState extends State<UploadPetPhoto> {
                             ),
                             Text(
                               AppText.upload,
-                              style: GoogleFonts.instrumentSans(
+                              style: const TextStyle(
+                                fontFamily: 'InstrumentSans',
                                 color: AppColors.buttonTextColor,
                                 fontWeight: FontWeight.w700,
                                 fontSize: 14,

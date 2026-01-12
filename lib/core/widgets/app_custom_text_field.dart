@@ -2,7 +2,7 @@ import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
+ 
 
 import 'mandatory_field_widget.dart';
 
@@ -109,7 +109,8 @@ class AppTextFormField extends StatelessWidget {
             readOnly: readOnly ?? false,
             cursorColor: AppColors.primaryColor,
             maxLength: maxLength,
-            style: GoogleFonts.instrumentSans(
+            style: const TextStyle(
+              fontFamily: 'InstrumentSans',
               fontStyle: FontStyle.normal,
               fontWeight: FontWeight.w600,
               fontSize: 14,
@@ -119,7 +120,7 @@ class AppTextFormField extends StatelessWidget {
             decoration: InputDecoration(
               suffixIconColor: AppColors.primaryColor,
               focusColor: AppColors.primaryColor,
-              prefixStyle: GoogleFonts.inter(color: AppColors.black),
+              prefixStyle: const TextStyle(fontFamily: 'InstrumentSans', color: AppColors.black),
               prefixIcon: preffix,
               floatingLabelAlignment: FloatingLabelAlignment.start,
               fillColor: enable ? AppColors.white : AppColors.grey300,
@@ -144,7 +145,8 @@ class AppTextFormField extends StatelessWidget {
                 minHeight: 24,
                 minWidth: 24,
               ),
-              hintStyle: GoogleFonts.instrumentSans(
+              hintStyle: const TextStyle(
+                fontFamily: 'InstrumentSans',
                 fontStyle: FontStyle.normal,
                 color: AppColors.grey600,
                 fontWeight: FontWeight.w400,

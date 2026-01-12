@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import '../../utils/type_def.dart';
 import '../payload.dart';
+import '../../enum/entity_type.dart';
 
 class MemoriesPayload extends Equatable implements Payload {
   const MemoriesPayload({
@@ -11,7 +12,7 @@ class MemoriesPayload extends Equatable implements Payload {
 
   final String petId;
   final String entityId;
-  final String entityType;
+  final EntityType entityType;
 
   @override
   List<Object?> get props => [petId, entityId, entityType];
@@ -20,6 +21,6 @@ class MemoriesPayload extends Equatable implements Payload {
   JsonMap toMap() => {
     "pet_id": petId,
     "entity_id": entityId,
-    "entity_type": entityType,
+    "entity_type": entityType.value,
   };
 }

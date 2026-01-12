@@ -4,7 +4,7 @@ import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+ 
 import 'package:flutter/foundation.dart';
 import '../models/drop_item.dart'; // Your DropItem class
 
@@ -94,7 +94,8 @@ class _CustomMultiDropdownSearchState extends State<CustomMultiDropdownSearch> {
   @override
   Widget build(BuildContext context) {
     final fontSize = widget.fontSize ?? 14.0;
-    final hintStyle = GoogleFonts.instrumentSans(
+    final hintStyle = TextStyle(
+      fontFamily: 'InstrumentSans',
       fontSize: fontSize,
       fontWeight: widget.hintTextFontWeight ?? FontWeight.w400,
       color: widget.hintTextColor ?? Colors.grey[700],
@@ -391,7 +392,8 @@ class _CustomStringMultiDropdownSearch
   @override
   Widget build(BuildContext context) {
     final fontSize = widget.fontSize ?? 14.0;
-    final hintStyle = GoogleFonts.instrumentSans(
+    final hintStyle = TextStyle(
+      fontFamily: 'InstrumentSans',
       fontSize: fontSize,
       fontWeight: widget.hintTextFontWeight ?? FontWeight.w400,
       color: widget.hintTextColor ?? Colors.grey[700],

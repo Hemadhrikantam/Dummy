@@ -49,87 +49,103 @@ class _AddListingFormState extends State<AddListingForm> {
           maxChildSize: 0.95,
           expand: true,
           builder: (context, scrollController) {
-            return Container(
-              padding: Styles.edgeInsetsOnlyW20,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-              ),
-              child: ListView(
-                controller: scrollController,
-                children: [
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.79,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Styles.gap6,
-                        AppGraber(),
-                        Styles.gap15,
-                        Text(
-                          widget.id != null
-                              ? AppText.editAdoptionQuery
-                              : AppText.addAdoptionQuery,
-                          style: context.textTheme.titleLarge?.copyWith(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        Styles.gap15,
-                        Expanded(
-                          child: SingleChildScrollView(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                __Name(),
-                                Styles.gap10,
-                                __PetGender(),
-                                Styles.gap10,
-                                __Age(),
-                                Styles.gap10,
-                                __PetType(),
-                                Styles.gap10,
-                                __Breed(),
-                                Styles.gap10,
-                                __Address(),
-                                Styles.gap10,
-                                __Phone(),
-                                Styles.gap10,
-                                __Email(),
-                                Styles.gap10,
-                                __Description(),
-                                Styles.gap10,
-                                __Media(),
-                                Styles.gap30,
-                              ],
-                            ),
-                          ),
-                        ),
-                        Styles.gap10,
-                        BlocBuilder<ListingFormBloc, ListingFormState>(
-                          builder: (context, state) {
-                            return SaveCancelWidget(
-                              onPressed:
-                                  state.adoptionValidation && state.url.isValid
-                                      ? () {
-                                        context.read<ListingFormBloc>().add(
-                                          ListingFormEvent.submit(
-                                            id: widget.id,
-                                          ),
-                                        );
-                                      }
-                                      : () {
-                                        LogUtility.info('state :$state');
-                                        AppAlert.showToast(
-                                          message: 'Enter the Required Fields',
-                                        );
-                                      },
-                            );
-                          },
-                        ),
-                      ],
+            return SafeArea(
+              child: AnimatedPadding(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom,
+                ),
+                duration: const Duration(milliseconds: 150),
+                curve: Curves.easeOut,
+                child: Container(
+                  padding: Styles.edgeInsetsOnlyW20,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(20),
                     ),
                   ),
-                ],
+                  child: ListView(
+                    controller: scrollController,
+                    keyboardDismissBehavior:
+                        ScrollViewKeyboardDismissBehavior.onDrag,
+                    children: [
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.79,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Styles.gap6,
+                            AppGraber(),
+                            Styles.gap15,
+                            Text(
+                              widget.id != null
+                                  ? AppText.editAdoptionQuery
+                                  : AppText.addAdoptionQuery,
+                              style: context.textTheme.titleLarge?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Styles.gap15,
+                            Expanded(
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    __Name(),
+                                    Styles.gap10,
+                                    __PetGender(),
+                                    Styles.gap10,
+                                    __Age(),
+                                    Styles.gap10,
+                                    __PetType(),
+                                    Styles.gap10,
+                                    __Breed(),
+                                    Styles.gap10,
+                                    __Address(),
+                                    Styles.gap10,
+                                    __Phone(),
+                                    Styles.gap10,
+                                    __Email(),
+                                    Styles.gap10,
+                                    __Description(),
+                                    Styles.gap10,
+                                    __Media(),
+                                    Styles.gap30,
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Styles.gap10,
+                            BlocBuilder<ListingFormBloc, ListingFormState>(
+                              builder: (context, state) {
+                                return SaveCancelWidget(
+                                  onPressed:
+                                      state.adoptionValidation &&
+                                              state.url.isValid
+                                          ? () {
+                                            context.read<ListingFormBloc>().add(
+                                              ListingFormEvent.submit(
+                                                id: widget.id,
+                                              ),
+                                            );
+                                          }
+                                          : () {
+                                            LogUtility.info('state :$state');
+                                            AppAlert.showToast(
+                                              message:
+                                                  'Enter the Required Fields',
+                                            );
+                                          },
+                                );
+                              },
+                            ),
+                            Styles.gap10,
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             );
           },

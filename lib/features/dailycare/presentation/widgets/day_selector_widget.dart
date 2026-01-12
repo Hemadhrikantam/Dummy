@@ -2,7 +2,7 @@ import 'package:dummy/core/constant/app_colors.dart'; // Import your AppColors
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+
 import 'package:intl/intl.dart';
 
 class DaySelector extends StatefulWidget {
@@ -98,9 +98,10 @@ class _DaySelectorState extends State<DaySelector> {
             Styles.gap4,
             Text(
               DateFormat('E').format(day).substring(0, 3),
-              style: GoogleFonts.instrumentSans(
+              style: TextStyle(
+                fontFamily: 'InstrumentSans',
                 color:
-                    isSelected || isToday
+                    (isSelected || isToday)
                         ? AppColors.buttonTextColor
                         : AppColors.grey500,
                 fontSize: 12,
@@ -109,9 +110,10 @@ class _DaySelectorState extends State<DaySelector> {
             ),
             Text(
               '${day.day}',
-              style: GoogleFonts.instrumentSans(
+              style: TextStyle(
+                fontFamily: 'InstrumentSans',
                 color:
-                    isSelected || isToday
+                    (isSelected || isToday)
                         ? AppColors.buttonTextColor
                         : AppColors.black,
                 fontWeight: FontWeight.bold,
@@ -120,9 +122,10 @@ class _DaySelectorState extends State<DaySelector> {
             ),
             Text(
               DateFormat('MMM').format(day),
-              style: GoogleFonts.instrumentSans(
+              style: TextStyle(
+                fontFamily: 'InstrumentSans',
                 color:
-                    isSelected || isToday
+                    (isSelected || isToday)
                         ? AppColors.buttonTextColor
                         : AppColors.grey500,
                 fontSize: 12,

@@ -69,19 +69,18 @@ class VaccinationPayload extends Equatable implements Payload {
       'pet_id': petId,
       'name': name,
       'company_name': companyName,
+      'dose_completed': doseCompleted,
       'date_administered':
           dateAdministered != null ? AppUtil.formatDate(dateAdministered!) : '',
-      'frequency_id': frequencyId,
-      'time_frequency_id': timeFrequencyId,
       'due_date':
           dueDate != null ? AppUtil.formatDate(dueDate!) : '', // "YYYY-MM-DD"
       'notes': notes,
       'image_url': imageUrl,
       'reminder': {
-        // API sample shows strings "true"/"false"; follow that exactly:
         'enabled': reminderEnabled ? 'true' : 'false',
         'reminder_time': DateFormat('HH:mm').format(reminderTime),
         'timezone': reminderTimezone,
+        'time_frequency_id': timeFrequencyId,
       },
     };
 

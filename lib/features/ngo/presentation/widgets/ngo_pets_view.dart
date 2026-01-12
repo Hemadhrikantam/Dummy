@@ -32,6 +32,14 @@ class NgoPetsView extends StatefulWidget {
 class _NgoPetsView extends State<NgoPetsView> {
   String selectedTab = 'My Listing';
   final tabs = ['My Listing', 'All Pets'];
+  final TextEditingController _searchController = TextEditingController();
+  String _query = '';
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +59,22 @@ class _NgoPetsView extends State<NgoPetsView> {
           Styles.gap30,
           Row(
             children: [
-              Expanded(child: SearchButton(hintText: AppText.search)),
+              Expanded(
+                child: SearchButton(
+                  hintText: AppText.search,
+                  controller: _searchController,
+                  onChanged: (v) => setState(() => _query = v.trim()),
+                  suffix: (_query.isNotEmpty)
+                      ? GestureDetector(
+                          onTap: () {
+                            _searchController.clear();
+                            setState(() => _query = '');
+                          },
+                          child: const Icon(Icons.close, color: AppColors.grey600),
+                        )
+                      : null,
+                ),
+              ),
               Styles.gap10,
               CircleAvatar(
                 radius: 25,
@@ -85,7 +108,13 @@ class _NgoPetsView extends State<NgoPetsView> {
             tabs: tabs,
             selectedTab: selectedTab,
             isExpanded: true,
-            onTabSelected: (tab) => setState(() => selectedTab = tab),
+            onTabSelected: (tab) {
+              setState(() {
+                selectedTab = tab;
+                _searchController.clear();
+                _query = '';
+              });
+            },
           ),
           Styles.gap20,
           Expanded(
@@ -93,7 +122,19 @@ class _NgoPetsView extends State<NgoPetsView> {
                 selectedTab != 'All Pets'
                     ? BlocBuilder<NgoHomeBloc, NgoHomeState>(
                       builder: (context, state) {
-                        return state.listing.isEmpty
+                        final source = state.listing;
+                        final filtered = (_query.isEmpty)
+                            ? source
+                            : source.where((l) {
+                                final q = _query.toLowerCase();
+                                return (
+                                      l.petName.toLowerCase().contains(q) ||
+                                      l.breedName.toLowerCase().contains(q) ||
+                                      l.petType.toLowerCase().contains(q) ||
+                                      l.listedByName.toLowerCase().contains(q)
+                                    );
+                              }).toList();
+                        return filtered.isEmpty
                             ? EmptyListPage(
                               imagePath: ImageResources.noAdoption,
                               title: AppText.nolistingsyet,
@@ -112,14 +153,14 @@ class _NgoPetsView extends State<NgoPetsView> {
                                     NgoHomeEvent.init(),
                                   );
                                 },
-                                itemCount: state.listing.length,
+                                itemCount: filtered.length,
                                 isExpand: false,
                                 shrinkWrap: true,
                                 separatorBuilder: (context, i) => Styles.gap10,
                                 itemBuilder: (BuildContext context, int i) {
                                   return NgoAdoptionCard(
                                     isAllPet: selectedTab == 'All Pets',
-                                    adoption: state.listing[i],
+                                    adoption: filtered[i],
                                   );
                                 },
                               ),
@@ -128,7 +169,19 @@ class _NgoPetsView extends State<NgoPetsView> {
                     )
                     : BlocBuilder<NgoHomeBloc, NgoHomeState>(
                       builder: (context, state) {
-                        return state.allPets.isEmpty
+                        final source = state.allPets;
+                        final filtered = (_query.isEmpty)
+                            ? source
+                            : source.where((l) {
+                                final q = _query.toLowerCase();
+                                return (
+                                      l.petName.toLowerCase().contains(q) ||
+                                      l.breedName.toLowerCase().contains(q) ||
+                                      l.petType.toLowerCase().contains(q) ||
+                                      l.listedByName.toLowerCase().contains(q)
+                                    );
+                              }).toList();
+                        return filtered.isEmpty
                             ? EmptyListPage(
                               imagePath: ImageResources.noAdoption,
                               title: AppText.nolistingsyet,
@@ -147,14 +200,14 @@ class _NgoPetsView extends State<NgoPetsView> {
                                     NgoHomeEvent.init(),
                                   );
                                 },
-                                itemCount: state.allPets.length,
+                                itemCount: filtered.length,
                                 isExpand: false,
                                 shrinkWrap: true,
                                 separatorBuilder: (context, i) => Styles.gap10,
                                 itemBuilder: (BuildContext context, int i) {
                                   return NgoAdoptionCard(
                                     isAllPet: selectedTab == 'All Pets',
-                                    adoption: state.allPets[i],
+                                    adoption: filtered[i],
                                   );
                                 },
                               ),

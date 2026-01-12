@@ -539,6 +539,7 @@ class BottomModels {
   }) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
+      useSafeArea: true,
       backgroundColor: AppColors.transparent,
       context: context,
       shape: Styles.bottomDialog,
@@ -564,6 +565,7 @@ class BottomModels {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: AppColors.transparent,
+      useSafeArea: true,
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {

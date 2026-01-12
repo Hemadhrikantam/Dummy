@@ -3,7 +3,7 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/breed.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+ 
 
 class PetTypeSelectionCard extends StatelessWidget {
   const PetTypeSelectionCard({
@@ -31,8 +31,9 @@ class PetTypeSelectionCard extends StatelessWidget {
         child: Center(
           child: Text(
             name.name,
-            style: GoogleFonts.instrumentSans(
-              color: textColor ?? AppColors.black,
+            style: const TextStyle(
+              fontFamily: 'InstrumentSans',
+              color: AppColors.black,
               fontWeight: FontWeight.w700,
               fontSize: 20,
             ),

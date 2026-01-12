@@ -82,7 +82,7 @@ class _MedicationDetailsCardState extends State<MedicationDetailsCard> {
                         ],
                       ),
                       CircularProgressWithText(
-                        percentage: .25,
+                        percentage: (state.medication?.progress ?? 0) / 100,
                         progressColor: AppColors.stepperColor,
                       ),
                     ],

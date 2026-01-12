@@ -9,7 +9,7 @@ import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:google_fonts/google_fonts.dart';
+ 
 import 'package:iconsax/iconsax.dart';
 
 import '../constant/app_colors.dart';
@@ -71,14 +71,16 @@ class ScaffoldBaseScreen extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: GoogleFonts.instrumentSans(
+                  style: const TextStyle(
+                    fontFamily: 'InstrumentSans',
                     fontSize: 18,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
                 Text(
                   subTitle ?? '',
-                  style: GoogleFonts.instrumentSans(
+                  style: const TextStyle(
+                    fontFamily: 'InstrumentSans',
                     fontSize: 15,
                     fontWeight: FontWeight.w400,
                   ),
@@ -116,7 +118,8 @@ class ScaffoldBaseScreenWithTabBar extends StatelessWidget {
           automaticallyImplyLeading: false,
           title: Text(
             title,
-            style: GoogleFonts.instrumentSans(
+            style: const TextStyle(
+              fontFamily: 'InstrumentSans',
               fontSize: 18,
               fontWeight: FontWeight.w600,
             ),
@@ -379,7 +382,8 @@ class CustomAppBar extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: GoogleFonts.instrumentSans(
+                        style: const TextStyle(
+                          fontFamily: 'InstrumentSans',
                           fontSize: 14,
                           color: AppColors.grey600,
                           fontWeight: FontWeight.w500,
@@ -389,7 +393,8 @@ class CustomAppBar extends StatelessWidget {
                       ),
                       Text(
                         subTitle,
-                        style: GoogleFonts.instrumentSans(
+                        style: const TextStyle(
+                          fontFamily: 'InstrumentSans',
                           fontSize: 14,
                           color: AppColors.black,
                           fontWeight: FontWeight.w500,

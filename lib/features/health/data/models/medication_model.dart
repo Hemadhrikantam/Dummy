@@ -21,6 +21,7 @@ class PetMedicationModel extends PetMedication {
     required super.updatedAt,
     super.timeslots = const [],
     super.reminder,
+    required super.progress,
   });
 
   static DateTime? _dt(dynamic v) =>
@@ -60,6 +61,7 @@ class PetMedicationModel extends PetMedication {
       updatedAt: DateTime.parse(json['updated_at'] as String),
       timeslots: ts,
       reminder: rem,
+      progress: (json['progress'] as num?)?.toDouble() ?? 0,
     );
   }
 

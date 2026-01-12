@@ -1,5 +1,6 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/enum/entity_type.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
@@ -100,8 +101,15 @@ class _AddPetMedia extends State<AddPetMedia> {
                 listener: (context, state) {
                   if (state.submitStatus.success) {
                     context.read<PetDairyBloc>().add(
-                      PetDairyEvent.initialization(),
+                      PetDairyEvent.addMemory(
+                        context.read<DashboardBloc>().state.selectedPet?.id ??
+                            '',
+                        EntityType.diary_media.name,
+                      ),
                     );
+                    // context.read<PetDairyBloc>().add(
+                    //   PetDairyEvent.initialization(),
+                    // );
                     context.pop();
                   }
                 },

@@ -9,10 +9,12 @@ class SearchButton extends StatelessWidget {
     super.key,
     this.onChanged,
     this.suffix,
+    this.controller,
   });
   final String hintText;
   final void Function(String)? onChanged;
   final Widget? suffix;
+  final TextEditingController? controller;
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class SearchButton extends StatelessWidget {
       // },
       preffix: const Icon(Iconsax.search_normal, color: AppColors.stepperColor),
       onChanged: onChanged,
+      controller: controller,
       suffix: suffix,
     );
   }

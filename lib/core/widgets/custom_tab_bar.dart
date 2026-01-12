@@ -1,6 +1,6 @@
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+ 
 
 import '../constant/app_colors.dart';
 import '../constant/styles.dart';
@@ -65,8 +65,9 @@ class CustomTabBar extends StatelessWidget {
         labelColor: labelColor ?? AppColors.white,
         indicatorSize: TabBarIndicatorSize.tab,
         labelPadding: labelPadding,
-        labelStyle: GoogleFonts.instrumentSans(fontWeight: FontWeight.w700),
-        unselectedLabelStyle: GoogleFonts.instrumentSans(
+        labelStyle: const TextStyle(fontFamily: 'InstrumentSans', fontWeight: FontWeight.w700),
+        unselectedLabelStyle: const TextStyle(
+          fontFamily: 'InstrumentSans',
           fontWeight: FontWeight.w400,
         ),
         padding: Styles.edgeInsetsOnlyH00,
@@ -79,7 +80,8 @@ class CustomTabBar extends StatelessWidget {
                     child: Center(
                       child: Text(
                         item.text,
-                        style: GoogleFonts.instrumentSans(
+                        style: TextStyle(
+                          fontFamily: 'InstrumentSans',
                           fontSize: labelFontSize ?? 14,
                           letterSpacing: -0.5,
                         ),
@@ -194,8 +196,9 @@ class CustomTabBar1 extends StatelessWidget implements PreferredSizeWidget {
         labelColor: labelColor ?? AppColors.white,
         indicatorSize: TabBarIndicatorSize.tab,
         labelPadding: labelPadding,
-        labelStyle: GoogleFonts.instrumentSans(fontWeight: FontWeight.w700),
-        unselectedLabelStyle: GoogleFonts.instrumentSans(
+        labelStyle: const TextStyle(fontFamily: 'InstrumentSans', fontWeight: FontWeight.w700),
+        unselectedLabelStyle: const TextStyle(
+          fontFamily: 'InstrumentSans',
           fontWeight: FontWeight.w400,
         ),
         padding: Styles.edgeInsetsOnlyH00,
@@ -208,7 +211,8 @@ class CustomTabBar1 extends StatelessWidget implements PreferredSizeWidget {
                     child: Center(
                       child: Text(
                         item.text,
-                        style: GoogleFonts.instrumentSans(
+                        style: TextStyle(
+                          fontFamily: 'InstrumentSans',
                           fontSize: labelFontSize ?? 14,
                           letterSpacing: -0.5,
                         ),

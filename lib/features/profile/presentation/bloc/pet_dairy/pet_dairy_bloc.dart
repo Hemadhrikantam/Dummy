@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:dummy/core/enum/entity_type.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
@@ -109,7 +110,7 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
     final payload = MemoriesPayload(
       petId: event.id,
       entityId: state.addedEntityId,
-      entityType: event.entityType,
+      entityType: event.entityType.toEntityType(),
     );
     final result = await _addMemoryUsecases(payload: payload);
     result.fold(
@@ -118,6 +119,7 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
       },
       (r) {
         emit(state.copyWith(addMemoryStatus: Status.success));
+        add(_Initialization());
       },
     );
   }

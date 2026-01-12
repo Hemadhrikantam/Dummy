@@ -6,7 +6,7 @@ import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/mandatory_field_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+ 
 
 import '../models/drop_item.dart';
 
@@ -85,7 +85,8 @@ class CustomDropdownSearch extends StatelessWidget {
               hintText: label ?? 'Select',
               fillColor: AppColors.white,
               filled: true,
-              hintStyle: GoogleFonts.instrumentSans(
+              hintStyle: TextStyle(
+                fontFamily: 'InstrumentSans',
                 fontSize: fontSize ?? 14,
                 fontWeight: hintTextFontWeight ?? FontWeight.w400,
                 color: hintTextColor ?? AppColors.grey700,
@@ -156,7 +157,7 @@ class CustomDropdownSearch extends StatelessWidget {
             isFilterOnline: true,
             showSelectedItems: true,
             searchFieldProps: TextFieldProps(
-              style: GoogleFonts.instrumentSans(fontSize: 14),
+              style: const TextStyle(fontFamily: 'InstrumentSans', fontSize: 14),
               decoration: InputDecoration(
                 isDense: true,
                 contentPadding: Styles.edgeInsetsAll12,
@@ -164,7 +165,8 @@ class CustomDropdownSearch extends StatelessWidget {
                 hintText: label ?? 'Select',
                 fillColor: AppColors.white,
                 filled: true,
-                hintStyle: GoogleFonts.instrumentSans(
+                hintStyle: TextStyle(
+                  fontFamily: 'InstrumentSans',
                   fontSize: fontSize ?? 14,
                   fontWeight: hintTextFontWeight ?? FontWeight.w400,
                   color: hintTextColor ?? AppColors.grey700,
@@ -303,7 +305,8 @@ class CustomStringDropdownSearch extends StatelessWidget {
               hintText: label ?? 'Select',
               fillColor: AppColors.white,
               filled: true,
-              hintStyle: GoogleFonts.instrumentSans(
+              hintStyle: TextStyle(
+                fontFamily: 'InstrumentSans',
                 fontSize: fontSize ?? 14,
                 fontWeight: hintTextFontWeight ?? FontWeight.w400,
                 color: hintTextColor ?? AppColors.grey700,
@@ -370,7 +373,7 @@ class CustomStringDropdownSearch extends StatelessWidget {
             isFilterOnline: true,
             showSelectedItems: true,
             searchFieldProps: TextFieldProps(
-              style: GoogleFonts.instrumentSans(fontSize: 14),
+              style: const TextStyle(fontFamily: 'InstrumentSans', fontSize: 14),
               decoration: InputDecoration(
                 isDense: true,
                 contentPadding: Styles.edgeInsetsAll12,
@@ -378,7 +381,8 @@ class CustomStringDropdownSearch extends StatelessWidget {
                 hintText: label ?? 'Select',
                 fillColor: AppColors.white,
                 filled: true,
-                hintStyle: GoogleFonts.instrumentSans(
+                hintStyle: TextStyle(
+                  fontFamily: 'InstrumentSans',
                   fontSize: fontSize ?? 14,
                   fontWeight: hintTextFontWeight ?? FontWeight.w400,
                   color: hintTextColor ?? AppColors.grey700,

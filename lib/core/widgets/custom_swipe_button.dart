@@ -2,7 +2,7 @@ import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+ 
 import 'package:slide_to_act/slide_to_act.dart';
 
 class CustomSwipeButton extends StatelessWidget {
@@ -37,7 +37,8 @@ class CustomSwipeButton extends StatelessWidget {
           ),
         ),
         text: label,
-        textStyle: GoogleFonts.instrumentSans(
+        textStyle: const TextStyle(
+          fontFamily: 'InstrumentSans',
           color: AppColors.buttonTextColor,
           fontWeight: FontWeight.bold,
           fontSize: 16,

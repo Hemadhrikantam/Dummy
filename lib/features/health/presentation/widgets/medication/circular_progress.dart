@@ -1,6 +1,6 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+ 
 
 class CircularProgressWithText extends StatelessWidget {
   const CircularProgressWithText({
@@ -29,7 +29,8 @@ class CircularProgressWithText extends StatelessWidget {
           ),
           Text(
             '${(percentage * 100).toStringAsFixed(0)}%',
-            style: GoogleFonts.instrumentSans(
+            style: TextStyle(
+              fontFamily: 'InstrumentSans',
               fontSize: 12,
               fontWeight: FontWeight.bold,
               color: progressColor,
