@@ -342,7 +342,7 @@ class __Frequency extends StatelessWidget {
 }
 
 class __Notes extends StatefulWidget {
-  __Notes();
+  const __Notes();
 
   @override
   State<__Notes> createState() => __NotesState();

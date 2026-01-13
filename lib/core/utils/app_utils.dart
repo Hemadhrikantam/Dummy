@@ -130,7 +130,7 @@ class AppUtil {
         agoPart = '$mo month${mo == 1 ? '' : 's'} ago';
       }
 
-      return '$agoPart';
+      return agoPart;
     } catch (e) {
       return '';
     }

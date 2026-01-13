@@ -44,6 +44,7 @@ class _NotificationPage extends State<NotificationPage> {
     },
   );
 
+  @override
   initState() {
     super.initState();
     context.read<NotificationsBloc>().add(
