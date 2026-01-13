@@ -11,6 +11,8 @@ import 'package:dummy/features/profile/presentation/bloc/account/account_bloc.da
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../../health/presentation/bloc/vaccinations/vaccinations_bloc.dart';
+
 part 'dashboard_event.dart';
 part 'dashboard_state.dart';
 part 'dashboard_bloc.freezed.dart';
@@ -52,6 +54,9 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
       },
     );
     currentContext.read<AccountBloc>().add(AccountEvent.init());
+    currentContext.read<VaccinationsBloc>().add(
+      VaccinationsEvent.vaccinations(''),
+    );
   }
 
   void __petName(_PetName event, Emitter<DashboardState> emit) {

@@ -11,7 +11,6 @@ import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
-import 'package:dummy/features/dashboard/presentation/pages/dashboard_page.dart';
 import 'package:dummy/features/signup/presentation/bloc/register/register_bloc.dart';
 import 'package:dummy/features/signup/presentation/pages/premium/premium_page1.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +18,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/widgets/buttons/app_button.dart';
+import 'founder_badge_page.dart';
 
 class WelcomeToDummyPage extends StatefulWidget {
   const WelcomeToDummyPage({super.key});
@@ -69,7 +69,6 @@ class _WelcomeToDummyPageState extends State<WelcomeToDummyPage> {
                   fontSize: 28,
                 ),
               ),
-
               Styles.gap12,
               Text(
                 AppText.yourAccountIsReady(state.petName.value),
@@ -130,7 +129,7 @@ class _WelcomeToDummyPageState extends State<WelcomeToDummyPage> {
                 ),
                 onPressed: () {
                   cancelTimer();
-                  context.pushNamed(DashboardPage.routeName);
+                  context.pushNamed(FounderBadgePage.routeName);
                 },
               ),
             ],

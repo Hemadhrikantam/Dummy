@@ -25,14 +25,14 @@ class StaticWidget {
       leadingIcon: ImageResources.accountDetails,
       title: AppText.accountDetails,
     ),
-    SettingsListData(
-      leadingIcon: ImageResources.petProfile,
-      title: AppText.manageFamily,
-    ),
-    SettingsListData(
-      leadingIcon: ImageResources.premiumSubscription,
-      title: AppText.premiumSubscription,
-    ),
+    // SettingsListData(
+    //   leadingIcon: ImageResources.petProfile,
+    //   title: AppText.manageFamily,
+    // ),
+    // SettingsListData(
+    //   leadingIcon: ImageResources.premiumSubscription,
+    //   title: AppText.premiumSubscription,
+    // ),
     SettingsListData(
       leadingIcon: ImageResources.vetNearMe,
       title: AppText.vetNearMe,

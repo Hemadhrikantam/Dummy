@@ -40,7 +40,7 @@ class _NeedPremiumBottomSheet extends State<NeedPremiumBottomSheet> {
             Styles.gap16,
             // Title
             const Text(
-              'Join Dummy Premium',
+              'Join Doommmi Premium',
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.w700,

@@ -62,6 +62,9 @@ class EditVaccinationPage extends StatelessWidget {
               onPressed:
                   state.validation
                       ? () {
+                        if (state.submitStatus.loading) {
+                          return;
+                        }
                         context.read<VaccinationFormBloc>().add(
                           VaccinationFormEvent.submit(id: id),
                         );

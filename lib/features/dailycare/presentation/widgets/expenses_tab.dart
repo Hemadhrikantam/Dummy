@@ -127,7 +127,7 @@ class _ExpensesTabState extends State<ExpensesTab> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      AppText.amount,
+                                      expenseItem.amount,
                                       style: context.textTheme.labelSmall
                                           ?.copyWith(
                                             fontSize: 12,

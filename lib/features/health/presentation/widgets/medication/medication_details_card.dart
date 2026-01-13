@@ -6,7 +6,6 @@ import 'package:dummy/core/widgets/app_custom_chip.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/features/health/presentation/bloc/medication_details/medication_details_bloc.dart';
-import 'package:dummy/features/health/presentation/widgets/medication/add_medication_fields.dart';
 import 'package:dummy/features/health/presentation/widgets/medication/circular_progress.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,38 +31,43 @@ class _MedicationDetailsCardState extends State<MedicationDetailsCard> {
         }
       },
       builder: (context, state) {
+        print(state.medication.toString());
         return state.initStatus.loading && isFirstTime
             ? LoadingWidget.circularProgressIndicatorCenter
             : CustomCard(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  BlocBuilder<MedicationDetailsBloc, MedicationDetailsState>(
-                    builder: (context, state) {
-                      final daysLeft =
-                          (state.medication?.endDate ?? DateTime.now())
-                              .difference(DateTime.now())
-                              .inDays;
-                      return daysLeft >= 0 &&
-                              (state.medication?.isActive ?? false)
-                          ? AppCustomChipWidget(
-                            backgroundColor: AppColors.buttonBackground
-                                .withOpacity(.1),
-                            textColor: AppColors.stepperColor,
-                            subTitle: '',
-                            fontSize: 14,
-                            title: '$daysLeft Days Left',
-                          )
-                          : Styles.sizedBox;
-                    },
-                  ),
-                  Styles.gap6,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
+                          BlocBuilder<
+                            MedicationDetailsBloc,
+                            MedicationDetailsState
+                          >(
+                            builder: (context, state) {
+                              final daysLeft =
+                                  (state.medication?.endDate ?? DateTime.now())
+                                      .difference(DateTime.now())
+                                      .inDays;
+                              return daysLeft >= 0 &&
+                                      (state.medication?.isActive ?? false)
+                                  ? AppCustomChipWidget(
+                                    backgroundColor: AppColors.buttonBackground
+                                        .withOpacity(.1),
+                                    textColor: AppColors.stepperColor,
+                                    subTitle: '',
+                                    fontSize: 14,
+                                    title: '$daysLeft Days Left',
+                                  )
+                                  : Styles.sizedBox;
+                            },
+                          ),
+                          Styles.gap6,
                           Text(
                             state.medication?.name.split(' ')[0] ?? '',
                             style: context.textTheme.titleLarge?.copyWith(
@@ -87,7 +91,7 @@ class _MedicationDetailsCardState extends State<MedicationDetailsCard> {
                       ),
                     ],
                   ),
-                  Styles.gap30,
+                  Styles.gap10,
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -97,59 +101,13 @@ class _MedicationDetailsCardState extends State<MedicationDetailsCard> {
                           color: AppColors.grey500,
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            '${state.medication?.dosageValue ?? ""} ${state.medication?.dosageTypeName ?? ""}',
-                            style: context.textTheme.titleLarge?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 18,
-                            ),
-                          ),
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children:
-                                (state.medication?.timeslots ?? [])
-                                    .map(
-                                      (e) => DayWithTimeWidget(
-                                        day: '${e.name} ',
-                                        time: '',
-                                      ),
-                                    )
-                                    .toList(),
-                            //   DayWithTimeWidget(
-                            //     day: '${AppText.morning} ',
-                            //     time:
-                            //         '- ${state.medication?.morningTime.split(':')[0]}.${state.medication?.morningTime.split(':')[2]} PM IST',
-                            //   ),
-                            //   DayWithTimeWidget(
-                            //     day: '${AppText.afternoon} ',
-                            //     time:
-                            //         '- ${state.medication?.afternoonTime.split(':')[0]}.${state.medication?.morningTime.split(':')[1]} PM IST',
-                            //   ),
-                            //   DayWithTimeWidget(
-                            //     day: '${AppText.night} ',
-                            //     time:
-                            //         '- ${state.medication?.nightTime.split(':')[0]}.${state.medication?.nightTime.split(':')[1]} PM IST',
-                            //   ),
-                            // ],
-                          ),
-                        ],
+                      Text(
+                        '${state.medication?.dosageValue ?? ""} ${state.medication?.dosageTypeName ?? ""}',
+                        style: context.textTheme.titleLarge?.copyWith(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18,
+                        ),
                       ),
-                    ],
-                  ),
-                  Styles.gap20,
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      // AppTextButton(
-                      //   padding: Styles.edgeInsetsAll12 + Styles.edgeInsetsOnlyW25,
-                      //   backgroundColor: AppColors.white,
-                      //   name: AppText.viewMore,
-                      //   borderColor: AppColors.grey500,
-                      //   textColor: AppColors.buttonTextColor,
-                      // ),
                     ],
                   ),
                 ],

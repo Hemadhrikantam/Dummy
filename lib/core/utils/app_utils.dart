@@ -3,7 +3,7 @@
 import 'dart:io';
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:flutter/material.dart';
- 
+
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../models/formz/password.dart';
@@ -321,5 +321,17 @@ class AppUtil {
     }
 
     return dosagePerTime * timesPerDay * occurrences;
+  }
+
+  static String formatDistanceKm(double? meters) {
+    if (meters == null) return '0 km';
+
+    final km = meters / 1000;
+
+    if (km < 1) {
+      return '${meters.toStringAsFixed(0)} m';
+    }
+
+    return '${km.toStringAsFixed(1)} km';
   }
 }

@@ -178,6 +178,9 @@ class _AddExpensesFormState extends State<AddExpensesForm> {
                         onPressed:
                             state.validation
                                 ? () {
+                                  if (state.submitStatus.loading) {
+                                    return;
+                                  }
                                   context.read<ExpenseFormBloc>().add(
                                     const ExpenseFormEvent.submit(),
                                   );

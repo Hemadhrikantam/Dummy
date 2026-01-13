@@ -22,7 +22,7 @@ class AddExpensesSuccessBottomSheetContent extends StatelessWidget {
     return Padding(
       padding: Styles.edgeInsetsOnlyW20,
       child: SizedBox(
-        height: MediaQuery.of(context).size.height * 0.35,
+        height: MediaQuery.of(context).size.height * 0.3,
         child: SuccessAnimationWrap(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

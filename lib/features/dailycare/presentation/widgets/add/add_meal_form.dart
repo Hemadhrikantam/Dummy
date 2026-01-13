@@ -208,6 +208,9 @@ class _AddMealFormState extends State<AddMealForm> {
                         onPressed:
                             state.validation
                                 ? () {
+                                  if (state.submitStatus.loading) {
+                                    return;
+                                  }
                                   context.read<MealFormBloc>().add(
                                     const MealFormEvent.submit(),
                                   );

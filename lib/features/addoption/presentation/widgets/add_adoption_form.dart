@@ -1,5 +1,6 @@
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/breed.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/email.dart';
@@ -132,6 +133,11 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
                                       state.adoptionValidation &&
                                               state.petType != null
                                           ? () {
+                                            if (state
+                                                .addAdoptionStatus
+                                                .loading) {
+                                              return;
+                                            }
                                             context.read<AddAdoptionBloc>().add(
                                               AddAdoptionEvent.submit(
                                                 id: widget.id,

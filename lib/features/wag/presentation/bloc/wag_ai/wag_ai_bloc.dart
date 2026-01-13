@@ -46,6 +46,8 @@ class WagAiBloc extends Bloc<WagAiEvent, WagAiState> {
     Emitter<WagAiState> emit,
   ) async {
     emit(state.copyWith(initStatus: Status.loading));
+
+    // --- Kept your initial logic exactly as is ---
     final historyRes = await _aiChatHistoryUsecases.call(limit: 15, page: 1);
     await historyRes.fold((error) async {}, (history) async {
       emit(
@@ -61,39 +63,49 @@ class WagAiBloc extends Bloc<WagAiEvent, WagAiState> {
       );
     });
 
-    // Load AI usage stats and store in state
     final usageRes = await _aiUsageUsecases.call();
     await usageRes.fold((error) async {}, (usage) async {
       emit(state.copyWith(usage: usage));
     });
+    // ----------------------------------------------
 
     final result = await _aiStreamUsecases();
     await result.fold(
       (error) async {
         LogUtility.error('error ---> >> > ${error.message}');
-        if (emit.isDone) return;
-        emit(state.copyWith(initStatus: Status.error));
+        if (!emit.isDone) emit(state.copyWith(initStatus: Status.error));
       },
       (sse) async {
         emit(state.copyWith(stream: sse));
-        if (!emit.isDone) {
-          emit(state.copyWith(isSSECOnnected: true));
-        }
+
+        // IMPORTANT: Remove safeStream.forEach.
+        // In Dart, you cannot listen to a single-subscription stream twice.
+        // The 'forEach' was "stealing" the events before 'await for' could see them.
         final safeStream = sse.takeWhile((line) => line != '[DONE]');
+
         try {
           await for (final line in safeStream) {
             if (emit.isDone) break;
             if (line.isEmpty) continue;
+
             final trimmed = line.trim();
-            // Ignore status events
-            if (trimmed.startsWith('event:')) continue;
-            if (trimmed == 'connected') {
-              if (emit.isDone) break;
-              emit(state.copyWith(initStatus: Status.success));
+            LogUtility.info('SSE Incoming: $trimmed');
+
+            // FIX 1: Recognize BOTH 'connected' and 'replaced' as a successful handshake
+            if (trimmed == 'connected' || trimmed == 'replaced') {
+              emit(
+                state.copyWith(
+                  initStatus: Status.success,
+                  isSSECOnnected:
+                      true, // This ensures the Chat API knows it's safe to send
+                ),
+              );
               continue;
             }
 
-            // Try to parse JSON payloads from `data:` lines
+            if (trimmed.startsWith('event:')) continue;
+
+            // JSON Parsing
             Map<String, dynamic>? json;
             try {
               if (trimmed.startsWith('{')) {
@@ -107,20 +119,16 @@ class WagAiBloc extends Bloc<WagAiEvent, WagAiState> {
               final type = (json['type'] ?? '').toString();
               if (type == 'content') {
                 final content = (json['content'] ?? '').toString();
-                if (content.isNotEmpty) {
-                  LogUtility.info('---> >> > $content');
-                  if (emit.isDone) break;
+                if (content.isNotEmpty && !emit.isDone) {
                   emit(
                     state.copyWith(
-                      initStatus: Status.success,
                       streamResponse: state.streamResponse + content,
                     ),
                   );
                 }
                 continue;
               }
-              if (type == 'done') {
-                LogUtility.info('---> >> > $trimmed');
+              if (type == 'done' && !emit.isDone) {
                 emit(
                   state.copyWith(
                     streamResponse: '',
@@ -134,26 +142,27 @@ class WagAiBloc extends Bloc<WagAiEvent, WagAiState> {
                     ],
                   ),
                 );
-                // break;
+                continue;
               }
-              // Ignore other types like function_call for now
-              continue;
             }
 
-            // Non-JSON data lines (e.g., plain content)
-            if (emit.isDone) {
-              break;
+            // Fallback for non-JSON content
+            if (!emit.isDone && state.initStatus != Status.success) {
+              emit(
+                state.copyWith(
+                  initStatus: Status.success,
+                  isSSECOnnected: true,
+                  message: NotEmpty.dirty(value: trimmed),
+                ),
+              );
             }
-            emit(
-              state.copyWith(
-                initStatus: Status.success,
-                message: NotEmpty.dirty(value: trimmed),
-              ),
-            );
           }
         } catch (e) {
+          LogUtility.error('SSE Stream Loop Error: $e');
           if (!emit.isDone) {
-            emit(state.copyWith(initStatus: Status.error));
+            emit(
+              state.copyWith(initStatus: Status.error, isSSECOnnected: false),
+            );
           }
         }
       },
@@ -162,6 +171,7 @@ class WagAiBloc extends Bloc<WagAiEvent, WagAiState> {
 
   FutureOr<void> __chat(_Chat event, Emitter<WagAiState> emit) async {
     if (state.message.value.isEmpty) return;
+
     emit(
       state.copyWith(
         sendChatStatus: Status.loading,

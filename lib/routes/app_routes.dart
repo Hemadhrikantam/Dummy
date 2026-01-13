@@ -35,6 +35,7 @@ import '../features/auth/presentation/pages/reset_password_page.dart';
 import '../features/auth/presentation/pages/signup_page.dart';
 import '../features/auth/presentation/pages/start_screen_page.dart';
 import '../features/profile/presentation/pages/profile_options_page.dart';
+import '../features/signup/presentation/pages/founder_badge_page.dart';
 import '../features/signup/presentation/pages/meet_your_pet_screen.dart';
 import '../features/signup/presentation/pages/premium/premium_page1.dart';
 import '../features/signup/presentation/pages/premium/remainder_page.dart';
@@ -49,6 +50,7 @@ class AppRoutes {
     JoinDummy1Page.routeName: (_) => const JoinDummy1Page(),
     JoinDummy2Page.routeName: (_) => const JoinDummy2Page(),
     WelcomeToDummyPage.routeName: (_) => const WelcomeToDummyPage(),
+    FounderBadgePage.routeName: (_) => const FounderBadgePage(),
     //premium
     PremiumPage1.routeName: (_) => const PremiumPage1(),
     RemainderPage.routeName: (_) => const RemainderPage(),

@@ -166,6 +166,9 @@ class _AddGroomingFormState extends State<AddGroomingForm> {
                         onPressed:
                             state.validation
                                 ? () {
+                                  if (state.submitStatus.loading) {
+                                    return;
+                                  }
                                   context.read<GroomingFormBloc>().add(
                                     const GroomingFormEvent.submit(),
                                   );

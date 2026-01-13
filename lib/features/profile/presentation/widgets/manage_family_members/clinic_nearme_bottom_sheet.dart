@@ -11,6 +11,7 @@ import 'package:dummy/features/profile/presentation/bloc/vet_near_me/vet_near_me
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/constant/styles.dart';
+import '../../../../../core/utils/app_utils.dart';
 import '../../../../../core/widgets/custom_card.dart';
 
 class ClinicNearMeBottomSheet extends StatelessWidget {
@@ -65,7 +66,7 @@ class ClinicNearMeBottomSheet extends StatelessWidget {
                                   Styles.gap10,
                                   TextValueWidget(
                                     text: '',
-                                    value: formatDistanceKm(item.distance),
+                                    value: AppUtil.formatDistanceKm(item.distance),
                                   ),
                                   Styles.gap10,
                                   AppAssestsImage(
@@ -88,17 +89,5 @@ class ClinicNearMeBottomSheet extends StatelessWidget {
         );
       },
     );
-  }
-
-  String formatDistanceKm(double? meters) {
-    if (meters == null) return '0 km';
-
-    final km = meters / 1000;
-
-    if (km < 1) {
-      return '${meters.toStringAsFixed(0)} m';
-    }
-
-    return '${km.toStringAsFixed(1)} km';
   }
 }

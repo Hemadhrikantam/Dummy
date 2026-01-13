@@ -78,6 +78,7 @@ class ImageResources {
   static const String delete = '$__icons/delete.png';
   static const String mediaImg = '$images/media.png';
   static const String success = '$images/success.gif';
+  static const String founderBadgeImg = '$images/founder_badge.png';
 
   //Health
   static const String heartIcon = '$__icons/heart_icon.png';

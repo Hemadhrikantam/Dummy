@@ -17,6 +17,7 @@ import 'package:dummy/features/profile/presentation/pages/support/support_page.d
 import 'package:dummy/features/profile/presentation/pages/vet_near_me_page.dart';
 import 'package:dummy/features/profile/presentation/widgets/profile_header.dart';
 import 'package:dummy/features/profile/presentation/widgets/profile_options/pet_list_Widget.dart';
+import 'package:dummy/features/signup/presentation/pages/founder_badge_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -132,7 +133,8 @@ class ProfileOptionsPage extends StatelessWidget {
 
                       AppTextButton(
                         onPressed: () {
-                          BottomModels.logoutBottomSheet(context);
+                          context.pushNamed(FounderBadgePage.routeName);
+                          // BottomModels.logoutBottomSheet(context);
                         },
                         name: AppText.logout,
                         textColor: AppColors.redText,

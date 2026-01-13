@@ -28,9 +28,7 @@ class SaveCancelWidget extends StatelessWidget {
         Expanded(
           child: AppButton(
             name: Text(AppText.save, style: Styles.buttonStyle),
-
             backgroundColor: AppColors.buttonBackground,
-
             onPressed: onPressed,
           ),
         ),

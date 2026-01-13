@@ -10,7 +10,6 @@ import '../../../../core/constant/styles.dart';
 import '../../../../core/models/tab_model.dart';
 import '../../../../core/widgets/custom_header_widget.dart';
 import '../../../../core/widgets/custom_tab_bar.dart';
-import '../widgets/insight/insight_tab.dart';
 import '../widgets/medication/medications_tab.dart';
 import '../widgets/vaccines/vaccines_tab.dart';
 
@@ -43,15 +42,16 @@ class _HealthPage extends State<HealthPage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     int initialIndex = 0;
-    if (widget.initialTab == 'Insight') {
+    // if (widget.initialTab == 'Insight') {
+    //   initialIndex = 0;
+    // } else
+    if (widget.initialTab == 'Vaccination') {
       initialIndex = 0;
-    } else if (widget.initialTab == 'Vaccination') {
-      initialIndex = 1;
     } else if (widget.initialTab == 'Medications') {
-      initialIndex = 2;
+      initialIndex = 1;
     }
     _tabController = TabController(
-      length: 3,
+      length: 2,
       vsync: this,
       initialIndex: initialIndex,
     );
@@ -82,7 +82,7 @@ class _HealthPage extends State<HealthPage> with TickerProviderStateMixin {
                 CustomTabBar(
                   tabController: _tabController,
                   tabs: [
-                    TabModel(text: AppText.insights),
+                    // TabModel(text: AppText.insights),
                     TabModel(text: AppText.vaccination),
                     TabModel(text: AppText.medications),
                   ],
@@ -91,7 +91,7 @@ class _HealthPage extends State<HealthPage> with TickerProviderStateMixin {
                   child: TabBarView(
                     controller: _tabController,
                     children: [
-                      InsightTab(selectedPet: widget.selectedPet),
+                      // InsightTab(selectedPet: widget.selectedPet),
                       VaccinesTab(
                         selectedPet: widget.selectedPet,
                         initialTab: widget.initialTab,

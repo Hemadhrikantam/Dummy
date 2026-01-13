@@ -35,9 +35,9 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-      initialChildSize: 0.80,
-      minChildSize: 0.80,
-      maxChildSize: 0.80,
+      initialChildSize: 0.65,
+      minChildSize: 0.65,
+      maxChildSize: 0.66,
       expand: false,
       builder: (context, scrollController) {
         return ListView(
@@ -45,7 +45,7 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
           padding: Styles.edgeInsetsOnlyW20,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.79,
+              height: MediaQuery.of(context).size.height * 0.65,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -320,7 +320,6 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                           //     );
                           //   },
                           // ),
-                          Styles.gap30,
                         ],
                       ),
                     ),
@@ -341,6 +340,9 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                         onPressed:
                             state.validation
                                 ? () {
+                                  if (state.submitStatus.loading) {
+                                    return;
+                                  }
                                   context.read<DewormingFormBloc>().add(
                                     const DewormingFormEvent.submit(),
                                   );
@@ -351,6 +353,7 @@ class _AddDewormingFormState extends State<AddDewormingForm> {
                       );
                     },
                   ),
+                  Styles.gap10,
                 ],
               ),
             ),

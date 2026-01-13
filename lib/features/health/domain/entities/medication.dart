@@ -6,7 +6,7 @@ class PetMedication extends Equatable {
   final String petId;
   final String name;
   final String company;
-  final String dosageValue; // e.g. "142 tablets"
+  final String dosageValue;
   final String? dosageTypeId;
   final String? dosageTypeName;
   final String frequencyId;

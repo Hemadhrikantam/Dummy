@@ -1,5 +1,4 @@
 import 'package:dummy/core/enum/status.dart';
-import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/health/domain/entities/medication.dart';
 import 'package:dummy/features/health/domain/entities/medication_date.dart';
 import 'package:dummy/features/health/domain/entities/medication_log.dart';
@@ -7,7 +6,6 @@ import 'package:dummy/features/health/domain/usecases/get_medication_logs_usecas
 import 'package:dummy/features/health/domain/usecases/get_medication_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/update_medication_date_usecases.dart';
 import 'package:dummy/features/health/domain/usecases/update_medication_log_usecases.dart';
-import 'package:dummy/features/health/presentation/bloc/medications/medications_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 part 'medication_details_event.dart';
@@ -21,9 +19,9 @@ class MedicationDetailsBloc
     required GetMedicationLogsUsecases dateUsecases,
     required UpdateMedicationLogUsecases updateLogUsecases,
     required UpdateMedicationDateUsecases editDateUsecases,
-  }) : 
-       _getLogsUsecases = dateUsecases,
+  }) : _getLogsUsecases = dateUsecases,
        _updateLogUsecases = updateLogUsecases,
+       _getMedicationUsecases = getMedicationUsecases,
        super(MedicationDetailsState()) {
     on<_Init>(__init);
     on<_LoadLogs>(__loadLogs);
@@ -31,22 +29,19 @@ class MedicationDetailsBloc
     on<_UpdateMedicationLog>(__updateMedicationLog);
   }
   final GetMedicationLogsUsecases _getLogsUsecases;
+  final GetMedicationUsecases _getMedicationUsecases;
   final UpdateMedicationLogUsecases _updateLogUsecases;
 
   Future<void> __init(_Init event, Emitter<MedicationDetailsState> emit) async {
     emit(state.copyWith(initStatus: Status.loading));
-    final medication =
-        currentContext
-            .read<MedicationsBloc>()
-            .state
-            .medications
-            .where((e) => e.id == event.id)
-            .first;
+    final medication = await _getMedicationUsecases(id: event.id);
 
     emit(
       state.copyWith(
         id: event.id,
-        medication: medication,
+        medication: medication.fold((l) {
+          return null;
+        }, (r) => r),
         initStatus: Status.success,
       ),
     );

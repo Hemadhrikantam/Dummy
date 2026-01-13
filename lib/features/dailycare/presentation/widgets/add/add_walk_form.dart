@@ -171,6 +171,9 @@ class _AddWalkFormState extends State<AddWalkForm> {
                         onPressed:
                             state.validation
                                 ? () {
+                                  if (state.submitStatus.loading) {
+                                    return;
+                                  }
                                   context.read<WalkFormBloc>().add(
                                     const WalkFormEvent.submit(),
                                   );

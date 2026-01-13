@@ -133,6 +133,13 @@ class AppText {
       'Your account is ready! Let’s start caring for $name with Doommi.';
   static String unlockMoreWithDummy =
       'Unlock more with Doommi Premium: Advanced Health Insights, Symptom Checker, and more!';
+  static String welcomeFounder = 'Welcome, Founder!';
+  static String becauseYouJoinedUsEarly =
+      'Because you joined us early,you\'ve unlocked Doommi Premium Completely FREE';
+  static String claimMyFreeAccess = 'Claim My Free Access';
+  static String validUntil = 'Valid until June 2026';
+  static String noCreditCardRequired = 'No credit card required.';
+
   static String welcomeBackToDummy = 'Welcome Back to Doommi!';
   static String forgotPassword = 'Forgot password? Reset here';
   static String resetYourPassword = 'Reset Your Password';

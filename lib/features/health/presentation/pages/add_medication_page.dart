@@ -68,6 +68,9 @@ class AddMedicationPage extends StatelessWidget {
               onPressed:
                   state.validation
                       ? () {
+                        if (state.submitStatus.loading) {
+                          return;
+                        }
                         context.read<MedicationFormBloc>().add(
                           const MedicationFormEvent.submit(null),
                         );

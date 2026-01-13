@@ -29,7 +29,7 @@ class _ChatPageState extends State<ChatPage> {
     // Future.delayed(Duration(milliseconds: 400), () {
     //   _scrollToBottom();
     // });
-    _scrollToBottom();
+    // _scrollToBottom();
   }
 
   void _scrollToBottom() {
@@ -44,7 +44,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     return BlocConsumer<WagAiBloc, WagAiState>(
       listener: (context, state) {
-        if (state.historyStatus == Status.success) {
+        if (state.historyStatus == Status.success && !state.hasMoreHistory) {
           _scrollToBottom();
         }
         if (!state.showingUsageBottomSheet &&
