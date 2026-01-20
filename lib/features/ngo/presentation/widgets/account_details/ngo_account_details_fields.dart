@@ -121,6 +121,7 @@ class __Address extends StatelessWidget {
           initialValue: state.address.value,
           headerText: AppText.address,
           errorText: state.address.error,
+          maxLines: 5,
           onChanged:
               (value) => context.read<NgoProfileBloc>().add(
                 NgoProfileEvent.address(value),
@@ -217,17 +218,17 @@ class __RegistrationProofPicker extends StatelessWidget {
                       ? [state.registrationProofFile.value]
                       : [],
             ),
-            if (state.registrationProofFile.error != null &&
-                state.registrationProofUrl.isEmpty) ...[
-              Styles.gap6,
-              Text(
-                state.registrationProofFile.error ?? '',
-                style: context.textTheme.bodySmall?.copyWith(
-                  color: AppColors.textRed,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ],
+            // if (state.registrationProofFile.error != null &&
+            //     state.registrationProofUrl.isEmpty) ...[
+            //   Styles.gap6,
+            //   Text(
+            //     state.registrationProofFile.error ?? '',
+            //     style: context.textTheme.bodySmall?.copyWith(
+            //       color: AppColors.textRed,
+            //       fontWeight: FontWeight.w600,
+            //     ),
+            //   ),
+            // ],
           ],
         );
       },

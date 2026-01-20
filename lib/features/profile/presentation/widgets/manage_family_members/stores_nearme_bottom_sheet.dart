@@ -10,6 +10,7 @@ import 'package:dummy/features/profile/presentation/bloc/vet_near_me/vet_near_me
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/constant/styles.dart';
+import '../../../../../core/utils/app_utils.dart';
 import '../../../../../core/widgets/custom_card.dart';
 import '../../../../../core/widgets/loading_widget.dart';
 
@@ -68,11 +69,20 @@ class StoresNearMeBottomSheet extends StatelessWidget {
                                     value: formatDistanceKm(item.distance),
                                   ),
                                   Styles.gap10,
-                                  AppAssestsImage(
-                                    path: ImageResources.map,
-                                    width: 30,
-                                    height: 30,
-                                    boxFit: BoxFit.contain,
+                                  GestureDetector(
+                                    onTap: () {
+                                      AppUtil.openGoogleMap(
+                                        latitude: item.latitude,
+                                        longitude: item.longitude,
+                                        label: item.name,
+                                      );
+                                    },
+                                    child: AppAssestsImage(
+                                      path: ImageResources.map,
+                                      width: 30,
+                                      height: 30,
+                                      boxFit: BoxFit.contain,
+                                    ),
                                   ),
                                 ],
                               ),

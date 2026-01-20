@@ -18,9 +18,9 @@ class _NeedPremiumBottomSheet extends State<NeedPremiumBottomSheet> {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-      initialChildSize: 0.80,
+      initialChildSize: 0.74,
       minChildSize: 0.35,
-      maxChildSize: 0.8,
+      maxChildSize: 0.74,
       expand: false,
       builder: (context, scrollController) {
         return ListView(
@@ -30,7 +30,6 @@ class _NeedPremiumBottomSheet extends State<NeedPremiumBottomSheet> {
             Styles.gap6,
             AppGraber(),
             Styles.gap16,
-
             AppAssestsImage(
               path: ImageResources.dashboardLogo,
               height: 45,
@@ -38,9 +37,8 @@ class _NeedPremiumBottomSheet extends State<NeedPremiumBottomSheet> {
               boxFit: BoxFit.contain,
             ),
             Styles.gap16,
-            // Title
             const Text(
-              'Join Doommmi Premium',
+              'Join Doommi Premium',
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.w700,
@@ -50,7 +48,6 @@ class _NeedPremiumBottomSheet extends State<NeedPremiumBottomSheet> {
             ),
             const SizedBox(height: 12),
 
-            // Subtitle
             const Text(
               'You’re 30 seconds away from unlocking your pet’s full wellness journey.',
               style: TextStyle(
@@ -62,7 +59,6 @@ class _NeedPremiumBottomSheet extends State<NeedPremiumBottomSheet> {
             ),
             const SizedBox(height: 32),
 
-            // Orange rounded box
             Container(
               width: double.infinity,
               padding: const EdgeInsets.all(20),
@@ -102,11 +98,8 @@ class _NeedPremiumBottomSheet extends State<NeedPremiumBottomSheet> {
             ),
             Styles.gap25,
 
-            // Button
             AppButton(
-              onPressed: () {
-                // Navigate or do something
-              },
+              onPressed: () {},
               name: const Text(
                 'Start Your Pets Journey',
                 style: TextStyle(
@@ -116,7 +109,7 @@ class _NeedPremiumBottomSheet extends State<NeedPremiumBottomSheet> {
                 ),
               ),
             ),
-            // Dog Image (replace with actual asset if you have it)
+
             Padding(
               padding: Styles.edgeInsetsZero,
               child: Align(

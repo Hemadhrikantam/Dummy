@@ -36,10 +36,10 @@ class VaccinationsBloc extends Bloc<VaccinationsEvent, VaccinationsState> {
       currentContext.read<DashboardBloc>().state.selectedPet?.id ?? '',
       event.key,
       state.dateAdministered.isValid
-          ? AppUtil.convertToYYYYMMDD2(state.dateAdministered.value)
+          ? AppUtil.convertToYYYYMMDD(state.dateAdministered.value)
           : null,
       state.dueDate.isValid
-          ? AppUtil.convertToYYYYMMDD2(state.dueDate.value)
+          ? AppUtil.convertToYYYYMMDD(state.dueDate.value)
           : null,
     );
 
@@ -67,8 +67,14 @@ class VaccinationsBloc extends Bloc<VaccinationsEvent, VaccinationsState> {
   }
 
   void __filter(_Filter event, emit) {
-    final dateAdministered = NotEmpty.dirty(value: event.dateAdministered);
-    final dueDate = NotEmpty.dirty(value: event.dueDate);
+    final dateAdministered =
+        event.dateAdministered == null
+            ? NotEmpty.pure()
+            : NotEmpty.dirty(value: event.dateAdministered!);
+    final dueDate =
+        event.dueDate == null
+            ? NotEmpty.pure()
+            : NotEmpty.dirty(value: event.dueDate!);
     emit(state.copyWith(dateAdministered: dateAdministered, dueDate: dueDate));
   }
 

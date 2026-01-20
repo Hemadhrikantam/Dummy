@@ -15,7 +15,7 @@ class OverviewModel extends Overview {
       walks: json['summary']['walks']['count'],
       grooming: json['summary']['grooming']['count'],
       deworming: json['summary']['deworming']['count'],
-      expenses: json['summary']['expenses'].length,
+      expenses: json['summary']['expenses'][0]['count'],
     );
   }
 }

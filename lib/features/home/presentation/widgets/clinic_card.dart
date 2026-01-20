@@ -27,7 +27,17 @@ class ClinicCard extends StatelessWidget {
             ),
           ),
           Styles.gap10,
-          AppIcon(icon: Iconsax.map5, color: AppColors.stepperColor),
+          AppIcon(
+            onTap: () {
+              AppUtil.openGoogleMap(
+                latitude: clinic.latitude,
+                longitude: clinic.longitude,
+                label: clinic.name,
+              );
+            },
+            icon: Iconsax.map5,
+            color: AppColors.stepperColor,
+          ),
         ],
       ),
     );

@@ -87,7 +87,6 @@ class VeccinationDeleteBottomSheetContent extends StatelessWidget {
                           VaccinationsEvent.delete(id),
                         );
                         context.pop();
-                        context.pop();
                         BottomModels.medicationDeleteSuccessBottomSheet(
                           context,
                         );

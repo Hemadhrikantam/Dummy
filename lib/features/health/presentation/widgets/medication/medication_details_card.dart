@@ -50,10 +50,13 @@ class _MedicationDetailsCardState extends State<MedicationDetailsCard> {
                             MedicationDetailsState
                           >(
                             builder: (context, state) {
-                              final daysLeft =
+                              int daysLeft =
                                   (state.medication?.endDate ?? DateTime.now())
                                       .difference(DateTime.now())
                                       .inDays;
+                              if (daysLeft < 0) {
+                                daysLeft = 0;
+                              }
                               return daysLeft >= 0 &&
                                       (state.medication?.isActive ?? false)
                                   ? AppCustomChipWidget(

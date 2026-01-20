@@ -92,16 +92,22 @@ class _VaccinesTabState extends State<VaccinesTab> {
                 children: [
                   FilterButton(
                     onTap: () {
-                      BottomModels.vaccinationFilterSheet(context, (
-                        startDate,
-                        endDate,
-                      ) {
-                        context.read<VaccinationsBloc>().add(
-                          VaccinationsEvent.filter(startDate, endDate),
-                        );
-                        context.pop();
-                        refresh();
-                      });
+                      BottomModels.vaccinationFilterSheet(
+                        context,
+                        (startDate, endDate) {
+                          context.read<VaccinationsBloc>().add(
+                            VaccinationsEvent.filter(startDate, endDate),
+                          );
+                          context.pop();
+                          refresh();
+                        },
+                        () {
+                          context.read<VaccinationsBloc>().add(
+                            VaccinationsEvent.filter(null, null),
+                          );
+                          refresh();
+                        },
+                      );
                     },
                   ),
                 ],

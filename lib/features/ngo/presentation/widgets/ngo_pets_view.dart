@@ -19,7 +19,6 @@ import '../../../../core/widgets/base_screen.dart';
 import '../../../../core/widgets/buttons/app_button.dart';
 import '../../../../core/widgets/custom_header_widget.dart';
 import '../../../../core/widgets/custom_search_bar.dart';
-import '../../../../core/widgets/filter_button.dart';
 import '../../../dailycare/presentation/widgets/overview_header_widget.dart';
 
 class NgoPetsView extends StatefulWidget {
@@ -64,15 +63,19 @@ class _NgoPetsView extends State<NgoPetsView> {
                   hintText: AppText.search,
                   controller: _searchController,
                   onChanged: (v) => setState(() => _query = v.trim()),
-                  suffix: (_query.isNotEmpty)
-                      ? GestureDetector(
-                          onTap: () {
-                            _searchController.clear();
-                            setState(() => _query = '');
-                          },
-                          child: const Icon(Icons.close, color: AppColors.grey600),
-                        )
-                      : null,
+                  suffix:
+                      (_query.isNotEmpty)
+                          ? GestureDetector(
+                            onTap: () {
+                              _searchController.clear();
+                              setState(() => _query = '');
+                            },
+                            child: const Icon(
+                              Icons.close,
+                              color: AppColors.grey600,
+                            ),
+                          )
+                          : null,
                 ),
               ),
               Styles.gap10,
@@ -85,9 +88,9 @@ class _NgoPetsView extends State<NgoPetsView> {
           ),
           Styles.gap10,
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              FilterButton(),
+              // FilterButton(),
               AppButton(
                 name: Text(
                   AppText.add,
@@ -123,17 +126,16 @@ class _NgoPetsView extends State<NgoPetsView> {
                     ? BlocBuilder<NgoHomeBloc, NgoHomeState>(
                       builder: (context, state) {
                         final source = state.listing;
-                        final filtered = (_query.isEmpty)
-                            ? source
-                            : source.where((l) {
-                                final q = _query.toLowerCase();
-                                return (
-                                      l.petName.toLowerCase().contains(q) ||
+                        final filtered =
+                            (_query.isEmpty)
+                                ? source
+                                : source.where((l) {
+                                  final q = _query.toLowerCase();
+                                  return (l.petName.toLowerCase().contains(q) ||
                                       l.breedName.toLowerCase().contains(q) ||
                                       l.petType.toLowerCase().contains(q) ||
-                                      l.listedByName.toLowerCase().contains(q)
-                                    );
-                              }).toList();
+                                      l.listedByName.toLowerCase().contains(q));
+                                }).toList();
                         return filtered.isEmpty
                             ? EmptyListPage(
                               imagePath: ImageResources.noAdoption,
@@ -170,17 +172,16 @@ class _NgoPetsView extends State<NgoPetsView> {
                     : BlocBuilder<NgoHomeBloc, NgoHomeState>(
                       builder: (context, state) {
                         final source = state.allPets;
-                        final filtered = (_query.isEmpty)
-                            ? source
-                            : source.where((l) {
-                                final q = _query.toLowerCase();
-                                return (
-                                      l.petName.toLowerCase().contains(q) ||
+                        final filtered =
+                            (_query.isEmpty)
+                                ? source
+                                : source.where((l) {
+                                  final q = _query.toLowerCase();
+                                  return (l.petName.toLowerCase().contains(q) ||
                                       l.breedName.toLowerCase().contains(q) ||
                                       l.petType.toLowerCase().contains(q) ||
-                                      l.listedByName.toLowerCase().contains(q)
-                                    );
-                              }).toList();
+                                      l.listedByName.toLowerCase().contains(q));
+                                }).toList();
                         return filtered.isEmpty
                             ? EmptyListPage(
                               imagePath: ImageResources.noAdoption,

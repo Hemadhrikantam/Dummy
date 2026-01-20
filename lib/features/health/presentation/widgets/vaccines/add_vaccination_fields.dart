@@ -100,16 +100,39 @@ class __DateAdministeredState extends State<__DateAdministered> {
               selectedDate: DateTime.tryParse(state.dateAdministered.value),
               isMandatory: true,
             ),
-            Styles.gap10,
-            CustomCheckBox(
-              fontSize: 22,
-              isChecked: state.isDoseCompleted,
-              label: 'Dose Completed',
-              onChanged: (value) {
-                context.read<VaccinationFormBloc>().add(
-                  VaccinationFormEvent.doseSubmitted(!state.isDoseCompleted),
-                );
-              },
+            Styles.gap15,
+            Row(
+              children: [
+                CustomCheckBox(
+                  fontSize: 22,
+                  isChecked: state.isDoseCompleted,
+                  label: '',
+                  onChanged: (value) {
+                    context.read<VaccinationFormBloc>().add(
+                      VaccinationFormEvent.doseSubmitted(
+                        !state.isDoseCompleted,
+                      ),
+                    );
+                  },
+                ),
+                Expanded(
+                  child: CustomCard(
+                    padding: Styles.edgeInsetsAll06,
+                    borderRadius: Styles.borderRadiusCircular50,
+                    borderColor: AppColors.black.withOpacity(.1),
+                    child: Row(
+                      children: [
+                        Styles.gap6,
+                        Text(
+                          'Dose Completed',
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         );

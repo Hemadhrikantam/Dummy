@@ -56,7 +56,10 @@ class AdoptionDetailsPage extends StatelessWidget {
                     Expanded(
                       child: AppTextButton(
                         onPressed: () {
-                          BottomModels.adoptionDeleteBottomSheet(context);
+                          BottomModels.adoptionDeleteBottomSheet(
+                            context,
+                            adoption?.petName ?? '',
+                          );
                         },
                         backgroundColor: AppColors.white,
                         name: AppText.delete,

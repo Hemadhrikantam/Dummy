@@ -27,7 +27,7 @@ class NgoAdoptionCard extends StatelessWidget {
       onTap:
           onTap ??
           () {
-            context.push(NgoAdoptionDetailsPage.route(adoption));
+            context.push(NgoAdoptionDetailsPage.route(adoption, isAllPet));
           },
       padding: Styles.edgeInsetsAll06,
       borderColor: AppColors.buttonBackground,

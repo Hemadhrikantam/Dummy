@@ -89,7 +89,7 @@ class _AdoptionDashboardPage extends State<AdoptionDashboardPage> {
             side: const BorderSide(width: 3, color: AppColors.white),
             borderRadius: Styles.borderRadiusCircular50,
           ),
-          child: AppAssestsImage(path: ImageResources.ai2),
+          child: AppAssestsImage(path: ImageResources.dogTail),
         ),
       ),
       body: IndexedStack(index: selectedIndex, children: screens),

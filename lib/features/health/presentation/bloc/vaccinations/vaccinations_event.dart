@@ -6,8 +6,8 @@ class VaccinationsEvent with _$VaccinationsEvent {
   const factory VaccinationsEvent.delete(String id) = _Delete;
   const factory VaccinationsEvent.vaccinations(String? key) = _Vaccinations;
   const factory VaccinationsEvent.filter(
-    String dateAdministered,
-    String dueDate,
+    String? dateAdministered,
+    String? dueDate,
   ) = _Filter;
   
 }

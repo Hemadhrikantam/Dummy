@@ -20,12 +20,13 @@ class VaccinationMarkedSuccessBottomSheetContent extends StatelessWidget {
     return Padding(
       padding: Styles.edgeInsetsOnlyW15,
       child: SizedBox(
-        height: 190,
+        height: 240,
         child: SuccessAnimationWrap(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
+              Styles.gap30,
               AppAssestsImage(
                 path: ImageResources.medsIcon,
                 height: context.height * .07,

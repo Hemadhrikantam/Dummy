@@ -66,14 +66,25 @@ class ClinicNearMeBottomSheet extends StatelessWidget {
                                   Styles.gap10,
                                   TextValueWidget(
                                     text: '',
-                                    value: AppUtil.formatDistanceKm(item.distance),
+                                    value: AppUtil.formatDistanceKm(
+                                      item.distance,
+                                    ),
                                   ),
                                   Styles.gap10,
-                                  AppAssestsImage(
-                                    path: ImageResources.map,
-                                    width: 30,
-                                    height: 30,
-                                    boxFit: BoxFit.contain,
+                                  GestureDetector(
+                                    onTap: () {
+                                      AppUtil.openGoogleMap(
+                                        latitude: item.latitude,
+                                        longitude: item.longitude,
+                                        label: item.name,
+                                      );
+                                    },
+                                    child: AppAssestsImage(
+                                      path: ImageResources.map,
+                                      width: 30,
+                                      height: 30,
+                                      boxFit: BoxFit.contain,
+                                    ),
                                   ),
                                 ],
                               ),

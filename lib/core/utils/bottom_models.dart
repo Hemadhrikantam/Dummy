@@ -94,6 +94,7 @@ class BottomModels {
   static Future<T?> vaccinationFilterSheet<T>(
     BuildContext context,
     Function(String startDate, String endDate) onSaved,
+    Function() onReset,
   ) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -101,7 +102,7 @@ class BottomModels {
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return VaccinationFilterBottomSheet(onSaved: onSaved);
+        return VaccinationFilterBottomSheet(onSaved: onSaved, onReset: onReset);
       },
     );
   }
@@ -580,14 +581,17 @@ class BottomModels {
     );
   }
 
-  static Future<T?> adoptionDeleteBottomSheet<T>(BuildContext context) {
+  static Future<T?> adoptionDeleteBottomSheet<T>(
+    BuildContext context,
+    String petName,
+  ) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: backgroundColor,
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return AdoptionDeleteBottomSheetContent();
+        return AdoptionDeleteBottomSheetContent(petName: petName);
       },
     );
   }

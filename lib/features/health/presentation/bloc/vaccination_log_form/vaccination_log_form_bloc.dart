@@ -3,6 +3,7 @@ import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/health/domain/usecases/update_vaccination_log_usecases.dart';
 import 'package:dummy/features/health/presentation/bloc/vaccination_details/vaccination_details_bloc.dart';
+import 'package:dummy/features/health/presentation/bloc/vaccinations/vaccinations_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -114,7 +115,10 @@ class VaccinationLogFormBloc
       (success) async {
         emit(state.copyWith(submitStatus: Status.success));
         currentContext.read<VaccinationDetailsBloc>().add(
-          VaccinationDetailsEvent.loadVaccinationLogs(),
+          VaccinationDetailsEvent.init(state.vaccinationId ?? ''),
+        );
+        currentContext.read<VaccinationsBloc>().add(
+          VaccinationsEvent.vaccinations(''),
         );
       },
     );

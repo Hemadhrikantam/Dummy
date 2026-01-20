@@ -10,6 +10,7 @@ import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/app_custom_date_field.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
+import 'package:dummy/core/widgets/loading_widget.dart';
 import 'package:dummy/core/widgets/mandatory_field_widget.dart';
 import 'package:dummy/features/addoption/presentation/bloc/add_adoption/add_adoption_bloc.dart';
 import 'package:flutter/material.dart';
@@ -48,9 +49,9 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
     return BlocBuilder<AddAdoptionBloc, AddAdoptionState>(
       builder: (context, state) {
         return DraggableScrollableSheet(
-          initialChildSize: 0.80,
+          initialChildSize: 0.83,
           minChildSize: 0.80,
-          maxChildSize: 0.95,
+          maxChildSize: 0.83,
           expand: true,
           builder: (context, scrollController) {
             return SafeArea(
@@ -91,38 +92,50 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
                             ),
                             Styles.gap15,
                             Expanded(
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    __Name(),
-                                    Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Expanded(child: __Years()),
-                                        Styles.gap10,
-                                        Expanded(child: __Months()),
-                                      ],
-                                    ),
+                              child: BlocBuilder<
+                                AddAdoptionBloc,
+                                AddAdoptionState
+                              >(
+                                builder: (context, state) {
+                                  return state.addAdoptionStatus.loading
+                                      ? LoadingWidget
+                                          .circularProgressIndicatorCenter
+                                      : SingleChildScrollView(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            __Name(),
+                                            Row(
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(child: __Years()),
+                                                Styles.gap10,
+                                                Expanded(child: __Months()),
+                                              ],
+                                            ),
 
-                                    __PetType(),
-                                    __Breed(),
-                                    Styles.gap10,
-                                    __Address(),
-                                    Styles.gap10,
-                                    __Phone(),
-                                    Styles.gap10,
-                                    __Email(),
-                                    Styles.gap10,
-                                    __Description(),
-                                    Styles.gap10,
-                                    __Media(),
-                                    Styles.gap30,
-                                  ],
-                                ),
+                                            __PetType(),
+                                            __Breed(),
+                                            Styles.gap10,
+                                            __Address(),
+                                            Styles.gap10,
+                                            __Phone(),
+                                            Styles.gap10,
+                                            __Email(),
+                                            Styles.gap10,
+                                            __Description(),
+                                            Styles.gap10,
+                                            __Media(),
+                                            Styles.gap30,
+                                          ],
+                                        ),
+                                      );
+                                },
                               ),
                             ),
                             Styles.gap10,

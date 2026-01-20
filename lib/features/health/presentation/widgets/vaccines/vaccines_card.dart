@@ -40,7 +40,7 @@ class VaccinesCard extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: " ${vaccination.name}",
+                      text: " ${vaccination.companyName}",
                       style: context.textTheme.labelMedium?.copyWith(
                         color: AppColors.stepperColor,
                       ),
@@ -94,26 +94,25 @@ class VaccinesCard extends StatelessWidget {
                   ),
                 ],
               ),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    AppText.duedate,
-                    style: context.textTheme.labelLarge?.copyWith(
-                      color: AppColors.grey500,
+              if (vaccination.dueDate != null)
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      AppText.duedate,
+                      style: context.textTheme.labelLarge?.copyWith(
+                        color: AppColors.grey500,
+                      ),
                     ),
-                  ),
-                  Text(
-                    vaccination.dueDate != null
-                        ? AppUtil.formatDateToMMDDYYYY(vaccination.dueDate!)
-                        : '',
-                    style: context.textTheme.titleLarge?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18,
+                    Text(
+                      AppUtil.formatDateToMMDDYYYY(vaccination.dueDate!),
+                      style: context.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                      ),
                     ),
-                  ),
-                ],
-              ),
+                  ],
+                ),
             ],
           ),
         ],

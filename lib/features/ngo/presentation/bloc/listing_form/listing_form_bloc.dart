@@ -16,6 +16,7 @@ import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/ngo/domain/usecases/add_pet_listing_usecase.dart';
 import 'package:dummy/features/ngo/domain/usecases/edit_pet_listing_usecase.dart';
+import 'package:dummy/features/ngo/presentation/bloc/ngo_home/ngo_home_bloc.dart';
 import 'package:dummy/features/profile/domain/usecases/add_pet_usecases.dart';
 import 'package:dummy/features/profile/domain/usecases/edit_pet_usecases.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -233,6 +234,7 @@ class ListingFormBloc extends Bloc<ListingFormEvent, ListingFormState> {
             AppAlert.showToast(message: ok.message);
             emit(state.copyWith(submitStatus: Status.success));
             currentContext.pop();
+            currentContext.read<NgoHomeBloc>().add(NgoHomeEvent.init());
             BottomModels.addAdoptionSuccessBottomSheet(currentContext);
           },
         );

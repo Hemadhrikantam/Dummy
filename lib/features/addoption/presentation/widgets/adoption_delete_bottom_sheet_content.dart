@@ -8,8 +8,13 @@ import '../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/buttons/app_text_button.dart';
 
 class AdoptionDeleteBottomSheetContent extends StatelessWidget {
-  const AdoptionDeleteBottomSheetContent({super.key, this.onTap});
+  const AdoptionDeleteBottomSheetContent({
+    super.key,
+    this.onTap,
+    required this.petName,
+  });
   final VoidCallback? onTap;
+  final String petName;
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +44,7 @@ class AdoptionDeleteBottomSheetContent extends StatelessWidget {
                   ),
                   children: [
                     TextSpan(
-                      text: "[Pet's Name]'s ",
-                      style: context.textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16,
-                      ),
-                    ),
-                    TextSpan(
-                      text: AppText.medicationQuestionMark,
+                      text: ' $petName ?',
                       style: context.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.bold,
                         fontSize: 16,

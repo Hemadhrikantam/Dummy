@@ -13,13 +13,20 @@ import '../../../../core/widgets/buttons/app_text_button.dart';
 import '../bloc/ngo_home/ngo_home_bloc.dart';
 
 class NgoAdoptionDetailsPage extends StatelessWidget {
-  const NgoAdoptionDetailsPage({super.key, this.adoption});
+  const NgoAdoptionDetailsPage({
+    super.key,
+    this.adoption,
+    required this.isAllPet,
+  });
   static const routeName = '/NgoAdoptionDetailsPage';
   final Listing? adoption;
+  final bool isAllPet;
 
-  static Route<T> route<T>(Listing? adoption) {
+  static Route<T> route<T>(Listing? adoption, bool isAllPet) {
     return MaterialPageRoute<T>(
-      builder: (context) => NgoAdoptionDetailsPage(adoption: adoption),
+      builder:
+          (context) =>
+              NgoAdoptionDetailsPage(adoption: adoption, isAllPet: isAllPet),
       settings: const RouteSettings(name: routeName),
     );
   }
@@ -56,7 +63,10 @@ class NgoAdoptionDetailsPage extends StatelessWidget {
                         Expanded(
                           child: AppTextButton(
                             onPressed: () {
-                              BottomModels.adoptionDeleteBottomSheet(context);
+                              BottomModels.adoptionDeleteBottomSheet(
+                                context,
+                                adoption?.petName ?? '',
+                              );
                             },
                             backgroundColor: AppColors.white,
                             name: AppText.delete,
@@ -67,10 +77,10 @@ class NgoAdoptionDetailsPage extends StatelessWidget {
                         Expanded(
                           child: AppButton(
                             onPressed: () {
-                              // BottomModels.addAdoptionBottomSheet(
-                              //   context,
-                              //   id: adoption?.id,
-                              // );
+                              BottomModels.addAdoptionBottomSheet(
+                                context,
+                                id: adoption?.id,
+                              );
                             },
                             name: Center(
                               child: Text(
@@ -94,7 +104,7 @@ class NgoAdoptionDetailsPage extends StatelessWidget {
               Padding(
                 padding: Styles.edgeInsetsOnlyH15,
                 child: NgoAdoptionDetailsCard(
-                  isAllPet: false,
+                  isAllPet: isAllPet,
                   adoption: adoption,
                 ),
               ),

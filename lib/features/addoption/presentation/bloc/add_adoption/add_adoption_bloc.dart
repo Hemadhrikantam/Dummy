@@ -69,6 +69,7 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
     emit(state.copyWith(addAdoptionStatus: Status.loading));
     final catBreeds = await _catBreeds();
     final dogBreeds = await _dogBreeds();
+    await Future.delayed(Duration(seconds: 1));
     emit(
       state.copyWith(
         catBreeds: catBreeds,
@@ -83,7 +84,6 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
         name: NotEmpty.pure(),
         dob: NotEmpty.pure(),
         url: NotEmpty.pure(),
-        addAdoptionStatus: Status.init,
       ),
     );
     if (event.id != null) {
@@ -95,25 +95,48 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
               .where((element) => element.id == event.id)
               .firstOrNull;
       if (pet != null) {
+        final breeds =
+            pet.petType.toLowerCase() == 'cat' ? catBreeds : dogBreeds;
+        DropdownStringValue breedDropdown = DropdownStringValue.pure();
+        if (pet.breedName.isNotEmpty) {
+          final selectedBreed = breeds.firstWhere(
+            (e) => e.value == pet.breedName,
+          );
+          breedDropdown = DropdownStringValue.dirty(
+            DropStringItemModel(
+              id: selectedBreed.id,
+              value: selectedBreed.value,
+            ),
+          );
+        }
         emit(
           state.copyWith(
             name: NotEmpty.dirty(value: pet.petName),
             dob: NotEmpty.dirty(value: pet.petDob?.toString() ?? ''),
-            //   gender: DropdownValue.dirty([
-            //   DropItemModel(id: 1, value: 'Male'),
-            //   DropItemModel(id: 2, value: 'Female'),
-            // ].where((element) => element.value == pet.petGender).first),
+            gender: DropdownValue.dirty(
+              [
+                DropItemModel(id: 1, value: 'Male'),
+                DropItemModel(id: 2, value: 'Female'),
+              ].where((element) => element.id == 1).first,
+            ),
             description: NotEmpty.dirty(value: pet.description),
             petType:
                 pet.petType.toLowerCase() == 'cat' ? PetType.Cat : PetType.Dog,
-            breed: DropdownStringValue.dirty(
-              DropStringItemModel(id: "", value: pet.breedName),
-            ),
+            breed: breedDropdown,
+            address: NotEmpty.dirty(value: pet.contactAddress ?? ''),
+            phone: MobileNo.dirty(value: pet.contactPhone ?? ''),
+            email: Email.dirty(value: pet.contactEmail ?? ''),
+            url: NotEmpty.dirty(value: pet.imageUrl ?? ''),
           ),
         );
       }
-      emit(state.copyWith(adoptionValidation: state.validationX));
     }
+    emit(
+      state.copyWith(
+        adoptionValidation: state.validationX,
+        addAdoptionStatus: Status.success,
+      ),
+    );
   }
 
   void __name(_Name event, Emitter<AddAdoptionState> emit) {
@@ -200,6 +223,7 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
     }
 
     final payload = PetPayload(
+      pet_id: event.id,
       name: state.name.value,
       type: state.petType!.name.toLowerCase(),
       breedId: (state.breed.value?.id ?? '').toString(),

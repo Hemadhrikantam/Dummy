@@ -3,6 +3,7 @@ import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/extention/device_size_extention.dart';
+import 'package:dummy/core/utils/app_utils.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
 import 'package:dummy/features/ngo/domain/entities/listing.dart';
@@ -107,7 +108,7 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
                     textColor:
                         isChecked ? AppColors.orenge : AppColors.greenText,
                     subTitle: '',
-                    title: isChecked ? 'Unavailable' : 'Available',
+                    title: isChecked ? 'Adopted' : 'Available',
                   ),
                 ],
               ),
@@ -115,10 +116,12 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  TextValueWidget(
-                    text: 'Breed & Age',
-                    value:
-                        '${widget.adoption?.breedName ?? ''}, ${widget.adoption?.age ?? ''} Y',
+                  Expanded(
+                    child: TextValueWidget(
+                      text: 'Breed & Age',
+                      value:
+                          '${widget.adoption?.breedName ?? ''}, ${AppUtil.calculateAge(AppUtil.formatDateToMMDDYYYY(DateTime.tryParse(widget.adoption?.petDob?.toIso8601String() ?? '') ?? DateTime.now()))}',
+                    ),
                   ),
                 ],
               ),
@@ -139,7 +142,13 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
                 icon:
                     (widget.isAllPet)
                         ? GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            if (widget.adoption?.contactPhone != null) {
+                              AppUtil.launchDialPad(
+                                widget.adoption?.contactPhone ?? '',
+                              );
+                            }
+                          },
                           child: AppAssestsImage(
                             path: ImageResources.call,
                             height: 20,
@@ -155,11 +164,20 @@ class _NgoAdoptionDetailsCardState extends State<NgoAdoptionDetailsCard> {
                 value: '${widget.adoption?.contactEmail}',
                 icon:
                     (widget.isAllPet)
-                        ? AppAssestsImage(
-                          path: ImageResources.sms,
-                          height: 20,
-                          width: 20,
-                          boxFit: BoxFit.contain,
+                        ? GestureDetector(
+                          onTap: () {
+                            if (widget.adoption?.contactEmail != null) {
+                              AppUtil.composeEmail(
+                                email: widget.adoption?.contactEmail ?? '',
+                              );
+                            }
+                          },
+                          child: AppAssestsImage(
+                            path: ImageResources.sms,
+                            height: 20,
+                            width: 20,
+                            boxFit: BoxFit.contain,
+                          ),
                         )
                         : null,
               ),
@@ -215,13 +233,16 @@ class TextValueWidget extends StatelessWidget {
         ),
         Row(
           children: [
-            Text(
-              value,
-              style: context.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w900,
-                fontSize: 16,
+            Flexible(
+              child: Text(
+                value,
+                style: context.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w900,
+                  fontSize: 16,
+                ),
               ),
             ),
+            Styles.gap10,
             if (icon != null) icon!,
           ],
         ),

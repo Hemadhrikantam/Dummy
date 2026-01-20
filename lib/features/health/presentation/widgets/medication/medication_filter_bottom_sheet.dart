@@ -98,7 +98,6 @@ class _MedicationFilterBottomSheetState
           title: AppText.endDate,
           initialDate: tempDate,
           minimumDate: _startDate,
-          maximumDate: DateTime.now(),
           onSave: () {
             setState(() {
               _endDate = tempDate;

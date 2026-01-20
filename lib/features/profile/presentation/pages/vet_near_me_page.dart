@@ -102,7 +102,7 @@ class _VetNearMePage extends State<VetNearMePage>
                                 style: context.textTheme.titleSmall?.copyWith(
                                   fontSize: 22,
                                   fontWeight: FontWeight.w600,
-                                  color: AppColors.white,
+                                  color: AppColors.black,
                                 ),
                               ),
                             ),

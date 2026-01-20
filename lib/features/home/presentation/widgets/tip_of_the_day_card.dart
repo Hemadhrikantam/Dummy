@@ -22,7 +22,11 @@ class TipOfTheDayCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              AppAssestsImage(path: ImageResources.ai2, height: 24, width: 24),
+              AppAssestsImage(
+                path: ImageResources.dogTail,
+                height: 24,
+                width: 24,
+              ),
               Styles.gap10,
               Expanded(
                 child: Text(

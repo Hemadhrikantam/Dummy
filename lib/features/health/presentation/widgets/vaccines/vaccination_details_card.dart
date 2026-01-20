@@ -42,8 +42,7 @@ class VaccinationDetailsCard extends StatelessWidget {
                       ),
                       Styles.gap4,
                       Text(
-                        // state.vaccination?.company ??
-                        'Abhayrab',
+                        state.vaccination?.companyName ?? '',
                         style: context.textTheme.labelMedium?.copyWith(
                           color: AppColors.stepperColor,
                         ),
@@ -84,26 +83,27 @@ class VaccinationDetailsCard extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        AppText.duedate,
-                        style: context.textTheme.labelLarge?.copyWith(
-                          color: AppColors.grey500,
+                  if (state.vaccination?.dueDate != null)
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          AppText.duedate,
+                          style: context.textTheme.labelLarge?.copyWith(
+                            color: AppColors.grey500,
+                          ),
                         ),
-                      ),
-                      Text(
-                        AppUtil.formatDateToMMDDYYYY(
-                          state.vaccination?.dueDate ?? DateTime.now(),
+                        Text(
+                          AppUtil.formatDateToMMDDYYYY(
+                            state.vaccination?.dueDate ?? DateTime.now(),
+                          ),
+                          style: context.textTheme.titleLarge?.copyWith(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
                         ),
-                        style: context.textTheme.titleLarge?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
-                  ),
+                      ],
+                    ),
                 ],
               ),
               Styles.gap20,

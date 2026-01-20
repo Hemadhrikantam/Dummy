@@ -150,19 +150,34 @@ class AppUtil {
 
       int years = today.year - birthDate.year;
       int months = today.month - birthDate.month;
+      int days = today.day - birthDate.day;
 
-      if (today.day < birthDate.day) {
+      if (days < 0) {
+        final previousMonth = DateTime(today.year, today.month, 0);
+        days += previousMonth.day;
         months--;
       }
 
       if (months < 0) {
-        years--;
         months += 12;
+        years--;
       }
 
-      return "$years year${years == 1 ? '' : 's'} ${months > 0 ? '$months month${months == 1 ? '' : 's'}' : ''}";
+      final List<String> partsList = [];
+      if (years > 0) {
+        partsList.add("$years year${years == 1 ? '' : 's'}");
+      }
+
+      if (months > 0) {
+        partsList.add("$months month${months == 1 ? '' : 's'}");
+      }
+
+      if (days > 0) {
+        partsList.add("$days day${days == 1 ? '' : 's'}");
+      }
+
+      return partsList.join(' ');
     } catch (e) {
-      print(e);
       return '';
     }
   }
@@ -176,6 +191,43 @@ class AppUtil {
       }
     } catch (e) {
       // Show Make to user
+    }
+  }
+
+  static Future<void> composeEmail({
+    required String email,
+    String? subject,
+    String? body,
+  }) async {
+    try {
+      final Uri uri = Uri(
+        scheme: 'mailto',
+        path: email,
+        queryParameters: {
+          if (subject != null) 'subject': subject,
+          if (body != null) 'body': body,
+        },
+      );
+
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } catch (e) {
+      // Show message to user
+    }
+  }
+
+  static Future<void> openGoogleMap({
+    required double latitude,
+    required double longitude,
+    String? label,
+  }) async {
+    try {
+      final Uri uri = Uri.parse(
+        'https://www.google.com/maps/search/?api=1&query=$latitude,$longitude${label != null ? '($label)' : ''}',
+      );
+
+      await launchUrl(uri, mode: LaunchMode.externalApplication);
+    } catch (e) {
+      // Show message to user
     }
   }
 

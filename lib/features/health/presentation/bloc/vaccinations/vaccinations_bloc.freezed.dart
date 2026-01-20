@@ -22,21 +22,21 @@ mixin _$VaccinationsEvent {
     required TResult Function() init,
     required TResult Function(String id) delete,
     required TResult Function(String? key) vaccinations,
-    required TResult Function(String dateAdministered, String dueDate) filter,
+    required TResult Function(String? dateAdministered, String? dueDate) filter,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? init,
     TResult? Function(String id)? delete,
     TResult? Function(String? key)? vaccinations,
-    TResult? Function(String dateAdministered, String dueDate)? filter,
+    TResult? Function(String? dateAdministered, String? dueDate)? filter,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
     TResult Function(String id)? delete,
     TResult Function(String? key)? vaccinations,
-    TResult Function(String dateAdministered, String dueDate)? filter,
+    TResult Function(String? dateAdministered, String? dueDate)? filter,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -129,7 +129,7 @@ class _$InitImpl implements _Init {
     required TResult Function() init,
     required TResult Function(String id) delete,
     required TResult Function(String? key) vaccinations,
-    required TResult Function(String dateAdministered, String dueDate) filter,
+    required TResult Function(String? dateAdministered, String? dueDate) filter,
   }) {
     return init();
   }
@@ -140,7 +140,7 @@ class _$InitImpl implements _Init {
     TResult? Function()? init,
     TResult? Function(String id)? delete,
     TResult? Function(String? key)? vaccinations,
-    TResult? Function(String dateAdministered, String dueDate)? filter,
+    TResult? Function(String? dateAdministered, String? dueDate)? filter,
   }) {
     return init?.call();
   }
@@ -151,7 +151,7 @@ class _$InitImpl implements _Init {
     TResult Function()? init,
     TResult Function(String id)? delete,
     TResult Function(String? key)? vaccinations,
-    TResult Function(String dateAdministered, String dueDate)? filter,
+    TResult Function(String? dateAdministered, String? dueDate)? filter,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -275,7 +275,7 @@ class _$DeleteImpl implements _Delete {
     required TResult Function() init,
     required TResult Function(String id) delete,
     required TResult Function(String? key) vaccinations,
-    required TResult Function(String dateAdministered, String dueDate) filter,
+    required TResult Function(String? dateAdministered, String? dueDate) filter,
   }) {
     return delete(id);
   }
@@ -286,7 +286,7 @@ class _$DeleteImpl implements _Delete {
     TResult? Function()? init,
     TResult? Function(String id)? delete,
     TResult? Function(String? key)? vaccinations,
-    TResult? Function(String dateAdministered, String dueDate)? filter,
+    TResult? Function(String? dateAdministered, String? dueDate)? filter,
   }) {
     return delete?.call(id);
   }
@@ -297,7 +297,7 @@ class _$DeleteImpl implements _Delete {
     TResult Function()? init,
     TResult Function(String id)? delete,
     TResult Function(String? key)? vaccinations,
-    TResult Function(String dateAdministered, String dueDate)? filter,
+    TResult Function(String? dateAdministered, String? dueDate)? filter,
     required TResult orElse(),
   }) {
     if (delete != null) {
@@ -429,7 +429,7 @@ class _$VaccinationsImpl implements _Vaccinations {
     required TResult Function() init,
     required TResult Function(String id) delete,
     required TResult Function(String? key) vaccinations,
-    required TResult Function(String dateAdministered, String dueDate) filter,
+    required TResult Function(String? dateAdministered, String? dueDate) filter,
   }) {
     return vaccinations(key);
   }
@@ -440,7 +440,7 @@ class _$VaccinationsImpl implements _Vaccinations {
     TResult? Function()? init,
     TResult? Function(String id)? delete,
     TResult? Function(String? key)? vaccinations,
-    TResult? Function(String dateAdministered, String dueDate)? filter,
+    TResult? Function(String? dateAdministered, String? dueDate)? filter,
   }) {
     return vaccinations?.call(key);
   }
@@ -451,7 +451,7 @@ class _$VaccinationsImpl implements _Vaccinations {
     TResult Function()? init,
     TResult Function(String id)? delete,
     TResult Function(String? key)? vaccinations,
-    TResult Function(String dateAdministered, String dueDate)? filter,
+    TResult Function(String? dateAdministered, String? dueDate)? filter,
     required TResult orElse(),
   }) {
     if (vaccinations != null) {
@@ -517,7 +517,7 @@ abstract class _$$FilterImplCopyWith<$Res> {
     $Res Function(_$FilterImpl) then,
   ) = __$$FilterImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String dateAdministered, String dueDate});
+  $Res call({String? dateAdministered, String? dueDate});
 }
 
 /// @nodoc
@@ -533,17 +533,17 @@ class __$$FilterImplCopyWithImpl<$Res>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({Object? dateAdministered = null, Object? dueDate = null}) {
+  $Res call({Object? dateAdministered = freezed, Object? dueDate = freezed}) {
     return _then(
       _$FilterImpl(
-        null == dateAdministered
+        freezed == dateAdministered
             ? _value.dateAdministered
             : dateAdministered // ignore: cast_nullable_to_non_nullable
-                as String,
-        null == dueDate
+                as String?,
+        freezed == dueDate
             ? _value.dueDate
             : dueDate // ignore: cast_nullable_to_non_nullable
-                as String,
+                as String?,
       ),
     );
   }
@@ -555,9 +555,9 @@ class _$FilterImpl implements _Filter {
   const _$FilterImpl(this.dateAdministered, this.dueDate);
 
   @override
-  final String dateAdministered;
+  final String? dateAdministered;
   @override
-  final String dueDate;
+  final String? dueDate;
 
   @override
   String toString() {
@@ -591,7 +591,7 @@ class _$FilterImpl implements _Filter {
     required TResult Function() init,
     required TResult Function(String id) delete,
     required TResult Function(String? key) vaccinations,
-    required TResult Function(String dateAdministered, String dueDate) filter,
+    required TResult Function(String? dateAdministered, String? dueDate) filter,
   }) {
     return filter(dateAdministered, dueDate);
   }
@@ -602,7 +602,7 @@ class _$FilterImpl implements _Filter {
     TResult? Function()? init,
     TResult? Function(String id)? delete,
     TResult? Function(String? key)? vaccinations,
-    TResult? Function(String dateAdministered, String dueDate)? filter,
+    TResult? Function(String? dateAdministered, String? dueDate)? filter,
   }) {
     return filter?.call(dateAdministered, dueDate);
   }
@@ -613,7 +613,7 @@ class _$FilterImpl implements _Filter {
     TResult Function()? init,
     TResult Function(String id)? delete,
     TResult Function(String? key)? vaccinations,
-    TResult Function(String dateAdministered, String dueDate)? filter,
+    TResult Function(String? dateAdministered, String? dueDate)? filter,
     required TResult orElse(),
   }) {
     if (filter != null) {
@@ -661,11 +661,11 @@ class _$FilterImpl implements _Filter {
 }
 
 abstract class _Filter implements VaccinationsEvent {
-  const factory _Filter(final String dateAdministered, final String dueDate) =
+  const factory _Filter(final String? dateAdministered, final String? dueDate) =
       _$FilterImpl;
 
-  String get dateAdministered;
-  String get dueDate;
+  String? get dateAdministered;
+  String? get dueDate;
 
   /// Create a copy of VaccinationsEvent
   /// with the given fields replaced by the non-null parameter values.
