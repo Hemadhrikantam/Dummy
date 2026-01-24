@@ -13,7 +13,7 @@ class ListingFormEvent with _$ListingFormEvent {
   const factory ListingFormEvent.email(String email) = _Email;
   const factory ListingFormEvent.description(String description) = _Description;
   const factory ListingFormEvent.image(String filePath) = _Image;
-  const factory ListingFormEvent.submit({String? id}) = _Submit;
+  const factory ListingFormEvent.submit({String? id,String? petId}) = _Submit;
   const factory ListingFormEvent.initialization({String? id}) = _Initialization;
   
 }

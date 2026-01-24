@@ -537,6 +537,7 @@ class BottomModels {
   static Future<T?> addAdoptionBottomSheet<T>(
     BuildContext context, {
     String? id,
+    String? petId,
   }) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -545,7 +546,7 @@ class BottomModels {
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return AddAdoptionForm(id: id);
+        return AddAdoptionForm(id: id, petId: petId);
       },
     );
   }
@@ -565,6 +566,7 @@ class BottomModels {
   static Future<T?> addListingBottomSheet<T>(
     BuildContext context, {
     String? id,
+    String? petId,
   }) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -578,7 +580,7 @@ class BottomModels {
               (context) =>
                   InjectionBloc.listingFormBloc
                     ..add(ListingFormEvent.initialization(id: id)),
-          child: AddListingForm(id: id),
+          child: AddListingForm(id: id, petId: petId),
         );
       },
     );

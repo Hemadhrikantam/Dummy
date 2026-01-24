@@ -1,3 +1,4 @@
+import 'package:clarity_flutter/clarity_flutter.dart';
 import 'package:dummy/provider.dart';
 import 'package:flutter/material.dart';
 import 'di/injection.dart';
@@ -32,7 +33,10 @@ void main() async {
     print("Notification init ERROR → $e");
   }
 
-  
+  final clarityConfig = ClarityConfig(
+    projectId: "v3tqaq2wt9",
+    logLevel: LogLevel.None,
+  );
 
-  runApp(const AppProvider());
+  runApp(ClarityWidget(clarityConfig: clarityConfig, app: const AppProvider()));
 }

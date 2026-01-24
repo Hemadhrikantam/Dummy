@@ -75,6 +75,7 @@ class AdoptionDetailsPage extends StatelessWidget {
                           BottomModels.addAdoptionBottomSheet(
                             context,
                             id: adoption?.id,
+                            petId: adoption?.petId,
                           );
                         },
                         name: Center(

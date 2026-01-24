@@ -559,7 +559,7 @@ class ProfileDatasourceImpl extends ProfileDatasource {
           if (statusCode <= 201) {
             if (edit) {
               return Right(
-                SuccessMessage(message: data['message'] as String? ?? ""),
+                SuccessMessage(message: data['data']['id'] as String? ?? ""),
               );
             } else {
               return Right(

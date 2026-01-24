@@ -28,8 +28,10 @@ import '../../../dailycare/presentation/widgets/save_cancel_widget.dart';
 part 'add_listing_fields.dart';
 
 class AddListingForm extends StatefulWidget {
-  const AddListingForm({super.key, this.id});
+  const AddListingForm({super.key, this.id, this.petId});
   final String? id;
+  final String? petId;
+
   @override
   State<AddListingForm> createState() => _AddListingFormState();
 }
@@ -144,6 +146,7 @@ class _AddListingFormState extends State<AddListingForm> {
                                             context.read<ListingFormBloc>().add(
                                               ListingFormEvent.submit(
                                                 id: widget.id,
+                                                petId: widget.petId
                                               ),
                                             );
                                           }

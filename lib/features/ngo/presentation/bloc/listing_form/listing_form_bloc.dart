@@ -206,7 +206,7 @@ class ListingFormBloc extends Bloc<ListingFormEvent, ListingFormState> {
       );
     }
     final payload = PetPayload(
-      pet_id: event.id,
+      pet_id: event.petId,
       name: state.name.value,
       type: state.petType?.name.toLowerCase() ?? '',
       breedId: (state.breed.value?.id ?? '').toString(),

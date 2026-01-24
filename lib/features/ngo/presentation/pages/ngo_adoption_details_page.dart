@@ -82,6 +82,7 @@ class NgoAdoptionDetailsPage extends StatelessWidget {
                               BottomModels.addListingBottomSheet(
                                 context,
                                 id: adoption?.id,
+                                petId: adoption?.petId,
                               );
                             },
                             name: Center(

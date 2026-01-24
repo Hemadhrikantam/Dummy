@@ -13,6 +13,6 @@ class AddAdoptionEvent with _$AddAdoptionEvent {
   const factory AddAdoptionEvent.email(String email) = _Email;
   const factory AddAdoptionEvent.description(String description) = _Description;
   const factory AddAdoptionEvent.image(String filePath) = _Image;
-  const factory AddAdoptionEvent.submit({String? id}) = _Submit;
+  const factory AddAdoptionEvent.submit({String? id, String? petId}) = _Submit;
   const factory AddAdoptionEvent.initialization({String? id}) = _Initialization;
 }

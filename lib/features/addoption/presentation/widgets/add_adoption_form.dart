@@ -27,8 +27,9 @@ import '../../../dailycare/presentation/widgets/save_cancel_widget.dart';
 part 'add_adoption_fields.dart';
 
 class AddAdoptionForm extends StatefulWidget {
-  const AddAdoptionForm({super.key, this.id});
+  const AddAdoptionForm({super.key, this.id, this.petId});
   final String? id;
+  final String? petId;
   @override
   State<AddAdoptionForm> createState() => _AddAdoptionFormState();
 }
@@ -154,6 +155,7 @@ class _AddAdoptionFormState extends State<AddAdoptionForm> {
                                             context.read<AddAdoptionBloc>().add(
                                               AddAdoptionEvent.submit(
                                                 id: widget.id,
+                                                petId: widget.petId,
                                               ),
                                             );
                                           }

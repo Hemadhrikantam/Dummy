@@ -218,7 +218,7 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
     }
 
     final payload = PetPayload(
-      pet_id: event.id,
+      pet_id: event.petId,
       name: state.name.value,
       type: state.petType!.name.toLowerCase(),
       breedId: (state.breed.value?.id ?? '').toString(),
@@ -271,8 +271,8 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
           (ok) {
             AppAlert.showToast(message: ok.message);
             emit(state.copyWith(submitStatus: Status.success));
-            currentContext.read<AdoptionBloc>().add(AdoptionEvent.adoptions());
             currentContext.pop();
+            currentContext.read<AdoptionBloc>().add(AdoptionEvent.adoptions());
             BottomModels.addAdoptionSuccessBottomSheet(currentContext);
           },
         );
