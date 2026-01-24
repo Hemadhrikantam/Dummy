@@ -1,5 +1,6 @@
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/breed.dart';
+import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/email.dart';
@@ -21,13 +22,14 @@ import '../../../../../core/widgets/app_custom_text_field.dart';
 import '../../../../../core/widgets/custom_dropdown.dart';
 import '../../../../../core/widgets/dotted_border_widget.dart';
 import '../../../../core/widgets/app_graber.dart';
+import '../../../../core/widgets/loading_widget.dart';
 import '../../../dailycare/presentation/widgets/save_cancel_widget.dart';
 
 part 'add_listing_fields.dart';
 
 class AddListingForm extends StatefulWidget {
   const AddListingForm({super.key, this.id});
-  final int? id;
+  final String? id;
   @override
   State<AddListingForm> createState() => _AddListingFormState();
 }
@@ -44,9 +46,9 @@ class _AddListingFormState extends State<AddListingForm> {
     return BlocBuilder<ListingFormBloc, ListingFormState>(
       builder: (context, state) {
         return DraggableScrollableSheet(
-          initialChildSize: 0.80,
+          initialChildSize: 0.83,
           minChildSize: 0.80,
-          maxChildSize: 0.95,
+          maxChildSize: 0.83,
           expand: true,
           builder: (context, scrollController) {
             return SafeArea(
@@ -87,32 +89,43 @@ class _AddListingFormState extends State<AddListingForm> {
                             ),
                             Styles.gap15,
                             Expanded(
-                              child: SingleChildScrollView(
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    __Name(),
-                                    Styles.gap10,
-                                    __PetGender(),
-                                    Styles.gap10,
-                                    __Age(),
-                                    Styles.gap10,
-                                    __PetType(),
-                                    Styles.gap10,
-                                    __Breed(),
-                                    Styles.gap10,
-                                    __Address(),
-                                    Styles.gap10,
-                                    __Phone(),
-                                    Styles.gap10,
-                                    __Email(),
-                                    Styles.gap10,
-                                    __Description(),
-                                    Styles.gap10,
-                                    __Media(),
-                                    Styles.gap30,
-                                  ],
-                                ),
+                              child: BlocBuilder<
+                                ListingFormBloc,
+                                ListingFormState
+                              >(
+                                builder: (context, state) {
+                                  return state.addListingStatus.loading
+                                      ? LoadingWidget
+                                          .circularProgressIndicatorCenter
+                                      : SingleChildScrollView(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            __Name(),
+                                            Styles.gap10,
+                                            __PetGender(),
+                                            Styles.gap10,
+                                            __Age(),
+                                            Styles.gap10,
+                                            __PetType(),
+                                            Styles.gap10,
+                                            __Breed(),
+                                            Styles.gap10,
+                                            __Address(),
+                                            Styles.gap10,
+                                            __Phone(),
+                                            Styles.gap10,
+                                            __Email(),
+                                            Styles.gap10,
+                                            __Description(),
+                                            Styles.gap10,
+                                            __Media(),
+                                            Styles.gap30,
+                                          ],
+                                        ),
+                                      );
+                                },
                               ),
                             ),
                             Styles.gap10,
@@ -123,6 +136,11 @@ class _AddListingFormState extends State<AddListingForm> {
                                       state.adoptionValidation &&
                                               state.url.isValid
                                           ? () {
+                                            if (state
+                                                .addListingStatus
+                                                .loading) {
+                                              return;
+                                            }
                                             context.read<ListingFormBloc>().add(
                                               ListingFormEvent.submit(
                                                 id: widget.id,

@@ -8,5 +8,8 @@ class AdoptionEvent with _$AdoptionEvent {
     required String id,
     required String status,
   }) = _MarkStatus;
+  const factory AdoptionEvent.deletePet({
+    required String id,
+  }) = _DeletePet;
   
 }

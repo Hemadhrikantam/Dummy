@@ -30,8 +30,8 @@ mixin _$ListingFormEvent {
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
@@ -46,8 +46,8 @@ mixin _$ListingFormEvent {
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
@@ -62,8 +62,8 @@ mixin _$ListingFormEvent {
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -193,8 +193,8 @@ class _$StartedImpl implements _Started {
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return started();
   }
@@ -213,8 +213,8 @@ class _$StartedImpl implements _Started {
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return started?.call();
   }
@@ -233,8 +233,8 @@ class _$StartedImpl implements _Started {
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -391,8 +391,8 @@ class _$NameImpl implements _Name {
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return name(this.name);
   }
@@ -411,8 +411,8 @@ class _$NameImpl implements _Name {
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return name?.call(this.name);
   }
@@ -431,8 +431,8 @@ class _$NameImpl implements _Name {
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (name != null) {
@@ -595,8 +595,8 @@ class _$DOBImpl implements _DOB {
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return dob(this.dob);
   }
@@ -615,8 +615,8 @@ class _$DOBImpl implements _DOB {
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return dob?.call(this.dob);
   }
@@ -635,8 +635,8 @@ class _$DOBImpl implements _DOB {
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (dob != null) {
@@ -804,8 +804,8 @@ class _$PetGenderImpl implements _PetGender {
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return petGender(this.petGender);
   }
@@ -824,8 +824,8 @@ class _$PetGenderImpl implements _PetGender {
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return petGender?.call(this.petGender);
   }
@@ -844,8 +844,8 @@ class _$PetGenderImpl implements _PetGender {
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (petGender != null) {
@@ -1012,8 +1012,8 @@ class _$PetTypeImpl implements _PetType {
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return petType(this.petType);
   }
@@ -1032,8 +1032,8 @@ class _$PetTypeImpl implements _PetType {
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return petType?.call(this.petType);
   }
@@ -1052,8 +1052,8 @@ class _$PetTypeImpl implements _PetType {
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (petType != null) {
@@ -1221,8 +1221,8 @@ class _$PetBreedImpl implements _PetBreed {
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return breed(petBreed);
   }
@@ -1241,8 +1241,8 @@ class _$PetBreedImpl implements _PetBreed {
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return breed?.call(petBreed);
   }
@@ -1261,8 +1261,8 @@ class _$PetBreedImpl implements _PetBreed {
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (breed != null) {
@@ -1429,8 +1429,8 @@ class _$AddressImpl implements _Address {
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return address(this.address);
   }
@@ -1449,8 +1449,8 @@ class _$AddressImpl implements _Address {
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return address?.call(this.address);
   }
@@ -1469,8 +1469,8 @@ class _$AddressImpl implements _Address {
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (address != null) {
@@ -1637,8 +1637,8 @@ class _$PhoneImpl implements _Phone {
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return phone(this.phone);
   }
@@ -1657,8 +1657,8 @@ class _$PhoneImpl implements _Phone {
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return phone?.call(this.phone);
   }
@@ -1677,8 +1677,8 @@ class _$PhoneImpl implements _Phone {
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (phone != null) {
@@ -1845,8 +1845,8 @@ class _$EmailImpl implements _Email {
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return email(this.email);
   }
@@ -1865,8 +1865,8 @@ class _$EmailImpl implements _Email {
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return email?.call(this.email);
   }
@@ -1885,8 +1885,8 @@ class _$EmailImpl implements _Email {
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (email != null) {
@@ -2054,8 +2054,8 @@ class _$DescriptionImpl implements _Description {
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return description(this.description);
   }
@@ -2074,8 +2074,8 @@ class _$DescriptionImpl implements _Description {
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return description?.call(this.description);
   }
@@ -2094,8 +2094,8 @@ class _$DescriptionImpl implements _Description {
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (description != null) {
@@ -2263,8 +2263,8 @@ class _$ImageImpl implements _Image {
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return image(filePath);
   }
@@ -2283,8 +2283,8 @@ class _$ImageImpl implements _Image {
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return image?.call(filePath);
   }
@@ -2303,8 +2303,8 @@ class _$ImageImpl implements _Image {
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (image != null) {
@@ -2397,7 +2397,7 @@ abstract class _$$SubmitImplCopyWith<$Res> {
     $Res Function(_$SubmitImpl) then,
   ) = __$$SubmitImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int? id});
+  $Res call({String? id});
 }
 
 /// @nodoc
@@ -2420,7 +2420,7 @@ class __$$SubmitImplCopyWithImpl<$Res>
             freezed == id
                 ? _value.id
                 : id // ignore: cast_nullable_to_non_nullable
-                    as int?,
+                    as String?,
       ),
     );
   }
@@ -2432,7 +2432,7 @@ class _$SubmitImpl implements _Submit {
   const _$SubmitImpl({this.id});
 
   @override
-  final int? id;
+  final String? id;
 
   @override
   String toString() {
@@ -2472,8 +2472,8 @@ class _$SubmitImpl implements _Submit {
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return submit(id);
   }
@@ -2492,8 +2492,8 @@ class _$SubmitImpl implements _Submit {
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return submit?.call(id);
   }
@@ -2512,8 +2512,8 @@ class _$SubmitImpl implements _Submit {
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (submit != null) {
@@ -2588,9 +2588,9 @@ class _$SubmitImpl implements _Submit {
 }
 
 abstract class _Submit implements ListingFormEvent {
-  const factory _Submit({final int? id}) = _$SubmitImpl;
+  const factory _Submit({final String? id}) = _$SubmitImpl;
 
-  int? get id;
+  String? get id;
 
   /// Create a copy of ListingFormEvent
   /// with the given fields replaced by the non-null parameter values.
@@ -2606,7 +2606,7 @@ abstract class _$$InitializationImplCopyWith<$Res> {
     $Res Function(_$InitializationImpl) then,
   ) = __$$InitializationImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int? id});
+  $Res call({String? id});
 }
 
 /// @nodoc
@@ -2629,7 +2629,7 @@ class __$$InitializationImplCopyWithImpl<$Res>
             freezed == id
                 ? _value.id
                 : id // ignore: cast_nullable_to_non_nullable
-                    as int?,
+                    as String?,
       ),
     );
   }
@@ -2641,7 +2641,7 @@ class _$InitializationImpl implements _Initialization {
   const _$InitializationImpl({this.id});
 
   @override
-  final int? id;
+  final String? id;
 
   @override
   String toString() {
@@ -2684,8 +2684,8 @@ class _$InitializationImpl implements _Initialization {
     required TResult Function(String email) email,
     required TResult Function(String description) description,
     required TResult Function(String filePath) image,
-    required TResult Function(int? id) submit,
-    required TResult Function(int? id) initialization,
+    required TResult Function(String? id) submit,
+    required TResult Function(String? id) initialization,
   }) {
     return initialization(id);
   }
@@ -2704,8 +2704,8 @@ class _$InitializationImpl implements _Initialization {
     TResult? Function(String email)? email,
     TResult? Function(String description)? description,
     TResult? Function(String filePath)? image,
-    TResult? Function(int? id)? submit,
-    TResult? Function(int? id)? initialization,
+    TResult? Function(String? id)? submit,
+    TResult? Function(String? id)? initialization,
   }) {
     return initialization?.call(id);
   }
@@ -2724,8 +2724,8 @@ class _$InitializationImpl implements _Initialization {
     TResult Function(String email)? email,
     TResult Function(String description)? description,
     TResult Function(String filePath)? image,
-    TResult Function(int? id)? submit,
-    TResult Function(int? id)? initialization,
+    TResult Function(String? id)? submit,
+    TResult Function(String? id)? initialization,
     required TResult orElse(),
   }) {
     if (initialization != null) {
@@ -2800,9 +2800,9 @@ class _$InitializationImpl implements _Initialization {
 }
 
 abstract class _Initialization implements ListingFormEvent {
-  const factory _Initialization({final int? id}) = _$InitializationImpl;
+  const factory _Initialization({final String? id}) = _$InitializationImpl;
 
-  int? get id;
+  String? get id;
 
   /// Create a copy of ListingFormEvent
   /// with the given fields replaced by the non-null parameter values.

@@ -59,6 +59,8 @@ class AdoptionDetailsPage extends StatelessWidget {
                           BottomModels.adoptionDeleteBottomSheet(
                             context,
                             adoption?.petName ?? '',
+                            adoption?.id ?? '',
+                            false,
                           );
                         },
                         backgroundColor: AppColors.white,

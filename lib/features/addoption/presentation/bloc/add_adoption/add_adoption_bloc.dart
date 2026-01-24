@@ -141,19 +141,20 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
 
   void __name(_Name event, Emitter<AddAdoptionState> emit) {
     final name = NotEmpty.dirty(value: event.name);
-    emit(state.copyWith(name: name, adoptionValidation: state.validationX));
+    emit(state.copyWith(name: name));
     emit(state.copyWith(adoptionValidation: state.validationX));
   }
 
   void __dob(_DOB event, Emitter<AddAdoptionState> emit) {
     final dob = NotEmpty.dirty(value: event.dob);
-    emit(state.copyWith(dob: dob, adoptionValidation: state.validationX));
+    emit(state.copyWith(dob: dob));
     emit(state.copyWith(adoptionValidation: state.validationX));
   }
 
   void __petGender(_PetGender event, Emitter<AddAdoptionState> emit) {
     final gender = DropdownValue.dirty(event.petGender);
-    emit(state.copyWith(gender: gender, adoptionValidation: state.validationX));
+    emit(state.copyWith(gender: gender));
+    emit(state.copyWith(adoptionValidation: state.validationX));
   }
 
   void __phone(_Phone event, Emitter<AddAdoptionState> emit) {
@@ -169,9 +170,8 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
 
   void __address(_Address event, Emitter<AddAdoptionState> emit) {
     final address = NotEmpty.dirty(value: event.address);
-    emit(
-      state.copyWith(address: address, adoptionValidation: state.validationX),
-    );
+    emit(state.copyWith(address: address));
+    emit(state.copyWith(adoptionValidation: state.validationX));
   }
 
   void __description(_Description event, Emitter<AddAdoptionState> emit) {
@@ -180,25 +180,20 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
   }
 
   void __petType(_PetType event, Emitter<AddAdoptionState> emit) {
-    emit(
-      state.copyWith(
-        petType: event.petType,
-        adoptionValidation: state.validationX,
-      ),
-    );
+    emit(state.copyWith(petType: event.petType));
     emit(state.copyWith(adoptionValidation: state.validationX));
   }
 
   void __petBreed(_PetBreed event, Emitter<AddAdoptionState> emit) {
     final breed = DropdownStringValue.dirty(event.petBreed);
-    emit(state.copyWith(breed: breed, adoptionValidation: state.validationX));
+    emit(state.copyWith(breed: breed));
     emit(state.copyWith(adoptionValidation: state.validationX));
   }
 
   void __imagePath(_Image event, Emitter<AddAdoptionState> emit) {
     LogUtility.error('url  ${event.filePath}');
     final url = NotEmpty.dirty(value: event.filePath);
-    emit(state.copyWith(url: url, adoptionValidation: state.validationX));
+    emit(state.copyWith(url: url));
     emit(state.copyWith(adoptionValidation: state.validationX));
   }
 

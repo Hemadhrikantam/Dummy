@@ -99,11 +99,12 @@ class MedicationDetailsBloc
       },
       (success) async {
         final result = await _getLogsUsecases(medicationId: state.id);
-        result.fold(
-          (l) => emit(state.copyWith(initStatus: Status.error)),
-          (logs) =>
-              emit(state.copyWith(logs: logs, initStatus: Status.success)),
-        );
+        result.fold((l) => emit(state.copyWith(initStatus: Status.error)), (
+          logs,
+        ) {
+          emit(state.copyWith(logs: logs, initStatus: Status.success));
+          add(_Init(event.medicationId));
+        });
       },
     );
   }

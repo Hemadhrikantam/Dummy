@@ -176,8 +176,7 @@ class _VaccinationFilterBottomSheet
     );
   }
 
-  bool get _isValidRange =>
-      selectedAdministerDate != null && selectedDueDate != null;
+  bool get _isValidRange => selectedAdministerDate != null;
 
   String _formatDate(DateTime date) =>
       "${date.day.toString().padLeft(2, '0')}/"

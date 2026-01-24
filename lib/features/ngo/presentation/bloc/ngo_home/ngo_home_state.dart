@@ -8,5 +8,6 @@ class NgoHomeState with _$NgoHomeState {
     @Default(null) CountListing? count,
     @Default([]) List<Listing> listing,
     @Default([]) List<Listing> allPets,
+    @Default(Status.init) Status deleteAdoptionStatus,
   }) = _NgoHomeState;
 }

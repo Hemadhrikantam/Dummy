@@ -18,6 +18,7 @@ abstract class ListingFormState with _$ListingFormState {
     @Default([]) List<DropStringItem> catBreeds,
     @Default([]) List<DropStringItem> dogBreeds,
     @Default(false) bool adoptionValidation,
+    
   }) = _ListingFormState;
 }
 

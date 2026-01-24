@@ -237,6 +237,7 @@ class InjectionBloc {
     return AdoptionBloc(
       petListingUsecase: getIt<PetListingUsecase>(),
       markAdoptedUsecase: getIt<MarkAdoptedUsecase>(),
+      deletePetUsecase: getIt<DeletePetUsecase>(),
     );
   }
 
@@ -263,6 +264,8 @@ class InjectionBloc {
     return NgoHomeBloc(
       getNgoProfileUsecase: getIt<GetNgoProfileUsecase>(),
       petListingUsecase: getIt<PetListingUsecase>(),
+      markAdoptedUsecase: getIt<MarkAdoptedUsecase>(),
+      deletePetUsecase: getIt<DeletePetUsecase>(),
     );
   }
 }

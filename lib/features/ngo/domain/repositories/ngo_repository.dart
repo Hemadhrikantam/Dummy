@@ -26,4 +26,5 @@ abstract class NgoRepository {
     required String status,
   });
   AppTypeResponse<CountListing> petListing({bool all = false});
+  AppSuccessResponse deletePet({required String id});
 }

@@ -25,5 +25,6 @@ abstract class NgoDatasource {
     required bool isActive,
     required String status,
   });
+  AppSuccessResponse deletePet({required String id});
   AppTypeResponse<CountListingModel> petListing({bool all = false});
 }

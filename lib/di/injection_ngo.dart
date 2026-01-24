@@ -2,9 +2,9 @@ part of 'injection.dart';
 
 Future<void> __ngoDependencies() async {
   // Datasource
-  getIt.registerLazySingleton<NgoDatasource>(() => NgoDatasourceImpl(
-        http: getIt<AppHttp>(),
-      ));
+  getIt.registerLazySingleton<NgoDatasource>(
+    () => NgoDatasourceImpl(http: getIt<AppHttp>()),
+  );
 
   // Repository
   getIt.registerLazySingleton<NgoRepository>(
@@ -29,5 +29,8 @@ Future<void> __ngoDependencies() async {
   );
   getIt.registerLazySingleton<PetListingUsecase>(
     () => PetListingUsecase(getIt<NgoRepository>()),
+  );
+  getIt.registerLazySingleton<DeletePetUsecase>(
+    () => DeletePetUsecase(getIt<NgoRepository>()),
   );
 }

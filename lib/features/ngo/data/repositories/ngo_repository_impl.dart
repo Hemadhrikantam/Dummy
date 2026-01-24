@@ -69,4 +69,9 @@ class NgoRepositoryImpl extends NgoRepository {
   AppTypeResponse<CountListing> petListing({bool all = false}) {
     return datasource.petListing(all: all);
   }
+
+  @override
+  AppSuccessResponse deletePet({required String id}) {
+    return datasource.deletePet(id: id);
+  }
 }

@@ -68,69 +68,101 @@ class ListingFormBloc extends Bloc<ListingFormEvent, ListingFormState> {
     emit(state.copyWith(addListingStatus: Status.loading));
     final catBreeds = await __catBreeds();
     final dogBreeds = await __dogBreeds();
-
+    await Future.delayed(Duration(seconds: 1));
     emit(
       state.copyWith(
         catBreeds: catBreeds,
         dogBreeds: dogBreeds,
         addListingStatus: Status.success,
         adoptionValidation: false,
+        petType: null,
+        breed: DropdownStringValue.pure(),
+        gender: DropdownValue.pure(),
+        phone: MobileNo.pure(),
+        email: Email.pure(),
+        address: NotEmpty.pure(),
+        description: NotEmpty.pure(),
+        name: NotEmpty.pure(),
+        dob: NotEmpty.pure(),
+        url: NotEmpty.pure(),
       ),
     );
 
-    // if (event.id != null) {
-    //   final result = await _adoptionDetailsUsecases(id: event.id!);
-    //   result.fold((l) {}, (r) async {
-    //     final List<DropStringItem> breeds =
-    //         r.petType == 'Dog'
-    //             ? dogBreeds
-    //             : r.petType == 'Cat'
-    //                 ? catBreeds
-    //                 : [];
-    //     emit(
-    //       state.copyWith(
-    //         name: NotEmpty.dirty(value: r.name),
-    //         address: NotEmpty.dirty(value: r.address),
-    //         description: NotEmpty.dirty(value: r.description),
-    //         url: NotEmpty.dirty(value: r.petImage),
-    //         phone: MobileNo.dirty(value: r.phone),
-    //         email: Email.dirty(value: r.email),
-    //         year: DropdownValue.dirty(
-    //           DropItemModel(id: r.age.toInt(), value: r.age.toInt().toString()),
-    //         ),
-    //         petType: DropdownStringValue.dirty(
-    //           petTypes.firstWhere((e) => e.value == r.petType,
-    //               orElse: () => DropItemModel(id: -1, value: r.petType)),
-    //         ),
-    //         breed: DropdownStringValue.dirty(
-    //           breeds.firstWhere((e) => e.id == r.petBreed.id,
-    //               orElse: () => DropItemModel(id: r.petBreed.id, value: r.petBreed.petBreed)),
-    //         ),
-    //       ),
-    //     );
-    //   });
-    // }
+    if (event.id != null) {
+      final pet =
+          currentContext
+              .read<NgoHomeBloc>()
+              .state
+              .listing
+              .where((element) => element.id == event.id)
+              .firstOrNull;
+      if (pet != null) {
+        final breeds =
+            pet.petType.toLowerCase() == 'cat' ? catBreeds : dogBreeds;
+        DropdownStringValue breedDropdown = DropdownStringValue.pure();
+        if (pet.breedName.isNotEmpty) {
+          final selectedBreed = breeds.firstWhere(
+            (e) => e.value == pet.breedName,
+          );
+          breedDropdown = DropdownStringValue.dirty(
+            DropStringItemModel(
+              id: selectedBreed.id,
+              value: selectedBreed.value,
+            ),
+          );
+        }
+        LogUtility.info(pet.petType);
+        emit(
+          state.copyWith(
+            name: NotEmpty.dirty(value: pet.petName),
+            dob: NotEmpty.dirty(value: pet.petDob?.toString() ?? ''),
+            gender: DropdownValue.dirty(
+              [
+                DropItemModel(id: 1, value: 'Male'),
+                DropItemModel(id: 2, value: 'Female'),
+              ].where((element) => element.id == 1).first,
+            ),
+            description: NotEmpty.dirty(value: pet.description),
+            petType:
+                pet.petType.toLowerCase() == 'cat' ? PetType.Cat : PetType.Dog,
+            breed: breedDropdown,
+            address: NotEmpty.dirty(value: pet.contactAddress ?? ''),
+            phone: MobileNo.dirty(value: pet.contactPhone ?? ''),
+            email: Email.dirty(value: pet.contactEmail ?? ''),
+            url: NotEmpty.dirty(value: pet.imageUrl ?? ''),
+          ),
+        );
+      }
+    }
+    emit(
+      state.copyWith(
+        adoptionValidation: state.validationX,
+        addListingStatus: Status.success,
+      ),
+    );
   }
 
   void _onName(_Name event, Emitter<ListingFormState> emit) {
     final name = NotEmpty.dirty(value: event.name);
-    emit(state.copyWith(name: name, adoptionValidation: state.validationX));
+    emit(state.copyWith(name: name));
+    emit(state.copyWith(adoptionValidation: state.validationX));
   }
 
   void _onPhone(_Phone event, Emitter<ListingFormState> emit) {
     final phone = MobileNo.dirty(value: event.phone);
-    emit(state.copyWith(phone: phone, adoptionValidation: state.validationX));
+    emit(state.copyWith(phone: phone));
+    emit(state.copyWith(adoptionValidation: state.validationX));
   }
 
   void _onEmail(_Email event, Emitter<ListingFormState> emit) {
     emit(state.copyWith(email: Email.dirty(value: event.email)));
+    emit(state.copyWith(adoptionValidation: state.validationX));
   }
 
   void _onAddress(_Address event, Emitter<ListingFormState> emit) {
     final address = NotEmpty.dirty(value: event.address);
-    emit(
-      state.copyWith(address: address, adoptionValidation: state.validationX),
-    );
+    emit(state.copyWith(address: address));
+    emit(state.copyWith(adoptionValidation: state.validationX));
   }
 
   void _onDescription(_Description event, Emitter<ListingFormState> emit) {
@@ -138,23 +170,21 @@ class ListingFormBloc extends Bloc<ListingFormEvent, ListingFormState> {
   }
 
   void _onPetType(_PetType event, Emitter<ListingFormState> emit) {
-    emit(
-      state.copyWith(
-        petType: event.petType,
-        adoptionValidation: state.validationX,
-      ),
-    );
+    emit(state.copyWith(petType: event.petType));
+    emit(state.copyWith(adoptionValidation: state.validationX));
   }
 
   void _onPetBreed(_PetBreed event, Emitter<ListingFormState> emit) {
     final breed = DropdownStringValue.dirty(event.petBreed);
-    emit(state.copyWith(breed: breed, adoptionValidation: state.validationX));
+    emit(state.copyWith(breed: breed));
+    emit(state.copyWith(adoptionValidation: state.validationX));
   }
 
   void _onImagePath(_Image event, Emitter<ListingFormState> emit) {
     LogUtility.error('Listing image path: ${event.filePath}');
     final url = NotEmpty.dirty(value: event.filePath);
-    emit(state.copyWith(url: url, adoptionValidation: state.validationX));
+    emit(state.copyWith(url: url));
+    emit(state.copyWith(adoptionValidation: state.validationX));
   }
 
   Future<void> _onSubmit(_Submit event, Emitter<ListingFormState> emit) async {
@@ -176,6 +206,7 @@ class ListingFormBloc extends Bloc<ListingFormEvent, ListingFormState> {
       );
     }
     final payload = PetPayload(
+      pet_id: event.id,
       name: state.name.value,
       type: state.petType?.name.toLowerCase() ?? '',
       breedId: (state.breed.value?.id ?? '').toString(),

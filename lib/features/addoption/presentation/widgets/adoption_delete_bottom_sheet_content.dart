@@ -1,20 +1,26 @@
 import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
-import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/constant/app_colors.dart';
 import '../../../../core/constant/styles.dart';
 import '../../../../../core/widgets/buttons/app_text_button.dart';
+import '../../../ngo/presentation/bloc/ngo_home/ngo_home_bloc.dart';
+import '../bloc/adoption/adoption_bloc.dart';
 
 class AdoptionDeleteBottomSheetContent extends StatelessWidget {
   const AdoptionDeleteBottomSheetContent({
     super.key,
     this.onTap,
     required this.petName,
+    required this.id,
+    required this.isNgo,
   });
   final VoidCallback? onTap;
   final String petName;
+  final String id;
+  final bool isNgo;
 
   @override
   Widget build(BuildContext context) {
@@ -72,9 +78,15 @@ class AdoptionDeleteBottomSheetContent extends StatelessWidget {
                   Expanded(
                     child: AppTextButton(
                       onPressed: () {
-                        BottomModels.medicationDeleteSuccessBottomSheet(
-                          context,
-                        );
+                        if (isNgo) {
+                          context.read<NgoHomeBloc>().add(
+                            NgoHomeEvent.deletePet(id: id),
+                          );
+                        } else {
+                          context.read<AdoptionBloc>().add(
+                            AdoptionEvent.deletePet(id: id),
+                          );
+                        }
                       },
                       radius: 50,
                       borderColor: AppColors.transparent,

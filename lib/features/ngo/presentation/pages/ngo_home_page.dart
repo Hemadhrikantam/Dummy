@@ -1,7 +1,7 @@
 import 'package:dummy/core/widgets/ngo_bottom_bar.dart';
 import 'package:dummy/features/ngo/presentation/bloc/ngo_home/ngo_home_bloc.dart';
 import 'package:dummy/features/ngo/presentation/widgets/ngo_home_view.dart';
-import 'package:dummy/features/ngo/presentation/widgets/ngo_pets_view.dart';
+import 'package:dummy/features/ngo/presentation/pages/ngo_pets_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

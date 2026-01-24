@@ -40,7 +40,7 @@ class NgoAdoptionDetailsPage extends StatelessWidget {
           subTitle: '',
           onlyTitle: true,
           bottom:
-              state.listing.contains(adoption)
+              !isAllPet
                   ? Container(
                     width: double.infinity,
                     padding: Styles.edgeInsetsAll12,
@@ -66,6 +66,8 @@ class NgoAdoptionDetailsPage extends StatelessWidget {
                               BottomModels.adoptionDeleteBottomSheet(
                                 context,
                                 adoption?.petName ?? '',
+                                adoption?.id ?? '',
+                                true,
                               );
                             },
                             backgroundColor: AppColors.white,
@@ -77,7 +79,7 @@ class NgoAdoptionDetailsPage extends StatelessWidget {
                         Expanded(
                           child: AppButton(
                             onPressed: () {
-                              BottomModels.addAdoptionBottomSheet(
+                              BottomModels.addListingBottomSheet(
                                 context,
                                 id: adoption?.id,
                               );
@@ -106,6 +108,13 @@ class NgoAdoptionDetailsPage extends StatelessWidget {
                 child: NgoAdoptionDetailsCard(
                   isAllPet: isAllPet,
                   adoption: adoption,
+                  onMarkAsAdopted: (value) {
+                    final id = adoption?.id ?? '';
+                    final newStatus = (value) ? 'adopted' : 'available';
+                    context.read<NgoHomeBloc>().add(
+                      NgoHomeEvent.markStatus(id: id, status: newStatus),
+                    );
+                  },
                 ),
               ),
               Styles.gap80,

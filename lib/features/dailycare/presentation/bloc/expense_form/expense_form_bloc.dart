@@ -5,6 +5,7 @@ import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
 import 'package:dummy/core/payload/dailycare/expense_payload.dart';
+import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
@@ -128,10 +129,10 @@ class ExpenseFormBloc extends Bloc<ExpenseFormEvent, ExpenseFormState> {
       ),
     );
 
-    result.fold(
-      (failure) => emit(state.copyWith(submitStatus: Status.error)),
-      (success) => emit(state.copyWith(submitStatus: Status.success)),
-    );
+    result.fold((failure) {
+      emit(state.copyWith(submitStatus: Status.error));
+      AppAlert.showToast(message: failure.message);
+    }, (success) => emit(state.copyWith(submitStatus: Status.success)));
   }
 
   String _inferFileType(String pathOrUrl) {

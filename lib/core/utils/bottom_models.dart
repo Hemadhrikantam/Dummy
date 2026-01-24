@@ -562,7 +562,10 @@ class BottomModels {
     );
   }
 
-  static Future<T?> addListingBottomSheet<T>(BuildContext context, {int? id}) {
+  static Future<T?> addListingBottomSheet<T>(
+    BuildContext context, {
+    String? id,
+  }) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
       backgroundColor: AppColors.transparent,
@@ -584,6 +587,8 @@ class BottomModels {
   static Future<T?> adoptionDeleteBottomSheet<T>(
     BuildContext context,
     String petName,
+    String id,
+    bool isNgo,
   ) {
     return showModalBottomSheet<T>(
       isScrollControlled: true,
@@ -591,7 +596,11 @@ class BottomModels {
       context: context,
       shape: Styles.bottomDialog,
       builder: (BuildContext context) {
-        return AdoptionDeleteBottomSheetContent(petName: petName);
+        return AdoptionDeleteBottomSheetContent(
+          petName: petName,
+          id: id,
+          isNgo: isNgo,
+        );
       },
     );
   }

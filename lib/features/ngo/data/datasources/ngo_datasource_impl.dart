@@ -93,10 +93,7 @@ class NgoDatasourceImpl extends NgoDatasource {
       'contact_phone': contactPhone,
       'contact_address': contactAddress,
     }..removeWhere((key, value) => value == null);
-    final response = await http.post(
-      path: api.petListing,
-      data: body,
-    );
+    final response = await http.post(path: api.petListing, data: body);
     return response.fold(
       (error) => Left(ErrorMessage(message: error.message)),
       (success) async {
@@ -219,6 +216,38 @@ class NgoDatasourceImpl extends NgoDatasource {
                   : success.statusCode;
           if (statusCode <= 201) {
             return Right(CountListingModel.fromMap(data));
+          }
+          return Left(
+            ErrorMessage(
+              message: data['message'] as String? ?? AppText.somethingWentWrong,
+            ),
+          );
+        } on Exception catch (_) {
+          return Left(ErrorMessage(message: AppText.somethingWentWrong));
+        }
+      },
+    );
+  }
+
+  @override
+  AppSuccessResponse deletePet({required String id}) async {
+    final response = await http.delete(path: '${api.petListing}/$id');
+    return response.fold(
+      (error) => Left(ErrorMessage(message: error.message)),
+      (success) async {
+        try {
+          final data = success.data;
+          final statusCode =
+              (data is Map)
+                  ? data['statusCode'] as int? ?? success.statusCode
+                  : success.statusCode;
+          if (statusCode <= 201) {
+            return Right(
+              SuccessMessage(
+                message:
+                    data['message'] as String? ?? 'Pet deleted successfully',
+              ),
+            );
           }
           return Left(
             ErrorMessage(

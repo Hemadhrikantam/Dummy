@@ -18,27 +18,41 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$NgoHomeEvent {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({required TResult Function() init}) =>
-      throw _privateConstructorUsedError;
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String id, String status) markStatus,
+    required TResult Function(String id) deletePet,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({TResult? Function()? init}) =>
-      throw _privateConstructorUsedError;
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String id, String status)? markStatus,
+    TResult? Function(String id)? deletePet,
+  }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function(String id, String status)? markStatus,
+    TResult Function(String id)? deletePet,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
+    required TResult Function(_MarkStatus value) markStatus,
+    required TResult Function(_DeletePet value) deletePet,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
+    TResult? Function(_MarkStatus value)? markStatus,
+    TResult? Function(_DeletePet value)? deletePet,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
+    TResult Function(_MarkStatus value)? markStatus,
+    TResult Function(_DeletePet value)? deletePet,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -105,13 +119,21 @@ class _$InitImpl implements _Init {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>({required TResult Function() init}) {
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String id, String status) markStatus,
+    required TResult Function(String id) deletePet,
+  }) {
     return init();
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({TResult? Function()? init}) {
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String id, String status)? markStatus,
+    TResult? Function(String id)? deletePet,
+  }) {
     return init?.call();
   }
 
@@ -119,6 +141,8 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? init,
+    TResult Function(String id, String status)? markStatus,
+    TResult Function(String id)? deletePet,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -131,6 +155,8 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Init value) init,
+    required TResult Function(_MarkStatus value) markStatus,
+    required TResult Function(_DeletePet value) deletePet,
   }) {
     return init(this);
   }
@@ -139,6 +165,8 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Init value)? init,
+    TResult? Function(_MarkStatus value)? markStatus,
+    TResult? Function(_DeletePet value)? deletePet,
   }) {
     return init?.call(this);
   }
@@ -147,6 +175,8 @@ class _$InitImpl implements _Init {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Init value)? init,
+    TResult Function(_MarkStatus value)? markStatus,
+    TResult Function(_DeletePet value)? deletePet,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -161,12 +191,323 @@ abstract class _Init implements NgoHomeEvent {
 }
 
 /// @nodoc
+abstract class _$$MarkStatusImplCopyWith<$Res> {
+  factory _$$MarkStatusImplCopyWith(
+    _$MarkStatusImpl value,
+    $Res Function(_$MarkStatusImpl) then,
+  ) = __$$MarkStatusImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id, String status});
+}
+
+/// @nodoc
+class __$$MarkStatusImplCopyWithImpl<$Res>
+    extends _$NgoHomeEventCopyWithImpl<$Res, _$MarkStatusImpl>
+    implements _$$MarkStatusImplCopyWith<$Res> {
+  __$$MarkStatusImplCopyWithImpl(
+    _$MarkStatusImpl _value,
+    $Res Function(_$MarkStatusImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of NgoHomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? id = null, Object? status = null}) {
+    return _then(
+      _$MarkStatusImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+        status:
+            null == status
+                ? _value.status
+                : status // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$MarkStatusImpl implements _MarkStatus {
+  const _$MarkStatusImpl({required this.id, required this.status});
+
+  @override
+  final String id;
+  @override
+  final String status;
+
+  @override
+  String toString() {
+    return 'NgoHomeEvent.markStatus(id: $id, status: $status)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$MarkStatusImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.status, status) || other.status == status));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, status);
+
+  /// Create a copy of NgoHomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$MarkStatusImplCopyWith<_$MarkStatusImpl> get copyWith =>
+      __$$MarkStatusImplCopyWithImpl<_$MarkStatusImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String id, String status) markStatus,
+    required TResult Function(String id) deletePet,
+  }) {
+    return markStatus(id, status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String id, String status)? markStatus,
+    TResult? Function(String id)? deletePet,
+  }) {
+    return markStatus?.call(id, status);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(String id, String status)? markStatus,
+    TResult Function(String id)? deletePet,
+    required TResult orElse(),
+  }) {
+    if (markStatus != null) {
+      return markStatus(id, status);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_MarkStatus value) markStatus,
+    required TResult Function(_DeletePet value) deletePet,
+  }) {
+    return markStatus(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_MarkStatus value)? markStatus,
+    TResult? Function(_DeletePet value)? deletePet,
+  }) {
+    return markStatus?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_MarkStatus value)? markStatus,
+    TResult Function(_DeletePet value)? deletePet,
+    required TResult orElse(),
+  }) {
+    if (markStatus != null) {
+      return markStatus(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _MarkStatus implements NgoHomeEvent {
+  const factory _MarkStatus({
+    required final String id,
+    required final String status,
+  }) = _$MarkStatusImpl;
+
+  String get id;
+  String get status;
+
+  /// Create a copy of NgoHomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$MarkStatusImplCopyWith<_$MarkStatusImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DeletePetImplCopyWith<$Res> {
+  factory _$$DeletePetImplCopyWith(
+    _$DeletePetImpl value,
+    $Res Function(_$DeletePetImpl) then,
+  ) = __$$DeletePetImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$DeletePetImplCopyWithImpl<$Res>
+    extends _$NgoHomeEventCopyWithImpl<$Res, _$DeletePetImpl>
+    implements _$$DeletePetImplCopyWith<$Res> {
+  __$$DeletePetImplCopyWithImpl(
+    _$DeletePetImpl _value,
+    $Res Function(_$DeletePetImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of NgoHomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? id = null}) {
+    return _then(
+      _$DeletePetImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$DeletePetImpl implements _DeletePet {
+  const _$DeletePetImpl({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'NgoHomeEvent.deletePet(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeletePetImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of NgoHomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeletePetImplCopyWith<_$DeletePetImpl> get copyWith =>
+      __$$DeletePetImplCopyWithImpl<_$DeletePetImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() init,
+    required TResult Function(String id, String status) markStatus,
+    required TResult Function(String id) deletePet,
+  }) {
+    return deletePet(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? init,
+    TResult? Function(String id, String status)? markStatus,
+    TResult? Function(String id)? deletePet,
+  }) {
+    return deletePet?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? init,
+    TResult Function(String id, String status)? markStatus,
+    TResult Function(String id)? deletePet,
+    required TResult orElse(),
+  }) {
+    if (deletePet != null) {
+      return deletePet(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Init value) init,
+    required TResult Function(_MarkStatus value) markStatus,
+    required TResult Function(_DeletePet value) deletePet,
+  }) {
+    return deletePet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Init value)? init,
+    TResult? Function(_MarkStatus value)? markStatus,
+    TResult? Function(_DeletePet value)? deletePet,
+  }) {
+    return deletePet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Init value)? init,
+    TResult Function(_MarkStatus value)? markStatus,
+    TResult Function(_DeletePet value)? deletePet,
+    required TResult orElse(),
+  }) {
+    if (deletePet != null) {
+      return deletePet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeletePet implements NgoHomeEvent {
+  const factory _DeletePet({required final String id}) = _$DeletePetImpl;
+
+  String get id;
+
+  /// Create a copy of NgoHomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeletePetImplCopyWith<_$DeletePetImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$NgoHomeState {
   Status get initStatus => throw _privateConstructorUsedError;
   NgoProfile? get profile => throw _privateConstructorUsedError;
   CountListing? get count => throw _privateConstructorUsedError;
   List<Listing> get listing => throw _privateConstructorUsedError;
   List<Listing> get allPets => throw _privateConstructorUsedError;
+  Status get deleteAdoptionStatus => throw _privateConstructorUsedError;
 
   /// Create a copy of NgoHomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -188,6 +529,7 @@ abstract class $NgoHomeStateCopyWith<$Res> {
     CountListing? count,
     List<Listing> listing,
     List<Listing> allPets,
+    Status deleteAdoptionStatus,
   });
 }
 
@@ -211,6 +553,7 @@ class _$NgoHomeStateCopyWithImpl<$Res, $Val extends NgoHomeState>
     Object? count = freezed,
     Object? listing = null,
     Object? allPets = null,
+    Object? deleteAdoptionStatus = null,
   }) {
     return _then(
       _value.copyWith(
@@ -239,6 +582,11 @@ class _$NgoHomeStateCopyWithImpl<$Res, $Val extends NgoHomeState>
                     ? _value.allPets
                     : allPets // ignore: cast_nullable_to_non_nullable
                         as List<Listing>,
+            deleteAdoptionStatus:
+                null == deleteAdoptionStatus
+                    ? _value.deleteAdoptionStatus
+                    : deleteAdoptionStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
           )
           as $Val,
     );
@@ -260,6 +608,7 @@ abstract class _$$NgoHomeStateImplCopyWith<$Res>
     CountListing? count,
     List<Listing> listing,
     List<Listing> allPets,
+    Status deleteAdoptionStatus,
   });
 }
 
@@ -282,6 +631,7 @@ class __$$NgoHomeStateImplCopyWithImpl<$Res>
     Object? count = freezed,
     Object? listing = null,
     Object? allPets = null,
+    Object? deleteAdoptionStatus = null,
   }) {
     return _then(
       _$NgoHomeStateImpl(
@@ -310,6 +660,11 @@ class __$$NgoHomeStateImplCopyWithImpl<$Res>
                 ? _value._allPets
                 : allPets // ignore: cast_nullable_to_non_nullable
                     as List<Listing>,
+        deleteAdoptionStatus:
+            null == deleteAdoptionStatus
+                ? _value.deleteAdoptionStatus
+                : deleteAdoptionStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
       ),
     );
   }
@@ -324,6 +679,7 @@ class _$NgoHomeStateImpl implements _NgoHomeState {
     this.count = null,
     final List<Listing> listing = const [],
     final List<Listing> allPets = const [],
+    this.deleteAdoptionStatus = Status.init,
   }) : _listing = listing,
        _allPets = allPets;
 
@@ -355,8 +711,12 @@ class _$NgoHomeStateImpl implements _NgoHomeState {
   }
 
   @override
+  @JsonKey()
+  final Status deleteAdoptionStatus;
+
+  @override
   String toString() {
-    return 'NgoHomeState(initStatus: $initStatus, profile: $profile, count: $count, listing: $listing, allPets: $allPets)';
+    return 'NgoHomeState(initStatus: $initStatus, profile: $profile, count: $count, listing: $listing, allPets: $allPets, deleteAdoptionStatus: $deleteAdoptionStatus)';
   }
 
   @override
@@ -369,7 +729,9 @@ class _$NgoHomeStateImpl implements _NgoHomeState {
             (identical(other.profile, profile) || other.profile == profile) &&
             (identical(other.count, count) || other.count == count) &&
             const DeepCollectionEquality().equals(other._listing, _listing) &&
-            const DeepCollectionEquality().equals(other._allPets, _allPets));
+            const DeepCollectionEquality().equals(other._allPets, _allPets) &&
+            (identical(other.deleteAdoptionStatus, deleteAdoptionStatus) ||
+                other.deleteAdoptionStatus == deleteAdoptionStatus));
   }
 
   @override
@@ -380,6 +742,7 @@ class _$NgoHomeStateImpl implements _NgoHomeState {
     count,
     const DeepCollectionEquality().hash(_listing),
     const DeepCollectionEquality().hash(_allPets),
+    deleteAdoptionStatus,
   );
 
   /// Create a copy of NgoHomeState
@@ -398,6 +761,7 @@ abstract class _NgoHomeState implements NgoHomeState {
     final CountListing? count,
     final List<Listing> listing,
     final List<Listing> allPets,
+    final Status deleteAdoptionStatus,
   }) = _$NgoHomeStateImpl;
 
   @override
@@ -410,6 +774,8 @@ abstract class _NgoHomeState implements NgoHomeState {
   List<Listing> get listing;
   @override
   List<Listing> get allPets;
+  @override
+  Status get deleteAdoptionStatus;
 
   /// Create a copy of NgoHomeState
   /// with the given fields replaced by the non-null parameter values.

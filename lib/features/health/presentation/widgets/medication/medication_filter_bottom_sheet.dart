@@ -66,7 +66,6 @@ class _MedicationFilterBottomSheetState
         return _datePickerSheet(
           title: AppText.startDate,
           initialDate: tempDate,
-          maximumDate: DateTime.now(),
           onSave: () {
             setState(() {
               _startDate = tempDate;
@@ -181,7 +180,7 @@ class _MedicationFilterBottomSheetState
     );
   }
 
-  bool get _isValidRange => _startDate != null && _endDate != null;
+  bool get _isValidRange => _startDate != null;
 
   String _formatDate(DateTime date) =>
       "${date.day.toString().padLeft(2, '0')}/"

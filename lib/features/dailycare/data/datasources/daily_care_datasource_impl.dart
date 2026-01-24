@@ -166,7 +166,8 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
             return Right(
               SuccessMessage(
                 message:
-                    data['message'] as String? ?? 'Meal added successfully',
+                    data['message'] as String? ??
+                    'Deworming added successfully',
               ),
             );
           }
@@ -204,11 +205,10 @@ class DailyCareDatasourceImpl extends DailyCareDatasource {
             return Right(
               SuccessMessage(
                 message:
-                    data['message'] as String? ?? 'Meal added successfully',
+                    data['message'] as String? ?? 'Expense added successfully',
               ),
             );
           }
-
           return Left(
             ErrorMessage(
               message: data['message'] as String? ?? AppText.somethingWentWrong,

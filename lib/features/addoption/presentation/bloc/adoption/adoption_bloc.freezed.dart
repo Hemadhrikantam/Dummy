@@ -22,18 +22,21 @@ mixin _$AdoptionEvent {
     required TResult Function() adoptions,
     required TResult Function() allPets,
     required TResult Function(String id, String status) markStatus,
+    required TResult Function(String id) deletePet,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? adoptions,
     TResult? Function()? allPets,
     TResult? Function(String id, String status)? markStatus,
+    TResult? Function(String id)? deletePet,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? adoptions,
     TResult Function()? allPets,
     TResult Function(String id, String status)? markStatus,
+    TResult Function(String id)? deletePet,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,18 +44,21 @@ mixin _$AdoptionEvent {
     required TResult Function(_Adoptions value) adoptions,
     required TResult Function(_AllPets value) allPets,
     required TResult Function(_MarkStatus value) markStatus,
+    required TResult Function(_DeletePet value) deletePet,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Adoptions value)? adoptions,
     TResult? Function(_AllPets value)? allPets,
     TResult? Function(_MarkStatus value)? markStatus,
+    TResult? Function(_DeletePet value)? deletePet,
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Adoptions value)? adoptions,
     TResult Function(_AllPets value)? allPets,
     TResult Function(_MarkStatus value)? markStatus,
+    TResult Function(_DeletePet value)? deletePet,
     required TResult orElse(),
   }) => throw _privateConstructorUsedError;
 }
@@ -125,6 +131,7 @@ class _$AdoptionsImpl implements _Adoptions {
     required TResult Function() adoptions,
     required TResult Function() allPets,
     required TResult Function(String id, String status) markStatus,
+    required TResult Function(String id) deletePet,
   }) {
     return adoptions();
   }
@@ -135,6 +142,7 @@ class _$AdoptionsImpl implements _Adoptions {
     TResult? Function()? adoptions,
     TResult? Function()? allPets,
     TResult? Function(String id, String status)? markStatus,
+    TResult? Function(String id)? deletePet,
   }) {
     return adoptions?.call();
   }
@@ -145,6 +153,7 @@ class _$AdoptionsImpl implements _Adoptions {
     TResult Function()? adoptions,
     TResult Function()? allPets,
     TResult Function(String id, String status)? markStatus,
+    TResult Function(String id)? deletePet,
     required TResult orElse(),
   }) {
     if (adoptions != null) {
@@ -159,6 +168,7 @@ class _$AdoptionsImpl implements _Adoptions {
     required TResult Function(_Adoptions value) adoptions,
     required TResult Function(_AllPets value) allPets,
     required TResult Function(_MarkStatus value) markStatus,
+    required TResult Function(_DeletePet value) deletePet,
   }) {
     return adoptions(this);
   }
@@ -169,6 +179,7 @@ class _$AdoptionsImpl implements _Adoptions {
     TResult? Function(_Adoptions value)? adoptions,
     TResult? Function(_AllPets value)? allPets,
     TResult? Function(_MarkStatus value)? markStatus,
+    TResult? Function(_DeletePet value)? deletePet,
   }) {
     return adoptions?.call(this);
   }
@@ -179,6 +190,7 @@ class _$AdoptionsImpl implements _Adoptions {
     TResult Function(_Adoptions value)? adoptions,
     TResult Function(_AllPets value)? allPets,
     TResult Function(_MarkStatus value)? markStatus,
+    TResult Function(_DeletePet value)? deletePet,
     required TResult orElse(),
   }) {
     if (adoptions != null) {
@@ -238,6 +250,7 @@ class _$AllPetsImpl implements _AllPets {
     required TResult Function() adoptions,
     required TResult Function() allPets,
     required TResult Function(String id, String status) markStatus,
+    required TResult Function(String id) deletePet,
   }) {
     return allPets();
   }
@@ -248,6 +261,7 @@ class _$AllPetsImpl implements _AllPets {
     TResult? Function()? adoptions,
     TResult? Function()? allPets,
     TResult? Function(String id, String status)? markStatus,
+    TResult? Function(String id)? deletePet,
   }) {
     return allPets?.call();
   }
@@ -258,6 +272,7 @@ class _$AllPetsImpl implements _AllPets {
     TResult Function()? adoptions,
     TResult Function()? allPets,
     TResult Function(String id, String status)? markStatus,
+    TResult Function(String id)? deletePet,
     required TResult orElse(),
   }) {
     if (allPets != null) {
@@ -272,6 +287,7 @@ class _$AllPetsImpl implements _AllPets {
     required TResult Function(_Adoptions value) adoptions,
     required TResult Function(_AllPets value) allPets,
     required TResult Function(_MarkStatus value) markStatus,
+    required TResult Function(_DeletePet value) deletePet,
   }) {
     return allPets(this);
   }
@@ -282,6 +298,7 @@ class _$AllPetsImpl implements _AllPets {
     TResult? Function(_Adoptions value)? adoptions,
     TResult? Function(_AllPets value)? allPets,
     TResult? Function(_MarkStatus value)? markStatus,
+    TResult? Function(_DeletePet value)? deletePet,
   }) {
     return allPets?.call(this);
   }
@@ -292,6 +309,7 @@ class _$AllPetsImpl implements _AllPets {
     TResult Function(_Adoptions value)? adoptions,
     TResult Function(_AllPets value)? allPets,
     TResult Function(_MarkStatus value)? markStatus,
+    TResult Function(_DeletePet value)? deletePet,
     required TResult orElse(),
   }) {
     if (allPets != null) {
@@ -387,6 +405,7 @@ class _$MarkStatusImpl implements _MarkStatus {
     required TResult Function() adoptions,
     required TResult Function() allPets,
     required TResult Function(String id, String status) markStatus,
+    required TResult Function(String id) deletePet,
   }) {
     return markStatus(id, status);
   }
@@ -397,6 +416,7 @@ class _$MarkStatusImpl implements _MarkStatus {
     TResult? Function()? adoptions,
     TResult? Function()? allPets,
     TResult? Function(String id, String status)? markStatus,
+    TResult? Function(String id)? deletePet,
   }) {
     return markStatus?.call(id, status);
   }
@@ -407,6 +427,7 @@ class _$MarkStatusImpl implements _MarkStatus {
     TResult Function()? adoptions,
     TResult Function()? allPets,
     TResult Function(String id, String status)? markStatus,
+    TResult Function(String id)? deletePet,
     required TResult orElse(),
   }) {
     if (markStatus != null) {
@@ -421,6 +442,7 @@ class _$MarkStatusImpl implements _MarkStatus {
     required TResult Function(_Adoptions value) adoptions,
     required TResult Function(_AllPets value) allPets,
     required TResult Function(_MarkStatus value) markStatus,
+    required TResult Function(_DeletePet value) deletePet,
   }) {
     return markStatus(this);
   }
@@ -431,6 +453,7 @@ class _$MarkStatusImpl implements _MarkStatus {
     TResult? Function(_Adoptions value)? adoptions,
     TResult? Function(_AllPets value)? allPets,
     TResult? Function(_MarkStatus value)? markStatus,
+    TResult? Function(_DeletePet value)? deletePet,
   }) {
     return markStatus?.call(this);
   }
@@ -441,6 +464,7 @@ class _$MarkStatusImpl implements _MarkStatus {
     TResult Function(_Adoptions value)? adoptions,
     TResult Function(_AllPets value)? allPets,
     TResult Function(_MarkStatus value)? markStatus,
+    TResult Function(_DeletePet value)? deletePet,
     required TResult orElse(),
   }) {
     if (markStatus != null) {
@@ -467,10 +491,166 @@ abstract class _MarkStatus implements AdoptionEvent {
 }
 
 /// @nodoc
+abstract class _$$DeletePetImplCopyWith<$Res> {
+  factory _$$DeletePetImplCopyWith(
+    _$DeletePetImpl value,
+    $Res Function(_$DeletePetImpl) then,
+  ) = __$$DeletePetImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$DeletePetImplCopyWithImpl<$Res>
+    extends _$AdoptionEventCopyWithImpl<$Res, _$DeletePetImpl>
+    implements _$$DeletePetImplCopyWith<$Res> {
+  __$$DeletePetImplCopyWithImpl(
+    _$DeletePetImpl _value,
+    $Res Function(_$DeletePetImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of AdoptionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({Object? id = null}) {
+    return _then(
+      _$DeletePetImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
+  }
+}
+
+/// @nodoc
+
+class _$DeletePetImpl implements _DeletePet {
+  const _$DeletePetImpl({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'AdoptionEvent.deletePet(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DeletePetImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of AdoptionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DeletePetImplCopyWith<_$DeletePetImpl> get copyWith =>
+      __$$DeletePetImplCopyWithImpl<_$DeletePetImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() adoptions,
+    required TResult Function() allPets,
+    required TResult Function(String id, String status) markStatus,
+    required TResult Function(String id) deletePet,
+  }) {
+    return deletePet(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? adoptions,
+    TResult? Function()? allPets,
+    TResult? Function(String id, String status)? markStatus,
+    TResult? Function(String id)? deletePet,
+  }) {
+    return deletePet?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? adoptions,
+    TResult Function()? allPets,
+    TResult Function(String id, String status)? markStatus,
+    TResult Function(String id)? deletePet,
+    required TResult orElse(),
+  }) {
+    if (deletePet != null) {
+      return deletePet(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Adoptions value) adoptions,
+    required TResult Function(_AllPets value) allPets,
+    required TResult Function(_MarkStatus value) markStatus,
+    required TResult Function(_DeletePet value) deletePet,
+  }) {
+    return deletePet(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Adoptions value)? adoptions,
+    TResult? Function(_AllPets value)? allPets,
+    TResult? Function(_MarkStatus value)? markStatus,
+    TResult? Function(_DeletePet value)? deletePet,
+  }) {
+    return deletePet?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Adoptions value)? adoptions,
+    TResult Function(_AllPets value)? allPets,
+    TResult Function(_MarkStatus value)? markStatus,
+    TResult Function(_DeletePet value)? deletePet,
+    required TResult orElse(),
+  }) {
+    if (deletePet != null) {
+      return deletePet(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DeletePet implements AdoptionEvent {
+  const factory _DeletePet({required final String id}) = _$DeletePetImpl;
+
+  String get id;
+
+  /// Create a copy of AdoptionEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$DeletePetImplCopyWith<_$DeletePetImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$AdoptionState {
   Status get adoptionStatus => throw _privateConstructorUsedError;
   List<Listing> get adoptions => throw _privateConstructorUsedError;
   List<Listing> get allPets => throw _privateConstructorUsedError;
+  Status get deleteAdoptionStatus => throw _privateConstructorUsedError;
 
   /// Create a copy of AdoptionState
   /// with the given fields replaced by the non-null parameter values.
@@ -490,6 +670,7 @@ abstract class $AdoptionStateCopyWith<$Res> {
     Status adoptionStatus,
     List<Listing> adoptions,
     List<Listing> allPets,
+    Status deleteAdoptionStatus,
   });
 }
 
@@ -511,6 +692,7 @@ class _$AdoptionStateCopyWithImpl<$Res, $Val extends AdoptionState>
     Object? adoptionStatus = null,
     Object? adoptions = null,
     Object? allPets = null,
+    Object? deleteAdoptionStatus = null,
   }) {
     return _then(
       _value.copyWith(
@@ -529,6 +711,11 @@ class _$AdoptionStateCopyWithImpl<$Res, $Val extends AdoptionState>
                     ? _value.allPets
                     : allPets // ignore: cast_nullable_to_non_nullable
                         as List<Listing>,
+            deleteAdoptionStatus:
+                null == deleteAdoptionStatus
+                    ? _value.deleteAdoptionStatus
+                    : deleteAdoptionStatus // ignore: cast_nullable_to_non_nullable
+                        as Status,
           )
           as $Val,
     );
@@ -548,6 +735,7 @@ abstract class _$$AdoptionStateImplCopyWith<$Res>
     Status adoptionStatus,
     List<Listing> adoptions,
     List<Listing> allPets,
+    Status deleteAdoptionStatus,
   });
 }
 
@@ -568,6 +756,7 @@ class __$$AdoptionStateImplCopyWithImpl<$Res>
     Object? adoptionStatus = null,
     Object? adoptions = null,
     Object? allPets = null,
+    Object? deleteAdoptionStatus = null,
   }) {
     return _then(
       _$AdoptionStateImpl(
@@ -586,6 +775,11 @@ class __$$AdoptionStateImplCopyWithImpl<$Res>
                 ? _value._allPets
                 : allPets // ignore: cast_nullable_to_non_nullable
                     as List<Listing>,
+        deleteAdoptionStatus:
+            null == deleteAdoptionStatus
+                ? _value.deleteAdoptionStatus
+                : deleteAdoptionStatus // ignore: cast_nullable_to_non_nullable
+                    as Status,
       ),
     );
   }
@@ -598,6 +792,7 @@ class _$AdoptionStateImpl implements _AdoptionState {
     this.adoptionStatus = Status.init,
     final List<Listing> adoptions = const [],
     final List<Listing> allPets = const [],
+    this.deleteAdoptionStatus = Status.init,
   }) : _adoptions = adoptions,
        _allPets = allPets;
 
@@ -623,8 +818,12 @@ class _$AdoptionStateImpl implements _AdoptionState {
   }
 
   @override
+  @JsonKey()
+  final Status deleteAdoptionStatus;
+
+  @override
   String toString() {
-    return 'AdoptionState(adoptionStatus: $adoptionStatus, adoptions: $adoptions, allPets: $allPets)';
+    return 'AdoptionState(adoptionStatus: $adoptionStatus, adoptions: $adoptions, allPets: $allPets, deleteAdoptionStatus: $deleteAdoptionStatus)';
   }
 
   @override
@@ -638,7 +837,9 @@ class _$AdoptionStateImpl implements _AdoptionState {
               other._adoptions,
               _adoptions,
             ) &&
-            const DeepCollectionEquality().equals(other._allPets, _allPets));
+            const DeepCollectionEquality().equals(other._allPets, _allPets) &&
+            (identical(other.deleteAdoptionStatus, deleteAdoptionStatus) ||
+                other.deleteAdoptionStatus == deleteAdoptionStatus));
   }
 
   @override
@@ -647,6 +848,7 @@ class _$AdoptionStateImpl implements _AdoptionState {
     adoptionStatus,
     const DeepCollectionEquality().hash(_adoptions),
     const DeepCollectionEquality().hash(_allPets),
+    deleteAdoptionStatus,
   );
 
   /// Create a copy of AdoptionState
@@ -663,6 +865,7 @@ abstract class _AdoptionState implements AdoptionState {
     final Status adoptionStatus,
     final List<Listing> adoptions,
     final List<Listing> allPets,
+    final Status deleteAdoptionStatus,
   }) = _$AdoptionStateImpl;
 
   @override
@@ -671,6 +874,8 @@ abstract class _AdoptionState implements AdoptionState {
   List<Listing> get adoptions;
   @override
   List<Listing> get allPets;
+  @override
+  Status get deleteAdoptionStatus;
 
   /// Create a copy of AdoptionState
   /// with the given fields replaced by the non-null parameter values.

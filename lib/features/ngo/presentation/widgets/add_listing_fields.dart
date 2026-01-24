@@ -114,10 +114,10 @@ class __PetType extends StatelessWidget {
           DropStringItemModel(id: PetType.Cat.name, value: 'Cat'),
         ];
         return CustomStringDropdownSearch(
-          // selectedItem:
-          //     state.petType.name == 'Dog'
-          //         ? DropStringItemModel(id: PetType.Dog.name, value: 'Dog')
-          //         : DropStringItemModel(id: PetType.Cat.name, value: 'Cat'),
+          selectedItem:
+              state.petType?.name == 'Dog'
+                  ? DropStringItemModel(id: PetType.Dog.name, value: 'Dog')
+                  : DropStringItemModel(id: PetType.Cat.name, value: 'Cat'),
           title: AppText.petType,
           errorText: state.breed.isPure ? null : state.breed.error,
           items: petTypes,

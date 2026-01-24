@@ -1,4 +1,6 @@
 import 'package:bloc/bloc.dart';
+import 'package:dummy/core/extention/app_navigation.dart';
+import 'package:dummy/di/injection.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package:dummy/core/enum/status.dart';
@@ -13,6 +15,8 @@ import 'package:dummy/features/auth/domain/usecases/upload_file_usecases.dart';
 import 'package:dummy/features/ngo/domain/usecases/get_ngo_profile_usecase.dart';
 import 'package:dummy/features/ngo/domain/usecases/update_ngo_profile_usecase.dart';
 
+import '../../../../../core/utils/toast_message.dart';
+
 part 'ngo_profile_event.dart';
 part 'ngo_profile_state.dart';
 part 'ngo_profile_bloc.freezed.dart';
@@ -22,10 +26,10 @@ class NgoProfileBloc extends Bloc<NgoProfileEvent, NgoProfileState> {
     required GetNgoProfileUsecase getNgoProfileUsecase,
     required UpdateNgoProfileUsecase updateNgoProfileUsecase,
     required UploadFileUsecases uploadFileUsecases,
-  })  : _getNgoProfileUsecase = getNgoProfileUsecase,
-        _updateNgoProfileUsecase = updateNgoProfileUsecase,
-        _uploadFileUsecases = uploadFileUsecases,
-        super(const NgoProfileState()) {
+  }) : _getNgoProfileUsecase = getNgoProfileUsecase,
+       _updateNgoProfileUsecase = updateNgoProfileUsecase,
+       _uploadFileUsecases = uploadFileUsecases,
+       super(const NgoProfileState()) {
     on<_Init>(_init);
     on<_NgoName>(_ngoName);
     on<_ContactPersonName>(_contactPersonName);
@@ -55,8 +59,7 @@ class NgoProfileBloc extends Bloc<NgoProfileEvent, NgoProfileState> {
           state.copyWith(
             initStatus: Status.success,
             ngoName: NotEmpty.dirty(value: profile.ngoName),
-            contactPersonName:
-                NotEmpty.dirty(value: profile.contactPersonName),
+            contactPersonName: NotEmpty.dirty(value: profile.contactPersonName),
             email: Email.dirty(value: profile.email),
             phone: MobileNo.dirty(value: profile.phone),
             pincode: PinCode.dirty(value: profile.pincode),
@@ -74,9 +77,10 @@ class NgoProfileBloc extends Bloc<NgoProfileEvent, NgoProfileState> {
   }
 
   void _contactPersonName(
-      _ContactPersonName event, Emitter<NgoProfileState> emit) {
-    emit(state.copyWith(
-        contactPersonName: NotEmpty.dirty(value: event.value)));
+    _ContactPersonName event,
+    Emitter<NgoProfileState> emit,
+  ) {
+    emit(state.copyWith(contactPersonName: NotEmpty.dirty(value: event.value)));
   }
 
   void _email(_Email event, Emitter<NgoProfileState> emit) {
@@ -100,9 +104,12 @@ class NgoProfileBloc extends Bloc<NgoProfileEvent, NgoProfileState> {
   }
 
   void _registrationProofFile(
-      _RegistrationProofFile event, Emitter<NgoProfileState> emit) {
-    emit(state.copyWith(
-        registrationProofFile: NotEmpty.dirty(value: event.path)));
+    _RegistrationProofFile event,
+    Emitter<NgoProfileState> emit,
+  ) {
+    emit(
+      state.copyWith(registrationProofFile: NotEmpty.dirty(value: event.path)),
+    );
   }
 
   Future<void> _submit(_Submit event, Emitter<NgoProfileState> emit) async {
@@ -132,8 +139,9 @@ class NgoProfileBloc extends Bloc<NgoProfileEvent, NgoProfileState> {
           public: true,
         );
         uploadRegRes.fold(
-          (error) =>
-              LogUtility.error('Registration proof upload error: ${error.message}'),
+          (error) => LogUtility.error(
+            'Registration proof upload error: ${error.message}',
+          ),
           (presign) => registrationProofUrl = presign.finalUrl,
         );
       }
@@ -157,6 +165,8 @@ class NgoProfileBloc extends Bloc<NgoProfileEvent, NgoProfileState> {
           emit(state.copyWith(submitStatus: Status.error));
         },
         (success) {
+          currentContext.pop();
+          AppAlert.showToast(message: success.message);
           emit(state.copyWith(submitStatus: Status.init));
         },
       );

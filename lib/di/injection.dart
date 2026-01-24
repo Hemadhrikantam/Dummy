@@ -75,6 +75,7 @@ import 'package:dummy/features/health/presentation/bloc/medication_details/medic
 import 'package:dummy/features/health/presentation/bloc/medication_form/medication_form_bloc.dart';
 import 'package:dummy/features/health/presentation/bloc/vaccination_details/vaccination_details_bloc.dart';
 import 'package:dummy/features/health/presentation/bloc/vaccination_log_form/vaccination_log_form_bloc.dart';
+import 'package:dummy/features/ngo/domain/usecases/delete_pet_usecase.dart';
 import 'package:dummy/features/ngo/domain/usecases/pet_listing_usecase.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource.dart';
 import 'package:dummy/features/profile/data/datasources/profile_datasource_impl.dart';
