@@ -14,6 +14,10 @@ import 'package:dummy/features/profile/presentation/bloc/pet_dairy/pet_dairy_blo
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/constant/app_text.dart';
+import '../../../../dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
+import '../../../../health/presentation/widgets/empty_list_page.dart';
+
 class TimeLineTab extends StatelessWidget {
   const TimeLineTab({super.key});
 
@@ -26,6 +30,18 @@ class TimeLineTab extends StatelessWidget {
           borderColor: AppColors.white,
           child: BlocBuilder<PetDairyBloc, PetDairyState>(
             builder: (context, state) {
+              if (state.memories.isEmpty) {
+                return Padding(
+                  padding: Styles.edgeInsetsOnlyH00,
+                  child: EmptyListPage(
+                    imagePath: ImageResources.noMedia,
+                    subTitle: AppText.startCapturingMemo(
+                      context.read<DashboardBloc>().state.selectedPet?.name ??
+                          "",
+                    ),
+                  ),
+                );
+              }
               return state.initStatus.loading
                   ? LoadingWidget.circularProgressIndicatorCenter
                   : AppCustomListViewBuilder(

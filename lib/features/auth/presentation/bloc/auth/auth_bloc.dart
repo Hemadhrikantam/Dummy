@@ -14,6 +14,7 @@ import 'package:dummy/features/auth/domain/usecases/register_device_usecases.dar
 import 'package:dummy/features/auth/domain/usecases/seeker_registration_usecases.dart';
 import 'package:dummy/features/auth/presentation/bloc/ngo_registration/ngo_registration_bloc.dart';
 import 'package:dummy/features/auth/presentation/pages/ngo_registration_page.dart';
+import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/dashboard/presentation/pages/adoption_dashboard_page.dart';
 import 'package:dummy/features/ngo/presentation/pages/ngo_home_page.dart';
 import 'package:dummy/features/signup/data/models/enum_model.dart';
@@ -30,6 +31,7 @@ import '../../../../../di/injection.dart';
 import '../../../../../core/services/location_service.dart';
 import '../../../../../core/payload/auth/seeker_onboarding_payload.dart';
 import '../../../../dashboard/presentation/pages/dashboard_page.dart';
+import '../../../../signup/presentation/bloc/register/register_bloc.dart';
 import '../../../../signup/presentation/pages/start_your_pets_journey.dart';
 import '../../../domain/entities/current_user.dart';
 import '../../../domain/usecases/current_user_usecases.dart';
@@ -154,7 +156,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   Future<void> __logout(_Logout event, Emitter<AuthState> emit) async {
     final result = await __logoutUsecases();
+
     if (result == true) {
+      currentContext.read<DashboardBloc>().add(DashboardEvent.initState());
+      currentContext.read<RegisterBloc>().add(RegisterEvent.init());
       currentContext.pushNamedAndRemoveUntil(StartYourPetsJourney.routeName);
     }
   }

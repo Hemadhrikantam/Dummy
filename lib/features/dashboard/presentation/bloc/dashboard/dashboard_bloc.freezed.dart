@@ -19,6 +19,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DashboardEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initState,
     required TResult Function() dashboardPets,
     required TResult Function(DashboardPetDetails selectedPet) selectedPet,
     required TResult Function(String petName) petName,
@@ -28,6 +29,7 @@ mixin _$DashboardEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initState,
     TResult? Function()? dashboardPets,
     TResult? Function(DashboardPetDetails selectedPet)? selectedPet,
     TResult? Function(String petName)? petName,
@@ -37,6 +39,7 @@ mixin _$DashboardEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
     TResult Function()? dashboardPets,
     TResult Function(DashboardPetDetails selectedPet)? selectedPet,
     TResult Function(String petName)? petName,
@@ -47,6 +50,7 @@ mixin _$DashboardEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitState value) initState,
     required TResult Function(_DashboardPetDetails value) dashboardPets,
     required TResult Function(_SelectedPet value) selectedPet,
     required TResult Function(_PetName value) petName,
@@ -56,6 +60,7 @@ mixin _$DashboardEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitState value)? initState,
     TResult? Function(_DashboardPetDetails value)? dashboardPets,
     TResult? Function(_SelectedPet value)? selectedPet,
     TResult? Function(_PetName value)? petName,
@@ -65,6 +70,7 @@ mixin _$DashboardEvent {
   }) => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitState value)? initState,
     TResult Function(_DashboardPetDetails value)? dashboardPets,
     TResult Function(_SelectedPet value)? selectedPet,
     TResult Function(_PetName value)? petName,
@@ -95,6 +101,143 @@ class _$DashboardEventCopyWithImpl<$Res, $Val extends DashboardEvent>
 
   /// Create a copy of DashboardEvent
   /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+abstract class _$$InitStateImplCopyWith<$Res> {
+  factory _$$InitStateImplCopyWith(
+    _$InitStateImpl value,
+    $Res Function(_$InitStateImpl) then,
+  ) = __$$InitStateImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitStateImplCopyWithImpl<$Res>
+    extends _$DashboardEventCopyWithImpl<$Res, _$InitStateImpl>
+    implements _$$InitStateImplCopyWith<$Res> {
+  __$$InitStateImplCopyWithImpl(
+    _$InitStateImpl _value,
+    $Res Function(_$InitStateImpl) _then,
+  ) : super(_value, _then);
+
+  /// Create a copy of DashboardEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$InitStateImpl implements _InitState {
+  const _$InitStateImpl();
+
+  @override
+  String toString() {
+    return 'DashboardEvent.initState()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitStateImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initState,
+    required TResult Function() dashboardPets,
+    required TResult Function(DashboardPetDetails selectedPet) selectedPet,
+    required TResult Function(String petName) petName,
+    required TResult Function(String petImage) petImage,
+    required TResult Function(int index) changePage,
+    required TResult Function(String selectedPetId) selectedPetId,
+  }) {
+    return initState();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initState,
+    TResult? Function()? dashboardPets,
+    TResult? Function(DashboardPetDetails selectedPet)? selectedPet,
+    TResult? Function(String petName)? petName,
+    TResult? Function(String petImage)? petImage,
+    TResult? Function(int index)? changePage,
+    TResult? Function(String selectedPetId)? selectedPetId,
+  }) {
+    return initState?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
+    TResult Function()? dashboardPets,
+    TResult Function(DashboardPetDetails selectedPet)? selectedPet,
+    TResult Function(String petName)? petName,
+    TResult Function(String petImage)? petImage,
+    TResult Function(int index)? changePage,
+    TResult Function(String selectedPetId)? selectedPetId,
+    required TResult orElse(),
+  }) {
+    if (initState != null) {
+      return initState();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_InitState value) initState,
+    required TResult Function(_DashboardPetDetails value) dashboardPets,
+    required TResult Function(_SelectedPet value) selectedPet,
+    required TResult Function(_PetName value) petName,
+    required TResult Function(_PetImage value) petImage,
+    required TResult Function(_ChangePage value) changePage,
+    required TResult Function(_SelectedPetId value) selectedPetId,
+  }) {
+    return initState(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitState value)? initState,
+    TResult? Function(_DashboardPetDetails value)? dashboardPets,
+    TResult? Function(_SelectedPet value)? selectedPet,
+    TResult? Function(_PetName value)? petName,
+    TResult? Function(_PetImage value)? petImage,
+    TResult? Function(_ChangePage value)? changePage,
+    TResult? Function(_SelectedPetId value)? selectedPetId,
+  }) {
+    return initState?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitState value)? initState,
+    TResult Function(_DashboardPetDetails value)? dashboardPets,
+    TResult Function(_SelectedPet value)? selectedPet,
+    TResult Function(_PetName value)? petName,
+    TResult Function(_PetImage value)? petImage,
+    TResult Function(_ChangePage value)? changePage,
+    TResult Function(_SelectedPetId value)? selectedPetId,
+    required TResult orElse(),
+  }) {
+    if (initState != null) {
+      return initState(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InitState implements DashboardEvent {
+  const factory _InitState() = _$InitStateImpl;
 }
 
 /// @nodoc
@@ -141,6 +284,7 @@ class _$DashboardPetDetailsImpl implements _DashboardPetDetails {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initState,
     required TResult Function() dashboardPets,
     required TResult Function(DashboardPetDetails selectedPet) selectedPet,
     required TResult Function(String petName) petName,
@@ -154,6 +298,7 @@ class _$DashboardPetDetailsImpl implements _DashboardPetDetails {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initState,
     TResult? Function()? dashboardPets,
     TResult? Function(DashboardPetDetails selectedPet)? selectedPet,
     TResult? Function(String petName)? petName,
@@ -167,6 +312,7 @@ class _$DashboardPetDetailsImpl implements _DashboardPetDetails {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
     TResult Function()? dashboardPets,
     TResult Function(DashboardPetDetails selectedPet)? selectedPet,
     TResult Function(String petName)? petName,
@@ -184,6 +330,7 @@ class _$DashboardPetDetailsImpl implements _DashboardPetDetails {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitState value) initState,
     required TResult Function(_DashboardPetDetails value) dashboardPets,
     required TResult Function(_SelectedPet value) selectedPet,
     required TResult Function(_PetName value) petName,
@@ -197,6 +344,7 @@ class _$DashboardPetDetailsImpl implements _DashboardPetDetails {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitState value)? initState,
     TResult? Function(_DashboardPetDetails value)? dashboardPets,
     TResult? Function(_SelectedPet value)? selectedPet,
     TResult? Function(_PetName value)? petName,
@@ -210,6 +358,7 @@ class _$DashboardPetDetailsImpl implements _DashboardPetDetails {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitState value)? initState,
     TResult Function(_DashboardPetDetails value)? dashboardPets,
     TResult Function(_SelectedPet value)? selectedPet,
     TResult Function(_PetName value)? petName,
@@ -300,6 +449,7 @@ class _$SelectedPetImpl implements _SelectedPet {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initState,
     required TResult Function() dashboardPets,
     required TResult Function(DashboardPetDetails selectedPet) selectedPet,
     required TResult Function(String petName) petName,
@@ -313,6 +463,7 @@ class _$SelectedPetImpl implements _SelectedPet {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initState,
     TResult? Function()? dashboardPets,
     TResult? Function(DashboardPetDetails selectedPet)? selectedPet,
     TResult? Function(String petName)? petName,
@@ -326,6 +477,7 @@ class _$SelectedPetImpl implements _SelectedPet {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
     TResult Function()? dashboardPets,
     TResult Function(DashboardPetDetails selectedPet)? selectedPet,
     TResult Function(String petName)? petName,
@@ -343,6 +495,7 @@ class _$SelectedPetImpl implements _SelectedPet {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitState value) initState,
     required TResult Function(_DashboardPetDetails value) dashboardPets,
     required TResult Function(_SelectedPet value) selectedPet,
     required TResult Function(_PetName value) petName,
@@ -356,6 +509,7 @@ class _$SelectedPetImpl implements _SelectedPet {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitState value)? initState,
     TResult? Function(_DashboardPetDetails value)? dashboardPets,
     TResult? Function(_SelectedPet value)? selectedPet,
     TResult? Function(_PetName value)? petName,
@@ -369,6 +523,7 @@ class _$SelectedPetImpl implements _SelectedPet {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitState value)? initState,
     TResult Function(_DashboardPetDetails value)? dashboardPets,
     TResult Function(_SelectedPet value)? selectedPet,
     TResult Function(_PetName value)? petName,
@@ -467,6 +622,7 @@ class _$PetNameImpl implements _PetName {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initState,
     required TResult Function() dashboardPets,
     required TResult Function(DashboardPetDetails selectedPet) selectedPet,
     required TResult Function(String petName) petName,
@@ -480,6 +636,7 @@ class _$PetNameImpl implements _PetName {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initState,
     TResult? Function()? dashboardPets,
     TResult? Function(DashboardPetDetails selectedPet)? selectedPet,
     TResult? Function(String petName)? petName,
@@ -493,6 +650,7 @@ class _$PetNameImpl implements _PetName {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
     TResult Function()? dashboardPets,
     TResult Function(DashboardPetDetails selectedPet)? selectedPet,
     TResult Function(String petName)? petName,
@@ -510,6 +668,7 @@ class _$PetNameImpl implements _PetName {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitState value) initState,
     required TResult Function(_DashboardPetDetails value) dashboardPets,
     required TResult Function(_SelectedPet value) selectedPet,
     required TResult Function(_PetName value) petName,
@@ -523,6 +682,7 @@ class _$PetNameImpl implements _PetName {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitState value)? initState,
     TResult? Function(_DashboardPetDetails value)? dashboardPets,
     TResult? Function(_SelectedPet value)? selectedPet,
     TResult? Function(_PetName value)? petName,
@@ -536,6 +696,7 @@ class _$PetNameImpl implements _PetName {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitState value)? initState,
     TResult Function(_DashboardPetDetails value)? dashboardPets,
     TResult Function(_SelectedPet value)? selectedPet,
     TResult Function(_PetName value)? petName,
@@ -634,6 +795,7 @@ class _$PetImageImpl implements _PetImage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initState,
     required TResult Function() dashboardPets,
     required TResult Function(DashboardPetDetails selectedPet) selectedPet,
     required TResult Function(String petName) petName,
@@ -647,6 +809,7 @@ class _$PetImageImpl implements _PetImage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initState,
     TResult? Function()? dashboardPets,
     TResult? Function(DashboardPetDetails selectedPet)? selectedPet,
     TResult? Function(String petName)? petName,
@@ -660,6 +823,7 @@ class _$PetImageImpl implements _PetImage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
     TResult Function()? dashboardPets,
     TResult Function(DashboardPetDetails selectedPet)? selectedPet,
     TResult Function(String petName)? petName,
@@ -677,6 +841,7 @@ class _$PetImageImpl implements _PetImage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitState value) initState,
     required TResult Function(_DashboardPetDetails value) dashboardPets,
     required TResult Function(_SelectedPet value) selectedPet,
     required TResult Function(_PetName value) petName,
@@ -690,6 +855,7 @@ class _$PetImageImpl implements _PetImage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitState value)? initState,
     TResult? Function(_DashboardPetDetails value)? dashboardPets,
     TResult? Function(_SelectedPet value)? selectedPet,
     TResult? Function(_PetName value)? petName,
@@ -703,6 +869,7 @@ class _$PetImageImpl implements _PetImage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitState value)? initState,
     TResult Function(_DashboardPetDetails value)? dashboardPets,
     TResult Function(_SelectedPet value)? selectedPet,
     TResult Function(_PetName value)? petName,
@@ -800,6 +967,7 @@ class _$ChangePageImpl implements _ChangePage {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initState,
     required TResult Function() dashboardPets,
     required TResult Function(DashboardPetDetails selectedPet) selectedPet,
     required TResult Function(String petName) petName,
@@ -813,6 +981,7 @@ class _$ChangePageImpl implements _ChangePage {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initState,
     TResult? Function()? dashboardPets,
     TResult? Function(DashboardPetDetails selectedPet)? selectedPet,
     TResult? Function(String petName)? petName,
@@ -826,6 +995,7 @@ class _$ChangePageImpl implements _ChangePage {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
     TResult Function()? dashboardPets,
     TResult Function(DashboardPetDetails selectedPet)? selectedPet,
     TResult Function(String petName)? petName,
@@ -843,6 +1013,7 @@ class _$ChangePageImpl implements _ChangePage {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitState value) initState,
     required TResult Function(_DashboardPetDetails value) dashboardPets,
     required TResult Function(_SelectedPet value) selectedPet,
     required TResult Function(_PetName value) petName,
@@ -856,6 +1027,7 @@ class _$ChangePageImpl implements _ChangePage {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitState value)? initState,
     TResult? Function(_DashboardPetDetails value)? dashboardPets,
     TResult? Function(_SelectedPet value)? selectedPet,
     TResult? Function(_PetName value)? petName,
@@ -869,6 +1041,7 @@ class _$ChangePageImpl implements _ChangePage {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitState value)? initState,
     TResult Function(_DashboardPetDetails value)? dashboardPets,
     TResult Function(_SelectedPet value)? selectedPet,
     TResult Function(_PetName value)? petName,
@@ -967,6 +1140,7 @@ class _$SelectedPetIdImpl implements _SelectedPetId {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function() initState,
     required TResult Function() dashboardPets,
     required TResult Function(DashboardPetDetails selectedPet) selectedPet,
     required TResult Function(String petName) petName,
@@ -980,6 +1154,7 @@ class _$SelectedPetIdImpl implements _SelectedPetId {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initState,
     TResult? Function()? dashboardPets,
     TResult? Function(DashboardPetDetails selectedPet)? selectedPet,
     TResult? Function(String petName)? petName,
@@ -993,6 +1168,7 @@ class _$SelectedPetIdImpl implements _SelectedPetId {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initState,
     TResult Function()? dashboardPets,
     TResult Function(DashboardPetDetails selectedPet)? selectedPet,
     TResult Function(String petName)? petName,
@@ -1010,6 +1186,7 @@ class _$SelectedPetIdImpl implements _SelectedPetId {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_InitState value) initState,
     required TResult Function(_DashboardPetDetails value) dashboardPets,
     required TResult Function(_SelectedPet value) selectedPet,
     required TResult Function(_PetName value) petName,
@@ -1023,6 +1200,7 @@ class _$SelectedPetIdImpl implements _SelectedPetId {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_InitState value)? initState,
     TResult? Function(_DashboardPetDetails value)? dashboardPets,
     TResult? Function(_SelectedPet value)? selectedPet,
     TResult? Function(_PetName value)? petName,
@@ -1036,6 +1214,7 @@ class _$SelectedPetIdImpl implements _SelectedPetId {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_InitState value)? initState,
     TResult Function(_DashboardPetDetails value)? dashboardPets,
     TResult Function(_SelectedPet value)? selectedPet,
     TResult Function(_PetName value)? petName,

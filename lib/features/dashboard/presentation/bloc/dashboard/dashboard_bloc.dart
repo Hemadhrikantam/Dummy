@@ -21,6 +21,7 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
   DashboardBloc({required DashboardDetailsUsecases dashboardDetailsUsecases})
     : __dashboardPetUsecases = dashboardDetailsUsecases,
       super(DashboardState()) {
+    on<_InitState>(__initState);
     on<_DashboardPetDetails>(__pets);
     on<_PetName>(__petName);
     on<_PetImage>(__petImage);
@@ -29,12 +30,17 @@ class DashboardBloc extends Bloc<DashboardEvent, DashboardState> {
     on<_ChangePage>(__changePage);
   }
   final DashboardDetailsUsecases __dashboardPetUsecases;
+  
+  void __initState(_InitState event, Emitter<DashboardState> emit) {
+    emit(DashboardState());
+  }
+
   Future<void> __pets(
     _DashboardPetDetails event,
     Emitter<DashboardState> emit,
   ) async {
     currentContext.read<AuthBloc>().add(AuthEvent.updateFcm());
-    emit(state.copyWith(initStatus: Status.loading));
+    emit(state.copyWith(initStatus: Status.loading, dashboardPetDetails: []));
     final result = await __dashboardPetUsecases();
     result.fold(
       (error) {

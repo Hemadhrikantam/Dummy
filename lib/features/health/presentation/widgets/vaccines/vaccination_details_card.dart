@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/constant/app_text.dart';
+import '../../../../../core/widgets/loading_widget.dart';
 
 class VaccinationDetailsCard extends StatelessWidget {
   const VaccinationDetailsCard({super.key});
@@ -19,7 +20,7 @@ class VaccinationDetailsCard extends StatelessWidget {
     return BlocBuilder<VaccinationDetailsBloc, VaccinationDetailsState>(
       builder: (context, state) {
         if (state.initStatus.loading) {
-          return const Center(child: CircularProgressIndicator());
+          return LoadingWidget.circularProgressIndicatorCenter;
         }
         return CustomCard(
           child: Column(

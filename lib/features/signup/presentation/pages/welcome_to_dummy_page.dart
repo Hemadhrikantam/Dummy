@@ -9,13 +9,10 @@ import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
-import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/core/widgets/buttons/back_button.dart';
 import 'package:dummy/features/signup/presentation/bloc/register/register_bloc.dart';
-import 'package:dummy/features/signup/presentation/pages/premium/premium_page1.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/widgets/buttons/app_button.dart';
 import 'founder_badge_page.dart';
@@ -40,9 +37,9 @@ class _WelcomeToDummyPageState extends State<WelcomeToDummyPage> {
   @override
   void initState() {
     super.initState();
-    _navigationTimer = Timer(Duration(seconds: 6), () {
-      context.pushNamed(PremiumPage1.routeName);
-    });
+    // _navigationTimer = Timer(Duration(seconds: 6), () {
+    //   context.pushNamed(PremiumPage1.routeName);
+    // });
   }
 
   void cancelTimer() {
@@ -77,48 +74,48 @@ class _WelcomeToDummyPageState extends State<WelcomeToDummyPage> {
               Styles.gap30,
               __ImageUploadWidget(state.petImage.value),
               Styles.gap50,
-              Text(
-                AppText.unlockMoreWithDummy,
-                style: context.textTheme.titleSmall?.copyWith(
-                  color: AppColors.stepperColor,
-                  fontWeight: FontWeight.w600,
-                  fontSize: 16,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              Styles.gap12,
-              AppOutlinedButton(
-                name: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      AppText.explore,
-                      style: context.textTheme.titleSmall?.copyWith(
-                        fontWeight: FontWeight.w700,
-                        color: AppColors.buttonTextColor,
-                      ),
-                    ),
-                    Styles.gap10,
-                    AppAssestsImage(
-                      boxFit: BoxFit.contain,
-                      path: ImageResources.dashboardLogo,
-                      height: 20,
-                      width: 50,
-                    ),
-                    Styles.gap10,
-                    SvgPicture.asset(
-                      ImageResources.premium,
-                      width: 50,
-                      fit: BoxFit.contain,
-                    ),
-                  ],
-                ),
-                onPressed: () {
-                  cancelTimer();
-                  context.pushNamed(PremiumPage1.routeName);
-                },
-              ),
-              Styles.gap50,
+              // Text(
+              //   AppText.unlockMoreWithDummy,
+              //   style: context.textTheme.titleSmall?.copyWith(
+              //     color: AppColors.stepperColor,
+              //     fontWeight: FontWeight.w600,
+              //     fontSize: 16,
+              //   ),
+              //   textAlign: TextAlign.center,
+              // ),
+              // Styles.gap12,
+              // AppOutlinedButton(
+              //   name: Row(
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     children: [
+              //       Text(
+              //         AppText.explore,
+              //         style: context.textTheme.titleSmall?.copyWith(
+              //           fontWeight: FontWeight.w700,
+              //           color: AppColors.buttonTextColor,
+              //         ),
+              //       ),
+              //       Styles.gap10,
+              //       AppAssestsImage(
+              //         boxFit: BoxFit.contain,
+              //         path: ImageResources.dashboardLogo,
+              //         height: 20,
+              //         width: 50,
+              //       ),
+              //       Styles.gap10,
+              //       SvgPicture.asset(
+              //         ImageResources.premium,
+              //         width: 50,
+              //         fit: BoxFit.contain,
+              //       ),
+              //     ],
+              //   ),
+              //   onPressed: () {
+              //     cancelTimer();
+              //     context.pushNamed(PremiumPage1.routeName);
+              //   },
+              // ),
+              // Styles.gap50,
               AppButton(
                 name: Text(
                   AppText.startUsingDummy,

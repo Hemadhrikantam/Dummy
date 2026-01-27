@@ -26,7 +26,6 @@ class _SplashScreenState extends State<SplashScreen> {
       // context.pushNamedAndRemoveUntil(DashboardPage.routeName); // testing one
       // context.pushNamedAndRemoveUntil(MeetYourPetScreen.routeName);// testing one
       // context.pushNamedAndRemoveUntil(NgoHomePage.routeName); // testing one
-      // context.read<AuthBloc>().add(const AuthEvent.checkUser());
     });
   }
 

@@ -19,7 +19,7 @@ class HealthPage extends StatefulWidget {
   const HealthPage({
     super.key,
     required this.selectedPet,
-    this.initialTab = 'Insight',
+    this.initialTab = 'Vaccination',
   });
 
   static const routeName = '/HealthPage';

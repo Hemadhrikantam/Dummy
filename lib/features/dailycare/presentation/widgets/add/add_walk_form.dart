@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../core/utils/bottom_models.dart';
 import '../../../../../core/utils/toast_message.dart';
+import '../../../../../core/widgets/loading_widget.dart';
 import '../../../../../core/widgets/mandatory_field_widget.dart';
 import '../../bloc/walks/walks_bloc.dart';
 
@@ -165,7 +166,8 @@ class _AddWalkFormState extends State<AddWalkForm> {
                     },
                     builder: (context, state) {
                       if (state.submitStatus == Status.loading) {
-                        return const Center(child: CircularProgressIndicator());
+                        return LoadingWidget
+                            .circularProgressIndicatorWithOutRowSmall;
                       }
                       return SaveCancelWidget(
                         onPressed:

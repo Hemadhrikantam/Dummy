@@ -2,6 +2,7 @@ part of 'dashboard_bloc.dart';
 
 @freezed
 class DashboardEvent with _$DashboardEvent {
+  const factory DashboardEvent.initState() = _InitState;
   const factory DashboardEvent.dashboardPets() = _DashboardPetDetails;
   const factory DashboardEvent.selectedPet(DashboardPetDetails selectedPet) =
       _SelectedPet;

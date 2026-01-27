@@ -10,6 +10,8 @@ import 'package:dummy/features/profile/presentation/pages/profile_options_page.d
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'custom_card.dart';
+
 class CustomHeaderWidget extends StatelessWidget {
   const CustomHeaderWidget({super.key, this.petImage, this.onProfileTap});
   final String? petImage;
@@ -57,19 +59,24 @@ class CustomHeaderWidget extends StatelessWidget {
                       onProfileTap?.call();
                     }
                   },
-                  child:
-                      (petImage ?? '').isEmpty || (petImage == '0')
-                          ? AppAssestsImage(
-                            path: ImageResources.dog,
-                            height: 45,
-                            width: 45,
-                          )
-                          : AppNetworkImage(
-                            borderRadius: Styles.borderRadiusCircular25,
-                            url: petImage ?? '',
-                            height: 45,
-                            width: 45,
-                          ),
+                  child: SizedBox(
+                    height: 45,
+                    width: 45,
+                    child: CustomCard(
+                      padding: Styles.edgeInsetsAll02,
+                      borderRadius: Styles.borderRadiusCircular40,
+                      border: Border.all(width: 2, color: AppColors.white),
+                      child: ClipRRect(
+                        borderRadius: Styles.borderRadiusCircular40,
+                        child: AppNetworkImage(
+                          borderRadius: Styles.borderRadiusCircular40,
+                          url: petImage ?? '',
+                          height: 45,
+                          width: 45,
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
               ],
             ),

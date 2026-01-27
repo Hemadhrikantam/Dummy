@@ -1,4 +1,3 @@
-
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
@@ -43,7 +42,7 @@ class _MeetYourPetScreenState extends State<MeetYourPetScreen> {
       setState(() {
         currentIndex--;
       });
-    }else{
+    } else {
       Navigator.of(context).pop();
     }
   }

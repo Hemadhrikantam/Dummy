@@ -59,14 +59,14 @@ class _NgoRegistrationPage2 extends State<NgoRegistrationPage2> {
                   ),
                 ),
                 onPressed: () {
-                  context
-                      .read<NgoRegistrationBloc>()
-                      .add(const NgoRegistrationEvent.submit());
+                  context.read<NgoRegistrationBloc>().add(
+                    const NgoRegistrationEvent.submit(),
+                  );
                 },
               ),
               Styles.gap50,
               if (state.submitStatus == Status.loading)
-                const Center(child: CircularProgressIndicator()),
+                LoadingWidget.circularProgressIndicatorCenter,
             ],
           );
         },

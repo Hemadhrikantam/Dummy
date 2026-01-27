@@ -3,6 +3,7 @@ part of 'register_bloc.dart';
 @freezed
 class RegisterEvent with _$RegisterEvent {
   const factory RegisterEvent.initialization() = _Initialization;
+  const factory RegisterEvent.init() = _Init;
   const factory RegisterEvent.petDetails() = _PetDetails;
   const factory RegisterEvent.petName(String name) = _PetName;
   const factory RegisterEvent.petImage(String value) = _PetImage;

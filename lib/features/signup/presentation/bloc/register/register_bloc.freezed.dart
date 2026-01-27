@@ -20,6 +20,7 @@ mixin _$RegisterEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -37,6 +38,7 @@ mixin _$RegisterEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -54,6 +56,7 @@ mixin _$RegisterEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -72,6 +75,7 @@ mixin _$RegisterEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -89,6 +93,7 @@ mixin _$RegisterEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -106,6 +111,7 @@ mixin _$RegisterEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,
@@ -189,6 +195,7 @@ class _$InitializationImpl implements _Initialization {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -210,6 +217,7 @@ class _$InitializationImpl implements _Initialization {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -231,6 +239,7 @@ class _$InitializationImpl implements _Initialization {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -256,6 +265,7 @@ class _$InitializationImpl implements _Initialization {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -277,6 +287,7 @@ class _$InitializationImpl implements _Initialization {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -298,6 +309,7 @@ class _$InitializationImpl implements _Initialization {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,
@@ -322,6 +334,189 @@ class _$InitializationImpl implements _Initialization {
 
 abstract class _Initialization implements RegisterEvent {
   const factory _Initialization() = _$InitializationImpl;
+}
+
+/// @nodoc
+abstract class _$$InitImplCopyWith<$Res> {
+  factory _$$InitImplCopyWith(
+    _$InitImpl value,
+    $Res Function(_$InitImpl) then,
+  ) = __$$InitImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InitImplCopyWithImpl<$Res>
+    extends _$RegisterEventCopyWithImpl<$Res, _$InitImpl>
+    implements _$$InitImplCopyWith<$Res> {
+  __$$InitImplCopyWithImpl(_$InitImpl _value, $Res Function(_$InitImpl) _then)
+    : super(_value, _then);
+
+  /// Create a copy of RegisterEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$InitImpl implements _Init {
+  const _$InitImpl();
+
+  @override
+  String toString() {
+    return 'RegisterEvent.init()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initialization,
+    required TResult Function() init,
+    required TResult Function() petDetails,
+    required TResult Function(String name) petName,
+    required TResult Function(String value) petImage,
+    required TResult Function(PetType value) petType,
+    required TResult Function(String dob) dob,
+    required TResult Function(DropStringItem breed) breed,
+    required TResult Function(String weightUnit) weightUnit,
+    required TResult Function(String weight) weight,
+    required TResult Function(List<DropStringItem> value) addTag,
+    required TResult Function(int index) removeTag,
+    required TResult Function() createPet,
+    required TResult Function(DropItem petGender) petGender,
+    required TResult Function(double latitude, double longitude) setLocation,
+  }) {
+    return init();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initialization,
+    TResult? Function()? init,
+    TResult? Function()? petDetails,
+    TResult? Function(String name)? petName,
+    TResult? Function(String value)? petImage,
+    TResult? Function(PetType value)? petType,
+    TResult? Function(String dob)? dob,
+    TResult? Function(DropStringItem breed)? breed,
+    TResult? Function(String weightUnit)? weightUnit,
+    TResult? Function(String weight)? weight,
+    TResult? Function(List<DropStringItem> value)? addTag,
+    TResult? Function(int index)? removeTag,
+    TResult? Function()? createPet,
+    TResult? Function(DropItem petGender)? petGender,
+    TResult? Function(double latitude, double longitude)? setLocation,
+  }) {
+    return init?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initialization,
+    TResult Function()? init,
+    TResult Function()? petDetails,
+    TResult Function(String name)? petName,
+    TResult Function(String value)? petImage,
+    TResult Function(PetType value)? petType,
+    TResult Function(String dob)? dob,
+    TResult Function(DropStringItem breed)? breed,
+    TResult Function(String weightUnit)? weightUnit,
+    TResult Function(String weight)? weight,
+    TResult Function(List<DropStringItem> value)? addTag,
+    TResult Function(int index)? removeTag,
+    TResult Function()? createPet,
+    TResult Function(DropItem petGender)? petGender,
+    TResult Function(double latitude, double longitude)? setLocation,
+    required TResult orElse(),
+  }) {
+    if (init != null) {
+      return init();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
+    required TResult Function(_PetDetails value) petDetails,
+    required TResult Function(_PetName value) petName,
+    required TResult Function(_PetImage value) petImage,
+    required TResult Function(_PetType value) petType,
+    required TResult Function(_DOB value) dob,
+    required TResult Function(_Breed value) breed,
+    required TResult Function(_WeightUnit value) weightUnit,
+    required TResult Function(_Weight value) weight,
+    required TResult Function(_AddTag value) addTag,
+    required TResult Function(_RemoveTag value) removeTag,
+    required TResult Function(_CreatePet value) createPet,
+    required TResult Function(_PetGender value) petGender,
+    required TResult Function(_SetLocation value) setLocation,
+  }) {
+    return init(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
+    TResult? Function(_PetDetails value)? petDetails,
+    TResult? Function(_PetName value)? petName,
+    TResult? Function(_PetImage value)? petImage,
+    TResult? Function(_PetType value)? petType,
+    TResult? Function(_DOB value)? dob,
+    TResult? Function(_Breed value)? breed,
+    TResult? Function(_WeightUnit value)? weightUnit,
+    TResult? Function(_Weight value)? weight,
+    TResult? Function(_AddTag value)? addTag,
+    TResult? Function(_RemoveTag value)? removeTag,
+    TResult? Function(_CreatePet value)? createPet,
+    TResult? Function(_PetGender value)? petGender,
+    TResult? Function(_SetLocation value)? setLocation,
+  }) {
+    return init?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
+    TResult Function(_PetDetails value)? petDetails,
+    TResult Function(_PetName value)? petName,
+    TResult Function(_PetImage value)? petImage,
+    TResult Function(_PetType value)? petType,
+    TResult Function(_DOB value)? dob,
+    TResult Function(_Breed value)? breed,
+    TResult Function(_WeightUnit value)? weightUnit,
+    TResult Function(_Weight value)? weight,
+    TResult Function(_AddTag value)? addTag,
+    TResult Function(_RemoveTag value)? removeTag,
+    TResult Function(_CreatePet value)? createPet,
+    TResult Function(_PetGender value)? petGender,
+    TResult Function(_SetLocation value)? setLocation,
+    required TResult orElse(),
+  }) {
+    if (init != null) {
+      return init(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Init implements RegisterEvent {
+  const factory _Init() = _$InitImpl;
 }
 
 /// @nodoc
@@ -368,6 +563,7 @@ class _$PetDetailsImpl implements _PetDetails {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -389,6 +585,7 @@ class _$PetDetailsImpl implements _PetDetails {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -410,6 +607,7 @@ class _$PetDetailsImpl implements _PetDetails {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -435,6 +633,7 @@ class _$PetDetailsImpl implements _PetDetails {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -456,6 +655,7 @@ class _$PetDetailsImpl implements _PetDetails {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -477,6 +677,7 @@ class _$PetDetailsImpl implements _PetDetails {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,
@@ -574,6 +775,7 @@ class _$PetNameImpl implements _PetName {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -595,6 +797,7 @@ class _$PetNameImpl implements _PetName {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -616,6 +819,7 @@ class _$PetNameImpl implements _PetName {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -641,6 +845,7 @@ class _$PetNameImpl implements _PetName {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -662,6 +867,7 @@ class _$PetNameImpl implements _PetName {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -683,6 +889,7 @@ class _$PetNameImpl implements _PetName {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,
@@ -788,6 +995,7 @@ class _$PetImageImpl implements _PetImage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -809,6 +1017,7 @@ class _$PetImageImpl implements _PetImage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -830,6 +1039,7 @@ class _$PetImageImpl implements _PetImage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -855,6 +1065,7 @@ class _$PetImageImpl implements _PetImage {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -876,6 +1087,7 @@ class _$PetImageImpl implements _PetImage {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -897,6 +1109,7 @@ class _$PetImageImpl implements _PetImage {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,
@@ -1002,6 +1215,7 @@ class _$PetTypeImpl implements _PetType {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -1023,6 +1237,7 @@ class _$PetTypeImpl implements _PetType {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -1044,6 +1259,7 @@ class _$PetTypeImpl implements _PetType {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -1069,6 +1285,7 @@ class _$PetTypeImpl implements _PetType {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -1090,6 +1307,7 @@ class _$PetTypeImpl implements _PetType {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -1111,6 +1329,7 @@ class _$PetTypeImpl implements _PetType {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,
@@ -1212,6 +1431,7 @@ class _$DOBImpl implements _DOB {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -1233,6 +1453,7 @@ class _$DOBImpl implements _DOB {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -1254,6 +1475,7 @@ class _$DOBImpl implements _DOB {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -1279,6 +1501,7 @@ class _$DOBImpl implements _DOB {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -1300,6 +1523,7 @@ class _$DOBImpl implements _DOB {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -1321,6 +1545,7 @@ class _$DOBImpl implements _DOB {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,
@@ -1426,6 +1651,7 @@ class _$BreedImpl implements _Breed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -1447,6 +1673,7 @@ class _$BreedImpl implements _Breed {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -1468,6 +1695,7 @@ class _$BreedImpl implements _Breed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -1493,6 +1721,7 @@ class _$BreedImpl implements _Breed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -1514,6 +1743,7 @@ class _$BreedImpl implements _Breed {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -1535,6 +1765,7 @@ class _$BreedImpl implements _Breed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,
@@ -1641,6 +1872,7 @@ class _$WeightUnitImpl implements _WeightUnit {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -1662,6 +1894,7 @@ class _$WeightUnitImpl implements _WeightUnit {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -1683,6 +1916,7 @@ class _$WeightUnitImpl implements _WeightUnit {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -1708,6 +1942,7 @@ class _$WeightUnitImpl implements _WeightUnit {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -1729,6 +1964,7 @@ class _$WeightUnitImpl implements _WeightUnit {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -1750,6 +1986,7 @@ class _$WeightUnitImpl implements _WeightUnit {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,
@@ -1855,6 +2092,7 @@ class _$WeightImpl implements _Weight {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -1876,6 +2114,7 @@ class _$WeightImpl implements _Weight {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -1897,6 +2136,7 @@ class _$WeightImpl implements _Weight {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -1922,6 +2162,7 @@ class _$WeightImpl implements _Weight {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -1943,6 +2184,7 @@ class _$WeightImpl implements _Weight {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -1964,6 +2206,7 @@ class _$WeightImpl implements _Weight {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,
@@ -2075,6 +2318,7 @@ class _$AddTagImpl implements _AddTag {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -2096,6 +2340,7 @@ class _$AddTagImpl implements _AddTag {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -2117,6 +2362,7 @@ class _$AddTagImpl implements _AddTag {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -2142,6 +2388,7 @@ class _$AddTagImpl implements _AddTag {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -2163,6 +2410,7 @@ class _$AddTagImpl implements _AddTag {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -2184,6 +2432,7 @@ class _$AddTagImpl implements _AddTag {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,
@@ -2289,6 +2538,7 @@ class _$RemoveTagImpl implements _RemoveTag {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -2310,6 +2560,7 @@ class _$RemoveTagImpl implements _RemoveTag {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -2331,6 +2582,7 @@ class _$RemoveTagImpl implements _RemoveTag {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -2356,6 +2608,7 @@ class _$RemoveTagImpl implements _RemoveTag {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -2377,6 +2630,7 @@ class _$RemoveTagImpl implements _RemoveTag {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -2398,6 +2652,7 @@ class _$RemoveTagImpl implements _RemoveTag {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,
@@ -2476,6 +2731,7 @@ class _$CreatePetImpl implements _CreatePet {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -2497,6 +2753,7 @@ class _$CreatePetImpl implements _CreatePet {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -2518,6 +2775,7 @@ class _$CreatePetImpl implements _CreatePet {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -2543,6 +2801,7 @@ class _$CreatePetImpl implements _CreatePet {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -2564,6 +2823,7 @@ class _$CreatePetImpl implements _CreatePet {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -2585,6 +2845,7 @@ class _$CreatePetImpl implements _CreatePet {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,
@@ -2683,6 +2944,7 @@ class _$PetGenderImpl implements _PetGender {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -2704,6 +2966,7 @@ class _$PetGenderImpl implements _PetGender {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -2725,6 +2988,7 @@ class _$PetGenderImpl implements _PetGender {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -2750,6 +3014,7 @@ class _$PetGenderImpl implements _PetGender {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -2771,6 +3036,7 @@ class _$PetGenderImpl implements _PetGender {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -2792,6 +3058,7 @@ class _$PetGenderImpl implements _PetGender {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,
@@ -2908,6 +3175,7 @@ class _$SetLocationImpl implements _SetLocation {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initialization,
+    required TResult Function() init,
     required TResult Function() petDetails,
     required TResult Function(String name) petName,
     required TResult Function(String value) petImage,
@@ -2929,6 +3197,7 @@ class _$SetLocationImpl implements _SetLocation {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initialization,
+    TResult? Function()? init,
     TResult? Function()? petDetails,
     TResult? Function(String name)? petName,
     TResult? Function(String value)? petImage,
@@ -2950,6 +3219,7 @@ class _$SetLocationImpl implements _SetLocation {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initialization,
+    TResult Function()? init,
     TResult Function()? petDetails,
     TResult Function(String name)? petName,
     TResult Function(String value)? petImage,
@@ -2975,6 +3245,7 @@ class _$SetLocationImpl implements _SetLocation {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Initialization value) initialization,
+    required TResult Function(_Init value) init,
     required TResult Function(_PetDetails value) petDetails,
     required TResult Function(_PetName value) petName,
     required TResult Function(_PetImage value) petImage,
@@ -2996,6 +3267,7 @@ class _$SetLocationImpl implements _SetLocation {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initialization value)? initialization,
+    TResult? Function(_Init value)? init,
     TResult? Function(_PetDetails value)? petDetails,
     TResult? Function(_PetName value)? petName,
     TResult? Function(_PetImage value)? petImage,
@@ -3017,6 +3289,7 @@ class _$SetLocationImpl implements _SetLocation {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initialization value)? initialization,
+    TResult Function(_Init value)? init,
     TResult Function(_PetDetails value)? petDetails,
     TResult Function(_PetName value)? petName,
     TResult Function(_PetImage value)? petImage,

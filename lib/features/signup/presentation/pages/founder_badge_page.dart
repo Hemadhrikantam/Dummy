@@ -53,14 +53,14 @@ class _FounderBadgePageState extends State<FounderBadgePage> {
                   AppText.becauseYouJoinedUsEarly,
                   style: context.textTheme.titleSmall?.copyWith(height: 1.4),
                 ),
-                Styles.gap40,
+                Styles.gap20,
                 Center(
                   child: AppAssestsImage(
                     path: ImageResources.founderBadgeImg,
-                    height: 250,
+                    height: 300,
+                    boxFit: BoxFit.contain,
                   ),
                 ),
-                Styles.gap30,
                 Center(
                   child: Column(
                     children: [
@@ -113,6 +113,7 @@ class _FounderBadgePageState extends State<FounderBadgePage> {
                     ),
                   ),
                   onPressed: () {
+                    // context.pushNamedAndRemoveUntil(DashboardPage.routeName);
                     context.pushNamed(DashboardPage.routeName);
                   },
                 ),

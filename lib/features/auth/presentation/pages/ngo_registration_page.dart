@@ -14,6 +14,8 @@ import 'package:dummy/features/auth/presentation/pages/ngo_welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:dummy/features/auth/presentation/bloc/ngo_registration/ngo_registration_bloc.dart';
+
+import '../../../../core/widgets/loading_widget.dart';
 part '../widgets/ngo_registration_fields.dart';
 part 'ngo_registration_page2.dart';
 

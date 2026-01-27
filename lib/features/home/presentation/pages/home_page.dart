@@ -38,9 +38,7 @@ class _HomePage extends State<HomePage> {
   @override
   initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 0), () {
-      context.read<DashboardBloc>().add(DashboardEvent.dashboardPets());
-    });
+    context.read<DashboardBloc>().add(DashboardEvent.dashboardPets());
     _maybeAskNotificationPermission();
   }
 

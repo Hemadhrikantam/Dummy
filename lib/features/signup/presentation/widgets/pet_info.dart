@@ -38,6 +38,10 @@ class _PetInfoState extends State<PetInfo> {
   @override
   void initState() {
     context.read<RegisterBloc>().add(RegisterEvent.weightUnit('Kg'));
+    weight =
+        context.read<RegisterBloc>().state.weight.isPure
+            ? 1
+            : int.parse(context.read<RegisterBloc>().state.weight.value);
     super.initState();
   }
 
@@ -477,7 +481,7 @@ class RoundedDropdownState extends State<RoundedDropdown> {
   @override
   Widget build(BuildContext context) {
     return DropdownButtonFormField<String>(
-      // initialValue: selectedValue,
+      value: selectedValue,
       items:
           options
               .map(

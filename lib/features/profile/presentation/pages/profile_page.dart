@@ -230,39 +230,39 @@ class _ProfileImage extends StatelessWidget {
   final String url;
   @override
   Widget build(BuildContext context) {
-    if (url.isNotEmpty) {
-      return Container(
-        padding: Styles.edgeInsetsAll12,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.contain,
-            image: AssetImage(ImageResources.darkpaw),
-          ),
+    // if (url.isNotEmpty) {
+    return Container(
+      padding: Styles.edgeInsetsAll12,
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          fit: BoxFit.contain,
+          image: AssetImage(ImageResources.darkpaw),
         ),
-        child: CircleAvatar(
-          radius: 90,
-          backgroundColor: AppColors.buttonBackground,
-          child: ClipRRect(
-            borderRadius: Styles.borderRadiusCircular200,
-            child: AppNetworkImage(url: url, width: 180, height: 180),
-          ),
+      ),
+      child: CircleAvatar(
+        radius: 90,
+        backgroundColor: AppColors.buttonBackground,
+        child: ClipRRect(
+          borderRadius: Styles.borderRadiusCircular200,
+          child: AppNetworkImage(url: url, width: 180, height: 180),
         ),
-      );
-    } else {
-      return Container(
-        padding: Styles.edgeInsetsAll12,
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.contain,
-            image: AssetImage(ImageResources.darkpaw),
-          ),
-        ),
-        child: CircleAvatar(
-          radius: 90,
-          backgroundColor: AppColors.buttonBackground,
-          child: AppAssestsImage(path: ImageResources.dog),
-        ),
-      );
-    }
+      ),
+    );
+    // } else {
+    //   return Container(
+    //     padding: Styles.edgeInsetsAll12,
+    //     decoration: BoxDecoration(
+    //       image: DecorationImage(
+    //         fit: BoxFit.contain,
+    //         image: AssetImage(ImageResources.darkpaw),
+    //       ),
+    //     ),
+    //     child: CircleAvatar(
+    //       radius: 90,
+    //       backgroundColor: AppColors.buttonBackground,
+    //       child: AppAssestsImage(path: ImageResources.dog),
+    //     ),
+    //   );
+    // }
   }
 }

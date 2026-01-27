@@ -30,6 +30,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   }) : __createPetUsecases = createPetUsecases,
        __uploadFileUseacases = uploadFileUseacases,
        super(RegisterState()) {
+    on<_Init>(__init);
     on<_Initialization>(__initialization);
     on<_PetName>(__petName);
     on<_PetType>(__petType);
@@ -47,6 +48,11 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
 
   final CreatePetUsecases __createPetUsecases;
   final UploadFileUsecases __uploadFileUseacases;
+
+  void __init(_Init event, Emitter<RegisterState> emit) {
+    emit(RegisterState());
+  }
+
   Future<void> __initialization(
     _Initialization event,
     Emitter<RegisterState> emit,
@@ -94,7 +100,7 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
       breedId: state.breed.value!.id,
       weightValue: int.parse(state.weight.value),
       gender: (state.gender.value?.value ?? '').toLowerCase(),
-      imageFile: url.toString(),
+      imageFile: url,
       personalityTags:
           state.selectedPersonalityTags.map((e) => e.value!.id).toList(),
       mobileNumber: currentContext.read<AuthBloc>().state.phone.value ?? '',
