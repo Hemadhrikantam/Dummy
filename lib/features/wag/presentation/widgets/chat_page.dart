@@ -144,7 +144,7 @@ class _ChatPageState extends State<ChatPage> {
                               Container(
                                 padding: Styles.edgeInsetsAll12,
                                 child: Text(
-                                  'Wag AI can make mistakes. Information is for guidance only and is not a substitute for professional veterinary advice.',
+                                  'Wagg AI can make mistakes. Information is for guidance only and is not a substitute for professional veterinary advice.',
                                   style: TextStyle(
                                     fontSize: 10,
                                     color: AppColors.grey500,

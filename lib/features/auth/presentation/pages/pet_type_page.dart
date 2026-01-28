@@ -58,7 +58,7 @@ class _PetTypePage extends State<PetTypePage> {
               return Options(
                 labels: [
                   "Pet Parent?",
-                  "Looking to adopt only?",
+                  // "Looking to adopt only?",
                   "NGO or Shelter?",
                 ],
                 selected:

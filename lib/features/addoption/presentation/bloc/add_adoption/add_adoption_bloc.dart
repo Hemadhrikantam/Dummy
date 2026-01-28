@@ -180,7 +180,7 @@ class AddAdoptionBloc extends Bloc<AddAdoptionEvent, AddAdoptionState> {
   }
 
   void __petType(_PetType event, Emitter<AddAdoptionState> emit) {
-    emit(state.copyWith(petType: event.petType));
+    emit(state.copyWith(petType: event.petType,breed: DropdownStringValue.pure()));
     emit(state.copyWith(adoptionValidation: state.validationX));
   }
 

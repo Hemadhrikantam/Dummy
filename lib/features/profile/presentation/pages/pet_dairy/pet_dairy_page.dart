@@ -34,14 +34,31 @@ class _PetDairyPageState extends State<PetDairyPage>
     with TickerProviderStateMixin {
   late TabController _tabController;
 
-  @override
-  void initState() {
-    _tabController = TabController(length: 3, vsync: this);
-    Future.delayed(Duration(seconds: 0), () {
-      context.read<PetDairyBloc>().add(PetDairyEvent.initialization());
-    });
-    super.initState();
-  }
+@override
+void initState() {
+  super.initState();
+
+  _tabController = TabController(length: 3, vsync: this);
+
+  _tabController.addListener(() {
+    if (mounted) {
+      setState(() {});
+    }
+  });
+
+  Future.microtask(() {
+    context.read<PetDairyBloc>().add(
+      PetDairyEvent.initialization(),
+    );
+  });
+}
+
+@override
+void dispose() {
+  _tabController.dispose();
+  super.dispose();
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -104,20 +121,24 @@ class _PetDairyPageState extends State<PetDairyPage>
             ),
           ),
         ),
-        bottomSheet: BottomActionButton(
-          child: AppButton(
-            name: Text(AppText.add, style: Styles.buttonStyle),
-            onPressed: () {
-              if (_tabController.index == 1) {
-                BottomModels.addPetMediaBottomSheet(context);
-              } else if (_tabController.index == 2) {
-                BottomModels.addPetDocumentsBottomSheet(context);
-              } else {
-                BottomModels.addTimelineBottomSheet(context);
-              }
-            },
-          ),
+bottomSheet: _tabController.index != 0
+    ? BottomActionButton(
+        child: AppButton(
+          name: Text(AppText.add, style: Styles.buttonStyle),
+          onPressed: () {
+            if (_tabController.index == 1) {
+              BottomModels.addPetMediaBottomSheet(context);
+            } else if (_tabController.index == 2) {
+              BottomModels.addPetDocumentsBottomSheet(context);
+            } else {
+              BottomModels.addTimelineBottomSheet(context);
+            }
+          },
         ),
+      )
+    : null,
+
+
       ),
     );
   }

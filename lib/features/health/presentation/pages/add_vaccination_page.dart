@@ -35,6 +35,7 @@ class AddVaccinationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScaffoldTitleBaseScreen(
+      isAddScreen: true,
       title: AppText.addVaccination,
       subTitle: '',
       onlyTitle: true,

@@ -35,6 +35,7 @@ class AddMedicationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScaffoldTitleBaseScreen(
+      isAddScreen: true,
       title: AppText.addMedications,
       subTitle: '',
       onlyTitle: true,

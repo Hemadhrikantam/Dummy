@@ -244,7 +244,7 @@ class _ProfileImage extends StatelessWidget {
         backgroundColor: AppColors.buttonBackground,
         child: ClipRRect(
           borderRadius: Styles.borderRadiusCircular200,
-          child: AppNetworkImage(url: url, width: 180, height: 180),
+          child: url.isEmpty?AppAssestsImage(path: ImageResources.appLogo, width: 180, height: 180):  AppNetworkImage(url: url, width: 180, height: 180),
         ),
       ),
     );

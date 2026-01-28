@@ -3,7 +3,9 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/yourself.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
+import 'package:dummy/core/services/location_service.dart';
 import 'package:dummy/core/utils/bottom_models.dart';
+import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_text_button.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
@@ -19,19 +21,68 @@ import 'package:dummy/features/profile/presentation/widgets/profile_header.dart'
 import 'package:dummy/features/profile/presentation/widgets/profile_options/pet_list_Widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 import '../widgets/profile_options/profile_options_widget.dart';
 import 'account_details/account_details_page.dart';
 
+
+
+import 'package:location/location.dart' as loc;
+
 class ProfileOptionsPage extends StatelessWidget {
-  const ProfileOptionsPage({super.key});
+  ProfileOptionsPage({super.key});
+
   static const routeName = '/ProfileOptionsPage';
 
   static Route<T> route<T>() {
     return MaterialPageRoute<T>(
-      builder: (context) => const ProfileOptionsPage(),
+      builder: (context) => ProfileOptionsPage(),
       settings: const RouteSettings(name: routeName),
     );
+  }
+
+  final LocationService _locationService = LocationService();
+
+  Future<void> _handleLocationPermission(BuildContext context) async {
+    final location = loc.Location();
+
+    bool serviceEnabled = await location.serviceEnabled();
+    if (!serviceEnabled) {
+      serviceEnabled = await location.requestService();
+      if (!serviceEnabled) {
+        AppAlert.showToast(message: "Please enable location services",toastGravity: ToastGravity.BOTTOM);
+        return;
+      }
+    }
+
+    loc.PermissionStatus permission = await location.hasPermission();
+
+    if (permission == loc.PermissionStatus.denied) {
+      permission = await location.requestPermission();
+    }
+
+    if (permission == loc.PermissionStatus.deniedForever) {
+      AppAlert.showToast(message: "Location permission permanently denied. Please enable it from app settings.",toastGravity: ToastGravity.BOTTOM);
+      
+      return;
+    }
+
+    if (permission == loc.PermissionStatus.granted) {
+      final locationData = await _locationService.getCurrentLocation();
+      if (locationData != null) {
+        context.push(VetNearMePage.route());
+      }
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text(
+            'Location permission is required to show nearby vets.',
+          ),
+        ),
+      );
+    }
   }
 
   @override
@@ -41,39 +92,36 @@ class ProfileOptionsPage extends StatelessWidget {
         return MaterialBaseScreen(
           child: Column(
             children: [
-              ProfileHeader(),
+              const ProfileHeader(),
+
               if (context.read<AuthBloc>().state.yourself.isPetParent)
                 Styles.gap20,
+
               if (context.read<AuthBloc>().state.yourself.isPetParent)
                 PetListWidget(
                   dashboardPetDetails: state.dashboardPetDetails,
                   onPetSelected: (int index) {
-                    final pet =
-                        context
-                            .read<DashboardBloc>()
-                            .state
-                            .dashboardPetDetails[index];
+                    final pet = state.dashboardPetDetails[index];
                     context.read<DashboardBloc>().add(
-                      DashboardEvent.selectedPetId(pet.id),
-                    );
+                          DashboardEvent.selectedPetId(pet.id),
+                        );
                     context.read<DashboardBloc>().add(
-                      DashboardEvent.selectedPet(pet),
-                    );
+                          DashboardEvent.selectedPet(pet),
+                        );
                     context.read<DashboardBloc>().add(
-                      DashboardEvent.petName(pet.name),
-                    );
+                          DashboardEvent.petName(pet.name),
+                        );
                     context.read<DashboardBloc>().add(
-                      DashboardEvent.petImage(pet.imageUrl ?? ''),
-                    );
+                          DashboardEvent.petImage(pet.imageUrl ?? ''),
+                        );
                   },
-                  selectedIndex:
-                      state.selectedPet == null
-                          ? 0
-                          : state.dashboardPetDetails.indexOf(
-                            state.selectedPet!,
-                          ),
+                  selectedIndex: state.selectedPet == null
+                      ? 0
+                      : state.dashboardPetDetails.indexOf(state.selectedPet!),
                 ),
+
               Styles.gap20,
+
               Expanded(
                 child: CustomCard(
                   child: Column(
@@ -86,13 +134,10 @@ class ProfileOptionsPage extends StatelessWidget {
                                 : StaticWidget.adoptionListData.length,
                             (i) {
                               final item =
-                                  context
-                                          .read<AuthBloc>()
-                                          .state
-                                          .yourself
-                                          .isPetParent
+                                  context.read<AuthBloc>().state.yourself.isPetParent
                                       ? StaticWidget.settingsListData
                                       : StaticWidget.adoptionListData;
+
                               return Padding(
                                 padding: Styles.edgeInsetsAll04,
                                 child: SettingsItemsWidget(
@@ -103,21 +148,26 @@ class ProfileOptionsPage extends StatelessWidget {
                                       context.pushNamed(ProfilePage.routeName);
                                     } else if (item[i].title ==
                                         AppText.petDairy) {
-                                      context.pushNamed(PetDairyPage.routeName);
+                                      context.pushNamed(
+                                          PetDairyPage.routeName);
                                     } else if (item[i].title ==
                                         AppText.accountDetails) {
-                                      context.push(AccountDetailsPage.route());
+                                      context.push(
+                                          AccountDetailsPage.route());
                                     } else if (item[i].title ==
                                         AppText.manageFamily) {
-                                      BottomModels.manageFamilyMembersBottomSheet(
+                                      BottomModels
+                                          .manageFamilyMembersBottomSheet(
                                         context,
                                       );
                                     } else if (item[i].title ==
                                         AppText.premiumSubscription) {
-                                      context.push(PremiumSubscription.route());
+                                      context.push(
+                                          PremiumSubscription.route());
                                     } else if (item[i].title ==
                                         AppText.vetNearMe) {
-                                      context.push(VetNearMePage.route());
+                                      await _handleLocationPermission(
+                                          context);
                                     } else if (item[i].title ==
                                         AppText.support) {
                                       context.push(SupportPage.route());
@@ -129,7 +179,6 @@ class ProfileOptionsPage extends StatelessWidget {
                           ),
                         ),
                       ),
-
                       AppTextButton(
                         onPressed: () {
                           BottomModels.logoutBottomSheet(context);

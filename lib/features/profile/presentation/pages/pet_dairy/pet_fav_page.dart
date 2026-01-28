@@ -31,53 +31,48 @@ class PetFavPage extends StatelessWidget {
       subTitle: '',
       onlyTitle: true,
       showImage: false,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          BlocBuilder<PetDairyBloc, PetDairyState>(
-            builder: (context, state) {
-              if (state.favoriteMedias.isEmpty) {
-                return Padding(
-                  padding: Styles.edgeInsetsOnlyH00,
-                  child: EmptyListPage(
-                    imagePath: ImageResources.noMedia,
-                    subTitle: AppText.startAddingFavoritingMemo(
-                      context.read<DashboardBloc>().state.selectedPet?.name ??
-                          "",
-                    ),
-                  ),
-                );
-              }
-              return Padding(
-                padding: Styles.edgeInsetsOnlyH15,
-                child: Container(
-                  padding: Styles.edgeInsetsAll08,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: Styles.borderRadiusCircular10,
-                  ),
-                  child: Wrap(
-                    spacing: 10,
-                    runSpacing: 10,
-                    children: [
-                      ...state.favoriteMedias.map((m) {
-                        return GestureDetector(
-                          onTap: () {
-                            context.push(PetPhotoCardPage.route(media: m));
-                          },
-                          child: AppNetworkImage(
-                            url: m.fileUrl,
-                            width: context.width * 0.43,
-                          ),
-                        );
-                      }),
-                    ],
-                  ),
+      child: BlocBuilder<PetDairyBloc, PetDairyState>(
+        builder: (context, state) {
+          if (state.favoriteMedias.isEmpty) {
+            return Padding(
+              padding: Styles.edgeInsetsOnlyH00,
+              child: EmptyListPage(
+                imagePath: ImageResources.noMedia,
+                subTitle: AppText.startAddingFavoritingMemo(
+                  context.read<DashboardBloc>().state.selectedPet?.name ??
+                      "",
                 ),
-              );
-            },
-          ),
-        ],
+              ),
+            );
+          }
+          return Padding(
+            padding: Styles.edgeInsetsOnlyH15,
+            child: Container(
+              padding: Styles.edgeInsetsAll08,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: Styles.borderRadiusCircular10,
+              ),
+              child: Wrap(
+                spacing: 10,
+                runSpacing: 10,
+                children: [
+                  ...state.favoriteMedias.map((m) {
+                    return GestureDetector(
+                      onTap: () {
+                        context.push(PetPhotoCardPage.route(media: m));
+                      },
+                      child: AppNetworkImage(
+                        url: m.fileUrl,
+                        width: context.width * 0.43,
+                      ),
+                    );
+                  }),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }

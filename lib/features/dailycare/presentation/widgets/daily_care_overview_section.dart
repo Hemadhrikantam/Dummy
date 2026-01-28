@@ -15,6 +15,7 @@ import 'meals_tab.dart';
 class DailyCareOverviewSection extends StatefulWidget {
   final DashboardPetDetails? selectedPet;
   final String initialTab;
+
   const DailyCareOverviewSection({
     super.key,
     required this.selectedPet,
@@ -29,9 +30,9 @@ class DailyCareOverviewSection extends StatefulWidget {
 class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
   final ScrollController _tabScrollController = ScrollController();
   final Map<String, GlobalKey> _tabKeys = {};
-  // BuildContext? _scrollContext;
-  late String selectedTab;
-  late PageController _controller;
+
+  late PageController _pageController;
+
   final tabs = [
     'Overview',
     'Meals',
@@ -44,11 +45,32 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
   @override
   void initState() {
     super.initState();
-    for (var tab in tabs) {
+
+    for (final tab in tabs) {
       _tabKeys[tab] = GlobalKey();
     }
-    selectedTab = widget.initialTab;
-    _controller = PageController(initialPage: tabs.indexOf(widget.initialTab));
+
+    final initialIndex = tabs.indexOf(widget.initialTab);
+
+    _pageController = PageController(
+      initialPage: initialIndex < 0 ? 0 : initialIndex,
+    );
+
+    /// set initial index to bloc
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<DailyCareBloc>().add(
+            DailyCareEvent.changePageIndex(
+              initialIndex < 0 ? 0 : initialIndex,
+            ),
+          );
+    });
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    _tabScrollController.dispose();
+    super.dispose();
   }
 
   void _scrollToSelectedTab(String tab) {
@@ -56,21 +78,24 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
     if (key == null) return;
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      final tabContext = key.currentContext;
-      if (tabContext == null) return;
+      final context = key.currentContext;
+      if (context == null) return;
 
-      final RenderBox box = tabContext.findRenderObject() as RenderBox;
-      final boxOffset = box.localToGlobal(Offset.zero);
-      final boxWidth = box.size.width;
+      final box = context.findRenderObject() as RenderBox;
+      final offset = box.localToGlobal(Offset.zero);
+      final width = box.size.width;
 
-      final screenWidth = MediaQuery.of(context).size.width;
-      final scrollOffset = _tabScrollController.offset;
+      final screenWidth = MediaQuery.of(this.context).size.width;
+      final currentOffset = _tabScrollController.offset;
 
-      final targetOffset =
-          scrollOffset + boxOffset.dx + boxWidth / 2 - screenWidth / 2;
+      final target =
+          currentOffset + offset.dx + width / 2 - screenWidth / 2;
 
       _tabScrollController.animateTo(
-        targetOffset,
+        target.clamp(
+          _tabScrollController.position.minScrollExtent,
+          _tabScrollController.position.maxScrollExtent,
+        ),
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeOut,
       );
@@ -94,19 +119,17 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
       DewormingTab(selectedPet: widget.selectedPet),
       ExpensesTab(selectedPet: widget.selectedPet),
     ];
+
     return BlocConsumer<DailyCareBloc, DailyCareState>(
       listener: (context, state) {
-        if (state.pageIndex != _controller.page?.round()) {
-          _scrollToSelectedTab(tabs[state.pageIndex]);
-          _controller.animateToPage(
+        if (_pageController.page?.round() != state.pageIndex) {
+          _pageController.animateToPage(
             state.pageIndex,
             duration: const Duration(milliseconds: 300),
             curve: Curves.ease,
           );
-          setState(() {
-            selectedTab = tabs[state.pageIndex];
-          });
         }
+        _scrollToSelectedTab(tabs[state.pageIndex]);
       },
       builder: (context, state) {
         return Column(
@@ -118,29 +141,21 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
               scrollController: _tabScrollController,
               tabKeys: _tabKeys,
               onTabSelected: (tab) {
-                setState(() {
-                  _controller.animateToPage(
-                    tabs.indexOf(tab),
-                    duration: const Duration(milliseconds: 300),
-                    curve: Curves.ease,
-                  );
-                });
-                _scrollToSelectedTab(tab);
                 context.read<DailyCareBloc>().add(
-                  DailyCareEvent.changePageIndex(tabs.indexOf(tab)),
-                );
+                      DailyCareEvent.changePageIndex(
+                        tabs.indexOf(tab),
+                      ),
+                    );
               },
             ),
-
             Styles.gap10,
             Expanded(
               child: PageView.builder(
-                controller: _controller,
-                onPageChanged: (i) {
-                  setState(() {
-                    selectedTab = tabs[i];
-                  });
-                  _scrollToSelectedTab(tabs[i]);
+                controller: _pageController,
+                onPageChanged: (index) {
+                  context.read<DailyCareBloc>().add(
+                        DailyCareEvent.changePageIndex(index),
+                      );
                 },
                 itemCount: tabPages.length,
                 itemBuilder: (context, index) {
@@ -154,3 +169,4 @@ class _DailyCareOverviewSectionState extends State<DailyCareOverviewSection> {
     );
   }
 }
+

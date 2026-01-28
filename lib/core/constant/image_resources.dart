@@ -103,6 +103,7 @@ class ImageResources {
   static const String tshirt = '$images/T-shirt.png';
 
   //home
+  static const String appLogo = '$images/logo.png';
   static const String breed = '$__icons/breed.png';
   static const String age = '$__icons/age.png';
   static const String gender = '$__icons/gender.png';

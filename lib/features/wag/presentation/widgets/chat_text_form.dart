@@ -73,15 +73,15 @@ class _TextFormState extends State<TextForm> {
                       ),
                     ),
                   Styles.gap6,
-                  ImagesContainer(
-                    onTap: widget.isLessing,
-                    path: ImageResources.audio,
-                    backgroundColor: AppColors.buttonColor,
-                    iconColor: AppColors.stepperColor,
-                    size: 18,
-                    borderColor: AppColors.buttonColor,
-                  ),
-                  Styles.gap6,
+                  // ImagesContainer(
+                  //   onTap: widget.isLessing,
+                  //   path: ImageResources.audio,
+                  //   backgroundColor: AppColors.buttonColor,
+                  //   iconColor: AppColors.stepperColor,
+                  //   size: 18,
+                  //   borderColor: AppColors.buttonColor,
+                  // ),
+                  // Styles.gap6,
                   ImagesContainer(
                     onTap: () {
                       if (isAttached) {

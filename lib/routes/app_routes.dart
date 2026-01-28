@@ -69,7 +69,7 @@ class AppRoutes {
     DashboardPage.routeName: (_) => DashboardPage(),
 
     //profile
-    ProfileOptionsPage.routeName: (_) => const ProfileOptionsPage(),
+    ProfileOptionsPage.routeName: (_) =>  ProfileOptionsPage(),
     PetDairyPage.routeName: (_) => const PetDairyPage(),
     //
     PetTypePage.routeName: (_) => const PetTypePage(),

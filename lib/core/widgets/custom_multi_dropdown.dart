@@ -1,5 +1,6 @@
 import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/styles.dart';
+import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/widgets/app_custom_text_field.dart';
 import 'package:dummy/features/dailycare/presentation/widgets/save_cancel_widget.dart';
@@ -405,31 +406,35 @@ class _CustomStringMultiDropdownSearch
         if (widget.title.isNotEmpty)
           Padding(
             padding: const EdgeInsets.only(bottom: 6.0, top: 10),
-            child: RichText(
-              text: TextSpan(
+            child:Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(
                 text: widget.title,
-                style: TextStyle(
-                  color: Colors.black,
+                style: context.textTheme.titleMedium?.copyWith(
+                  fontWeight: FontWeight.w700,
                   fontSize: 16,
-                  fontWeight: FontWeight.bold,
                 ),
-                children:
-                    widget.isMandatory
-                        ? [
-                          TextSpan(
-                            text: ' *',
-                            style: TextStyle(color: Colors.red),
-                          ),
-                        ]
-                        : [],
               ),
-            ),
+
+              if (widget.isMandatory) ...[
+                const TextSpan(
+                  text: ' *',
+                  style: TextStyle(
+                    fontFamily: 'InstrumentSans',
+                    color: AppColors.textRed,
+                    fontSize: 16,
+                  ),
+                ),
+              ],
+            ],
+          ),)
           ),
         InkWell(
           onTap: _openMultiSelectBottomSheet,
           child: Container(
             height: 50,
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
             decoration: BoxDecoration(
               color: Colors.white,
               border: Border.all(color: Colors.grey.shade500),
@@ -443,6 +448,7 @@ class _CustomStringMultiDropdownSearch
                     _selectedItems.isEmpty
                         ? (widget.label ?? 'Select')
                         : _selectedItems.map((e) => e.value).join(', '),
+                        
                     style: hintStyle.copyWith(
                       fontWeight:
                           _selectedItems.isEmpty
@@ -452,8 +458,10 @@ class _CustomStringMultiDropdownSearch
                           _selectedItems.isEmpty
                               ? hintStyle.color
                               : Colors.black,
+                              fontSize: 18
                     ),
                     maxLines: 2,
+                    
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -506,6 +514,18 @@ class __DropStringDownViewState extends State<_DropStringDownView> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            Center(
+            child: Container(
+              width: 120,
+              height: 4,
+              margin: const EdgeInsets.only(bottom: 12),
+              decoration: BoxDecoration(
+                color: AppColors.grey300,
+                borderRadius: Styles.borderRadiusCircular08,
+              ),
+            ),
+          ),
+
             AppTextFormField(
               controller: _searchController,
               hintText: 'Search',
@@ -561,7 +581,7 @@ class __DropStringDownViewState extends State<_DropStringDownView> {
                                     padding: Styles.edgeInsetsAll08,
                                     child: Text(
                                       item.value,
-                                      style: TextStyle(fontSize: 16),
+                                      style: TextStyle(fontSize: 18,fontWeight: FontWeight.w600),
                                     ),
                                   ),
                                 ),

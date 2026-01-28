@@ -10,18 +10,28 @@ import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_outlined_button.dart';
 import 'package:dummy/features/auth/presentation/pages/continue_with_phone.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
  
 
 class StartYourPetsJourney2 extends StatelessWidget {
   const StartYourPetsJourney2({super.key});
   static const routeName = '/StartYourPetsJourney2';
 
+  // static Route<T> route<T>() {
+  //   return MaterialPageRoute<T>(
+  //     builder: (context) => const StartYourPetsJourney2(),
+  //     settings: const RouteSettings(name: routeName),
+  //   );
+  // }
+
   static Route<T> route<T>() {
-    return MaterialPageRoute<T>(
-      builder: (context) => const StartYourPetsJourney2(),
-      settings: const RouteSettings(name: routeName),
+    return PageTransition<T>(
+      child: const StartYourPetsJourney2(),
+      settings: RouteSettings(name: routeName, ),
+      type: PageTransitionType.rightToLeft,
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -79,8 +89,8 @@ class StartYourPetsJourney2 extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-
-                    context.pushNamed(ContinueWithPhone.routeName);
+                    context.push(ContinueWithPhone.route());
+                    // context.pushNamed(ContinueWithPhone.routeName);
                   },
                 ),
               ],

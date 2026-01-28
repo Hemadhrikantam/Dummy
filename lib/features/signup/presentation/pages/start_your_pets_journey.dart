@@ -86,7 +86,8 @@ class StartYourPetsJourney extends StatelessWidget {
                   onPressed: () {
                     // context.pushNamedAndRemoveUntil(StartScreenPage.routeName);
                     // context.pushNamedAndRemoveUntil(DashboardPage.routeName);
-                    context.pushNamed(StartYourPetsJourney2.routeName);
+                    // context.pushNamed(StartYourPetsJourney2.routeName);
+                    context.push(StartYourPetsJourney2.route());
                   },
                 ),
                 Styles.gap20,

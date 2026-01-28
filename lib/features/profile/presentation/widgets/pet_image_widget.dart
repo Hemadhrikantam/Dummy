@@ -14,18 +14,29 @@ class PetImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<DashboardBloc, DashboardState>(
       builder: (context, state) {
+         final pet = state.selectedPet;
+final imageUrl = pet?.imageUrl;
         if (state.selectedPet != null) {
           return ClipRRect(
             borderRadius: Styles.borderRadiusCircular200,
-            child: CircleAvatar(
-              radius: 70,
-              backgroundColor: AppColors.buttonBackground,
-              child: AppNetworkImage(
-                url: state.selectedPet!.imageUrl ?? '',
-                width: 140,
-                height: 140,
-              ),
-            ),
+            child:
+
+CircleAvatar(
+  radius: 70,
+  backgroundColor: AppColors.buttonBackground,
+  child: (imageUrl == null || imageUrl.isEmpty)
+      ? AppAssestsImage(
+          path: ImageResources.appLogo,
+          width: 140,
+          height: 140,
+        )
+      : AppNetworkImage(
+          url: imageUrl,
+          width: 140,
+          height: 140,
+        ),
+),
+
           );
         }
         return CircleAvatar(

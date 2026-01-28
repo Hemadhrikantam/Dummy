@@ -40,7 +40,8 @@ class VaccinesList extends StatelessWidget {
                 : items.isEmpty
                 ? EmptyListPage(
                   imagePath: ImageResources.noVaccination,
-                  title: "Let's ${dashboardState.petName} keep safe.",
+                  title: "Doommi helps keep your buddy safe.",
+                  // title: "Let's ${dashboardState.petName} keep safe.",
                   subTitle: AppText.trackCoreAndBooster,
                   onPressed: () {
                     context.push(AddVaccinationPage.route());

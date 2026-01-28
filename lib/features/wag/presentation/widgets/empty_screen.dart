@@ -24,7 +24,7 @@ class EmptyScreen extends StatelessWidget {
               path: ImageResources.wag,
             ),
             Text(
-              "Wag",
+              "Wagg",
               style: TextStyle(
                 fontSize: 16,
                 color: AppColors.stepperColor,
@@ -35,7 +35,7 @@ class EmptyScreen extends StatelessWidget {
         ),
         Styles.gap4,
         Text(
-          'Hi, I’m wag your personal pet AI',
+          "Hi, I'm wagg your personal pet AI",
           style: context.textTheme.titleLarge?.copyWith(
             fontSize: 16,
             fontWeight: FontWeight.bold,
@@ -47,6 +47,16 @@ class EmptyScreen extends StatelessWidget {
           style: context.textTheme.titleLarge?.copyWith(
             fontSize: 12,
             fontWeight: FontWeight.bold,
+            color: AppColors.grey500,
+          ),
+        ),
+        Styles.gap15,
+        Text(
+          "“I am an AI, not a veterinarian. I cannot diagnose illnesses or prescribe medication. If your pet is sick, injured, or in an emergency, please contact your vet immediately.”",
+          textAlign: TextAlign.center,
+          style: context.textTheme.titleLarge?.copyWith(
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
             color: AppColors.grey500,
           ),
         ),

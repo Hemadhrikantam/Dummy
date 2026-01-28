@@ -2,6 +2,7 @@ import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/features/dashboard/presentation/bloc/dashboard/dashboard_bloc.dart';
 import 'package:dummy/features/wag/presentation/bloc/wag_ai/wag_ai_bloc.dart';
 import 'package:dummy/features/wag/presentation/widgets/chat_card.dart';
+import 'package:dummy/features/wag/presentation/widgets/header.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/constant/styles.dart';
@@ -44,8 +45,9 @@ class _WagPage extends State<WagPage> {
                 padding: Styles.edgeInsetsAll12,
                 child: Column(
                   children: [
-                    CustomHeaderWidget(petImage: state.petImage),
-                    Styles.gap30,
+                    Header(petImage: state.petImage,),
+                    // CustomHeaderWidget(petImage: state.petImage),
+                    Styles.gap10,
                     Expanded(child: ChatCard()),
                   ],
                 ),

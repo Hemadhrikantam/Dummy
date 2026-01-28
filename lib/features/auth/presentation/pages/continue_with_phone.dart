@@ -6,7 +6,6 @@ import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/toast_message.dart';
-
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/base_screen.dart';
 import 'package:dummy/core/widgets/buttons/app_button.dart';
@@ -17,15 +16,24 @@ import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/auth/presentation/pages/otp_verification.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:page_transition/page_transition.dart';
 
 class ContinueWithPhone extends StatefulWidget {
   const ContinueWithPhone({super.key});
   static const routeName = '/ContinueWithPhone';
 
-  static Route<T> route<T>() {
-    return MaterialPageRoute<T>(
-      builder: (context) => const ContinueWithPhone(),
-      settings: const RouteSettings(name: routeName),
+  // static Route<T> route<T>() {
+  //   return MaterialPageRoute<T>(
+  //     builder: (context) => const ContinueWithPhone(),
+  //     settings: const RouteSettings(name: routeName),
+  //   );
+  // }
+
+    static Route<T> route<T>() {
+    return PageTransition<T>(
+      child: const ContinueWithPhone(),
+      settings: RouteSettings(name: routeName, ),
+      type: PageTransitionType.rightToLeft,
     );
   }
 
@@ -70,15 +78,17 @@ class _ContinueWithPhone extends State<ContinueWithPhone> {
                   return state.sendOtpStatus.loading
                       ? LoadingWidget.circularProgressIndicatorCenter
                       : AppButton(
+                        backgroundColor: state.phone.isValid? AppColors.buttonBackground:AppColors.grey300,
                         name: Text(
+                          
                           AppText.continueBtn,
                           style: context.textTheme.titleSmall?.copyWith(
                             fontWeight: FontWeight.w700,
                             fontSize: 14,
-                            color: AppColors.buttonTextColor,
+                            color:  AppColors.buttonTextColor,
                           ),
                         ),
-                        onPressed: () {
+                        onPressed: state.phone.isValid? () {
                           if (state.phone.isValid) {
                             context.read<AuthBloc>().add(AuthEvent.sendOtp());
                           } else {
@@ -87,7 +97,7 @@ class _ContinueWithPhone extends State<ContinueWithPhone> {
                             );
                           }
                           // LogUtility.info('${state.phone.value}');
-                        },
+                        }:null
                       );
                 },
               ),

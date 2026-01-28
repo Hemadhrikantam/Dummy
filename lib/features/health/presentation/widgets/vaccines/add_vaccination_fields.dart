@@ -119,7 +119,7 @@ class __DateAdministeredState extends State<__DateAdministered> {
                   child: CustomCard(
                     padding: Styles.edgeInsetsAll06,
                     borderRadius: Styles.borderRadiusCircular50,
-                    borderColor: AppColors.black.withOpacity(.1),
+                    borderColor: AppColors.transparent,
                     child: Row(
                       children: [
                         Styles.gap6,
@@ -268,8 +268,8 @@ class __Reminder extends StatelessWidget {
           ],
         ),
         __Tablets(),
-        Styles.gap10,
-        __Time(),
+        // Styles.gap10,
+        // __Time(),
       ],
     );
   }

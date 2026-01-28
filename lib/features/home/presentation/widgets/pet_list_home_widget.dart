@@ -1,4 +1,5 @@
 import 'package:dummy/core/constant/app_colors.dart';
+import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
@@ -60,13 +61,22 @@ class PetListHomeWidget extends StatelessWidget {
                         borderRadius: Styles.borderRadiusCircular40,
                         border: Border.all(width: 2, color: AppColors.white),
                         child: ClipRRect(
-                          borderRadius: Styles.borderRadiusCircular40,
-                          child: AppNetworkImage(
-                            url: dashboardPetDetails[i].imageUrl ?? '',
-                            width: 50,
-                            borderRadius: Styles.borderRadiusCircular40,
-                          ),
-                        ),
+  borderRadius: Styles.borderRadiusCircular40,
+  child: (dashboardPetDetails[i].imageUrl == null ||
+          dashboardPetDetails[i].imageUrl!.isEmpty)
+      ? AppAssestsImage(
+          borderRadius: Styles.borderRadiusCircular40,
+          path: ImageResources.appLogo,
+          height: 45,
+          width: 45,
+        )
+      : AppNetworkImage(
+          url: dashboardPetDetails[i].imageUrl!,
+          width: 50,
+          borderRadius: Styles.borderRadiusCircular40,
+        ),
+),
+
                       ),
                     ),
                   ),

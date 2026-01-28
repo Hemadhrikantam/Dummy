@@ -68,12 +68,17 @@ class CustomHeaderWidget extends StatelessWidget {
                       border: Border.all(width: 2, color: AppColors.white),
                       child: ClipRRect(
                         borderRadius: Styles.borderRadiusCircular40,
-                        child: AppNetworkImage(
+                        child: petImage!.isEmpty? AppAssestsImage(
+                          borderRadius: Styles.borderRadiusCircular40,
+                          path:ImageResources.appLogo,
+                          height: 45,
+                          width: 45,
+                        ):AppNetworkImage(
                           borderRadius: Styles.borderRadiusCircular40,
                           url: petImage ?? '',
                           height: 45,
                           width: 45,
-                        ),
+                        )
                       ),
                     ),
                   ),

@@ -55,12 +55,12 @@ class _AddoptionPage extends State<AddoptionPage> {
                   },
                 ),
               ),
-              Styles.gap10,
-              CircleAvatar(
-                radius: 25,
-                backgroundColor: AppColors.stepperColor,
-                child: AppIcon(icon: Icons.search, color: AppColors.white),
-              ),
+              // Styles.gap10,
+              // CircleAvatar(
+              //   radius: 25,
+              //   backgroundColor: AppColors.stepperColor,
+              //   child: AppIcon(icon: Icons.search, color: AppColors.white),
+              // ),
             ],
           ),
           Styles.gap10,

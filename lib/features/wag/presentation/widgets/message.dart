@@ -4,6 +4,7 @@ import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
 import 'package:dummy/core/utils/app_utils.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class Message {
   Message({
@@ -76,11 +77,21 @@ class Messages extends StatelessWidget {
               ),
               Text(
                 message,
-                style: context.textTheme.titleLarge?.copyWith(
-                  color: AppColors.text,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w700,
-                ),
+                style: GoogleFonts.almarai(
+  fontSize: 16,
+  fontWeight: FontWeight.w400,
+  fontStyle: FontStyle.normal,
+  height: 1.2,
+  letterSpacing: 0,
+  color: AppColors.text
+),
+textAlign: TextAlign.left,
+
+                // style: context.textTheme.titleLarge?.copyWith(
+                //   color: AppColors.text,
+                //   fontSize: 16,
+                //   fontWeight: FontWeight.w700,
+                // ),
               ),
             ],
           ),

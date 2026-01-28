@@ -53,7 +53,7 @@ dependencies:
   intl: ^0.20.2
   cached_network_image: ^3.4.1
   flutter_svg: ^2.0.17
-  google_fonts: ^6.2.1
+  google_fonts: ^8.0.0
   dropdown_search: ^5.0.6
   flutter_rounded_date_picker: ^3.0.4
   dotted_border: ^3.0.1
@@ -75,6 +75,8 @@ dependencies:
   firebase_auth: ^6.1.0
   flutter_client_sse: ^2.0.3
   clarity_flutter: 1.2.0
+  page_transition: ^2.2.1
+  permission_handler: ^12.0.1
 
 dev_dependencies:
   build_runner: ^2.4.15

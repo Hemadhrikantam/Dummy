@@ -28,7 +28,7 @@ class AiLimitReachedBottomSheet extends StatelessWidget {
           Image.asset(ImageResources.dashboardLogo, height: 45),
           Styles.gap20,
           Text(
-            'Wag AI needs a catnap! 😴',
+            'Wagg AI needs a catnap! 😴',
             textAlign: TextAlign.center,
             style: const TextStyle(
               fontFamily: 'InstrumentSans',

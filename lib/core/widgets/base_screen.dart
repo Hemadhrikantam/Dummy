@@ -248,6 +248,7 @@ class ScaffoldTitleBaseScreen extends StatelessWidget {
     this.floatingActionButtonLocation,
     this.hideSearch,
     this.gradient,
+    this.isAddScreen=false,
   });
   final Widget child;
   final String title;
@@ -268,6 +269,7 @@ class ScaffoldTitleBaseScreen extends StatelessWidget {
   final Widget? floatingActionButton;
   final FloatingActionButtonLocation? floatingActionButtonLocation;
   final Gradient? gradient;
+  final bool? isAddScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -293,6 +295,7 @@ class ScaffoldTitleBaseScreen extends StatelessWidget {
           leading:
               onlyTitle
                   ? CustomAppBarTitle(
+                    isAddScreen :isAddScreen,
                     title: title,
                     suffixIcon: suffixIcon,
                     showBackIcon: showBackIcon,
@@ -431,12 +434,14 @@ class CustomAppBarTitle extends StatelessWidget {
     this.suffixIcon,
     this.filterOnTap,
     this.showImage = true,
+    this.isAddScreen=false,
   });
   final bool showBackIcon;
   final String title;
   final bool? suffixIcon;
   final bool? showImage;
   final void Function()? filterOnTap;
+  final bool? isAddScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -470,23 +475,27 @@ class CustomAppBarTitle extends StatelessWidget {
               overflow: TextOverflow.ellipsis,
             ),
           ),
-          if (showImage == true)
+          if (showImage == true && !isAddScreen!)
             BlocBuilder<DashboardBloc, DashboardState>(
               builder: (context, state) {
-                return state.selectedPet?.imageUrl != null
-                    ? ClipRRect(
-                      borderRadius: Styles.borderRadiusCircular50,
-                      child: AppNetworkImage(
-                        url: state.selectedPet?.imageUrl ?? "",
-                        height: 45,
-                        width: 40,
-                      ),
-                    )
-                    : AppAssestsImage(
-                      path: ImageResources.dog,
-                      height: 45,
-                      width: 45,
-                    );
+                return 
+ClipRRect(
+  borderRadius: Styles.borderRadiusCircular50,
+  child: (state.selectedPet?.imageUrl == null ||
+          state.selectedPet!.imageUrl!.isEmpty)
+      ? AppAssestsImage(
+          path: ImageResources.appLogo,
+          height: 45,
+          width: 40,
+        )
+      : AppNetworkImage(
+          url: state.selectedPet!.imageUrl!,
+          height: 45,
+          width: 40,
+        ),
+);
+
+                    
               },
             ),
         ],

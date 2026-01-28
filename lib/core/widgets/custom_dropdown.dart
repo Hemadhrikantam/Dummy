@@ -136,7 +136,7 @@ class CustomDropdownSearch extends StatelessWidget {
                             selectedItem == null
                                 ? AppColors.grey700
                                 : AppColors.black,
-                        fontSize: fontSize,
+                        fontSize: fontSize??18,
                       ),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
@@ -153,6 +153,19 @@ class CustomDropdownSearch extends StatelessWidget {
           validator: validator,
           onChanged: onChanged,
           popupProps: PopupProps.modalBottomSheet(
+                title: Padding(
+    padding: const EdgeInsets.only(top: 8, bottom: 6),
+    child: Center(
+      child: Container(
+        width: 120,
+        height: 4,
+        decoration: BoxDecoration(
+          color: AppColors.grey300,
+          borderRadius: Styles.borderRadiusCircular08,
+        ),
+      ),
+    ),
+  ),
             showSearchBox: true,
             isFilterOnline: true,
             showSelectedItems: true,
@@ -352,9 +365,10 @@ class CustomStringDropdownSearch extends StatelessWidget {
                             selectedItem == null
                                 ? AppColors.grey700
                                 : AppColors.black,
-                        fontSize: fontSize,
+                        fontSize: fontSize??18,
                       ),
                       overflow: TextOverflow.ellipsis,
+                    
                       maxLines: 1,
                     ),
                   ),
@@ -369,6 +383,19 @@ class CustomStringDropdownSearch extends StatelessWidget {
           validator: validator,
           onChanged: onChanged,
           popupProps: PopupProps.modalBottomSheet(
+            title: Padding(
+    padding: const EdgeInsets.only(top: 8, bottom: 6),
+    child: Center(
+      child: Container(
+        width: 120,
+        height: 4,
+        decoration: BoxDecoration(
+          color: AppColors.grey300,
+          borderRadius: Styles.borderRadiusCircular08,
+        ),
+      ),
+    ),
+  ),
             showSearchBox: true,
             isFilterOnline: true,
             showSelectedItems: true,

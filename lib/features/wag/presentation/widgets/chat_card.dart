@@ -32,7 +32,7 @@ class _ChatCardState extends State<ChatCard> {
               padding: Styles.edgeInsetsZero,
               borderColor: AppColors.secondaryColor,
               backgroundColor: AppColors.white,
-              child: Column(children: [Header(), Expanded(child: ChatPage())]),
+              child: Column(children: [ Expanded(child: ChatPage())]),
             );
       },
     );
