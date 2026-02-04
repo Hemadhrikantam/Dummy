@@ -28,7 +28,7 @@ class TimeLineTab extends StatelessWidget {
       borderColor: AppColors.white,
       child: BlocBuilder<PetDairyBloc, PetDairyState>(
         builder: (context, state) {
-          if (state.memories.isEmpty) {
+          if (state.timelines.isEmpty) {
       return Padding(
         padding: Styles.edgeInsetsOnlyH00,
         child: EmptyListPage(
@@ -58,13 +58,13 @@ class TimeLineTab extends StatelessWidget {
               ? LoadingWidget.circularProgressIndicatorCenter
               : AppCustomListViewBuilder(
                 physics: NeverScrollableScrollPhysics(),
-                itemCount: state.memories.length,
+                itemCount: state.timelines.length,
                 isExpand: false,
                 shrinkWrap: true,
                 separatorBuilder: (context, i) => Styles.gap8,
                 itemBuilder: (context, i) {
-                  final item = state.memories[i];
-                  LogUtility.error('line 67 ${item}');
+                  final item = state.timelines[i];
+                  LogUtility.error('line 67 ${item.eventDate} ');
                   return Row(
                     children: [
                       SizedBox(
@@ -155,7 +155,7 @@ class TimeLineTab extends StatelessWidget {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
-                                          if ((item.metadata?.eventName ??
+                                          if ((item.type ??
                                                   '') ==
                                               'Birthday')
                                             AppIcon(
@@ -165,7 +165,7 @@ class TimeLineTab extends StatelessWidget {
                                             ),
                                           Styles.gap2,
                                           Text(
-                                            item.metadata?.eventName ??
+                                            item.title.split('-').first.trim() ??
                                                 item.type,
                                             style: context
                                                 .textTheme
@@ -195,7 +195,7 @@ class TimeLineTab extends StatelessWidget {
                                     Styles.gap6,
                                     Text(
                                       AppUtil.convertToYYYYMMDD2(
-                                        item.eventDate,
+                                        item.createdAt.toString(),
                                       ),
                                       style: context.textTheme.titleSmall
                                           ?.copyWith(

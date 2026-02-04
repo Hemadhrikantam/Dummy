@@ -49,28 +49,38 @@ class _MediaTabState extends State<MediaTab> {
           LoadingWidget.circularProgressIndicatorCenter;
         }
         return Container(
-          padding: Styles.edgeInsetsAll08,
+          padding: Styles.edgeInsetsOnlyW08,
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: Styles.borderRadiusCircular10,
           ),
-          child: Wrap(
-            spacing: 10,
-            runSpacing: 10,
-            children: [
-              ...state.medias.map((m) {
-                return GestureDetector(
-                  onTap: () {
-                    context.push(PetPhotoCardPage.route(media: m));
-                  },
+          child: GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: state.medias.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,      // ✅ 2 images per row
+            crossAxisSpacing: 10,
+            mainAxisSpacing: 10,
+            childAspectRatio: 1.2,    // ✅ square images
+          ),
+          itemBuilder: (context, index) {
+            final m = state.medias[index];
+
+            return GestureDetector(
+              onTap: () {
+                context.push(PetPhotoCardPage.route(media: m));
+              },
+              child: ClipRRect(
+                borderRadius: Styles.borderRadiusCircular10,
+                child: SizedBox.expand(
                   child: AppNetworkImage(
                     url: m.fileUrl,
-                    width: context.width * 0.43,
+                    boxFit: BoxFit.cover,
                   ),
-                );
-              }),
-            ],
-          ),
+                ),
+              ),
+            );})
         );
       },
     );

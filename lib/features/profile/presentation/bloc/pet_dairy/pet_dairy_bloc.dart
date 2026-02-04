@@ -3,6 +3,7 @@ import 'package:dummy/core/enum/entity_type.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
 import 'package:dummy/features/profile/domain/entities/media.dart';
@@ -77,7 +78,7 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
     final medias = await _medias();
     final timelines = await _timelines();
     final memories = await _memories();
-
+LogUtility.error('line 81 ${state.timelines} --------------$timelines');
     final events = List<DropStringItem>.from(
       currentContext
           .read<AuthBloc>()
@@ -99,6 +100,7 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
         memories: memories,
       ),
     );
+ LogUtility.error('line 103 ${state.timelines}');   
   }
 
   Future<void> __addMemory(
@@ -136,6 +138,7 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
 
   Future<List<Timeline>> _timelines() async {
     final result = await _listTimelinesUsecases();
+    LogUtility.error('line 139 ${result}');
     return result.fold((l) => [], (r) => r);
   }
 
@@ -167,6 +170,7 @@ class PetDairyBloc extends Bloc<PetDairyEvent, PetDairyState> {
     Emitter<PetDairyState> emit,
   ) async {
     final list = await _timelines();
+    LogUtility.error('line 172 $list');
     emit(state.copyWith(timelines: list));
   }
 

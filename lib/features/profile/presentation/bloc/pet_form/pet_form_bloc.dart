@@ -197,7 +197,7 @@ class PetFormBloc extends Bloc<PetFormEvent, PetFormState> {
 
   void __petImage(_PetImage event, Emitter<PetFormState> emit) {
     emit(state.copyWith(petImage: NotEmpty.dirty(value: event.value)));
-    emit(state.copyWith(validation: state.validationX));
+    // emit(state.copyWith(validation: state.validationX));
   }
 
   void __dob(_DOB event, Emitter<PetFormState> emit) {

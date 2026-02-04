@@ -46,30 +46,41 @@ class PetFavPage extends StatelessWidget {
             );
           }
           return Padding(
-            padding: Styles.edgeInsetsOnlyH15,
+            padding: Styles.edgeInsetsOnlyW10,
             child: Container(
-              padding: Styles.edgeInsetsAll08,
+              // padding: Styles.edgeInsetsOnlyW10,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: Styles.borderRadiusCircular10,
               ),
-              child: Wrap(
-                spacing: 10,
-                runSpacing: 10,
-                children: [
-                  ...state.favoriteMedias.map((m) {
-                    return GestureDetector(
-                      onTap: () {
-                        context.push(PetPhotoCardPage.route(media: m));
-                      },
-                      child: AppNetworkImage(
-                        url: m.fileUrl,
-                        width: context.width * 0.43,
-                      ),
-                    );
-                  }),
-                ],
+              child: GridView.builder(
+      shrinkWrap: true,
+      padding: Styles.edgeInsetsAll15,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: state.favoriteMedias.length,
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,          
+        crossAxisSpacing: 10,
+        mainAxisSpacing: 10,
+        childAspectRatio: 1,        
+      ),
+      itemBuilder: (context, index) {
+        final m = state.favoriteMedias[index];
+
+        return GestureDetector(
+          onTap: () {
+            context.push(PetPhotoCardPage.route(media: m));
+          },
+          child: ClipRRect(
+            borderRadius: Styles.borderRadiusCircular10,
+            child: SizedBox.expand(
+              child: AppNetworkImage(
+                url: m.fileUrl,
+                boxFit: BoxFit.cover, // ✅ fills tile, no gaps
               ),
+            ),
+          ),
+        );})
             ),
           );
         },

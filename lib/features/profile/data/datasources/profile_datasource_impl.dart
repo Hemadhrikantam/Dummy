@@ -559,11 +559,11 @@ class ProfileDatasourceImpl extends ProfileDatasource {
           if (statusCode <= 201) {
             if (edit) {
               return Right(
-                SuccessMessage(message: data['data']['id'] as String? ?? ""),
+                SuccessMessage(message: data['message'] as String? ?? ""),
               );
             } else {
               return Right(
-                SuccessMessage(message: data['data']['id'] as String? ?? ""),
+                SuccessMessage(message: data['message'] as String? ?? ""),
               );
             }
           }

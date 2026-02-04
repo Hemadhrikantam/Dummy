@@ -93,7 +93,7 @@ class TimelineModel extends Timeline {
       eventDate: dateString(map['marked_at']),
       eventTime: timeString(map['event_time']),
       title: clean(map['title']) ?? '',
-      notes: clean(map['notes']),
+    notes: clean(map['notes']),
       isSpecialMemory: parseBool(map['is_special_memory']),
       isFavourite: parseBool(map['is_favourite']),
       mediaCount: parseInt(map['media_count']),

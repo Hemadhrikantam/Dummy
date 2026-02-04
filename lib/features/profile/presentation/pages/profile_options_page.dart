@@ -87,6 +87,8 @@ class ProfileOptionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isNavigating = false;
+
     return BlocBuilder<DashboardBloc, DashboardState>(
       builder: (context, state) {
         return MaterialBaseScreen(
@@ -144,7 +146,11 @@ class ProfileOptionsPage extends StatelessWidget {
                                   leadingIcon: item[i].leadingIcon,
                                   title: item[i].title,
                                   onPressed: () async {
-                                    if (item[i].title == AppText.petProfile) {
+                                    if (isNavigating) return;
+                                    isNavigating = true;
+
+                                    try{                                    
+                                      if (item[i].title == AppText.petProfile) {
                                       context.pushNamed(ProfilePage.routeName);
                                     } else if (item[i].title ==
                                         AppText.petDairy) {
@@ -172,6 +178,11 @@ class ProfileOptionsPage extends StatelessWidget {
                                         AppText.support) {
                                       context.push(SupportPage.route());
                                     }
+
+                                    }finally {
+                                      isNavigating = false;
+                                    }
+
                                   },
                                 ),
                               );

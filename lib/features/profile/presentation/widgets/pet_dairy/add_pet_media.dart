@@ -107,10 +107,14 @@ class _AddPetMedia extends State<AddPetMedia> {
                         EntityType.diary_media.name,
                       ),
                     );
+                                  context.read<PetDairyBloc>().add(
+                                    PetDairyEvent.loadMedias(),
+                                  );
                     // context.read<PetDairyBloc>().add(
                     //   PetDairyEvent.initialization(),
                     // );
                     context.pop();
+
                   }
                 },
                 builder: (context, state) {

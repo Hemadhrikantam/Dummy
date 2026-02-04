@@ -50,11 +50,14 @@ class _PetPhotoCardPageState extends State<PetPhotoCardPage> {
               children: [
                 // Background image
                 Container(
+                  
                   width: double.infinity,
+                  height: double.infinity,
                   decoration: BoxDecoration(
+                    color: AppColors.grey300,
                     image: DecorationImage(
                       image: NetworkImage(widget.media.fileUrl),
-                      fit: BoxFit.cover,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),

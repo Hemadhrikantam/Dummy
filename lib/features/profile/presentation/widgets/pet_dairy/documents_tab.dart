@@ -3,6 +3,7 @@ import 'package:dummy/core/constant/app_text.dart';
 import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/extention/app_theme_extention.dart';
+import 'package:dummy/core/utils/bottom_models.dart';
 import 'package:dummy/core/widgets/app_assets_image.dart';
 import 'package:dummy/core/widgets/app_custom_listview_builder.dart';
 import 'package:dummy/core/widgets/custom_card.dart';
@@ -70,10 +71,18 @@ class DocumentsTab extends StatelessWidget {
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
-                        AppAssestsImage(
-                          path: ImageResources.delete,
-                          height: 27,
-                          width: 27,
+                        GestureDetector(
+                        onTap: () {
+                          BottomModels.documentDeleteBottomSheet(
+                            context,
+                            item.id,
+                          );
+                        },
+                          child: AppAssestsImage(
+                            path: ImageResources.delete,
+                            height: 27,
+                            width: 27,
+                          ),
                         ),
                       ],
                     ),

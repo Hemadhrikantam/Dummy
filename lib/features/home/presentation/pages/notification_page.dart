@@ -1,4 +1,6 @@
+import 'package:dummy/core/constant/app_colors.dart';
 import 'package:dummy/core/constant/app_text.dart';
+import 'package:dummy/core/constant/image_resources.dart';
 import 'package:dummy/core/constant/styles.dart';
 import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/extention/app_navigation.dart';
@@ -15,6 +17,7 @@ import 'package:dummy/features/dashboard/presentation/bloc/notifications/notific
 import 'package:dummy/features/profile/presentation/pages/profile_options_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NotificationPage extends StatefulWidget {
   const NotificationPage({super.key});
@@ -85,11 +88,41 @@ class _NotificationPage extends State<NotificationPage> {
               Expanded(
                 child: SingleChildScrollView(
                   child: CustomCard(
+                    
                     child: BlocBuilder<NotificationsBloc, NotificationsState>(
                       builder: (context, state) {
-                        return state.initStatus.loading
-                            ? LoadingWidget.circularProgressIndicatorCenter
-                            : AppCustomListViewBuilder(
+                                  if (state.initStatus.loading) {
+            return LoadingWidget.circularProgressIndicatorCenter;
+          }
+
+          if (state.notifications.isEmpty) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical:  170.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  AppAssestsImage(
+                    path: ImageResources.emptyNotifications,
+                    height: 231,
+                    width: 304,
+                    boxFit: BoxFit.contain,
+                  ),
+                  Styles.gap15,
+                  Text(
+                    "🐾 Oops! No Notifications Yet",
+                    textAlign: TextAlign.center,
+                           style: GoogleFonts.inter(
+                fontSize: 23,
+                fontWeight: FontWeight.w700,
+                height: 1.0,
+                color: AppColors.black
+              ),                    ),
+                ],
+              ),
+            );
+          }
+
+                        return     AppCustomListViewBuilder(
                               shrinkWrap: true,
                               isExpand: false,
                               physics: NeverScrollableScrollPhysics(),

@@ -2,6 +2,7 @@ import 'package:dummy/core/enum/status.dart';
 import 'package:dummy/core/models/drop_item.dart';
 import 'package:dummy/core/models/formz/dropdown_model.dart';
 import 'package:dummy/core/models/formz/not_empty.dart';
+import 'package:dummy/core/utils/log_utility.dart';
 import 'package:dummy/core/utils/toast_message.dart';
 import 'package:dummy/di/injection.dart';
 import 'package:dummy/features/auth/presentation/bloc/auth/auth_bloc.dart';
@@ -241,6 +242,8 @@ class VaccinationFormBloc
     _Submit event,
     Emitter<VaccinationFormState> emit,
   ) async {
+    LogUtility.error('line 244  ---------------------------->');
+LogUtility.error('line 245 ${state.reminderHour.value!.value}:${state.reminderMin.value!.value} ---------------------------->');
     emit(state.copyWith(submitStatus: Status.loading));
     // final h = int.parse(state.reminderHour.value!.value);
     // final m = int.parse(state.reminderMin.value!.value);

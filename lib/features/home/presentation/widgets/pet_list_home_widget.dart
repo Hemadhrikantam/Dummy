@@ -85,6 +85,7 @@ class PetListHomeWidget extends StatelessWidget {
             ),
           ),
           Styles.gap10,
+          if(dashboardPetDetails.first.createdAt!='')
           BlocBuilder<AccountBloc, AccountState>(
             builder: (context, state) {
               return (state.accountDetails?.account.subscriptionType ==
@@ -99,7 +100,7 @@ class PetListHomeWidget extends StatelessWidget {
                     onTap: () {
                       if (state.accountDetails?.account.subscriptionType ==
                               'free' &&
-                          (state.accountDetails?.pets ?? []).length == 1) {
+                          (state.accountDetails?.pets ?? []).length == 3) {
                         BottomModels.needPremiumBottomSheet(context);
                         return;
                       }

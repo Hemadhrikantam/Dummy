@@ -312,6 +312,8 @@ class ScaffoldTitleBaseScreen extends StatelessWidget {
         ),
         // bottomNavigationBar: bottom,
         body: Container(
+          width: double.infinity,
+          height: double.infinity,
           decoration: BoxDecoration(
             gradient: gradient ?? AppColors.screenBackgroundColor,
           ),

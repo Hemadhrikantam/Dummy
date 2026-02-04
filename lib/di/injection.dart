@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:dummy/core/services/app_network_service_impl.dart';
 import 'package:dummy/core/services/firebase_notification.dart';
 import 'package:dummy/core/services/firebase_otp.dart';
 import 'package:dummy/core/services/http_service_impl.dart';
@@ -130,6 +131,7 @@ import 'package:dummy/features/wag/domain/usecases/ai_chat_history_usecases.dart
 import 'package:dummy/features/wag/domain/usecases/ai_usage_usecases.dart';
 import 'package:dummy/features/wag/presentation/bloc/wag_ai/wag_ai_bloc.dart';
 import 'package:dummy/service/app_http_service.dart';
+import 'package:dummy/service/app_network_service.dart';
 import 'package:dummy/service/local_storage_service.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
